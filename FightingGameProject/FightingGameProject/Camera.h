@@ -31,6 +31,19 @@ namespace RB
 			{
 				position.x += 1;
 			}
+
+			if (gameData.up && gameData.down || !gameData.up && !gameData.down)
+			{
+
+			}
+			else if (gameData.up)
+			{
+				zoomScale += 0.005f;
+			}
+			else if (gameData.down)
+			{
+				zoomScale -= 0.005f;
+			}
 		}
 
 		olc::vi2d GetPosition() { return position; }

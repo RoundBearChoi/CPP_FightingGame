@@ -40,6 +40,8 @@ namespace RB
 				GameData gameData;
 				gameData.left = input.Left();
 				gameData.right = input.Right();
+				gameData.up = input.Up();
+				gameData.down = input.Down();
 
 				sceneController.UpdateCurrentScene(this, gameData);
 				sceneController.RenderCurrentScene(true, this);

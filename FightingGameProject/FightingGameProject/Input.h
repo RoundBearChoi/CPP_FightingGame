@@ -48,6 +48,30 @@ namespace RB
 				Pressed_Right = false;
 			}
 
+			//arrow key up
+			if (ptrEngine->GetKey(olc::Key::UP).bPressed)
+			{
+				Pressed_Up = true;
+				Queued_Up = true;
+			}
+
+			if (ptrEngine->GetKey(olc::Key::UP).bReleased)
+			{
+				Pressed_Up = false;
+			}
+
+			//arrow key up
+			if (ptrEngine->GetKey(olc::Key::DOWN).bPressed)
+			{
+				Pressed_Down = true;
+				Queued_Down = true;
+			}
+
+			if (ptrEngine->GetKey(olc::Key::DOWN).bReleased)
+			{
+				Pressed_Down = false;
+			}
+
 			//start
 			if (ptrEngine->GetKey(olc::Key::ENTER).bHeld)
 			{
@@ -70,6 +94,30 @@ namespace RB
 		bool Right()
 		{
 			if (Pressed_Right || Queued_Right)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		bool Up()
+		{
+			if (Pressed_Up || Queued_Up)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		bool Down()
+		{
+			if (Pressed_Down || Queued_Down)
 			{
 				return true;
 			}
