@@ -8,11 +8,15 @@ namespace RB
 	class Input
 	{
 	private:
-		bool Pressed_A = false;
-		bool Pressed_D = false;
+		bool Pressed_Left = false;
+		bool Pressed_Right = false;
+		bool Pressed_Up = false;
+		bool Pressed_Down = false;
 
-		bool Queued_A = false;
-		bool Queued_D = false;
+		bool Queued_Left = false;
+		bool Queued_Right = false;
+		bool Queued_Up = false;
+		bool Queued_Down = false;
 
 		bool bStartGame = false;
 		bool bQuitGame = false;
@@ -20,28 +24,28 @@ namespace RB
 	public:
 		void UpdateInput(olc::PixelGameEngine* ptrEngine)
 		{
-			//A
-			if (ptrEngine->GetKey(olc::Key::A).bPressed)
+			//arrow key left
+			if (ptrEngine->GetKey(olc::Key::LEFT).bPressed)
 			{
-				Pressed_A = true;
-				Queued_A = true;
+				Pressed_Left = true;
+				Queued_Left = true;
 			}
 			
-			if (ptrEngine->GetKey(olc::Key::A).bReleased)
+			if (ptrEngine->GetKey(olc::Key::LEFT).bReleased)
 			{
-				Pressed_A = false;
+				Pressed_Left = false;
 			}
 
-			//D
-			if (ptrEngine->GetKey(olc::Key::D).bPressed)
+			//arrow key left
+			if (ptrEngine->GetKey(olc::Key::RIGHT).bPressed)
 			{
-				Pressed_D = true;
-				Queued_D = true;
+				Pressed_Right = true;
+				Queued_Right = true;
 			}
 
-			if (ptrEngine->GetKey(olc::Key::D).bReleased)
+			if (ptrEngine->GetKey(olc::Key::RIGHT).bReleased)
 			{
-				Pressed_D = false;
+				Pressed_Right = false;
 			}
 
 			//start
@@ -51,41 +55,37 @@ namespace RB
 			}
 		}
 
-		int GetHorizontalAxis()
+		bool Left()
 		{
-			bool left = false;
-			bool right = false;
+			if (Pressed_Left || Queued_Left)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
-			if (Pressed_A || Queued_A)
+		bool Right()
+		{
+			if (Pressed_Right || Queued_Right)
 			{
-				left = true;
+				return true;
 			}
-
-			if (Pressed_D || Queued_D)
+			else
 			{
-				right = true;
+				return false;
 			}
-
-			if (left && right || !left && !right)
-			{
-				return 0;
-			}
-			else if (left)
-			{
-				return -1;
-			}
-			else if (right)
-			{
-				return 1;
-			}
-
-			return 0;
 		}
 
 		void ClearKeyQueues()
 		{
-			Queued_A = false;
-			Queued_D = false;
+			Queued_Left = false;
+			Queued_Right = false;
+			Queued_Up = false;
+			Queued_Down = false;
+
 			bStartGame = false;
 		}
 

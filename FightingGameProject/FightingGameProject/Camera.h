@@ -19,7 +19,18 @@ namespace RB
 
 		void Update(GameData& gameData)
 		{
+			if (gameData.left && gameData.right || !gameData.left && !gameData.right)
+			{
 
+			}
+			else if (gameData.left)
+			{
+				position.x -= 1.0f;
+			}
+			else if (gameData.right)
+			{
+				position.x += 1.0f;
+			}
 		}
 
 		olc::vf2d GetPosition()

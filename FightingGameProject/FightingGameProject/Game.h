@@ -4,6 +4,7 @@
 #include "Timer.h"
 #include "SceneController.h"
 #include "GameWindow.h"
+#include "Input.h"
 
 namespace RB
 {
@@ -12,6 +13,7 @@ namespace RB
 	private:
 		Timer timer;
 		SceneController sceneController;
+		Input input;
 
 	public:
 		~Game()
@@ -30,12 +32,19 @@ namespace RB
 		bool OnUserUpdate(float fElapsedTime) override
 		{
 			Clear(olc::VERY_DARK_GREY);
+			input.UpdateInput(this);
 
 			if (timer.UpdateGame(fElapsedTime, this))
 			{
 				GameData gameData;
+				gameData.left = input.Left();
+				gameData.right = input.Right();
+
 				sceneController.UpdateCurrentScene(this, gameData);
 				sceneController.RenderCurrentScene(true, this);
+
+				//only clear after update
+				input.ClearKeyQueues();
 			}
 			else
 			{
