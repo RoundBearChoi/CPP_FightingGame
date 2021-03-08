@@ -2,6 +2,7 @@
 #define OLC_PGE_APPLICATION 0
 #include "olcPixelGameEngine.h"
 #include "Timer.h"
+#include "SceneController.h"
 
 namespace RB
 {
@@ -9,20 +10,41 @@ namespace RB
 	{
 	private:
 		Timer timer;
+		SceneController sceneController;
 
 	public:
+		Game()
+		{
+			IF_COUT
+			{
+				std::cout << "constructing game" << std::endl;
+			}
+		}
+
+		~Game()
+		{
+			IF_COUT
+			{
+				std::cout << std::endl;
+				std::cout << "destructing game" << std::endl;
+			}
+		}
+
 		bool OnUserCreate() override
 		{
 			sAppName = "C++FightingGame";
+			sceneController.CreateScene(SceneType::FIGHT_SCENE);
 			return true;
 		}
 
 		bool OnUserUpdate(float fElapsedTime) override
 		{
+			Clear(olc::VERY_DARK_GREY);
+
 			if (timer.UpdateGame(fElapsedTime, this))
 			{
-				Clear(olc::VERY_DARK_GREY);
-
+				GameData gameData;
+				sceneController.UpdateCurrentScene(this, gameData);
 			}
 
 			return true;
