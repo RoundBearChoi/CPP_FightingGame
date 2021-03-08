@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Fighters.h"
+#include "GameWindow.h"
 
 //states for game scene
 //#include "BackgroundIdle.h"
@@ -38,8 +39,8 @@ namespace RB
 
 		void InitScene() override
 		{
-			olc::vf2d pos0{ 0.0f, 0.0f };
-			olc::vf2d pos1{ 10.0f, 0.0f };
+			olc::vf2d pos0{ -220.0f, 0.0f };
+			olc::vf2d pos1{ 220.0f, 0.0f };
 
 			fighters.SetFighterInfo(0, pos0);
 			fighters.SetFighterInfo(1, pos1);
@@ -78,7 +79,18 @@ namespace RB
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
+			//camera position
 			olc::vf2d camPos = cam.GetPosition();
+
+			//centermark
+			olc::vf2d bottom{ 0.0f, 0.0f };
+			olc::vf2d top{ 0.0f, -(float)GameWindow::GetHeight() * 0.025f };
+			olc::vf2d left{ -10.0f, 0.0f };
+			olc::vf2d right{ 10.0f, 0.0f };
+			ptrEngine->DrawLine(top + camPos, bottom + camPos, olc::GREEN);
+			ptrEngine->DrawLine(bottom + left + camPos, bottom + right + camPos, olc::GREEN);
+
+			//objs
 			fighters.RenderObjPosition(ptrEngine, camPos);
 		}
 
