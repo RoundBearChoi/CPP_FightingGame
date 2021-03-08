@@ -31,7 +31,8 @@ namespace RB
 
 		bool OnUserUpdate(float fElapsedTime) override
 		{
-			Clear(olc::VERY_DARK_GREY);
+			olc::Pixel grayBackground(20, 20, 20);
+			Clear(grayBackground);
 			input.UpdateInput(this);
 
 			if (timer.UpdateGame(fElapsedTime, this))
