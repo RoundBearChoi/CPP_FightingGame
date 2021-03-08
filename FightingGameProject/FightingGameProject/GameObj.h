@@ -20,9 +20,9 @@ namespace RB
 			IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
 		}
 
-		void RenderPosition(olc::PixelGameEngine* ptrEngine)
+		void RenderPosition(olc::PixelGameEngine* ptrEngine, olc::vf2d& camPos)
 		{
-			ptrEngine->FillCircle(objData.GetPosition(), 5.0f, olc::RED);
+			ptrEngine->FillCircle(objData.GetPosition() + camPos, 2.5f, olc::RED);
 		}
 	};
 }

@@ -13,8 +13,8 @@ namespace RB
 	public:
 		Camera()
 		{
-			position.x = -(float)GameWindow::GetWidth() / 2.0f;
-			position.y = -(float)GameWindow::GetHeight() / 2.0f;
+			position.x = (float)GameWindow::GetWidth() * 0.5f;
+			position.y = (float)GameWindow::GetHeight() * 0.9f;
 		}
 
 		olc::vf2d GetPosition()

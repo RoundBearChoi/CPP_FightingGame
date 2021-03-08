@@ -11,11 +11,11 @@ namespace RB
 		GameObj arrObjs[2];
 
 	public:
-		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
+		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, olc::vf2d& camPos) override
 		{
 			for (int i = 0; i < 2; i++)
 			{
-				arrObjs[i].RenderPosition(ptrEngine);
+				arrObjs[i].RenderPosition(ptrEngine, camPos);
 			}
 		}
 
