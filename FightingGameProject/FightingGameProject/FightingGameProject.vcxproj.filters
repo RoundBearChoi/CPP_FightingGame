@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Scenes\Concrete Scenes">
       <UniqueIdentifier>{79565011-8f25-4746-acb8-ef0e825a101d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{2cac610e-7749-48ee-9cc0-60375396d3e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -76,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="FightScene.h">
       <Filter>Source Files\Scenes\Concrete Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWindow.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

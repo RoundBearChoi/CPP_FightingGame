@@ -2,6 +2,7 @@
 #include "olcPixelGameEngine.h"
 #include "GameData.h"
 #include "DevSettings.h"
+#include "Camera.h"
 
 namespace RB
 {
@@ -11,6 +12,8 @@ namespace RB
 		int ID = 0;
 
 	public:
+		Camera cam;
+
 		virtual void InitScene() = 0;
 		virtual void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) = 0;
 		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;

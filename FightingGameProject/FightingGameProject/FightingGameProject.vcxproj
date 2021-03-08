@@ -143,6 +143,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="SceneController.h" />
     <ClInclude Include="SceneType.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="GameWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
