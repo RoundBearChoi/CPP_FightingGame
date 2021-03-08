@@ -19,11 +19,9 @@ namespace RB
 
 		bool OnUserUpdate(float fElapsedTime) override
 		{
-			//fixed timestep
-			if (fAccumulatedTime >= fTargetFrameTime)
+			if (UpdateGame())
 			{
-				fAccumulatedTime -= fTargetFrameTime;
-				fElapsedTime = fTargetFrameTime;
+
 			}
 
 			return true;
@@ -34,6 +32,21 @@ namespace RB
 			if (Construct(854, 480, 1, 1))
 			{
 				Start();
+			}
+		}
+
+		bool UpdateGame()
+		{
+			//fixed timestep
+			if (fAccumulatedTime >= fTargetFrameTime)
+			{
+				fAccumulatedTime -= fTargetFrameTime;
+
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 	};
