@@ -9,10 +9,10 @@ namespace RB
 		float fTargetFrameTime = 1.0f / 120.0f; // target fixed timestep
 		float fAccumulatedTime = 0.0f;
 
+		//updates per sec
 		int nUpdateCount = 0;
-		int nAccumulatedUpdateCount = 0;
+		int nUpdateCountPerSec = 0;
 		float fTime = 0.0f;
-		olc::vf2d posCount{ 0.0f, 0.0f };
 
 	public:
 		bool UpdateGame(float fElapsedTime, olc::PixelGameEngine* ptrEngine)
@@ -21,7 +21,7 @@ namespace RB
 
 			if (fTime >= 1.0f)
 			{
-				nAccumulatedUpdateCount = nUpdateCount;
+				nUpdateCountPerSec = nUpdateCount;
 				nUpdateCount = 0;
 				fTime = 0.0f;
 			}
@@ -44,7 +44,7 @@ namespace RB
 
 		void ShowUpdateCount(olc::PixelGameEngine* ptrEngine)
 		{
-			ptrEngine->DrawString(posCount, "update count: " + std::to_string(nAccumulatedUpdateCount), olc::WHITE);
+			ptrEngine->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
 		}
 	};
 }

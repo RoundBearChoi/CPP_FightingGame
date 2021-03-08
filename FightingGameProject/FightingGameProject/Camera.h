@@ -8,7 +8,7 @@ namespace RB
 	{
 	private:
 		olc::vi2d position{ 0, 0 };
-		float scale = 1.0f;
+		int32_t cameraZoom = 0;
 
 	public:
 		Camera()
@@ -33,14 +33,7 @@ namespace RB
 			}
 		}
 
-		olc::vi2d GetPosition()
-		{
-			return position;
-		}
-
-		float GetScale()
-		{
-			return scale;
-		}
+		olc::vi2d GetPosition() { return position; }
+		int32_t GetScale() { return cameraZoom; }
 	};
 }
