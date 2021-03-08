@@ -150,6 +150,7 @@
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="Fighters.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="ObjData.h" />
     <ClInclude Include="ObjGroup.h" />
     <ClInclude Include="OffsetType.h" />

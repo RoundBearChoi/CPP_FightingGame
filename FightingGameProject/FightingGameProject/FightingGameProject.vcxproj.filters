@@ -89,5 +89,8 @@
     <ClInclude Include="OffsetType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
