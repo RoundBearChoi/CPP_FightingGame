@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Fighters.h"
 #include "GameWindow.h"
+#include "RelativeVector.h"
 
 namespace RB
 {
@@ -48,8 +49,14 @@ namespace RB
 			olc::vi2d top{ 0, -10 };
 			olc::vi2d left{ -10, 0 };
 			olc::vi2d right{ 10, 0 };
-			ptrEngine->DrawLine(top + camPos, bottom + camPos, olc::GREEN);
-			ptrEngine->DrawLine(bottom + left + camPos, bottom + right + camPos, olc::GREEN);
+
+			olc::vi2d relativeTop = RelativeVector::Get(top, camPos, zoomScale);
+			olc::vi2d relativeBottom = RelativeVector::Get(bottom, camPos, zoomScale);
+			olc::vi2d relativeLeft = RelativeVector::Get(bottom + left, camPos, zoomScale);
+			olc::vi2d relativeRight = RelativeVector::Get(bottom + right, camPos, zoomScale);
+
+			ptrEngine->DrawLine(relativeTop, relativeBottom, olc::GREEN);
+			ptrEngine->DrawLine(relativeLeft, relativeRight, olc::GREEN);
 
 			//objs
 			fighters.RenderObjPosition(ptrEngine, camPos, zoomScale);
