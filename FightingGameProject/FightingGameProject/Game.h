@@ -1,14 +1,14 @@
 #pragma once
 #define OLC_PGE_APPLICATION 0
 #include "olcPixelGameEngine.h"
+#include "Timer.h"
 
 namespace RB
 {
 	class Game : public olc::PixelGameEngine
 	{
 	private:
-		float fTargetFrameTime = 1.0f / 120.0f; // target fixed timestep
-		float fAccumulatedTime = 0.0f;
+		Timer timer;
 
 	public:
 		bool OnUserCreate() override
@@ -19,8 +19,9 @@ namespace RB
 
 		bool OnUserUpdate(float fElapsedTime) override
 		{
-			if (UpdateGame())
+			if (timer.UpdateGame(fElapsedTime, this))
 			{
+				Clear(olc::VERY_DARK_GREY);
 
 			}
 
@@ -32,21 +33,6 @@ namespace RB
 			if (Construct(854, 480, 1, 1))
 			{
 				Start();
-			}
-		}
-
-		bool UpdateGame()
-		{
-			//fixed timestep
-			if (fAccumulatedTime >= fTargetFrameTime)
-			{
-				fAccumulatedTime -= fTargetFrameTime;
-
-				return true;
-			}
-			else
-			{
-				return false;
 			}
 		}
 	};

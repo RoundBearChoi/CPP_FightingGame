@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
