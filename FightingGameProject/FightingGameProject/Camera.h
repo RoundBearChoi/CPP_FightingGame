@@ -17,6 +17,11 @@ namespace RB
 			position.y = (float)GameWindow::GetHeight() * 0.9f;
 		}
 
+		void Update(GameData& gameData)
+		{
+
+		}
+
 		olc::vf2d GetPosition()
 		{
 			return position;

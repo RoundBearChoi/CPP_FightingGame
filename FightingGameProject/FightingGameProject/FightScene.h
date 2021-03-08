@@ -48,7 +48,7 @@ namespace RB
 
 		void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) override
 		{
-
+			cam.Update(gameData);
 		}
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
