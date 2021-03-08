@@ -49,7 +49,6 @@ namespace RB
 			{
 				bStartGame = true;
 			}
-
 		}
 
 		int GetHorizontalAxis()
