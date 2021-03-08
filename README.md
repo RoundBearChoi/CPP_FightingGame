@@ -27,7 +27,7 @@ sudo apt install g++
 sudo apt install build-essential libglu1-mesa-dev libpng-dev
 ```
 
-3. Compile and run main.cpp
+3. Navigate to main.cpp and compile
 
 ```
 g++ -o CPPFightingGame main.cpp -std=c++17
