@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,7 +148,9 @@
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameObj.h" />
-    <ClInclude Include="GameObjList.h" />
+    <ClInclude Include="Fighters.h" />
+    <ClInclude Include="ObjData.h" />
+    <ClInclude Include="ObjGroup.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />

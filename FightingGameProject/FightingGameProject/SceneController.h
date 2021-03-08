@@ -34,7 +34,9 @@ namespace RB
 				//	titleSceneDecalLoader.LoadDecals();
 				//}
 
-				currentScene = FightScene();
+				FightScene fightScene(1);
+
+				currentScene = fightScene;
 			}
 		
 			currentScene.InitScene();
@@ -47,7 +49,7 @@ namespace RB
 		
 		void RenderCurrentScene(bool update, olc::PixelGameEngine* ptrEngine)
 		{
-			currentScene.RenderObjs(ptrEngine);
+			currentScene.RenderObjPosition(ptrEngine);
 			currentScene.RenderStates(update, ptrEngine);
 		}
 	};

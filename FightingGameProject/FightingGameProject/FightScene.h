@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Fighters.h"
 
 //states for game scene
 //#include "BackgroundIdle.h"
@@ -19,15 +20,26 @@ namespace RB
 {
 	class FightScene : public Scene
 	{
+	private:
+		Fighters fighters;
+
 	public:
-		FightScene()
+		FightScene(size_t _id)
 		{
 			IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
+
+			ID = _id;
+
+			olc::vf2d pos0{ 0.0f, 0.0f };
+			olc::vf2d pos1{ 10.0f, 0.0f };
+
+			fighters.AddNewFighter(0, pos0);
+			fighters.AddNewFighter(1, pos1);
 		}
 
 		~FightScene() override
 		{
-
+			IF_COUT{ std::cout << "destructing FightScene" << std::endl; }
 		}
 
 		void InitScene() override
@@ -64,9 +76,9 @@ namespace RB
 
 		}
 
-		void RenderObjs(olc::PixelGameEngine* ptrEngine) override
+		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
-
+			fighters.RenderObjPosition();
 		}
 
 		void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) override

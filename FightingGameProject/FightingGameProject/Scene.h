@@ -8,15 +8,17 @@ namespace RB
 	class Scene
 	{
 	protected:
-		//GameObjList objList;
-		//DecalLoader* decalLoader;
+		int ID = 0;
 
 	public:
 		virtual void InitScene() {};
 		virtual void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) {};
-		virtual void RenderObjs(olc::PixelGameEngine* ptrEngine) {};
+		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) {};
 		virtual void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) {};
 
-		virtual ~Scene() {}
+		virtual ~Scene()
+		{
+			IF_COUT{ std::cout << "destructing Scene: " << ID << std::endl; }
+		}
 	};
 }

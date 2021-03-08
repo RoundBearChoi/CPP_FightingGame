@@ -34,6 +34,11 @@ namespace RB
 			{
 				GameData gameData;
 				sceneController.UpdateCurrentScene(this, gameData);
+				sceneController.RenderCurrentScene(true, this);
+			}
+			else
+			{
+				sceneController.RenderCurrentScene(false, this);
 			}
 
 			return true;
