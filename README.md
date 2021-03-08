@@ -30,7 +30,7 @@ sudo apt install build-essential libglu1-mesa-dev libpng-dev
 3. Navigate to main.cpp and compile
 
 ```
-g++ -o sample main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
+g++ -o CPPFightingGame main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
 ./CPPFightingGame
 ```
 
