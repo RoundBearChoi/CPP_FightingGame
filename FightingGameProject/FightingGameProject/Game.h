@@ -13,20 +13,12 @@ namespace RB
 		SceneController sceneController;
 
 	public:
-		Game()
-		{
-			IF_COUT
-			{
-				std::cout << "constructing game" << std::endl;
-			}
-		}
-
 		~Game()
 		{
 			IF_COUT
 			{
 				std::cout << std::endl;
-				std::cout << "destructing game" << std::endl;
+				std::cout << "destructing Game" << std::endl;
 			}
 		}
 

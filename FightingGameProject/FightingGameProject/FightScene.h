@@ -20,18 +20,6 @@ namespace RB
 	class FightScene : public Scene
 	{
 	public:
-		FightScene(/*DecalLoader* _decalLoader*/)
-		{
-			IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
-			
-			//decalLoader = _decalLoader;
-		}
-
-		~FightScene()
-		{
-			IF_COUT{ std::cout << "destructing FightScene" << std::endl; }
-		}
-
 		void InitScene() override
 		{
 			//ObjSpecs background;
