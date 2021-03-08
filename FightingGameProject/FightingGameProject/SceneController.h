@@ -16,18 +16,12 @@ namespace RB
 	public:
 		SceneController()
 		{
-			IF_COUT
-			{
-				std::cout << "constructing SceneController" << std::endl;
-			}
+			IF_COUT{ std::cout << "constructing SceneController" << std::endl; }
 		}
 
 		~SceneController()
 		{
-			IF_COUT
-			{
-				std::cout << "destructing SceneController" << std::endl;
-			}
+			IF_COUT{ std::cout << "destructing SceneController" << std::endl; }
 		}
 
 		void CreateScene(SceneType _sceneType)

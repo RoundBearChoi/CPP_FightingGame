@@ -47,5 +47,11 @@
     <ClInclude Include="FightScene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameObj.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjList.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

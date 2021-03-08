@@ -15,11 +15,8 @@ namespace RB
 	public:
 		~Game()
 		{
-			IF_COUT
-			{
-				std::cout << std::endl;
-				std::cout << "destructing Game" << std::endl;
-			}
+			IF_COUT{ std::cout << std::endl; }
+			IF_COUT{ std::cout << "destructing Game" << std::endl; }
 		}
 
 		bool OnUserCreate() override

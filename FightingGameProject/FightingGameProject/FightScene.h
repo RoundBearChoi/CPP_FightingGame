@@ -22,10 +22,7 @@ namespace RB
 	public:
 		FightScene()
 		{
-			IF_COUT
-			{
-				std::cout << "constructing FightScene" << std::endl;
-			}
+			IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
 		}
 
 		~FightScene() override

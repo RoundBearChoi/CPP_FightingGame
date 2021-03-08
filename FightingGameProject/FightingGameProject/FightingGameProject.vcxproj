@@ -146,6 +146,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />
+    <ClInclude Include="GameObj.h" />
+    <ClInclude Include="GameObjList.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />
