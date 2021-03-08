@@ -24,6 +24,8 @@ https://youtube.com/roundbeargames
 
 ```
 sudo apt install g++
+```
+```
 sudo apt install build-essential libglu1-mesa-dev libpng-dev
 ```
 
@@ -31,6 +33,8 @@ sudo apt install build-essential libglu1-mesa-dev libpng-dev
 
 ```
 g++ -o CPPFightingGame main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
+```
+```
 ./CPPFightingGame
 ```
 
