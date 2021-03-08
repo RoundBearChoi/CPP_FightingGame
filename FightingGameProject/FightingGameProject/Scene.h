@@ -11,14 +11,15 @@ namespace RB
 		int ID = 0;
 
 	public:
-		virtual void InitScene() {};
-		virtual void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) {};
-		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) {};
-		virtual void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) {};
+		virtual void InitScene() = 0;
+
+		virtual void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) = 0;
+		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;
+		virtual void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) = 0;
 
 		virtual ~Scene()
 		{
-			IF_COUT{ std::cout << "destructing Scene: " << ID << std::endl; }
+			IF_COUT{ std::cout << "destructing Scene (virtual): " << ID << std::endl; }
 		}
 	};
 }

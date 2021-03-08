@@ -11,7 +11,7 @@ namespace RB
 	class SceneController
 	{
 	private:
-		Scene currentScene;
+		Scene* currentScene = nullptr;
 
 	public:
 		SceneController()
@@ -22,10 +22,14 @@ namespace RB
 		~SceneController()
 		{
 			IF_COUT{ std::cout << "destructing SceneController" << std::endl; }
+
+			delete currentScene;
 		}
 
 		void CreateScene(SceneType _sceneType)
 		{
+			delete currentScene;
+
 			if (_sceneType == SceneType::FIGHT_SCENE)
 			{
 				//if (titleSceneDecalLoader.GetSpriteCount() == 0)
@@ -34,23 +38,21 @@ namespace RB
 				//	titleSceneDecalLoader.LoadDecals();
 				//}
 
-				FightScene fightScene(1);
-
-				currentScene = fightScene;
+				currentScene = new FightScene(1);
 			}
 		
-			currentScene.InitScene();
+			currentScene->InitScene();
 		}
 		
 		void UpdateCurrentScene(olc::PixelGameEngine* ptrEngine, GameData& gameData)
 		{
-			currentScene.UpdateScene(ptrEngine, gameData);
+			currentScene->UpdateScene(ptrEngine, gameData);
 		}
 		
 		void RenderCurrentScene(bool update, olc::PixelGameEngine* ptrEngine)
 		{
-			currentScene.RenderObjPosition(ptrEngine);
-			currentScene.RenderStates(update, ptrEngine);
+			currentScene->RenderObjPosition(ptrEngine);
+			currentScene->RenderStates(update, ptrEngine);
 		}
 	};
 }

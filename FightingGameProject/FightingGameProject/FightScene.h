@@ -26,24 +26,24 @@ namespace RB
 	public:
 		FightScene(size_t _id)
 		{
-			IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
+			IF_COUT{ std::cout << "constructing FightScene:" << _id << std::endl; }
 
 			ID = _id;
+		}
 
+		~FightScene() override
+		{
+			IF_COUT{ std::cout << "destructing FightScene: " << ID << std::endl; }
+		}
+
+		void InitScene() override
+		{
 			olc::vf2d pos0{ 0.0f, 0.0f };
 			olc::vf2d pos1{ 10.0f, 0.0f };
 
 			fighters.AddNewFighter(0, pos0);
 			fighters.AddNewFighter(1, pos1);
-		}
 
-		~FightScene() override
-		{
-			IF_COUT{ std::cout << "destructing FightScene" << std::endl; }
-		}
-
-		void InitScene() override
-		{
 			//ObjSpecs background;
 			//ObjSpecs player;
 			//ObjSpecs shitgroup;
