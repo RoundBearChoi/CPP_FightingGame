@@ -86,5 +86,8 @@
     <ClInclude Include="GameWindow.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="OffsetType.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
