@@ -12,17 +12,17 @@ namespace RB
 
 		GameObj()
 		{
-			IF_COUT{ std::cout << "construcing GameObj: " << objData.creationID << std::endl; }
+			IF_COUT{ std::cout << "construcing GameObj: " << objData.GetCreationID() << std::endl; }
 		}
 
 		~GameObj()
 		{
-			IF_COUT{ std::cout << "destructing GameObj: " << objData.creationID << std::endl; }
+			IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
 		}
 
 		void RenderPosition(olc::PixelGameEngine* ptrEngine)
 		{
-			ptrEngine->FillCircle(objData.position, 5.0f, olc::RED);
+			ptrEngine->FillCircle(objData.GetPosition(), 5.0f, olc::RED);
 		}
 	};
 }

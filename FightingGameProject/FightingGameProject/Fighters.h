@@ -21,8 +21,10 @@ namespace RB
 
 		void SetFighterInfo(int _index, olc::vf2d _startingPos)
 		{
-			arrObjs[_index].objData.creationID = GetCreationCount();
-			arrObjs[_index].objData.position = _startingPos;
+			size_t count = GetCreationCount();
+
+			arrObjs[_index].objData.SetCreationID(count);
+			arrObjs[_index].objData.SetPosition(_startingPos.x, _startingPos.y);
 		}
 	};
 }
