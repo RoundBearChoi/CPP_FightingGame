@@ -7,14 +7,14 @@ namespace RB
 	class Camera
 	{
 	private:
-		olc::vf2d position{ 0.0f, 0.0f };
+		olc::vi2d position{ 0, 0 };
 		float scale = 1.0f;
 
 	public:
 		Camera()
 		{
-			position.x = (float)GameWindow::GetWidth() * 0.5f;
-			position.y = (float)GameWindow::GetHeight() * 0.9f;
+			position.x = GameWindow::GetWidth() / 2;
+			position.y = GameWindow::GetHeight() - 50;
 		}
 
 		void Update(GameData& gameData)
@@ -25,15 +25,15 @@ namespace RB
 			}
 			else if (gameData.left)
 			{
-				position.x -= 1.0f;
+				position.x -= 1;
 			}
 			else if (gameData.right)
 			{
-				position.x += 1.0f;
+				position.x += 1;
 			}
 		}
 
-		olc::vf2d GetPosition()
+		olc::vi2d GetPosition()
 		{
 			return position;
 		}

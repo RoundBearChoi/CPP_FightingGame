@@ -39,8 +39,8 @@ namespace RB
 
 		void InitScene() override
 		{
-			olc::vf2d pos0{ -220.0f, 0.0f };
-			olc::vf2d pos1{ 220.0f, 0.0f };
+			olc::vi2d pos0{ -220, 0 };
+			olc::vi2d pos1{ 220, 0 };
 
 			fighters.SetFighterInfo(0, pos0);
 			fighters.SetFighterInfo(1, pos1);
@@ -54,13 +54,13 @@ namespace RB
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
 			//camera position
-			olc::vf2d camPos = cam.GetPosition();
+			olc::vi2d camPos = cam.GetPosition();
 
 			//centermark
-			olc::vf2d bottom{ 0.0f, 0.0f };
-			olc::vf2d top{ 0.0f, -(float)GameWindow::GetHeight() * 0.025f };
-			olc::vf2d left{ -10.0f, 0.0f };
-			olc::vf2d right{ 10.0f, 0.0f };
+			olc::vi2d bottom{ 0, 0 };
+			olc::vi2d top{ 0, -10 };
+			olc::vi2d left{ -10, 0 };
+			olc::vi2d right{ 10, 0 };
 			ptrEngine->DrawLine(top + camPos, bottom + camPos, olc::GREEN);
 			ptrEngine->DrawLine(bottom + left + camPos, bottom + right + camPos, olc::GREEN);
 
