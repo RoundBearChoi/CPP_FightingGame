@@ -22,6 +22,6 @@ namespace RB
 		}
 
 	public:
-		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, olc::vi2d& camPos) = 0;
+		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale) = 0;
 	};
 }

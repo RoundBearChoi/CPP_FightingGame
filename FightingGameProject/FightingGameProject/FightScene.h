@@ -3,20 +3,6 @@
 #include "Fighters.h"
 #include "GameWindow.h"
 
-//states for game scene
-//#include "BackgroundIdle.h"
-//#include "PlayerGameStart.h"
-//#include "PlayerIdle.h"
-//#include "PlayerMoveLeft.h"
-//#include "PlayerMoveRight.h"
-//#include "ShitGenerator.h"
-//#include "ShitPosition.h"
-//#include "ShitMoveDown.h"
-//#include "ShitUpSplash.h"
-//#include "ShitCenterSplash.h"
-//#include "PlayerDeath.h"
-//#include "YesOrNo.h"
-
 namespace RB
 {
 	class FightScene : public Scene
@@ -53,8 +39,9 @@ namespace RB
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
-			//camera position
+			//camera position and zoom
 			olc::vi2d camPos = cam.GetPosition();
+			float zoomScale = cam.GetZoom();
 
 			//centermark
 			olc::vi2d bottom{ 0, 0 };
@@ -65,7 +52,7 @@ namespace RB
 			ptrEngine->DrawLine(bottom + left + camPos, bottom + right + camPos, olc::GREEN);
 
 			//objs
-			fighters.RenderObjPosition(ptrEngine, camPos);
+			fighters.RenderObjPosition(ptrEngine, camPos, zoomScale);
 		}
 
 		void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) override

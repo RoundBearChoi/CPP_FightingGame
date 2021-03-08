@@ -2,6 +2,7 @@
 #include "olcPixelGameEngine.h"
 #include "DevSettings.h"
 #include "ObjData.h"
+#include "RelativeVector.h"
 
 namespace RB
 {
@@ -20,19 +21,24 @@ namespace RB
 			IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
 		}
 
-		void RenderPosition(olc::PixelGameEngine* ptrEngine, olc::vi2d& camPos)
+		void RenderPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale)
 		{
-			ptrEngine->FillCircle(objData.GetPosition() + camPos, 2, olc::RED);
+			olc::vi2d relative = RelativeVector::Get(objData.GetPosition(), camPos, zoomScale);
+			//olc::vi2d relPos = objData.GetPosition() + camPos;
+
+			ptrEngine->FillCircle(relative, 2, olc::RED);
 		}
 
-		void RenderSpriteSize(olc::PixelGameEngine* ptrEngine, olc::vi2d& camPos)
+		void RenderSpriteSize(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale)
 		{
 			int32_t halfWidth = objData.GetSpriteSize().x / 2;
 			int32_t height = objData.GetSpriteSize().y;
-
 			olc::vi2d leftTop = { objData.GetPosition().x - halfWidth, objData.GetPosition().y - height };
 			
-			ptrEngine->DrawRect(leftTop.x + camPos.x, leftTop.y + camPos.y, objData.GetSpriteSize().x, objData.GetSpriteSize().y);
+			olc::vi2d relativePos = RelativeVector::Get(leftTop, camPos, zoomScale);
+			olc::vi2d relativeSize = RelativeVector::Get(objData.GetSpriteSize(), zoomScale);
+
+			ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 		}
 	};
 }

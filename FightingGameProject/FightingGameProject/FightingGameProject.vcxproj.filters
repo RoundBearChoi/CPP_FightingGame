@@ -92,5 +92,8 @@
     <ClInclude Include="Input.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="RelativeVector.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
