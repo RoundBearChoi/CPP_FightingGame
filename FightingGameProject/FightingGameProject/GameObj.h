@@ -1,4 +1,5 @@
 #pragma once
+#include "olcPixelGameEngine.h"
 #include "DevSettings.h"
 #include "ObjData.h"
 
@@ -19,9 +20,9 @@ namespace RB
 			IF_COUT{ std::cout << "destructing GameObj: " << objData.creationID << std::endl; }
 		}
 
-		void RenderPosition()
+		void RenderPosition(olc::PixelGameEngine* ptrEngine)
 		{
-
+			ptrEngine->FillCircle(objData.position, 5.0f, olc::RED);
 		}
 	};
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "olcPixelGameEngine.h"
 
 namespace RB
 {
@@ -21,6 +22,6 @@ namespace RB
 		}
 
 	public:
-		virtual void RenderObjPosition() = 0;
+		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;
 	};
 }

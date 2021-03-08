@@ -41,6 +41,8 @@ namespace RB
 				sceneController.RenderCurrentScene(false, this);
 			}
 
+			timer.ShowUpdateCount(this);
+
 			return true;
 		}
 

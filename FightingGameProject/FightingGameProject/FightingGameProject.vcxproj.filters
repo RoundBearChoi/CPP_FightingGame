@@ -22,6 +22,15 @@
     <Filter Include="Source Files\GameObj\Base">
       <UniqueIdentifier>{a1b54224-42db-4b33-8c46-4869a15eebe7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{ff86bd07-3815-4e2c-8486-75921914fccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Base">
+      <UniqueIdentifier>{82372e3a-221e-4949-b2f1-25ec2d00ceda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\Concrete Scenes">
+      <UniqueIdentifier>{79565011-8f25-4746-acb8-ef0e825a101d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,16 +53,10 @@
     <ClInclude Include="SceneController.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="SceneType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="GameData.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FightScene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighters.h">
@@ -67,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="ObjData.h">
       <Filter>Source Files\GameObj\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\Scenes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="FightScene.h">
+      <Filter>Source Files\Scenes\Concrete Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

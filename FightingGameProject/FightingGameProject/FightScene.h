@@ -78,7 +78,7 @@ namespace RB
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
-			fighters.RenderObjPosition();
+			fighters.RenderObjPosition(ptrEngine);
 		}
 
 		void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) override

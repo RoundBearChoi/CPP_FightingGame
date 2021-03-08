@@ -30,8 +30,6 @@ namespace RB
 				fTime += fElapsedTime;
 			}
 
-			ptrEngine->DrawString(posCount, "update count: " + std::to_string(nAccumulatedUpdateCount), olc::WHITE);
-
 			if (fAccumulatedTime >= fTargetFrameTime)
 			{
 				fAccumulatedTime -= fTargetFrameTime;
@@ -42,6 +40,11 @@ namespace RB
 			{
 				return false;
 			}
+		}
+
+		void ShowUpdateCount(olc::PixelGameEngine* ptrEngine)
+		{
+			ptrEngine->DrawString(posCount, "update count: " + std::to_string(nAccumulatedUpdateCount), olc::WHITE);
 		}
 	};
 }
