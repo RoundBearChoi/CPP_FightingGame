@@ -11,12 +11,23 @@ namespace RB
 	class SceneController
 	{
 	private:
-		std::vector<Scene> vecScenes;
+		Scene currentScene;
 
 	public:
 		SceneController()
 		{
-			vecScenes.reserve(1);
+			IF_COUT
+			{
+				std::cout << "constructing SceneController" << std::endl;
+			}
+		}
+
+		~SceneController()
+		{
+			IF_COUT
+			{
+				std::cout << "destructing SceneController" << std::endl;
+			}
 		}
 
 		void CreateScene(SceneType _sceneType)
@@ -29,21 +40,21 @@ namespace RB
 				//	titleSceneDecalLoader.LoadDecals();
 				//}
 
-				vecScenes.push_back(FightScene());
+				currentScene = FightScene();
 			}
 		
-			vecScenes[0].InitScene();
+			currentScene.InitScene();
 		}
 		
 		void UpdateCurrentScene(olc::PixelGameEngine* ptrEngine, GameData& gameData)
 		{
-			vecScenes[0].UpdateScene(ptrEngine, gameData);
+			currentScene.UpdateScene(ptrEngine, gameData);
 		}
 		
 		void RenderCurrentScene(bool update, olc::PixelGameEngine* ptrEngine)
 		{
-			vecScenes[0].RenderObjs(ptrEngine);
-			vecScenes[0].RenderStates(update, ptrEngine);
+			currentScene.RenderObjs(ptrEngine);
+			currentScene.RenderStates(update, ptrEngine);
 		}
 	};
 }
