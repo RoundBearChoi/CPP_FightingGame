@@ -19,17 +19,10 @@ namespace RB
 			}
 		}
 
-		void AddNewFighter(int _index, olc::vf2d pos)
+		void SetFighterInfo(int _index, olc::vf2d _startingPos)
 		{
-			GameObj newFighter;
-
-			ObjData data;
-			data.position = pos;
-
-			newFighter.objData = data;
-			newFighter.objData.creationID = GetCreationCount();
-
-			arrObjs[_index] = newFighter;
+			arrObjs[_index].objData.creationID = GetCreationCount();
+			arrObjs[_index].objData.position = _startingPos;
 		}
 	};
 }

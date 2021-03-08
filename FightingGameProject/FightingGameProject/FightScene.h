@@ -41,8 +41,8 @@ namespace RB
 			olc::vf2d pos0{ 0.0f, 0.0f };
 			olc::vf2d pos1{ 10.0f, 0.0f };
 
-			fighters.AddNewFighter(0, pos0);
-			fighters.AddNewFighter(1, pos1);
+			fighters.SetFighterInfo(0, pos0);
+			fighters.SetFighterInfo(1, pos1);
 
 			//ObjSpecs background;
 			//ObjSpecs player;
