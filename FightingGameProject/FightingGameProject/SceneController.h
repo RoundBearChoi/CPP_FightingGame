@@ -30,15 +30,18 @@ namespace RB
 		{
 			delete currentScene;
 
-			if (_sceneType == SceneType::FIGHT_SCENE)
-			{
-				//if (titleSceneDecalLoader.GetSpriteCount() == 0)
-				//{
-				//	titleSceneDecalLoader.LoadSprites<TitleDecalPath>();
-				//	titleSceneDecalLoader.LoadDecals();
-				//}
+			//if (_sceneType == SceneType::FIGHT_SCENE)
+			//{
+			//	if (titleSceneDecalLoader.GetSpriteCount() == 0)
+			//	{
+			//		titleSceneDecalLoader.LoadSprites<TitleDecalPath>();
+			//		titleSceneDecalLoader.LoadDecals();
+			//	}
+			//}
 
-				currentScene = new FightScene(1);
+			switch (_sceneType)
+			{
+			case SceneType::FIGHT_SCENE: currentScene = new FightScene(1);
 			}
 		
 			currentScene->InitScene();
