@@ -44,32 +44,6 @@ namespace RB
 
 			fighters.SetFighterInfo(0, pos0);
 			fighters.SetFighterInfo(1, pos1);
-
-			//ObjSpecs background;
-			//ObjSpecs player;
-			//ObjSpecs shitgroup;
-			//
-			//background.width = 600.0f;
-			//background.height = 700.0f;
-			//background.objTag = ObjTag::NONE;
-			//background.offsetType = OffsetType::NONE;
-			//background.decalIndex = (int)GameSpriteType::background;
-			//
-			//player.width = 50.0f;
-			//player.height = 80.0f;
-			//player.objTag = ObjTag::PLAYER;
-			//player.offsetType = OffsetType::BOTTOM_CENTER;
-			//player.decalIndex = (int)GameSpriteType::playerbox_green;
-			//
-			//shitgroup.width = 0.0f;
-			//shitgroup.height = 0.0f;
-			//shitgroup.objTag = ObjTag::SHIT_GENERATOR;
-			//shitgroup.offsetType = OffsetType::CENTER_CENTER;
-			//shitgroup.decalIndex = (int)GameSpriteType::redbox_10x10;
-			//
-			//objList.CreateObj<BackgroundIdle>(background);
-			//objList.CreateObj<PlayerGameStart>(player);
-			//objList.CreateObj<ShitGenerator>(shitgroup);
 		}
 
 		void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) override
