@@ -20,6 +20,19 @@ namespace RB
 	class FightScene : public Scene
 	{
 	public:
+		FightScene()
+		{
+			IF_COUT
+			{
+				std::cout << "constructing FightScene" << std::endl;
+			}
+		}
+
+		~FightScene() override
+		{
+
+		}
+
 		void InitScene() override
 		{
 			//ObjSpecs background;
