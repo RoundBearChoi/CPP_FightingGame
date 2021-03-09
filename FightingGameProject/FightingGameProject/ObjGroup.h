@@ -5,10 +5,9 @@ namespace RB
 {
 	class ObjGroup
 	{
-	private:
+	protected:
 		size_t creationCount = 0;
 
-	protected:
 		size_t GetCreationCount()
 		{
 			creationCount++;
