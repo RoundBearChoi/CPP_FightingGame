@@ -1,5 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
+#include "GameWindow.h"
 
 namespace RB
 {
@@ -8,15 +9,11 @@ namespace RB
 	public:
 		static olc::vi2d Get(const olc::vi2d& objPos, const olc::vi2d& camPos, const float& scale)
 		{
-			float x = (float)objPos.x + (float)camPos.x;
-			x *= scale;
-			int32_t roundedX = std::round(x);
+			olc::vi2d fromCam = objPos - camPos;
+			olc::vi2d screenCenter{ GameWindow::GetWidth() / 2, GameWindow::GetHeight() / 2 };
+			olc::vi2d screenPos = screenCenter + fromCam;
 
-			float y = (float)objPos.y + (float)camPos.y;
-			y *= scale;
-			int32_t roundedY = std::round(y);
-
-			return { roundedX, roundedY };
+			return screenPos;
 		}
 
 		static olc::vi2d Get(const olc::vi2d& vector, const float& scale)

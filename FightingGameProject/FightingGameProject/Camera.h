@@ -13,8 +13,7 @@ namespace RB
 	public:
 		Camera()
 		{
-			position.x = GameWindow::GetWidth() / 2;
-			position.y = GameWindow::GetHeight() - 50;
+			position.y = -180;
 		}
 
 		void Update(GameData& gameData)
