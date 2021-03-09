@@ -11,10 +11,10 @@ namespace RB
 	class Game : public olc::PixelGameEngine
 	{
 	private:
-		Timer timer;
 		SceneController sceneController;
 		Input input;
-
+		Timer timer;
+		
 	public:
 		~Game()
 		{
@@ -38,10 +38,7 @@ namespace RB
 			if (timer.UpdateGame(fElapsedTime, this))
 			{
 				GameData gameData;
-				gameData.left = input.Left();
-				gameData.right = input.Right();
-				gameData.up = input.Up();
-				gameData.down = input.Down();
+				input.UpdateGameData(gameData);
 
 				sceneController.UpdateCurrentScene(gameData);
 				sceneController.RenderCurrentScene(this, true);
