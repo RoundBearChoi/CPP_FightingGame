@@ -11,11 +11,6 @@ namespace RB
 		float zoomScale = 1.0f;
 
 	public:
-		Camera()
-		{
-			position.y = -180;
-		}
-
 		void Update(GameData& gameData)
 		{
 			if (gameData.left && gameData.right || !gameData.left && !gameData.right)
@@ -33,7 +28,7 @@ namespace RB
 
 			if (gameData.up && gameData.down || !gameData.up && !gameData.down)
 			{
-
+			
 			}
 			else if (gameData.up)
 			{
@@ -43,6 +38,9 @@ namespace RB
 			{
 				zoomScale -= 0.005f;
 			}
+
+			float screenY = -(float)GameWindow::GetHeight() * 0.5f * 0.7f / zoomScale;
+			position.y = std::round(screenY);
 		}
 
 		olc::vi2d GetPosition() { return position; }
