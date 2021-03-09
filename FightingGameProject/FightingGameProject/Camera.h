@@ -19,11 +19,11 @@ namespace RB
 			}
 			else if (gameData.left)
 			{
-				position.x -= 1;
+				position.x -= 4;
 			}
 			else if (gameData.right)
 			{
-				position.x += 1;
+				position.x += 4;
 			}
 
 			if (gameData.up && gameData.down || !gameData.up && !gameData.down)
