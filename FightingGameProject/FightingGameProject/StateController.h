@@ -18,12 +18,12 @@ namespace RB
 		template<class T>
 		void CreateNewState()
 		{
-			State* newState = State::CreateState<T>();
+			State* s = State::NewState<T>();
 
-			if (newState != nullptr)
+			if (s != nullptr)
 			{
 				delete currentState;
-				currentState = newState;
+				currentState = s;
 			}
 		}
 

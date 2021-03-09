@@ -13,7 +13,7 @@ namespace RB
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 
 		template<class T>
-		static State* CreateState()
+		static State* NewState()
 		{
 			if (std::is_base_of<State, T>::value)
 			{
