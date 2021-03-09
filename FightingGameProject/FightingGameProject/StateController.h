@@ -15,6 +15,18 @@ namespace RB
 			delete currentState;
 		}
 
+		template<class T>
+		void CreateNewState()
+		{
+			State* newState = State::CreateState<T>();
+
+			if (newState != nullptr)
+			{
+				delete currentState;
+				currentState = newState;
+			}
+		}
+
 		void MakeStateTransition()
 		{
 			State* next = currentState->nextState;
