@@ -2,6 +2,7 @@
 #include "olcPixelGameEngine.h"
 #include "DevSettings.h"
 #include "ObjData.h"
+#include "StateController.h"
 #include "RelativeVector.h"
 
 namespace RB
@@ -10,6 +11,7 @@ namespace RB
 	{	
 	public:
 		ObjData objData;
+		StateController stateController;
 
 		GameObj()
 		{

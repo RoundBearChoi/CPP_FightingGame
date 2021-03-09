@@ -34,6 +34,12 @@
     <Filter Include="Source Files\Camera">
       <UniqueIdentifier>{2cac610e-7749-48ee-9cc0-60375396d3e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{62fbd86c-7902-4455-bc8d-3e5298c2e31d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Base">
+      <UniqueIdentifier>{d514ee17-5f7d-4a43-a6d0-cf52611011fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -94,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="GameWindow.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Source Files\State\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="StateController.h">
+      <Filter>Source Files\State\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
