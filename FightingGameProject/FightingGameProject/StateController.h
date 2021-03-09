@@ -5,12 +5,15 @@ namespace RB
 {
 	class StateController
 	{
+	private:
+		size_t creationID = 0;
+
 	public:
 		State* currentState = nullptr;
 
 		~StateController()
 		{
-			IF_COUT{ std::cout << "destructing StateController" << std::endl; }
+			IF_COUT{ std::cout << "destructing StateController: " << creationID << std::endl; }
 
 			delete currentState;
 		}
@@ -37,6 +40,11 @@ namespace RB
 				currentState = next;
 				currentState->nextState = nullptr;
 			}
+		}
+
+		void SetCreationID(size_t _id)
+		{
+			creationID = _id;
 		}
 	};
 }

@@ -3,6 +3,9 @@
 #include "Fighters.h"
 #include "GameWindow.h"
 
+#include "Fighter_0_Start.h"
+#include "Fighter_1_Start.h"
+
 namespace RB
 {
 	class FightScene : public Scene
@@ -11,16 +14,14 @@ namespace RB
 		Fighters fighters;
 
 	public:
-		FightScene(int _id)
+		FightScene()
 		{
-			IF_COUT{ std::cout << "constructing FightScene:" << _id << std::endl; }
-
-			ID = _id;
+			IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
 		}
 
 		~FightScene() override
 		{
-			IF_COUT{ std::cout << "destructing FightScene: " << ID << std::endl; }
+			IF_COUT{ std::cout << "destructing FightScene" << std::endl; }
 		}
 
 		void InitScene() override
@@ -30,11 +31,15 @@ namespace RB
 
 			fighters.SetFighterInfo(0, pos0);
 			fighters.SetFighterInfo(1, pos1);
+
+			fighters.SetInitialState<Fighter_0_Start>(0);
+			fighters.SetInitialState<Fighter_1_Start>(1);
 		}
 
-		void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) override
+		void UpdateScene(GameData& gameData) override
 		{
 			cam.Update(gameData);
+			fighters.UpdateState(gameData);
 		}
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override

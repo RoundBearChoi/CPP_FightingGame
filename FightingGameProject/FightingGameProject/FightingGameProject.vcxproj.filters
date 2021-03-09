@@ -40,6 +40,12 @@
     <Filter Include="Source Files\State\Base">
       <UniqueIdentifier>{d514ee17-5f7d-4a43-a6d0-cf52611011fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State\Concrete States">
+      <UniqueIdentifier>{df5d7528-dd7e-4b99-9244-f1c97ba3f8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Concrete States\Fighter">
+      <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -106,6 +112,12 @@
     </ClInclude>
     <ClInclude Include="StateController.h">
       <Filter>Source Files\State\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighter_0_Start.h">
+      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighter_1_Start.h">
+      <Filter>Source Files\State\Concrete States\Fighter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

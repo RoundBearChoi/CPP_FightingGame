@@ -9,20 +9,17 @@ namespace RB
 {
 	class Scene
 	{
-	protected:
-		int ID = 0;
-
 	public:
 		Camera cam;
 
 		virtual void InitScene() = 0;
-		virtual void UpdateScene(olc::PixelGameEngine* ptrEngine, GameData& gameData) = 0;
+		virtual void UpdateScene(GameData& gameData) = 0;
 		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;
 		virtual void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) = 0;
 
 		virtual ~Scene()
 		{
-			IF_COUT{ std::cout << "destructing Scene (virtual): " << ID << std::endl; }
+			IF_COUT{ std::cout << "destructing Scene (virtual)" << std::endl; }
 		}
 
 		void RenderCenterMark(olc::PixelGameEngine* ptrEngine, olc::vi2d camPos, float zoomScale)

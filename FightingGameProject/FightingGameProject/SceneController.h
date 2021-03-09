@@ -41,18 +41,18 @@ namespace RB
 
 			switch (_sceneType)
 			{
-			case SceneType::FIGHT_SCENE: currentScene = new FightScene(1);
+			case SceneType::FIGHT_SCENE: currentScene = new FightScene();
 			}
 		
 			currentScene->InitScene();
 		}
 		
-		void UpdateCurrentScene(olc::PixelGameEngine* ptrEngine, GameData& gameData)
+		void UpdateCurrentScene(GameData& gameData)
 		{
-			currentScene->UpdateScene(ptrEngine, gameData);
+			currentScene->UpdateScene(gameData);
 		}
 		
-		void RenderCurrentScene(bool update, olc::PixelGameEngine* ptrEngine)
+		void RenderCurrentScene(olc::PixelGameEngine* ptrEngine, bool update)
 		{
 			currentScene->RenderObjPosition(ptrEngine);
 			currentScene->RenderStates(update, ptrEngine);

@@ -43,15 +43,15 @@ namespace RB
 				gameData.up = input.Up();
 				gameData.down = input.Down();
 
-				sceneController.UpdateCurrentScene(this, gameData);
-				sceneController.RenderCurrentScene(true, this);
+				sceneController.UpdateCurrentScene(gameData);
+				sceneController.RenderCurrentScene(this, true);
 
 				//only clear after update
 				input.ClearKeyQueues();
 			}
 			else
 			{
-				sceneController.RenderCurrentScene(false, this);
+				sceneController.RenderCurrentScene(this, false);
 			}
 
 			timer.ShowUpdateCount(this);

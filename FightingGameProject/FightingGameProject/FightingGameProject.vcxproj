@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DevSettings.h" />
+    <ClInclude Include="Fighter_0_Start.h" />
+    <ClInclude Include="Fighter_1_Start.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />

@@ -14,10 +14,10 @@ namespace RB
 
 	public:
 		olc::vi2d GetPosition() { return position; }
-		void SetPosition(int32_t _x, int32_t _y) { position.x = _x; position.y = _y; }
+		void SetPosition(olc::vi2d _pos) { position = _pos; }
 
 		olc::vi2d GetSpriteSize() { return spriteSize; }
-		void SetSpriteSize(int32_t _x, int32_t _y) { spriteSize.x = _x; spriteSize.y = _y; }
+		void SetSpriteSize(olc::vi2d _size) { spriteSize = _size; }
 
 		size_t GetCreationID() { return creationID;	}
 		void SetCreationID(size_t t) { creationID = t; }
