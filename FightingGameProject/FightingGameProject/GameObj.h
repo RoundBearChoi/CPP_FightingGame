@@ -24,7 +24,6 @@ namespace RB
 		void RenderPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale)
 		{
 			olc::vi2d relative = RelativeVector::Get(objData.GetPosition(), camPos, zoomScale);
-			//olc::vi2d relPos = objData.GetPosition() + camPos;
 
 			ptrEngine->FillCircle(relative, 2, olc::RED);
 		}
@@ -37,7 +36,7 @@ namespace RB
 			
 			olc::vi2d relativePos = RelativeVector::Get(leftTop, camPos, zoomScale);
 			olc::vi2d relativeSize = RelativeVector::Get(objData.GetSpriteSize(), zoomScale);
-
+			
 			ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 		}
 	};

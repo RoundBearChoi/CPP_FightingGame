@@ -10,6 +10,12 @@ namespace RB
 		static olc::vi2d Get(const olc::vi2d& objPos, const olc::vi2d& camPos, const float& scale)
 		{
 			olc::vi2d fromCam = objPos - camPos;
+
+			float x = (float)fromCam.x * scale;
+			float y = (float)fromCam.y * scale;
+
+			fromCam = { (int32_t)std::round(x), (int32_t)std::round(y) };
+
 			olc::vi2d screenCenter{ GameWindow::GetWidth() / 2, GameWindow::GetHeight() / 2 };
 			olc::vi2d screenPos = screenCenter + fromCam;
 
