@@ -1,19 +1,7 @@
 #pragma once
-#include <cstdint>
 
 namespace RB
 {
-	class GameWindow
-	{
-	public:
-		static int32_t GetWidth()
-		{
-			return 854;
-		}
-
-		static int32_t GetHeight()
-		{
-			return 480;
-		}
-	};
+#define WINDOW_WIDTH 854
+#define WINDOW_HEIGHT 480
 }

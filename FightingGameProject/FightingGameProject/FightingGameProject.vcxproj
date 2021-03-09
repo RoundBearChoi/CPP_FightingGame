@@ -150,6 +150,7 @@
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="Fighters.h" />
+    <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ObjData.h" />
     <ClInclude Include="ObjGroup.h" />
@@ -160,7 +161,6 @@
     <ClInclude Include="SceneController.h" />
     <ClInclude Include="SceneType.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="GameWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

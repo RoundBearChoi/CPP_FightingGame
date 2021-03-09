@@ -61,7 +61,7 @@ namespace RB
 
 		void Run()
 		{
-			if (Construct(GameWindow::GetWidth(), GameWindow::GetHeight(), 1, 1))
+			if (Construct(WINDOW_WIDTH, WINDOW_HEIGHT, 1, 1))
 			{
 				Start();
 			}

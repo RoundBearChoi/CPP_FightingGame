@@ -12,7 +12,7 @@ namespace RB
 		Fighters fighters;
 
 	public:
-		FightScene(size_t _id)
+		FightScene(int _id)
 		{
 			IF_COUT{ std::cout << "constructing FightScene:" << _id << std::endl; }
 

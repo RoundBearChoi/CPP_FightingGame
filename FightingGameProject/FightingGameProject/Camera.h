@@ -39,8 +39,8 @@ namespace RB
 				zoomScale -= 0.005f;
 			}
 
-			float screenY = -(float)GameWindow::GetHeight() * 0.5f * 0.7f / zoomScale;
-			position.y = std::round(screenY);
+			float screenY = -(float)WINDOW_HEIGHT * 0.5f * 0.7f / zoomScale;
+			position.y = (int32_t)std::round(screenY);
 		}
 
 		olc::vi2d GetPosition() { return position; }

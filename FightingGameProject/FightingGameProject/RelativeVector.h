@@ -16,7 +16,7 @@ namespace RB
 
 			fromCam = { (int32_t)std::round(x), (int32_t)std::round(y) };
 
-			olc::vi2d screenCenter{ GameWindow::GetWidth() / 2, GameWindow::GetHeight() / 2 };
+			olc::vi2d screenCenter{ WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
 			olc::vi2d screenPos = screenCenter + fromCam;
 
 			return screenPos;
@@ -25,10 +25,10 @@ namespace RB
 		static olc::vi2d Get(const olc::vi2d& vector, const float& scale)
 		{
 			float x = (float)vector.x * scale;
-			int32_t roundedX = std::round(x);
+			int32_t roundedX = (int32_t)std::round(x);
 
 			float y = (float)vector.y * scale;
-			int32_t roundedY = std::round(y);
+			int32_t roundedY = (int32_t)std::round(y);
 
 			return { roundedX, roundedY };
 		}
