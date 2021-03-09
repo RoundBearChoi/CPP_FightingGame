@@ -2,7 +2,6 @@
 #include "Scene.h"
 #include "Fighters.h"
 #include "GameWindow.h"
-#include "RelativeVector.h"
 
 namespace RB
 {
@@ -40,25 +39,11 @@ namespace RB
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
-			//camera position and zoom
 			olc::vi2d camPos = cam.GetPosition();
 			float zoomScale = cam.GetZoom();
 
-			//centermark
-			olc::vi2d bottom{ 0, 7 };
-			olc::vi2d top{ 0, -7 };
-			olc::vi2d left{ -7, 0 };
-			olc::vi2d right{ 7, 0 };
+			RenderCenterMark(ptrEngine, camPos, zoomScale);
 
-			olc::vi2d relativeTop = RelativeVector::Get(top, camPos, zoomScale);
-			olc::vi2d relativeBottom = RelativeVector::Get(bottom, camPos, zoomScale);
-			olc::vi2d relativeLeft = RelativeVector::Get(left, camPos, zoomScale);
-			olc::vi2d relativeRight = RelativeVector::Get(right, camPos, zoomScale);
-
-			ptrEngine->DrawLine(relativeTop, relativeBottom, olc::GREEN);
-			ptrEngine->DrawLine(relativeLeft, relativeRight, olc::GREEN);
-
-			//objs
 			fighters.RenderObjPosition(ptrEngine, camPos, zoomScale);
 		}
 
