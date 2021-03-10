@@ -51,5 +51,10 @@ namespace RB
 				arrObjs[i].RenderPosition(ptrEngine, camPos, zoomScale);
 			}
 		}
+
+		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale) override
+		{
+
+		}
 	};
 }

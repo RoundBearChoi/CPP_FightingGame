@@ -6,8 +6,7 @@ namespace RB
 	class AnimationStatus
 	{
 	public:
-		int decalTypeIndex = 0;
-
+		int32_t decalTypeIndex = 0;
 		int32_t nCurrentTile = 0;
 		int32_t nTransitionDelay = 0;
 		int32_t nDelayCount = 0;

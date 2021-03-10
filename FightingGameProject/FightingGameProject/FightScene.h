@@ -54,7 +54,10 @@ namespace RB
 
 		void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) override
 		{
+			olc::vi2d camPos = cam.GetPosition();
+			float zoomScale = cam.GetZoom();
 
+			fighters.RenderStates(ptrEngine, ptrDecalLoader, camPos, zoomScale);
 		}
 	};
 }

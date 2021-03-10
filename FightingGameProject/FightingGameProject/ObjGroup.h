@@ -22,5 +22,6 @@ namespace RB
 
 	public:
 		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale) = 0;
+		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale) = 0;
 	};
 }

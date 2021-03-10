@@ -12,7 +12,7 @@ namespace RB
 	public:
 		AnimationStatus status;
 
-		void SetParams(int _decalTypeIndex, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount)
+		void SetParams(int32_t _decalTypeIndex, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount)
 		{
 			status.decalTypeIndex = _decalTypeIndex;
 
