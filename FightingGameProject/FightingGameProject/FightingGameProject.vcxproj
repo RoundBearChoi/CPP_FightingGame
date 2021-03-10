@@ -143,6 +143,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationController.h" />
+    <ClInclude Include="AnimationStatus.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="Fighter_0_Start.h" />
@@ -153,6 +155,7 @@
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="AnimationSpecs.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ObjData.h" />
     <ClInclude Include="ObjGroup.h" />

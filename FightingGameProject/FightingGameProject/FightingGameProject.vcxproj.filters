@@ -46,6 +46,9 @@
     <Filter Include="Source Files\State\Concrete States\Fighter">
       <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{48ce50f8-b65b-42b0-b79e-6232cdc28a75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -118,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="Fighter_1_Start.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationController.h">
+      <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationSpecs.h">
+      <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationStatus.h">
+      <Filter>Source Files\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

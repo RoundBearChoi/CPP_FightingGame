@@ -1,6 +1,7 @@
 #pragma once
 #include "ObjData.h"
 #include "GameData.h"
+#include "AnimationController.h"
 
 namespace RB
 {
@@ -8,6 +9,7 @@ namespace RB
 	{
 	public:
 		State* nextState = nullptr;
+		AnimationController animationController;
 
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
