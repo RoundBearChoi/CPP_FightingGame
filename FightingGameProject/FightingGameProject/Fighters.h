@@ -57,7 +57,8 @@ namespace RB
 		{
 			for (int32_t i = 0; i < 2; i++)
 			{
-
+				AnimationStatus& animationStatus = *arrObjs[i].stateController.currentState->animationController.GetRenderData(update);
+				int n = 0;
 			}
 		}
 	};
