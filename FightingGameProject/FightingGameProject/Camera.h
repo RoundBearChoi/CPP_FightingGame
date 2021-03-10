@@ -15,7 +15,7 @@ namespace RB
 		{
 			if (gameData.left && gameData.right || !gameData.left && !gameData.right)
 			{
-
+				// double press (do nothing)
 			}
 			else if (gameData.left)
 			{
@@ -28,7 +28,7 @@ namespace RB
 
 			if (gameData.up && gameData.down || !gameData.up && !gameData.down)
 			{
-			
+				// double press (do nothing)
 			}
 			else if (gameData.up)
 			{
