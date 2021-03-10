@@ -7,6 +7,7 @@ namespace RB
 	{
 	private:
 		size_t creationID = 0;
+		State* prevState = nullptr;
 
 	public:
 		State* currentState = nullptr;

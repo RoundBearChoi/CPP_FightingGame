@@ -35,9 +35,10 @@ namespace RB
 			for (int i = 0; i < 2; i++)
 			{
 				State* s = arrObjs[i].stateController.currentState;
-
+				
 				if (s != nullptr)
 				{
+					s->Enter(arrObjs[i].objData, gameData);
 					s->UpdateState(arrObjs[i].objData, gameData);
 				}
 			}
