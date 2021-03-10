@@ -33,24 +33,27 @@ namespace RB
 		{
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
+
 			input.UpdateInput(this);
 
 			if (timer.UpdateGame(fElapsedTime, this))
 			{
+				//set gamedata per frame
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
-				sceneController.UpdateCurrentScene(gameData);
-				sceneController.RenderCurrentScene(this, true);
+				sceneController.currentScene->UpdateScene(gameData);
+				sceneController.currentScene->RenderStates(this, true);
 
 				//only clear after update
 				input.ClearKeyQueues();
 			}
 			else
 			{
-				sceneController.RenderCurrentScene(this, false);
+				sceneController.currentScene->RenderStates(this, false);
 			}
 
+			sceneController.currentScene->RenderObjPosition(this);
 			timer.ShowUpdateCount(this);
 
 			return true;

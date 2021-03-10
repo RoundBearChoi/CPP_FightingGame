@@ -14,10 +14,11 @@ namespace RB
 	class SceneController
 	{
 	private:
-		Scene* currentScene = nullptr;
 		FighterDecals fighterDecals;
 
 	public:
+		Scene* currentScene = nullptr;
+
 		SceneController()
 		{
 			IF_COUT{ std::cout << "constructing SceneController" << std::endl; }
@@ -28,17 +29,6 @@ namespace RB
 			IF_COUT{ std::cout << "destructing SceneController" << std::endl; }
 
 			delete currentScene;
-		}
-
-		void UpdateCurrentScene(GameData& gameData)
-		{
-			currentScene->UpdateScene(gameData);
-		}
-		
-		void RenderCurrentScene(olc::PixelGameEngine* ptrEngine, bool update)
-		{
-			currentScene->RenderStates(ptrEngine, update);
-			currentScene->RenderObjPosition(ptrEngine);
 		}
 
 		void CreateScene(SceneType _sceneType)
