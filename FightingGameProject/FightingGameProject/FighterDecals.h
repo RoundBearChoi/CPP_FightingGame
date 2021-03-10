@@ -40,9 +40,9 @@ namespace RB
 			return vecDecalPtr[_index];
 		}
 
-		int32_t GetSpriteCount() override
+		size_t GetSpriteCount() override
 		{
-			return (int32_t)vecSpritePtr.size();
+			return vecSpritePtr.size();
 		}
 	};
 }

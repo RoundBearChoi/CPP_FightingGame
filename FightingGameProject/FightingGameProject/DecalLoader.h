@@ -34,6 +34,6 @@ namespace RB
 		virtual void LoadSprites() = 0;
 		virtual void LoadDecals() = 0;
 		virtual olc::Decal* GetDecal(int32_t _index) = 0;
-		virtual int32_t GetSpriteCount() = 0;
+		virtual size_t GetSpriteCount() = 0;
 	};
 }
