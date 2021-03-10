@@ -10,8 +10,8 @@ namespace RB
 		float fAccumulatedTime = 0.0f;
 
 		//updates per sec
-		int nUpdateCount = 0;
-		int nUpdateCountPerSec = 0;
+		int32_t nUpdateCount = 0;
+		int32_t nUpdateCountPerSec = 0;
 		float fTime = 0.0f;
 
 	public:

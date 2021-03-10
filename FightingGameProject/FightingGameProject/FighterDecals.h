@@ -35,14 +35,14 @@ namespace RB
 			}
 		}
 
-		olc::Decal* GetDecal(int _index) override
+		olc::Decal* GetDecal(int32_t _index) override
 		{
 			return vecDecalPtr[_index];
 		}
 
 		int32_t GetSpriteCount() override
 		{
-			return vecSpritePtr.size();
+			return (int32_t)vecSpritePtr.size();
 		}
 	};
 }
