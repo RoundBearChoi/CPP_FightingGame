@@ -37,8 +37,8 @@ namespace RB
 		
 		void RenderCurrentScene(olc::PixelGameEngine* ptrEngine, bool update)
 		{
-			currentScene->RenderObjPosition(ptrEngine);
 			currentScene->RenderStates(ptrEngine, update);
+			currentScene->RenderObjPosition(ptrEngine);
 		}
 
 		void CreateScene(SceneType _sceneType)

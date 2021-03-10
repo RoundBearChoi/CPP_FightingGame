@@ -56,7 +56,7 @@ namespace RB
 		{
 			olc::vi2d camPos = cam.GetPosition();
 			float zoomScale = cam.GetZoom();
-
+			
 			fighters.RenderStates(ptrEngine, ptrDecalLoader, camPos, zoomScale, update);
 		}
 	};

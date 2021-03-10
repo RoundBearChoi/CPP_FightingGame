@@ -155,5 +155,8 @@
     <ClInclude Include="FighterDecals.h">
       <Filter>Source Files\DecalLoader\Concrete Loaders</Filter>
     </ClInclude>
+    <ClInclude Include="SheetRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
