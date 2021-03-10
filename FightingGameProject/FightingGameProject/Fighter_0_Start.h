@@ -7,8 +7,8 @@ namespace RB
 	{
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_idle, 900, 180, 5, 1, 5);
-			animationController.status.nTransitionDelay = 15;
+			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_idle, 1080, 180, 6, 1, 6);
+			animationController.status.nTransitionDelay = 12;
 		}
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
