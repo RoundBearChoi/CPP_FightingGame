@@ -17,7 +17,7 @@ namespace RB
 		virtual void InitScene() = 0;
 		virtual void UpdateScene(GameData& gameData) = 0;
 		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;
-		virtual void RenderStates(bool update, olc::PixelGameEngine* ptrEngine) = 0;
+		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) = 0;
 
 		virtual ~Scene()
 		{

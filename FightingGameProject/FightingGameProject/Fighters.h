@@ -53,7 +53,7 @@ namespace RB
 			}
 		}
 
-		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale) override
+		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale, bool update) override
 		{
 
 		}
