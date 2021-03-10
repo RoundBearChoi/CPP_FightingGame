@@ -6,8 +6,6 @@ namespace RB
 	class AnimationSpecs
 	{
 	public:
-		
-
 		int32_t totalWidth = 0;
 		int32_t totalHeight = 0;
 		int32_t tileCountX = 0;
