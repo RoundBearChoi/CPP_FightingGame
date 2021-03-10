@@ -31,6 +31,17 @@ namespace RB
 			delete currentScene;
 		}
 
+		void UpdateCurrentScene(GameData& gameData)
+		{
+			currentScene->UpdateScene(gameData);
+		}
+		
+		void RenderCurrentScene(olc::PixelGameEngine* ptrEngine, bool update)
+		{
+			currentScene->RenderObjPosition(ptrEngine);
+			currentScene->RenderStates(update, ptrEngine);
+		}
+
 		void CreateScene(SceneType _sceneType)
 		{
 			delete currentScene;
@@ -47,19 +58,8 @@ namespace RB
 					currentScene->ptrDecalLoader = &fighterDecals;
 				}
 			}
-		
+
 			currentScene->InitScene();
-		}
-		
-		void UpdateCurrentScene(GameData& gameData)
-		{
-			currentScene->UpdateScene(gameData);
-		}
-		
-		void RenderCurrentScene(olc::PixelGameEngine* ptrEngine, bool update)
-		{
-			currentScene->RenderObjPosition(ptrEngine);
-			currentScene->RenderStates(update, ptrEngine);
 		}
 	};
 }
