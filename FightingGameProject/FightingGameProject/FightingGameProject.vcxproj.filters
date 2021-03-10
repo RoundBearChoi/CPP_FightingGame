@@ -49,6 +49,15 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{48ce50f8-b65b-42b0-b79e-6232cdc28a75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DecalLoader">
+      <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DecalLoader\Base">
+      <UniqueIdentifier>{ff3c00ec-1e48-429d-9109-4bfaada70f9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DecalLoader\Concrete Paths">
+      <UniqueIdentifier>{d69e0be9-5907-4502-8aec-093b790ce4b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -130,6 +139,18 @@
     </ClInclude>
     <ClInclude Include="AnimationStatus.h">
       <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalLoader.h">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalPath.h">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterSpriteType.h">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDecalPath.h">
+      <Filter>Source Files\DecalLoader\Concrete Paths</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
