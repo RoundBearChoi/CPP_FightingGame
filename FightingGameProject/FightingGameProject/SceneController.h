@@ -3,8 +3,12 @@
 #include "DevSettings.h"
 #include "SceneType.h"
 
+//concreate decal paths
+#include "FighterDecalPath.h"
+
 //concrete scenes
 #include "FightScene.h"
+#include "DecalLoader.h"
 
 namespace RB
 {
@@ -12,6 +16,7 @@ namespace RB
 	{
 	private:
 		Scene* currentScene = nullptr;
+		DecalLoader fighterDecals;
 
 	public:
 		SceneController()
@@ -30,14 +35,14 @@ namespace RB
 		{
 			delete currentScene;
 
-			//if (_sceneType == SceneType::FIGHT_SCENE)
-			//{
-			//	if (titleSceneDecalLoader.GetSpriteCount() == 0)
-			//	{
-			//		titleSceneDecalLoader.LoadSprites<TitleDecalPath>();
-			//		titleSceneDecalLoader.LoadDecals();
-			//	}
-			//}
+			if (_sceneType == SceneType::FIGHT_SCENE)
+			{
+				if (fighterDecals.GetSpriteCount() == 0)
+				{
+					fighterDecals.LoadSprites<FighterDecalPath>();
+					fighterDecals.LoadDecals();
+				}
+			}
 
 			switch (_sceneType)
 			{

@@ -149,7 +149,7 @@
     <ClInclude Include="FighterSpriteType.h">
       <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
-    <ClInclude Include="GameDecalPath.h">
+    <ClInclude Include="FighterDecalPath.h">
       <Filter>Source Files\DecalLoader\Concrete Paths</Filter>
     </ClInclude>
   </ItemGroup>

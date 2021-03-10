@@ -5,7 +5,7 @@
 
 namespace RB
 {
-	class FigherDecalPath : public DecalPath
+	class FighterDecalPath : public DecalPath
 	{
 	public:
 		int GetCount() override
