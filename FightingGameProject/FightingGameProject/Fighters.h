@@ -12,7 +12,7 @@ namespace RB
 		GameObj arrObjs[2];
 
 	public:
-		void SetFighterInfo(int _index, olc::vi2d _startingPos)
+		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
 		{
 			size_t count = GetCreationCount();
 
@@ -25,14 +25,14 @@ namespace RB
 		}
 
 		template<class T>
-		void SetInitialState(int _index)
+		void SetInitialState(int32_t _index)
 		{
 			arrObjs[_index].stateController.CreateNewState<T>();
 		}
 
 		void UpdateState(GameData& gameData)
 		{
-			for (int i = 0; i < 2; i++)
+			for (int32_t i = 0; i < 2; i++)
 			{
 				State* s = arrObjs[i].stateController.currentState;
 				
@@ -46,7 +46,7 @@ namespace RB
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale) override
 		{
-			for (int i = 0; i < 2; i++)
+			for (int32_t i = 0; i < 2; i++)
 			{
 				arrObjs[i].RenderSpriteSize(ptrEngine, camPos, zoomScale);
 				arrObjs[i].RenderPosition(ptrEngine, camPos, zoomScale);
@@ -55,7 +55,10 @@ namespace RB
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale, bool update) override
 		{
+			for (int32_t i = 0; i < 2; i++)
+			{
 
+			}
 		}
 	};
 }
