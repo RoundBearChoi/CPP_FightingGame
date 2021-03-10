@@ -37,16 +37,15 @@ namespace RB
 
 			if (_sceneType == SceneType::FIGHT_SCENE)
 			{
+				currentScene = new FightScene();
+
 				if (fighterDecals.GetSpriteCount() == 0)
 				{
 					fighterDecals.LoadSprites<FighterDecalPath>();
 					fighterDecals.LoadDecals();
-				}
-			}
 
-			switch (_sceneType)
-			{
-			case SceneType::FIGHT_SCENE: currentScene = new FightScene();
+					currentScene->ptrDecalLoader = &fighterDecals;
+				}
 			}
 		
 			currentScene->InitScene();
