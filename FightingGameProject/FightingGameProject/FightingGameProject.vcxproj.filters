@@ -55,7 +55,10 @@
     <Filter Include="Source Files\DecalLoader\Base">
       <UniqueIdentifier>{ff3c00ec-1e48-429d-9109-4bfaada70f9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DecalLoader\Concrete Paths">
+    <Filter Include="Source Files\DecalLoader\Concrete Loaders">
+      <UniqueIdentifier>{7115bfae-bbb1-484a-8358-8bc99efe1e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DecalLoader\Paths">
       <UniqueIdentifier>{d69e0be9-5907-4502-8aec-093b790ce4b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -143,14 +146,14 @@
     <ClInclude Include="DecalLoader.h">
       <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
-    <ClInclude Include="DecalPath.h">
-      <Filter>Source Files\DecalLoader\Base</Filter>
-    </ClInclude>
     <ClInclude Include="FighterSpriteType.h">
       <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
     <ClInclude Include="FighterDecalPath.h">
-      <Filter>Source Files\DecalLoader\Concrete Paths</Filter>
+      <Filter>Source Files\DecalLoader\Paths</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterDecals.h">
+      <Filter>Source Files\DecalLoader\Concrete Loaders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

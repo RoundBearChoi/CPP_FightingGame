@@ -147,8 +147,8 @@
     <ClInclude Include="AnimationStatus.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DecalLoader.h" />
-    <ClInclude Include="DecalPath.h" />
     <ClInclude Include="DevSettings.h" />
+    <ClInclude Include="FighterDecals.h" />
     <ClInclude Include="Fighter_0_Start.h" />
     <ClInclude Include="Fighter_1_Start.h" />
     <ClInclude Include="Game.h" />

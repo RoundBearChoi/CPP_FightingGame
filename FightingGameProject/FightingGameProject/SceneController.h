@@ -4,11 +4,10 @@
 #include "SceneType.h"
 
 //concreate decal paths
-#include "FighterDecalPath.h"
+#include "FighterDecals.h"
 
 //concrete scenes
 #include "FightScene.h"
-#include "DecalLoader.h"
 
 namespace RB
 {
@@ -16,7 +15,7 @@ namespace RB
 	{
 	private:
 		Scene* currentScene = nullptr;
-		DecalLoader fighterDecals;
+		FighterDecals fighterDecals;
 
 	public:
 		SceneController()
@@ -52,7 +51,7 @@ namespace RB
 
 				if (fighterDecals.GetSpriteCount() == 0)
 				{
-					fighterDecals.LoadSprites<FighterDecalPath>();
+					fighterDecals.LoadSprites();
 					fighterDecals.LoadDecals();
 
 					currentScene->ptrDecalLoader = &fighterDecals;

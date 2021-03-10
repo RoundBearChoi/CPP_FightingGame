@@ -2,13 +2,12 @@
 #include <vector>
 #include "DevSettings.h"
 #include "olcPixelGameEngine.h"
-#include "DecalPath.h"
 
 namespace RB
 {
 	class DecalLoader
 	{
-	private:
+	protected:
 		std::vector<olc::Sprite*> vecSpritePtr;
 		std::vector<olc::Decal*> vecDecalPtr;
 
@@ -32,44 +31,9 @@ namespace RB
 			}
 		}
 
-		template<class T>
-		void LoadSprites()
-		{
-			IF_COUT{ std::cout << std::endl; }
-
-			if (std::is_base_of<DecalPath, T>::value)
-			{
-				T pathGetter;
-
-				for (int i = 0; i < pathGetter.GetCount(); i++)
-				{
-					std::string path = pathGetter.GetPath(i);
-
-					IF_COUT{ std::cout << "constructing Sprite: " << path << std::endl; }
-
-					vecSpritePtr.push_back(new olc::Sprite(path));
-				}
-			}
-		}
-
-		void LoadDecals()
-		{
-			for (int i = 0; i < vecSpritePtr.size(); i++)
-			{
-				IF_COUT{ std::cout << "constructing Decal: " << i << std::endl; }
-				
-				vecDecalPtr.push_back(new olc::Decal(vecSpritePtr[i]));
-			}
-		}
-
-		olc::Decal* GetDecal(int _index)
-		{
-			return vecDecalPtr[_index];
-		}
-
-		int GetSpriteCount()
-		{
-			return vecSpritePtr.size();
-		}
+		virtual void LoadSprites() = 0;
+		virtual void LoadDecals() = 0;
+		virtual olc::Decal* GetDecal(int32_t _index) = 0;
+		virtual int32_t GetSpriteCount() = 0;
 	};
 }

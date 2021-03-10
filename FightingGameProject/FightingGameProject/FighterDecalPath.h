@@ -1,19 +1,13 @@
 #pragma once
 #include <iostream>
 #include "FighterSpriteType.h"
-#include "DecalPath.h"
 
 namespace RB
 {
-	class FighterDecalPath : public DecalPath
+	class FighterDecalPath
 	{
 	public:
-		int GetCount() override
-		{
-			return (int)FighterSpriteType::COUNT;
-		}
-
-		std::string GetPath(int _index) override
+		static std::string GetPath(int32_t _index)
 		{
 			FighterSpriteType spriteType = (FighterSpriteType)_index;
 
