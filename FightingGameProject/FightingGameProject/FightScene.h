@@ -33,17 +33,13 @@ namespace RB
 
 		void InitScene() override
 		{
-			olc::vi2d fighterPos0{ -220, 0 };
-			olc::vi2d fighterPos1{ 220, 0 };
-			fighters.SetFighterInfo(0, fighterPos0);
-			fighters.SetFighterInfo(1, fighterPos1);
+			fighters.SetFighterInfo(0, { -220, 0 });
+			fighters.SetFighterInfo(1, { 220, 0 });
 			fighters.SetInitialState<Fighter_0_Start>(0);
 			fighters.SetInitialState<Fighter_1_Start>(1);
 
-			olc::vi2d backgroundPos0{ 0, 0 };
-			olc::vi2d backgroundPos1{ 0, 0 };
-			background.SetBackgroundInfo(0, backgroundPos0);
-			background.SetBackgroundInfo(1, backgroundPos1);
+			background.SetBackgroundInfo(0, { 0, 0 });
+			background.SetBackgroundInfo(1, { 0, 0 });
 			background.SetInitialState<Background_Idle_Trees>(0);
 			background.SetInitialState<Background_Idle_Mountains>(1);
 		}
