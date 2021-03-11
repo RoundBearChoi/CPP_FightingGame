@@ -58,6 +58,9 @@
     <Filter Include="Source Files\GameObj\Concrete Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State\Concrete States\Background">
+      <UniqueIdentifier>{e9bc8b0d-d93a-44bb-a598-dd45318ea197}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -154,6 +157,12 @@
     </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Source Files\GameObj\Concrete Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="Background_Idle_Trees.h">
+      <Filter>Source Files\State\Concrete States\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Background_Idle_Mountains.h">
+      <Filter>Source Files\State\Concrete States\Background</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
