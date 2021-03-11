@@ -43,3 +43,11 @@ g++ -o CPPFightingGame main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
 # Tutorial Videos
 
 https://youtube.com/playlist?list=PLWYGofN_jX5Apmb8pJUD8NN3KskHW2lcy
+
+<br>
+
+# OLC-3
+
+This project uses olcPixelGameEngine by OneLoneCoder
+https://github.com/OneLoneCoder/olcPixelGameEngine
+Copyright 2018, 2019, 2020 OneLoneCoder.com
