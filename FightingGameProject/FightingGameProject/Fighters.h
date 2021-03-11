@@ -45,20 +45,20 @@ namespace RB
 			}
 		}
 
-		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale) override
+		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) override
 		{
 			for (int32_t i = 0; i < 2; i++)
 			{
-				arrObjs[i].RenderSpriteSize(ptrEngine, camPos, zoomScale);
-				arrObjs[i].RenderPosition(ptrEngine, camPos, zoomScale);
+				arrObjs[i].RenderSpriteSize(ptrEngine, cam);
+				arrObjs[i].RenderPosition(ptrEngine, cam);
 			}
 		}
 
-		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale, bool update) override
+		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) override
 		{
 			for (int32_t i = 0; i < 2; i++)
 			{
-				SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[i], camPos, zoomScale, update);
+				SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[i], cam, update);
 			}
 		}
 	};

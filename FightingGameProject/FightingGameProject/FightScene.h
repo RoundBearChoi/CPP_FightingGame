@@ -36,28 +36,20 @@ namespace RB
 			fighters.SetInitialState<Fighter_1_Start>(1);
 		}
 
-		void UpdateScene(GameData& gameData) override
+		void Update(GameData& gameData) override
 		{
-			cam.Update(gameData);
 			fighters.UpdateState(gameData);
 		}
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
-			olc::vi2d camPos = cam.GetPosition();
-			float zoomScale = cam.GetZoom();
-
-			RenderCenterMark(ptrEngine, camPos, zoomScale);
-
-			fighters.RenderObjPosition(ptrEngine, camPos, zoomScale);
+			RenderCenterMark(ptrEngine, cam);
+			fighters.RenderObjPosition(ptrEngine, cam);
 		}
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) override
 		{
-			olc::vi2d camPos = cam.GetPosition();
-			float zoomScale = cam.GetZoom();
-			
-			fighters.RenderStates(ptrEngine, ptrDecalLoader, camPos, zoomScale, update);
+			fighters.RenderStates(ptrEngine, ptrDecalLoader, cam, update);
 		}
 	};
 }

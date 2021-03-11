@@ -42,7 +42,8 @@ namespace RB
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
-				sceneController.currentScene->UpdateScene(gameData);
+				sceneController.currentScene->cam.Update(gameData);
+				sceneController.currentScene->Update(gameData);
 				sceneController.currentScene->RenderStates(this, true);
 
 				//only clear after update

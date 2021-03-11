@@ -11,6 +11,9 @@ namespace RB
 		float zoomScale = 1.0f;
 
 	public:
+		float GetZoom() { return zoomScale; }
+		olc::vi2d GetPosition() { return position; }
+
 		void Update(GameData& gameData)
 		{
 			if (gameData.left && gameData.right || !gameData.left && !gameData.right)
@@ -42,8 +45,5 @@ namespace RB
 			float y = -(float)WINDOW_HEIGHT * 0.35f / zoomScale;
 			position.y = (int32_t)std::round(y);
 		}
-
-		olc::vi2d GetPosition() { return position; }
-		float GetZoom() { return zoomScale; }
 	};
 }

@@ -1,18 +1,19 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "GameWindow.h"
+#include "Camera.h"
 
 namespace RB
 {
 	class RelativeVector
 	{
 	public:
-		static olc::vi2d Get(const olc::vi2d& objPos, const olc::vi2d& camPos, const float& scale)
+		static olc::vi2d GetPosition(const olc::vi2d& objPos, Camera& cam)
 		{
-			olc::vi2d fromCam = objPos - camPos;
+			olc::vi2d fromCam = objPos - cam.GetPosition();
 
-			float x = (float)fromCam.x * scale;
-			float y = (float)fromCam.y * scale;
+			float x = (float)fromCam.x * cam.GetZoom();
+			float y = (float)fromCam.y * cam.GetZoom();
 
 			fromCam = { (int32_t)std::round(x), (int32_t)std::round(y) };
 
@@ -22,7 +23,7 @@ namespace RB
 			return screenPos;
 		}
 
-		static olc::vi2d Get(const olc::vi2d& vector, const float& scale)
+		static olc::vi2d GetScale(const olc::vi2d& vector, const float& scale)
 		{
 			float x = (float)vector.x * scale;
 			int32_t roundedX = (int32_t)std::round(x);

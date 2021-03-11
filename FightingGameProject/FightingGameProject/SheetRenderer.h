@@ -3,13 +3,14 @@
 #include "DecalLoader.h"
 #include "GameObj.h"
 #include "AnimationStatus.h"
+#include "Camera.h"
 
 namespace RB
 {
 	class SheetRenderer
 	{
 	public:
-		static void Render(olc::PixelGameEngine* ptrEngine, DecalLoader* decalLoader, GameObj* obj, const olc::vi2d& camPos, const float& zoomScale, bool update)
+		static void Render(olc::PixelGameEngine* ptrEngine, DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
 		{
 			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetRenderData(update);
 
@@ -58,10 +59,10 @@ namespace RB
 			olc::Decal* d = decalLoader->GetDecal(animationStatus->decalTypeIndex);
 
 			std::array<olc::vf2d, 4> relativePoints;
-			relativePoints[0] = RelativeVector::Get(points[0], camPos, zoomScale);
-			relativePoints[1] = RelativeVector::Get(points[1], camPos, zoomScale);
-			relativePoints[2] = RelativeVector::Get(points[2], camPos, zoomScale);
-			relativePoints[3] = RelativeVector::Get(points[3], camPos, zoomScale);
+			relativePoints[0] = RelativeVector::GetPosition(points[0], cam);
+			relativePoints[1] = RelativeVector::GetPosition(points[1], cam);
+			relativePoints[2] = RelativeVector::GetPosition(points[2], cam);
+			relativePoints[3] = RelativeVector::GetPosition(points[3], cam);
 
 			ptrEngine->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
 		}

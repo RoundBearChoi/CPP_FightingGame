@@ -1,5 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
+#include "Camera.h"
 
 namespace RB
 {
@@ -21,7 +22,7 @@ namespace RB
 		}
 
 	public:
-		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, const olc::vi2d& camPos, const float& zoomScale) = 0;
-		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, const olc::vi2d& camPos, const float& zoomScale, bool update) = 0;
+		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) = 0;
+		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) = 0;
 	};
 }

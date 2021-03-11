@@ -80,9 +80,6 @@
     <ClInclude Include="DevSettings.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="SceneController.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="SceneType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -157,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="SheetRenderer.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneController.h">
+      <Filter>Source Files\Scenes\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
