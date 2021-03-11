@@ -40,6 +40,32 @@ g++ -o CPPFightingGame main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
 
 <br>
 
+# Getting Started (CMake)
+
+1. Download ZIP or clone repository
+
+2. Install CMake
+
+```
+sudo apt install cmake
+```
+
+3. Navigate to CMakeLists.txt and compile
+
+```
+cmake .
+```
+
+```
+make
+```
+
+```
+./CPPFightingGame
+```
+
+<br>
+
 # Tutorial Videos
 
 https://youtube.com/playlist?list=PLWYGofN_jX5Apmb8pJUD8NN3KskHW2lcy
