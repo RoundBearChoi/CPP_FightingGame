@@ -36,10 +36,13 @@ namespace RB
 			int32_t height = objData.GetSpriteSize().y;
 			olc::vi2d leftTop = { objData.GetPosition().x - halfWidth, objData.GetPosition().y - height };
 			
-			olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
-			olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
-			
-			ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+			if (halfWidth > 0 && height > 0)
+			{
+				olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
+				olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
+
+				ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+			}
 		}
 	};
 }

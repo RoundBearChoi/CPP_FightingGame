@@ -52,7 +52,9 @@ namespace RB
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override
 		{
 			RenderCenterMark(ptrEngine, cam);
+
 			fighters.RenderObjPosition(ptrEngine, cam);
+			background.RenderObjPosition(ptrEngine, cam);
 		}
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) override

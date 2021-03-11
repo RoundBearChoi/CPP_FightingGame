@@ -24,6 +24,11 @@ namespace RB
 			arrObjs[_index].stateController.SetCreationID(count);
 		}
 
+		void SetBackgroundPosition(int32_t _index, olc::vi2d _pos)
+		{
+			arrObjs[_index].objData.SetPosition(_pos);
+		}
+
 		template<class T>
 		void SetInitialState(int32_t _index)
 		{
