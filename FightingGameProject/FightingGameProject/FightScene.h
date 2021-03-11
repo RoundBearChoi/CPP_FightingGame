@@ -38,14 +38,15 @@ namespace RB
 			fighters.SetInitialState<Fighter_0_Start>(0);
 			fighters.SetInitialState<Fighter_1_Start>(1);
 
-			background.SetBackgroundInfo(0, { 0, 0 });
-			background.SetBackgroundInfo(1, { 0, 0 });
+			background.SetBackgroundInfo(0, { 0, -200 });
+			background.SetBackgroundInfo(1, { 0, -200 });
 			background.SetInitialState<Background_Idle_Trees>(0);
 			background.SetInitialState<Background_Idle_Mountains>(1);
 		}
 
 		void Update(GameData& gameData) override
 		{
+			background.UpdateState(gameData);
 			fighters.UpdateState(gameData);
 		}
 
@@ -59,6 +60,7 @@ namespace RB
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) override
 		{
+			background.RenderStates(ptrEngine, ptrDecalLoader, cam, update);
 			fighters.RenderStates(ptrEngine, ptrDecalLoader, cam, update);
 		}
 	};
