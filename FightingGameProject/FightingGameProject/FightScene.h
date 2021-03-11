@@ -47,6 +47,7 @@ namespace RB
 		void Update(GameData& gameData) override
 		{
 			background.UpdateState(gameData);
+			background.UpdateOffset(cam);
 			fighters.UpdateState(gameData);
 		}
 

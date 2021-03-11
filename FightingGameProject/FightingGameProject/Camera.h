@@ -42,7 +42,7 @@ namespace RB
 				zoomScale -= 0.005f;
 			}
 
-			float y = -(float)WINDOW_HEIGHT * 0.45f / zoomScale;
+			float y = -(float)WINDOW_HEIGHT * 0.35f / zoomScale;
 			position.y = (int32_t)std::round(y);
 		}
 	};

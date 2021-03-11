@@ -48,6 +48,18 @@ namespace RB
 			}
 		}
 
+		void UpdateOffset(Camera& cam)
+		{
+			float x0 = (float)cam.GetPosition().x * 0.65f;
+			float x1 = (float)cam.GetPosition().x * 0.8f;
+
+			olc::vi2d pos0{ (int32_t)std::round(x0), arrObjs[0].objData.GetPosition().y };
+			olc::vi2d pos1{ (int32_t)std::round(x1), arrObjs[1].objData.GetPosition().y };
+
+			arrObjs[0].objData.SetPosition(pos0);
+			arrObjs[1].objData.SetPosition(pos1);
+		}
+
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) override
 		{
 			for (int32_t i = 0; i < 2; i++)
