@@ -16,7 +16,6 @@ namespace RB
 		{
 			size_t count = CreationCount::UpdateCount();
 
-			arrObjs[_index].objData.SetSpriteSize({ 854, 480 });
 			arrObjs[_index].objData.SetOffsetType(OffsetType::CENTER_CENTER);
 			arrObjs[_index].objData.SetPosition(_startingPos);
 

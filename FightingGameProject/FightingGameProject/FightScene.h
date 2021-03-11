@@ -38,8 +38,8 @@ namespace RB
 			fighters.SetInitialState<Fighter_0_Start>(0);
 			fighters.SetInitialState<Fighter_1_Start>(1);
 
-			background.SetBackgroundInfo(0, { 0, -200 });
-			background.SetBackgroundInfo(1, { 0, -200 });
+			background.SetBackgroundInfo(0, { 0, -250 });
+			background.SetBackgroundInfo(1, { 0, -480 });
 			background.SetInitialState<Background_Idle_Trees>(0);
 			background.SetInitialState<Background_Idle_Mountains>(1);
 		}
@@ -54,8 +54,8 @@ namespace RB
 		{
 			RenderCenterMark(ptrEngine, cam);
 
-			background.RenderObjPosition(ptrEngine, cam);
-			fighters.RenderObjPosition(ptrEngine, cam);
+			//background.RenderObjPosition(ptrEngine, cam);
+			//fighters.RenderObjPosition(ptrEngine, cam);
 		}
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) override
