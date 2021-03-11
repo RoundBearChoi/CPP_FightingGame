@@ -4,6 +4,7 @@
 #include "ObjGroup.h"
 #include "GameData.h"
 #include "SheetRenderer.h"
+#include "CreationCount.h"
 
 namespace RB
 {
@@ -15,7 +16,7 @@ namespace RB
 	public:
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
 		{
-			size_t count = GetCreationCount();
+			size_t count = CreationCount::UpdateCount();
 
 			arrObjs[_index].objData.SetSpriteSize({ 180, 180 });
 			arrObjs[_index].objData.SetOffsetType(OffsetType::BOTTOM_CENTER);

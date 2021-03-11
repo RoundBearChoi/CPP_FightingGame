@@ -164,5 +164,8 @@
     <ClInclude Include="Background_Idle_Mountains.h">
       <Filter>Source Files\State\Concrete States\Background</Filter>
     </ClInclude>
+    <ClInclude Include="CreationCount.h">
+      <Filter>Source Files\GameObj\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

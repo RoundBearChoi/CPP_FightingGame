@@ -2,6 +2,7 @@
 #include "ObjGroup.h"
 #include "GameObj.h"
 #include "SheetRenderer.h"
+#include "CreationCount.h"
 
 namespace RB
 {
@@ -13,7 +14,7 @@ namespace RB
 	public:
 		void SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 		{
-			size_t count = GetCreationCount();
+			size_t count = CreationCount::UpdateCount();
 
 			arrObjs[_index].objData.SetSpriteSize({ 854, 480 });
 			arrObjs[_index].objData.SetOffsetType(OffsetType::CENTER_CENTER);

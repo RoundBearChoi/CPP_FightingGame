@@ -149,6 +149,7 @@
     <ClInclude Include="Background_Idle_Mountains.h" />
     <ClInclude Include="Background_Idle_Trees.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="FighterDecals.h" />
