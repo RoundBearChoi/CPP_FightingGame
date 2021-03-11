@@ -23,10 +23,7 @@ https://youtube.com/roundbeargames
 2. Install compiler, build tools, and libraries
 
 ```
-sudo apt install g++
-```
-```
-sudo apt install build-essential libglu1-mesa-dev libpng-dev
+sudo apt install g++ build-essential libglu1-mesa-dev libpng-dev
 ```
 
 3. Navigate to main.cpp and compile
