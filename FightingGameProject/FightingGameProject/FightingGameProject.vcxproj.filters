@@ -146,9 +146,6 @@
     <ClInclude Include="FighterSpriteType.h">
       <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
-    <ClInclude Include="FighterDecalPath.h">
-      <Filter>Source Files\DecalLoader\Paths</Filter>
-    </ClInclude>
     <ClInclude Include="FighterDecals.h">
       <Filter>Source Files\DecalLoader\Concrete Loaders</Filter>
     </ClInclude>

@@ -4,20 +4,32 @@
 #include "olcPixelGameEngine.h"
 #include "DecalLoader.h"
 #include "FighterSpriteType.h"
-#include "FighterDecalPath.h"
 
 namespace RB
 {
 	class FighterDecals : public DecalLoader
 	{
 	public:
+		std::string GetPath(int32_t _spriteTypeIndex) override
+		{
+			FighterSpriteType spriteType = (FighterSpriteType)_spriteTypeIndex;
+
+			switch (spriteType)
+			{
+			case FighterSpriteType::fighter_0_idle: return "PNG files/fighter_0_idle.png";
+			case FighterSpriteType::fighter_1_idle: return "PNG files/fighter_1_idle.png";
+			}
+
+			return "none";
+		}
+
 		void LoadSprites() override
 		{
 			IF_COUT{ std::cout << std::endl; }
 
 			for (int32_t i = 0; i < (int32_t)FighterSpriteType::COUNT; i++)
 			{
-				std::string path = FighterDecalPath::GetPath(i);
+				std::string path = GetPath(i);
 
 				IF_COUT{ std::cout << "constructing Sprite: " << path << std::endl; }
 

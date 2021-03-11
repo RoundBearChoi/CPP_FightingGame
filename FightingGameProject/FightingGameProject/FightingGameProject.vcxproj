@@ -154,7 +154,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />
-    <ClInclude Include="FighterDecalPath.h" />
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="FighterSpriteType.h" />
