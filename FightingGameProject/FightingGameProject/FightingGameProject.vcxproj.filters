@@ -58,9 +58,6 @@
     <Filter Include="Source Files\DecalLoader\Concrete Loaders">
       <UniqueIdentifier>{7115bfae-bbb1-484a-8358-8bc99efe1e78}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DecalLoader\Paths">
-      <UniqueIdentifier>{d69e0be9-5907-4502-8aec-093b790ce4b2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

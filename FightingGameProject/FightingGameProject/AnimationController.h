@@ -23,7 +23,7 @@ namespace RB
 			specs.totalTiles = _totalTileCount;
 		}
 
-		AnimationStatus* GetRenderData(bool update/*, bool skipUpdate*/)
+		AnimationStatus* Update(bool updateFrame /*, bool skipUpdate*/)
 		{
 			if (status.nCurrentTile >= specs.totalTiles)
 			{
@@ -46,7 +46,7 @@ namespace RB
 				status.sourcePos.y = (int32_t)floorf(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
 			}
 
-			if (update /*&& !skipUpdate*/)
+			if (updateFrame /*&& !skipUpdate*/)
 			{
 				status.nDelayCount++;
 

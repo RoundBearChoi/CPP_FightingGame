@@ -12,7 +12,7 @@ namespace RB
 	public:
 		static void Render(olc::PixelGameEngine* ptrEngine, DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
 		{
-			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetRenderData(update);
+			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.Update(update);
 
 			int32_t x = obj->objData.GetPosition().x;
 			int32_t y = obj->objData.GetPosition().y;
