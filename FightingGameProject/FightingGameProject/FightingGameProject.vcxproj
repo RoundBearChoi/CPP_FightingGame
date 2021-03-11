@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AnimationStatus.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />

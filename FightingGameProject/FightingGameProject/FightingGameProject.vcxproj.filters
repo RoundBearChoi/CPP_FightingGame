@@ -16,9 +16,6 @@
     <Filter Include="Source Files\GameObj">
       <UniqueIdentifier>{97e3a74f-4848-4bb4-b35a-198aa6f7daf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObj\ObjGroups">
-      <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObj\Base">
       <UniqueIdentifier>{a1b54224-42db-4b33-8c46-4869a15eebe7}</UniqueIdentifier>
     </Filter>
@@ -58,6 +55,9 @@
     <Filter Include="Source Files\DecalLoader\Concrete Loaders">
       <UniqueIdentifier>{7115bfae-bbb1-484a-8358-8bc99efe1e78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameObj\Concrete Groups">
+      <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,10 +81,7 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighters.h">
-      <Filter>Source Files\GameObj\ObjGroups</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjGroup.h">
-      <Filter>Source Files\GameObj\ObjGroups</Filter>
+      <Filter>Source Files\GameObj\Concrete Groups</Filter>
     </ClInclude>
     <ClInclude Include="GameObj.h">
       <Filter>Source Files\GameObj\Base</Filter>
@@ -151,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGroup.h">
+      <Filter>Source Files\GameObj\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Source Files\GameObj\Concrete Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

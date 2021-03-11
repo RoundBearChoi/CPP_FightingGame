@@ -1,24 +1,22 @@
 #pragma once
-#include <vector>
-#include "GameObj.h"
 #include "ObjGroup.h"
-#include "GameData.h"
+#include "GameObj.h"
 #include "SheetRenderer.h"
 
 namespace RB
 {
-	class Fighters : public ObjGroup
+	class Background : public ObjGroup
 	{
 	private:
 		GameObj arrObjs[2];
 
 	public:
-		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
+		void SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 		{
 			size_t count = GetCreationCount();
 
-			arrObjs[_index].objData.SetSpriteSize({ 180, 180 });
-			arrObjs[_index].objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+			arrObjs[_index].objData.SetSpriteSize({ 854, 480 });
+			arrObjs[_index].objData.SetOffsetType(OffsetType::CENTER_CENTER);
 			arrObjs[_index].objData.SetPosition(_startingPos);
 
 			arrObjs[_index].objData.SetCreationID(count);
@@ -36,7 +34,7 @@ namespace RB
 			for (int32_t i = 0; i < 2; i++)
 			{
 				State* s = arrObjs[i].stateController.currentState;
-				
+
 				if (s != nullptr)
 				{
 					s->Enter(arrObjs[i].objData, gameData);
