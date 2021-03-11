@@ -39,7 +39,7 @@ namespace RB
 
 		void LoadDecals() override
 		{
-			for (int i = 0; i < vecSpritePtr.size(); i++)
+			for (int32_t i = 0; i < vecSpritePtr.size(); i++)
 			{
 				IF_COUT{ std::cout << "constructing Decal: " << i << std::endl; }
 

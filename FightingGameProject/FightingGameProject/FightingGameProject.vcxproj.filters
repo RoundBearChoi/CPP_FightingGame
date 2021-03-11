@@ -68,9 +68,6 @@
     <ClInclude Include="Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="olcPixelGameEngine.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -151,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="SceneController.h">
       <Filter>Source Files\Scenes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="olcPixelGameEngine.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
