@@ -43,7 +43,7 @@ namespace RB
 			if (status.sourceSize.x != 0 && status.sourceSize.y > 0)
 			{
 				status.sourcePos.x = (status.nCurrentTile % specs.tileCountX) * status.sourceSize.x;
-				status.sourcePos.y = (int32_t)floorf(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
+				status.sourcePos.y = (int32_t)floor(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
 			}
 
 			if (updateFrame /*&& !skipUpdate*/)

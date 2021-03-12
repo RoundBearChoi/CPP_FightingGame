@@ -63,7 +63,7 @@ namespace RB
 			arrObjs[1].objData.SetPosition(pos1);
 
 			float sunX = 350.0f / cam.GetZoom();
-			pos2.x += sunX;
+			pos2.x += (int32_t)std::round(sunX);
 			arrObjs[2].objData.SetPosition(pos2);
 		}
 
