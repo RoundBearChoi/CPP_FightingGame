@@ -71,10 +71,8 @@ namespace RB
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) override
 		{
-			for (int32_t i = 0; i < 2; i++)
-			{
-				SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[i], cam, update);
-			}
+			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[1], cam, update);
+			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[0], cam, update);
 		}
 	};
 }

@@ -39,7 +39,7 @@ namespace RB
 			fighters.SetInitialState<Fighter_1_Start>(1);
 
 			background.SetBackgroundInfo(0, { 0, -250 });
-			background.SetBackgroundInfo(1, { 0, -480 });
+			background.SetBackgroundInfo(1, { 0, -400 });
 			background.SetInitialState<Background_Idle_Trees>(0);
 			background.SetInitialState<Background_Idle_Mountains>(1);
 		}
