@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <array>
 #include "GameObj.h"
 #include "ObjGroup.h"
 #include "GameData.h"
@@ -11,7 +12,7 @@ namespace RB
 	class Fighters : public ObjGroup
 	{
 	private:
-		GameObj arrObjs[2];
+		std::array<GameObj, 2> arrObjs;
 
 	public:
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
@@ -33,32 +34,32 @@ namespace RB
 
 		void UpdateState(GameData& gameData) override
 		{
-			for (int32_t i = 0; i < 2; i++)
+			for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 			{
-				State* s = arrObjs[i].stateController.currentState;
-				
+				State* s = (*i).stateController.currentState;
+
 				if (s != nullptr)
 				{
-					s->Enter(arrObjs[i].objData, gameData);
-					s->UpdateState(arrObjs[i].objData, gameData);
+					s->Enter((*i).objData, gameData);
+					s->UpdateState((*i).objData, gameData);
 				}
 			}
 		}
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) override
 		{
-			for (int32_t i = 0; i < 2; i++)
+			for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 			{
-				arrObjs[i].RenderSpriteSize(ptrEngine, cam);
-				arrObjs[i].RenderPosition(ptrEngine, cam);
+				(*i).RenderSpriteSize(ptrEngine, cam);
+				(*i).RenderPosition(ptrEngine, cam);
 			}
 		}
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) override
 		{
-			for (int32_t i = 0; i < 2; i++)
+			for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 			{
-				SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[i], cam, update);
+				SheetRenderer::Render(ptrEngine, ptrDecalLoader, &(*i), cam, update);
 			}
 		}
 	};

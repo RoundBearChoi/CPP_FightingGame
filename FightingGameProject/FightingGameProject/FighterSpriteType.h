@@ -8,6 +8,7 @@ namespace RB
 		fighter_1_idle,
 		background_trees_20,
 		background_mountains,
+		background_sun,
 
 		COUNT,
 	};

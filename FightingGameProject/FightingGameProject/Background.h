@@ -1,4 +1,5 @@
 #pragma once
+#include <array>
 #include "ObjGroup.h"
 #include "GameObj.h"
 #include "SheetRenderer.h"
@@ -9,7 +10,7 @@ namespace RB
 	class Background : public ObjGroup
 	{
 	private:
-		GameObj arrObjs[2];
+		std::array<GameObj, 3> arrObjs;
 
 	public:
 		void SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
@@ -36,14 +37,14 @@ namespace RB
 
 		void UpdateState(GameData& gameData) override
 		{
-			for (int32_t i = 0; i < 2; i++)
+			for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 			{
-				State* s = arrObjs[i].stateController.currentState;
+				State* s = (*i).stateController.currentState;
 
 				if (s != nullptr)
 				{
-					s->Enter(arrObjs[i].objData, gameData);
-					s->UpdateState(arrObjs[i].objData, gameData);
+					s->Enter((*i).objData, gameData);
+					s->UpdateState((*i).objData, gameData);
 				}
 			}
 		}
@@ -52,25 +53,30 @@ namespace RB
 		{
 			float x0 = (float)cam.GetPosition().x * 0.65f;
 			float x1 = (float)cam.GetPosition().x * 0.8f;
+			float x2 = (float)cam.GetPosition().x * 0.9f;
 
 			olc::vi2d pos0{ (int32_t)std::round(x0), arrObjs[0].objData.GetPosition().y };
 			olc::vi2d pos1{ (int32_t)std::round(x1), arrObjs[1].objData.GetPosition().y };
+			olc::vi2d pos2{ (int32_t)std::round(x2), arrObjs[2].objData.GetPosition().y };
 
 			arrObjs[0].objData.SetPosition(pos0);
 			arrObjs[1].objData.SetPosition(pos1);
+
+			float sunX = 350.0f / cam.GetZoom();
+			pos2.x += sunX;
+			arrObjs[2].objData.SetPosition(pos2);
 		}
 
 		void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) override
 		{
-			for (int32_t i = 0; i < 2; i++)
-			{
-				arrObjs[i].RenderSpriteSize(ptrEngine, cam);
-				arrObjs[i].RenderPosition(ptrEngine, cam);
-			}
+			arrObjs[0].RenderSpriteSize(ptrEngine, cam);
+			arrObjs[1].RenderPosition(ptrEngine, cam);
+			arrObjs[2].RenderPosition(ptrEngine, cam);
 		}
 
 		void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) override
 		{
+			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[2], cam, update);
 			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[1], cam, update);
 			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[0], cam, update);
 		}

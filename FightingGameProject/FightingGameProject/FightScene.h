@@ -11,6 +11,7 @@
 //background states
 #include "Background_Idle_Trees.h"
 #include "Background_Idle_Mountains.h"
+#include "Background_Idle_Sun.h"
 
 namespace RB
 {
@@ -35,13 +36,17 @@ namespace RB
 		{
 			fighters.SetFighterInfo(0, { -220, 0 });
 			fighters.SetFighterInfo(1, { 220, 0 });
+
 			fighters.SetInitialState<Fighter_0_Start>(0);
 			fighters.SetInitialState<Fighter_1_Start>(1);
 
-			background.SetBackgroundInfo(0, { 0, -250 });
-			background.SetBackgroundInfo(1, { 0, -400 });
+			background.SetBackgroundInfo(0, { 0, -250 }); //trees
+			background.SetBackgroundInfo(1, { 0, -400 }); //mountains
+			background.SetBackgroundInfo(2, { 0, -530 }); //sun
+
 			background.SetInitialState<Background_Idle_Trees>(0);
 			background.SetInitialState<Background_Idle_Mountains>(1);
+			background.SetInitialState<Background_Idle_Sun>(2);
 		}
 
 		void Update(GameData& gameData) override
