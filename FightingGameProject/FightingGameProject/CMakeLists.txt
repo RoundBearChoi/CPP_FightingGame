@@ -8,6 +8,15 @@ project(CPPFightingGame)
 add_executable(
     CPPFightingGame
     main.cpp
+
+    AnimationController.cpp
+    Background.cpp
+    Camera.cpp
+    FighterDecals.cpp
+    Fighters.cpp
+    FightScene.cpp
+    GameObj.cpp
+    StateController.cpp
 )
 
 target_link_libraries(CPPFightingGame -lX11 -lGL -lpthread -lpng -lstdc++fs)
