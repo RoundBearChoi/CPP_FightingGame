@@ -1,4 +1,5 @@
 #include "FighterDecals.h"
+#include "FighterSpriteType.h"
 
 namespace RB
 {
@@ -16,6 +17,16 @@ namespace RB
 		}
 
 		return "none";
+	}
+
+	olc::Decal* FighterDecals::GetDecal(int32_t _index)
+	{
+		return vecDecalPtr[_index];
+	}
+
+	size_t FighterDecals::GetSpriteCount()
+	{
+		return vecSpritePtr.size();
 	}
 
 	void FighterDecals::LoadSprites()
@@ -40,15 +51,5 @@ namespace RB
 
 			vecDecalPtr.push_back(new olc::Decal(vecSpritePtr[i]));
 		}
-	}
-
-	olc::Decal* FighterDecals::GetDecal(int32_t _index)
-	{
-		return vecDecalPtr[_index];
-	}
-
-	size_t FighterDecals::GetSpriteCount()
-	{
-		return vecSpritePtr.size();
 	}
 }

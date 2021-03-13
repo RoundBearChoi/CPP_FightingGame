@@ -1,7 +1,18 @@
 #include "GameObj.h"
+#include "DevSettings.h"
 
 namespace RB
 {
+	GameObj::GameObj()
+	{
+		IF_COUT{ std::cout << "construcing GameObj: " << objData.GetCreationID() << std::endl; }
+	}
+
+	GameObj::~GameObj()
+	{
+		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
+	}
+
 	void GameObj::RenderPosition(olc::PixelGameEngine* ptrEngine, Camera& cam)
 	{
 		olc::vi2d relative = RelativeVector::GetPosition(objData.GetPosition(), cam);

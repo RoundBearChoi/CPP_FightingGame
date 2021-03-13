@@ -148,6 +148,8 @@
     <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameObj.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneController.cpp" />
     <ClCompile Include="StateController.cpp" />
   </ItemGroup>
   <ItemGroup>

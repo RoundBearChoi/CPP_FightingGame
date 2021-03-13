@@ -1,9 +1,6 @@
 #pragma once
 #include <vector>
-#include "DevSettings.h"
-#include "olcPixelGameEngine.h"
 #include "DecalLoader.h"
-#include "FighterSpriteType.h"
 
 namespace RB
 {

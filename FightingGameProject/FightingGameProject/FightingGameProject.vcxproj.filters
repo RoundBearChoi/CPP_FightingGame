@@ -90,6 +90,12 @@
     <ClCompile Include="FightScene.cpp">
       <Filter>Source Files\Scenes\Concrete Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Scenes\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneController.cpp">
+      <Filter>Source Files\Scenes\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
