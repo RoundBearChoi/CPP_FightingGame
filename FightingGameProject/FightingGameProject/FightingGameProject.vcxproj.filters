@@ -66,6 +66,24 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationController.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="FighterDecals.cpp">
+      <Filter>Source Files\DecalLoader\Concrete Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj.cpp">
+      <Filter>Source Files\GameObj\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="Fighters.cpp">
+      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

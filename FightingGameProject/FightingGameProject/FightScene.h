@@ -4,15 +4,15 @@
 #include "Background.h"
 #include "GameWindow.h"
 
+#include "Fighter_0_Start.h"
+#include "Fighter_1_Start.h"
+
+#include "Background_Idle_Trees.h"
+#include "Background_Idle_Mountains.h"
+#include "Background_Idle_Sun.h"
+
 namespace RB
 {
-	class Fighter_0_Start;
-	class Fighter_1_Start;
-
-	class Background_Idle_Trees;
-	class Background_Idle_Mountains;
-	class Background_Idle_Sun;
-
 	class FightScene : public Scene
 	{
 	private:
