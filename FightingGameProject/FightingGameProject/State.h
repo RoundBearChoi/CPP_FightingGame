@@ -17,7 +17,7 @@ namespace RB
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 
-		void Enter(ObjData& objData, GameData& gameData)
+		void TriggerEnter(ObjData& objData, GameData& gameData)
 		{
 			if (!entered)
 			{

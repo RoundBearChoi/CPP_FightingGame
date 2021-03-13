@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "DevSettings.h"
 
 namespace RB
 {
@@ -12,12 +13,9 @@ namespace RB
 	public:
 		State* currentState = nullptr;
 
-		~StateController()
-		{
-			IF_COUT{ std::cout << "destructing StateController: " << creationID << std::endl; }
-
-			delete currentState;
-		}
+		~StateController();
+		void MakeStateTransition();
+		void SetCreationID(size_t _id);
 
 		template<class T>
 		void CreateNewState()
@@ -29,23 +27,6 @@ namespace RB
 				delete currentState;
 				currentState = s;
 			}
-		}
-
-		void MakeStateTransition()
-		{
-			State* next = currentState->nextState;
-
-			if (next != nullptr)
-			{
-				delete currentState;
-				currentState = next;
-				currentState->nextState = nullptr;
-			}
-		}
-
-		void SetCreationID(size_t _id)
-		{
-			creationID = _id;
 		}
 	};
 }

@@ -10,7 +10,7 @@ namespace RB
 
 			if (s != nullptr)
 			{
-				s->Enter((*i).objData, gameData);
+				s->TriggerEnter((*i).objData, gameData);
 				s->UpdateState((*i).objData, gameData);
 			}
 		}

@@ -84,6 +84,12 @@
     <ClCompile Include="Fighters.cpp">
       <Filter>Source Files\GameObj\Concrete Groups</Filter>
     </ClCompile>
+    <ClCompile Include="StateController.cpp">
+      <Filter>Source Files\State\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="FightScene.cpp">
+      <Filter>Source Files\Scenes\Concrete Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

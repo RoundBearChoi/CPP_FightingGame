@@ -145,8 +145,10 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FighterDecals.cpp" />
     <ClCompile Include="Fighters.cpp" />
+    <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameObj.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StateController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationController.h" />
