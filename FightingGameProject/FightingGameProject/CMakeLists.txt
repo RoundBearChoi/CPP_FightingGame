@@ -16,6 +16,8 @@ add_executable(
     Fighters.cpp
     FightScene.cpp
     GameObj.cpp
+    Scene.cpp
+    SceneController.cpp
     StateController.cpp
 )
 
