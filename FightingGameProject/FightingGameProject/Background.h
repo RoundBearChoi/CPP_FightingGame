@@ -5,6 +5,11 @@
 #include "SheetRenderer.h"
 #include "CreationCount.h"
 
+//background states
+#include "Background_Idle_Trees.h"
+#include "Background_Idle_Mountains.h"
+#include "Background_Idle_Sun.h"
+
 namespace RB
 {
 	class Background : public ObjGroup

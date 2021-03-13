@@ -7,6 +7,10 @@
 #include "SheetRenderer.h"
 #include "CreationCount.h"
 
+//fighter states
+#include "Fighter_0_Start.h"
+#include "Fighter_1_Start.h"
+
 namespace RB
 {
 	class Fighters : public ObjGroup
