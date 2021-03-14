@@ -52,8 +52,6 @@ https://youtube.com/playlist?list=PLWYGofN_jX5Apmb8pJUD8NN3KskHW2lcy
 
 This project uses olcPixelGameEngine by OneLoneCoder
 
-https://github.com/OneLoneCoder/olcPixelGameEngine
-
 <br>
 
 Copyright 2018, 2019, 2020, 2021 OneLoneCoder.com
