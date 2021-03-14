@@ -13,14 +13,14 @@ namespace RB
 		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
 	}
 
-	void GameObj::RenderPosition(olc::PixelGameEngine* ptrEngine, Camera& cam)
+	void GameObj::RenderPosition(Camera& cam)
 	{
 		olc::vi2d relative = RelativeVector::GetPosition(objData.GetPosition(), cam);
 
-		ptrEngine->FillCircle(relative, 2, olc::RED);
+		olc::Renderer::ptrPGE->FillCircle(relative, 2, olc::RED);
 	}
 
-	void GameObj::RenderSpriteSize(olc::PixelGameEngine* ptrEngine, Camera& cam)
+	void GameObj::RenderSpriteSize(Camera& cam)
 	{
 		if (objData.GetOffsetType() == OffsetType::BOTTOM_CENTER)
 		{
@@ -33,7 +33,7 @@ namespace RB
 				olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
 				olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
 
-				ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+				olc::Renderer::ptrPGE->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 			}
 		}
 		else if (objData.GetOffsetType() == OffsetType::CENTER_CENTER)
@@ -47,7 +47,7 @@ namespace RB
 				olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
 				olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
 
-				ptrEngine->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+				olc::Renderer::ptrPGE->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 			}
 		}
 	}

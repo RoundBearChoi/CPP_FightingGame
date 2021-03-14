@@ -14,11 +14,11 @@ namespace RB
 
 		virtual void InitScene() = 0;
 		virtual void Update(GameData& gameData) = 0;
-		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine) = 0;
-		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) = 0;
+		virtual void RenderObjPosition() = 0;
+		virtual void RenderStates(bool update) = 0;
 
 		virtual ~Scene();
 
-		void RenderCenterMark(olc::PixelGameEngine* ptrEngine, Camera& cam);
+		void RenderCenterMark(Camera& cam);
 	};
 }

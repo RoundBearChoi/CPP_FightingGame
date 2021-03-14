@@ -15,7 +15,7 @@ namespace RB
 		float fTime = 0.0f;
 
 	public:
-		bool UpdateGame(float fElapsedTime, olc::PixelGameEngine* ptrEngine)
+		bool UpdateGame(float fElapsedTime)
 		{
 			fAccumulatedTime += fElapsedTime;
 
@@ -42,9 +42,9 @@ namespace RB
 			}
 		}
 
-		void ShowUpdateCount(olc::PixelGameEngine* ptrEngine)
+		void ShowUpdateCount()
 		{
-			ptrEngine->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
 		}
 	};
 }

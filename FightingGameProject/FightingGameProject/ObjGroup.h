@@ -9,7 +9,7 @@ namespace RB
 	{
 	public:
 		virtual void UpdateState(GameData& gameData) = 0;
-		virtual void RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam) = 0;
-		virtual void RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update) = 0;
+		virtual void RenderObjPosition(Camera& cam) = 0;
+		virtual void RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update) = 0;
 	};
 }

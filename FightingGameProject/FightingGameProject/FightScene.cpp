@@ -45,17 +45,17 @@ namespace RB
 		fighters.UpdateState(gameData);
 	}
 
-	void FightScene::RenderObjPosition(olc::PixelGameEngine* ptrEngine)
+	void FightScene::RenderObjPosition()
 	{
-		RenderCenterMark(ptrEngine, cam);
+		RenderCenterMark(cam);
 
-		//background.RenderObjPosition(ptrEngine, cam);
-		//fighters.RenderObjPosition(ptrEngine, cam);
+		//background.RenderObjPosition(cam);
+		//fighters.RenderObjPosition(cam);
 	}
 
-	void FightScene::RenderStates(olc::PixelGameEngine* ptrEngine, bool update)
+	void FightScene::RenderStates(bool update)
 	{
-		background.RenderStates(ptrEngine, ptrDecalLoader, cam, update);
-		fighters.RenderStates(ptrEngine, ptrDecalLoader, cam, update);
+		background.RenderStates(ptrDecalLoader, cam, update);
+		fighters.RenderStates(ptrDecalLoader, cam, update);
 	}
 }

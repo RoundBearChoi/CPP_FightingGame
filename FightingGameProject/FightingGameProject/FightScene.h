@@ -18,7 +18,7 @@ namespace RB
 
 		void InitScene() override;
 		void Update(GameData& gameData) override;
-		void RenderObjPosition(olc::PixelGameEngine* ptrEngine) override;
-		void RenderStates(olc::PixelGameEngine* ptrEngine, bool update) override;
+		void RenderObjPosition() override;
+		void RenderStates(bool update) override;
 	};
 }

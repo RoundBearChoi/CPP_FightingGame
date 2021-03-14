@@ -10,7 +10,7 @@ namespace RB
 	class SheetRenderer
 	{
 	public:
-		static void Render(olc::PixelGameEngine* ptrEngine, DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
+		static void Render(DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
 		{
 			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.Update(update);
 
@@ -64,7 +64,7 @@ namespace RB
 			relativePoints[2] = RelativeVector::GetPosition(points[2], cam);
 			relativePoints[3] = RelativeVector::GetPosition(points[3], cam);
 
-			ptrEngine->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
+			olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
 		}
 	};
 }

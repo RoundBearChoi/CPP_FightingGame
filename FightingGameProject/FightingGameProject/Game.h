@@ -36,7 +36,7 @@ namespace RB
 
 			input.UpdateInput(this);
 
-			if (timer.UpdateGame(fElapsedTime, this))
+			if (timer.UpdateGame(fElapsedTime))
 			{
 				//set gamedata per frame
 				GameData gameData;
@@ -44,18 +44,18 @@ namespace RB
 
 				sceneController.currentScene->cam.Update(gameData);
 				sceneController.currentScene->Update(gameData);
-				sceneController.currentScene->RenderStates(this, true);
+				sceneController.currentScene->RenderStates(true);
 
 				//only clear after update
 				input.ClearKeyQueues();
 			}
 			else
 			{
-				sceneController.currentScene->RenderStates(this, false);
+				sceneController.currentScene->RenderStates(false);
 			}
 
-			sceneController.currentScene->RenderObjPosition(this);
-			timer.ShowUpdateCount(this);
+			sceneController.currentScene->RenderObjPosition();
+			timer.ShowUpdateCount();
 
 			return true;
 		}

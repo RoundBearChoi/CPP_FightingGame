@@ -17,20 +17,20 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam)
+	void Fighters::RenderObjPosition(Camera& cam)
 	{
 		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 		{
-			(*i).RenderSpriteSize(ptrEngine, cam);
-			(*i).RenderPosition(ptrEngine, cam);
+			(*i).RenderSpriteSize(cam);
+			(*i).RenderPosition(cam);
 		}
 	}
 
-	void Fighters::RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update)
+	void Fighters::RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update)
 	{
 		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 		{
-			SheetRenderer::Render(ptrEngine, ptrDecalLoader, &(*i), cam, update);
+			SheetRenderer::Render(ptrDecalLoader, &(*i), cam, update);
 		}
 	}
 

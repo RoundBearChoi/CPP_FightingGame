@@ -9,7 +9,7 @@ namespace RB
 		IF_COUT{ std::cout << "destructing Scene (virtual)" << std::endl; }
 	}
 
-	void Scene::RenderCenterMark(olc::PixelGameEngine* ptrEngine, Camera& cam)
+	void Scene::RenderCenterMark(Camera& cam)
 	{
 		olc::vi2d bottom{ 0, 7 };
 		olc::vi2d top{ 0, -7 };
@@ -21,7 +21,7 @@ namespace RB
 		olc::vi2d relativeLeft = RelativeVector::GetPosition(left, cam);
 		olc::vi2d relativeRight = RelativeVector::GetPosition(right, cam);
 
-		ptrEngine->DrawLine(relativeTop, relativeBottom, olc::GREEN);
-		ptrEngine->DrawLine(relativeLeft, relativeRight, olc::GREEN);
+		olc::Renderer::ptrPGE->DrawLine(relativeTop, relativeBottom, olc::GREEN);
+		olc::Renderer::ptrPGE->DrawLine(relativeLeft, relativeRight, olc::GREEN);
 	}
 }

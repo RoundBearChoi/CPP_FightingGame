@@ -15,7 +15,7 @@ namespace RB
 		GameObj();
 		~GameObj();
 
-		void RenderPosition(olc::PixelGameEngine* ptrEngine, Camera& cam);
-		void RenderSpriteSize(olc::PixelGameEngine* ptrEngine, Camera& cam);
+		void RenderPosition(Camera& cam);
+		void RenderSpriteSize(Camera& cam);
 	};
 }

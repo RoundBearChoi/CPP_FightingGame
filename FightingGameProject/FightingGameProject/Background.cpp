@@ -16,18 +16,18 @@ namespace RB
 		}
 	}
 
-	void Background::RenderObjPosition(olc::PixelGameEngine* ptrEngine, Camera& cam)
+	void Background::RenderObjPosition(Camera& cam)
 	{
-		arrObjs[0].RenderSpriteSize(ptrEngine, cam);
-		arrObjs[1].RenderPosition(ptrEngine, cam);
-		arrObjs[2].RenderPosition(ptrEngine, cam);
+		arrObjs[0].RenderSpriteSize(cam);
+		arrObjs[1].RenderPosition(cam);
+		arrObjs[2].RenderPosition(cam);
 	}
 
-	void Background::RenderStates(olc::PixelGameEngine* ptrEngine, DecalLoader* ptrDecalLoader, Camera& cam, bool update)
+	void Background::RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update)
 	{
-		SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[2], cam, update);
-		SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[1], cam, update);
-		SheetRenderer::Render(ptrEngine, ptrDecalLoader, &arrObjs[0], cam, update);
+		SheetRenderer::Render(ptrDecalLoader, &arrObjs[2], cam, update);
+		SheetRenderer::Render(ptrDecalLoader, &arrObjs[1], cam, update);
+		SheetRenderer::Render(ptrDecalLoader, &arrObjs[0], cam, update);
 	}
 
 	void Background::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
