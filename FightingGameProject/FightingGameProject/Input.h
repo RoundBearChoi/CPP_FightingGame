@@ -18,23 +18,23 @@ namespace RB
 		bool Queued_Down = false;
 
 	public:
-		void UpdateInput(olc::PixelGameEngine* ptrEngine)
+		void UpdateInput()
 		{
-			UpdateKey(ptrEngine, Pressed_Left, Queued_Left, olc::Key::LEFT);
-			UpdateKey(ptrEngine, Pressed_Right, Queued_Right, olc::Key::RIGHT);
-			UpdateKey(ptrEngine, Pressed_Up, Queued_Up, olc::Key::UP);
-			UpdateKey(ptrEngine, Pressed_Down, Queued_Down, olc::Key::DOWN);
+			UpdateKey(Pressed_Left, Queued_Left, olc::Key::LEFT);
+			UpdateKey(Pressed_Right, Queued_Right, olc::Key::RIGHT);
+			UpdateKey(Pressed_Up, Queued_Up, olc::Key::UP);
+			UpdateKey(Pressed_Down, Queued_Down, olc::Key::DOWN);
 		}
 
-		void UpdateKey(olc::PixelGameEngine* ptrEngine, bool& pressed, bool& queued, olc::Key targetKey)
+		void UpdateKey(bool& pressed, bool& queued, olc::Key targetKey)
 		{
-			if (ptrEngine->GetKey(targetKey).bPressed)
+			if (olc::Platform::ptrPGE->GetKey(targetKey).bPressed)
 			{
 				pressed = true;
 				queued = true;
 			}
 
-			if (ptrEngine->GetKey(targetKey).bReleased)
+			if (olc::Platform::ptrPGE->GetKey(targetKey).bReleased)
 			{
 				pressed = false;
 			}

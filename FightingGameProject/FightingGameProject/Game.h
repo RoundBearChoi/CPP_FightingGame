@@ -34,7 +34,7 @@ namespace RB
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
 
-			input.UpdateInput(this);
+			input.UpdateInput();
 
 			if (timer.UpdateGame(fElapsedTime))
 			{
