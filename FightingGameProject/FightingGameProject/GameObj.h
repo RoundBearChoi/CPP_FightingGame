@@ -1,5 +1,4 @@
 #pragma once
-#include "olcPixelGameEngine.h"
 #include "ObjData.h"
 #include "StateController.h"
 #include "RelativeVector.h"

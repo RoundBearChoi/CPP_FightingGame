@@ -1,5 +1,6 @@
 #include "GameObj.h"
 #include "DevSettings.h"
+#include "Renderer.h"
 
 namespace RB
 {
@@ -17,7 +18,7 @@ namespace RB
 	{
 		olc::vi2d relative = RelativeVector::GetPosition(objData.GetPosition(), cam);
 
-		olc::Renderer::ptrPGE->FillCircle(relative, 2, olc::RED);
+		RENDERER->FillCircle(relative, 2, olc::RED);
 	}
 
 	void GameObj::RenderSpriteSize(Camera& cam)
@@ -33,7 +34,7 @@ namespace RB
 				olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
 				olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
 
-				olc::Renderer::ptrPGE->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+				RENDERER->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 			}
 		}
 		else if (objData.GetOffsetType() == OffsetType::CENTER_CENTER)
@@ -47,7 +48,7 @@ namespace RB
 				olc::vi2d relativePos = RelativeVector::GetPosition(leftTop, cam);
 				olc::vi2d relativeSize = RelativeVector::GetScale(objData.GetSpriteSize(), cam.GetZoom());
 
-				olc::Renderer::ptrPGE->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
+				RENDERER->DrawRect(relativePos.x, relativePos.y, relativeSize.x, relativeSize.y);
 			}
 		}
 	}

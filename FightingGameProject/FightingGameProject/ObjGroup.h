@@ -1,5 +1,4 @@
 #pragma once
-#include "olcPixelGameEngine.h"
 #include "Camera.h"
 #include "DecalLoader.h"
 

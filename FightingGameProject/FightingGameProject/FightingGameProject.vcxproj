@@ -180,6 +180,7 @@
     <ClInclude Include="OffsetType.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="RelativeVector.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />
     <ClInclude Include="SceneType.h" />

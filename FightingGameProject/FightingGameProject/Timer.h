@@ -1,5 +1,5 @@
 #pragma once
-#include "olcPixelGameEngine.h"
+#include "Renderer.h"
 
 namespace RB
 {
@@ -44,7 +44,7 @@ namespace RB
 
 		void ShowUpdateCount()
 		{
-			olc::Renderer::ptrPGE->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
+			RENDERER->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
 		}
 	};
 }

@@ -200,5 +200,8 @@
     <ClInclude Include="Background_Idle_Sun.h">
       <Filter>Source Files\State\Concrete States\Background</Filter>
     </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

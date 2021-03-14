@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include "DevSettings.h"
 #include "olcPixelGameEngine.h"
+#include "DevSettings.h"
 
 namespace RB
 {

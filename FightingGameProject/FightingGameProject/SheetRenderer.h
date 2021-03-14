@@ -4,6 +4,7 @@
 #include "GameObj.h"
 #include "AnimationStatus.h"
 #include "Camera.h"
+#include "Renderer.h"
 
 namespace RB
 {
@@ -64,7 +65,7 @@ namespace RB
 			relativePoints[2] = RelativeVector::GetPosition(points[2], cam);
 			relativePoints[3] = RelativeVector::GetPosition(points[3], cam);
 
-			olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
+			RENDERER->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
 		}
 	};
 }
