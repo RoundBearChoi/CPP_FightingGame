@@ -5,20 +5,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 project(CPPFightingGame)
 
-add_executable(
-    CPPFightingGame
-    main.cpp
-
-    AnimationController.cpp
-    Background.cpp
-    Camera.cpp
-    FighterDecals.cpp
-    Fighters.cpp
-    FightScene.cpp
-    GameObj.cpp
-    Scene.cpp
-    SceneController.cpp
-    StateController.cpp
+add_executable(CPPFightingGame
+AnimationController.cpp
+Background.cpp
+Camera.cpp
+FighterDecals.cpp
+Fighters.cpp
+FightScene.cpp
+GameObj.cpp
+main.cpp
+Scene.cpp
+SceneController.cpp
+StateController.cpp
 )
 
 target_link_libraries(CPPFightingGame -lX11 -lGL -lpthread -lpng -lstdc++fs)
