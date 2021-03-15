@@ -30,13 +30,7 @@ sudo apt install cmake g++ build-essential libglu1-mesa-dev libpng-dev
 
 ```
 cmake .
-```
-
-```
 make
-```
-
-```
 ./CPPFightingGame
 ```
 
