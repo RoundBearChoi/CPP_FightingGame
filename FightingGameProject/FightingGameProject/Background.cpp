@@ -18,7 +18,7 @@ namespace RB
 
 	void Background::RenderObjPosition(Camera& cam)
 	{
-		arrObjs[0].RenderSpriteSize(cam);
+		//arrObjs[0].RenderSpriteSize(cam);
 		arrObjs[1].RenderPosition(cam);
 		arrObjs[2].RenderPosition(cam);
 	}

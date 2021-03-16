@@ -21,7 +21,7 @@ namespace RB
 	{
 		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 		{
-			(*i).RenderSpriteSize(cam);
+			//(*i).RenderSpriteSize(cam);
 			(*i).RenderPosition(cam);
 		}
 	}

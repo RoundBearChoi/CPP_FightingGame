@@ -9,7 +9,7 @@ namespace RB
 
 		switch (spriteType)
 		{
-		case FighterSpriteType::fighter_0_idle: return "PNG files/fighter_0_idle.png";
+		case FighterSpriteType::fighter_0_idle_0: return "PNG files/fighter_0_idle_0.png";
 		case FighterSpriteType::fighter_1_idle: return "PNG files/fighter_1_idle.png";
 		case FighterSpriteType::background_trees_20: return "PNG files/background_trees_20.png";
 		case FighterSpriteType::background_mountains: return "PNG files/background_mountains.png";

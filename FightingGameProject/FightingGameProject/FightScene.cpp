@@ -49,8 +49,8 @@ namespace RB
 	{
 		RenderCenterMark(cam);
 
-		//background.RenderObjPosition(cam);
-		//fighters.RenderObjPosition(cam);
+		background.RenderObjPosition(cam);
+		fighters.RenderObjPosition(cam);
 	}
 
 	void FightScene::RenderStates(bool update)
