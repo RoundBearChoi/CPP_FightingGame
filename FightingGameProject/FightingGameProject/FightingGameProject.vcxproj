@@ -164,8 +164,8 @@
     <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="FighterDecals.h" />
-    <ClInclude Include="Fighter_0_Start.h" />
-    <ClInclude Include="Fighter_1_Start.h" />
+    <ClInclude Include="Fighter_0_Idle.h" />
+    <ClInclude Include="Fighter_1_Idle.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />

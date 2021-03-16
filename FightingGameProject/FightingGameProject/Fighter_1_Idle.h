@@ -4,7 +4,7 @@
 
 namespace RB
 {
-	class Fighter_1_Start : public State
+	class Fighter_1_Idle : public State
 	{
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{

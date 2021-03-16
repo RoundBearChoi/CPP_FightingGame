@@ -149,10 +149,10 @@
     <ClInclude Include="StateController.h">
       <Filter>Source Files\State\Base</Filter>
     </ClInclude>
-    <ClInclude Include="Fighter_0_Start.h">
+    <ClInclude Include="Fighter_0_Idle.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
     </ClInclude>
-    <ClInclude Include="Fighter_1_Start.h">
+    <ClInclude Include="Fighter_1_Idle.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
     </ClInclude>
     <ClInclude Include="AnimationController.h">
