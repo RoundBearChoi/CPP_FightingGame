@@ -12,5 +12,7 @@ namespace RB
 		bool right = false;
 		bool up = false;
 		bool down = false;
+
+		bool d = false;
 	};
 }

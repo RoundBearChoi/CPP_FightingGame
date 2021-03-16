@@ -15,9 +15,10 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			//olc::vi2d pos = objData.GetPosition();
-			//pos.x -= 1;
-			//objData.SetPosition(pos);
+			if (gameData.d)
+			{
+
+			}
 		}
 	};
 }
