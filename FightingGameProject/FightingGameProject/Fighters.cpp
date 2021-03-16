@@ -11,7 +11,11 @@ namespace RB
 
 			if (s != nullptr)
 			{
-				s->TriggerEnter((*i).objData, gameData);
+				if (s->IsNew())
+				{
+					s->OnEnter((*i).objData, gameData);
+				}
+				
 				s->UpdateState((*i).objData, gameData);
 			}
 		}

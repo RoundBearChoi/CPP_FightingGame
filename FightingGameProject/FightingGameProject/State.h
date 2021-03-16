@@ -8,7 +8,7 @@ namespace RB
 	class State
 	{
 	protected:
-		bool entered = false;
+		bool isNew = true;
 
 	public:
 		State* nextState = nullptr;
@@ -17,12 +17,16 @@ namespace RB
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 
-		void TriggerEnter(ObjData& objData, GameData& gameData)
+		bool IsNew()
 		{
-			if (!entered)
+			if (isNew)
 			{
-				entered = true;
-				OnEnter(objData, gameData);
+				isNew = false;
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 
