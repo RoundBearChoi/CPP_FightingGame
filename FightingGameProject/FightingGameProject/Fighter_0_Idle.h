@@ -11,7 +11,7 @@ namespace RB
 	public:
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_idle_0, 2000, 200, 5, 1, 5);
+			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_idle, 2000, 200, 5, 1, 5);
 			animationController.status.nTransitionDelay = 10;
 			objData.SetSpriteSize({ 400, 230 });
 		}
