@@ -7,6 +7,8 @@ namespace RB
 	{
 		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 		{
+			(*i).stateController.MakeStateTransition();
+
 			State* s = (*i).stateController.currentState;
 
 			if (s != nullptr)
@@ -17,7 +19,6 @@ namespace RB
 				}
 				
 				s->UpdateState((*i).objData, gameData);
-				(*i).stateController.MakeStateTransition();
 			}
 		}
 	}
