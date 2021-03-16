@@ -17,6 +17,7 @@ namespace RB
 				}
 				
 				s->UpdateState((*i).objData, gameData);
+				(*i).stateController.MakeStateTransition();
 			}
 		}
 	}

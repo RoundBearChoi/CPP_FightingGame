@@ -6,6 +6,7 @@ namespace RB
 {
 	class Fighter_1_Idle : public State
 	{
+	public:
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
 			animationController.SetParams((int32_t)FighterSpriteType::fighter_1_idle, 1080, 180, 6, 1, 6);

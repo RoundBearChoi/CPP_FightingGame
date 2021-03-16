@@ -2,6 +2,7 @@
 
 //fighter states
 #include "Fighter_0_Idle.h"
+#include "Fighter_0_WalkForward.h"
 #include "Fighter_1_Idle.h"
 
 //background states

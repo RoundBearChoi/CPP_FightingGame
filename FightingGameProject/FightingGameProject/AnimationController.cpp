@@ -27,6 +27,11 @@ namespace RB
 			}
 		}
 
+		if (specs.tileCountX == 0 || specs.tileCountY == 0)
+		{
+			return nullptr;
+		}
+
 		status.sourceSize.x = specs.totalWidth / specs.tileCountX;
 		status.sourceSize.y = specs.totalHeight / specs.tileCountY;
 
