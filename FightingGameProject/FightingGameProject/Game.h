@@ -54,7 +54,7 @@ namespace RB
 				sceneController.currentScene->RenderStates(false);
 			}
 
-			sceneController.currentScene->RenderObjPosition();
+			sceneController.currentScene->RenderObjs();
 			timer.ShowUpdateCount();
 
 			return true;

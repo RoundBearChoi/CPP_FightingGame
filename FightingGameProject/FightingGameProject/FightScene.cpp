@@ -47,7 +47,7 @@ namespace RB
 		fighters.UpdateState(gameData);
 	}
 
-	void FightScene::RenderObjPosition()
+	void FightScene::RenderObjs()
 	{
 		RenderCenterMark(cam);
 

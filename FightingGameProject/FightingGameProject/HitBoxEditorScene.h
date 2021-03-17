@@ -30,7 +30,7 @@ namespace RB
 		{
 		}
 
-		void RenderObjPosition() override
+		void RenderObjs() override
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 20 }, "HitBoxEditor", olc::WHITE);
 

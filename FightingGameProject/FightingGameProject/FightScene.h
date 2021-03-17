@@ -18,7 +18,7 @@ namespace RB
 
 		void InitScene() override;
 		void Update(GameData& gameData) override;
-		void RenderObjPosition() override;
+		void RenderObjs() override;
 		void RenderStates(bool update) override;
 	};
 }

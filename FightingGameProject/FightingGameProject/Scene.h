@@ -13,7 +13,7 @@ namespace RB
 
 		virtual void InitScene() = 0;
 		virtual void Update(GameData& gameData) = 0;
-		virtual void RenderObjPosition() = 0;
+		virtual void RenderObjs() = 0;
 		virtual void RenderStates(bool update) = 0;
 
 		virtual ~Scene();
