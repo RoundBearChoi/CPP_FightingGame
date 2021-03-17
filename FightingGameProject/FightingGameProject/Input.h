@@ -13,6 +13,7 @@ namespace RB
 		bool Pressed_Down = false;
 
 		bool Pressed_D = false;
+		bool Pressed_T = false;
 
 		bool Queued_Left = false;
 		bool Queued_Right = false;
@@ -20,6 +21,7 @@ namespace RB
 		bool Queued_Down = false;
 
 		bool Queued_D = false;
+		bool Queued_T = false;
 
 	public:
 		void UpdateInput()
@@ -30,6 +32,7 @@ namespace RB
 			UpdateKey(Pressed_Down, Queued_Down, olc::Key::DOWN);
 
 			UpdateKey(Pressed_D, Queued_D, olc::Key::D);
+			UpdateKey(Pressed_T, Queued_T, olc::Key::T);
 		}
 
 		void UpdateKey(bool& pressed, bool& queued, olc::Key targetKey)
@@ -54,6 +57,7 @@ namespace RB
 			gameData.down = Down();
 
 			gameData.d = D();
+			gameData.t = T();
 		}
 
 		bool Left()
@@ -86,6 +90,12 @@ namespace RB
 			else { return false; }
 		}
 
+		bool T()
+		{
+			if (Pressed_T || Queued_T) { return true; }
+			else { return false; }
+		}
+
 		void ClearKeyQueues()
 		{
 			Queued_Left = false;
@@ -94,6 +104,7 @@ namespace RB
 			Queued_Down = false;
 
 			Queued_D = false;
+			Queued_T = false;
 		}
 	};
 }

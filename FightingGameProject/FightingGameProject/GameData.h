@@ -14,5 +14,6 @@ namespace RB
 		bool down = false;
 
 		bool d = false;
+		bool t = false;
 	};
 }

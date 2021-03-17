@@ -165,6 +165,7 @@
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="FighterDecals.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
+    <ClInclude Include="Fighter_0_Jab.h" />
     <ClInclude Include="Fighter_0_WalkForward.h" />
     <ClInclude Include="Fighter_1_Idle.h" />
     <ClInclude Include="Game.h" />

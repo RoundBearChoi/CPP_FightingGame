@@ -6,6 +6,7 @@ namespace RB
 	{
 		fighter_0_idle,
 		fighter_0_walk,
+		fighter_0_jab,
 
 		fighter_1_idle,
 		background_trees_20,

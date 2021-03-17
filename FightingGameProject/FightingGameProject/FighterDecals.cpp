@@ -11,6 +11,8 @@ namespace RB
 		{
 		case FighterSpriteType::fighter_0_idle: return "PNG files/fighter_0_idle.png";
 		case FighterSpriteType::fighter_0_walk: return "PNG files/fighter_0_walk.png";
+		case FighterSpriteType::fighter_0_jab: return "PNG files/fighter_0_jab.png";
+
 		case FighterSpriteType::fighter_1_idle: return "PNG files/fighter_1_idle.png";
 		case FighterSpriteType::background_trees_20: return "PNG files/background_trees_20.png";
 		case FighterSpriteType::background_mountains: return "PNG files/background_mountains.png";

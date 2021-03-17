@@ -5,6 +5,7 @@
 namespace RB
 {
 	class Fighter_0_WalkForward;
+	class Fighter_0_Jab;
 
 	class Fighter_0_Idle : public State
 	{
@@ -18,6 +19,11 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
+			if (gameData.t)
+			{
+				nextState = State::NewState<Fighter_0_Jab>();
+			}
+
 			if (gameData.d)
 			{
 				nextState = State::NewState<Fighter_0_WalkForward>();
