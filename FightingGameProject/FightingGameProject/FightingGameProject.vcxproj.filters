@@ -209,5 +209,8 @@
     <ClInclude Include="Fighter_0_Jab.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
     </ClInclude>
+    <ClInclude Include="HitBoxEditorScene.h">
+      <Filter>Source Files\Scenes\Concrete Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

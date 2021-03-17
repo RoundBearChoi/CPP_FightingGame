@@ -176,6 +176,7 @@
     <ClInclude Include="FighterSpriteType.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="AnimationSpecs.h" />
+    <ClInclude Include="HitBoxEditorScene.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ObjData.h" />
     <ClInclude Include="ObjGroup.h" />
