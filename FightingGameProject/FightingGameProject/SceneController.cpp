@@ -1,5 +1,6 @@
 #include "SceneController.h"
 #include "FightScene.h"
+#include "HitBoxEditorScene.h"
 
 namespace RB
 {
@@ -30,6 +31,10 @@ namespace RB
 
 				currentScene->ptrDecalLoader = &fighterDecals;
 			}
+		}
+		else if (_sceneType == SceneType::HITBOX_EDITOR_SCENE)
+		{
+			currentScene = new HitBoxEditorScene();
 		}
 
 		currentScene->InitScene();
