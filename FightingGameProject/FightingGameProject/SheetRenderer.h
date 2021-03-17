@@ -20,6 +20,8 @@ namespace RB
 				return;
 			}
 
+			obj->objData.SetAnimationIndex(animationStatus->nCurrentTile);
+
 			int32_t x = obj->objData.GetPosition().x;
 			int32_t y = obj->objData.GetPosition().y;
 			int32_t width = obj->objData.GetSpriteSize().x;
