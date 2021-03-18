@@ -13,7 +13,8 @@ namespace RB
 		AnimationStatus status;
 
 		void SetParams(int32_t _decalTypeIndex, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount);
-		AnimationStatus* Update(bool updateFrame /*, bool skipUpdate*/);
+		void UpdateTileIndex();
+		AnimationStatus* GetStatus(bool updateFrame /*, bool skipUpdate*/);
 		bool OnLastAnimationFrame();
 	};
 }

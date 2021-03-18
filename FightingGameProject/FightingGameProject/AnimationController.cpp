@@ -13,7 +13,7 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
-	AnimationStatus* AnimationController::Update(bool updateFrame /*, bool skipUpdate*/)
+	void AnimationController::UpdateTileIndex()
 	{
 		if (status.nCurrentTile >= specs.totalTiles)
 		{
@@ -26,33 +26,38 @@ namespace RB
 				status.nCurrentTile = 0;
 			}
 		}
+	}
 
-		if (specs.tileCountX == 0 || specs.tileCountY == 0)
+	AnimationStatus* AnimationController::GetStatus(bool updateFrame /*, bool skipUpdate*/)
+	{
+		if (specs.tileCountX > 0 && specs.tileCountY > 0)
+		{
+			status.sourceSize.x = specs.totalWidth / specs.tileCountX;
+			status.sourceSize.y = specs.totalHeight / specs.tileCountY;
+
+			if (status.sourceSize.x != 0 && status.sourceSize.y > 0)
+			{
+				status.sourcePos.x = (status.nCurrentTile % specs.tileCountX) * status.sourceSize.x;
+				status.sourcePos.y = (int32_t)floor(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
+			}
+
+			if (updateFrame /*&& !skipUpdate*/)
+			{
+				status.nDelayCount++;
+
+				if (status.nDelayCount >= status.nTransitionDelay)
+				{
+					status.nDelayCount = 0;
+					status.nCurrentTile++;
+				}
+			}
+
+			return &status;
+		}
+		else
 		{
 			return nullptr;
 		}
-
-		status.sourceSize.x = specs.totalWidth / specs.tileCountX;
-		status.sourceSize.y = specs.totalHeight / specs.tileCountY;
-
-		if (status.sourceSize.x != 0 && status.sourceSize.y > 0)
-		{
-			status.sourcePos.x = (status.nCurrentTile % specs.tileCountX) * status.sourceSize.x;
-			status.sourcePos.y = (int32_t)floor(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
-		}
-
-		if (updateFrame /*&& !skipUpdate*/)
-		{
-			status.nDelayCount++;
-
-			if (status.nDelayCount >= status.nTransitionDelay)
-			{
-				status.nDelayCount = 0;
-				status.nCurrentTile++;
-			}
-		}
-
-		return &status;
 	}
 
 	bool AnimationController::OnLastAnimationFrame()

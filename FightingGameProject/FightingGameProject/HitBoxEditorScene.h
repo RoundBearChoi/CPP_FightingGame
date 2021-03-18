@@ -59,6 +59,11 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam, false);
+
+			if (olc::platform->ptrPGE->GetKey(olc::P).bHeld)
+			{
+
+			}
 		}
 	};
 }

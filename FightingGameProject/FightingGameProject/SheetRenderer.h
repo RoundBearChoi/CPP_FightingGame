@@ -13,7 +13,8 @@ namespace RB
 	public:
 		static void Render(DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
 		{
-			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.Update(update);
+			obj->stateController.currentState->animationController.UpdateTileIndex();
+			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetStatus(update);
 
 			if (animationStatus == nullptr)
 			{
