@@ -23,18 +23,18 @@ namespace RB
 		if (_sceneType == SceneType::FIGHT_SCENE)
 		{
 			currentScene = new FightScene();
-
-			if (fighterDecals.GetSpriteCount() == 0)
-			{
-				fighterDecals.LoadSprites();
-				fighterDecals.LoadDecals();
-
-				currentScene->ptrDecalLoader = &fighterDecals;
-			}
 		}
 		else if (_sceneType == SceneType::HITBOX_EDITOR_SCENE)
 		{
 			currentScene = new HitBoxEditorScene();
+		}
+
+		if (fighterDecals.GetSpriteCount() == 0)
+		{
+			fighterDecals.LoadSprites();
+			fighterDecals.LoadDecals();
+
+			currentScene->ptrDecalLoader = &fighterDecals;
 		}
 
 		currentScene->InitScene();

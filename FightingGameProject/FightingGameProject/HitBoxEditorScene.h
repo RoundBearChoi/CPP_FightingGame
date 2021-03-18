@@ -1,14 +1,18 @@
 #pragma once
 #include "Scene.h"
 #include "GameData.h"
+#include "GameObj.h"
+
+#include "Fighter_0_Idle.h"
+#include "Fighter_0_Jab.h"
+#include "Fighter_0_WalkForward.h"
 
 namespace RB
 {
 	class HitBoxEditorScene : public Scene
 	{
 	private:
-		//Fighters fighters;
-		//Background background;
+		GameObj fighter;
 
 	public:
 		HitBoxEditorScene()
@@ -23,11 +27,26 @@ namespace RB
 
 		void InitScene() override
 		{
-
+			fighter.stateController.CreateNewState<Fighter_0_Idle>();
+			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+			fighter.objData.SetCreationID(1);
 		}
 
 		void Update(GameData& gameData) override
 		{
+			fighter.stateController.MakeStateTransition();
+
+			State* s = fighter.stateController.currentState;
+
+			if (s != nullptr)
+			{
+				if (s->IsNew())
+				{
+					s->OnEnter(fighter.objData, gameData);
+				}
+
+				s->UpdateState(fighter.objData, gameData);
+			}
 		}
 
 		void RenderObjs() override
@@ -39,7 +58,7 @@ namespace RB
 
 		void RenderStates(bool update) override
 		{
-
+			SheetRenderer::Render(ptrDecalLoader, &fighter, cam, update);
 		}
 	};
 }
