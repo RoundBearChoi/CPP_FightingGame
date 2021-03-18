@@ -4,7 +4,10 @@ namespace RB
 {
 	enum class KeyType
 	{
-		NONE, 
+		NONE,
+
+		MOUSE_0, //leftclick
+		MOUSE_1, //rightclick
 
 		P1_UP,
 		P1_DOWN,

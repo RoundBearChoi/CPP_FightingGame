@@ -9,6 +9,8 @@ namespace RB
 	public:
 		SceneType nextSceneType = SceneType::NONE;
 
+		bool mouse0 = false;
+
 		bool left = false;
 		bool right = false;
 		bool up = false;

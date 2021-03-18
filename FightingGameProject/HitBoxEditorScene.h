@@ -34,7 +34,7 @@ namespace RB
 
 		void Update(GameData& gameData) override
 		{
-			fighter.stateController.MakeStateTransition();
+			//fighter.stateController.MakeStateTransition();
 			
 			State* s = fighter.stateController.currentState;
 			
@@ -46,6 +46,11 @@ namespace RB
 				}
 			
 				s->UpdateState(fighter.objData, gameData);
+			}
+
+			if (gameData.mouse0)
+			{
+				fighter.stateController.currentState->animationController.UpdateTileIndex();
 			}
 		}
 
@@ -59,11 +64,6 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
-
-			if (olc::platform->ptrPGE->GetKey(olc::P).bHeld)
-			{
-				fighter.stateController.currentState->animationController.UpdateTileIndex();
-			}
 		}
 	};
 }

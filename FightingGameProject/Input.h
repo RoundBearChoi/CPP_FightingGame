@@ -15,30 +15,34 @@ namespace RB
 
 		std::vector<Key> vecP1Jab;
 		std::vector<Key> vecP1Right;
+
+		std::vector<Key> vecMouse0;
 		
 	public:
 		void UpdateInput()
 		{
-			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Key::LEFT);
-			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Key::RIGHT);
-			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Key::UP);
-			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Key::DOWN);
+			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
 
-			UpdateKey(vecP1Jab, KeyType::P1_JAB, olc::Key::T);
-			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Key::D);
+			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::LEFT));
+			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::RIGHT));
+			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Platform::ptrPGE->GetKey(olc::Key::UP));
+			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Platform::ptrPGE->GetKey(olc::Key::DOWN));
+
+			UpdateKey(vecP1Jab, KeyType::P1_JAB, olc::Platform::ptrPGE->GetKey(olc::Key::T));
+			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 		}
 
-		void UpdateKey(std::vector<Key>& vec, KeyType _keyType, olc::Key targetKey)
+		void UpdateKey(std::vector<Key>& vec, KeyType _keyType, olc::HWButton button)
 		{
 			Key newKey;
 			newKey.keyType = _keyType;
 
-			if (olc::Platform::ptrPGE->GetKey(targetKey).bPressed)
+			if (button.bPressed)
 			{
 				vec.push_back(newKey);
 			}
 
-			if (olc::Platform::ptrPGE->GetKey(targetKey).bReleased)
+			if (button.bReleased)
 			{
 				for (int32_t i = 0; i < vec.size(); i++)
 				{
@@ -49,6 +53,8 @@ namespace RB
 
 		void UpdateGameData(GameData& gameData)
 		{
+			gameData.mouse0 = CheckRelease(vecMouse0);
+
 			gameData.left = CheckRelease(vecCamLeft);
 			gameData.right = CheckRelease(vecCamRight);
 			gameData.up = CheckRelease(vecCamZoomIn);
@@ -86,6 +92,8 @@ namespace RB
 
 		void ClearKeyQueues()
 		{
+			ClearReleasedKeys(vecMouse0);
+
 			ClearReleasedKeys(vecCamLeft);
 			ClearReleasedKeys(vecCamRight);
 			ClearReleasedKeys(vecCamZoomIn);
