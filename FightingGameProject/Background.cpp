@@ -4,17 +4,17 @@ namespace RB
 {
 	void Background::UpdateState(GameData& gameData)
 	{
-		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
+		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			State* s = (*i).stateController.currentState;
+			State* s = arrObjs[i].stateController.currentState;
 
 			if (s != nullptr)
 			{
 				if (s->IsNew())
 				{
-					s->OnEnter((*i).objData, gameData);
+					s->OnEnter(arrObjs[i].objData, gameData);
 				}
-				s->UpdateState((*i).objData, gameData);
+				s->UpdateState(arrObjs[i].objData, gameData);
 			}
 		}
 	}

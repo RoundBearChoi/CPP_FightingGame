@@ -5,42 +5,42 @@ namespace RB
 {
 	void Fighters::UpdateState(GameData& gameData)
 	{
-		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
+		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			(*i).stateController.MakeStateTransition();
+			arrObjs[i].stateController.MakeStateTransition();
 
-			State* s = (*i).stateController.currentState;
+			State* s = arrObjs[i].stateController.currentState;
 
 			if (s != nullptr)
 			{
 				if (s->IsNew())
 				{
-					s->OnEnter((*i).objData, gameData);
+					s->OnEnter(arrObjs[i].objData, gameData);
 				}
-				
-				s->UpdateState((*i).objData, gameData);
+
+				s->UpdateState(arrObjs[i].objData, gameData);
 			}
 		}
 	}
 
 	void Fighters::RenderObjPosition(Camera& cam)
 	{
-		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
+		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			//(*i).RenderSpriteSize(cam);
-			(*i).RenderPosition(cam);
+			//arrObjs[i].RenderSpriteSize(cam);
+			arrObjs[i].RenderPosition(cam);
 		}
 	}
 
 	void Fighters::RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update)
 	{
-		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
+		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			SheetRenderer::Render(ptrDecalLoader, &(*i), cam);
+			SheetRenderer::Render(ptrDecalLoader, &arrObjs[i], cam);
 
 			if (update)
 			{
-				(*i).stateController.currentState->animationController.UpdateTileIndex();
+				arrObjs[i].stateController.currentState->animationController.UpdateTileIndex();
 			}
 		}
 	}
