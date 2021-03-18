@@ -12,13 +12,18 @@ namespace RB
 		int32_t height = 0;
 		float rotation = 0.0f;
 
-		std::array<olc::vi2d, 4> relativePoints;
+		std::array<olc::vi2d, 4> defaultSize;
 
 	public:
 		BoxCollider()
 		{
 
 		}
+
+		olc::vi2d TopLeft() { return defaultSize[0]; }
+		olc::vi2d BottomLeft() { return defaultSize[1]; }
+		olc::vi2d BottomRight() { return defaultSize[2]; }
+		olc::vi2d TopRight() { return defaultSize[3]; }
 
 		BoxCollider(olc::vi2d _pos, int32_t _width, int32_t _height, float _rotation)
 		{
@@ -34,10 +39,10 @@ namespace RB
 			olc::vi2d topRight = topLeft + olc::vi2d{ width, 0 };
 			olc::vi2d bottomRight = topLeft + olc::vi2d{ width, height };
 
-			relativePoints[0] = topLeft;
-			relativePoints[1] = bottomLeft;
-			relativePoints[2] = bottomRight;
-			relativePoints[3] = topRight;
+			defaultSize[0] = topLeft;
+			defaultSize[1] = bottomLeft;
+			defaultSize[2] = bottomRight;
+			defaultSize[3] = topRight;
 		}
 
 		void UpdateRotation()

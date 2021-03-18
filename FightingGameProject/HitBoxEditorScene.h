@@ -41,7 +41,7 @@ namespace RB
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
 
-			testing[0] = BoxCollider({ 0, 0 }, 6, 8, 0.0f);
+			testing[0] = BoxCollider({ 0, 0 }, 60, 80, 0.0f);
 		}
 
 		void Update(GameData& gameData) override
@@ -85,6 +85,23 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
 			RenderCenterMark(cam);
+
+			//current index # for animation
+			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
+			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
+			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
+
+			//boxcolliders
+			std::array<olc::vi2d, 4> relPositions;
+			relPositions[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);
+			relPositions[1] = RelativeVector::GetPosition(testing[0].BottomLeft(), cam);
+			relPositions[2] = RelativeVector::GetPosition(testing[0].BottomRight(), cam);
+			relPositions[3] = RelativeVector::GetPosition(testing[0].TopRight(), cam);
+
+			olc::Renderer::ptrPGE->DrawLine(relPositions[0], relPositions[1], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(relPositions[1], relPositions[2], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(relPositions[2], relPositions[3], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(relPositions[3], relPositions[0], olc::RED);
 		}
 
 		void RenderStates(bool update) override
@@ -94,11 +111,6 @@ namespace RB
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
-
-			//current index # for animation
-			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
-			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 		}
 	};
 }
