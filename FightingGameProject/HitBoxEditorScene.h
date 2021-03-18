@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "GameData.h"
 #include "GameObj.h"
+#include "UIElement.h"
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -13,6 +14,7 @@ namespace RB
 	{
 	private:
 		GameObj fighter;
+		UIElement playIcon;
 
 	public:
 		HitBoxEditorScene()
@@ -30,6 +32,11 @@ namespace RB
 			fighter.stateController.CreateNewState<Fighter_0_Idle>();
 			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 			fighter.objData.SetCreationID(1);
+
+			playIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe);
+			playIcon.topLeft = { GameSettings::window_width / 2 - 54 / 2, 10 };
+			playIcon.width = 54;
+			playIcon.height = 42;
 		}
 
 		void Update(GameData& gameData) override
@@ -48,10 +55,17 @@ namespace RB
 				s->UpdateState(fighter.objData, gameData);
 			}
 
-			if (gameData.mouse0 != nullptr)
+
+
+			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();
+			
+			if (playIcon.MouseHovering(mousePos))
 			{
-				gameData.mouse0->processed = true;
-				fighter.stateController.currentState->animationController.UpdateTileIndex(true);
+				if (gameData.mouse0 != nullptr)
+				{
+					gameData.mouse0->processed = true;
+					fighter.stateController.currentState->animationController.UpdateTileIndex(true);
+				}
 			}
 		}
 
@@ -66,7 +80,7 @@ namespace RB
 		{
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
 
-			olc::Renderer::ptrPGE->DrawDecal({ GameSettings::window_width / 2 - 54 / 2, 10 }, ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe));
+			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal);
 		}
 	};
 }

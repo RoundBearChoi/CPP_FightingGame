@@ -224,5 +224,8 @@
     <ClInclude Include="DevSettings.h">
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

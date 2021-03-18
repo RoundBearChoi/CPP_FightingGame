@@ -193,6 +193,7 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="UIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
