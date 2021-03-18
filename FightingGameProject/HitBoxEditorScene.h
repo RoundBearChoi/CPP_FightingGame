@@ -35,9 +35,9 @@ namespace RB
 			fighter.objData.SetTransitionPermission(false);
 
 			playIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe);
-			playIcon.topLeft = { GameSettings::window_width / 2 - 54 / 2, 10 };
 			playIcon.width = 54;
 			playIcon.height = 42;
+			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
 		}
 
 		void Update(GameData& gameData) override
