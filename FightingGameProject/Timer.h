@@ -1,12 +1,12 @@
 #pragma once
 #include "Renderer.h"
+#include "GameSettings.h"
 
 namespace RB
 {
 	class Timer
 	{
 	private:
-		float fTargetFrameTime = 1.0f / 120.0f; // target fixed timestep
 		float fAccumulatedTime = 0.0f;
 
 		//updates per sec
@@ -30,9 +30,9 @@ namespace RB
 				fTime += fElapsedTime;
 			}
 
-			if (fAccumulatedTime >= fTargetFrameTime)
+			if (fAccumulatedTime >= GameSettings::TargetFrameTime())
 			{
-				fAccumulatedTime -= fTargetFrameTime;
+				fAccumulatedTime -= GameSettings::TargetFrameTime();
 				nUpdateCount++;
 				return true;
 			}

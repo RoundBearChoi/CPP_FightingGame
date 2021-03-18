@@ -64,6 +64,9 @@
     <Filter Include="Source Files\Input">
       <UniqueIdentifier>{dedc8be1-62cc-41a3-aff8-4278ce370f08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Settings">
+      <UniqueIdentifier>{b23c14bb-9e57-43e7-939e-a7e5a1329e85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,9 +108,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DevSettings.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneType.h">
@@ -219,7 +219,10 @@
       <Filter>Source Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="GameSettings.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="DevSettings.h">
+      <Filter>Source Files\Settings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
