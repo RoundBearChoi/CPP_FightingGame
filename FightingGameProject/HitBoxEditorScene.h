@@ -61,11 +61,17 @@ namespace RB
 			
 			if (playIcon.MouseHovering(mousePos))
 			{
+				playIcon.tint = olc::GREEN;
+
 				if (gameData.mouse0 != nullptr)
 				{
 					gameData.mouse0->processed = true;
 					fighter.stateController.currentState->animationController.UpdateTileIndex(true);
 				}
+			}
+			else
+			{
+				playIcon.tint = olc::WHITE;
 			}
 		}
 
@@ -80,7 +86,7 @@ namespace RB
 		{
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
 
-			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal);
+			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
 		}
 	};
 }
