@@ -227,5 +227,8 @@
     <ClInclude Include="UIElement.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

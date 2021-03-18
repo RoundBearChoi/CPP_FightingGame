@@ -3,6 +3,7 @@
 #include "GameData.h"
 #include "GameObj.h"
 #include "UIElement.h"
+#include "BoxCollider.h"
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -15,6 +16,7 @@ namespace RB
 	private:
 		GameObj fighter;
 		UIElement playIcon;
+		std::array<BoxCollider, 1> testing;
 
 	public:
 		HitBoxEditorScene()
@@ -38,6 +40,8 @@ namespace RB
 			playIcon.width = 54;
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
+
+			testing[0] = BoxCollider({ 0, 0 }, 6, 8, 0.0f);
 		}
 
 		void Update(GameData& gameData) override
@@ -80,19 +84,21 @@ namespace RB
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
-			//showing current index # for animation
-			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
-			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
-
 			RenderCenterMark(cam);
 		}
 
 		void RenderStates(bool update) override
 		{
+			//dummy fighter
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
 
+			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
+
+			//current index # for animation
+			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
+			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
+			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 		}
 	};
 }
