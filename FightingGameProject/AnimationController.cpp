@@ -15,6 +15,14 @@ namespace RB
 
 	void AnimationController::UpdateTileIndex()
 	{
+		status.nDelayCount++;
+
+		if (status.nDelayCount >= status.nTransitionDelay)
+		{
+			status.nDelayCount = 0;
+			status.nCurrentTile++;
+		}
+
 		if (status.nCurrentTile >= specs.totalTiles)
 		{
 			if (status.bPlayOnce)
@@ -28,7 +36,7 @@ namespace RB
 		}
 	}
 
-	AnimationStatus* AnimationController::GetStatus(bool updateFrame /*, bool skipUpdate*/)
+	AnimationStatus* AnimationController::GetStatus()
 	{
 		if (specs.tileCountX > 0 && specs.tileCountY > 0)
 		{
@@ -39,17 +47,6 @@ namespace RB
 			{
 				status.sourcePos.x = (status.nCurrentTile % specs.tileCountX) * status.sourceSize.x;
 				status.sourcePos.y = (int32_t)floor(status.nCurrentTile / specs.tileCountX) * status.sourceSize.y;
-			}
-
-			if (updateFrame /*&& !skipUpdate*/)
-			{
-				status.nDelayCount++;
-
-				if (status.nDelayCount >= status.nTransitionDelay)
-				{
-					status.nDelayCount = 0;
-					status.nCurrentTile++;
-				}
 			}
 
 			return &status;

@@ -11,10 +11,9 @@ namespace RB
 	class SheetRenderer
 	{
 	public:
-		static void Render(DecalLoader* decalLoader, GameObj* obj, Camera& cam, bool update)
+		static void Render(DecalLoader* decalLoader, GameObj* obj, Camera& cam)
 		{
-			obj->stateController.currentState->animationController.UpdateTileIndex();
-			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetStatus(update);
+			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetStatus();
 
 			if (animationStatus == nullptr)
 			{

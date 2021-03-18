@@ -36,7 +36,12 @@ namespace RB
 	{
 		for (auto i = arrObjs.begin(); i != arrObjs.end(); i++)
 		{
-			SheetRenderer::Render(ptrDecalLoader, &(*i), cam, update);
+			SheetRenderer::Render(ptrDecalLoader, &(*i), cam);
+
+			if (update)
+			{
+				(*i).stateController.currentState->animationController.UpdateTileIndex();
+			}
 		}
 	}
 

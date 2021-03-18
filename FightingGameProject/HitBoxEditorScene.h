@@ -58,11 +58,11 @@ namespace RB
 
 		void RenderStates(bool update) override
 		{
-			SheetRenderer::Render(ptrDecalLoader, &fighter, cam, false);
+			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
 
 			if (olc::platform->ptrPGE->GetKey(olc::P).bHeld)
 			{
-
+				fighter.stateController.currentState->animationController.UpdateTileIndex();
 			}
 		}
 	};
