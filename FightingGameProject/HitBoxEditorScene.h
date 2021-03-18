@@ -92,16 +92,16 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 
 			//boxcolliders
-			std::array<olc::vi2d, 4> relPositions;
-			relPositions[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);
-			relPositions[1] = RelativeVector::GetPosition(testing[0].BottomLeft(), cam);
-			relPositions[2] = RelativeVector::GetPosition(testing[0].BottomRight(), cam);
-			relPositions[3] = RelativeVector::GetPosition(testing[0].TopRight(), cam);
+			std::array<olc::vi2d, 4> box0Pos;
+			box0Pos[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);
+			box0Pos[1] = RelativeVector::GetPosition(testing[0].BottomLeft(), cam);
+			box0Pos[2] = RelativeVector::GetPosition(testing[0].BottomRight(), cam);
+			box0Pos[3] = RelativeVector::GetPosition(testing[0].TopRight(), cam);
 
-			olc::Renderer::ptrPGE->DrawLine(relPositions[0], relPositions[1], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(relPositions[1], relPositions[2], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(relPositions[2], relPositions[3], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(relPositions[3], relPositions[0], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(box0Pos[0], box0Pos[1], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(box0Pos[1], box0Pos[2], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(box0Pos[2], box0Pos[3], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(box0Pos[3], box0Pos[0], olc::RED);
 		}
 
 		void RenderStates(bool update) override
