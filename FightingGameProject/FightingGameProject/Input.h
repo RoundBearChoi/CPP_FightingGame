@@ -1,110 +1,96 @@
 #pragma once
 #include <vector>
 #include "olcPixelGameEngine.h"
+#include "Key.h"
 
 namespace RB
 {
 	class Input
 	{
 	private:
-		bool Pressed_Left = false;
-		bool Pressed_Right = false;
-		bool Pressed_Up = false;
-		bool Pressed_Down = false;
+		std::vector<Key> vecCamZoomIn;
+		std::vector<Key> vecCamZoomOut;
+		std::vector<Key> vecCamLeft;
+		std::vector<Key> vecCamRight;
 
-		bool Pressed_D = false;
-		bool Pressed_T = false;
-
-		bool Queued_Left = false;
-		bool Queued_Right = false;
-		bool Queued_Up = false;
-		bool Queued_Down = false;
-
-		bool Queued_D = false;
-		bool Queued_T = false;
-
+		std::vector<Key> vecP1Jab;
+		std::vector<Key> vecP1Right;
+		
 	public:
 		void UpdateInput()
 		{
-			UpdateKey(Pressed_Left, Queued_Left, olc::Key::LEFT);
-			UpdateKey(Pressed_Right, Queued_Right, olc::Key::RIGHT);
-			UpdateKey(Pressed_Up, Queued_Up, olc::Key::UP);
-			UpdateKey(Pressed_Down, Queued_Down, olc::Key::DOWN);
+			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Key::LEFT);
+			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Key::RIGHT);
+			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Key::UP);
+			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Key::DOWN);
 
-			UpdateKey(Pressed_D, Queued_D, olc::Key::D);
-			UpdateKey(Pressed_T, Queued_T, olc::Key::T);
+			UpdateKey(vecP1Jab, KeyType::P1_JAB, olc::Key::T);
+			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Key::D);
 		}
 
-		void UpdateKey(bool& pressed, bool& queued, olc::Key targetKey)
+		void UpdateKey(std::vector<Key>& vec, KeyType _keyType, olc::Key targetKey)
 		{
+			Key newKey;
+			newKey.keyType = _keyType;
+
 			if (olc::Platform::ptrPGE->GetKey(targetKey).bPressed)
 			{
-				pressed = true;
-				queued = true;
+				vec.push_back(newKey);
 			}
 
 			if (olc::Platform::ptrPGE->GetKey(targetKey).bReleased)
 			{
-				pressed = false;
+				for (int32_t i = 0; i < vec.size(); i++)
+				{
+					vec[i].released = true;
+				}
 			}
 		}
 
 		void UpdateGameData(GameData& gameData)
 		{
-			gameData.left = Left();
-			gameData.right = Right();
-			gameData.up = Up();
-			gameData.down = Down();
+			gameData.left = CheckRelease(vecCamLeft);
+			gameData.right = CheckRelease(vecCamRight);
+			gameData.up = CheckRelease(vecCamZoomIn);
+			gameData.down = CheckRelease(vecCamZoomOut);
 
-			gameData.d = D();
-			gameData.t = T();
+			gameData.t = CheckRelease(vecP1Jab);
+			gameData.d = CheckRelease(vecP1Right);
 		}
 
-		bool Left()
+		bool CheckRelease(std::vector<Key>& vec)
 		{
-			if (Pressed_Left || Queued_Left) { return true; }
-			else { return false; }
-		}
+			for (int32_t i = 0; i < vec.size(); i++)
+			{
+				if (!vec[i].released)
+				{
+					return true;
+				}
+			}
 
-		bool Right()
-		{
-			if (Pressed_Right || Queued_Right) { return true; }
-			else { return false; }
-		}
-
-		bool Up()
-		{
-			if (Pressed_Up || Queued_Up) { return true; }
-			else { return false; }
-		}
-
-		bool Down()
-		{
-			if (Pressed_Down || Queued_Down) { return true; }
-			else { return false; }
-		}
-
-		bool D()
-		{
-			if (Pressed_D || Queued_D) { return true; }
-			else { return false; }
-		}
-
-		bool T()
-		{
-			if (Pressed_T || Queued_T) { return true; }
-			else { return false; }
+			return false;
 		}
 
 		void ClearKeyQueues()
 		{
-			Queued_Left = false;
-			Queued_Right = false;
-			Queued_Up = false;
-			Queued_Down = false;
+			ClearReleasedKeys(vecCamLeft);
+			ClearReleasedKeys(vecCamRight);
+			ClearReleasedKeys(vecCamZoomIn);
+			ClearReleasedKeys(vecCamZoomOut);
 
-			Queued_D = false;
-			Queued_T = false;
+			ClearReleasedKeys(vecP1Right);
+			ClearReleasedKeys(vecP1Jab);
+		}
+
+		void ClearReleasedKeys(std::vector<Key>& vec)
+		{
+			if (vec.size() > 0)
+			{
+				if (vec[0].released)
+				{
+					vec.clear();
+				}
+			}
 		}
 	};
 }

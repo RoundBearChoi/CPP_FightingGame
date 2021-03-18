@@ -61,6 +61,9 @@
     <Filter Include="Source Files\State\Concrete States\Background">
       <UniqueIdentifier>{e9bc8b0d-d93a-44bb-a598-dd45318ea197}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{dedc8be1-62cc-41a3-aff8-4278ce370f08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -132,9 +135,6 @@
       <Filter>Source Files\Camera</Filter>
     </ClInclude>
     <ClInclude Include="OffsetType.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="RelativeVector.h">
@@ -211,6 +211,15 @@
     </ClInclude>
     <ClInclude Include="HitBoxEditorScene.h">
       <Filter>Source Files\Scenes\Concrete Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyType.h">
+      <Filter>Source Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

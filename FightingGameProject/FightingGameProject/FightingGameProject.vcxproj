@@ -178,6 +178,8 @@
     <ClInclude Include="AnimationSpecs.h" />
     <ClInclude Include="HitBoxEditorScene.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Key.h" />
+    <ClInclude Include="KeyType.h" />
     <ClInclude Include="ObjData.h" />
     <ClInclude Include="ObjGroup.h" />
     <ClInclude Include="OffsetType.h" />
