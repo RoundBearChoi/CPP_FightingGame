@@ -11,15 +11,15 @@ namespace RB
 
 		Key* mouse0 = nullptr;
 
-		bool left = false;
-		bool right = false;
-		bool up = false;
-		bool down = false;
+		Key* left = nullptr;
+		Key* right = nullptr;
+		Key* up = nullptr;
+		Key* down = nullptr;
 
 		Key* t = nullptr;
-		bool a = false;
-		bool d = false;
-		bool w = false;
-		bool s = false;
+		Key* a = nullptr;
+		Key* d = nullptr;
+		Key* w = nullptr;
+		Key* s = nullptr;
 	};
 }

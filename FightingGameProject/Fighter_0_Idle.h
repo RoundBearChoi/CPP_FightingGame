@@ -21,7 +21,7 @@ namespace RB
 		{
 			if (objData.GetTransitionPermission())
 			{
-				if (gameData.t != nullptr)
+				if (gameData.t)
 				{
 					gameData.t->processed = true;
 					nextState = State::NewState<Fighter_0_Jab>();

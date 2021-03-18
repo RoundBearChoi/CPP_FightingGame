@@ -69,7 +69,7 @@ namespace RB
 			{
 				playIcon.tint = olc::GREEN;
 
-				if (gameData.mouse0 != nullptr)
+				if (gameData.mouse0)
 				{
 					gameData.mouse0->processed = true;
 					fighter.stateController.currentState->animationController.UpdateTileIndex(true);

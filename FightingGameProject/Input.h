@@ -66,29 +66,16 @@ namespace RB
 		{
 			gameData.mouse0 = GetUnprocessedKey(vecMouse0);
 
-			gameData.left = CheckRelease(vecCamLeft);
-			gameData.right = CheckRelease(vecCamRight);
-			gameData.up = CheckRelease(vecCamZoomIn);
-			gameData.down = CheckRelease(vecCamZoomOut);
+			gameData.left = GetUnprocessedKey(vecCamLeft);
+			gameData.right = GetUnprocessedKey(vecCamRight);
+			gameData.up = GetUnprocessedKey(vecCamZoomIn);
+			gameData.down = GetUnprocessedKey(vecCamZoomOut);
 
 			gameData.t = GetUnprocessedKey(vecP1Jab);
-			gameData.a = CheckRelease(vecP1Left);
-			gameData.d = CheckRelease(vecP1Right);
-			gameData.w = CheckRelease(vecP1Up);
-			gameData.s = CheckRelease(vecP1Down);
-		}
-
-		bool CheckRelease(std::vector<Key>& vec)
-		{
-			for (int32_t i = 0; i < vec.size(); i++)
-			{
-				if (!vec[i].released)
-				{
-					return true;
-				}
-			}
-
-			return false;
+			gameData.a = GetUnprocessedKey(vecP1Left);
+			gameData.d = GetUnprocessedKey(vecP1Right);
+			gameData.w = GetUnprocessedKey(vecP1Up);
+			gameData.s = GetUnprocessedKey(vecP1Down);
 		}
 
 		Key* GetUnprocessedKey(std::vector<Key>& vec)
