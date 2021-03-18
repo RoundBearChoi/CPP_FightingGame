@@ -34,7 +34,7 @@ namespace RB
 
 		void Update(GameData& gameData) override
 		{
-			//fighter.stateController.MakeStateTransition();
+			fighter.stateController.MakeStateTransition();
 			
 			State* s = fighter.stateController.currentState;
 			
