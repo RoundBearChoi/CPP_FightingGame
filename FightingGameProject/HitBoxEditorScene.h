@@ -29,7 +29,7 @@ namespace RB
 
 		void InitScene() override
 		{
-			fighter.stateController.CreateNewState<Fighter_0_Idle>();
+			fighter.stateController.CreateNewState<Fighter_0_Jab>();
 			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 			fighter.objData.SetCreationID(1);
 			fighter.objData.SetTransitionPermission(false);
@@ -56,8 +56,6 @@ namespace RB
 				s->UpdateState(fighter.objData, gameData);
 			}
 
-
-
 			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();
 			
 			if (playIcon.MouseHovering(mousePos))
@@ -79,6 +77,10 @@ namespace RB
 		void RenderObjs() override
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
+
+			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
+			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
+			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 
 			RenderCenterMark(cam);
 		}
