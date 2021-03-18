@@ -42,6 +42,7 @@ namespace RB
 
 		void Update(GameData& gameData) override
 		{
+			//dummy fighter
 			fighter.stateController.MakeStateTransition();
 			
 			State* s = fighter.stateController.currentState;
@@ -58,6 +59,7 @@ namespace RB
 
 			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();
 			
+			//play icon
 			if (playIcon.MouseHovering(mousePos))
 			{
 				playIcon.tint = olc::GREEN;
@@ -78,6 +80,7 @@ namespace RB
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
+			//showing current index # for animation
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
 			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
