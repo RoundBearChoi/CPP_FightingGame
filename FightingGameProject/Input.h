@@ -30,6 +30,11 @@ namespace RB
 
 			UpdateKey(vecP1Jab, KeyType::P1_JAB, olc::Platform::ptrPGE->GetKey(olc::Key::T));
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
+
+			if (vecMouse0.size() > 0)
+			{
+				int n = 0;
+			}
 		}
 
 		void UpdateKey(std::vector<Key>& vec, KeyType _keyType, olc::HWButton button)
@@ -53,7 +58,7 @@ namespace RB
 
 		void UpdateGameData(GameData& gameData)
 		{
-			gameData.mouse0 = CheckRelease(vecMouse0);
+			gameData.mouse0 = GetUnprocessedKey(vecMouse0);
 
 			gameData.left = CheckRelease(vecCamLeft);
 			gameData.right = CheckRelease(vecCamRight);

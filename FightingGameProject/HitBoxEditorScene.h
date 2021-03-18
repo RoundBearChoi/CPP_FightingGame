@@ -48,9 +48,10 @@ namespace RB
 				s->UpdateState(fighter.objData, gameData);
 			}
 
-			if (gameData.mouse0)
+			if (gameData.mouse0 != nullptr)
 			{
-				fighter.stateController.currentState->animationController.UpdateTileIndex();
+				gameData.mouse0->processed = true;
+				fighter.stateController.currentState->animationController.UpdateTileIndex(true);
 			}
 		}
 

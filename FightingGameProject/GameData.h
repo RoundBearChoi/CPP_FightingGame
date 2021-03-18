@@ -9,7 +9,7 @@ namespace RB
 	public:
 		SceneType nextSceneType = SceneType::NONE;
 
-		bool mouse0 = false;
+		Key* mouse0 = nullptr;
 
 		bool left = false;
 		bool right = false;

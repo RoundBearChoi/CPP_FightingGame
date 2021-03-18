@@ -13,13 +13,20 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
-	void AnimationController::UpdateTileIndex()
+	void AnimationController::UpdateTileIndex(bool ignoreDelay)
 	{
-		status.nDelayCount++;
-
-		if (status.nDelayCount >= status.nTransitionDelay)
+		if (!ignoreDelay)
 		{
-			status.nDelayCount = 0;
+			status.nDelayCount++;
+
+			if (status.nDelayCount >= status.nTransitionDelay)
+			{
+				status.nDelayCount = 0;
+				status.nCurrentTile++;
+			}
+		}
+		else
+		{
 			status.nCurrentTile++;
 		}
 
