@@ -17,9 +17,12 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			if (!gameData.d)
+			if (objData.GetTransitionPermission())
 			{
-				nextState = State::NewState<Fighter_0_Idle>();
+				if (!gameData.d)
+				{
+					nextState = State::NewState<Fighter_0_Idle>();
+				}
 			}
 		}
 	};

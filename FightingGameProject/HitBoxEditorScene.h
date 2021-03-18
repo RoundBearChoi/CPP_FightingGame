@@ -32,6 +32,7 @@ namespace RB
 			fighter.stateController.CreateNewState<Fighter_0_Idle>();
 			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 			fighter.objData.SetCreationID(1);
+			fighter.objData.SetTransitionPermission(false);
 
 			playIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe);
 			playIcon.topLeft = { GameSettings::window_width / 2 - 54 / 2, 10 };

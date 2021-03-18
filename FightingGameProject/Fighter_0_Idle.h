@@ -19,15 +19,18 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			if (gameData.t != nullptr)
+			if (objData.GetTransitionPermission())
 			{
-				gameData.t->processed = true;
-				nextState = State::NewState<Fighter_0_Jab>();
-			}
+				if (gameData.t != nullptr)
+				{
+					gameData.t->processed = true;
+					nextState = State::NewState<Fighter_0_Jab>();
+				}
 
-			if (gameData.d)
-			{
-				nextState = State::NewState<Fighter_0_WalkForward>();
+				if (gameData.d)
+				{
+					nextState = State::NewState<Fighter_0_WalkForward>();
+				}
 			}
 		}
 	};
