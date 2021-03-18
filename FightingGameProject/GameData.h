@@ -16,7 +16,10 @@ namespace RB
 		bool up = false;
 		bool down = false;
 
-		bool d = false;
 		Key* t = nullptr;
+		bool a = false;
+		bool d = false;
+		bool w = false;
+		bool s = false;
 	};
 }

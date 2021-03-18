@@ -17,6 +17,7 @@ namespace RB
 		GameObj fighter;
 		UIElement playIcon;
 		std::array<BoxCollider, 1> testing;
+		float angle = 0.0f;
 
 	public:
 		HitBoxEditorScene()
@@ -78,6 +79,9 @@ namespace RB
 			{
 				playIcon.tint = olc::WHITE;
 			}
+
+			//boxcolliders
+			testing[0].UpdatePosition(gameData.a, gameData.d, gameData.w, gameData.s);
 		}
 
 		void RenderObjs() override
@@ -92,9 +96,8 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 
 			//boxcolliders
-			static float fAngle = 0.0f;
-			fAngle += 0.001f;
-			testing[0].UpdateRotation(fAngle);
+			angle += 0.001f;
+			testing[0].UpdateRotation(angle);
 
 			std::array<olc::vi2d, 4> box0Pos;
 			box0Pos[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);

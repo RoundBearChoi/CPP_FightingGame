@@ -14,7 +14,10 @@ namespace RB
 		std::vector<Key> vecCamRight;
 
 		std::vector<Key> vecP1Jab;
+		std::vector<Key> vecP1Left;
 		std::vector<Key> vecP1Right;
+		std::vector<Key> vecP1Up;
+		std::vector<Key> vecP1Down;
 
 		std::vector<Key> vecMouse0;
 		
@@ -29,7 +32,10 @@ namespace RB
 			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Platform::ptrPGE->GetKey(olc::Key::DOWN));
 
 			UpdateKey(vecP1Jab, KeyType::P1_JAB, olc::Platform::ptrPGE->GetKey(olc::Key::T));
+			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
+			UpdateKey(vecP1Up, KeyType::P1_UP, olc::Platform::ptrPGE->GetKey(olc::Key::W));
+			UpdateKey(vecP1Down, KeyType::P1_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::S));
 
 			if (vecMouse0.size() > 0)
 			{
@@ -66,7 +72,10 @@ namespace RB
 			gameData.down = CheckRelease(vecCamZoomOut);
 
 			gameData.t = GetUnprocessedKey(vecP1Jab);
+			gameData.a = CheckRelease(vecP1Left);
 			gameData.d = CheckRelease(vecP1Right);
+			gameData.w = CheckRelease(vecP1Up);
+			gameData.s = CheckRelease(vecP1Down);
 		}
 
 		bool CheckRelease(std::vector<Key>& vec)
@@ -104,8 +113,11 @@ namespace RB
 			ClearReleasedKeys(vecCamZoomIn);
 			ClearReleasedKeys(vecCamZoomOut);
 
-			ClearReleasedKeys(vecP1Right);
 			ClearReleasedKeys(vecP1Jab);
+			ClearReleasedKeys(vecP1Left);
+			ClearReleasedKeys(vecP1Right);
+			ClearReleasedKeys(vecP1Up);
+			ClearReleasedKeys(vecP1Down);
 		}
 
 		void ClearReleasedKeys(std::vector<Key>& vec)

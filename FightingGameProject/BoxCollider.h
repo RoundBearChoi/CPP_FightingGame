@@ -46,6 +46,35 @@ namespace RB
 			quad[3] = topRight;
 		}
 
+		void UpdatePosition(bool left, bool right, bool up, bool down)
+		{
+			if (left && right || !left && !right)
+			{
+
+			}
+			else if (left)
+			{
+				pos.x -= 1;
+			}
+			else if (right)
+			{
+				pos.x += 1;
+			}
+
+			if (up && down || !up && !down)
+			{
+
+			}
+			else if (up)
+			{
+				pos.y -= 1;
+			}
+			else if (down)
+			{
+				pos.y += 1;
+			}
+		}
+
 		void UpdateRotation(float angle)
 		{
 			for (int i = 0; i < quad.size(); i++)
@@ -55,18 +84,6 @@ namespace RB
 
 				rotatedQuad[i] = { (int32_t)std::round(fX), (int32_t)std::round(fY) };
 			}
-
-			//for (auto& r : vecShapes)
-			//{
-			//	for (int i = 0; i < r.o.size(); i++)
-			//		r.p[i] =
-			//	{	// 2D Rotation Transform + 2D Translation
-			//		(r.o[i].x * cosf(r.angle)) - (r.o[i].y * sinf(r.angle)) + r.pos.x,
-			//		(r.o[i].x * sinf(r.angle)) + (r.o[i].y * cosf(r.angle)) + r.pos.y,
-			//	};
-			//
-			//	r.overlap = false;
-			//}
 		}
 	};
 }
