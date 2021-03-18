@@ -54,7 +54,7 @@ namespace RB
 			gameData.up = CheckRelease(vecCamZoomIn);
 			gameData.down = CheckRelease(vecCamZoomOut);
 
-			gameData.t = CheckRelease(vecP1Jab);
+			gameData.t = GetUnprocessedKey(vecP1Jab);
 			gameData.d = CheckRelease(vecP1Right);
 		}
 
@@ -69,6 +69,19 @@ namespace RB
 			}
 
 			return false;
+		}
+
+		Key* GetUnprocessedKey(std::vector<Key>& vec)
+		{
+			for (int i = 0; i < vec.size(); i++)
+			{
+				if (!vec[i].processed)
+				{
+					return &vec[i];
+				}
+			}
+
+			return nullptr;
 		}
 
 		void ClearKeyQueues()

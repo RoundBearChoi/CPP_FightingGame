@@ -19,8 +19,9 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			if (gameData.t)
+			if (gameData.t != nullptr)
 			{
+				gameData.t->processed = true;
 				nextState = State::NewState<Fighter_0_Jab>();
 			}
 
