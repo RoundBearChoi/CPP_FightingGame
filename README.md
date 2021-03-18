@@ -16,7 +16,7 @@ https://youtube.com/roundbeargames
 
 <br>
 
-# Getting Started (Linux - Ubuntu or Unbuntu based)
+# Getting Started (Linux - Ubuntu)
 
 1. Download ZIP or clone repository
 
