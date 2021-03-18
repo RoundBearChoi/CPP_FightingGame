@@ -9,9 +9,12 @@ namespace RB
 		fighter_0_jab,
 
 		fighter_1_idle,
+
 		background_trees_20,
 		background_mountains,
 		background_sun,
+
+		editor_playframe,
 
 		COUNT,
 	};

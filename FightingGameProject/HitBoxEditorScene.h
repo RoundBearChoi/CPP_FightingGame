@@ -57,7 +57,7 @@ namespace RB
 
 		void RenderObjs() override
 		{
-			olc::Renderer::ptrPGE->DrawString({ 0, 20 }, "HitBoxEditor", olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
 			RenderCenterMark(cam);
 		}
@@ -65,6 +65,8 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
+
+			olc::Renderer::ptrPGE->DrawDecal({ GameSettings::window_width / 2 - 54 / 2, 10 }, ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe));
 		}
 	};
 }
