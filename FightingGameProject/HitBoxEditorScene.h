@@ -92,6 +92,10 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 
 			//boxcolliders
+			static float fAngle = 0.0f;
+			fAngle += 0.001f;
+			testing[0].UpdateRotation(fAngle);
+
 			std::array<olc::vi2d, 4> box0Pos;
 			box0Pos[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);
 			box0Pos[1] = RelativeVector::GetPosition(testing[0].BottomLeft(), cam);
