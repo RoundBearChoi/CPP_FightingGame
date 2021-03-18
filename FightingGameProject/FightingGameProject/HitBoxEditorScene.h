@@ -35,16 +35,16 @@ namespace RB
 		void Update(GameData& gameData) override
 		{
 			fighter.stateController.MakeStateTransition();
-
+			
 			State* s = fighter.stateController.currentState;
-
+			
 			if (s != nullptr)
 			{
 				if (s->IsNew())
 				{
 					s->OnEnter(fighter.objData, gameData);
 				}
-
+			
 				s->UpdateState(fighter.objData, gameData);
 			}
 		}
@@ -58,7 +58,7 @@ namespace RB
 
 		void RenderStates(bool update) override
 		{
-			SheetRenderer::Render(ptrDecalLoader, &fighter, cam, update);
+			SheetRenderer::Render(ptrDecalLoader, &fighter, cam, false);
 		}
 	};
 }
