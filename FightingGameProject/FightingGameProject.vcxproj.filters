@@ -140,9 +140,6 @@
     <ClInclude Include="RelativeVector.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameWindow.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="State.h">
       <Filter>Source Files\State\Base</Filter>
     </ClInclude>
@@ -220,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="KeyType.h">
       <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSettings.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

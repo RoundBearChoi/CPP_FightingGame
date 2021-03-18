@@ -3,7 +3,7 @@
 #include "olcPixelGameEngine.h"
 #include "Timer.h"
 #include "SceneController.h"
-#include "GameWindow.h"
+#include "GameSettings.h"
 #include "Input.h"
 
 namespace RB
@@ -62,7 +62,7 @@ namespace RB
 
 		void Run()
 		{
-			if (Construct(WINDOW_WIDTH, WINDOW_HEIGHT, 1, 1))
+			if (Construct(GameSettings::window_width, GameSettings::window_height, 1, 1))
 			{
 				Start();
 			}

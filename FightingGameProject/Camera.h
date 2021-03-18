@@ -1,6 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "GameWindow.h"
+#include "GameSettings.h"
 #include "GameData.h"
 
 namespace RB

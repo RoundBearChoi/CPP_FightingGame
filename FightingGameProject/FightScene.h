@@ -2,7 +2,6 @@
 #include "Scene.h"
 #include "Fighters.h"
 #include "Background.h"
-#include "GameWindow.h"
 
 namespace RB
 {

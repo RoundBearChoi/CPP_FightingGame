@@ -30,7 +30,7 @@ namespace RB
 			zoomScale -= 0.005f;
 		}
 
-		float y = -(float)WINDOW_HEIGHT * 0.4f / zoomScale;
+		float y = -(float)GameSettings::window_height * 0.4f / zoomScale;
 		position.y = (int32_t)std::round(y);
 	}
 }

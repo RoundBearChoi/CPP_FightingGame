@@ -1,6 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "GameWindow.h"
+#include "GameSettings.h"
 #include "Camera.h"
 
 namespace RB
@@ -17,7 +17,7 @@ namespace RB
 
 			fromCam = { (int32_t)std::round(x), (int32_t)std::round(y) };
 
-			olc::vi2d screenCenter{ WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
+			olc::vi2d screenCenter{ GameSettings::window_width / 2, GameSettings::window_height / 2 };
 			olc::vi2d screenPos = screenCenter + fromCam;
 
 			return screenPos;
