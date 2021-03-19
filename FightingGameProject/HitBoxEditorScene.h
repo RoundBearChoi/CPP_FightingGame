@@ -4,6 +4,7 @@
 #include "GameObj.h"
 #include "UIElement.h"
 #include "BoxCollider.h"
+#include "TargetBodyType.h"
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -17,6 +18,7 @@ namespace RB
 		GameObj fighter;
 		UIElement playIcon;
 		std::array<BoxCollider, 2> arrBoxCol;
+		TargetBodyType targetBodyType;
 
 	public:
 		HitBoxEditorScene()
@@ -132,7 +134,7 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			for (int i = 0; i < arrBoxCol.size(); i++)
+			for (int32_t i = 0; i < arrBoxCol.size(); i++)
 			{
 				std::array<olc::vi2d, 4> quad;
 				quad[0] = RelativeVector::GetPosition(arrBoxCol[i].Point0(), cam);
@@ -140,10 +142,17 @@ namespace RB
 				quad[2] = RelativeVector::GetPosition(arrBoxCol[i].Point2(), cam);
 				quad[3] = RelativeVector::GetPosition(arrBoxCol[i].Point3(), cam);
 
-				olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], olc::RED);
-				olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], olc::RED);
-				olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], olc::RED);
-				olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], olc::RED);
+				olc::Pixel color = olc::BLUE;
+
+				if (i == 1)
+				{
+					color = olc::RED;
+				}
+
+				olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], color);
+				olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], color);
+				olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], color);
+				olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], color);
 			}
 
 			//current boxcollider info
@@ -156,6 +165,9 @@ namespace RB
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
 			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
+		
+			//current selection
+			olc::Renderer::ptrPGE->DrawString({ 55, 100 }, "current body: " + targetBodyType.GetCurrentSelString(), olc::WHITE);
 		}
 
 		void RenderStates(bool update) override

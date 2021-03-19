@@ -161,6 +161,7 @@
     <ClInclude Include="Background_Idle_Trees.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="BodyType.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="SheetRenderer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />
+    <ClInclude Include="TargetBodyType.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIElement.h" />
   </ItemGroup>

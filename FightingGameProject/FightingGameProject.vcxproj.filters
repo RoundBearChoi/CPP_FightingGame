@@ -67,6 +67,9 @@
     <Filter Include="Source Files\Settings">
       <UniqueIdentifier>{b23c14bb-9e57-43e7-939e-a7e5a1329e85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Collider">
+      <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -228,6 +231,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
+      <Filter>Source Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyType.h">
+      <Filter>Source Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetBodyType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

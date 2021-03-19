@@ -1,0 +1,28 @@
+#pragma once
+
+namespace RB
+{
+	enum class BodyType
+	{
+		HEAD,
+		
+		UPPERBODY,
+		LOWERBODY,
+		
+		LEFT_ELBOW,
+		LEFT_FOREARM,
+		LEFT_HAND,
+
+		RIGHT_ELBOW,
+		RIGHT_FOREARM,
+		RIGHT_HAND,
+
+		LEFT_KNEE,
+		LEFT_LOWERLEG,
+		LEFT_FOOT,
+
+		RIGHT_KNEE,
+		RIGHT_LOWERLEG,
+		RIGHT_FOOT,
+	};
+}
