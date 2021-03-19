@@ -11,12 +11,12 @@ namespace RB
 		Fighter_0_Jab()
 		{
 			animationController.SetCollisionFileName("jab collision file");
+			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_jab, 2400, 200, 6, 1, 6);
+			animationController.status.nTransitionDelay = 5;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_jab, 2400, 200, 6, 1, 6);
-			animationController.status.nTransitionDelay = 5;
 			objData.SetSpriteSize({ 400, 230 });
 		}
 

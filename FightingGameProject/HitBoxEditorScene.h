@@ -59,12 +59,13 @@ namespace RB
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
 			//put all body parts into vector
-			int32_t totalBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
-			boxColliders.reserve(totalBodyParts);
+			int32_t nFrames = fighter.stateController.currentState->animationController.TotalTiles();
+			int32_t nBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
+			boxColliders.reserve(nBodyParts);
 
-			for (int32_t i = 0; i < totalBodyParts; i++)
+			for (int32_t i = 0; i < nBodyParts; i++)
 			{
-				boxColliders.push_back(BoxCollider({ 0, 0 }, 40, 50, 0.0f));
+				boxColliders.push_back(BoxCollider({ 0, (i * -20) }, 40, 50, 0.0f));
 			}
 		}
 
