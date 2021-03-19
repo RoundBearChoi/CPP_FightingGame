@@ -101,48 +101,51 @@ namespace RB
 			}
 
 			//boxcolliders
-			if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
+			int32_t bodyIndex = (int32_t)targetBodyType.selectedType;
+
+			if (bodyIndex < arrBoxCol.size())
 			{
-				//double press (do nothing)
-			}
-			else if (gameData.key_t)
-			{
-				arrBoxCol[0].RotateCounterClockwise();
-			}
-			else if (gameData.key_y)
-			{
-				arrBoxCol[0].RotateClockwise();
-			}
-			
-			if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
-			{
-				//double press (do nothing)
-			}
-			else if (gameData.key_g)
-			{
-				arrBoxCol[0].IncreaseWidth(1);
-			}
-			else if (gameData.key_h)
-			{
-				arrBoxCol[0].IncreaseHeight(1);
+				if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
+				{
+					//double press (do nothing)
+				}
+				else if (gameData.key_t)
+				{
+					arrBoxCol[bodyIndex].RotateCounterClockwise();
+				}
+				else if (gameData.key_y)
+				{
+					arrBoxCol[bodyIndex].RotateClockwise();
+				}
+
+				if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
+				{
+					//double press (do nothing)
+				}
+				else if (gameData.key_g)
+				{
+					arrBoxCol[bodyIndex].IncreaseWidth(1);
+				}
+				else if (gameData.key_h)
+				{
+					arrBoxCol[bodyIndex].IncreaseHeight(1);
+				}
+
+				//resize, rotate, move boxcollider
+				arrBoxCol[bodyIndex].SetQuad();
+				arrBoxCol[bodyIndex].UpdateRotation();
+				arrBoxCol[bodyIndex].UpdatePosition( //up down left right
+					gameData.key_a,
+					gameData.key_d,
+					gameData.key_w,
+					gameData.key_s);
 			}
 
-			//resize, rotate, move boxcollider
-			arrBoxCol[0].SetQuad();
-			arrBoxCol[0].UpdateRotation();
-			arrBoxCol[0].UpdatePosition( //up down left right
-				gameData.key_a,
-				gameData.key_d,
-				gameData.key_w,
-				gameData.key_s);
-
-			arrBoxCol[1].SetQuad();
-			arrBoxCol[1].UpdateRotation();
-			arrBoxCol[1].UpdatePosition( //up down left right
-				false,
-				false,
-				false,
-				false);
+			for (int32_t i = 0; i < arrBoxCol.size(); i++)
+			{
+				arrBoxCol[i].SetQuad();
+				arrBoxCol[i].UpdateRotation();
+			}
 		}
 
 		void RenderObjs() override
