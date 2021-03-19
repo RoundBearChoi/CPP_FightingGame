@@ -22,7 +22,7 @@ namespace RB
 
 		void PrevType()
 		{
-			int32_t next = (int32_t)selectedType + 1;
+			int32_t next = (int32_t)selectedType - 1;
 
 			if (next < (int32_t)BodyType::HEAD)
 			{
@@ -58,7 +58,7 @@ namespace RB
 			case BodyType::RIGHT_FOOT: return "right foot";
 			}
 
-			return nullptr;
+			return "none";
 		}
 	};
 }

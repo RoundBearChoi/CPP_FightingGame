@@ -28,5 +28,31 @@ namespace RB
 
 			return false;
 		}
+
+		void GreenTintOnHover(olc::vi2d& mousePos)
+		{
+			if (MouseHovering(mousePos))
+			{
+				tint = olc::GREEN;
+			}
+			else
+			{
+				tint = olc::WHITE;
+			}
+		}
+
+		bool Clicked(olc::vi2d& mousePos, GameData& gameData)
+		{
+			if (MouseHovering(mousePos))
+			{
+				if (gameData.key_mouse0)
+				{
+					gameData.key_mouse0->processed = true;
+					return true;
+				}
+			}
+
+			return false;
+		}
 	};
 }

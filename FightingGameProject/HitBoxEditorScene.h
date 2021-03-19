@@ -81,50 +81,23 @@ namespace RB
 			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();
 			
 			//play icon
-			if (playIcon.MouseHovering(mousePos))
-			{
-				playIcon.tint = olc::GREEN;
+			playIcon.GreenTintOnHover(mousePos);
+			leftSel.GreenTintOnHover(mousePos);
+			rightSel.GreenTintOnHover(mousePos);
 
-				if (gameData.key_mouse0)
-				{
-					gameData.key_mouse0->processed = true;
-					fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
-				}
-			}
-			else
+			if (playIcon.Clicked(mousePos, gameData))
 			{
-				playIcon.tint = olc::WHITE;
+				fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
 			}
 
-			//selection arrows
-			if (leftSel.MouseHovering(mousePos))
+			if (leftSel.Clicked(mousePos, gameData))
 			{
-				leftSel.tint = olc::GREEN;
-
-				if (gameData.key_mouse0)
-				{
-					gameData.key_mouse0->processed = true;
-					//fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
-				}
-			}
-			else
-			{
-				leftSel.tint = olc::WHITE;
+				targetBodyType.PrevType();
 			}
 
-			if (rightSel.MouseHovering(mousePos))
+			if (rightSel.Clicked(mousePos, gameData))
 			{
-				rightSel.tint = olc::GREEN;
-
-				if (gameData.key_mouse0)
-				{
-					gameData.key_mouse0->processed = true;
-					//fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
-				}
-			}
-			else
-			{
-				rightSel.tint = olc::WHITE;
+				targetBodyType.NextType();
 			}
 
 			//boxcolliders
