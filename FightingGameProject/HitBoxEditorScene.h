@@ -177,10 +177,18 @@ namespace RB
 			}
 
 			//current boxcollider info
-			olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "position: ", olc::WHITE);
-			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "width: ", olc::WHITE);
-			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 24 }, "height: ", olc::WHITE);
-			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 36 }, "rotation: ", olc::WHITE);
+			if ((int32_t)targetBodyType.selectedType < arrBoxCol.size())
+			{
+				olc::vi2d p0 = arrBoxCol[(int32_t)targetBodyType.selectedType].Point0();
+				olc::vi2d p1 = arrBoxCol[(int32_t)targetBodyType.selectedType].Point1();
+				olc::vi2d p2 = arrBoxCol[(int32_t)targetBodyType.selectedType].Point2();
+				olc::vi2d p3 = arrBoxCol[(int32_t)targetBodyType.selectedType].Point3();
+
+				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
+				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
+				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 24 }, "point2: " + std::to_string(p2.x) + ", " + std::to_string(p2.y), olc::WHITE);
+				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 36 }, "point3: " + std::to_string(p3.x) + ", " + std::to_string(p3.y), olc::WHITE);
+			}
 
 			//current index # for animation
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
