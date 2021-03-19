@@ -26,6 +26,7 @@ namespace RB
 
 		int32_t nFrames = 0;
 		int32_t nBodyParts = 0;
+		int32_t bodyIndex = 0;
 
 	public:
 		HitBoxEditorScene()
@@ -114,7 +115,8 @@ namespace RB
 			}
 
 			//boxcolliders
-			int32_t bodyIndex = (int32_t)targetBodyType.selectedType;
+			int32_t currentTile = fighter.stateController.currentState->animationController.status.nCurrentTile;
+			bodyIndex = (int32_t)targetBodyType.selectedType + (nBodyParts * currentTile);
 
 			if (bodyIndex < boxColliders.size())
 			{
@@ -178,7 +180,7 @@ namespace RB
 
 				olc::Pixel color = olc::BLUE;
 
-				if (i == (int32_t)targetBodyType.selectedType)
+				if (i == bodyIndex)
 				{
 					color = olc::RED;
 				}
@@ -190,12 +192,12 @@ namespace RB
 			}
 
 			//current boxcollider info
-			if ((int32_t)targetBodyType.selectedType < boxColliders.size())
+			if (bodyIndex < boxColliders.size())
 			{
-				olc::vi2d p0 = boxColliders[(int32_t)targetBodyType.selectedType].Point0();
-				olc::vi2d p1 = boxColliders[(int32_t)targetBodyType.selectedType].Point1();
-				olc::vi2d p2 = boxColliders[(int32_t)targetBodyType.selectedType].Point2();
-				olc::vi2d p3 = boxColliders[(int32_t)targetBodyType.selectedType].Point3();
+				olc::vi2d p0 = boxColliders[bodyIndex].Point0();
+				olc::vi2d p1 = boxColliders[bodyIndex].Point1();
+				olc::vi2d p2 = boxColliders[bodyIndex].Point2();
+				olc::vi2d p3 = boxColliders[bodyIndex].Point3();
 
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
