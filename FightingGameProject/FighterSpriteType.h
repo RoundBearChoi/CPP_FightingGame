@@ -15,6 +15,8 @@ namespace RB
 		background_sun,
 
 		editor_playframe,
+		editor_left_sel,
+		editor_right_sel,
 
 		COUNT,
 	};

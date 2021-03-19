@@ -19,6 +19,8 @@ namespace RB
 		case FighterSpriteType::background_sun: return "PNG files/background_sun.png";
 
 		case FighterSpriteType::editor_playframe: return "PNG files/editor_playframe.png";
+		case FighterSpriteType::editor_left_sel: return "PNG files/editor_left_sel.png";
+		case FighterSpriteType::editor_right_sel: return "PNG files/editor_right_sel.png";
 		}
 
 		return "none";

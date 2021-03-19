@@ -16,7 +16,11 @@ namespace RB
 	{
 	private:
 		GameObj fighter;
+
 		UIElement playIcon;
+		UIElement leftSel;
+		UIElement rightSel;
+		
 		std::array<BoxCollider, 2> arrBoxCol;
 		TargetBodyType targetBodyType;
 
@@ -42,6 +46,16 @@ namespace RB
 			playIcon.width = 54;
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
+
+			leftSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_left_sel);
+			leftSel.width = 18;
+			leftSel.height = 24;
+			leftSel.topLeft = { 5, 92 };
+
+			rightSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_right_sel);
+			rightSel.width = 18;
+			rightSel.height = 24;
+			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
 			arrBoxCol[0] = BoxCollider({ 0, 0 }, 40, 50, 0.0f);
 			arrBoxCol[1] = BoxCollider({ 0, -100 }, 60, 70, 0.0f);
@@ -74,12 +88,43 @@ namespace RB
 				if (gameData.key_mouse0)
 				{
 					gameData.key_mouse0->processed = true;
-					fighter.stateController.currentState->animationController.UpdateTileIndex(true);
+					fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
 				}
 			}
 			else
 			{
 				playIcon.tint = olc::WHITE;
+			}
+
+			//selection arrows
+			if (leftSel.MouseHovering(mousePos))
+			{
+				leftSel.tint = olc::GREEN;
+
+				if (gameData.key_mouse0)
+				{
+					gameData.key_mouse0->processed = true;
+					//fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
+				}
+			}
+			else
+			{
+				leftSel.tint = olc::WHITE;
+			}
+
+			if (rightSel.MouseHovering(mousePos))
+			{
+				rightSel.tint = olc::GREEN;
+
+				if (gameData.key_mouse0)
+				{
+					gameData.key_mouse0->processed = true;
+					//fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
+				}
+			}
+			else
+			{
+				rightSel.tint = olc::WHITE;
 			}
 
 			//boxcolliders
@@ -177,6 +222,10 @@ namespace RB
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
+
+			//selection arrows
+			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
+			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 		}
 	};
 }
