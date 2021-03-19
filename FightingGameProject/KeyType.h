@@ -9,13 +9,14 @@ namespace RB
 		MOUSE_0, //leftclick
 		MOUSE_1, //rightclick
 
+		P1_WeakPunch,
+		P1_StrongPunch,
+		P1_WeakKick,
+		P1_StrongKick,
 		P1_UP,
 		P1_DOWN,
 		P1_LEFT,
 		P1_RIGHT,
-
-		P1_WeakPunch,
-		P1_StrongPunch,
 
 		CAM_ZOOM_IN,
 		CAM_ZOOM_OUT,

@@ -87,11 +87,11 @@ namespace RB
 			}
 			else if (gameData.key_t)
 			{
-				angle += 0.01f;
+				angle -= 0.01f;
 			}
 			else if (gameData.key_y)
 			{
-				angle -= 0.01f;
+				angle += 0.01f;
 			}
 			
 			arrBoxCol[0].UpdateRotation(angle);
@@ -109,11 +109,6 @@ namespace RB
 
 			RenderCenterMark(cam);
 
-			//current index # for animation
-			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
-			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
-
 			//boxcolliders
 			std::array<olc::vi2d, 4> box0Pos;
 			box0Pos[0] = RelativeVector::GetPosition(arrBoxCol[0].TopLeft(), cam);
@@ -125,6 +120,17 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(box0Pos[1], box0Pos[2], olc::RED);
 			olc::Renderer::ptrPGE->DrawLine(box0Pos[2], box0Pos[3], olc::RED);
 			olc::Renderer::ptrPGE->DrawLine(box0Pos[3], box0Pos[0], olc::RED);
+
+			//current boxcollider info
+			olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "position: ", olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "width: ", olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 24 }, "height: ", olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({ 0, 200 + 36 }, "rotation: ", olc::WHITE);
+
+			//current index # for animation
+			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
+			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
+			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 		}
 
 		void RenderStates(bool update) override

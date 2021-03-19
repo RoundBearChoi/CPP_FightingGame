@@ -15,6 +15,8 @@ namespace RB
 
 		std::vector<Key> vecP1WeakPunch;
 		std::vector<Key> vecP1StrongPunch;
+		std::vector<Key> vecP1WeakKick;
+		std::vector<Key> vecP1StrongKick;
 		std::vector<Key> vecP1Left;
 		std::vector<Key> vecP1Right;
 		std::vector<Key> vecP1Up;
@@ -34,6 +36,8 @@ namespace RB
 
 			UpdateKey(vecP1WeakPunch, KeyType::P1_WeakPunch, olc::Platform::ptrPGE->GetKey(olc::Key::T));
 			UpdateKey(vecP1StrongPunch, KeyType::P1_StrongPunch, olc::Platform::ptrPGE->GetKey(olc::Key::Y));
+			UpdateKey(vecP1WeakKick, KeyType::P1_WeakKick, olc::Platform::ptrPGE->GetKey(olc::Key::G));
+			UpdateKey(vecP1StrongKick, KeyType::P1_StrongKick, olc::Platform::ptrPGE->GetKey(olc::Key::H));
 			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 			UpdateKey(vecP1Up, KeyType::P1_UP, olc::Platform::ptrPGE->GetKey(olc::Key::W));
@@ -73,6 +77,8 @@ namespace RB
 
 			gameData.key_y = GetUnprocessedKey(vecP1StrongPunch);
 			gameData.key_t = GetUnprocessedKey(vecP1WeakPunch);
+			gameData.key_g = GetUnprocessedKey(vecP1WeakKick);
+			gameData.key_h = GetUnprocessedKey(vecP1StrongKick);
 			gameData.key_a = GetUnprocessedKey(vecP1Left);
 			gameData.key_d = GetUnprocessedKey(vecP1Right);
 			gameData.key_w = GetUnprocessedKey(vecP1Up);
@@ -101,8 +107,10 @@ namespace RB
 			ClearReleasedKeys(vecCamZoomIn);
 			ClearReleasedKeys(vecCamZoomOut);
 
-			ClearReleasedKeys(vecP1StrongPunch);
 			ClearReleasedKeys(vecP1WeakPunch);
+			ClearReleasedKeys(vecP1StrongPunch);
+			ClearReleasedKeys(vecP1WeakKick);
+			ClearReleasedKeys(vecP1StrongKick);
 			ClearReleasedKeys(vecP1Left);
 			ClearReleasedKeys(vecP1Right);
 			ClearReleasedKeys(vecP1Up);

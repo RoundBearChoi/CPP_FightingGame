@@ -18,6 +18,8 @@ namespace RB
 
 		Key* key_y = nullptr;
 		Key* key_t = nullptr;
+		Key* key_g = nullptr;
+		Key* key_h = nullptr;
 		Key* key_a = nullptr;
 		Key* key_d = nullptr;
 		Key* key_w = nullptr;
