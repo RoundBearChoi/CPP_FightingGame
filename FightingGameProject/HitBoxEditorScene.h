@@ -17,7 +17,6 @@ namespace RB
 		GameObj fighter;
 		UIElement playIcon;
 		std::array<BoxCollider, 1> arrBoxCol;
-		float angle = 0.0f;
 
 	public:
 		HitBoxEditorScene()
@@ -87,11 +86,11 @@ namespace RB
 			}
 			else if (gameData.key_t)
 			{
-				angle -= 0.01f;
+				arrBoxCol[0].RotateCounterClockwise();
 			}
 			else if (gameData.key_y)
 			{
-				angle += 0.01f;
+				arrBoxCol[0].RotateClockwise();
 			}
 			
 			if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
@@ -106,10 +105,10 @@ namespace RB
 			{
 				arrBoxCol[0].IncreaseHeight(1);
 			}
-			
 
-			arrBoxCol[0].UpdateRotation(angle);
-
+			//resize, rotate, move boxcollider
+			arrBoxCol[0].SetQuad();
+			arrBoxCol[0].UpdateRotation();
 			arrBoxCol[0].UpdatePosition( //up down left right
 				gameData.key_a,
 				gameData.key_d,
@@ -124,16 +123,16 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			std::array<olc::vi2d, 4> box0Pos;
-			box0Pos[0] = RelativeVector::GetPosition(arrBoxCol[0].TopLeft(), cam);
-			box0Pos[1] = RelativeVector::GetPosition(arrBoxCol[0].BottomLeft(), cam);
-			box0Pos[2] = RelativeVector::GetPosition(arrBoxCol[0].BottomRight(), cam);
-			box0Pos[3] = RelativeVector::GetPosition(arrBoxCol[0].TopRight(), cam);
+			std::array<olc::vi2d, 4> quad;
+			quad[0] = RelativeVector::GetPosition(arrBoxCol[0].Point0(), cam);
+			quad[1] = RelativeVector::GetPosition(arrBoxCol[0].Point1(), cam);
+			quad[2] = RelativeVector::GetPosition(arrBoxCol[0].Point2(), cam);
+			quad[3] = RelativeVector::GetPosition(arrBoxCol[0].Point3(), cam);
 
-			olc::Renderer::ptrPGE->DrawLine(box0Pos[0], box0Pos[1], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(box0Pos[1], box0Pos[2], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(box0Pos[2], box0Pos[3], olc::RED);
-			olc::Renderer::ptrPGE->DrawLine(box0Pos[3], box0Pos[0], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], olc::RED);
 
 			//current boxcollider info
 			olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "position: ", olc::WHITE);
