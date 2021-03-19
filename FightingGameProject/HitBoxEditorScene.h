@@ -16,7 +16,7 @@ namespace RB
 	private:
 		GameObj fighter;
 		UIElement playIcon;
-		std::array<BoxCollider, 1> testing;
+		std::array<BoxCollider, 1> arrBoxCol;
 		float angle = 0.0f;
 
 	public:
@@ -42,7 +42,7 @@ namespace RB
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
 
-			testing[0] = BoxCollider({ 0, 0 }, 60, 80, 0.0f);
+			arrBoxCol[0] = BoxCollider({ 0, 0 }, 60, 80, 0.0f);
 		}
 
 		void Update(GameData& gameData) override
@@ -81,7 +81,22 @@ namespace RB
 			}
 
 			//boxcolliders
-			testing[0].UpdatePosition( //up down left right
+			if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
+			{
+				//double press (do nothing)
+			}
+			else if (gameData.key_t)
+			{
+				angle += 0.01f;
+			}
+			else if (gameData.key_y)
+			{
+				angle -= 0.01f;
+			}
+			
+			arrBoxCol[0].UpdateRotation(angle);
+
+			arrBoxCol[0].UpdatePosition( //up down left right
 				gameData.key_a,
 				gameData.key_d,
 				gameData.key_w,
@@ -100,14 +115,11 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 
 			//boxcolliders
-			angle += 0.001f;
-			testing[0].UpdateRotation(angle);
-
 			std::array<olc::vi2d, 4> box0Pos;
-			box0Pos[0] = RelativeVector::GetPosition(testing[0].TopLeft(), cam);
-			box0Pos[1] = RelativeVector::GetPosition(testing[0].BottomLeft(), cam);
-			box0Pos[2] = RelativeVector::GetPosition(testing[0].BottomRight(), cam);
-			box0Pos[3] = RelativeVector::GetPosition(testing[0].TopRight(), cam);
+			box0Pos[0] = RelativeVector::GetPosition(arrBoxCol[0].TopLeft(), cam);
+			box0Pos[1] = RelativeVector::GetPosition(arrBoxCol[0].BottomLeft(), cam);
+			box0Pos[2] = RelativeVector::GetPosition(arrBoxCol[0].BottomRight(), cam);
+			box0Pos[3] = RelativeVector::GetPosition(arrBoxCol[0].TopRight(), cam);
 
 			olc::Renderer::ptrPGE->DrawLine(box0Pos[0], box0Pos[1], olc::RED);
 			olc::Renderer::ptrPGE->DrawLine(box0Pos[1], box0Pos[2], olc::RED);
