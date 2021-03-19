@@ -70,7 +70,7 @@ namespace RB
 			for (int32_t i = 0; i < nBodyParts * nFrames; i++)
 			{
 				int32_t x = (int32_t)floor(i / nBodyParts * nFrames) * 1;
-				int32_t y = (i % nBodyParts) * -12;
+				int32_t y = -170 + (i % nBodyParts) * 12;
 				boxColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
 			}
 		}
