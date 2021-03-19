@@ -24,6 +24,9 @@ namespace RB
 		std::vector<BoxCollider> boxColliders;
 		TargetBodyType targetBodyType;
 
+		int32_t nFrames = 0;
+		int32_t nBodyParts = 0;
+
 	public:
 		HitBoxEditorScene()
 		{
@@ -59,13 +62,15 @@ namespace RB
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
 			//put all body parts into vector
-			int32_t nFrames = fighter.stateController.currentState->animationController.TotalTiles();
-			int32_t nBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
-			boxColliders.reserve(nBodyParts);
+			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
+			nBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
+			boxColliders.reserve(nBodyParts * nFrames);
 
-			for (int32_t i = 0; i < nBodyParts; i++)
+			for (int32_t i = 0; i < nBodyParts * nFrames; i++)
 			{
-				boxColliders.push_back(BoxCollider({ 0, (i * -20) }, 40, 50, 0.0f));
+				int32_t x = (int32_t)floor(i / nBodyParts * nFrames) * 1;
+				int32_t y = (i % nBodyParts) * -12;
+				boxColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
 			}
 		}
 
