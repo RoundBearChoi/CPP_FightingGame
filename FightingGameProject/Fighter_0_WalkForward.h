@@ -19,7 +19,7 @@ namespace RB
 		{
 			if (objData.GetTransitionPermission())
 			{
-				if (!gameData.d)
+				if (!gameData.key_d)
 				{
 					nextState = State::NewState<Fighter_0_Idle>();
 				}

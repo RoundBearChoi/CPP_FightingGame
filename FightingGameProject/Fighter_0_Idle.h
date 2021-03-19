@@ -21,13 +21,13 @@ namespace RB
 		{
 			if (objData.GetTransitionPermission())
 			{
-				if (gameData.t)
+				if (gameData.key_t)
 				{
-					gameData.t->processed = true;
+					gameData.key_t->processed = true;
 					nextState = State::NewState<Fighter_0_Jab>();
 				}
 
-				if (gameData.d)
+				if (gameData.key_d)
 				{
 					nextState = State::NewState<Fighter_0_WalkForward>();
 				}

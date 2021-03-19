@@ -14,7 +14,8 @@ namespace RB
 		P1_LEFT,
 		P1_RIGHT,
 
-		P1_JAB,
+		P1_WeakPunch,
+		P1_StrongPunch,
 
 		CAM_ZOOM_IN,
 		CAM_ZOOM_OUT,

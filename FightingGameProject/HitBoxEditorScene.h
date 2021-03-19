@@ -69,9 +69,9 @@ namespace RB
 			{
 				playIcon.tint = olc::GREEN;
 
-				if (gameData.mouse0)
+				if (gameData.key_mouse0)
 				{
-					gameData.mouse0->processed = true;
+					gameData.key_mouse0->processed = true;
 					fighter.stateController.currentState->animationController.UpdateTileIndex(true);
 				}
 			}
@@ -81,7 +81,11 @@ namespace RB
 			}
 
 			//boxcolliders
-			testing[0].UpdatePosition(gameData.a, gameData.d, gameData.w, gameData.s);
+			testing[0].UpdatePosition( //up down left right
+				gameData.key_a,
+				gameData.key_d,
+				gameData.key_w,
+				gameData.key_s);
 		}
 
 		void RenderObjs() override

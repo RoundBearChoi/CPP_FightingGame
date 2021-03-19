@@ -9,17 +9,18 @@ namespace RB
 	public:
 		SceneType nextSceneType = SceneType::NONE;
 
-		Key* mouse0 = nullptr;
+		Key* key_mouse0 = nullptr;
 
-		Key* left = nullptr;
-		Key* right = nullptr;
-		Key* up = nullptr;
-		Key* down = nullptr;
+		Key* key_left = nullptr;
+		Key* key_right = nullptr;
+		Key* key_up = nullptr;
+		Key* key_down = nullptr;
 
-		Key* t = nullptr;
-		Key* a = nullptr;
-		Key* d = nullptr;
-		Key* w = nullptr;
-		Key* s = nullptr;
+		Key* key_y = nullptr;
+		Key* key_t = nullptr;
+		Key* key_a = nullptr;
+		Key* key_d = nullptr;
+		Key* key_w = nullptr;
+		Key* key_s = nullptr;
 	};
 }
