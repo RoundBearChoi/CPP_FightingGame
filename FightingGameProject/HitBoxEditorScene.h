@@ -80,7 +80,7 @@ namespace RB
 
 			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();
 			
-			//play icon
+			//clickable UI
 			playIcon.GreenTintOnHover(mousePos);
 			leftSel.GreenTintOnHover(mousePos);
 			rightSel.GreenTintOnHover(mousePos);
