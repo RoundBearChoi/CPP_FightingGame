@@ -8,6 +8,11 @@ namespace RB
 	class Fighter_0_Jab : public State
 	{
 	public:
+		Fighter_0_Jab()
+		{
+			animationController.SetCollisionFileName("jab collision file");
+		}
+
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
 			animationController.SetParams((int32_t)FighterSpriteType::fighter_0_jab, 2400, 200, 6, 1, 6);
