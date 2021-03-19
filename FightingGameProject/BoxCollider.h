@@ -15,6 +15,21 @@ namespace RB
 		std::array<olc::vi2d, 4> quad;
 		std::array<olc::vi2d, 4> rotatedQuad;
 
+		void SetQuad()
+		{
+			int32_t topLeftX = (int32_t)std::round((float)pos.x - (float)width / 2.0f);
+			int32_t topLeftY = (int32_t)std::round((float)pos.y - (float)height / 2.0f);
+			olc::vi2d topLeft = { topLeftX, topLeftY };
+			olc::vi2d bottomLeft = topLeft + olc::vi2d{ 0, height };
+			olc::vi2d topRight = topLeft + olc::vi2d{ width, 0 };
+			olc::vi2d bottomRight = topLeft + olc::vi2d{ width, height };
+
+			quad[0] = topLeft;
+			quad[1] = bottomLeft;
+			quad[2] = bottomRight;
+			quad[3] = topRight;
+		}
+
 	public:
 		BoxCollider()
 		{
@@ -33,17 +48,7 @@ namespace RB
 			height = _height;
 			rotation = _rotation;
 
-			int32_t topLeftX = (int32_t)std::round((float)pos.x - (float)width / 2.0f);
-			int32_t topLeftY = (int32_t)std::round((float)pos.y - (float)height / 2.0f);
-			olc::vi2d topLeft = { topLeftX, topLeftY };
-			olc::vi2d bottomLeft = topLeft + olc::vi2d{ 0, height };
-			olc::vi2d topRight = topLeft + olc::vi2d{ width, 0 };
-			olc::vi2d bottomRight = topLeft + olc::vi2d{ width, height };
-
-			quad[0] = topLeft;
-			quad[1] = bottomLeft;
-			quad[2] = bottomRight;
-			quad[3] = topRight;
+			SetQuad();
 		}
 
 		void UpdatePosition(bool left, bool right, bool up, bool down)
@@ -73,6 +78,8 @@ namespace RB
 			{
 				pos.y += 1;
 			}
+
+			SetQuad();
 		}
 
 		void UpdateRotation(float angle)
@@ -84,6 +91,18 @@ namespace RB
 
 				rotatedQuad[i] = { (int32_t)std::round(fX), (int32_t)std::round(fY) };
 			}
+		}
+
+		void IncreaseWidth(int32_t _width)
+		{
+			width += _width;
+			SetQuad();
+		}
+
+		void IncreaseHeight(int32_t _height)
+		{
+			height += _height;
+			SetQuad();
 		}
 	};
 }

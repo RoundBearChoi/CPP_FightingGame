@@ -94,6 +94,20 @@ namespace RB
 				angle += 0.01f;
 			}
 			
+			if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
+			{
+				//double press (do nothing)
+			}
+			else if (gameData.key_g)
+			{
+				arrBoxCol[0].IncreaseWidth(1);
+			}
+			else if (gameData.key_h)
+			{
+				arrBoxCol[0].IncreaseHeight(1);
+			}
+			
+
 			arrBoxCol[0].UpdateRotation(angle);
 
 			arrBoxCol[0].UpdatePosition( //up down left right

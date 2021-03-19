@@ -43,8 +43,8 @@ namespace RB
 			UpdateKey(vecP1Up, KeyType::P1_UP, olc::Platform::ptrPGE->GetKey(olc::Key::W));
 			UpdateKey(vecP1Down, KeyType::P1_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::S));
 
-			olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p1 left: " + std::to_string(vecP1Left.size()));
-			olc::Renderer::ptrPGE->DrawString({ 0, 35 + 12 }, "p1 jab: " + std::to_string(vecP1WeakPunch.size()));
+			//olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p1 left: " + std::to_string(vecP1Left.size()));
+			//olc::Renderer::ptrPGE->DrawString({ 0, 35 + 12 }, "p1 jab: " + std::to_string(vecP1WeakPunch.size()));
 		}
 
 		void UpdateKey(std::vector<Key>& vec, KeyType _keyType, olc::HWButton button)
