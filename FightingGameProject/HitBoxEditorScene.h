@@ -162,7 +162,7 @@ namespace RB
 
 				olc::Pixel color = olc::BLUE;
 
-				if (i == 1)
+				if (i == (int32_t)targetBodyType.selectedType)
 				{
 					color = olc::RED;
 				}
