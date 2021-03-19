@@ -58,9 +58,14 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			boxColliders.reserve(2);
-			boxColliders.push_back(BoxCollider({ 0, 0 }, 40, 50, 0.0f));
-			boxColliders.push_back(BoxCollider({ 0, -100 }, 60, 70, 0.0f));
+			//put all body parts into vector
+			int32_t totalBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
+			boxColliders.reserve(totalBodyParts);
+
+			for (int32_t i = 0; i < totalBodyParts; i++)
+			{
+				boxColliders.push_back(BoxCollider({ 0, 0 }, 40, 50, 0.0f));
+			}
 		}
 
 		void Update(GameData& gameData) override
