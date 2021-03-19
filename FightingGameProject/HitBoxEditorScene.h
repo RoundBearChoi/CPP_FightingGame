@@ -170,7 +170,8 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			for (int32_t i = 0; i < boxColliders.size(); i++)
+			int32_t base = fighter.stateController.currentState->animationController.status.nCurrentTile * nBodyParts;
+			for (int32_t i = base; i < base + nBodyParts; i++)
 			{
 				std::array<olc::vi2d, 4> quad;
 				quad[0] = RelativeVector::GetPosition(boxColliders[i].Point0(), cam);
@@ -210,7 +211,7 @@ namespace RB
 			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 		
-			//current selection
+			//current body part selection
 			olc::Renderer::ptrPGE->DrawString({ 55, 100 }, "current body: " + targetBodyType.GetCurrentSelString(), olc::WHITE);
 		}
 
