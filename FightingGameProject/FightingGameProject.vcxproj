@@ -145,6 +145,7 @@
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ExperimentalLoader.cpp" />
     <ClCompile Include="FighterDecals.cpp" />
     <ClCompile Include="Fighters.cpp" />
     <ClCompile Include="FightScene.cpp" />

@@ -105,6 +105,9 @@
     <ClCompile Include="SceneController.cpp">
       <Filter>Source Files\Scenes\Base</Filter>
     </ClCompile>
+    <ClCompile Include="ExperimentalLoader.cpp">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
