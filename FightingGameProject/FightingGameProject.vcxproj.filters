@@ -239,5 +239,8 @@
     <ClInclude Include="TargetBodyType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="StringNotification.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

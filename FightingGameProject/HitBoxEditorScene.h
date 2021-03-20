@@ -4,6 +4,7 @@
 #include "GameData.h"
 #include "GameObj.h"
 #include "UIElement.h"
+#include "StringNotification.h"
 #include "BoxCollider.h"
 #include "TargetBodyType.h"
 
@@ -22,6 +23,8 @@ namespace RB
 		UIElement saveIcon;
 		UIElement leftSel;
 		UIElement rightSel;
+
+		StringNotification saved;
 				
 		std::vector<BoxCollider> boxColliders;
 		TargetBodyType targetBodyType;
@@ -82,6 +85,11 @@ namespace RB
 			}
 
 			LoadColliderData();
+
+			//notifications
+			saved.str = "saved!";
+			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
+			saved.color = olc::RED;
 		}
 
 		void Update(GameData& gameData) override
@@ -117,6 +125,7 @@ namespace RB
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
 				SaveColliderData();
+				saved.frames = 120 * 8;
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -228,6 +237,9 @@ namespace RB
 		
 			//current body part selection
 			olc::Renderer::ptrPGE->DrawString({ 55, 100 }, "current body: " + targetBodyType.GetCurrentSelString(), olc::WHITE);
+
+			//notifications
+			saved.Show();
 		}
 
 		void RenderStates(bool update) override

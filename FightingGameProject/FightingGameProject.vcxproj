@@ -194,6 +194,7 @@
     <ClInclude Include="SheetRenderer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />
+    <ClInclude Include="StringNotification.h" />
     <ClInclude Include="TargetBodyType.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIElement.h" />
