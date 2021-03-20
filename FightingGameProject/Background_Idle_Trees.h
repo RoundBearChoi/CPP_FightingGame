@@ -20,6 +20,7 @@ namespace RB
 			{
 				IF_COUT{ std::cout << "hashing: " << path << std::endl; }
 				hash = std::hash<std::string>{}(path);
+				IF_COUT{ std::cout << hash << std::endl; };
 			}
 
 			return hash;
