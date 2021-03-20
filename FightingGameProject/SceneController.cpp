@@ -40,6 +40,8 @@ namespace RB
 		experimentalLoader.LoadBackgroundSprites();
 		ExperimentalLoader::ptr = &experimentalLoader;
 
+		std::cout << "static variable set" << std::endl;
+
 		currentScene->InitScene();
 	}
 }
