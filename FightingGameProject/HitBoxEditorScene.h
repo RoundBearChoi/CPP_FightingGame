@@ -265,7 +265,31 @@ namespace RB
 
 				if (pFile != nullptr)
 				{
-					std::fread(&size, sizeof(int), 1, pFile);
+					std::fread(&size, sizeof(size_t), 1, pFile);
+
+					if (size == boxColliders.size())
+					{
+						for (size_t i = 0; i < boxColliders.size(); i++)
+						{
+							int32_t x = 0;
+							int32_t y = 0;
+							int32_t width = 0;
+							int32_t height = 0;
+							float rotation = 0.0f;
+
+							std::fread(&x, sizeof(int32_t), 1, pFile);
+							std::fread(&y, sizeof(int32_t), 1, pFile);
+							std::fread(&width, sizeof(int32_t), 1, pFile);
+							std::fread(&height, sizeof(int32_t), 1, pFile);
+							std::fread(&rotation, sizeof(float), 1, pFile);
+
+							boxColliders[i].SetPosition(x, y);
+							boxColliders[i].SetWidth(width);
+							boxColliders[i].SetHeight(height);
+							boxColliders[i].SetRotation(rotation);
+						}
+					}
+
 					fclose(pFile);
 				}
 			}
@@ -288,6 +312,22 @@ namespace RB
 #pragma warning(default: 4996)
 
 				fwrite(&vecSize, sizeof(size_t), 1, pFile);
+				
+				for (size_t i = 0; i < boxColliders.size(); i++)
+				{
+					int32_t x = boxColliders[i].Position().x;
+					int32_t y = boxColliders[i].Position().y;
+					int32_t width = boxColliders[i].Width();
+					int32_t height = boxColliders[i].Height();
+					float rotation = boxColliders[i].Rotation();
+
+					fwrite(&x, sizeof(int32_t), 1, pFile);
+					fwrite(&y, sizeof(int32_t), 1, pFile);
+					fwrite(&width, sizeof(int32_t), 1, pFile);
+					fwrite(&height, sizeof(int32_t), 1, pFile);
+					fwrite(&rotation, sizeof(float), 1, pFile);
+				}
+				
 				fclose(pFile);
 			}
 		}

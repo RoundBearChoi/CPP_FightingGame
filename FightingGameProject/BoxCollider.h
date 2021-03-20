@@ -26,6 +26,18 @@ namespace RB
 		olc::vi2d Point2() { return rotatedQuad[2] + pos; } //bottomright
 		olc::vi2d Point3() { return rotatedQuad[3] + pos; } // topright
 
+		olc::vi2d Position() { return pos; }
+		void SetPosition(int32_t _x, int32_t _y) { pos.x = _x; pos.y = _y; }
+
+		int32_t Width() { return width; }
+		void SetWidth(int32_t _width) { width = _width; }
+
+		int32_t Height() { return height; }
+		void SetHeight(int32_t _height) { height = _height; }
+
+		float Rotation() { return rotation; }
+		void SetRotation(float _rotation) { rotation = _rotation; }
+
 		BoxCollider(olc::vi2d _pos, int32_t _width, int32_t _height, float _rotation)
 		{
 			pos = _pos;
