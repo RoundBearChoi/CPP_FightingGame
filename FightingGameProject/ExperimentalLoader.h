@@ -4,6 +4,7 @@
 #include "olcPixelGameEngine.h"
 
 #ifdef _WIN32
+//filesystem not included in VS (strange..)
 #include <experimental/filesystem>
 #define FILESYSTEM std::experimental::filesystem
 #else
