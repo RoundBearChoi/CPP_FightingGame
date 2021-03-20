@@ -67,15 +67,12 @@ namespace RB
 
 			olc::Decal* d = nullptr; 
 
-			if (obj->stateController.currentState->animationController.status.spriteType == SpriteType::BACKGROUND)
-			{
-				size_t hash = obj->stateController.currentState->GetHash();
+			SpriteType spriteType = obj->stateController.currentState->animationController.status.spriteType;
+			size_t hash = obj->stateController.currentState->GetHash();
 
-				if (hash != 0)
-				{
-					//IF_COUT{ std::cout << "ptr: " << ExperimentalLoader::ptr << std::endl; };
-					d = ExperimentalLoader::ptr->GetBackgroundDecal(hash);
-				}
+			if (spriteType == SpriteType::BACKGROUND)
+			{
+				d = ExperimentalLoader::ptr->GetDecal(spriteType, hash);
 			}
 			else
 			{

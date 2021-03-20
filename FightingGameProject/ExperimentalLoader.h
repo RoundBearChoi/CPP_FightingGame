@@ -4,6 +4,7 @@
 #include <filesystem>
 #include "olcPixelGameEngine.h"
 #include "DevSettings.h"
+#include "SpriteType.h"
 
 namespace RB
 {
@@ -15,6 +16,7 @@ namespace RB
 		std::vector<size_t> backgroundHash;
 
 		void LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash);
+		olc::Decal* GetBackgroundDecal(size_t _hash);
 
 	public:
 		static ExperimentalLoader* ptr;
@@ -24,6 +26,6 @@ namespace RB
 
 		void LoadBackgroundSprites();
 		void DeleteDecals(std::vector<olc::Sprite*>& spriteVec, std::vector<olc::Decal*>& decalVec);
-		olc::Decal* GetBackgroundDecal(size_t _hash);
+		olc::Decal* GetDecal(SpriteType _spriteType, size_t _hash);
 	};
 }

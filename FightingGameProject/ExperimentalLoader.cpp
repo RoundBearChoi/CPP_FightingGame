@@ -61,6 +61,14 @@ namespace RB
 		}
 	}
 
+	olc::Decal* ExperimentalLoader::GetDecal(SpriteType _spriteType, size_t _hash)
+	{
+		if (_spriteType == SpriteType::BACKGROUND)
+		{
+			return GetBackgroundDecal(_hash);
+		}
+	}
+
 	olc::Decal* ExperimentalLoader::GetBackgroundDecal(size_t _hash)
 	{
 		for (size_t i = 0; i < backgroundHash.size(); i++)
