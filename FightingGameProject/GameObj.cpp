@@ -6,12 +6,12 @@ namespace RB
 {
 	GameObj::GameObj()
 	{
-		IF_COUT{ std::cout << "construcing GameObj: " << objData.GetCreationID() << std::endl; }
+		IF_COUT{ std::cout << "construcing GameObj: " << objData.GetCreationID() << std::endl; };
 	}
 
 	GameObj::~GameObj()
 	{
-		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; }
+		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; };
 	}
 
 	void GameObj::RenderPosition(Camera& cam)

@@ -37,12 +37,12 @@ namespace RB
 	public:
 		HitBoxEditorScene()
 		{
-			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; }
+			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
 		}
 
 		~HitBoxEditorScene() override
 		{
-			IF_COUT{ std::cout << "destructing HitBoxEditorScene" << std::endl; }
+			IF_COUT{ std::cout << "destructing HitBoxEditorScene" << std::endl; };
 		}
 
 		void InitScene() override

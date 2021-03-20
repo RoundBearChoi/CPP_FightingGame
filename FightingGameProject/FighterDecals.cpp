@@ -39,13 +39,13 @@ namespace RB
 
 	void FighterDecals::LoadSprites()
 	{
-		IF_COUT{ std::cout << std::endl; }
+		IF_COUT{ std::cout << std::endl; };
 
 		for (int32_t i = 0; i < (int32_t)FighterSpriteType::COUNT; i++)
 		{
 			std::string path = GetPath(i);
 
-			IF_COUT{ std::cout << "constructing Sprite: " << path << std::endl; }
+			IF_COUT{ std::cout << "constructing Sprite: " << path << std::endl; };
 
 			vecSpritePtr.push_back(new olc::Sprite(path));
 		}
@@ -55,7 +55,7 @@ namespace RB
 	{
 		for (int32_t i = 0; i < vecSpritePtr.size(); i++)
 		{
-			IF_COUT{ std::cout << "constructing Decal: " << i << std::endl; }
+			IF_COUT{ std::cout << "constructing Decal: " << i << std::endl; };
 
 			vecDecalPtr.push_back(new olc::Decal(vecSpritePtr[i]));
 		}

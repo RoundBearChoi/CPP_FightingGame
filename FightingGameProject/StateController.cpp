@@ -5,7 +5,7 @@ namespace RB
 {
 	StateController::~StateController()
 	{
-		IF_COUT{ std::cout << "destructing StateController: " << creationID << std::endl; }
+		IF_COUT{ std::cout << "destructing StateController: " << creationID << std::endl; };
 		delete currentState;
 	}
 

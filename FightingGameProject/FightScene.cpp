@@ -15,12 +15,12 @@ namespace RB
 {
 	FightScene::FightScene()
 	{
-		IF_COUT{ std::cout << "constructing FightScene" << std::endl; }
+		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 	}
 
 	FightScene::~FightScene()
 	{
-		IF_COUT{ std::cout << "destructing FightScene" << std::endl; }
+		IF_COUT{ std::cout << "destructing FightScene" << std::endl; };
 	}
 
 	void FightScene::InitScene()

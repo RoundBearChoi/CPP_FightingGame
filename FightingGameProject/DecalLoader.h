@@ -20,18 +20,18 @@ namespace RB
 
 		~DecalLoader()
 		{
-			IF_COUT{ std::cout << "destructing DecalLoader" << std::endl; }
+			IF_COUT{ std::cout << "destructing DecalLoader" << std::endl; };
 
 			for (int32_t i = 0; i < vecSpritePtr.size(); i++)
 			{
-				IF_COUT{ std::cout << "destructing Sprite: " << i << std::endl; }
+				IF_COUT{ std::cout << "destructing Sprite: " << i << std::endl; };
 					
 				delete vecSpritePtr[i];
 			}
 
 			for (int32_t i = 0; i < vecDecalPtr.size(); i++)
 			{
-				IF_COUT{ std::cout << "destructing Decal: " << i << std::endl; }
+				IF_COUT{ std::cout << "destructing Decal: " << i << std::endl; };
 				
 				delete vecDecalPtr[i];
 			}

@@ -38,7 +38,7 @@ namespace RB
 		//load decals
 		for (size_t i = 0; i < vecSprites.size(); i++)
 		{
-			IF_COUT{ std::cout << "Loading decal: " << i << std::endl; }
+			IF_COUT{ std::cout << "Loading decal: " << i << std::endl; };
 
 			vecDecals.push_back(new olc::Decal(vecSprites[i]));
 		}

@@ -6,12 +6,12 @@ namespace RB
 {
 	SceneController::SceneController()
 	{
-		IF_COUT{ std::cout << "constructing SceneController" << std::endl; }
+		IF_COUT{ std::cout << "constructing SceneController" << std::endl; };
 	}
 
 	SceneController::~SceneController()
 	{
-		IF_COUT{ std::cout << "destructing SceneController" << std::endl; }
+		IF_COUT{ std::cout << "destructing SceneController" << std::endl; };
 
 		delete currentScene;
 	}
@@ -40,7 +40,7 @@ namespace RB
 		experimentalLoader.LoadBackgroundSprites();
 		ExperimentalLoader::ptr = &experimentalLoader;
 
-		IF_COUT{ std::cout << "static variable set" << std::endl; }
+		IF_COUT{ std::cout << "static variable set" << std::endl; };
 
 		currentScene->InitScene();
 	}
