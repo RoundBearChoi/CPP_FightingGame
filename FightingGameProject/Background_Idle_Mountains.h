@@ -16,9 +16,7 @@ namespace RB
 
 			if (hash == 0)
 			{
-				IF_COUT{ std::cout << "getting mountain hash" << std::endl; };
 				hash = std::hash<std::string>{}(path);
-				IF_COUT{ std::cout << "mountains hash: " << hash << std::endl; };
 			}
 
 			return hash;

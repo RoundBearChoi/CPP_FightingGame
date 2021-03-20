@@ -40,9 +40,6 @@ namespace RB
 		experimentalLoader.LoadBackgroundSprites();
 		ExperimentalLoader::ptr = &experimentalLoader;
 
-		IF_COUT{ std::cout << &experimentalLoader << std::endl; };
-		IF_COUT{ std::cout << ExperimentalLoader::ptr << std::endl; };
-
 		currentScene->InitScene();
 	}
 }

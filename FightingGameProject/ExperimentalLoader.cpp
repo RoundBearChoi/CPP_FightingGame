@@ -42,10 +42,6 @@ namespace RB
 
 			vecDecals.push_back(new olc::Decal(vecSprites[i]));
 		}
-
-		IF_COUT{ std::cout << "sprites count: " << vecSprites.size() << std::endl; };
-		IF_COUT{ std::cout << "decals count: " << vecDecals.size() << std::endl; };
-		IF_COUT{ std::cout << "hash count: " << vecHash.size() << std::endl; };
 	}
 
 	void ExperimentalLoader::LoadBackgroundSprites()
@@ -73,8 +69,6 @@ namespace RB
 	{
 		for (size_t i = 0; i < backgroundHash.size(); i++)
 		{
-			IF_COUT{ std::cout << "matching hash: " << i << std::endl; }
-
 			if (_hash == backgroundHash[i])
 			{
 				return backgroundDecals[i];
