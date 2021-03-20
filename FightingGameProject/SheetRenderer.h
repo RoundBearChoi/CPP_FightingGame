@@ -73,6 +73,7 @@ namespace RB
 
 				if (hash != 0)
 				{
+					IF_COUT{ std::cout << "matching hash" << std::endl; };
 					d = ExperimentalLoader::ptr->GetBackgroundDecal(hash);
 				}
 			}
