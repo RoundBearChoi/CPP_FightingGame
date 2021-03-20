@@ -172,22 +172,22 @@ namespace RB
 				{
 					if (!gameData.key_shift)
 					{
-						boxColliders[bodyIndex].IncreaseWidth(1);
+						boxColliders[bodyIndex].IncreaseHeight(1);
 					}
 					else
 					{
-						boxColliders[bodyIndex].DecreaseWidth(1);
+						boxColliders[bodyIndex].DecreaseHeight(1);
 					}
 				}
 				else if (gameData.key_h)
 				{
 					if (!gameData.key_shift)
 					{
-						boxColliders[bodyIndex].IncreaseHeight(1);
+						boxColliders[bodyIndex].IncreaseWidth(1);
 					}
 					else
 					{
-						boxColliders[bodyIndex].DecreaseHeight(1);
+						boxColliders[bodyIndex].DecreaseWidth(1);
 					}
 				}
 
