@@ -242,5 +242,8 @@
     <ClInclude Include="StringNotification.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ExperimentalLoader.h">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -131,6 +131,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -196,6 +198,7 @@
     <ClInclude Include="StateController.h" />
     <ClInclude Include="StringNotification.h" />
     <ClInclude Include="TargetBodyType.h" />
+    <ClInclude Include="ExperimentalLoader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIElement.h" />
   </ItemGroup>

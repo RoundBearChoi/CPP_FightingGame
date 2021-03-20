@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "SceneType.h"
 #include "FighterDecals.h"
+#include "ExperimentalLoader.h"
 
 namespace RB
 {
@@ -9,6 +10,7 @@ namespace RB
 	{
 	private:
 		FighterDecals fighterDecals;
+		ExperimentalLoader experimentalLoader;
 
 	public:
 		Scene* currentScene = nullptr;

@@ -37,6 +37,8 @@ namespace RB
 			currentScene->ptrDecalLoader = &fighterDecals;
 		}
 
+		experimentalLoader.LoadBackgroundSprites();
+
 		currentScene->InitScene();
 	}
 }
