@@ -25,6 +25,7 @@ namespace RB
 		UIElement rightSel;
 
 		StringNotification saved;
+		StringNotification savedFileName;
 				
 		std::vector<BoxCollider> boxColliders;
 		TargetBodyType targetBodyType;
@@ -90,6 +91,11 @@ namespace RB
 			saved.str = "saved!";
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
 			saved.color = olc::RED;
+
+			savedFileName.str = fighter.stateController.currentState->animationController.CollisionFileName();
+			int32_t nameLength = (int32_t)savedFileName.str.length();
+			savedFileName.pos = { GameSettings::window_width - (nameLength * 8), saveIcon.topLeft.y + 55 + 14 };
+			savedFileName.color = olc::RED;
 		}
 
 		void Update(GameData& gameData) override
@@ -125,7 +131,8 @@ namespace RB
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
 				SaveColliderData();
-				saved.frames = 120 * 8;
+				saved.frames = 120 * 9;
+				savedFileName.frames = 120 * 9;
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -240,6 +247,7 @@ namespace RB
 
 			//notifications
 			saved.Show();
+			savedFileName.Show();
 		}
 
 		void RenderStates(bool update) override
