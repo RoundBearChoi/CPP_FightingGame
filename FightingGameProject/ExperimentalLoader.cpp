@@ -29,9 +29,6 @@ namespace RB
 
 			size_t hash = std::hash<std::string>{}(p);
 			vecHash.push_back(hash);
-
-			IF_COUT{ std::cout << "hashing: " << p << std::endl; }
-			IF_COUT{ std::cout << "hash added: " << hash << std::endl; };
 		}
 
 		//load decals

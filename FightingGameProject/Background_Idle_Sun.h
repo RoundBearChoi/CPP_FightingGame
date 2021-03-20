@@ -14,8 +14,6 @@ namespace RB
 		{
 			static size_t hash = 0;
 
-			IF_COUT{ std::cout << "sun initial hash: " << hash << std::endl; }
-
 			if (hash == 0)
 			{
 				IF_COUT{ std::cout << "hashing: " << path << std::endl; }

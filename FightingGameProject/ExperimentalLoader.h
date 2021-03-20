@@ -5,7 +5,7 @@
 #include "DevSettings.h"
 
 #ifdef _WIN32
-//filesystem not included in VS (strange..)
+//filesystem not working in debug mode
 #include <experimental/filesystem>
 #define FILESYSTEM std::experimental::filesystem
 #else
