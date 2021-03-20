@@ -81,6 +81,8 @@ namespace RB
 			}
 		}
 
+		IF_COUT{ std::cout << "hash not found" << std::endl; }
+
 		return nullptr;
 	}
 }
