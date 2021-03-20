@@ -19,9 +19,10 @@ namespace RB
 		GameObj fighter;
 
 		UIElement playIcon;
+		UIElement saveIcon;
 		UIElement leftSel;
 		UIElement rightSel;
-		
+				
 		std::vector<BoxCollider> boxColliders;
 		TargetBodyType targetBodyType;
 
@@ -52,6 +53,11 @@ namespace RB
 			playIcon.width = 54;
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
+
+			saveIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_save);
+			saveIcon.width = 33;
+			saveIcon.height = 29;
+			saveIcon.topLeft = { GameSettings::window_width - saveIcon.width - 15, 15 };
 
 			leftSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_left_sel);
 			leftSel.width = 18;
@@ -116,6 +122,7 @@ namespace RB
 			
 			//clickable UI
 			playIcon.GreenTintOnHover(mousePos);
+			saveIcon.GreenTintOnHover(mousePos);
 			leftSel.GreenTintOnHover(mousePos);
 			rightSel.GreenTintOnHover(mousePos);
 
@@ -242,6 +249,10 @@ namespace RB
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
+
+			//save icon
+			olc::Renderer::ptrPGE->DrawDecal(saveIcon.topLeft, saveIcon.ptrDecal, { 1.0f, 1.0f }, saveIcon.tint);
+			olc::Renderer::ptrPGE->DrawString({ saveIcon.topLeft.x, saveIcon.topLeft.y + saveIcon.height + 4 }, "save");
 
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
