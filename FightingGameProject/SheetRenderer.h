@@ -69,8 +69,6 @@ namespace RB
 
 			if (obj->stateController.currentState->animationController.status.spriteType == SpriteType::BACKGROUND)
 			{
-				IF_COUT{ std::cout << "rendering background" << std::endl; };
-
 				size_t hash = obj->stateController.currentState->GetHash();
 
 				if (hash != 0)
