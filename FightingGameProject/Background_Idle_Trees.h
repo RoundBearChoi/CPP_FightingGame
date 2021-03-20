@@ -6,6 +6,7 @@ namespace RB
 {
 	class Background_Idle_Trees : public State
 	{
+	public:
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
 			animationController.SetParams(SpriteType::BACKGROUND, (int32_t)FighterSpriteType::background_trees_20, 1700, 300, 1, 1, 1);
