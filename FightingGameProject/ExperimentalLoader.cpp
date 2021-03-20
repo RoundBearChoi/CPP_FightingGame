@@ -23,7 +23,7 @@ namespace RB
 
 			IF_COUT{ std::cout << "Loading sprite: " << path << std::endl; };
 
-			std::string p = path.u8string();
+			std::string p = path.string();
 			vecSprites.push_back(new olc::Sprite(p));
 
 			size_t hash = std::hash<std::string>{}(p);
