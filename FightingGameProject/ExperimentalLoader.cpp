@@ -67,6 +67,8 @@ namespace RB
 		{
 			return GetBackgroundDecal(_hash);
 		}
+
+		return nullptr;
 	}
 
 	olc::Decal* ExperimentalLoader::GetBackgroundDecal(size_t _hash)
