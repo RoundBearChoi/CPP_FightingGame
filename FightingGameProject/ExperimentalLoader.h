@@ -1,23 +1,9 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <filesystem>
 #include "olcPixelGameEngine.h"
 #include "DevSettings.h"
-
-#ifdef _WIN32
-
-#ifdef DEBUG_MODE
-#include <experimental/filesystem>
-#define FILESYSTEM std::experimental::filesystem
-#else
-#include <filesystem>
-#define FILESYSTEM std::filesystem
-#endif
-
-#else
-#include <filesystem>
-#define FILESYSTEM std::filesystem
-#endif
 
 namespace RB
 {

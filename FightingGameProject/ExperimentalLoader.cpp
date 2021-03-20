@@ -17,9 +17,9 @@ namespace RB
 	void ExperimentalLoader::LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash)
 	{
 		//load sprites
-		for (const auto& i : FILESYSTEM::directory_iterator(path))
+		for (const auto& i : std::filesystem::directory_iterator(path))
 		{
-			FILESYSTEM::path path = i.path();
+			std::filesystem::path path = i.path();
 
 			IF_COUT{ std::cout << "Loading sprite: " << path << std::endl; };
 
