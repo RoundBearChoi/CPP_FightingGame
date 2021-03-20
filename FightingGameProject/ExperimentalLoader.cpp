@@ -21,18 +21,16 @@ namespace RB
 		{
 			FILESYSTEM::path path = i.path();
 
-			std::cout << "Loading sprite: " << path << std::endl;
+			IF_COUT{ std::cout << "Loading sprite: " << path << std::endl; };
 
-			std::string fileName = path.u8string();
-			vecSprites.push_back(new olc::Sprite(fileName));
+			std::string p = path.u8string();
+			vecSprites.push_back(new olc::Sprite(p));
 
-			size_t hash = std::hash<std::string>{}(fileName);
-			//size_t testhash = std::hash<std::string>{}("PNG files\\Background\\background_mountains.png");
-
-			std::cout << hash << std::endl;
-			//std::cout << testhash << std::endl;
-
+			size_t hash = std::hash<std::string>{}(p);
 			vecHash.push_back(hash);
+
+			IF_COUT{ std::cout << "hashing: " << p << std::endl; }
+			IF_COUT{ std::cout << "hash added: " << hash << std::endl; };
 		}
 
 		//load decals
@@ -54,13 +52,13 @@ namespace RB
 	{
 		for (size_t i = 0; i < spriteVec.size(); i++)
 		{
-			std::cout << "deleting sprite: " << backgroundHash[i] << std::endl;
+			IF_COUT{ std::cout << "deleting sprite: " << backgroundHash[i] << std::endl; };
 			delete spriteVec[i];
 		}
 
 		for (size_t i = 0; i < decalVec.size(); i++)
 		{
-			std::cout << "deleting decal: " << backgroundHash[i] << std::endl;
+			IF_COUT{ std::cout << "deleting decal: " << backgroundHash[i] << std::endl; };
 			delete decalVec[i];
 		}
 	}

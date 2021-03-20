@@ -16,6 +16,7 @@ namespace RB
 
 			if (hash == 0)
 			{
+				IF_COUT{ std::cout << "hashing: " << path << std::endl; }
 				hash = std::hash<std::string>{}(path);
 			}
 
