@@ -24,6 +24,7 @@ namespace RB
 			IF_COUT{ std::cout << "Loading sprite: " << path << std::endl; };
 
 			std::string p = path.string();
+			std::replace(p.begin(), p.end(), '\\', '/'); //convert directory separators
 			vecSprites.push_back(new olc::Sprite(p));
 
 			size_t hash = std::hash<std::string>{}(p);

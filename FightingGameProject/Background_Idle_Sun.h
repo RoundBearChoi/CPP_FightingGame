@@ -7,7 +7,7 @@ namespace RB
 	class Background_Idle_Sun : public State
 	{
 	private:
-		const std::string path = "PNG files\\Background\\background_sun.png";
+		const std::string path = "PNG files/Background/background_sun.png";
 
 	public:
 		size_t GetHash() override
