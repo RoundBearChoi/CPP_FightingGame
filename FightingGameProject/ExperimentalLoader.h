@@ -5,9 +5,15 @@
 #include "DevSettings.h"
 
 #ifdef _WIN32
-//filesystem not working in debug mode
+
+#ifdef DEBUG_MODE
 #include <experimental/filesystem>
 #define FILESYSTEM std::experimental::filesystem
+#else
+#include <filesystem>
+#define FILESYSTEM std::filesystem
+#endif
+
 #else
 #include <filesystem>
 #define FILESYSTEM std::filesystem
