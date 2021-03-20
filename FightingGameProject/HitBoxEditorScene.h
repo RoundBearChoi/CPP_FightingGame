@@ -69,25 +69,6 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			//file
-			std::string path = "BoxColliderData/";
-			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
-			
-			if (stateColliderFileName.compare("none") != 0)
-			{
-				path += stateColliderFileName;
-
-				FILE* pFile;
-				char buffer[] = { 'x' , 'y' , 'z' };
-
-#pragma warning(disable: 4996) //disable visual studio warning
-				pFile = fopen(path.c_str(), "w");
-#pragma warning(default: 4996)
-
-				fwrite(buffer, sizeof(char), sizeof(buffer), pFile);
-				fclose(pFile);
-			}
-
 			//put all body parts into vector
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
 			nBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
@@ -99,6 +80,8 @@ namespace RB
 				int32_t y = -170 + (i % nBodyParts) * 12;
 				boxColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
 			}
+
+			LoadColliderData();
 		}
 
 		void Update(GameData& gameData) override
@@ -129,6 +112,11 @@ namespace RB
 			if (playIcon.Clicked(mousePos, gameData))
 			{
 				fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
+			}
+
+			if (saveIcon.Clicked(mousePos, gameData))
+			{
+				SaveColliderData();
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -257,6 +245,51 @@ namespace RB
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
+		}
+
+		void LoadColliderData()
+		{
+			std::string path = "BoxColliderData/";
+			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
+
+			if (stateColliderFileName.compare("none") != 0)
+			{
+				path += stateColliderFileName;
+
+				FILE* pFile;
+				size_t size = 0;
+
+#pragma warning(disable: 4996) //disable visual studio warning
+				pFile = fopen(path.c_str(), "r");
+#pragma warning(default: 4996)
+
+				if (pFile != nullptr)
+				{
+					std::fread(&size, sizeof(int), 1, pFile);
+					fclose(pFile);
+				}
+			}
+		}
+
+		void SaveColliderData()
+		{
+			std::string path = "BoxColliderData/";
+			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
+
+			if (stateColliderFileName.compare("none") != 0)
+			{
+				path += stateColliderFileName;
+
+				FILE* pFile;
+				size_t vecSize = boxColliders.size();
+
+#pragma warning(disable: 4996) //disable visual studio warning
+				pFile = fopen(path.c_str(), "w");
+#pragma warning(default: 4996)
+
+				fwrite(&vecSize, sizeof(size_t), 1, pFile);
+				fclose(pFile);
+			}
 		}
 	};
 }
