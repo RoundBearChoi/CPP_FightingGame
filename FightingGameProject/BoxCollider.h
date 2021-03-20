@@ -113,14 +113,9 @@ namespace RB
 			quad[3] = topRight;
 		}
 
-		void IncreaseWidth(int32_t _width)
-		{
-			width += _width;
-		}
-
-		void IncreaseHeight(int32_t _height)
-		{
-			height += _height;
-		}
+		void IncreaseWidth(int32_t _width) { width += _width; }
+		void IncreaseHeight(int32_t _height) { height += _height; }
+		void DecreaseWidth(int32_t _width) { width -= _width; }
+		void DecreaseHeight(int32_t _height) { height -= _height; }
 	};
 }

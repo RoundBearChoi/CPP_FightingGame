@@ -8,6 +8,7 @@ namespace RB
 
 		MOUSE_0, //leftclick
 		MOUSE_1, //rightclick
+		SHIFT,
 
 		P1_WeakPunch,
 		P1_StrongPunch,

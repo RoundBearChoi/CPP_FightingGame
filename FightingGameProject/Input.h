@@ -23,12 +23,11 @@ namespace RB
 		std::vector<Key> vecP1Down;
 
 		std::vector<Key> vecMouse0;
+		std::vector<Key> vecShift;
 		
 	public:
 		void UpdateInput()
 		{
-			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
-
 			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::LEFT));
 			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::RIGHT));
 			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Platform::ptrPGE->GetKey(olc::Key::UP));
@@ -42,6 +41,9 @@ namespace RB
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 			UpdateKey(vecP1Up, KeyType::P1_UP, olc::Platform::ptrPGE->GetKey(olc::Key::W));
 			UpdateKey(vecP1Down, KeyType::P1_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::S));
+
+			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
+			UpdateKey(vecShift, KeyType::SHIFT, olc::Platform::ptrPGE->GetKey(olc::Key::SHIFT));
 
 			//olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p1 left: " + std::to_string(vecP1Left.size()));
 			//olc::Renderer::ptrPGE->DrawString({ 0, 35 + 12 }, "p1 jab: " + std::to_string(vecP1WeakPunch.size()));
@@ -68,8 +70,6 @@ namespace RB
 
 		void UpdateGameData(GameData& gameData)
 		{
-			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
-
 			gameData.key_left = GetUnprocessedKey(vecCamLeft);
 			gameData.key_right = GetUnprocessedKey(vecCamRight);
 			gameData.key_up = GetUnprocessedKey(vecCamZoomIn);
@@ -83,6 +83,9 @@ namespace RB
 			gameData.key_d = GetUnprocessedKey(vecP1Right);
 			gameData.key_w = GetUnprocessedKey(vecP1Up);
 			gameData.key_s = GetUnprocessedKey(vecP1Down);
+
+			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
+			gameData.key_shift = GetUnprocessedKey(vecShift);
 		}
 
 		Key* GetUnprocessedKey(std::vector<Key>& vec)
@@ -100,8 +103,6 @@ namespace RB
 
 		void ClearKeyQueues()
 		{
-			ClearReleasedKeys(vecMouse0);
-
 			ClearReleasedKeys(vecCamLeft);
 			ClearReleasedKeys(vecCamRight);
 			ClearReleasedKeys(vecCamZoomIn);
@@ -115,6 +116,9 @@ namespace RB
 			ClearReleasedKeys(vecP1Right);
 			ClearReleasedKeys(vecP1Up);
 			ClearReleasedKeys(vecP1Down);
+
+			ClearReleasedKeys(vecMouse0);
+			ClearReleasedKeys(vecShift);
 		}
 
 		void ClearReleasedKeys(std::vector<Key>& vec)

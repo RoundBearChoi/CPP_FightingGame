@@ -170,11 +170,25 @@ namespace RB
 				}
 				else if (gameData.key_g)
 				{
-					boxColliders[bodyIndex].IncreaseWidth(1);
+					if (!gameData.key_shift)
+					{
+						boxColliders[bodyIndex].IncreaseWidth(1);
+					}
+					else
+					{
+						boxColliders[bodyIndex].DecreaseWidth(1);
+					}
 				}
 				else if (gameData.key_h)
 				{
-					boxColliders[bodyIndex].IncreaseHeight(1);
+					if (!gameData.key_shift)
+					{
+						boxColliders[bodyIndex].IncreaseHeight(1);
+					}
+					else
+					{
+						boxColliders[bodyIndex].DecreaseHeight(1);
+					}
 				}
 
 				//resize, rotate, move boxcollider
