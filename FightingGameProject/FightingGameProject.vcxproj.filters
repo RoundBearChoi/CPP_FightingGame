@@ -248,5 +248,8 @@
     <ClInclude Include="ExperimentalLoader.h">
       <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteType.h">
+      <Filter>Source Files\DecalLoader\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

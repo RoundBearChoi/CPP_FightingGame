@@ -38,6 +38,7 @@ namespace RB
 		}
 
 		experimentalLoader.LoadBackgroundSprites();
+		ExperimentalLoader::ptr = &experimentalLoader;
 
 		currentScene->InitScene();
 	}

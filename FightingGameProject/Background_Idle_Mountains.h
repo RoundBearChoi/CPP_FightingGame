@@ -8,7 +8,7 @@ namespace RB
 	{
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams((int32_t)FighterSpriteType::background_mountains, 1700, 300, 1, 1, 1);
+			animationController.SetParams(SpriteType::BACKGROUND, (int32_t)FighterSpriteType::background_mountains, 1700, 300, 1, 1, 1);
 			objData.SetSpriteSize({ 1700, 300 });
 		}
 

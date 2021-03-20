@@ -66,6 +66,12 @@ namespace RB
 
 			olc::Decal* d = decalLoader->GetDecal(animationStatus->decalTypeIndex);
 
+
+			if (obj->stateController.currentState->animationController.status.spriteType == SpriteType::BACKGROUND)
+			{
+
+			}
+
 			std::array<olc::vf2d, 4> relativePoints;
 			relativePoints[0] = RelativeVector::GetPosition(points[0], cam);
 			relativePoints[1] = RelativeVector::GetPosition(points[1], cam);

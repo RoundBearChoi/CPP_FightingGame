@@ -195,6 +195,7 @@
     <ClInclude Include="SceneController.h" />
     <ClInclude Include="SceneType.h" />
     <ClInclude Include="SheetRenderer.h" />
+    <ClInclude Include="SpriteType.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />
     <ClInclude Include="StringNotification.h" />
