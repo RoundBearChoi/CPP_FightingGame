@@ -64,4 +64,17 @@ namespace RB
 			delete decalVec[i];
 		}
 	}
+
+	olc::Decal* ExperimentalLoader::GetBackgroundDecal(size_t _hash)
+	{
+		for (size_t i = 0; i < backgroundHash.size(); i++)
+		{
+			if (_hash == backgroundHash[i])
+			{
+				return backgroundDecals[i];
+			}
+		}
+
+		return nullptr;
+	}
 }

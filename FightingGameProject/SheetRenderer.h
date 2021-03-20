@@ -1,6 +1,7 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "DecalLoader.h"
+#include "ExperimentalLoader.h"
 #include "GameObj.h"
 #include "AnimationStatus.h"
 #include "Camera.h"
@@ -64,12 +65,20 @@ namespace RB
 				}
 			}
 
-			olc::Decal* d = decalLoader->GetDecal(animationStatus->decalTypeIndex);
-
+			olc::Decal* d = nullptr; 
 
 			if (obj->stateController.currentState->animationController.status.spriteType == SpriteType::BACKGROUND)
 			{
+				size_t hash = obj->stateController.currentState->GetHash();
 
+				if (hash != 0)
+				{
+					d = ExperimentalLoader::ptr->GetBackgroundDecal(hash);
+				}
+			}
+			else
+			{
+				d = decalLoader->GetDecal(animationStatus->decalTypeIndex);
 			}
 
 			std::array<olc::vf2d, 4> relativePoints;

@@ -14,6 +14,7 @@ namespace RB
 		State* nextState = nullptr;
 		AnimationController animationController;
 
+		virtual size_t GetHash() { return 0; }
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 

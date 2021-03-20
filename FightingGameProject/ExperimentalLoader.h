@@ -32,5 +32,6 @@ namespace RB
 
 		void LoadBackgroundSprites();
 		void DeleteDecals(std::vector<olc::Sprite*>& spriteVec, std::vector<olc::Decal*>& decalVec);
+		olc::Decal* GetBackgroundDecal(size_t _hash);
 	};
 }

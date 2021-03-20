@@ -6,10 +6,25 @@ namespace RB
 {
 	class Background_Idle_Sun : public State
 	{
+	private:
+		const std::string path = "PNG files\\Background\\background_sun.png";
+
 	public:
+		size_t GetHash() override
+		{
+			static size_t hash = 0;
+
+			if (hash == 0)
+			{
+				hash = std::hash<std::string>{}(path);
+			}
+
+			return hash;
+		}
+
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams(SpriteType::BACKGROUND, (int32_t)FighterSpriteType::background_sun, 102, 82, 1, 1, 1);
+			animationController.SetParams(SpriteType::BACKGROUND, 0 /*no need*/, 102, 82, 1, 1, 1);
 			objData.SetSpriteSize({ 102, 82 });
 		}
 
