@@ -5,6 +5,7 @@
 #include "UIElement.h"
 #include "BoxCollider.h"
 #include "TargetBodyType.h"
+#include <stdio.h>
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -61,6 +62,21 @@ namespace RB
 			rightSel.width = 18;
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
+
+			//file
+			std::string path = "BoxColliderData/";
+			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
+			
+			if (stateColliderFileName.compare("none") != 0)
+			{
+				path += stateColliderFileName;
+
+				FILE* pFile;
+				char buffer[] = { 'x' , 'y' , 'z' };
+				fopen_s(&pFile, path.c_str(), "w");
+				fwrite(buffer, sizeof(char), sizeof(buffer), pFile);
+				fclose(pFile);
+			}
 
 			//put all body parts into vector
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
