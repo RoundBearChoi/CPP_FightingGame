@@ -1,11 +1,11 @@
 #pragma once
+
 #include "Scene.h"
 #include "GameData.h"
 #include "GameObj.h"
 #include "UIElement.h"
 #include "BoxCollider.h"
 #include "TargetBodyType.h"
-#include <stdio.h>
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -73,7 +73,11 @@ namespace RB
 
 				FILE* pFile;
 				char buffer[] = { 'x' , 'y' , 'z' };
-				fopen_s(&pFile, path.c_str(), "w");
+
+#pragma warning(disable: 4996) //disable visual studio warning
+				pFile = fopen(path.c_str(), "w");
+#pragma warning(default: 4996)
+
 				fwrite(buffer, sizeof(char), sizeof(buffer), pFile);
 				fclose(pFile);
 			}
