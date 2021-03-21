@@ -11,6 +11,25 @@ namespace RB
 		int32_t height = 0;
 		olc::Decal* ptrDecal = nullptr;
 		olc::Pixel tint = olc::WHITE;
+		std::string path = "none";
+		size_t hash = 0;
+
+		void SetHash()
+		{
+			IF_COUT{ std::cout << "hashing: " << path << std::endl; }
+			hash = std::hash<std::string>{}(path);
+			IF_COUT{ std::cout << hash << std::endl; };
+		}
+
+		void SetDecal()
+		{
+			ptrDecal = ExperimentalLoader::ptr->FindDecal(hash, (size_t)SpriteType::BOXCOLLIDER_EDITOR_UI);
+
+			if (ptrDecal == nullptr)
+			{
+				IF_COUT{ std::cout << "decal not found" << std::endl; }
+			}
+		}
 
 		bool MouseHovering(olc::vi2d& mousePos)
 		{

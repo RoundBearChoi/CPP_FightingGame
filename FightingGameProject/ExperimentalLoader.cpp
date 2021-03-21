@@ -24,7 +24,7 @@ namespace RB
 		{
 			std::filesystem::path path = i.path();
 
-			IF_COUT{ std::cout << "Loading sprite: " << path << std::endl; };
+			IF_COUT{ std::cout << "Loading sprite (original path): " << path << std::endl; };
 
 			std::string p = path.string();
 			std::replace(p.begin(), p.end(), '\\', '/'); //convert directory separators
@@ -33,6 +33,7 @@ namespace RB
 			size_t hash = std::hash<std::string>{}(p);
 			vecHash.push_back(hash);
 
+			IF_COUT{ std::cout << "converted path: " << p << std::endl; };
 			IF_COUT{ std::cout << "hash: " << hash << std::endl; };
 		}
 
@@ -66,6 +67,14 @@ namespace RB
 		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_1;
 
 		std::string path = "PNG files/Fighter_1";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
+	void ExperimentalLoader::LoadBoxColliderEditorSprites()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::BOXCOLLIDER_EDITOR_UI;
+
+		std::string path = "PNG files/BoxColliderEditor";
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 

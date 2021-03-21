@@ -13,11 +13,11 @@ namespace RB
 		//background_trees_20,
 		//background_mountains,
 		//background_sun,
-
-		editor_playframe,
-		editor_save,
-		editor_left_sel,
-		editor_right_sel,
+		//
+		//editor_playframe,
+		//editor_save,
+		//editor_left_sel,
+		//editor_right_sel,
 
 		COUNT,
 	};

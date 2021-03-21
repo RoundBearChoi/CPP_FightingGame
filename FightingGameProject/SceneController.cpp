@@ -40,6 +40,7 @@ namespace RB
 		experimentalLoader.LoadBackgroundSprites();
 		experimentalLoader.Load_Fighter_0_Sprites();
 		experimentalLoader.Load_Fighter_1_Sprites();
+		experimentalLoader.LoadBoxColliderEditorSprites();
 
 		ExperimentalLoader::ptr = &experimentalLoader;
 

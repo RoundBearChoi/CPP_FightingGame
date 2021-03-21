@@ -53,22 +53,34 @@ namespace RB
 			fighter.objData.SetCreationID(1);
 			fighter.objData.SetTransitionPermission(false);
 
-			playIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe);
+			//playIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_playframe);
+			playIcon.path = "PNG files/BoxColliderEditor/editor_playframe.png";
+			playIcon.SetHash();
+			playIcon.SetDecal();
 			playIcon.width = 54;
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
 
-			saveIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_save);
+			//saveIcon.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_save);
+			saveIcon.path = "PNG files/BoxColliderEditor/editor_save.png";
+			saveIcon.SetHash();
+			saveIcon.SetDecal();
 			saveIcon.width = 33;
 			saveIcon.height = 29;
 			saveIcon.topLeft = { GameSettings::window_width - saveIcon.width - 15, 15 };
 
-			leftSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_left_sel);
+			//leftSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_left_sel);
+			leftSel.path = "PNG files/BoxColliderEditor/editor_left_sel.png";
+			leftSel.SetHash();
+			leftSel.SetDecal();
 			leftSel.width = 18;
 			leftSel.height = 24;
 			leftSel.topLeft = { 5, 92 };
 
-			rightSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_right_sel);
+			//rightSel.ptrDecal = ptrDecalLoader->GetDecal((int32_t)FighterSpriteType::editor_right_sel);
+			rightSel.path = "PNG files/BoxColliderEditor/editor_right_sel.png";
+			rightSel.SetHash();
+			rightSel.SetDecal();
 			rightSel.width = 18;
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
