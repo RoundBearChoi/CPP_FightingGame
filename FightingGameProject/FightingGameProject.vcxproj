@@ -147,7 +147,6 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ExperimentalLoader.cpp" />
-    <ClCompile Include="FighterDecals.cpp" />
     <ClCompile Include="Fighters.cpp" />
     <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameObj.cpp" />
@@ -169,7 +168,6 @@
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />
-    <ClInclude Include="FighterDecals.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
     <ClInclude Include="Fighter_0_Jab.h" />
     <ClInclude Include="Fighter_0_WalkForward.h" />
@@ -179,7 +177,6 @@
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="Fighters.h" />
-    <ClInclude Include="FighterSpriteType.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
     <ClInclude Include="HitBoxEditorScene.h" />

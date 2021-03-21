@@ -29,14 +29,6 @@ namespace RB
 			currentScene = new HitBoxEditorScene();
 		}
 
-		if (fighterDecals.GetSpriteCount() == 0)
-		{
-			fighterDecals.LoadSprites();
-			fighterDecals.LoadDecals();
-
-			currentScene->ptrDecalLoader = &fighterDecals;
-		}
-
 		experimentalLoader.LoadBackgroundSprites();
 		experimentalLoader.Load_Fighter_0_Sprites();
 		experimentalLoader.Load_Fighter_1_Sprites();

@@ -1,7 +1,6 @@
 #pragma once
 #include "Scene.h"
 #include "SceneType.h"
-#include "FighterDecals.h"
 #include "ExperimentalLoader.h"
 
 namespace RB
@@ -9,7 +8,6 @@ namespace RB
 	class SceneController
 	{
 	private:
-		FighterDecals fighterDecals;
 		ExperimentalLoader experimentalLoader;
 
 	public:

@@ -1,6 +1,5 @@
 #pragma once
 #include "State.h"
-#include "FighterSpriteType.h"
 
 namespace RB
 {
