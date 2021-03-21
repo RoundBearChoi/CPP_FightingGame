@@ -9,13 +9,13 @@ add_executable(CPPFightingGame
 AnimationController.cpp
 Background.cpp
 Camera.cpp
-ExperimentalLoader.cpp
 Fighters.cpp
 FightScene.cpp
 GameObj.cpp
 main.cpp
 Scene.cpp
 SceneController.cpp
+SpriteLoader.cpp
 StateController.cpp
 )
 
