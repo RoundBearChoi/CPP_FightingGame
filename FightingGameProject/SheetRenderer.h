@@ -64,15 +64,9 @@ namespace RB
 				}
 			}
 
-			olc::Decal* d = nullptr; 
-
 			SpriteType spriteType = obj->stateController.currentState->animationController.status.spriteType;
 			size_t hash = obj->stateController.currentState->GetHash();
-
-			if (spriteType == SpriteType::BACKGROUND || spriteType == SpriteType::FIGHTER_0 || spriteType == SpriteType::FIGHTER_1)
-			{
-				d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
-			}
+			olc::Decal* d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;
 			relativePoints[0] = RelativeVector::GetPosition(points[0], cam);

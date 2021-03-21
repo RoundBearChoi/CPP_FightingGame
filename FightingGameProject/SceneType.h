@@ -8,6 +8,6 @@ namespace RB
 
 		FIGHT_SCENE,
 
-		HITBOX_EDITOR_SCENE,
+		BOXCOLLIDER_EDITOR,
 	};
 }

@@ -24,7 +24,7 @@ namespace RB
 		{
 			currentScene = new FightScene();
 		}
-		else if (_sceneType == SceneType::HITBOX_EDITOR_SCENE)
+		else if (_sceneType == SceneType::BOXCOLLIDER_EDITOR)
 		{
 			currentScene = new HitBoxEditorScene();
 		}

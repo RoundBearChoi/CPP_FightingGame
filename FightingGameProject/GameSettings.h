@@ -9,7 +9,7 @@ namespace RB
 	public:
 		const static int32_t window_width = 854;
 		const static int32_t window_height = 480;
-		const static SceneType startingScene = SceneType::FIGHT_SCENE;
+		const static SceneType startingScene = SceneType::BOXCOLLIDER_EDITOR;
 
 		static float TargetFrameTime() { return 1.0f / 120.0f; }
 	};
