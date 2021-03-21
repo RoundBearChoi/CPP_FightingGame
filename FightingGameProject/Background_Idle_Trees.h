@@ -6,20 +6,16 @@ namespace RB
 {
 	class Background_Idle_Trees : public State
 	{
-	private:
-		const std::string path = "PNG files/Background/background_trees_20.png";
-
 	public:
+		Background_Idle_Trees()
+		{
+			path = "PNG files/Background/background_trees_20.png";
+		}
+
 		size_t GetHash() override
 		{
 			static size_t hash = 0;
-
-			if (hash == 0)
-			{
-				IF_COUT{ std::cout << "hashing: " << path << std::endl; }
-				hash = std::hash<std::string>{}(path);
-				IF_COUT{ std::cout << hash << std::endl; };
-			}
+			MakeHash(hash);
 
 			return hash;
 		}

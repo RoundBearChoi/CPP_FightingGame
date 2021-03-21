@@ -10,9 +10,19 @@ namespace RB
 	public:
 		Fighter_0_Jab()
 		{
+			path = "PNG files/Fighter_0/fighter_0_jab.png";
+
 			animationController.SetCollisionFileName("Fighter_0/Fighter_0_Jab.collider");
-			animationController.SetParams(SpriteType::NONE, (int32_t)FighterSpriteType::fighter_0_jab, 2400, 200, 6, 1, 6);
+			animationController.SetParams(SpriteType::FIGHTER_0, (int32_t)FighterSpriteType::fighter_0_jab, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 5;
+		}
+
+		size_t GetHash() override
+		{
+			static size_t hash = 0;
+			MakeHash(hash);
+
+			return hash;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

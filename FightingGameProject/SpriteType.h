@@ -7,9 +7,11 @@ namespace RB
 		NONE = -1,
 
 		BACKGROUND = 0,
-		BOXCOLLIDER_EDITOR,
+		
 		FIGHTER_0,
 		FIGHTER_1,
+
+		BOXCOLLIDER_EDITOR,
 
 		COUNT,
 	};

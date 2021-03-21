@@ -32,6 +32,8 @@ namespace RB
 
 			size_t hash = std::hash<std::string>{}(p);
 			vecHash.push_back(hash);
+
+			IF_COUT{ std::cout << "hash: " << hash << std::endl; };
 		}
 
 		//load decals
@@ -48,6 +50,14 @@ namespace RB
 		int32_t arrayIndex = (int32_t)SpriteType::BACKGROUND;
 
 		std::string path = "PNG files/Background";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
+	void ExperimentalLoader::Load_Fighter_0_Sprites()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_0;
+
+		std::string path = "PNG files/Fighter_0";
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
@@ -82,13 +92,19 @@ namespace RB
 
 	olc::Decal* ExperimentalLoader::FindDecal(size_t _hash, size_t arrayIndex)
 	{
-		for (size_t i = 0; i < hashes[arrayIndex].size(); i++)
+		if (hashes.size() > arrayIndex)
 		{
-			if (_hash == hashes[arrayIndex][i])
+			for (size_t i = 0; i < hashes[arrayIndex].size(); i++)
 			{
-				if (decals.size() > arrayIndex)
+				if (_hash == hashes[arrayIndex][i])
 				{
-					return decals[arrayIndex][i];
+					if (decals.size() > arrayIndex)
+					{
+						if (decals[arrayIndex].size() > i)
+						{
+							return decals[arrayIndex][i];
+						}
+					}
 				}
 			}
 		}
