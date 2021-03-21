@@ -9,7 +9,9 @@ namespace RB
 	public:
 		Fighter_1_Idle()
 		{
-			animationController.SetParams(SpriteType::NONE, (int32_t)FighterSpriteType::fighter_1_idle, 1080, 180, 6, 1, 6);
+			path = "PNG files/Fighter_1/fighter_1_idle.png";
+
+			animationController.SetParams(SpriteType::FIGHTER_1, 0, 1080, 180, 6, 1, 6);
 			animationController.status.nTransitionDelay = 12;
 		}
 

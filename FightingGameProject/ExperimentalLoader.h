@@ -11,9 +11,9 @@ namespace RB
 	class ExperimentalLoader
 	{
 	private:
-		std::array<std::vector<olc::Sprite*>, 2> sprites;
-		std::array<std::vector<olc::Decal*>, 2> decals;
-		std::array<std::vector<size_t>, 2> hashes;
+		std::array<std::vector<olc::Sprite*>, 3> sprites;
+		std::array<std::vector<olc::Decal*>, 3> decals;
+		std::array<std::vector<size_t>, 3> hashes;
 
 		void LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash);
 		
@@ -24,6 +24,7 @@ namespace RB
 		~ExperimentalLoader();
 
 		void Load_Fighter_0_Sprites();
+		void Load_Fighter_1_Sprites();
 		void LoadBackgroundSprites();
 		void DeleteDecals(size_t arrayIndex);
 		olc::Decal* FindDecal(size_t _hash, size_t arrayIndex);

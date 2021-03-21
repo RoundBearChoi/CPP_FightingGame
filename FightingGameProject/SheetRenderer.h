@@ -70,7 +70,7 @@ namespace RB
 			SpriteType spriteType = obj->stateController.currentState->animationController.status.spriteType;
 			size_t hash = obj->stateController.currentState->GetHash();
 
-			if (spriteType == SpriteType::BACKGROUND || spriteType == SpriteType::FIGHTER_0)
+			if (spriteType == SpriteType::BACKGROUND || spriteType == SpriteType::FIGHTER_0 || spriteType == SpriteType::FIGHTER_1)
 			{
 				d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 			}

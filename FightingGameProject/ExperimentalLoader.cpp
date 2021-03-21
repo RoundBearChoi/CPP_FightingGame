@@ -61,6 +61,14 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
+	void ExperimentalLoader::Load_Fighter_1_Sprites()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_1;
+
+		std::string path = "PNG files/Fighter_1";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
 	void ExperimentalLoader::DeleteDecals(size_t arrayIndex)
 	{
 		if (sprites.size() > arrayIndex)
