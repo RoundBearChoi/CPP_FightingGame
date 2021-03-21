@@ -49,9 +49,6 @@
     <Filter Include="Source Files\DecalLoader">
       <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DecalLoader\Base">
-      <UniqueIdentifier>{ff3c00ec-1e48-429d-9109-4bfaada70f9b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObj\Concrete Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
     </Filter>
@@ -100,7 +97,7 @@
       <Filter>Source Files\Scenes\Base</Filter>
     </ClCompile>
     <ClCompile Include="ExperimentalLoader.cpp">
-      <Filter>Source Files\DecalLoader\Base</Filter>
+      <Filter>Source Files\DecalLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -231,10 +228,10 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ExperimentalLoader.h">
-      <Filter>Source Files\DecalLoader\Base</Filter>
+      <Filter>Source Files\DecalLoader</Filter>
     </ClInclude>
     <ClInclude Include="SpriteType.h">
-      <Filter>Source Files\DecalLoader\Base</Filter>
+      <Filter>Source Files\DecalLoader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
