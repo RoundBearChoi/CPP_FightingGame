@@ -1,14 +1,12 @@
 #pragma once
 #include "GameData.h"
 #include "Camera.h"
-#include "DecalLoader.h"
 
 namespace RB
 {
 	class Scene
 	{
 	public:
-		DecalLoader* ptrDecalLoader;
 		Camera cam;
 
 		virtual void InitScene() = 0;

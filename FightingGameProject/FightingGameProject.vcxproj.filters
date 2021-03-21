@@ -52,9 +52,6 @@
     <Filter Include="Source Files\DecalLoader\Base">
       <UniqueIdentifier>{ff3c00ec-1e48-429d-9109-4bfaada70f9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DecalLoader\Concrete Loaders">
-      <UniqueIdentifier>{7115bfae-bbb1-484a-8358-8bc99efe1e78}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObj\Concrete Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
     </Filter>
@@ -163,9 +160,6 @@
     </ClInclude>
     <ClInclude Include="AnimationStatus.h">
       <Filter>Source Files\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="DecalLoader.h">
-      <Filter>Source Files\DecalLoader\Base</Filter>
     </ClInclude>
     <ClInclude Include="SheetRenderer.h">
       <Filter>Source Files</Filter>

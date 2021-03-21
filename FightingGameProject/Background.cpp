@@ -26,11 +26,11 @@ namespace RB
 		arrObjs[2].RenderPosition(cam);
 	}
 
-	void Background::RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update)
+	void Background::RenderStates(Camera& cam, bool update)
 	{
-		SheetRenderer::Render(ptrDecalLoader, &arrObjs[2], cam);
-		SheetRenderer::Render(ptrDecalLoader, &arrObjs[1], cam);
-		SheetRenderer::Render(ptrDecalLoader, &arrObjs[0], cam);
+		SheetRenderer::Render(&arrObjs[2], cam);
+		SheetRenderer::Render(&arrObjs[1], cam);
+		SheetRenderer::Render(&arrObjs[0], cam);
 	}
 
 	void Background::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)

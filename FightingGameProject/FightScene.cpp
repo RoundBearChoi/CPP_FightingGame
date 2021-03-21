@@ -57,7 +57,7 @@ namespace RB
 
 	void FightScene::RenderStates(bool update)
 	{
-		background.RenderStates(ptrDecalLoader, cam, update);
-		fighters.RenderStates(ptrDecalLoader, cam, update);
+		background.RenderStates(cam, update);
+		fighters.RenderStates(cam, update);
 	}
 }

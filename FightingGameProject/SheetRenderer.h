@@ -1,6 +1,5 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "DecalLoader.h"
 #include "ExperimentalLoader.h"
 #include "GameObj.h"
 #include "AnimationStatus.h"
@@ -12,7 +11,7 @@ namespace RB
 	class SheetRenderer
 	{
 	public:
-		static void Render(DecalLoader* decalLoader, GameObj* obj, Camera& cam)
+		static void Render(GameObj* obj, Camera& cam)
 		{
 			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetStatus();
 
@@ -73,10 +72,6 @@ namespace RB
 			if (spriteType == SpriteType::BACKGROUND || spriteType == SpriteType::FIGHTER_0 || spriteType == SpriteType::FIGHTER_1)
 			{
 				d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
-			}
-			else
-			{
-				d = decalLoader->GetDecal(animationStatus->decalTypeIndex);
 			}
 
 			std::array<olc::vf2d, 4> relativePoints;

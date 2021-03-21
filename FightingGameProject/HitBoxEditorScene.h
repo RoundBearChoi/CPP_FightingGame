@@ -275,7 +275,7 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			//dummy fighter
-			SheetRenderer::Render(ptrDecalLoader, &fighter, cam);
+			SheetRenderer::Render(&fighter, cam);
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);

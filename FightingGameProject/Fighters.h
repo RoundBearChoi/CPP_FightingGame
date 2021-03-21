@@ -17,7 +17,7 @@ namespace RB
 	public:
 		void UpdateState(GameData& gameData) override;
 		void RenderObjPosition(Camera& cam) override;
-		void RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update) override;
+		void RenderStates(Camera& cam, bool update) override;
 
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos);
 

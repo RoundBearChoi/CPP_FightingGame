@@ -32,11 +32,11 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderStates(DecalLoader* ptrDecalLoader, Camera& cam, bool update)
+	void Fighters::RenderStates(Camera& cam, bool update)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			SheetRenderer::Render(ptrDecalLoader, &arrObjs[i], cam);
+			SheetRenderer::Render(&arrObjs[i], cam);
 
 			if (update)
 			{

@@ -166,7 +166,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />
     <ClInclude Include="CreationCount.h" />
-    <ClInclude Include="DecalLoader.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
     <ClInclude Include="Fighter_0_Jab.h" />
