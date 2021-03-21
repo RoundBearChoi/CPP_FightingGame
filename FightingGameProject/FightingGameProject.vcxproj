@@ -146,7 +146,7 @@
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ExperimentalLoader.cpp" />
+    <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="Fighters.cpp" />
     <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameObj.cpp" />
@@ -197,7 +197,7 @@
     <ClInclude Include="StateController.h" />
     <ClInclude Include="StringNotification.h" />
     <ClInclude Include="TargetBodyType.h" />
-    <ClInclude Include="ExperimentalLoader.h" />
+    <ClInclude Include="SpriteLoader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIElement.h" />
   </ItemGroup>

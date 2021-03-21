@@ -8,7 +8,7 @@
 
 namespace RB
 {
-	class ExperimentalLoader
+	class SpriteLoader
 	{
 	private:
 		std::array<std::vector<olc::Sprite*>, 4> sprites;
@@ -18,16 +18,16 @@ namespace RB
 		void LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash);
 		
 	public:
-		static ExperimentalLoader* ptr;
+		static SpriteLoader* ptr;
 
-		ExperimentalLoader();
-		~ExperimentalLoader();
+		SpriteLoader();
+		~SpriteLoader();
 
 		void Load_Fighter_0_Sprites();
 		void Load_Fighter_1_Sprites();
 		void LoadBackgroundSprites();
 		void LoadBoxColliderEditorSprites();
-		void DeleteDecals(size_t arrayIndex);
+		void DeleteSprites(size_t arrayIndex);
 		olc::Decal* FindDecal(size_t _hash, size_t arrayIndex);
 	};
 }

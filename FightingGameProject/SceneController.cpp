@@ -34,7 +34,7 @@ namespace RB
 		experimentalLoader.Load_Fighter_1_Sprites();
 		experimentalLoader.LoadBoxColliderEditorSprites();
 
-		ExperimentalLoader::ptr = &experimentalLoader;
+		SpriteLoader::ptr = &experimentalLoader;
 
 		currentScene->InitScene();
 	}

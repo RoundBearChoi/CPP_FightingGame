@@ -1,14 +1,14 @@
 #pragma once
 #include "Scene.h"
 #include "SceneType.h"
-#include "ExperimentalLoader.h"
+#include "SpriteLoader.h"
 
 namespace RB
 {
 	class SceneController
 	{
 	private:
-		ExperimentalLoader experimentalLoader;
+		SpriteLoader experimentalLoader;
 
 	public:
 		Scene* currentScene = nullptr;

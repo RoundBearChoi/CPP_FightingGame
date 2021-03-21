@@ -96,7 +96,7 @@
     <ClCompile Include="SceneController.cpp">
       <Filter>Source Files\Scenes\Base</Filter>
     </ClCompile>
-    <ClCompile Include="ExperimentalLoader.cpp">
+    <ClCompile Include="SpriteLoader.cpp">
       <Filter>Source Files\DecalLoader</Filter>
     </ClCompile>
   </ItemGroup>
@@ -227,7 +227,7 @@
     <ClInclude Include="StringNotification.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ExperimentalLoader.h">
+    <ClInclude Include="SpriteLoader.h">
       <Filter>Source Files\DecalLoader</Filter>
     </ClInclude>
     <ClInclude Include="SpriteType.h">

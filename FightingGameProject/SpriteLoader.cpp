@@ -1,23 +1,23 @@
-#include "ExperimentalLoader.h"
+#include "SpriteLoader.h"
 
 namespace RB
 {
-	ExperimentalLoader* ExperimentalLoader::ptr;
+	SpriteLoader* SpriteLoader::ptr;
 
-	ExperimentalLoader::ExperimentalLoader()
+	SpriteLoader::SpriteLoader()
 	{
 
 	}
 
-	ExperimentalLoader::~ExperimentalLoader()
+	SpriteLoader::~SpriteLoader()
 	{
 		for (size_t i = 0; i < sprites.size(); i++)
 		{
-			DeleteDecals(i);
+			DeleteSprites(i);
 		}
 	}
 
-	void ExperimentalLoader::LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash)
+	void SpriteLoader::LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash)
 	{
 		//load sprites
 		for (const auto& i : std::filesystem::directory_iterator(path))
@@ -46,7 +46,7 @@ namespace RB
 		}
 	}
 
-	void ExperimentalLoader::LoadBackgroundSprites()
+	void SpriteLoader::LoadBackgroundSprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::BACKGROUND;
 
@@ -54,7 +54,7 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void ExperimentalLoader::Load_Fighter_0_Sprites()
+	void SpriteLoader::Load_Fighter_0_Sprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_0;
 
@@ -62,7 +62,7 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void ExperimentalLoader::Load_Fighter_1_Sprites()
+	void SpriteLoader::Load_Fighter_1_Sprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_1;
 
@@ -70,7 +70,7 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void ExperimentalLoader::LoadBoxColliderEditorSprites()
+	void SpriteLoader::LoadBoxColliderEditorSprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::BOXCOLLIDER_EDITOR_UI;
 
@@ -78,7 +78,7 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void ExperimentalLoader::DeleteDecals(size_t arrayIndex)
+	void SpriteLoader::DeleteSprites(size_t arrayIndex)
 	{
 		if (sprites.size() > arrayIndex)
 		{
@@ -86,7 +86,7 @@ namespace RB
 			{
 				if (hashes[arrayIndex].size() > i)
 				{
-					IF_COUT{ std::cout << "deleting sprite: " << hashes[arrayIndex][i] << std::endl; };
+					IF_COUT{ std::cout << "deleting sprite " << i << ": " << hashes[arrayIndex][i] << std::endl; };
 				}
 
 				delete sprites[arrayIndex][i];
@@ -99,7 +99,7 @@ namespace RB
 			{
 				if (hashes[arrayIndex].size() > i)
 				{
-					IF_COUT{ std::cout << "deleting decal: " << hashes[arrayIndex][i] << std::endl; };
+					IF_COUT{ std::cout << "deleting decal " << i << ": " << hashes[arrayIndex][i] << std::endl; };
 				}
 
 				delete decals[arrayIndex][i];
@@ -107,7 +107,7 @@ namespace RB
 		}
 	}
 
-	olc::Decal* ExperimentalLoader::FindDecal(size_t _hash, size_t arrayIndex)
+	olc::Decal* SpriteLoader::FindDecal(size_t _hash, size_t arrayIndex)
 	{
 		if (hashes.size() > arrayIndex)
 		{

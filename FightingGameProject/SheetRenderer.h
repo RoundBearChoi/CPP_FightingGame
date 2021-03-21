@@ -1,6 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "ExperimentalLoader.h"
+#include "SpriteLoader.h"
 #include "GameObj.h"
 #include "AnimationStatus.h"
 #include "Camera.h"
@@ -66,7 +66,7 @@ namespace RB
 
 			SpriteType spriteType = obj->stateController.currentState->animationController.status.spriteType;
 			size_t hash = obj->stateController.currentState->GetHash();
-			olc::Decal* d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
+			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;
 			relativePoints[0] = RelativeVector::GetPosition(points[0], cam);

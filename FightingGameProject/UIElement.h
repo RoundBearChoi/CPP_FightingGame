@@ -23,7 +23,7 @@ namespace RB
 
 		void SetDecal()
 		{
-			ptrDecal = ExperimentalLoader::ptr->FindDecal(hash, (size_t)SpriteType::BOXCOLLIDER_EDITOR_UI);
+			ptrDecal = SpriteLoader::ptr->FindDecal(hash, (size_t)SpriteType::BOXCOLLIDER_EDITOR_UI);
 
 			if (ptrDecal == nullptr)
 			{
