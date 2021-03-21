@@ -72,7 +72,7 @@ namespace RB
 
 			if (spriteType == SpriteType::BACKGROUND)
 			{
-				d = ExperimentalLoader::ptr->GetDecal(spriteType, hash);
+				d = ExperimentalLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 			}
 			else
 			{

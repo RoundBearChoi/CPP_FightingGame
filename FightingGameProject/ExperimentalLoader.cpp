@@ -11,7 +11,10 @@ namespace RB
 
 	ExperimentalLoader::~ExperimentalLoader()
 	{
-		DeleteDecals(backgroundSprites, backgroundDecals);
+		for (size_t i = 0; i < sprites.size(); i++)
+		{
+			DeleteDecals(i);
+		}
 	}
 
 	void ExperimentalLoader::LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash)
@@ -42,42 +45,51 @@ namespace RB
 
 	void ExperimentalLoader::LoadBackgroundSprites()
 	{
+		int32_t arrayIndex = (int32_t)SpriteType::BACKGROUND;
+
 		std::string path = "PNG files/Background";
-		LoadSprites(path, backgroundSprites, backgroundDecals, backgroundHash);
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void ExperimentalLoader::DeleteDecals(std::vector<olc::Sprite*>& spriteVec, std::vector<olc::Decal*>& decalVec)
+	void ExperimentalLoader::DeleteDecals(size_t arrayIndex)
 	{
-		for (size_t i = 0; i < spriteVec.size(); i++)
+		if (sprites.size() > arrayIndex)
 		{
-			IF_COUT{ std::cout << "deleting sprite: " << backgroundHash[i] << std::endl; };
-			delete spriteVec[i];
-		}
-
-		for (size_t i = 0; i < decalVec.size(); i++)
-		{
-			IF_COUT{ std::cout << "deleting decal: " << backgroundHash[i] << std::endl; };
-			delete decalVec[i];
-		}
-	}
-
-	olc::Decal* ExperimentalLoader::GetDecal(SpriteType _spriteType, size_t _hash)
-	{
-		if (_spriteType == SpriteType::BACKGROUND)
-		{
-			return GetBackgroundDecal(_hash);
-		}
-
-		return nullptr;
-	}
-
-	olc::Decal* ExperimentalLoader::GetBackgroundDecal(size_t _hash)
-	{
-		for (size_t i = 0; i < backgroundHash.size(); i++)
-		{
-			if (_hash == backgroundHash[i])
+			for (size_t i = 0; i < sprites[arrayIndex].size(); i++)
 			{
-				return backgroundDecals[i];
+				if (hashes[arrayIndex].size() > i)
+				{
+					IF_COUT{ std::cout << "deleting sprite: " << hashes[arrayIndex][i] << std::endl; };
+				}
+
+				delete sprites[arrayIndex][i];
+			}
+		}
+
+		if (decals.size() > arrayIndex)
+		{
+			for (size_t i = 0; i < decals[arrayIndex].size(); i++)
+			{
+				if (hashes[arrayIndex].size() > i)
+				{
+					IF_COUT{ std::cout << "deleting decal: " << hashes[arrayIndex][i] << std::endl; };
+				}
+
+				delete decals[arrayIndex][i];
+			}
+		}
+	}
+
+	olc::Decal* ExperimentalLoader::FindDecal(size_t _hash, size_t arrayIndex)
+	{
+		for (size_t i = 0; i < hashes[arrayIndex].size(); i++)
+		{
+			if (_hash == hashes[arrayIndex][i])
+			{
+				if (decals.size() > arrayIndex)
+				{
+					return decals[arrayIndex][i];
+				}
 			}
 		}
 

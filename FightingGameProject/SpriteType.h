@@ -4,11 +4,13 @@ namespace RB
 {
 	enum class SpriteType
 	{
-		NONE,
+		NONE = -1,
 
-		BACKGROUND,
+		BACKGROUND = 0,
 		BOXCOLLIDER_EDITOR,
 		FIGHTER_0,
 		FIGHTER_1,
+
+		COUNT,
 	};
 }
