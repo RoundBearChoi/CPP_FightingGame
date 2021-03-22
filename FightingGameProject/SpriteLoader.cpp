@@ -78,6 +78,14 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
+	void SpriteLoader::LoadDebugElements()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::DEBUG_ELEMENTS;
+
+		std::string path = "PNG files/DebugElements";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
 	void SpriteLoader::DeleteSprites(size_t arrayIndex)
 	{
 		if (sprites.size() > arrayIndex)

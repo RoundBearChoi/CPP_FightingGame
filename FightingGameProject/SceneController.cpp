@@ -33,6 +33,7 @@ namespace RB
 		experimentalLoader.Load_Fighter_0_Sprites();
 		experimentalLoader.Load_Fighter_1_Sprites();
 		experimentalLoader.LoadBoxColliderEditorSprites();
+		experimentalLoader.LoadDebugElements();
 
 		SpriteLoader::ptr = &experimentalLoader;
 

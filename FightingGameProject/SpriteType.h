@@ -13,6 +13,8 @@ namespace RB
 
 		BOXCOLLIDER_EDITOR_UI,
 
+		DEBUG_ELEMENTS,
+
 		COUNT,
 	};
 }

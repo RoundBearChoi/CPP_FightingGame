@@ -4,6 +4,8 @@
 #include "ObjData.h"
 #include "GameData.h"
 #include "AnimationController.h"
+#include "Renderer.h"
+#include "SpriteLoader.h"
 
 namespace RB
 {
@@ -93,16 +95,36 @@ namespace RB
 			{
 				olc::vi2d playerPos = objData.GetPosition();
 
-				std::array<olc::vi2d, 4>arr;
+				std::array<olc::vf2d, 4>arr;
 				arr[0] = RelativeVector::GetPosition(quads[i] + playerPos, cam);
 				arr[1] = RelativeVector::GetPosition(quads[i + 1] + playerPos, cam);
 				arr[2] = RelativeVector::GetPosition(quads[i + 2] + playerPos, cam);
 				arr[3] = RelativeVector::GetPosition(quads[i + 3] + playerPos, cam);
 
+				//lines
 				olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
 				olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
 				olc::Renderer::ptrPGE->DrawLine(arr[2], arr[3], olc::BLUE);
 				olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
+
+				//transparent sprites
+				static size_t hash = 0;
+
+				if (hash == 0)
+				{
+					hash = std::hash<std::string>{}("PNG files/DebugElements/245whitesq_tr80.png");
+				}
+
+				static olc::Decal* d = nullptr; 
+				
+				if (d == nullptr)
+				{
+					d = SpriteLoader::ptr->FindDecal(hash, (size_t)SpriteType::DEBUG_ELEMENTS);
+				}
+				else
+				{
+					RENDERER->DrawPartialWarpedDecal(d, arr, { 245, 245 }, { 0, 0 }, olc::RED);
+				}
 			}
 		}
 	};
