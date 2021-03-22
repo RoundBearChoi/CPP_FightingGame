@@ -48,7 +48,7 @@ namespace RB
 			{
 				vecQuads.reserve(vec.size() * 4);
 
-				for (int i = 0; i < vec.size(); i++)
+				for (size_t i = 0; i < vec.size(); i++)
 				{
 					vec[i].SetQuad();
 					vec[i].UpdateRotation();
@@ -57,6 +57,14 @@ namespace RB
 					vecQuads.push_back(vec[i].Point1());
 					vecQuads.push_back(vec[i].Point2());
 					vecQuads.push_back(vec[i].Point3());
+				}
+
+				IF_COUT
+				{
+					for (size_t i = 0; i < vecQuads.size(); i++)
+					{
+						std::cout << "quads[" << i << "]" << vecQuads[i] << std::endl;
+					} 
 				}
 			}
 		}
