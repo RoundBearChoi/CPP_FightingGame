@@ -41,9 +41,11 @@ namespace RB
 				FILE* pFile;
 				size_t size = 0;
 
-#pragma warning(disable: 4996) //disable visual studio warning
+#ifdef _WIN32
+				fopen_s(&pFile, path.c_str(), "r");
+#else
 				pFile = fopen(path.c_str(), "r");
-#pragma warning(default: 4996)
+#endif
 
 				if (pFile != nullptr)
 				{
@@ -95,35 +97,40 @@ namespace RB
 				FILE* pFile;
 				size_t vecSize = vecColliders.size();
 
-#pragma warning(disable: 4996) //disable visual studio warning
+#ifdef _WIN32
+				fopen_s(&pFile, path.c_str(), "w");
+#else
 				pFile = fopen(path.c_str(), "w");
-#pragma warning(default: 4996)
+#endif
 
-				fwrite(&vecSize, sizeof(size_t), 1, pFile);
-
-				IF_COUT{ std::cout << "saving collider data.." << std::endl; }
-
-				for (size_t i = 0; i < vecColliders.size(); i++)
+				if (pFile != nullptr)
 				{
-					int32_t x = vecColliders[i].Position().x;
-					int32_t y = vecColliders[i].Position().y;
-					int32_t width = vecColliders[i].Width();
-					int32_t height = vecColliders[i].Height();
-					float rotation = vecColliders[i].Rotation();
+					fwrite(&vecSize, sizeof(size_t), 1, pFile);
 
-					fwrite(&x, sizeof(int32_t), 1, pFile);
-					fwrite(&y, sizeof(int32_t), 1, pFile);
-					fwrite(&width, sizeof(int32_t), 1, pFile);
-					fwrite(&height, sizeof(int32_t), 1, pFile);
-					fwrite(&rotation, sizeof(float), 1, pFile);
+					IF_COUT{ std::cout << "saving collider data.." << std::endl; }
 
-					IF_COUT
+					for (size_t i = 0; i < vecColliders.size(); i++)
 					{
-						std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
-					};
-				}
+						int32_t x = vecColliders[i].Position().x;
+						int32_t y = vecColliders[i].Position().y;
+						int32_t width = vecColliders[i].Width();
+						int32_t height = vecColliders[i].Height();
+						float rotation = vecColliders[i].Rotation();
 
-				fclose(pFile);
+						fwrite(&x, sizeof(int32_t), 1, pFile);
+						fwrite(&y, sizeof(int32_t), 1, pFile);
+						fwrite(&width, sizeof(int32_t), 1, pFile);
+						fwrite(&height, sizeof(int32_t), 1, pFile);
+						fwrite(&rotation, sizeof(float), 1, pFile);
+
+						IF_COUT
+						{
+							std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
+						};
+					}
+
+					fclose(pFile);
+				}
 			}
 		}
 	};
