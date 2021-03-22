@@ -83,5 +83,10 @@ namespace RB
 				return nullptr;
 			}
 		}
+
+		void RenderBoxColliders()
+		{
+
+		}
 	};
 }

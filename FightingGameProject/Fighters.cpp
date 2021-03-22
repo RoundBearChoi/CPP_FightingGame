@@ -45,6 +45,14 @@ namespace RB
 		}
 	}
 
+	void Fighters::RenderBoxColliders(Camera& cam)
+	{
+		for (int32_t i = 0; i < arrObjs.size(); i++)
+		{
+			arrObjs[i].stateController.currentState->animationController.RenderBoxColliders(cam);
+		}
+	}
+
 	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
 	{
 		size_t count = CreationCount::UpdateCount();

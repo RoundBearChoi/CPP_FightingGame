@@ -76,4 +76,9 @@ namespace RB
 			return false;
 		}
 	}
+
+	void AnimationController::RenderBoxColliders(Camera& cam)
+	{
+
+	}
 }

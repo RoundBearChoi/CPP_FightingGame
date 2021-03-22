@@ -18,6 +18,7 @@ namespace RB
 		void UpdateState(GameData& gameData) override;
 		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
+		void RenderBoxColliders(Camera& cam) override;
 
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos);
 

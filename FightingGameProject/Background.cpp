@@ -33,6 +33,11 @@ namespace RB
 		SheetRenderer::Render(&arrObjs[0], cam);
 	}
 
+	void Background::RenderBoxColliders(Camera& cam)
+	{
+		//do nothing
+	}
+
 	void Background::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 	{
 		size_t count = CreationCount::UpdateCount();
