@@ -59,16 +59,13 @@ namespace RB
 
 			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i+=4)
 			{
-				std::array<olc::vi2d, 4>arr;
-				arr[0] = RelativeVector::GetPosition(quads[i], cam);
-				arr[1] = RelativeVector::GetPosition(quads[i + 1], cam);
-				arr[2] = RelativeVector::GetPosition(quads[i + 2], cam);
-				arr[3] = RelativeVector::GetPosition(quads[i + 3], cam);
+				olc::vi2d playerPos = objData.GetPosition();
 
-				arr[0] += objData.GetPosition();
-				arr[1] += objData.GetPosition();
-				arr[2] += objData.GetPosition();
-				arr[3] += objData.GetPosition();
+				std::array<olc::vi2d, 4>arr;
+				arr[0] = RelativeVector::GetPosition(quads[i] + playerPos, cam);
+				arr[1] = RelativeVector::GetPosition(quads[i + 1] + playerPos, cam);
+				arr[2] = RelativeVector::GetPosition(quads[i + 2] + playerPos, cam);
+				arr[3] = RelativeVector::GetPosition(quads[i + 3] + playerPos, cam);
 
 				olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
 				olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
