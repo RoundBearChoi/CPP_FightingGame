@@ -47,7 +47,7 @@ namespace RB
 
 		void InitScene() override
 		{
-			fighter.stateController.CreateNewState<Fighter_0_Idle>();
+			fighter.stateController.CreateNewState<Fighter_0_Jab>();
 
 			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 			fighter.objData.SetCreationID(1);
