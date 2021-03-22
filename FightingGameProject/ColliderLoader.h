@@ -36,18 +36,15 @@ namespace RB
 			{
 				path += colliderFileName;
 
-				FILE* pFile;
-				size_t size = 0;
+				std::ifstream file(path);
 
-#ifdef _WIN32
-				fopen_s(&pFile, path.c_str(), "r");
-#else
-				pFile = fopen(path.c_str(), "r");
-#endif
-
-				if (pFile != nullptr)
+				if (file.is_open())
 				{
-					std::fread(&size, sizeof(size_t), 1, pFile);
+					size_t size = 0;
+					file >> size;
+
+					IF_COUT{ std::cout << "data size: " << size << std::endl; }
+					IF_COUT{ std::cout << "collider size: " << vecColliders.size() << std::endl; }
 
 					if (size == vecColliders.size())
 					{
@@ -59,11 +56,11 @@ namespace RB
 							int32_t height = 0;
 							float rotation = 0.0f;
 
-							std::fread(&x, sizeof(int32_t), 1, pFile);
-							std::fread(&y, sizeof(int32_t), 1, pFile);
-							std::fread(&width, sizeof(int32_t), 1, pFile);
-							std::fread(&height, sizeof(int32_t), 1, pFile);
-							std::fread(&rotation, sizeof(float), 1, pFile);
+							file >> x;
+							file >> y;
+							file >> width;
+							file >> height;
+							file >> rotation;
 
 							IF_COUT
 							{
@@ -76,12 +73,10 @@ namespace RB
 							vecColliders[i].SetRotation(rotation);
 						}
 					}
-
-					fclose(pFile);
+					
+					file.close();
 				}
 			}
-
-			IF_COUT{ std::cout << "load success" << std::endl; }
 		}
 
 		static void SaveColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
@@ -92,18 +87,15 @@ namespace RB
 			{
 				path += colliderFileName;
 
-				FILE* pFile;
-				size_t vecSize = vecColliders.size();
+				std::ofstream file(path);
 
-#ifdef _WIN32
-				fopen_s(&pFile, path.c_str(), "w");
-#else
-				pFile = fopen(path.c_str(), "w");
-#endif
-
-				if (pFile != nullptr)
+				if (file.is_open())
 				{
-					fwrite(&vecSize, sizeof(size_t), 1, pFile);
+					size_t vecSize = vecColliders.size();
+
+					IF_COUT{ std::cout << "vec size: " << vecSize << std::endl; }
+
+					file << vecSize << std::endl;
 
 					IF_COUT{ std::cout << "saving collider data.." << std::endl; }
 
@@ -115,11 +107,11 @@ namespace RB
 						int32_t height = vecColliders[i].Height();
 						float rotation = vecColliders[i].Rotation();
 
-						fwrite(&x, sizeof(int32_t), 1, pFile);
-						fwrite(&y, sizeof(int32_t), 1, pFile);
-						fwrite(&width, sizeof(int32_t), 1, pFile);
-						fwrite(&height, sizeof(int32_t), 1, pFile);
-						fwrite(&rotation, sizeof(float), 1, pFile);
+						file << x << std::endl;;
+						file << y << std::endl;;
+						file << width << std::endl;;
+						file << height << std::endl;;
+						file << rotation << std::endl;;
 
 						IF_COUT
 						{
@@ -127,7 +119,8 @@ namespace RB
 						};
 					}
 
-					fclose(pFile);
+					file.flush();
+					file.close();
 				}
 			}
 		}
