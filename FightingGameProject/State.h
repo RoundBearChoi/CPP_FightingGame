@@ -14,14 +14,13 @@ namespace RB
 	{
 	protected:
 		bool isNew = true;
-		std::string path = "none";
 
 		void MakeHash(size_t& _hash)
 		{
 			if (_hash == 0)
 			{
-				IF_COUT{ std::cout << "hashing: " << path << std::endl; }
-				_hash = std::hash<std::string>{}(path);
+				IF_COUT{ std::cout << "hashing: " << animationController.GetSpritePath() << std::endl; }
+				_hash = std::hash<std::string>{}(animationController.GetSpritePath());
 				IF_COUT{ std::cout << _hash << std::endl; };
 			}
 		}

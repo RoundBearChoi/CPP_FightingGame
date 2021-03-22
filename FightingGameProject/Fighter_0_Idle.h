@@ -14,7 +14,7 @@ namespace RB
 
 		Fighter_0_Idle()
 		{
-			path = "PNG files/Fighter_0/fighter_0_idle.png";
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_idle.png");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2000, 200, 5, 1, 5);
 			animationController.status.nTransitionDelay = 10;

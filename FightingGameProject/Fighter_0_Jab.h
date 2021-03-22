@@ -13,7 +13,7 @@ namespace RB
 
 		Fighter_0_Jab()
 		{
-			path = "PNG files/Fighter_0/fighter_0_jab.png";
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jab.png");
 
 			animationController.SetColliderFile("Fighter_0/Fighter_0_Jab.collider");
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);

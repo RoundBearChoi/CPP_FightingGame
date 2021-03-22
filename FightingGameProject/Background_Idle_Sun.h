@@ -8,7 +8,7 @@ namespace RB
 	public:
 		Background_Idle_Sun()
 		{
-			path = "PNG files/Background/background_sun.png";
+			animationController.SetSpritePath("PNG files/Background/background_sun.png");
 		}
 
 		size_t GetHash() override

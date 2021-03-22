@@ -8,7 +8,7 @@ namespace RB
 	public:
 		Background_Idle_Trees()
 		{
-			path = "PNG files/Background/background_trees_20.png";
+			animationController.SetSpritePath("PNG files/Background/background_trees_20.png");
 		}
 
 		size_t GetHash() override
