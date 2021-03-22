@@ -32,6 +32,7 @@ namespace RB
 		virtual size_t GetHash() = 0;
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
+		virtual void RenderBoxColliders(Camera& cam) { }
 
 		void UpdateColliders(std::vector<BoxCollider>& vec, std::vector<olc::vi2d>& vecQuads)
 		{
@@ -81,11 +82,6 @@ namespace RB
 			{
 				return nullptr;
 			}
-		}
-
-		void RenderBoxColliders()
-		{
-
 		}
 	};
 }

@@ -29,6 +29,5 @@ namespace RB
 		void UpdateTileIndex(bool ignoreDelay = false);
 		AnimationStatus* GetStatus();
 		bool OnLastAnimationFrame();
-		void RenderBoxColliders(Camera& cam);
 	};
 }

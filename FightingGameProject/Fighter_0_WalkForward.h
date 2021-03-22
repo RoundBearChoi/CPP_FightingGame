@@ -44,5 +44,10 @@ namespace RB
 				}
 			}
 		}
+
+		void RenderBoxColliders(Camera& cam) override
+		{
+
+		}
 	};
 }

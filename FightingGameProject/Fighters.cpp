@@ -49,7 +49,7 @@ namespace RB
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			arrObjs[i].stateController.currentState->animationController.RenderBoxColliders(cam);
+			arrObjs[i].stateController.currentState->RenderBoxColliders(cam);
 		}
 	}
 
