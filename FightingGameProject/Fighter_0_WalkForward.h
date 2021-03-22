@@ -47,7 +47,8 @@ namespace RB
 
 		void RenderBoxColliders(ObjData& objData, Camera& cam) override
 		{
-
+			std::vector<olc::vi2d> quads = GetColliderQuads();
+			RenderColliderQuads(objData, quads, cam);
 		}
 	};
 }

@@ -84,5 +84,26 @@ namespace RB
 				return nullptr;
 			}
 		}
+
+		void RenderColliderQuads(ObjData& objData, std::vector<olc::vi2d>& quads, Camera cam)
+		{
+			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
+
+			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)
+			{
+				olc::vi2d playerPos = objData.GetPosition();
+
+				std::array<olc::vi2d, 4>arr;
+				arr[0] = RelativeVector::GetPosition(quads[i] + playerPos, cam);
+				arr[1] = RelativeVector::GetPosition(quads[i + 1] + playerPos, cam);
+				arr[2] = RelativeVector::GetPosition(quads[i + 2] + playerPos, cam);
+				arr[3] = RelativeVector::GetPosition(quads[i + 3] + playerPos, cam);
+
+				olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(arr[2], arr[3], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
+			}
+		}
 	};
 }
