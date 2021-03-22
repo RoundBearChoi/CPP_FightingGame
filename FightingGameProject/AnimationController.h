@@ -12,14 +12,14 @@ namespace RB
 	{
 	private:
 		AnimationSpecs specs;
-		std::string colliderFile = "none";
+		std::string colliderPath = "none";
 		std::string spritePath = "none";
 
 	public:
 		AnimationStatus status;
 		
-		void SetColliderFile(std::string _name) { colliderFile = _name; }
-		std::string ColliderFile() { return colliderFile; }
+		void SetColliderFile(std::string _name) { colliderPath = _name; }
+		std::string GetColliderPath() { return colliderPath; }
 		std::string GetSpritePath() { return spritePath; }
 		void SetSpritePath(std::string str) { spritePath = str; }
 		int32_t TotalTiles() { return specs.tileCountX * specs.tileCountY; }
