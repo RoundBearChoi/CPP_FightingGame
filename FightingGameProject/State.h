@@ -102,10 +102,10 @@ namespace RB
 				arr[3] = RelativeVector::GetPosition(quads[i + 3] + playerPos, cam);
 
 				//lines
-				olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[2], arr[3], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
+				//olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
+				//olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
+				//olc::Renderer::ptrPGE->DrawLine(arr[2], arr[3], olc::BLUE);
+				//olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
 
 				//transparent sprites
 				static size_t hash = 0;
