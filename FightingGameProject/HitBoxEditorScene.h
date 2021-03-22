@@ -28,7 +28,7 @@ namespace RB
 		StringNotification saved;
 		StringNotification savedFileName;
 				
-		std::vector<BoxCollider> boxColliders;
+		std::vector<BoxCollider> vecBoxColliders;
 		TargetBodyType targetBodyType;
 
 		int32_t nFrames = 0;
@@ -83,16 +83,10 @@ namespace RB
 
 			//put all body parts into vector
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
-			boxColliders.reserve(ColliderLoader::TotalBodyParts() * nFrames);
+			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
 
-			for (int32_t i = 0; i < ColliderLoader::TotalBodyParts() * nFrames; i++)
-			{
-				int32_t x = (int32_t)floor(i / ColliderLoader::TotalBodyParts() * nFrames) * 1;
-				int32_t y = -170 + (i % ColliderLoader::TotalBodyParts()) * 12;
-				boxColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
-			}
-
-			LoadColliderData();
+			std::string colliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
+			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFileName);
 
 			//notifications
 			saved.str = "saved!";
@@ -156,7 +150,7 @@ namespace RB
 			int32_t currentTile = fighter.stateController.currentState->animationController.status.nCurrentTile;
 			bodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
-			if (bodyIndex < boxColliders.size())
+			if (bodyIndex < vecBoxColliders.size())
 			{
 				if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
 				{
@@ -164,11 +158,11 @@ namespace RB
 				}
 				else if (gameData.key_t)
 				{
-					boxColliders[bodyIndex].RotateCounterClockwise();
+					vecBoxColliders[bodyIndex].RotateCounterClockwise();
 				}
 				else if (gameData.key_y)
 				{
-					boxColliders[bodyIndex].RotateClockwise();
+					vecBoxColliders[bodyIndex].RotateClockwise();
 				}
 
 				if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
@@ -179,39 +173,39 @@ namespace RB
 				{
 					if (!gameData.key_shift)
 					{
-						boxColliders[bodyIndex].IncreaseHeight(1);
+						vecBoxColliders[bodyIndex].IncreaseHeight(1);
 					}
 					else
 					{
-						boxColliders[bodyIndex].DecreaseHeight(1);
+						vecBoxColliders[bodyIndex].DecreaseHeight(1);
 					}
 				}
 				else if (gameData.key_h)
 				{
 					if (!gameData.key_shift)
 					{
-						boxColliders[bodyIndex].IncreaseWidth(1);
+						vecBoxColliders[bodyIndex].IncreaseWidth(1);
 					}
 					else
 					{
-						boxColliders[bodyIndex].DecreaseWidth(1);
+						vecBoxColliders[bodyIndex].DecreaseWidth(1);
 					}
 				}
 
 				//resize, rotate, move boxcollider
-				boxColliders[bodyIndex].SetQuad();
-				boxColliders[bodyIndex].UpdateRotation();
-				boxColliders[bodyIndex].UpdatePosition( //up down left right
+				vecBoxColliders[bodyIndex].SetQuad();
+				vecBoxColliders[bodyIndex].UpdateRotation();
+				vecBoxColliders[bodyIndex].UpdatePosition( //up down left right
 					gameData.key_a,
 					gameData.key_d,
 					gameData.key_w,
 					gameData.key_s);
 			}
 
-			for (int32_t i = 0; i < boxColliders.size(); i++)
+			for (int32_t i = 0; i < vecBoxColliders.size(); i++)
 			{
-				boxColliders[i].SetQuad();
-				boxColliders[i].UpdateRotation();
+				vecBoxColliders[i].SetQuad();
+				vecBoxColliders[i].UpdateRotation();
 			}
 		}
 
@@ -226,10 +220,10 @@ namespace RB
 			for (int32_t i = base; i < base + ColliderLoader::TotalBodyParts(); i++)
 			{
 				std::array<olc::vi2d, 4> quad;
-				quad[0] = RelativeVector::GetPosition(boxColliders[i].Point0(), cam);
-				quad[1] = RelativeVector::GetPosition(boxColliders[i].Point1(), cam);
-				quad[2] = RelativeVector::GetPosition(boxColliders[i].Point2(), cam);
-				quad[3] = RelativeVector::GetPosition(boxColliders[i].Point3(), cam);
+				quad[0] = RelativeVector::GetPosition(vecBoxColliders[i].Point0(), cam);
+				quad[1] = RelativeVector::GetPosition(vecBoxColliders[i].Point1(), cam);
+				quad[2] = RelativeVector::GetPosition(vecBoxColliders[i].Point2(), cam);
+				quad[3] = RelativeVector::GetPosition(vecBoxColliders[i].Point3(), cam);
 
 				olc::Pixel color = olc::BLUE;
 
@@ -245,12 +239,12 @@ namespace RB
 			}
 
 			//current boxcollider info
-			if (bodyIndex < boxColliders.size())
+			if (bodyIndex < vecBoxColliders.size())
 			{
-				olc::vi2d p0 = boxColliders[bodyIndex].Point0();
-				olc::vi2d p1 = boxColliders[bodyIndex].Point1();
-				olc::vi2d p2 = boxColliders[bodyIndex].Point2();
-				olc::vi2d p3 = boxColliders[bodyIndex].Point3();
+				olc::vi2d p0 = vecBoxColliders[bodyIndex].Point0();
+				olc::vi2d p1 = vecBoxColliders[bodyIndex].Point1();
+				olc::vi2d p2 = vecBoxColliders[bodyIndex].Point2();
+				olc::vi2d p3 = vecBoxColliders[bodyIndex].Point3();
 
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
@@ -288,54 +282,6 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 		}
 
-		void LoadColliderData()
-		{
-			std::string path = "BoxColliderData/";
-			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
-
-			if (stateColliderFileName.compare("none") != 0)
-			{
-				path += stateColliderFileName;
-
-				FILE* pFile;
-				size_t size = 0;
-
-#pragma warning(disable: 4996) //disable visual studio warning
-				pFile = fopen(path.c_str(), "r");
-#pragma warning(default: 4996)
-
-				if (pFile != nullptr)
-				{
-					std::fread(&size, sizeof(size_t), 1, pFile);
-
-					if (size == boxColliders.size())
-					{
-						for (size_t i = 0; i < boxColliders.size(); i++)
-						{
-							int32_t x = 0;
-							int32_t y = 0;
-							int32_t width = 0;
-							int32_t height = 0;
-							float rotation = 0.0f;
-
-							std::fread(&x, sizeof(int32_t), 1, pFile);
-							std::fread(&y, sizeof(int32_t), 1, pFile);
-							std::fread(&width, sizeof(int32_t), 1, pFile);
-							std::fread(&height, sizeof(int32_t), 1, pFile);
-							std::fread(&rotation, sizeof(float), 1, pFile);
-
-							boxColliders[i].SetPosition(x, y);
-							boxColliders[i].SetWidth(width);
-							boxColliders[i].SetHeight(height);
-							boxColliders[i].SetRotation(rotation);
-						}
-					}
-
-					fclose(pFile);
-				}
-			}
-		}
-
 		void SaveColliderData()
 		{
 			std::string path = "BoxColliderData/";
@@ -346,7 +292,7 @@ namespace RB
 				path += stateColliderFileName;
 
 				FILE* pFile;
-				size_t vecSize = boxColliders.size();
+				size_t vecSize = vecBoxColliders.size();
 
 #pragma warning(disable: 4996) //disable visual studio warning
 				pFile = fopen(path.c_str(), "w");
@@ -354,13 +300,13 @@ namespace RB
 
 				fwrite(&vecSize, sizeof(size_t), 1, pFile);
 				
-				for (size_t i = 0; i < boxColliders.size(); i++)
+				for (size_t i = 0; i < vecBoxColliders.size(); i++)
 				{
-					int32_t x = boxColliders[i].Position().x;
-					int32_t y = boxColliders[i].Position().y;
-					int32_t width = boxColliders[i].Width();
-					int32_t height = boxColliders[i].Height();
-					float rotation = boxColliders[i].Rotation();
+					int32_t x = vecBoxColliders[i].Position().x;
+					int32_t y = vecBoxColliders[i].Position().y;
+					int32_t width = vecBoxColliders[i].Width();
+					int32_t height = vecBoxColliders[i].Height();
+					float rotation = vecBoxColliders[i].Rotation();
 
 					fwrite(&x, sizeof(int32_t), 1, pFile);
 					fwrite(&y, sizeof(int32_t), 1, pFile);
