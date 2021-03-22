@@ -113,6 +113,20 @@ namespace RB
 			quad[3] = topRight;
 		}
 
+		void Render(Camera& cam, olc::Pixel _color)
+		{
+			std::array<olc::vi2d, 4> quad;
+			quad[0] = RelativeVector::GetPosition(Point0(), cam);
+			quad[1] = RelativeVector::GetPosition(Point1(), cam);
+			quad[2] = RelativeVector::GetPosition(Point2(), cam);
+			quad[3] = RelativeVector::GetPosition(Point3(), cam);
+
+			olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], _color);
+		}
+
 		void IncreaseWidth(int32_t _width) { width += _width; }
 		void IncreaseHeight(int32_t _height) { height += _height; }
 		void DecreaseWidth(int32_t _width) { width -= _width; }

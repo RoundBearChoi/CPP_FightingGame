@@ -32,7 +32,7 @@ namespace RB
 		TargetBodyType targetBodyType;
 
 		int32_t nFrames = 0;
-		int32_t bodyIndex = 0;
+		int32_t nSelectedBodyIndex = 0;
 
 	public:
 		HitBoxEditorScene()
@@ -150,9 +150,9 @@ namespace RB
 
 			//boxcolliders
 			int32_t currentTile = fighter.stateController.currentState->animationController.status.nCurrentTile;
-			bodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
+			nSelectedBodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
-			if (bodyIndex < vecBoxColliders.size())
+			if (nSelectedBodyIndex < vecBoxColliders.size())
 			{
 				if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
 				{
@@ -160,11 +160,11 @@ namespace RB
 				}
 				else if (gameData.key_t)
 				{
-					vecBoxColliders[bodyIndex].RotateCounterClockwise();
+					vecBoxColliders[nSelectedBodyIndex].RotateCounterClockwise();
 				}
 				else if (gameData.key_y)
 				{
-					vecBoxColliders[bodyIndex].RotateClockwise();
+					vecBoxColliders[nSelectedBodyIndex].RotateClockwise();
 				}
 
 				if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
@@ -175,29 +175,29 @@ namespace RB
 				{
 					if (!gameData.key_shift)
 					{
-						vecBoxColliders[bodyIndex].IncreaseHeight(1);
+						vecBoxColliders[nSelectedBodyIndex].IncreaseHeight(1);
 					}
 					else
 					{
-						vecBoxColliders[bodyIndex].DecreaseHeight(1);
+						vecBoxColliders[nSelectedBodyIndex].DecreaseHeight(1);
 					}
 				}
 				else if (gameData.key_h)
 				{
 					if (!gameData.key_shift)
 					{
-						vecBoxColliders[bodyIndex].IncreaseWidth(1);
+						vecBoxColliders[nSelectedBodyIndex].IncreaseWidth(1);
 					}
 					else
 					{
-						vecBoxColliders[bodyIndex].DecreaseWidth(1);
+						vecBoxColliders[nSelectedBodyIndex].DecreaseWidth(1);
 					}
 				}
 
 				//resize, rotate, move boxcollider
-				vecBoxColliders[bodyIndex].SetQuad();
-				vecBoxColliders[bodyIndex].UpdateRotation();
-				vecBoxColliders[bodyIndex].UpdatePosition( //up down left right
+				vecBoxColliders[nSelectedBodyIndex].SetQuad();
+				vecBoxColliders[nSelectedBodyIndex].UpdateRotation();
+				vecBoxColliders[nSelectedBodyIndex].UpdatePosition( //up down left right
 					gameData.key_a,
 					gameData.key_d,
 					gameData.key_w,
@@ -218,35 +218,27 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			int32_t base = fighter.stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
-			for (int32_t i = base; i < base + ColliderLoader::TotalBodyParts(); i++)
+			int32_t indexStart = fighter.stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			
+			for (int32_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 			{
-				std::array<olc::vi2d, 4> quad;
-				quad[0] = RelativeVector::GetPosition(vecBoxColliders[i].Point0(), cam);
-				quad[1] = RelativeVector::GetPosition(vecBoxColliders[i].Point1(), cam);
-				quad[2] = RelativeVector::GetPosition(vecBoxColliders[i].Point2(), cam);
-				quad[3] = RelativeVector::GetPosition(vecBoxColliders[i].Point3(), cam);
-
-				olc::Pixel color = olc::BLUE;
-
-				if (i == bodyIndex)
+				if (i == nSelectedBodyIndex)
 				{
-					color = olc::RED;
+					vecBoxColliders[i].Render(cam, olc::RED);
 				}
-
-				olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], color);
-				olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], color);
-				olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], color);
-				olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], color);
+				else
+				{
+					vecBoxColliders[i].Render(cam, olc::BLUE);
+				}
 			}
 
 			//current boxcollider info
-			if (bodyIndex < vecBoxColliders.size())
+			if (nSelectedBodyIndex < vecBoxColliders.size())
 			{
-				olc::vi2d p0 = vecBoxColliders[bodyIndex].Point0();
-				olc::vi2d p1 = vecBoxColliders[bodyIndex].Point1();
-				olc::vi2d p2 = vecBoxColliders[bodyIndex].Point2();
-				olc::vi2d p3 = vecBoxColliders[bodyIndex].Point3();
+				olc::vi2d p0 = vecBoxColliders[nSelectedBodyIndex].Point0();
+				olc::vi2d p1 = vecBoxColliders[nSelectedBodyIndex].Point1();
+				olc::vi2d p2 = vecBoxColliders[nSelectedBodyIndex].Point2();
+				olc::vi2d p3 = vecBoxColliders[nSelectedBodyIndex].Point3();
 
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
