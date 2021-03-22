@@ -56,9 +56,10 @@ namespace RB
 		void RenderBoxColliders(ObjData& objData, Camera& cam) override
 		{
 			std::vector<olc::vi2d> quads = GetColliderQuads();
+
 			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
 
-			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i+=4)
+			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)
 			{
 				olc::vi2d playerPos = objData.GetPosition();
 
