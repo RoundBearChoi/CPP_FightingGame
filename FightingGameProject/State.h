@@ -7,6 +7,8 @@
 
 namespace RB
 {
+#define STATIC_VEC_COLLIDERS std::vector<BoxCollider>& GetColliders() { static std::vector<BoxCollider> vecColliders; return vecColliders; }
+
 	class State
 	{
 	protected:
@@ -30,6 +32,19 @@ namespace RB
 		virtual size_t GetHash() = 0;
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
+
+		void UpdateColliders(std::vector<BoxCollider>& vec)
+		{
+			if (vec.size() == 0)
+			{
+				ColliderLoader::SetFighterBodyParts(vec, animationController.GetTotalTiles());
+			}
+
+			if (animationController.vecColliderQuads.size() == 0)
+			{
+				animationController.SetColliderQuads(vec);
+			}
+		}
 
 		bool IsNew()
 		{

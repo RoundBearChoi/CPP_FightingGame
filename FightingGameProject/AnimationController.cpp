@@ -14,24 +14,19 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
-	void AnimationController::SetColliders()
+	void AnimationController::SetColliderQuads(std::vector<BoxCollider>& vec)
 	{
-		ColliderLoader::SetFighterBodyParts(vecColliders, specs.totalTiles);
-	}
+		vecColliderQuads.reserve(vec.size() * 4);
 
-	void AnimationController::SetColliderQuads()
-	{
-		vecColliderQuads.reserve(vecColliders.size() * 4);
-
-		for (int i = 0; i < vecColliders.size(); i++)
+		for (int i = 0; i < vec.size(); i++)
 		{
-			vecColliders[i].SetQuad();
-			vecColliders[i].UpdateRotation();
+			vec[i].SetQuad();
+			vec[i].UpdateRotation();
 
-			vecColliderQuads.push_back(vecColliders[i].Point0());
-			vecColliderQuads.push_back(vecColliders[i].Point1());
-			vecColliderQuads.push_back(vecColliders[i].Point2());
-			vecColliderQuads.push_back(vecColliders[i].Point3());
+			vecColliderQuads.push_back(vec[i].Point0());
+			vecColliderQuads.push_back(vec[i].Point1());
+			vecColliderQuads.push_back(vec[i].Point2());
+			vecColliderQuads.push_back(vec[i].Point3());
 		}
 	}
 

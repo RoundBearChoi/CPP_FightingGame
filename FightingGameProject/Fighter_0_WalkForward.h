@@ -8,15 +8,14 @@ namespace RB
 	class Fighter_0_WalkForward : public State
 	{
 	public:
+		STATIC_VEC_COLLIDERS;
+
 		Fighter_0_WalkForward()
 		{
 			path = "PNG files/Fighter_0/fighter_0_walk.png";
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 8;
-
-			animationController.SetColliders();
-			animationController.SetColliderQuads();
 		}
 
 		size_t GetHash() override
@@ -34,6 +33,8 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
+			UpdateColliders(GetColliders());
+
 			if (objData.GetTransitionPermission())
 			{
 				if (!gameData.key_d)

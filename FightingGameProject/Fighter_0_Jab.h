@@ -8,6 +8,8 @@ namespace RB
 	class Fighter_0_Jab : public State
 	{
 	public:
+		STATIC_VEC_COLLIDERS;
+
 		Fighter_0_Jab()
 		{
 			path = "PNG files/Fighter_0/fighter_0_jab.png";
@@ -15,9 +17,6 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/Fighter_0_Jab.collider");
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 5;
-
-			animationController.SetColliders();
-			animationController.SetColliderQuads();
 		}
 
 		size_t GetHash() override
@@ -35,6 +34,8 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
+			UpdateColliders(GetColliders());
+
 			if (objData.GetTransitionPermission())
 			{
 				if (objData.GetAnimationIndex() == 5)
