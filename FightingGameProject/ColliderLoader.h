@@ -65,15 +65,15 @@ namespace RB
 							std::fread(&height, sizeof(int32_t), 1, pFile);
 							std::fread(&rotation, sizeof(float), 1, pFile);
 
+							IF_COUT
+							{
+								std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
+							};
+
 							vecColliders[i].SetPosition(x, y);
 							vecColliders[i].SetWidth(width);
 							vecColliders[i].SetHeight(height);
 							vecColliders[i].SetRotation(rotation);
-
-							//IF_COUT
-							//{
-							//	std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
-							//};
 						}
 					}
 
