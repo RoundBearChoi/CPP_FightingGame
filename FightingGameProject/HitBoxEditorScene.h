@@ -131,7 +131,9 @@ namespace RB
 
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
-				SaveColliderData();
+				std::string colliderFile = fighter.stateController.currentState->animationController.CollisionFileName();
+				ColliderLoader::SaveColliderData(vecBoxColliders, colliderFile);
+
 				saved.frames = 120 * 9;
 				savedFileName.frames = 120 * 9;
 			}
@@ -280,43 +282,6 @@ namespace RB
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
-		}
-
-		void SaveColliderData()
-		{
-			std::string path = "BoxColliderData/";
-			std::string stateColliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
-
-			if (stateColliderFileName.compare("none") != 0)
-			{
-				path += stateColliderFileName;
-
-				FILE* pFile;
-				size_t vecSize = vecBoxColliders.size();
-
-#pragma warning(disable: 4996) //disable visual studio warning
-				pFile = fopen(path.c_str(), "w");
-#pragma warning(default: 4996)
-
-				fwrite(&vecSize, sizeof(size_t), 1, pFile);
-				
-				for (size_t i = 0; i < vecBoxColliders.size(); i++)
-				{
-					int32_t x = vecBoxColliders[i].Position().x;
-					int32_t y = vecBoxColliders[i].Position().y;
-					int32_t width = vecBoxColliders[i].Width();
-					int32_t height = vecBoxColliders[i].Height();
-					float rotation = vecBoxColliders[i].Rotation();
-
-					fwrite(&x, sizeof(int32_t), 1, pFile);
-					fwrite(&y, sizeof(int32_t), 1, pFile);
-					fwrite(&width, sizeof(int32_t), 1, pFile);
-					fwrite(&height, sizeof(int32_t), 1, pFile);
-					fwrite(&rotation, sizeof(float), 1, pFile);
-				}
-				
-				fclose(pFile);
-			}
 		}
 	};
 }

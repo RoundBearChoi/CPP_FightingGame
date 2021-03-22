@@ -71,5 +71,41 @@ namespace RB
 				}
 			}
 		}
+
+		static void SaveColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
+		{
+			std::string path = "BoxColliderData/";
+
+			if (colliderFileName.compare("none") != 0)
+			{
+				path += colliderFileName;
+
+				FILE* pFile;
+				size_t vecSize = vecColliders.size();
+
+#pragma warning(disable: 4996) //disable visual studio warning
+				pFile = fopen(path.c_str(), "w");
+#pragma warning(default: 4996)
+
+				fwrite(&vecSize, sizeof(size_t), 1, pFile);
+
+				for (size_t i = 0; i < vecColliders.size(); i++)
+				{
+					int32_t x = vecColliders[i].Position().x;
+					int32_t y = vecColliders[i].Position().y;
+					int32_t width = vecColliders[i].Width();
+					int32_t height = vecColliders[i].Height();
+					float rotation = vecColliders[i].Rotation();
+
+					fwrite(&x, sizeof(int32_t), 1, pFile);
+					fwrite(&y, sizeof(int32_t), 1, pFile);
+					fwrite(&width, sizeof(int32_t), 1, pFile);
+					fwrite(&height, sizeof(int32_t), 1, pFile);
+					fwrite(&rotation, sizeof(float), 1, pFile);
+				}
+
+				fclose(pFile);
+			}
+		}
 	};
 }
