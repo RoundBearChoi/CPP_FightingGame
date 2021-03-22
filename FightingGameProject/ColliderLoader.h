@@ -116,10 +116,15 @@ namespace RB
 						float rotation = vecColliders[i].Rotation();
 
 						fwrite(&x, sizeof(int32_t), 1, pFile);
+						fflush(pFile);
 						fwrite(&y, sizeof(int32_t), 1, pFile);
+						fflush(pFile);
 						fwrite(&width, sizeof(int32_t), 1, pFile);
+						fflush(pFile);
 						fwrite(&height, sizeof(int32_t), 1, pFile);
+						fflush(pFile);
 						fwrite(&rotation, sizeof(float), 1, pFile);
+						fflush(pFile);
 
 						IF_COUT
 						{
