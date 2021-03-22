@@ -39,6 +39,7 @@ namespace RB
 			if (vec.size() == 0)
 			{
 				ColliderLoader::SetFighterBodyParts(vec, animationController.GetTotalTiles());
+				ColliderLoader::LoadColliderData(vec, animationController.GetColliderPath());
 			}
 
 			if (vecQuads.size() == 0)
