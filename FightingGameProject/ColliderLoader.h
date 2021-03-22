@@ -2,6 +2,7 @@
 #include <vector>
 #include "BoxCollider.h"
 #include "BodyType.h"
+#include "DevSettings.h"
 
 namespace RB
 {
@@ -28,6 +29,8 @@ namespace RB
 		static void LoadColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
 		{
 			std::string path = "BoxColliderData/";
+
+			IF_COUT{ std::cout << "loading collider data: " << colliderFileName << std::endl; }
 
 			if (colliderFileName.compare("none") != 0)
 			{
@@ -70,6 +73,8 @@ namespace RB
 					fclose(pFile);
 				}
 			}
+
+			IF_COUT{ std::cout << "load success" << std::endl; }
 		}
 
 		static void SaveColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
