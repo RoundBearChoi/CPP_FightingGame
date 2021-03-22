@@ -60,15 +60,10 @@ namespace RB
 							float rotation = 0.0f;
 
 							std::fread(&x, sizeof(int32_t), 1, pFile);
-							std::fflush(pFile);
 							std::fread(&y, sizeof(int32_t), 1, pFile);
-							std::fflush(pFile);
 							std::fread(&width, sizeof(int32_t), 1, pFile);
-							std::fflush(pFile);
 							std::fread(&height, sizeof(int32_t), 1, pFile);
-							std::fflush(pFile);
 							std::fread(&rotation, sizeof(float), 1, pFile);
-							std::fflush(pFile);
 
 							vecColliders[i].SetPosition(x, y);
 							vecColliders[i].SetWidth(width);
@@ -121,15 +116,10 @@ namespace RB
 						float rotation = vecColliders[i].Rotation();
 
 						fwrite(&x, sizeof(int32_t), 1, pFile);
-						std::fflush(pFile);
 						fwrite(&y, sizeof(int32_t), 1, pFile);
-						std::fflush(pFile);
 						fwrite(&width, sizeof(int32_t), 1, pFile);
-						std::fflush(pFile);
 						fwrite(&height, sizeof(int32_t), 1, pFile);
-						std::fflush(pFile);
 						fwrite(&rotation, sizeof(float), 1, pFile);
-						fflush(pFile);
 
 						IF_COUT
 						{
