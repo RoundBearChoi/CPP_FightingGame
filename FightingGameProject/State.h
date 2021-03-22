@@ -59,13 +59,13 @@ namespace RB
 					vecQuads.push_back(vec[i].Point3());
 				}
 
-				IF_COUT
-				{
-					for (size_t i = 0; i < vecQuads.size(); i++)
-					{
-						std::cout << "quads[" << i << "]" << vecQuads[i] << std::endl;
-					} 
-				}
+				//IF_COUT
+				//{
+				//	for (size_t i = 0; i < vecQuads.size(); i++)
+				//	{
+				//		std::cout << "quads[" << i << "]" << vecQuads[i] << std::endl;
+				//	} 
+				//}
 			}
 		}
 

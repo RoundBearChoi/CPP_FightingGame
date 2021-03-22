@@ -72,8 +72,7 @@ namespace RB
 
 							IF_COUT
 							{
-								std::cout << "loading collider data (" << i << "): " << x << ", " << y << std::endl;
-								std::cout << width << " " << height << " " << rotation << std::endl;
+								std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
 							};
 						}
 					}
