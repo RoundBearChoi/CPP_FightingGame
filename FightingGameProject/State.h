@@ -14,6 +14,10 @@ namespace RB
 	
 	class State
 	{
+	private:
+		size_t colliderPNGHash = 0;
+		olc::Decal* colliderPNGDecal = nullptr;
+
 	protected:
 		bool isNew = true;
 
@@ -108,22 +112,20 @@ namespace RB
 				olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
 
 				//transparent sprites
-				static size_t hash = 0;
-
-				if (hash == 0)
+				if (colliderPNGHash == 0)
 				{
-					hash = std::hash<std::string>{}("PNG files/DebugElements/245whitesq_tr80.png");
+					colliderPNGHash = std::hash<std::string>{}("PNG files/DebugElements/245whitesq_tr80.png");
+
+					IF_COUT{ std::cout << "collider png hash: " << colliderPNGHash << std::endl; };
 				}
 
-				static olc::Decal* d = nullptr; 
-				
-				if (d == nullptr)
+				if (colliderPNGDecal == nullptr)
 				{
-					d = SpriteLoader::ptr->FindDecal(hash, (size_t)SpriteType::DEBUG_ELEMENTS);
+					colliderPNGDecal = SpriteLoader::ptr->FindDecal(colliderPNGHash, (size_t)SpriteType::DEBUG_ELEMENTS);
 				}
 				else
 				{
-					RENDERER->DrawPartialWarpedDecal(d, arr, { 245, 245 }, { 0, 0 }, olc::RED);
+					RENDERER->DrawPartialWarpedDecal(colliderPNGDecal, arr, { 245, 245 }, { 0, 0 }, olc::RED);
 				}
 			}
 		}
