@@ -9,6 +9,7 @@ namespace RB
 	{
 	public:
 		STATIC_VEC_COLLIDERS;
+		STATIC_VEC_COLLIDER_QUADS;
 
 		Fighter_0_WalkForward()
 		{
@@ -33,7 +34,7 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			UpdateColliders(GetColliders());
+			UpdateColliders(GetColliders(), GetColliderQuads());
 
 			if (objData.GetTransitionPermission())
 			{

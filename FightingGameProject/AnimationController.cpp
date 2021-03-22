@@ -14,22 +14,6 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
-	void AnimationController::SetColliderQuads(std::vector<BoxCollider>& vec)
-	{
-		vecColliderQuads.reserve(vec.size() * 4);
-
-		for (int i = 0; i < vec.size(); i++)
-		{
-			vec[i].SetQuad();
-			vec[i].UpdateRotation();
-
-			vecColliderQuads.push_back(vec[i].Point0());
-			vecColliderQuads.push_back(vec[i].Point1());
-			vecColliderQuads.push_back(vec[i].Point2());
-			vecColliderQuads.push_back(vec[i].Point3());
-		}
-	}
-
 	void AnimationController::UpdateTileIndex(bool ignoreDelay)
 	{
 		if (!ignoreDelay)

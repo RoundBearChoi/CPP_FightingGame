@@ -8,7 +8,8 @@
 namespace RB
 {
 #define STATIC_VEC_COLLIDERS std::vector<BoxCollider>& GetColliders() { static std::vector<BoxCollider> vecColliders; return vecColliders; }
-
+#define STATIC_VEC_COLLIDER_QUADS std::vector<olc::vi2d>& GetColliderQuads() { static std::vector<olc::vi2d> vecColliderQuads; return vecColliderQuads; }
+	
 	class State
 	{
 	protected:
@@ -33,16 +34,27 @@ namespace RB
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 
-		void UpdateColliders(std::vector<BoxCollider>& vec)
+		void UpdateColliders(std::vector<BoxCollider>& vec, std::vector<olc::vi2d>& vecQuads)
 		{
 			if (vec.size() == 0)
 			{
 				ColliderLoader::SetFighterBodyParts(vec, animationController.GetTotalTiles());
 			}
 
-			if (animationController.vecColliderQuads.size() == 0)
+			if (vecQuads.size() == 0)
 			{
-				animationController.SetColliderQuads(vec);
+				vecQuads.reserve(vec.size() * 4);
+
+				for (int i = 0; i < vec.size(); i++)
+				{
+					vec[i].SetQuad();
+					vec[i].UpdateRotation();
+
+					vecQuads.push_back(vec[i].Point0());
+					vecQuads.push_back(vec[i].Point1());
+					vecQuads.push_back(vec[i].Point2());
+					vecQuads.push_back(vec[i].Point3());
+				}
 			}
 		}
 
