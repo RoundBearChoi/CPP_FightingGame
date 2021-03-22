@@ -23,8 +23,6 @@ namespace RB
 				int32_t x = (int32_t)floor(i / ColliderLoader::TotalBodyParts() * frames) * 1;
 				int32_t y = -170 + (i % ColliderLoader::TotalBodyParts()) * 12;
 				vecColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
-
-				IF_COUT{ std::cout << "creating default BoxCollider (" << i << ")" << x << ", " << y << std::endl; };
 			}
 		}
 
@@ -72,10 +70,10 @@ namespace RB
 							vecColliders[i].SetHeight(height);
 							vecColliders[i].SetRotation(rotation);
 
-							IF_COUT
-							{
-								std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
-							};
+							//IF_COUT
+							//{
+							//	std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
+							//};
 						}
 					}
 
