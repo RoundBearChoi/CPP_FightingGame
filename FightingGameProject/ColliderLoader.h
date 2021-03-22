@@ -24,7 +24,7 @@ namespace RB
 				int32_t y = -170 + (i % ColliderLoader::TotalBodyParts()) * 12;
 				vecColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
 
-				IF_COUT{ std::cout << "creating default BoxCollider ( " << i << ")" << x << ", " << y << std::endl; };
+				IF_COUT{ std::cout << "creating default BoxCollider (" << i << ")" << x << ", " << y << std::endl; };
 			}
 		}
 
