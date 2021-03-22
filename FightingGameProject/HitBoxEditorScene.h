@@ -85,15 +85,15 @@ namespace RB
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
 			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
 
-			std::string colliderFileName = fighter.stateController.currentState->animationController.CollisionFileName();
-			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFileName);
+			std::string colliderFile = fighter.stateController.currentState->animationController.ColliderFile();
+			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
 
 			//notifications
 			saved.str = "saved!";
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
 			saved.color = olc::RED;
 
-			savedFileName.str = fighter.stateController.currentState->animationController.CollisionFileName();
+			savedFileName.str = fighter.stateController.currentState->animationController.ColliderFile();
 			int32_t nameLength = (int32_t)savedFileName.str.length();
 			savedFileName.pos = { GameSettings::window_width - (nameLength * 8), saveIcon.topLeft.y + 55 + 14 };
 			savedFileName.color = olc::RED;
@@ -131,7 +131,7 @@ namespace RB
 
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
-				std::string colliderFile = fighter.stateController.currentState->animationController.CollisionFileName();
+				std::string colliderFile = fighter.stateController.currentState->animationController.ColliderFile();
 				ColliderLoader::SaveColliderData(vecBoxColliders, colliderFile);
 
 				saved.frames = 120 * 9;
