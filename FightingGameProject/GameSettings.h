@@ -11,6 +11,6 @@ namespace RB
 		const static int32_t window_height = 480;
 		const static SceneType startingScene = SceneType::FIGHT_SCENE;
 
-		static float TargetFrameTime() { return 1.0f / 120.0f; }
+		static float TargetFrameTime() { return 1.0f / 20.0f; }
 	};
 }
