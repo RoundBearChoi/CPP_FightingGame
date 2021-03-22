@@ -101,6 +101,8 @@ namespace RB
 
 				fwrite(&vecSize, sizeof(size_t), 1, pFile);
 
+				IF_COUT{ std::cout << "saving collider data.." << std::endl; }
+
 				for (size_t i = 0; i < vecColliders.size(); i++)
 				{
 					int32_t x = vecColliders[i].Position().x;
@@ -114,6 +116,11 @@ namespace RB
 					fwrite(&width, sizeof(int32_t), 1, pFile);
 					fwrite(&height, sizeof(int32_t), 1, pFile);
 					fwrite(&rotation, sizeof(float), 1, pFile);
+
+					IF_COUT
+					{
+						std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
+					};
 				}
 
 				fclose(pFile);
