@@ -1,6 +1,8 @@
 #pragma once
 #include <stdint.h>
 #include "olcPixelGameEngine.h"
+#include "Camera.h"
+#include "RelativeVector.h"
 
 namespace RB
 {

@@ -15,6 +15,8 @@ namespace RB
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2000, 200, 5, 1, 5);
 			animationController.status.nTransitionDelay = 10;
+
+			animationController.SetColliders();
 		}
 
 		size_t GetHash() override

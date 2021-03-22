@@ -14,6 +14,11 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
+	void AnimationController::SetColliders()
+	{
+		ColliderLoader::SetFighterBodyParts(vecColliders, specs.totalTiles);
+	}
+
 	void AnimationController::UpdateTileIndex(bool ignoreDelay)
 	{
 		if (!ignoreDelay)

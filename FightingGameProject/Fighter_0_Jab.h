@@ -15,6 +15,8 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/Fighter_0_Jab.collider");
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 5;
+
+			animationController.SetColliders();
 		}
 
 		size_t GetHash() override
