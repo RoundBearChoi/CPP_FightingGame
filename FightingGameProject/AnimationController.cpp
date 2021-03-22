@@ -19,6 +19,22 @@ namespace RB
 		ColliderLoader::SetFighterBodyParts(vecColliders, specs.totalTiles);
 	}
 
+	void AnimationController::SetColliderQuads()
+	{
+		vecColliderQuads.reserve(vecColliders.size() * 4);
+
+		for (int i = 0; i < vecColliders.size(); i++)
+		{
+			vecColliders[i].SetQuad();
+			vecColliders[i].UpdateRotation();
+
+			vecColliderQuads.push_back(vecColliders[i].Point0());
+			vecColliderQuads.push_back(vecColliders[i].Point1());
+			vecColliderQuads.push_back(vecColliders[i].Point2());
+			vecColliderQuads.push_back(vecColliders[i].Point3());
+		}
+	}
+
 	void AnimationController::UpdateTileIndex(bool ignoreDelay)
 	{
 		if (!ignoreDelay)

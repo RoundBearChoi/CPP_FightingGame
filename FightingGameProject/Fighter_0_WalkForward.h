@@ -16,6 +16,7 @@ namespace RB
 			animationController.status.nTransitionDelay = 8;
 
 			animationController.SetColliders();
+			animationController.SetColliderQuads();
 		}
 
 		size_t GetHash() override

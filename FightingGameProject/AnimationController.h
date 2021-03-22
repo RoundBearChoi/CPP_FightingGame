@@ -16,12 +16,14 @@ namespace RB
 	public:
 		AnimationStatus status;
 		std::vector<BoxCollider> vecColliders;
+		std::vector<olc::vi2d> vecColliderQuads;
 
 		void SetColliderFile(std::string _name) { colliderFile = _name; }
 		std::string ColliderFile() { return colliderFile; }
 		int32_t TotalTiles() { return specs.tileCountX * specs.tileCountY; }
 		void SetParams(SpriteType _spriteType, int32_t _decalTypeIndex, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount);
 		void SetColliders();
+		void SetColliderQuads();
 		void UpdateTileIndex(bool ignoreDelay = false);
 		AnimationStatus* GetStatus();
 		bool OnLastAnimationFrame();
