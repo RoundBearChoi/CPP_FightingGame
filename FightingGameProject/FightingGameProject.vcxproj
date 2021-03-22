@@ -165,6 +165,7 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />
+    <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="Fighter_0_Idle.h" />

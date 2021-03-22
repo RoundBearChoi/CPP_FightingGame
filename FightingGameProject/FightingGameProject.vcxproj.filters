@@ -46,9 +46,6 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{48ce50f8-b65b-42b0-b79e-6232cdc28a75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DecalLoader">
-      <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObj\Concrete Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,9 @@
     </Filter>
     <Filter Include="Source Files\Collider">
       <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpriteLoader">
+      <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +97,7 @@
       <Filter>Source Files\Scenes\Base</Filter>
     </ClCompile>
     <ClCompile Include="SpriteLoader.cpp">
-      <Filter>Source Files\DecalLoader</Filter>
+      <Filter>Source Files\SpriteLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,10 +228,13 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SpriteLoader.h">
-      <Filter>Source Files\DecalLoader</Filter>
+      <Filter>Source Files\SpriteLoader</Filter>
     </ClInclude>
     <ClInclude Include="SpriteType.h">
-      <Filter>Source Files\DecalLoader</Filter>
+      <Filter>Source Files\SpriteLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderLoader.h">
+      <Filter>Source Files\Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

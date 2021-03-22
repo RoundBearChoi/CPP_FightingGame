@@ -7,6 +7,7 @@
 #include "StringNotification.h"
 #include "BoxCollider.h"
 #include "TargetBodyType.h"
+#include "ColliderLoader.h"
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -31,7 +32,6 @@ namespace RB
 		TargetBodyType targetBodyType;
 
 		int32_t nFrames = 0;
-		int32_t nBodyParts = 0;
 		int32_t bodyIndex = 0;
 
 	public:
@@ -83,13 +83,12 @@ namespace RB
 
 			//put all body parts into vector
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
-			nBodyParts = (int32_t)BodyType::RIGHT_FOOT + 1;
-			boxColliders.reserve(nBodyParts * nFrames);
+			boxColliders.reserve(ColliderLoader::TotalBodyParts() * nFrames);
 
-			for (int32_t i = 0; i < nBodyParts * nFrames; i++)
+			for (int32_t i = 0; i < ColliderLoader::TotalBodyParts() * nFrames; i++)
 			{
-				int32_t x = (int32_t)floor(i / nBodyParts * nFrames) * 1;
-				int32_t y = -170 + (i % nBodyParts) * 12;
+				int32_t x = (int32_t)floor(i / ColliderLoader::TotalBodyParts() * nFrames) * 1;
+				int32_t y = -170 + (i % ColliderLoader::TotalBodyParts()) * 12;
 				boxColliders.push_back(BoxCollider({ x, y }, 40, 50, 0.0f));
 			}
 
@@ -155,7 +154,7 @@ namespace RB
 
 			//boxcolliders
 			int32_t currentTile = fighter.stateController.currentState->animationController.status.nCurrentTile;
-			bodyIndex = (int32_t)targetBodyType.selectedType + (nBodyParts * currentTile);
+			bodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
 			if (bodyIndex < boxColliders.size())
 			{
@@ -223,8 +222,8 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			int32_t base = fighter.stateController.currentState->animationController.status.nCurrentTile * nBodyParts;
-			for (int32_t i = base; i < base + nBodyParts; i++)
+			int32_t base = fighter.stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			for (int32_t i = base; i < base + ColliderLoader::TotalBodyParts(); i++)
 			{
 				std::array<olc::vi2d, 4> quad;
 				quad[0] = RelativeVector::GetPosition(boxColliders[i].Point0(), cam);
