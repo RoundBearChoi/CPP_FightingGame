@@ -239,5 +239,8 @@
     <ClInclude Include="Fighter_0_WalkBack.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerType.h">
+      <Filter>Source Files\GameObj\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

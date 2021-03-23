@@ -1,6 +1,7 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "OffsetType.h"
+#include "PlayerType.h"
 
 namespace RB
 {
@@ -14,6 +15,7 @@ namespace RB
 		int32_t currentAnimationIndex = 0;
 		bool onLeftSide = true;
 		bool faceRight = true;
+		PlayerType playerType = PlayerType::NONE;
 
 	public:
 		olc::vi2d GetPosition() { return position; }
@@ -36,5 +38,8 @@ namespace RB
 
 		void FaceRight(bool _faceRight) { faceRight = _faceRight; }
 		bool IsFacingRight() { return faceRight; }
+
+		void SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
+		PlayerType GetPlayerType() { return playerType; }
 	};
 }

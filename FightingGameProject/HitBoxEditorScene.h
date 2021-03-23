@@ -123,7 +123,7 @@ namespace RB
 
 			if (playIcon.Clicked(mousePos, gameData))
 			{
-				fighter.stateController.currentState->animationController.UpdateTileIndex(true); //update dummy fighter frame
+				fighter.stateController.currentState->animationController.NextTileIndex(true); //update dummy fighter frame
 			}
 
 			if (saveIcon.Clicked(mousePos, gameData))

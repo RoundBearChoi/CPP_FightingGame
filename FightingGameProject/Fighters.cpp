@@ -66,7 +66,7 @@ namespace RB
 
 			if (update)
 			{
-				arrObjs[i].stateController.currentState->animationController.UpdateTileIndex();
+				arrObjs[i].stateController.currentState->animationController.NextTileIndex();
 			}
 		}
 	}
@@ -79,7 +79,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos)
+	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)
 	{
 		size_t count = CreationCount::UpdateCount();
 
@@ -88,5 +88,7 @@ namespace RB
 
 		arrObjs[_index].objData.SetCreationID(count);
 		arrObjs[_index].stateController.SetCreationID(count);
+
+		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 }

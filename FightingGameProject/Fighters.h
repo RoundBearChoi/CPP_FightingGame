@@ -7,6 +7,7 @@
 #include "SheetRenderer.h"
 #include "CreationCount.h"
 #include "DevSettings.h"
+#include "PlayerType.h"
 
 namespace RB
 {
@@ -21,7 +22,7 @@ namespace RB
 		void RenderStates(Camera& cam, bool update) override;
 		void RenderBoxColliders(Camera& cam) override;
 
-		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos);
+		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 
 		template<class T>
 		void SetInitialState(int32_t _index)

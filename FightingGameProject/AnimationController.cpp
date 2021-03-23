@@ -14,7 +14,7 @@ namespace RB
 		specs.totalTiles = _totalTileCount;
 	}
 
-	void AnimationController::UpdateTileIndex(bool ignoreDelay)
+	void AnimationController::NextTileIndex(bool ignoreDelay)
 	{
 		if (!ignoreDelay)
 		{

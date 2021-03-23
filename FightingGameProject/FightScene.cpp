@@ -14,8 +14,8 @@ namespace RB
 
 	void FightScene::InitScene()
 	{
-		fighters.SetFighterInfo(0, { -220, 0 });
-		fighters.SetFighterInfo(1, { 220, 0 });
+		fighters.SetFighterInfo(0, { -220, 0 }, PlayerType::PLAYER_1);
+		fighters.SetFighterInfo(1, { 220, 0 }, PlayerType::PLAYER_2);
 
 		fighters.SetInitialState<Fighter_0_Idle>(0);
 		fighters.SetInitialState<Fighter_0_Idle>(1);
