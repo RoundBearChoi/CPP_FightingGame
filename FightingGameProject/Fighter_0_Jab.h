@@ -37,12 +37,9 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.AllowTransition())
+			if (objData.GetAnimationIndex() == 5)
 			{
-				if (objData.GetAnimationIndex() == 5)
-				{
-					nextState = State::NewState<Fighter_0_Idle>();
-				}
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 		}
 

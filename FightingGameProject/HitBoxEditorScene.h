@@ -51,7 +51,6 @@ namespace RB
 
 			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 			fighter.objData.SetCreationID(1);
-			fighter.objData.SetTransitionPermission(false);
 
 			playIcon.path = "PNG files/BoxColliderEditor/editor_playframe.png";
 			playIcon.SetHash();
@@ -112,8 +111,6 @@ namespace RB
 				{
 					s->OnEnter(fighter.objData, gameData);
 				}
-			
-				s->UpdateState(fighter.objData, gameData);
 			}
 
 			olc::vi2d mousePos = olc::Platform::ptrPGE->GetMousePos();

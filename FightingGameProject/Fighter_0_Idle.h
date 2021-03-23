@@ -39,26 +39,23 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.AllowTransition())
+			if (gameData.key_t)
 			{
-				if (gameData.key_t)
-				{
-					gameData.key_t->processed = true;
-					nextState = State::NewState<Fighter_0_Jab>();
-				}
+				gameData.key_t->processed = true;
+				nextState = State::NewState<Fighter_0_Jab>();
+			}
 
-				if (gameData.key_d && gameData.key_a || !gameData.key_d && !gameData.key_a)
-				{
-					//double press
-				}
-				else if (gameData.key_d)
-				{
-					nextState = State::NewState<Fighter_0_WalkForward>();
-				}
-				else if (gameData.key_a)
-				{
-					nextState = State::NewState<Fighter_0_WalkBack>();
-				}
+			if (gameData.key_d && gameData.key_a || !gameData.key_d && !gameData.key_a)
+			{
+				//double press
+			}
+			else if (gameData.key_d)
+			{
+				nextState = State::NewState<Fighter_0_WalkForward>();
+			}
+			else if (gameData.key_a)
+			{
+				nextState = State::NewState<Fighter_0_WalkBack>();
 			}
 		}
 

@@ -12,7 +12,6 @@ namespace RB
 		size_t creationID = 0;
 		OffsetType offsetType = OffsetType::NONE;
 		int32_t currentAnimationIndex = 0;
-		bool allowTransition = true;
 
 	public:
 		olc::vi2d GetPosition() { return position; }
@@ -29,8 +28,5 @@ namespace RB
 
 		int32_t GetAnimationIndex() { return currentAnimationIndex; }
 		void SetAnimationIndex(int32_t _int) { currentAnimationIndex = _int; }
-
-		void SetTransitionPermission(bool permission) { allowTransition = permission; }
-		bool AllowTransition() { return allowTransition; }
 	};
 }

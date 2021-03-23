@@ -18,7 +18,7 @@ namespace RB
 		fighters.SetFighterInfo(1, { 220, 0 });
 
 		fighters.SetInitialState<Fighter_0_Idle>(0);
-		fighters.SetInitialState<Fighter_1_Idle>(1);
+		fighters.SetInitialState<Fighter_0_Idle>(1);
 
 		background.SetBackgroundInfo(0, { 0, -250 }); //trees
 		background.SetBackgroundInfo(1, { 0, -400 }); //mountains
