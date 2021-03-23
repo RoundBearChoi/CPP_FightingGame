@@ -57,7 +57,7 @@ namespace RB
 				}
 				else if (gameData.key_a)
 				{
-					//nextState = State::NewState<Fighter_0_WalkBack>();
+					nextState = State::NewState<Fighter_0_WalkBack>();
 				}
 			}
 		}
