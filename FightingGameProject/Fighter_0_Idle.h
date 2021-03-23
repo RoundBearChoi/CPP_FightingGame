@@ -4,6 +4,7 @@
 namespace RB
 {
 	class Fighter_0_WalkForward;
+	class Fighter_0_WalkBack;
 	class Fighter_0_Jab;
 
 	class Fighter_0_Idle : public State
@@ -46,9 +47,17 @@ namespace RB
 					nextState = State::NewState<Fighter_0_Jab>();
 				}
 
-				if (gameData.key_d)
+				if (gameData.key_d && gameData.key_a || !gameData.key_d && !gameData.key_a)
+				{
+					//double press
+				}
+				else if (gameData.key_d)
 				{
 					nextState = State::NewState<Fighter_0_WalkForward>();
+				}
+				else if (gameData.key_a)
+				{
+					//nextState = State::NewState<Fighter_0_WalkBack>();
 				}
 			}
 		}
