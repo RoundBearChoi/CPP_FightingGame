@@ -39,7 +39,7 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.GetTransitionPermission())
+			if (objData.AllowTransition())
 			{
 				if (gameData.key_t)
 				{

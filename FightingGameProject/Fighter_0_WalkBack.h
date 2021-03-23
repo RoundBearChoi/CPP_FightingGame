@@ -16,7 +16,7 @@ namespace RB
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_walkback.png");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
-			animationController.status.nTransitionDelay = 8;
+			animationController.status.nTransitionDelay = 9;
 		}
 
 		size_t GetHash() override
@@ -36,8 +36,12 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.GetTransitionPermission())
+			if (objData.AllowTransition())
 			{
+				olc::vi2d pos = objData.GetPosition();
+				pos.x -= 1;
+				objData.SetPosition(pos);
+
 				if (!gameData.key_a)
 				{
 					nextState = State::NewState<Fighter_0_Idle>();

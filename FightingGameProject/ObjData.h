@@ -31,6 +31,6 @@ namespace RB
 		void SetAnimationIndex(int32_t _int) { currentAnimationIndex = _int; }
 
 		void SetTransitionPermission(bool permission) { allowTransition = permission; }
-		bool GetTransitionPermission() { return allowTransition; }
+		bool AllowTransition() { return allowTransition; }
 	};
 }

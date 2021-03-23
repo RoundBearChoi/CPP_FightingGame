@@ -36,8 +36,12 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.GetTransitionPermission())
+			if (objData.AllowTransition())
 			{
+				olc::vi2d pos = objData.GetPosition();
+				pos.x += 1;
+				objData.SetPosition(pos);
+
 				if (!gameData.key_d)
 				{
 					nextState = State::NewState<Fighter_0_Idle>();

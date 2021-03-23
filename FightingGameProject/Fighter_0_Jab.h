@@ -37,7 +37,7 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			if (objData.GetTransitionPermission())
+			if (objData.AllowTransition())
 			{
 				if (objData.GetAnimationIndex() == 5)
 				{
