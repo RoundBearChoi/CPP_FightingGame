@@ -31,7 +31,7 @@ namespace RB
 
 			if (obj->objData.GetOffsetType() == OffsetType::BOTTOM_CENTER)
 			{
-				if (!animationStatus->bReverseDecal)
+				if (obj->objData.IsFacingRight())
 				{
 					points[0] = { (float)x - (float)width / 2.0f, (float)y - (float)height };
 					points[1] = { (float)x - (float)width / 2.0f, (float)y };
@@ -48,7 +48,7 @@ namespace RB
 			}
 			else if (obj->objData.GetOffsetType() == OffsetType::CENTER_CENTER)
 			{
-				if (!animationStatus->bReverseDecal)
+				if (obj->objData.IsFacingRight())
 				{
 					points[0] = { (float)x - (float)width / 2.0f, (float)y - (float)height / 2.0f };
 					points[1] = { (float)x - (float)width / 2.0f, (float)y + (float)height / 2.0f };

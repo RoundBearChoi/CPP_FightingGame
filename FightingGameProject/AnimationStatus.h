@@ -14,7 +14,6 @@ namespace RB
 		int32_t nDelayCount = 0;
 
 		bool bPlayOnce = false;
-		bool bReverseDecal = false;
 
 		olc::vi2d sourcePos = { 0, 0 };
 		olc::vi2d sourceSize = { 0, 0 };
