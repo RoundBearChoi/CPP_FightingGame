@@ -95,7 +95,7 @@ namespace RB
 			}
 		}
 
-		void RenderColliderQuads(ObjData& objData, std::vector<olc::vi2d>& quads, Camera cam)
+		void RenderColliderQuads(ObjData& objData, const std::vector<olc::vi2d>& quads, Camera& cam)
 		{
 			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
 
@@ -103,17 +103,25 @@ namespace RB
 			{
 				olc::vi2d playerPos = objData.GetPosition();
 
-				std::array<olc::vf2d, 4>arr;
-				arr[0] = RelativeVector::GetPosition(quads[i] + playerPos, cam);
-				arr[1] = RelativeVector::GetPosition(quads[i + 1] + playerPos, cam);
-				arr[2] = RelativeVector::GetPosition(quads[i + 2] + playerPos, cam);
-				arr[3] = RelativeVector::GetPosition(quads[i + 3] + playerPos, cam);
+				//get worldpos from quad specs
+				std::array<olc::vi2d, 4>worldPos;
+				worldPos[0] = quads[i] + playerPos;
+				worldPos[1] = quads[i + 1] + playerPos;
+				worldPos[2] = quads[i + 2] + playerPos;
+				worldPos[3] = quads[i + 3] + playerPos;
+
+				//convert to screenpos
+				std::array<olc::vf2d, 4>render;
+				render[0] = RelativeVector::GetPosition(worldPos[0], cam);
+				render[1] = RelativeVector::GetPosition(worldPos[1], cam);
+				render[2] = RelativeVector::GetPosition(worldPos[2], cam);
+				render[3] = RelativeVector::GetPosition(worldPos[3], cam);
 
 				//lines
-				olc::Renderer::ptrPGE->DrawLine(arr[0], arr[1], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[1], arr[2], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[2], arr[3], olc::BLUE);
-				olc::Renderer::ptrPGE->DrawLine(arr[3], arr[0], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(render[0], render[1], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(render[1], render[2], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(render[2], render[3], olc::BLUE);
+				olc::Renderer::ptrPGE->DrawLine(render[3], render[0], olc::BLUE);
 
 				//transparent sprites
 				static size_t hash = 0;
@@ -132,7 +140,7 @@ namespace RB
 				}
 				else
 				{
-					RENDERER->DrawPartialWarpedDecal(d, arr, { 245, 245 }, { 0, 0 }, olc::RED);
+					RENDERER->DrawPartialWarpedDecal(d, render, { 245, 245 }, { 0, 0 }, olc::RED);
 				}
 			}
 		}
