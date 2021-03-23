@@ -1,6 +1,4 @@
 #include "SceneController.h"
-#include "FightScene.h"
-#include "HitBoxEditorScene.h"
 
 namespace RB
 {

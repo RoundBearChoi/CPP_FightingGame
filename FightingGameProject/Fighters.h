@@ -6,6 +6,7 @@
 #include "GameData.h"
 #include "SheetRenderer.h"
 #include "CreationCount.h"
+#include "DevSettings.h"
 
 namespace RB
 {

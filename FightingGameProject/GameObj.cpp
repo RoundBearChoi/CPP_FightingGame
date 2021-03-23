@@ -1,6 +1,4 @@
 #include "GameObj.h"
-#include "DevSettings.h"
-#include "Renderer.h"
 
 namespace RB
 {

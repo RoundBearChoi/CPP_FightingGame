@@ -1,5 +1,4 @@
 #include "Fighters.h"
-#include "DevSettings.h"
 
 namespace RB
 {

@@ -1,6 +1,9 @@
 #pragma once
 #include "GameData.h"
 #include "Camera.h"
+#include "DevSettings.h"
+#include "RelativeVector.h"
+#include "Renderer.h"
 
 namespace RB
 {
