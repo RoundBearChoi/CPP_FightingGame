@@ -105,10 +105,23 @@ namespace RB
 
 				//get worldpos from quad specs
 				std::array<olc::vi2d, 4>worldPos;
-				worldPos[0] = quads[i] + playerPos;
-				worldPos[1] = quads[i + 1] + playerPos;
-				worldPos[2] = quads[i + 2] + playerPos;
-				worldPos[3] = quads[i + 3] + playerPos;
+				worldPos[0] = quads[i];
+				worldPos[1] = quads[i + 1];
+				worldPos[2] = quads[i + 2];
+				worldPos[3] = quads[i + 3];
+
+				if (!objData.IsFacingRight())
+				{
+					worldPos[0].x *= -1;
+					worldPos[1].x *= -1;
+					worldPos[2].x *= -1;
+					worldPos[3].x *= -1;
+				}
+
+				worldPos[0] += playerPos;
+				worldPos[1] += playerPos;
+				worldPos[2] += playerPos;
+				worldPos[3] += playerPos;
 
 				//convert to screenpos
 				std::array<olc::vf2d, 4>render;
