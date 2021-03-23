@@ -26,6 +26,15 @@ namespace RB
 		{
 			arrObjs[i].stateController.MakeStateTransition();
 
+			if (arrObjs[i].objData.IsOnLeftSide())
+			{
+				arrObjs[i].objData.FaceRight(true);
+			}
+			else
+			{
+				arrObjs[i].objData.FaceRight(false);
+			}
+
 			State* s = arrObjs[i].stateController.currentState;
 
 			if (s != nullptr)

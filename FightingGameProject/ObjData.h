@@ -13,6 +13,7 @@ namespace RB
 		OffsetType offsetType = OffsetType::NONE;
 		int32_t currentAnimationIndex = 0;
 		bool onLeftSide = true;
+		bool faceRight = true;
 
 	public:
 		olc::vi2d GetPosition() { return position; }
@@ -32,5 +33,8 @@ namespace RB
 
 		void SetLeftSide(bool _left) { onLeftSide = _left; }
 		bool IsOnLeftSide() { return onLeftSide; }
+
+		void FaceRight(bool _faceRight) { faceRight = _faceRight; }
+		bool IsFacingRight() { return faceRight; }
 	};
 }
