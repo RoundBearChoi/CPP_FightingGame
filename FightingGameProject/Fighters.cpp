@@ -4,6 +4,24 @@ namespace RB
 {
 	void Fighters::UpdateState(GameData& gameData)
 	{
+		if (arrObjs[0].objData.GetPosition().x < arrObjs[1].objData.GetPosition().x)
+		{
+			arrObjs[0].objData.SetLeftSide(true);
+		}
+		else if (arrObjs[0].objData.GetPosition().x > arrObjs[1].objData.GetPosition().x)
+		{
+			arrObjs[0].objData.SetLeftSide(false);
+		}
+
+		if (arrObjs[1].objData.GetPosition().x < arrObjs[0].objData.GetPosition().x)
+		{
+			arrObjs[1].objData.SetLeftSide(true);
+		}
+		else if (arrObjs[1].objData.GetPosition().x > arrObjs[0].objData.GetPosition().x)
+		{
+			arrObjs[1].objData.SetLeftSide(false);
+		}
+
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
 			arrObjs[i].stateController.MakeStateTransition();
