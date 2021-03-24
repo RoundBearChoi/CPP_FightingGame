@@ -17,10 +17,11 @@ namespace RB
 		std::vector<Key> vecP1StrongPunch;
 		std::vector<Key> vecP1WeakKick;
 		std::vector<Key> vecP1StrongKick;
-		std::vector<Key> vecP1Left;
-		std::vector<Key> vecP1Right;
+
 		std::vector<Key> vecP1Up;
 		std::vector<Key> vecP1Down;
+		std::vector<Key> vecP1Left;
+		std::vector<Key> vecP1Right;
 
 		std::vector<Key> vecMouse0;
 		std::vector<Key> vecShift;
@@ -37,10 +38,11 @@ namespace RB
 			UpdateKey(vecP1StrongPunch, KeyType::P1_StrongPunch, olc::Platform::ptrPGE->GetKey(olc::Key::Y));
 			UpdateKey(vecP1WeakKick, KeyType::P1_WeakKick, olc::Platform::ptrPGE->GetKey(olc::Key::G));
 			UpdateKey(vecP1StrongKick, KeyType::P1_StrongKick, olc::Platform::ptrPGE->GetKey(olc::Key::H));
-			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
-			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
+
 			UpdateKey(vecP1Up, KeyType::P1_UP, olc::Platform::ptrPGE->GetKey(olc::Key::W));
 			UpdateKey(vecP1Down, KeyType::P1_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::S));
+			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
+			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 
 			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
 			UpdateKey(vecShift, KeyType::SHIFT, olc::Platform::ptrPGE->GetKey(olc::Key::SHIFT));
@@ -79,10 +81,11 @@ namespace RB
 			gameData.key_t = GetUnprocessedKey(vecP1WeakPunch);
 			gameData.key_g = GetUnprocessedKey(vecP1WeakKick);
 			gameData.key_h = GetUnprocessedKey(vecP1StrongKick);
-			gameData.key_a = GetUnprocessedKey(vecP1Left);
-			gameData.key_d = GetUnprocessedKey(vecP1Right);
+
 			gameData.key_w = GetUnprocessedKey(vecP1Up);
 			gameData.key_s = GetUnprocessedKey(vecP1Down);
+			gameData.key_a = GetUnprocessedKey(vecP1Left);
+			gameData.key_d = GetUnprocessedKey(vecP1Right);
 
 			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
 			gameData.key_shift = GetUnprocessedKey(vecShift);
@@ -112,10 +115,11 @@ namespace RB
 			ClearReleasedKeys(vecP1StrongPunch);
 			ClearReleasedKeys(vecP1WeakKick);
 			ClearReleasedKeys(vecP1StrongKick);
-			ClearReleasedKeys(vecP1Left);
-			ClearReleasedKeys(vecP1Right);
+
 			ClearReleasedKeys(vecP1Up);
 			ClearReleasedKeys(vecP1Down);
+			ClearReleasedKeys(vecP1Left);
+			ClearReleasedKeys(vecP1Right);
 
 			ClearReleasedKeys(vecMouse0);
 			ClearReleasedKeys(vecShift);
