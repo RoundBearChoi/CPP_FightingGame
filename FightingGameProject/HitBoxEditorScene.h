@@ -224,21 +224,6 @@ namespace RB
 
 			RenderCenterMark(cam);
 
-			//boxcolliders
-			int32_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
-			
-			for (int32_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
-			{
-				if (i == nSelectedBodyIndex)
-				{
-					vecBoxColliders[i].Render(cam, olc::RED);
-				}
-				else
-				{
-					vecBoxColliders[i].Render(cam, olc::BLUE);
-				}
-			}
-
 			//current boxcollider info
 			if (nSelectedBodyIndex < vecBoxColliders.size())
 			{
@@ -271,6 +256,21 @@ namespace RB
 
 		void RenderStates(bool update) override
 		{
+			//boxcolliders
+			int32_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+
+			for (int32_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
+			{
+				if (i == nSelectedBodyIndex)
+				{
+					vecBoxColliders[i].Render(cam, olc::RED);
+				}
+				else
+				{
+					vecBoxColliders[i].Render(cam, olc::BLUE);
+				}
+			}
+
 			//dummy fighter
 			SheetRenderer::Render(selector.Current(), cam);
 
