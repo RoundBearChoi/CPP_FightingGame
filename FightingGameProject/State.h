@@ -11,8 +11,10 @@
 
 namespace RB
 {
-#define STATIC_VEC_COLLIDERS std::vector<BoxCollider>& GetColliders() { static std::vector<BoxCollider> vecColliders; return vecColliders; }
-#define STATIC_VEC_COLLIDER_QUADS std::vector<olc::vi2d>& GetColliderQuads() { static std::vector<olc::vi2d> vecColliderQuads; return vecColliderQuads; }
+#define STATIC_VEC_COLLIDERS static std::vector<BoxCollider>& GetColliders() { static std::vector<BoxCollider> vecColliders; return vecColliders; }
+#define STATIC_VEC_COLLIDER_QUADS static std::vector<olc::vi2d>& GetColliderQuads() { static std::vector<olc::vi2d> vecColliderQuads; return vecColliderQuads; }
+#define GET_HASH_OVERRIDE size_t GetHash() override { static size_t hash = 0; MakeHash(hash); return hash; }
+#define CLEAR_COLLIDER_DATA void UnloadColliderData() override { std::vector<BoxCollider>& col = GetColliders(); col.clear(); }
 
 	class State
 	{
@@ -33,7 +35,9 @@ namespace RB
 		State* nextState = nullptr;
 		AnimationController animationController;
 
+		virtual ~State() {};
 		virtual size_t GetHash() = 0;
+		virtual void UnloadColliderData() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 		virtual void RenderBoxColliders(ObjData& objData, Camera& cam) { }
@@ -44,10 +48,8 @@ namespace RB
 			{
 				ColliderLoader::SetFighterBodyParts(vec, animationController.GetTotalTiles());
 				ColliderLoader::LoadColliderData(vec, animationController.GetColliderPath());
-			}
 
-			if (vecQuads.size() == 0)
-			{
+				vecQuads.clear();
 				vecQuads.reserve(vec.size() * 4);
 
 				for (size_t i = 0; i < vec.size(); i++)
@@ -60,14 +62,6 @@ namespace RB
 					vecQuads.push_back(vec[i].Point2());
 					vecQuads.push_back(vec[i].Point3());
 				}
-
-				//IF_COUT
-				//{
-				//	for (size_t i = 0; i < vecQuads.size(); i++)
-				//	{
-				//		std::cout << "quads[" << i << "]" << vecQuads[i] << std::endl;
-				//	} 
-				//}
 			}
 		}
 

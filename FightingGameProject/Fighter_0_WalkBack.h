@@ -10,6 +10,7 @@ namespace RB
 	public:
 		STATIC_VEC_COLLIDERS;
 		STATIC_VEC_COLLIDER_QUADS;
+		GET_HASH_OVERRIDE;
 
 		Fighter_0_WalkBack()
 		{
@@ -17,14 +18,6 @@ namespace RB
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 9;
-		}
-
-		size_t GetHash() override
-		{
-			static size_t hash = 0;
-			MakeHash(hash);
-
-			return hash;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

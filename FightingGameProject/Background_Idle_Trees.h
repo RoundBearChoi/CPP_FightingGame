@@ -6,17 +6,11 @@ namespace RB
 	class Background_Idle_Trees : public State
 	{
 	public:
+		GET_HASH_OVERRIDE;
+
 		Background_Idle_Trees()
 		{
 			animationController.SetSpritePath("PNG files/Background/background_trees_20.png");
-		}
-
-		size_t GetHash() override
-		{
-			static size_t hash = 0;
-			MakeHash(hash);
-
-			return hash;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

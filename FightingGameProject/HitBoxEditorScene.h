@@ -133,6 +133,8 @@ namespace RB
 
 				saved.frames = 120 * 9;
 				savedFileName.frames = 120 * 9;
+
+				fighter.stateController.currentState->UnloadColliderData();
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
