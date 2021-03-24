@@ -41,17 +41,10 @@ namespace RB
 
 			if (d.back)
 			{
+				int32_t speed = Directions::GetBackSpeed(objData, 1);
+
 				olc::vi2d pos = objData.GetPosition();
-
-				if (objData.IsFacingRight())
-				{
-					pos.x -= 1;
-				}
-				else
-				{
-					pos.x += 1;
-				}
-
+				pos.x += speed;
 				objData.SetPosition(pos);
 			}
 			else

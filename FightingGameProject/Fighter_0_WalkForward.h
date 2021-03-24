@@ -38,20 +38,13 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(objData, gameData);
 			Directions d = Directions::Get(objData, p);
-
+			
 			if (d.forward)
 			{
-				olc::vi2d pos = objData.GetPosition();
+				int32_t speed = Directions::GetForwardSpeed(objData, 1);
 
-				if (objData.IsFacingRight())
-				{
-					pos.x += 1;
-				}
-				else
-				{
-					pos.x -= 1;
-				}
-				
+				olc::vi2d pos = objData.GetPosition();
+				pos.x += speed;
 				objData.SetPosition(pos);
 			}
 			else

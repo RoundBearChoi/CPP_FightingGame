@@ -59,5 +59,29 @@ namespace RB
 
 			return d;
 		}
+
+		static int32_t GetForwardSpeed(ObjData& objData, int32_t speed)
+		{
+			if (objData.IsFacingRight())
+			{
+				return speed;
+			}
+			else
+			{
+				return -speed;
+			}
+		}
+
+		static int32_t GetBackSpeed(ObjData& objData, int32_t speed)
+		{
+			if (objData.IsFacingRight())
+			{
+				return -speed;
+			}
+			else
+			{
+				return speed;
+			}
+		}
 	};
 }
