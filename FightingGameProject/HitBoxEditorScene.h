@@ -26,7 +26,6 @@ namespace RB
 		UIElement rightSel;
 
 		StringNotification saved;
-		StringNotification savedFileName;
 				
 		std::vector<BoxCollider> vecBoxColliders;
 		TargetBodyType targetBodyType;
@@ -81,21 +80,12 @@ namespace RB
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
 			//put all body parts into vector
-			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
-			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
-
-			std::string colliderFile = fighter.stateController.currentState->animationController.GetColliderPath();
-			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
+			InitTargetDummy();
 
 			//notifications
 			saved.str = "saved!";
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
 			saved.color = olc::RED;
-
-			savedFileName.str = fighter.stateController.currentState->animationController.GetColliderPath();
-			int32_t nameLength = (int32_t)savedFileName.str.length();
-			savedFileName.pos = { GameSettings::window_width - (nameLength * 8), saveIcon.topLeft.y + 55 + 14 };
-			savedFileName.color = olc::RED;
 		}
 
 		void Update(GameData& gameData) override
@@ -132,7 +122,6 @@ namespace RB
 				ColliderLoader::SaveColliderData(vecBoxColliders, colliderFile);
 
 				saved.frames = 120 * 9;
-				savedFileName.frames = 120 * 9;
 
 				fighter.stateController.currentState->UnloadColliderData();
 			}
@@ -249,13 +238,16 @@ namespace RB
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
 			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
-		
+			
+			olc::vi2d fileName = indexString + olc::vi2d(0, 13);
+			std::string currentFile = fighter.stateController.currentState->animationController.GetColliderPath();
+			olc::Renderer::ptrPGE->DrawString(fileName, currentFile, olc::WHITE);
+
 			//current body part selection
 			olc::Renderer::ptrPGE->DrawString({ 55, 100 }, "current body: " + targetBodyType.GetCurrentSelString(), olc::WHITE);
 
 			//notifications
 			saved.Show();
-			savedFileName.Show();
 		}
 
 		void RenderStates(bool update) override
@@ -273,6 +265,17 @@ namespace RB
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
+		}
+
+		void InitTargetDummy()
+		{
+			vecBoxColliders.clear();
+
+			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
+			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
+
+			std::string colliderFile = fighter.stateController.currentState->animationController.GetColliderPath();
+			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
 		}
 	};
 }

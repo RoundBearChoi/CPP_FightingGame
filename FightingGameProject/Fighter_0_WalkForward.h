@@ -15,6 +15,7 @@ namespace RB
 		Fighter_0_WalkForward()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_walk.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_walk.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 8;
