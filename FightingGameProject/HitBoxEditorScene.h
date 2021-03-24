@@ -74,13 +74,7 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			//initial dummy
-			fighter.stateController.CreateNewState<Fighter_0_WalkBack>();
-
-			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
-			fighter.objData.SetCreationID(1);
-
-			InitTargetDummy();
+			InitTargetDummy<Fighter_0_WalkBack>(fighter, vecBoxColliders);
 
 			//notifications
 			saved.str = "saved!";
@@ -267,16 +261,22 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 		}
 
-		void InitTargetDummy()
+		template<class T>
+		void InitTargetDummy(GameObj& obj, std::vector<BoxCollider>& vec)
 		{
+			obj.stateController.CreateNewState<T>();
+
+			obj.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+			obj.objData.SetCreationID(1);
+
 			//put all body parts into vector
-			vecBoxColliders.clear();
+			vec.clear();
 
-			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
-			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
+			nFrames = obj.stateController.currentState->animationController.TotalTiles();
+			ColliderLoader::SetFighterBodyParts(vec, nFrames);
 
-			std::string colliderFile = fighter.stateController.currentState->animationController.GetColliderPath();
-			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
+			std::string colliderFile = obj.stateController.currentState->animationController.GetColliderPath();
+			ColliderLoader::LoadColliderData(vec, colliderFile);
 		}
 	};
 }
