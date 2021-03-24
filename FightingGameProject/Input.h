@@ -39,6 +39,7 @@ namespace RB
 		//etc
 		std::vector<Key> vecMouse0;
 		std::vector<Key> vecShift;
+		std::vector<Key> vecF11;
 		
 	public:
 		void UpdateInput()
@@ -65,6 +66,7 @@ namespace RB
 
 			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
 			UpdateKey(vecShift, KeyType::SHIFT, olc::Platform::ptrPGE->GetKey(olc::Key::SHIFT));
+			UpdateKey(vecF11, KeyType::F12, olc::Platform::ptrPGE->GetKey(olc::Key::F11));
 
 			//olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p2 left: " + std::to_string(vecP2Left.size()));
 			//olc::Renderer::ptrPGE->DrawString({ 0, 35 + 12 }, "p1 jab: " + std::to_string(vecP1WeakPunch.size()));
@@ -113,6 +115,7 @@ namespace RB
 
 			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
 			gameData.key_shift = GetUnprocessedKey(vecShift);
+			gameData.key_f11 = GetUnprocessedKey(vecF11);
 		}
 
 		Key* GetUnprocessedKey(std::vector<Key>& vec)
@@ -152,6 +155,7 @@ namespace RB
 
 			ClearReleasedKeys(vecMouse0);
 			ClearReleasedKeys(vecShift);
+			ClearReleasedKeys(vecF11);
 		}
 
 		void ClearReleasedKeys(std::vector<Key>& vec)

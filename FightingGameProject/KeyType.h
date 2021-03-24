@@ -6,9 +6,10 @@ namespace RB
 	{
 		NONE,
 
-		MOUSE_0, //leftclick
-		MOUSE_1, //rightclick
-		SHIFT,
+		CAM_ZOOM_IN,
+		CAM_ZOOM_OUT,
+		CAM_LEFT,
+		CAM_RIGHT,
 
 		P1_WeakPunch,
 		P1_StrongPunch,
@@ -25,9 +26,9 @@ namespace RB
 		P2_LEFT,
 		P2_RIGHT,
 
-		CAM_ZOOM_IN,
-		CAM_ZOOM_OUT,
-		CAM_LEFT,
-		CAM_RIGHT,
+		MOUSE_0, //leftclick
+		MOUSE_1, //rightclick
+		SHIFT,
+		F12,
 	};
 }

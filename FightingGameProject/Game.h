@@ -44,6 +44,7 @@ namespace RB
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
+				sceneController.ChangeScene(gameData);
 				sceneController.currentScene->cam.Update(gameData);
 				sceneController.currentScene->Update(gameData);
 				sceneController.currentScene->RenderStates(true);

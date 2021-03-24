@@ -4,6 +4,7 @@
 #include "DevSettings.h"
 #include "RelativeVector.h"
 #include "Renderer.h"
+#include "SceneType.h"
 
 namespace RB
 {
@@ -11,6 +12,7 @@ namespace RB
 	{
 	public:
 		Camera cam;
+		SceneType sceneType = SceneType::NONE;
 
 		virtual void InitScene() = 0;
 		virtual void Update(GameData& gameData) = 0;

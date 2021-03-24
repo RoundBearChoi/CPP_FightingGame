@@ -4,6 +4,7 @@
 #include "SpriteLoader.h"
 #include "FightScene.h"
 #include "HitBoxEditorScene.h"
+#include "GameData.h"
 
 namespace RB
 {
@@ -19,6 +20,7 @@ namespace RB
 		~SceneController();
 
 		void CreateScene(SceneType _sceneType);
+		void ChangeScene(GameData& gameData);
 		void Load();
 	};
 }
