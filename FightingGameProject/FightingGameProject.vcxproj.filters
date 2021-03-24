@@ -248,5 +248,8 @@
     <ClInclude Include="Directions.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
+    <ClInclude Include="DummySelector.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

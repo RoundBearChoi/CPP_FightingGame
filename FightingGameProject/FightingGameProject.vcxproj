@@ -169,6 +169,7 @@
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="Directions.h" />
+    <ClInclude Include="DummySelector.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
     <ClInclude Include="Fighter_0_Jab.h" />
     <ClInclude Include="Fighter_0_WalkBack.h" />

@@ -2,23 +2,19 @@
 
 #include "Scene.h"
 #include "GameData.h"
-#include "GameObj.h"
 #include "UIElement.h"
 #include "StringNotification.h"
 #include "BoxCollider.h"
 #include "TargetBodyType.h"
 #include "ColliderLoader.h"
-
-#include "Fighter_0_Idle.h"
-#include "Fighter_0_Jab.h"
-#include "Fighter_0_WalkForward.h"
+#include "DummySelector.h"
 
 namespace RB
 {
 	class HitBoxEditorScene : public Scene
 	{
 	private:
-		GameObj fighter;
+		DummySelector selector;
 
 		UIElement playIcon;
 		UIElement saveIcon;
@@ -74,7 +70,7 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			InitTargetDummy<Fighter_0_WalkBack>(fighter, vecBoxColliders);
+			LoadBoxColliders(*selector.Current());
 
 			//notifications
 			saved.str = "saved!";
@@ -85,15 +81,15 @@ namespace RB
 		void Update(GameData& gameData) override
 		{
 			//dummy fighter
-			fighter.stateController.MakeStateTransition();
+			selector.Current()->stateController.MakeStateTransition();
 			
-			State* s = fighter.stateController.currentState;
+			State* s = selector.Current()->stateController.currentState;
 			
 			if (s != nullptr)
 			{
 				if (s->IsNew())
 				{
-					s->OnEnter(fighter.objData, gameData);
+					s->OnEnter(selector.Current()->objData, gameData);
 				}
 			}
 
@@ -107,17 +103,18 @@ namespace RB
 
 			if (playIcon.Clicked(mousePos, gameData))
 			{
-				fighter.stateController.currentState->animationController.NextTileIndex(true); //update dummy fighter frame
+				//update dummy fighter frame
+				selector.Current()->stateController.currentState->animationController.NextTileIndex(true);
 			}
 
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
-				std::string colliderFile = fighter.stateController.currentState->animationController.GetColliderPath();
+				std::string colliderFile = selector.Current()->stateController.currentState->animationController.GetColliderPath();
 				ColliderLoader::SaveColliderData(vecBoxColliders, colliderFile);
 
 				saved.frames = 120 * 9;
 
-				fighter.stateController.currentState->UnloadColliderData();
+				selector.Current()->stateController.currentState->UnloadColliderData();
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -131,7 +128,7 @@ namespace RB
 			}
 
 			//boxcolliders
-			int32_t currentTile = fighter.stateController.currentState->animationController.status.nCurrentTile;
+			int32_t currentTile = selector.Current()->stateController.currentState->animationController.status.nCurrentTile;
 			nSelectedBodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
 			if (nSelectedBodyIndex < vecBoxColliders.size())
@@ -200,7 +197,7 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//boxcolliders
-			int32_t indexStart = fighter.stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			int32_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
 			
 			for (int32_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 			{
@@ -230,11 +227,11 @@ namespace RB
 
 			//current index # for animation
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = fighter.stateController.currentState->animationController.GetStatus();
+			AnimationStatus* status = selector.Current()->stateController.currentState->animationController.GetStatus();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 			
 			olc::vi2d fileName = indexString + olc::vi2d(0, 13);
-			std::string currentFile = fighter.stateController.currentState->animationController.GetColliderPath();
+			std::string currentFile = selector.Current()->stateController.currentState->animationController.GetColliderPath();
 			olc::Renderer::ptrPGE->DrawString(fileName, currentFile, olc::WHITE);
 
 			//current body part selection
@@ -247,7 +244,7 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			//dummy fighter
-			SheetRenderer::Render(&fighter, cam);
+			SheetRenderer::Render(selector.Current(), cam);
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);
@@ -261,22 +258,15 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 		}
 
-		template<class T>
-		void InitTargetDummy(GameObj& obj, std::vector<BoxCollider>& vec)
+		void LoadBoxColliders(GameObj& obj)
 		{
-			obj.stateController.CreateNewState<T>();
-
-			obj.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
-			obj.objData.SetCreationID(1);
-
-			//put all body parts into vector
-			vec.clear();
+			vecBoxColliders.clear();
 
 			nFrames = obj.stateController.currentState->animationController.TotalTiles();
-			ColliderLoader::SetFighterBodyParts(vec, nFrames);
+			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
 
 			std::string colliderFile = obj.stateController.currentState->animationController.GetColliderPath();
-			ColliderLoader::LoadColliderData(vec, colliderFile);
+			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
 		}
 	};
 }
