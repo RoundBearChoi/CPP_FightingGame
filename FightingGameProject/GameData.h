@@ -27,6 +27,11 @@ namespace RB
 		Key* key_d = nullptr; //right
 
 		//player2
+		Key* key_np7 = nullptr; //weak punch
+		Key* key_np8 = nullptr; //strong punch
+		Key* key_np4 = nullptr; //weak kick
+		Key* key_np5 = nullptr; //strong kick
+
 		Key* key_up = nullptr; //up
 		Key* key_down = nullptr; //down
 		Key* key_left = nullptr; //left

@@ -61,6 +61,11 @@ namespace RB
 			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 
+			UpdateKey(vecP2WeakPunch, KeyType::P2_WeakPunch, olc::Platform::ptrPGE->GetKey(olc::Key::NP7));
+			UpdateKey(vecP2StrongPunch, KeyType::P2_StrongPunch, olc::Platform::ptrPGE->GetKey(olc::Key::NP8));
+			UpdateKey(vecP2WeakKick, KeyType::P2_WeakKick, olc::Platform::ptrPGE->GetKey(olc::Key::NP4));
+			UpdateKey(vecP2StrongKick, KeyType::P2_StrongKick, olc::Platform::ptrPGE->GetKey(olc::Key::NP5));
+
 			UpdateKey(vecP2Up, KeyType::P2_UP, olc::Platform::ptrPGE->GetKey(olc::Key::UP));
 			UpdateKey(vecP2Down, KeyType::P2_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::DOWN));
 			UpdateKey(vecP2Left, KeyType::P2_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::LEFT));
@@ -112,6 +117,11 @@ namespace RB
 			gameData.key_a = GetUnprocessedKey(vecP1Left);
 			gameData.key_d = GetUnprocessedKey(vecP1Right);
 
+			gameData.key_np7 = GetUnprocessedKey(vecP2StrongPunch);
+			gameData.key_np8 = GetUnprocessedKey(vecP2WeakPunch);
+			gameData.key_np4 = GetUnprocessedKey(vecP2WeakKick);
+			gameData.key_np5 = GetUnprocessedKey(vecP2StrongKick);
+
 			gameData.key_up = GetUnprocessedKey(vecP2Up);
 			gameData.key_down = GetUnprocessedKey(vecP2Down);
 			gameData.key_left = GetUnprocessedKey(vecP2Left);
@@ -153,6 +163,11 @@ namespace RB
 			ClearReleasedKeys(vecP1Down);
 			ClearReleasedKeys(vecP1Left);
 			ClearReleasedKeys(vecP1Right);
+
+			ClearReleasedKeys(vecP2WeakPunch);
+			ClearReleasedKeys(vecP2StrongPunch);
+			ClearReleasedKeys(vecP2WeakKick);
+			ClearReleasedKeys(vecP2StrongKick);
 
 			ClearReleasedKeys(vecP2Up);
 			ClearReleasedKeys(vecP2Down);

@@ -143,6 +143,18 @@ namespace RB
 				targetBodyType.NextType();
 			}
 
+			if (gameData.key_np7)
+			{
+				gameData.key_np7->processed = true;
+				targetBodyType.NextType();
+			}
+
+			if (gameData.key_np8)
+			{
+				gameData.key_np8->processed = true;
+				targetBodyType.PrevType();
+			}
+
 			//boxcolliders
 			int32_t currentTile = selector.Current()->stateController.currentState->animationController.status.nCurrentTile;
 			nSelectedBodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);

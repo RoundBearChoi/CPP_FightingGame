@@ -21,6 +21,11 @@ namespace RB
 		P1_LEFT,
 		P1_RIGHT,
 
+		P2_WeakPunch,
+		P2_StrongPunch,
+		P2_WeakKick,
+		P2_StrongKick,
+
 		P2_UP,
 		P2_DOWN,
 		P2_LEFT,
