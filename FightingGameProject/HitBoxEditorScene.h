@@ -46,11 +46,6 @@ namespace RB
 
 		void InitScene() override
 		{
-			fighter.stateController.CreateNewState<Fighter_0_Idle>();
-
-			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
-			fighter.objData.SetCreationID(1);
-
 			playIcon.path = "PNG files/BoxColliderEditor/editor_playframe.png";
 			playIcon.SetHash();
 			playIcon.SetDecal();
@@ -79,7 +74,12 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			//put all body parts into vector
+			//initial dummy
+			fighter.stateController.CreateNewState<Fighter_0_WalkBack>();
+
+			fighter.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+			fighter.objData.SetCreationID(1);
+
 			InitTargetDummy();
 
 			//notifications
@@ -269,6 +269,7 @@ namespace RB
 
 		void InitTargetDummy()
 		{
+			//put all body parts into vector
 			vecBoxColliders.clear();
 
 			nFrames = fighter.stateController.currentState->animationController.TotalTiles();
