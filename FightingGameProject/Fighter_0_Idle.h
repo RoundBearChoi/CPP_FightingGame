@@ -52,11 +52,11 @@ namespace RB
 			{
 				//double press
 			}
-			else if (gameData.key_d)
+			else if (playerInput.right)
 			{
 				nextState = State::NewState<Fighter_0_WalkForward>();
 			}
-			else if (gameData.key_a)
+			else if (playerInput.left)
 			{
 				nextState = State::NewState<Fighter_0_WalkBack>();
 			}

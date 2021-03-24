@@ -26,6 +26,12 @@ namespace RB
 		Key* key_a = nullptr; //left
 		Key* key_d = nullptr; //right
 
+		//player2
+		Key* key_up = nullptr; //up
+		Key* key_down = nullptr; //down
+		Key* key_left = nullptr; //left
+		Key* key_right = nullptr; //right
+
 		//etc
 		Key* key_mouse0 = nullptr;
 		Key* key_shift = nullptr;

@@ -8,11 +8,13 @@ namespace RB
 	class Input
 	{
 	private:
+		//manual camera movement
 		std::vector<Key> vecCamZoomIn;
 		std::vector<Key> vecCamZoomOut;
 		std::vector<Key> vecCamLeft;
 		std::vector<Key> vecCamRight;
 
+		//player1
 		std::vector<Key> vecP1WeakPunch;
 		std::vector<Key> vecP1StrongPunch;
 		std::vector<Key> vecP1WeakKick;
@@ -23,6 +25,18 @@ namespace RB
 		std::vector<Key> vecP1Left;
 		std::vector<Key> vecP1Right;
 
+		//player2
+		std::vector<Key> vecP2WeakPunch;
+		std::vector<Key> vecP2StrongPunch;
+		std::vector<Key> vecP2WeakKick;
+		std::vector<Key> vecP2StrongKick;
+
+		std::vector<Key> vecP2Up;
+		std::vector<Key> vecP2Down;
+		std::vector<Key> vecP2Left;
+		std::vector<Key> vecP2Right;
+
+		//etc
 		std::vector<Key> vecMouse0;
 		std::vector<Key> vecShift;
 		
@@ -44,10 +58,15 @@ namespace RB
 			UpdateKey(vecP1Left, KeyType::P1_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::A));
 			UpdateKey(vecP1Right, KeyType::P1_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::D));
 
+			UpdateKey(vecP2Up, KeyType::P2_UP, olc::Platform::ptrPGE->GetKey(olc::Key::UP));
+			UpdateKey(vecP2Down, KeyType::P2_DOWN, olc::Platform::ptrPGE->GetKey(olc::Key::DOWN));
+			UpdateKey(vecP2Left, KeyType::P2_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::LEFT));
+			UpdateKey(vecP2Right, KeyType::P2_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::RIGHT));
+
 			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
 			UpdateKey(vecShift, KeyType::SHIFT, olc::Platform::ptrPGE->GetKey(olc::Key::SHIFT));
 
-			//olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p1 left: " + std::to_string(vecP1Left.size()));
+			//olc::Renderer::ptrPGE->DrawString({ 0, 35 }, "p2 left: " + std::to_string(vecP2Left.size()));
 			//olc::Renderer::ptrPGE->DrawString({ 0, 35 + 12 }, "p1 jab: " + std::to_string(vecP1WeakPunch.size()));
 		}
 
@@ -87,6 +106,11 @@ namespace RB
 			gameData.key_a = GetUnprocessedKey(vecP1Left);
 			gameData.key_d = GetUnprocessedKey(vecP1Right);
 
+			gameData.key_up = GetUnprocessedKey(vecP2Up);
+			gameData.key_down = GetUnprocessedKey(vecP2Down);
+			gameData.key_left = GetUnprocessedKey(vecP2Left);
+			gameData.key_right = GetUnprocessedKey(vecP2Right);
+
 			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
 			gameData.key_shift = GetUnprocessedKey(vecShift);
 		}
@@ -120,6 +144,11 @@ namespace RB
 			ClearReleasedKeys(vecP1Down);
 			ClearReleasedKeys(vecP1Left);
 			ClearReleasedKeys(vecP1Right);
+
+			ClearReleasedKeys(vecP2Up);
+			ClearReleasedKeys(vecP2Down);
+			ClearReleasedKeys(vecP2Left);
+			ClearReleasedKeys(vecP2Right);
 
 			ClearReleasedKeys(vecMouse0);
 			ClearReleasedKeys(vecShift);

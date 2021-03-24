@@ -33,7 +33,10 @@ namespace RB
 			}
 			else if (objData.GetPlayerType() == PlayerType::PLAYER_2)
 			{
-
+				if (gameData.key_up) { input.up = true; }
+				if (gameData.key_down) { input.down = true; }
+				if (gameData.key_left) { input.left = true; }
+				if (gameData.key_right) { input.right = true; }
 			}
 
 			return input;

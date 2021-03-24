@@ -14,10 +14,16 @@ namespace RB
 		P1_StrongPunch,
 		P1_WeakKick,
 		P1_StrongKick,
+
 		P1_UP,
 		P1_DOWN,
 		P1_LEFT,
 		P1_RIGHT,
+
+		P2_UP,
+		P2_DOWN,
+		P2_LEFT,
+		P2_RIGHT,
 
 		CAM_ZOOM_IN,
 		CAM_ZOOM_OUT,
