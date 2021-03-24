@@ -80,7 +80,23 @@ namespace RB
 
 		void Update(GameData& gameData) override
 		{
-			//dummy fighter
+			//change dummy fighter
+			if (gameData.key_left)
+			{
+				selector.Prev();
+				LoadBoxColliders(*selector.Current());
+
+				gameData.key_left->processed = true;
+			}
+			else if (gameData.key_right)
+			{
+				selector.Next();
+				LoadBoxColliders(*selector.Current());
+
+				gameData.key_right->processed = true;
+			}
+
+			//dummy fighter state
 			selector.Current()->stateController.MakeStateTransition();
 			
 			State* s = selector.Current()->stateController.currentState;

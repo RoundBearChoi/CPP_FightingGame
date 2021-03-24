@@ -46,7 +46,7 @@ namespace RB
 		{
 			currentIndex++;
 
-			if (currentIndex > arrObjs.size())
+			if (currentIndex >= arrObjs.size())
 			{
 				currentIndex = 0;
 			}
@@ -58,7 +58,7 @@ namespace RB
 		{
 			currentIndex--;
 
-			if (currentIndex < 0)
+			if (currentIndex >= arrObjs.size())
 			{
 				currentIndex = arrObjs.size() - 1;
 			}
