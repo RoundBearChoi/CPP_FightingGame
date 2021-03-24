@@ -64,6 +64,9 @@
     <Filter Include="Source Files\SpriteLoader">
       <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{2758f219-0648-4409-a634-18c29d03706d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -158,9 +161,6 @@
     <ClInclude Include="AnimationStatus.h">
       <Filter>Source Files\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="SheetRenderer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="SceneController.h">
       <Filter>Source Files\Scenes\Base</Filter>
     </ClInclude>
@@ -184,9 +184,6 @@
     </ClInclude>
     <ClInclude Include="Background_Idle_Sun.h">
       <Filter>Source Files\State\Concrete States\Background</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_WalkForward.h">
       <Filter>Source Files\State\Concrete States\Fighter</Filter>
@@ -250,6 +247,15 @@
     </ClInclude>
     <ClInclude Include="DummySelector.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="SheetRenderer.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugRenderer.h">
+      <Filter>Source Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
