@@ -44,6 +44,18 @@ namespace RB
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
+				if (gameData.key_f9)
+				{
+					gameData.key_f9->processed = true;
+					GameSettings::TargetFrameTime(ChangeTimer::DOUBLE);
+				}
+
+				if (gameData.key_f10)
+				{
+					gameData.key_f10->processed = true;
+					GameSettings::TargetFrameTime(ChangeTimer::HALF);
+				}
+
 				sceneController.ChangeScene(gameData);
 				sceneController.currentScene->cam.Update(gameData);
 				sceneController.currentScene->Update(gameData);

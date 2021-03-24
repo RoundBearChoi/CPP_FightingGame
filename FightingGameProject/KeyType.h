@@ -29,6 +29,8 @@ namespace RB
 		MOUSE_0, //leftclick
 		MOUSE_1, //rightclick
 		SHIFT,
-		F12,
+		F9,
+		F10,
+		F11,
 	};
 }

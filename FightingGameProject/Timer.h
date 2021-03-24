@@ -30,9 +30,9 @@ namespace RB
 				fTime += fElapsedTime;
 			}
 
-			if (fAccumulatedTime >= GameSettings::TargetFrameTime())
+			if (fAccumulatedTime >= GameSettings::TargetFrameTime(ChangeTimer::NONE))
 			{
-				fAccumulatedTime -= GameSettings::TargetFrameTime();
+				fAccumulatedTime -= GameSettings::TargetFrameTime(ChangeTimer::NONE);
 				nUpdateCount++;
 				return true;
 			}
