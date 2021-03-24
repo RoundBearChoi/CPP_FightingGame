@@ -78,7 +78,7 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
-	void SpriteLoader::LoadDebugElements()
+	void SpriteLoader::LoadDebugElementSprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::DEBUG_ELEMENTS;
 

@@ -25,7 +25,9 @@ namespace RB
 		bool OnUserCreate() override
 		{
 			sAppName = "C++FightingGame";
+			sceneController.Load();
 			sceneController.CreateScene(GameSettings::startingScene);
+			
 			return true;
 		}
 

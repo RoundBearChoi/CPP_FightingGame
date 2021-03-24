@@ -27,7 +27,7 @@ namespace RB
 		void Load_Fighter_1_Sprites();
 		void LoadBackgroundSprites();
 		void LoadBoxColliderEditorSprites();
-		void LoadDebugElements();
+		void LoadDebugElementSprites();
 		void DeleteSprites(size_t arrayIndex);
 		olc::Decal* FindDecal(size_t _hash, size_t arrayIndex);
 	};

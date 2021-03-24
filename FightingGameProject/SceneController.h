@@ -19,5 +19,6 @@ namespace RB
 		~SceneController();
 
 		void CreateScene(SceneType _sceneType);
+		void Load();
 	};
 }
