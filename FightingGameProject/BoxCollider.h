@@ -3,6 +3,7 @@
 #include "olcPixelGameEngine.h"
 #include "Camera.h"
 #include "RelativeVector.h"
+#include "DebugRenderer.h"
 
 namespace RB
 {
@@ -127,6 +128,17 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], _color);
 			olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], _color);
 			olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], _color);
+
+			if (_color == olc::RED)
+			{
+				std::array<olc::vf2d, 4> floats;
+				floats[0] = quad[0];
+				floats[1] = quad[1];
+				floats[2] = quad[2];
+				floats[3] = quad[3];
+
+				DebugRenderer::RenderBox(floats);
+			}
 		}
 
 		void IncreaseWidth(int32_t _width) { width += _width; }
