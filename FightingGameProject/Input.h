@@ -29,10 +29,10 @@ namespace RB
 	public:
 		void UpdateInput()
 		{
-			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::LEFT));
-			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::RIGHT));
-			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Platform::ptrPGE->GetKey(olc::Key::UP));
-			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Platform::ptrPGE->GetKey(olc::Key::DOWN));
+			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::J));
+			UpdateKey(vecCamRight, KeyType::CAM_RIGHT, olc::Platform::ptrPGE->GetKey(olc::Key::L));
+			UpdateKey(vecCamZoomIn, KeyType::CAM_ZOOM_IN, olc::Platform::ptrPGE->GetKey(olc::Key::I));
+			UpdateKey(vecCamZoomOut, KeyType::CAM_ZOOM_OUT, olc::Platform::ptrPGE->GetKey(olc::Key::K));
 
 			UpdateKey(vecP1WeakPunch, KeyType::P1_WeakPunch, olc::Platform::ptrPGE->GetKey(olc::Key::T));
 			UpdateKey(vecP1StrongPunch, KeyType::P1_StrongPunch, olc::Platform::ptrPGE->GetKey(olc::Key::Y));
@@ -72,10 +72,10 @@ namespace RB
 
 		void UpdateGameData(GameData& gameData)
 		{
-			gameData.key_left = GetUnprocessedKey(vecCamLeft);
-			gameData.key_right = GetUnprocessedKey(vecCamRight);
-			gameData.key_up = GetUnprocessedKey(vecCamZoomIn);
-			gameData.key_down = GetUnprocessedKey(vecCamZoomOut);
+			gameData.key_j = GetUnprocessedKey(vecCamLeft);
+			gameData.key_l = GetUnprocessedKey(vecCamRight);
+			gameData.key_i = GetUnprocessedKey(vecCamZoomIn);
+			gameData.key_k = GetUnprocessedKey(vecCamZoomOut);
 
 			gameData.key_y = GetUnprocessedKey(vecP1StrongPunch);
 			gameData.key_t = GetUnprocessedKey(vecP1WeakPunch);

@@ -4,28 +4,28 @@ namespace RB
 {
 	void Camera::Update(GameData& gameData)
 	{
-		if (gameData.key_left && gameData.key_right || !gameData.key_left && !gameData.key_right)
+		if (gameData.key_j && gameData.key_l || !gameData.key_j && !gameData.key_l)
 		{
 			// double press (do nothing)
 		}
-		else if (gameData.key_left)
+		else if (gameData.key_j)
 		{
 			position.x -= 4;
 		}
-		else if (gameData.key_right)
+		else if (gameData.key_l)
 		{
 			position.x += 4;
 		}
 
-		if (gameData.key_up && gameData.key_down || !gameData.key_up && !gameData.key_down)
+		if (gameData.key_i && gameData.key_k || !gameData.key_i && !gameData.key_k)
 		{
 			// double press (do nothing)
 		}
-		else if (gameData.key_up)
+		else if (gameData.key_i)
 		{
 			zoomScale += 0.005f;
 		}
-		else if (gameData.key_down)
+		else if (gameData.key_k)
 		{
 			zoomScale -= 0.005f;
 		}

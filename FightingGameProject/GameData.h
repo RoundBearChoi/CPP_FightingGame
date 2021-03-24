@@ -10,10 +10,10 @@ namespace RB
 		SceneType nextSceneType = SceneType::NONE;
 
 		//manual camera movement
-		Key* key_left = nullptr;
-		Key* key_right = nullptr;
-		Key* key_up = nullptr;
-		Key* key_down = nullptr;
+		Key* key_j = nullptr; //cam left
+		Key* key_l = nullptr; //cam right
+		Key* key_i = nullptr; //cam zoom
+		Key* key_k = nullptr; //cam zoom out
 
 		//player1
 		Key* key_t = nullptr; //weak punch
