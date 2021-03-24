@@ -242,5 +242,8 @@
     <ClInclude Include="PlayerType.h">
       <Filter>Source Files\GameObj\Base</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerInput.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

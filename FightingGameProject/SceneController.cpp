@@ -27,13 +27,13 @@ namespace RB
 			currentScene = new HitBoxEditorScene();
 		}
 
-		experimentalLoader.LoadBackgroundSprites();
-		experimentalLoader.Load_Fighter_0_Sprites();
-		experimentalLoader.Load_Fighter_1_Sprites();
-		experimentalLoader.LoadBoxColliderEditorSprites();
-		experimentalLoader.LoadDebugElements();
+		spriteLoader.LoadBackgroundSprites();
+		spriteLoader.Load_Fighter_0_Sprites();
+		spriteLoader.Load_Fighter_1_Sprites();
+		spriteLoader.LoadBoxColliderEditorSprites();
+		spriteLoader.LoadDebugElements();
 
-		SpriteLoader::ptr = &experimentalLoader;
+		SpriteLoader::ptr = &spriteLoader;
 
 		currentScene->InitScene();
 	}

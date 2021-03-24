@@ -10,7 +10,7 @@ namespace RB
 	class SceneController
 	{
 	private:
-		SpriteLoader experimentalLoader;
+		SpriteLoader spriteLoader;
 
 	public:
 		Scene* currentScene = nullptr;

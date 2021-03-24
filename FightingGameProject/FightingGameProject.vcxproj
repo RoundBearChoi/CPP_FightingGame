@@ -180,6 +180,7 @@
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
+    <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="HitBoxEditorScene.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Key.h" />
