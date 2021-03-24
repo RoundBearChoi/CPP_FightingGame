@@ -1,6 +1,5 @@
 #pragma once
 #include "State.h"
-#include "PlayerInput.h"
 
 namespace RB
 {
@@ -40,23 +39,20 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			PlayerInput playerInput = PlayerInput::Get(objData, gameData);
+			PlayerInput p = PlayerInput::Get(objData, gameData);
+			Directions d = Directions::Get(objData, p);
 
-			if (playerInput.weakpunch)
+			if (p.weakpunch)
 			{
 				gameData.key_t->processed = true;
 				nextState = State::NewState<Fighter_0_Jab>();
 			}
 
-			if (playerInput.left && playerInput.right || !playerInput.left && !playerInput.right)
-			{
-				//double press
-			}
-			else if (playerInput.right)
+			if (d.forward)
 			{
 				nextState = State::NewState<Fighter_0_WalkForward>();
 			}
-			else if (playerInput.left)
+			else if (d.back)
 			{
 				nextState = State::NewState<Fighter_0_WalkBack>();
 			}

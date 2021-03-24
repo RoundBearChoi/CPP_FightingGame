@@ -245,5 +245,8 @@
     <ClInclude Include="PlayerInput.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Directions.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

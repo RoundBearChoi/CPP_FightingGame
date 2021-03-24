@@ -36,11 +36,25 @@ namespace RB
 		{
 			UpdateColliders(GetColliders(), GetColliderQuads());
 
-			olc::vi2d pos = objData.GetPosition();
-			pos.x += 1;
-			objData.SetPosition(pos);
+			PlayerInput p = PlayerInput::Get(objData, gameData);
+			Directions d = Directions::Get(objData, p);
 
-			if (!gameData.key_d)
+			if (d.forward)
+			{
+				olc::vi2d pos = objData.GetPosition();
+
+				if (objData.IsFacingRight())
+				{
+					pos.x += 1;
+				}
+				else
+				{
+					pos.x -= 1;
+				}
+				
+				objData.SetPosition(pos);
+			}
+			else
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
 			}

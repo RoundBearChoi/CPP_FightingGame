@@ -6,6 +6,8 @@
 #include "AnimationController.h"
 #include "Renderer.h"
 #include "SpriteLoader.h"
+#include "PlayerInput.h"
+#include "Directions.h"
 
 namespace RB
 {
