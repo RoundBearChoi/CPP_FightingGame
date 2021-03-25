@@ -8,5 +8,6 @@ namespace RB
 	public:
 		std::vector<BodyType> vecBodies;
 		int32_t frame = 0;
+		bool processed = false;
 	};
 }
