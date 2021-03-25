@@ -37,11 +37,6 @@ namespace RB
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
-				
-		virtual void RenderBoxColliders(ObjData& objData, Camera& cam)
-		{
-			//do nothing by default
-		}
 
 		virtual std::vector<BoxCollider>& GetColliders()
 		{
@@ -119,8 +114,15 @@ namespace RB
 			}
 		}
 
-		void RenderColliderQuads(ObjData& objData, const std::vector<olc::vi2d>& quads, Camera& cam)
+		void RenderColliderQuads(ObjData& objData, Camera& cam)
 		{
+			std::vector<olc::vi2d>& quads = GetColliderQuads();
+
+			if (quads.size() == 0)
+			{
+				return;
+			}
+
 			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
 
 			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)

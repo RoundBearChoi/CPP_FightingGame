@@ -29,22 +29,19 @@ namespace RB
 		static void LoadColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
 		{
 			std::string path = "BoxColliderData/";
+			path += colliderFileName;
 
-			IF_COUT{ std::cout << "loading collider data: " << colliderFileName << std::endl; }
+			IF_COUT{ std::cout << "loading collider: " << path << std::endl; };
 
-			if (colliderFileName.compare("none") != 0)
+			std::ifstream file(path);
+
+			if (file.is_open())
 			{
-				path += colliderFileName;
+				size_t size = 0;
+				file >> size;
 
-				std::ifstream file(path);
-
-				if (file.is_open())
-				{
-					size_t size = 0;
-					file >> size;
-
-					IF_COUT{ std::cout << "data size: " << size << std::endl; }
-					IF_COUT{ std::cout << "collider size: " << vecColliders.size() << std::endl; }
+				IF_COUT{ std::cout << "data size: " << size << std::endl; }
+				IF_COUT{ std::cout << "collider size: " << vecColliders.size() << std::endl; }
 
 					if (size == vecColliders.size())
 					{
@@ -73,9 +70,8 @@ namespace RB
 							vecColliders[i].SetRotation(rotation);
 						}
 					}
-					
-					file.close();
-				}
+
+				file.close();
 			}
 		}
 

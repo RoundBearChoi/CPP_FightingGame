@@ -75,7 +75,7 @@ namespace RB
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			arrObjs[i].stateController.currentState->RenderBoxColliders(arrObjs[i].objData, cam);
+			arrObjs[i].stateController.currentState->RenderColliderQuads(arrObjs[i].objData, cam);
 		}
 	}
 
