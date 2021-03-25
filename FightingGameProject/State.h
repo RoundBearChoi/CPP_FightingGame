@@ -199,7 +199,7 @@ namespace RB
 		{
 			std::vector<BoxCollider>& vec = GetColliders();
 
-			size_t index = animationController.status.nCurrentTile * 15 + (int32_t)_bodyType;
+			size_t index = animationController.status.nCurrentTile * ((int32_t)BodyType::RIGHT_FOOT + 1) + (int32_t)_bodyType;
 
 			if (index < vec.size())
 			{
