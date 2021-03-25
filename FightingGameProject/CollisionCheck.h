@@ -1,12 +1,12 @@
 #pragma once
-#include "olcPixelGameEngine.h"
+#include "BodyType.h"
 
 namespace RB
 {
 	class CollisionCheck
 	{
 	public:
-		std::vector<olc::vi2d> quads;
+		std::vector<BodyType> vecBodies;
 		int32_t frame = 0;
 	};
 }

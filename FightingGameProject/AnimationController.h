@@ -27,7 +27,7 @@ namespace RB
 		
 		void SetParams(SpriteType _spriteType, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount);
 		void NextTileIndex(bool ignoreDelay = false);
-		AnimationStatus* GetStatus();
+		AnimationStatus* UpdateSource();
 		bool OnLastAnimationFrame();
 	};
 }

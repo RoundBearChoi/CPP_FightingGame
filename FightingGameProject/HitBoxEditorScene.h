@@ -273,7 +273,7 @@ namespace RB
 
 			//current index # for animation
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = selector.Current()->stateController.currentState->animationController.GetStatus();
+			AnimationStatus* status = selector.Current()->stateController.currentState->animationController.UpdateSource();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 			
 			olc::vi2d fileName = indexString + olc::vi2d(0, 13);

@@ -46,6 +46,14 @@ namespace RB
 
 				s->UpdateState(arrObjs[i].objData, gameData);
 
+				for (size_t i = 0; i < s->vecCollisionCheck.size(); i++)
+				{
+					if (s->vecCollisionCheck[i].frame == s->animationController.status.nCurrentTile)
+					{
+						std::cout << "checking col" << std::endl;
+					}
+				}
+
 				//clear quads after collision check
 				s->vecCollisionCheck.clear();
 			}

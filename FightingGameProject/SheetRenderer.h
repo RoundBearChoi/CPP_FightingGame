@@ -13,7 +13,7 @@ namespace RB
 	public:
 		static void Render(GameObj* obj, Camera& cam)
 		{
-			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.GetStatus();
+			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.UpdateSource();
 
 			if (animationStatus == nullptr)
 			{

@@ -18,6 +18,20 @@ namespace RB
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 5;
+
+			CollisionCheck c0;
+			CollisionCheck c1;
+
+			c0.vecBodies.push_back(BodyType::LEFT_FOREARM);
+			c0.vecBodies.push_back(BodyType::LEFT_HAND);
+			c0.frame = 2;
+
+			c1.vecBodies.push_back(BodyType::LEFT_FOREARM);
+			c1.vecBodies.push_back(BodyType::LEFT_HAND);
+			c1.frame = 3;
+
+			vecCollisionCheck.push_back(c0);
+			vecCollisionCheck.push_back(c1);
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

@@ -43,7 +43,7 @@ namespace RB
 		}
 	}
 
-	AnimationStatus* AnimationController::GetStatus()
+	AnimationStatus* AnimationController::UpdateSource()
 	{
 		if (specs.tileCountX > 0 && specs.tileCountY > 0)
 		{
