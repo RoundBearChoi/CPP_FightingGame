@@ -24,7 +24,7 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			UpdateColliders(GetColliders(), GetColliderQuads());
+			UpdateColliders();
 
 			if (objData.GetAnimationIndex() == 5)
 			{

@@ -24,7 +24,7 @@ namespace RB
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			UpdateColliders(GetColliders(), GetColliderQuads());
+			UpdateColliders();
 
 			PlayerInput p = PlayerInput::Get(objData, gameData);
 			Directions d = Directions::Get(objData, p);

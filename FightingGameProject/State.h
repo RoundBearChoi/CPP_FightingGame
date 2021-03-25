@@ -59,8 +59,11 @@ namespace RB
 			return defaultHash;
 		}
 		
-		void UpdateColliders(std::vector<BoxCollider>& vec, std::vector<olc::vi2d>& vecQuads)
+		void UpdateColliders()
 		{
+			std::vector<BoxCollider>& vec = GetColliders();
+			std::vector<olc::vi2d>& vecQuads = GetColliderQuads();
+
 			if (vec.size() == 0)
 			{
 				ColliderLoader::SetFighterBodyParts(vec, animationController.GetTotalTiles());
