@@ -78,7 +78,7 @@ namespace RB
 				{
 					for (size_t c = 0; c < check->vecBodies.size(); c++)
 					{
-						obj.RenderCollisionTiming(cam, check->vecBodies[c]);
+						obj.RenderCollisionTiming(check->vecBodies[c], cam);
 					}
 				}
 			}

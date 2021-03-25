@@ -195,7 +195,7 @@ namespace RB
 			return nullptr;
 		}
 
-		olc::vi2d GetCurrentColliderPos(BodyType _bodyType)
+		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData, Camera& cam)
 		{
 			std::vector<BoxCollider>& vec = GetColliders();
 
@@ -203,7 +203,9 @@ namespace RB
 
 			if (index < vec.size())
 			{
-				return vec[index].Position();
+				olc::vi2d colPos = vec[index].Position();
+				olc::vi2d worldPos = RelativeVector::GetPosition(colPos + objData.GetPosition(), cam);
+				return worldPos;
 			}
 			else
 			{
@@ -211,7 +213,7 @@ namespace RB
 			}
 		}
 
-		std::array<olc::vi2d, 4> GetCurrentColliderQuads(BodyType _bodyType)
+		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData, Camera& cam)
 		{
 			std::vector<olc::vi2d>& vec = GetColliderQuads();
 
@@ -220,10 +222,15 @@ namespace RB
 
 			std::array<olc::vi2d, 4> arr;
 
-			arr[0] = vec[start];
-			arr[1] = vec[start + 1];
-			arr[2] = vec[start + 2];
-			arr[3] = vec[start + 3];
+			arr[0] = vec[start] + objData.GetPosition();
+			arr[1] = vec[start + 1] + objData.GetPosition();
+			arr[2] = vec[start + 2] + objData.GetPosition();
+			arr[3] = vec[start + 3] + objData.GetPosition();
+
+			arr[0] = RelativeVector::GetPosition(arr[0], cam);
+			arr[1] = RelativeVector::GetPosition(arr[1], cam);
+			arr[2] = RelativeVector::GetPosition(arr[2], cam);
+			arr[3] = RelativeVector::GetPosition(arr[3], cam);
 
 			return arr;
 		}
