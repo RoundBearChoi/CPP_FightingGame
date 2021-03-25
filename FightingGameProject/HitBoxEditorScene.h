@@ -156,21 +156,7 @@ namespace RB
 
 			if (copyIcon0.Clicked(mousePos, gameData))
 			{
-				size_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
-				std::vector<BoxCollider> currFrame;
-				currFrame.reserve(ColliderLoader::TotalBodyParts());
-
-				for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
-				{
-					currFrame.push_back(selector.GetCollider()[i]);
-				}
-
-				for (size_t i = 0; i < selector.GetCollider().size(); i++)
-				{
-					size_t r = i % ColliderLoader::TotalBodyParts();
-					selector.GetCollider()[i] = currFrame[r];
-				}
-
+				selector.SyncFrames();
 				copied0.frames = 120 * 9;
 			}
 

@@ -97,5 +97,26 @@ namespace RB
 				ColliderLoader::LoadColliderData(arrVecs[i], colliderFile);
 			}
 		}
+
+		void SyncFrames()
+		{
+			GameObj* obj = Current();
+
+			size_t indexStart = obj->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			
+			std::vector<BoxCollider> currFrame;
+			currFrame.reserve(ColliderLoader::TotalBodyParts());
+
+			for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
+			{
+				currFrame.push_back(arrVecs[currentIndex][i]);
+			}
+
+			for (size_t i = 0; i < arrVecs[currentIndex].size(); i++)
+			{
+				size_t r = i % ColliderLoader::TotalBodyParts();
+				arrVecs[currentIndex][i] = currFrame[r];
+			}
+		}
 	};
 }
