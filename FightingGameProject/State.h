@@ -199,7 +199,7 @@ namespace RB
 		{
 			std::vector<BoxCollider>& vec = GetColliders();
 
-			size_t index = animationController.status.nCurrentTile * ((int32_t)BodyType::RIGHT_FOOT + 1) + (int32_t)_bodyType;
+			size_t index = animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts() + (int32_t)_bodyType;
 
 			if (index < vec.size())
 			{
@@ -215,7 +215,15 @@ namespace RB
 		{
 			std::vector<olc::vi2d>& vec = GetColliderQuads();
 
+			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
+			start += ((int32_t)_bodyType * 4);
+
 			std::array<olc::vi2d, 4> arr;
+
+			arr[0] = vec[start];
+			arr[1] = vec[start + 1];
+			arr[2] = vec[start + 2];
+			arr[3] = vec[start + 3];
 
 			return arr;
 		}
