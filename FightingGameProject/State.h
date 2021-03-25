@@ -195,7 +195,7 @@ namespace RB
 			return nullptr;
 		}
 
-		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData, Camera& cam)
+		olc::vi2d GetColliderScreenPos(BodyType _bodyType, ObjData& objData, Camera& cam)
 		{
 			std::vector<BoxCollider>& vec = GetColliders();
 
@@ -203,9 +203,9 @@ namespace RB
 
 			if (index < vec.size())
 			{
-				olc::vi2d colPos = vec[index].Position();
-				olc::vi2d worldPos = RelativeVector::GetPosition(colPos + objData.GetPosition(), cam);
-				return worldPos;
+				olc::vi2d colPos = vec[index].Position() + objData.GetPosition();
+				olc::vi2d screenPos = RelativeVector::GetPosition(colPos, cam);
+				return screenPos;
 			}
 			else
 			{
@@ -213,7 +213,7 @@ namespace RB
 			}
 		}
 
-		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData, Camera& cam)
+		std::array<olc::vi2d, 4> GetColliderQuadsScreenPos(BodyType _bodyType, ObjData& objData, Camera& cam)
 		{
 			std::vector<olc::vi2d>& vec = GetColliderQuads();
 

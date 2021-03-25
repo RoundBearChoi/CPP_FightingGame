@@ -55,12 +55,12 @@ namespace RB
 	{
 		//draw center position
 		olc::vi2d playerPos = RelativeVector::GetPosition(objData.GetPosition(), cam);
-		olc::vi2d colliderPos = stateController.currentState->GetColliderWorldPos(_bodyType, objData, cam);
+		olc::vi2d colliderPos = stateController.currentState->GetColliderScreenPos(_bodyType, objData, cam);
 
 		olc::Renderer::ptrPGE->DrawLine(playerPos, colliderPos, olc::RED);
 
 		//draw quads
-		std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsWorldPos(_bodyType, objData, cam);
+		std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsScreenPos(_bodyType, objData, cam);
 
 		olc::Renderer::ptrPGE->DrawLine(playerPos, quads[0], olc::YELLOW);
 		olc::Renderer::ptrPGE->DrawLine(playerPos, quads[1], olc::YELLOW);
