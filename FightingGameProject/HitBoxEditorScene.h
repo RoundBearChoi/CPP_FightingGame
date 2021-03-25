@@ -23,6 +23,7 @@ namespace RB
 		UIElement copyIcon;
 
 		StringNotification saved;
+		StringNotification copied;
 				
 		std::vector<BoxCollider> vecBoxColliders;
 		TargetBodyType targetBodyType;
@@ -84,6 +85,10 @@ namespace RB
 			saved.str = "saved!";
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
 			saved.color = olc::RED;
+
+			copied.str = "copied!";
+			copied.pos = { copyIcon.topLeft.x - 12, copyIcon.topLeft.y + 61 };
+			copied.color = olc::RED;
 		}
 
 		void Update(GameData& gameData) override
@@ -158,6 +163,8 @@ namespace RB
 					size_t r = i % ColliderLoader::TotalBodyParts();
 					vecBoxColliders[i] = currFrame[r];
 				}
+
+				copied.frames = 120 * 9;
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -279,6 +286,7 @@ namespace RB
 
 			//notifications
 			saved.Show();
+			copied.Show();
 		}
 
 		void RenderStates(bool update) override
