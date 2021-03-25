@@ -162,6 +162,7 @@ namespace RB
 
 			if (copyIcon1.Clicked(mousePos, gameData))
 			{
+				selector.SyncAll();
 				copied1.frames = 120 * 9;
 			}
 

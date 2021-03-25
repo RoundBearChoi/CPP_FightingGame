@@ -101,21 +101,44 @@ namespace RB
 		void SyncFrames()
 		{
 			GameObj* obj = Current();
-
 			size_t indexStart = obj->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
 			
-			std::vector<BoxCollider> currFrame;
-			currFrame.reserve(ColliderLoader::TotalBodyParts());
+			std::vector<BoxCollider> data;
+			data.reserve(ColliderLoader::TotalBodyParts());
 
 			for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 			{
-				currFrame.push_back(arrVecs[currentIndex][i]);
+				data.push_back(arrVecs[currentIndex][i]);
 			}
 
-			for (size_t i = 0; i < arrVecs[currentIndex].size(); i++)
+			_Sync(currentIndex, data);
+		}
+
+		void _Sync(size_t index, std::vector<BoxCollider>& _data)
+		{
+			for (size_t i = 0; i < arrVecs[index].size(); i++)
 			{
 				size_t r = i % ColliderLoader::TotalBodyParts();
-				arrVecs[currentIndex][i] = currFrame[r];
+				arrVecs[index][i] = _data[r];
+			}
+		}
+
+		void SyncAll()
+		{
+			GameObj* obj = Current();
+			size_t indexStart = obj->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+
+			std::vector<BoxCollider> data;
+			data.reserve(ColliderLoader::TotalBodyParts());
+
+			for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
+			{
+				data.push_back(arrVecs[currentIndex][i]);
+			}
+
+			for (size_t i = 0; i < arrObjs.size(); i++)
+			{
+				_Sync(i, data);
 			}
 		}
 	};
