@@ -44,10 +44,8 @@ namespace RB
 					s->OnEnter(arrObjs[i].objData, gameData);
 				}
 
-				//update every single frame
 				s->UpdateState(arrObjs[i].objData, gameData);
 
-				//update on every animation update (delay applied)
 				if (arrObjs[i].stateController.currentState->animationController.status.nDelayCount == 0)
 				{
 					s->OnAnimationUpdate(arrObjs[i].objData, gameData);
@@ -67,6 +65,22 @@ namespace RB
 		{
 			//arrObjs[i].RenderSpriteSize(cam);
 			arrObjs[i].RenderPosition(cam);
+
+			//render collision timing
+			State* s = arrObjs[i].stateController.currentState;
+
+			if (s != nullptr)
+			{
+				if (s->DoCollisionCheck())
+				{
+					olc::vi2d colliderPos = s->GetColliderPos(BodyType::LEFT_HAND) + arrObjs[i].objData.GetPosition();
+
+					olc::vi2d relativePlayer = RelativeVector::GetPosition(arrObjs[i].objData.GetPosition(), cam);
+					olc::vi2d relativeCollider = RelativeVector::GetPosition(colliderPos, cam);
+
+					olc::Renderer::ptrPGE->DrawLine(relativePlayer, relativeCollider, olc::RED);
+				}
+			}
 		}
 	}
 

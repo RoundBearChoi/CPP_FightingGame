@@ -194,5 +194,21 @@ namespace RB
 
 			return false;
 		}
+
+		olc::vi2d GetColliderPos(BodyType _bodyType)
+		{
+			std::vector<BoxCollider>& vec = GetColliders();
+
+			size_t index = animationController.status.nCurrentTile * 15 + (int32_t)_bodyType;
+
+			if (index < vec.size())
+			{
+				return vec[index].Position();
+			}
+			else
+			{
+				return olc::vi2d(0, 0);
+			}
+		}
 	};
 }
