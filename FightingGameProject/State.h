@@ -179,5 +179,20 @@ namespace RB
 			std::vector<BoxCollider>& col = GetColliders();
 			col.clear();
 		}
+
+		bool DoCollisionCheck()
+		{
+			//collision check
+			for (size_t i = 0; i < vecCollisionCheck.size(); i++)
+			{
+				if (vecCollisionCheck[i].frame == animationController.status.nCurrentTile)
+				{
+					IF_COUT{ std::cout << "checking collision: frame index " << vecCollisionCheck[i].frame << std::endl; };
+					return true;
+				}
+			}
+
+			return false;
+		}
 	};
 }

@@ -53,18 +53,9 @@ namespace RB
 					s->OnAnimationUpdate(arrObjs[i].objData, gameData);
 				}
 
-				//collision check
-				for (size_t c = 0; c < s->vecCollisionCheck.size(); c++)
+				if (s->DoCollisionCheck())
 				{
-					if (s->vecCollisionCheck[c].frame == s->animationController.status.nCurrentTile)
-					{
-						if (!s->vecCollisionCheck[c].processed)
-						{
-							s->vecCollisionCheck[c].processed = true;
-							IF_COUT{ std::cout << "fighter creation id: " << arrObjs[i].objData.GetCreationID() << std::endl; }
-							IF_COUT{ std::cout << "checking collision: frame index " << s->vecCollisionCheck[c].frame << std::endl; };
-						}
-					}
+					IF_COUT{ std::cout << "fighter creation id: " << arrObjs[i].objData.GetCreationID() << std::endl; }
 				}
 			}
 		}
