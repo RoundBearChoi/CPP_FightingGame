@@ -5,6 +5,9 @@ namespace RB
 {
 	class Fighter_1_Idle : public State
 	{
+	protected:
+		size_t& Hash() override { static size_t hash = 0; return hash; }
+
 	public:
 		Fighter_1_Idle()
 		{
@@ -22,13 +25,6 @@ namespace RB
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
 
-		}
-
-		size_t GetHash() override
-		{
-			static size_t hash = 0;
-			MakeHash(hash);
-			return hash;
 		}
 	};
 }

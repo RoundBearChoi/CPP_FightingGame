@@ -5,6 +5,9 @@ namespace RB
 {
 	class Background_Idle_Mountains : public State
 	{
+	protected:
+		size_t& Hash() override { static size_t hash = 0; return hash; }
+
 	public:
 		Background_Idle_Mountains()
 		{
@@ -20,13 +23,6 @@ namespace RB
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
 
-		}
-
-		size_t GetHash() override
-		{
-			static size_t hash = 0;
-			MakeHash(hash);
-			return hash;
 		}
 	};
 }

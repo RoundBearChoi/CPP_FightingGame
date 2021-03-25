@@ -9,6 +9,9 @@ namespace RB
 
 	class Fighter_0_Idle : public State
 	{
+	protected:
+		size_t& Hash() override { static size_t hash = 0; return hash; }
+
 	public:
 		Fighter_0_Idle()
 		{
@@ -53,23 +56,7 @@ namespace RB
 			RenderColliderQuads(objData, quads, cam);
 		}
 
-		std::vector<BoxCollider>& GetColliders() override
-		{
-			static std::vector<BoxCollider> vec;
-			return vec;
-		}
-
-		std::vector<olc::vi2d>& GetColliderQuads() override
-		{
-			static std::vector<olc::vi2d> vec;
-			return vec;
-		}
-
-		size_t GetHash() override
-		{
-			static size_t hash = 0;
-			MakeHash(hash);
-			return hash;
-		}
+		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }
+		std::vector<olc::vi2d>& GetColliderQuads() override { static std::vector<olc::vi2d> vec; return vec; }
 	};
 }

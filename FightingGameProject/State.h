@@ -19,12 +19,15 @@ namespace RB
 
 		void MakeHash(size_t& _hash)
 		{
-			if (_hash == 0)
-			{
-				IF_COUT{ std::cout << "hashing: " << animationController.GetSpritePath() << std::endl; }
-				_hash = std::hash<std::string>{}(animationController.GetSpritePath());
-				IF_COUT{ std::cout << _hash << std::endl; };
-			}
+			IF_COUT{ std::cout << "hashing: " << animationController.GetSpritePath() << std::endl; }
+			_hash = std::hash<std::string>{}(animationController.GetSpritePath());
+			IF_COUT{ std::cout << _hash << std::endl; };
+		}
+
+		virtual size_t& Hash()
+		{
+			static size_t defaultHash = 0;
+			return defaultHash;
 		}
 
 	public:
@@ -34,8 +37,7 @@ namespace RB
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
-
-		
+				
 		virtual void RenderBoxColliders(ObjData& objData, Camera& cam)
 		{
 			//do nothing by default
@@ -53,10 +55,16 @@ namespace RB
 			return defaultVec;
 		}
 
-		virtual size_t GetHash()
+		size_t GetHash()
 		{
-			static size_t defaultHash = 0;
-			return defaultHash;
+			size_t& h = Hash();
+
+			if (h == 0)
+			{
+				MakeHash(h);
+			}
+			
+			return h;
 		}
 		
 		void UpdateColliders()
