@@ -210,5 +210,14 @@ namespace RB
 				return olc::vi2d(0, 0);
 			}
 		}
+
+		std::array<olc::vi2d, 4> GetCurrentColliderQuads(BodyType _bodyType)
+		{
+			std::vector<olc::vi2d>& vec = GetColliderQuads();
+
+			std::array<olc::vi2d, 4> arr;
+
+			return arr;
+		}
 	};
 }

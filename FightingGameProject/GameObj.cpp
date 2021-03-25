@@ -57,6 +57,8 @@ namespace RB
 
 		olc::vi2d colliderPos = s->GetCurrentColliderPos(_bodyType) + objData.GetPosition();
 
+		std::array<olc::vi2d, 4> quads = s->GetCurrentColliderQuads(_bodyType);
+
 		olc::vi2d relativePlayer = RelativeVector::GetPosition(objData.GetPosition(), cam);
 		olc::vi2d relativeCollider = RelativeVector::GetPosition(colliderPos, cam);
 
