@@ -12,10 +12,7 @@
 
 namespace RB
 {
-//#define STATIC_VEC_COLLIDERS static std::vector<BoxCollider>& GetColliders() { static std::vector<BoxCollider> vecColliders; return vecColliders; }
-//#define STATIC_VEC_COLLIDER_QUADS static std::vector<olc::vi2d>& GetColliderQuads() { static std::vector<olc::vi2d> vecColliderQuads; return vecColliderQuads; }
 #define GET_HASH_OVERRIDE size_t GetHash() override { static size_t hash = 0; MakeHash(hash); return hash; }
-#define CLEAR_COLLIDER_DATA void UnloadColliderData() override { std::vector<BoxCollider>& col = GetColliders(); col.clear(); }
 
 	class State
 	{
@@ -38,7 +35,6 @@ namespace RB
 
 		virtual ~State() {};
 		virtual size_t GetHash() = 0;
-		virtual void UnloadColliderData() {}
 		virtual void RenderBoxColliders(ObjData& objData, Camera& cam) {}
 
 		virtual std::vector<BoxCollider>& GetColliders()
@@ -149,6 +145,12 @@ namespace RB
 				//transparent sprites
 				DebugRenderer::RenderBox(render);
 			}
+		}
+
+		void UnloadColliderData()
+		{
+			std::vector<BoxCollider>& col = GetColliders();
+			col.clear();
 		}
 	};
 }

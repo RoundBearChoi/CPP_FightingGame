@@ -9,7 +9,7 @@ namespace RB
 	{
 	public:
 		GET_HASH_OVERRIDE;
-		CLEAR_COLLIDER_DATA;
+		//CLEAR_COLLIDER_DATA;
 
 		Fighter_0_WalkBack()
 		{
