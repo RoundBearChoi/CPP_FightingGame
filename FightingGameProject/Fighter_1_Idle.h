@@ -6,8 +6,6 @@ namespace RB
 	class Fighter_1_Idle : public State
 	{
 	public:
-		GET_HASH_OVERRIDE;
-
 		Fighter_1_Idle()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_1/fighter_1_idle.png");
@@ -24,6 +22,13 @@ namespace RB
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
 
+		}
+
+		size_t GetHash() override
+		{
+			static size_t hash = 0;
+			MakeHash(hash);
+			return hash;
 		}
 	};
 }

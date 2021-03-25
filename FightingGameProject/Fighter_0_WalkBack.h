@@ -8,9 +8,6 @@ namespace RB
 	class Fighter_0_WalkBack : public State
 	{
 	public:
-		GET_HASH_OVERRIDE;
-		//CLEAR_COLLIDER_DATA;
-
 		Fighter_0_WalkBack()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_walkback.png");
@@ -62,6 +59,13 @@ namespace RB
 		{
 			static std::vector<olc::vi2d> vec;
 			return vec;
+		}
+
+		size_t GetHash() override
+		{
+			static size_t hash = 0;
+			MakeHash(hash);
+			return hash;
 		}
 	};
 }

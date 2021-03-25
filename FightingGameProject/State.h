@@ -12,8 +12,6 @@
 
 namespace RB
 {
-#define GET_HASH_OVERRIDE size_t GetHash() override { static size_t hash = 0; MakeHash(hash); return hash; }
-
 	class State
 	{
 	protected:
@@ -34,8 +32,14 @@ namespace RB
 		AnimationController animationController;
 
 		virtual ~State() {};
-		virtual size_t GetHash() = 0;
-		virtual void RenderBoxColliders(ObjData& objData, Camera& cam) {}
+		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
+		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
+
+		
+		virtual void RenderBoxColliders(ObjData& objData, Camera& cam)
+		{
+			//do nothing by default
+		}
 
 		virtual std::vector<BoxCollider>& GetColliders()
 		{
@@ -49,8 +53,11 @@ namespace RB
 			return defaultVec;
 		}
 
-		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
-		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
+		virtual size_t GetHash()
+		{
+			static size_t defaultHash = 0;
+			return defaultHash;
+		}
 		
 		void UpdateColliders(std::vector<BoxCollider>& vec, std::vector<olc::vi2d>& vecQuads)
 		{
