@@ -180,7 +180,7 @@ namespace RB
 			col.clear();
 		}
 
-		bool DoCollisionCheck()
+		CollisionCheck* GetCollisionCheck()
 		{
 			//collision check
 			for (size_t i = 0; i < vecCollisionCheck.size(); i++)
@@ -188,11 +188,11 @@ namespace RB
 				if (vecCollisionCheck[i].frame == animationController.status.nCurrentTile)
 				{
 					IF_COUT{ std::cout << "checking collision: frame index " << vecCollisionCheck[i].frame << std::endl; };
-					return true;
+					return &vecCollisionCheck[i];
 				}
 			}
 
-			return false;
+			return nullptr;
 		}
 
 		olc::vi2d GetColliderPos(BodyType _bodyType)

@@ -18,5 +18,6 @@ namespace RB
 
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);
+		void RenderCollisionTiming(Camera& cam, BodyType _bodyType);
 	};
 }

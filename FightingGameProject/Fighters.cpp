@@ -51,7 +51,9 @@ namespace RB
 					s->OnAnimationUpdate(arrObjs[i].objData, gameData);
 				}
 
-				if (s->DoCollisionCheck())
+				CollisionCheck* collisionCheck = s->GetCollisionCheck();
+
+				if (collisionCheck)
 				{
 					IF_COUT{ std::cout << "fighter creation id: " << arrObjs[i].objData.GetCreationID() << std::endl; }
 				}
@@ -61,24 +63,23 @@ namespace RB
 
 	void Fighters::RenderObjPosition(Camera& cam)
 	{
-		for (int32_t i = 0; i < arrObjs.size(); i++)
+		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
+			GameObj& obj = arrObjs[i];
+
 			//arrObjs[i].RenderSpriteSize(cam);
-			arrObjs[i].RenderPosition(cam);
+			obj.RenderPosition(cam);
 
-			//render collision timing
-			State* s = arrObjs[i].stateController.currentState;
-
-			if (s != nullptr)
+			if (obj.stateController.currentState != nullptr)
 			{
-				if (s->DoCollisionCheck())
+				CollisionCheck* check = obj.stateController.currentState->GetCollisionCheck();
+
+				if (check)
 				{
-					olc::vi2d colliderPos = s->GetColliderPos(BodyType::LEFT_HAND) + arrObjs[i].objData.GetPosition();
-
-					olc::vi2d relativePlayer = RelativeVector::GetPosition(arrObjs[i].objData.GetPosition(), cam);
-					olc::vi2d relativeCollider = RelativeVector::GetPosition(colliderPos, cam);
-
-					olc::Renderer::ptrPGE->DrawLine(relativePlayer, relativeCollider, olc::RED);
+					for (size_t c = 0; c < check->vecBodies.size(); c++)
+					{
+						obj.RenderCollisionTiming(cam, check->vecBodies[c]);
+					}
 				}
 			}
 		}
