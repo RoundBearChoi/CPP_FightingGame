@@ -20,11 +20,13 @@ namespace RB
 		UIElement saveIcon;
 		UIElement leftSel;
 		UIElement rightSel;
-		UIElement copyIcon;
+		UIElement copyIcon0;
+		UIElement copyIcon1;
 
 		StringNotification saved;
-		StringNotification copied;
-				
+		StringNotification copied0;
+		StringNotification copied1;
+
 		std::vector<BoxCollider> vecBoxColliders;
 		TargetBodyType targetBodyType;
 
@@ -72,12 +74,19 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
-			copyIcon.path = "PNG files/BoxColliderEditor/editor_copy.png";
-			copyIcon.SetHash();
-			copyIcon.SetDecal();
-			copyIcon.width = 32;
-			copyIcon.height = 42;
-			copyIcon.topLeft = { GameSettings::window_width - copyIcon.width - 15, 100 };
+			copyIcon0.path = "PNG files/BoxColliderEditor/editor_copy.png";
+			copyIcon0.SetHash();
+			copyIcon0.SetDecal();
+			copyIcon0.width = 32;
+			copyIcon0.height = 42;
+			copyIcon0.topLeft = { GameSettings::window_width - copyIcon0.width - 15, 100 };
+
+			copyIcon1.path = "PNG files/BoxColliderEditor/editor_copy.png";
+			copyIcon1.SetHash();
+			copyIcon1.SetDecal();
+			copyIcon1.width = 32;
+			copyIcon1.height = 42;
+			copyIcon1.topLeft = { GameSettings::window_width - copyIcon1.width - 15, 200 };
 
 			LoadBoxColliders(*selector.Current());
 
@@ -86,9 +95,13 @@ namespace RB
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
 			saved.color = olc::RED;
 
-			copied.str = "copied!";
-			copied.pos = { copyIcon.topLeft.x - 12, copyIcon.topLeft.y + 61 };
-			copied.color = olc::RED;
+			copied0.str = "copied!";
+			copied0.pos = { copyIcon0.topLeft.x - 12, copyIcon0.topLeft.y + 61 };
+			copied0.color = olc::RED;
+
+			copied1.str = "copied!";
+			copied1.pos = { copyIcon1.topLeft.x - 12, copyIcon1.topLeft.y + 61 };
+			copied1.color = olc::RED;
 		}
 
 		void Update(GameData& gameData) override
@@ -129,7 +142,8 @@ namespace RB
 			saveIcon.GreenTintOnHover(mousePos);
 			leftSel.GreenTintOnHover(mousePos);
 			rightSel.GreenTintOnHover(mousePos);
-			copyIcon.GreenTintOnHover(mousePos);
+			copyIcon0.GreenTintOnHover(mousePos);
+			copyIcon1.GreenTintOnHover(mousePos);
 
 			if (playIcon.Clicked(mousePos, gameData))
 			{
@@ -147,7 +161,7 @@ namespace RB
 				selector.Current()->stateController.currentState->UnloadColliderData();
 			}
 
-			if (copyIcon.Clicked(mousePos, gameData))
+			if (copyIcon0.Clicked(mousePos, gameData))
 			{
 				size_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
 				std::vector<BoxCollider> currFrame;
@@ -164,7 +178,12 @@ namespace RB
 					vecBoxColliders[i] = currFrame[r];
 				}
 
-				copied.frames = 120 * 9;
+				copied0.frames = 120 * 9;
+			}
+
+			if (copyIcon1.Clicked(mousePos, gameData))
+			{
+				copied1.frames = 120 * 9;
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -286,7 +305,8 @@ namespace RB
 
 			//notifications
 			saved.Show();
-			copied.Show();
+			copied0.Show();
+			copied1.Show();
 		}
 
 		void RenderStates(bool update) override
@@ -301,9 +321,13 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(saveIcon.topLeft, saveIcon.ptrDecal, { 1.0f, 1.0f }, saveIcon.tint);
 			olc::Renderer::ptrPGE->DrawString({ saveIcon.topLeft.x, saveIcon.topLeft.y + saveIcon.height + 4 }, "save");
 
-			//copy icon
-			olc::Renderer::ptrPGE->DrawDecal(copyIcon.topLeft, copyIcon.ptrDecal, { 1.0f, 1.0f }, copyIcon.tint);
-			olc::Renderer::ptrPGE->DrawString({ copyIcon.topLeft.x - 120, copyIcon.topLeft.y + copyIcon.height + 5 }, "copy to other frames");
+			//copy icon 0
+			olc::Renderer::ptrPGE->DrawDecal(copyIcon0.topLeft, copyIcon0.ptrDecal, { 1.0f, 1.0f }, copyIcon0.tint);
+			olc::Renderer::ptrPGE->DrawString({ copyIcon0.topLeft.x - 120, copyIcon0.topLeft.y + copyIcon0.height + 5 }, "copy to other frames");
+
+			//copy icon 1
+			olc::Renderer::ptrPGE->DrawDecal(copyIcon1.topLeft, copyIcon1.ptrDecal, { 1.0f, 1.0f }, copyIcon1.tint);
+			olc::Renderer::ptrPGE->DrawString({ copyIcon1.topLeft.x - 50, copyIcon1.topLeft.y + copyIcon1.height + 5 }, "copy to all");
 
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
