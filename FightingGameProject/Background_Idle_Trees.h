@@ -12,11 +12,11 @@ namespace RB
 		Background_Idle_Trees()
 		{
 			animationController.SetSpritePath("PNG files/Background/background_trees_20.png");
+			animationController.SetParams(SpriteType::BACKGROUND, 1700, 300, 1, 1, 1);
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams(SpriteType::BACKGROUND, 1700, 300, 1, 1, 1);
 			objData.SetSpriteSize({ 1700, 300 });
 		}
 

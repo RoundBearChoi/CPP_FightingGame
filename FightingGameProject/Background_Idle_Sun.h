@@ -12,11 +12,11 @@ namespace RB
 		Background_Idle_Sun()
 		{
 			animationController.SetSpritePath("PNG files/Background/background_sun.png");
+			animationController.SetParams(SpriteType::BACKGROUND, 102, 82, 1, 1, 1);
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams(SpriteType::BACKGROUND, 102, 82, 1, 1, 1);
 			objData.SetSpriteSize({ 102, 82 });
 		}
 
