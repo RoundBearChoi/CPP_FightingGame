@@ -34,7 +34,7 @@ namespace RB
 
 			if (d.back)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData, 2);
+				int32_t speed = Directions::GetBackSpeed(objData, 1);
 
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
