@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_walkback.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
-			animationController.status.nTransitionDelay = 9;
+			animationController.status.nTransitionDelay = 8;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
@@ -34,7 +34,7 @@ namespace RB
 
 			if (d.back)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData, 1);
+				int32_t speed = Directions::GetBackSpeed(objData, 2);
 
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;

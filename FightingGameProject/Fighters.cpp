@@ -44,7 +44,14 @@ namespace RB
 					s->OnEnter(arrObjs[i].objData, gameData);
 				}
 
+				//update every single frame
 				s->UpdateState(arrObjs[i].objData, gameData);
+
+				//update on every animation update (delay applied)
+				if (arrObjs[i].stateController.currentState->animationController.status.nDelayCount == 0)
+				{
+					s->OnAnimationUpdate(arrObjs[i].objData, gameData);
+				}
 
 				//collision check
 				for (size_t c = 0; c < s->vecCollisionCheck.size(); c++)
