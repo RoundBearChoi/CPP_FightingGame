@@ -20,6 +20,7 @@ namespace RB
 		UIElement saveIcon;
 		UIElement leftSel;
 		UIElement rightSel;
+		UIElement copyIcon;
 
 		StringNotification saved;
 				
@@ -70,6 +71,13 @@ namespace RB
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
 
+			copyIcon.path = "PNG files/BoxColliderEditor/editor_copy.png";
+			copyIcon.SetHash();
+			copyIcon.SetDecal();
+			copyIcon.width = 32;
+			copyIcon.height = 42;
+			copyIcon.topLeft = { GameSettings::window_width - copyIcon.width - 15, 100 };
+
 			LoadBoxColliders(*selector.Current());
 
 			//notifications
@@ -116,6 +124,7 @@ namespace RB
 			saveIcon.GreenTintOnHover(mousePos);
 			leftSel.GreenTintOnHover(mousePos);
 			rightSel.GreenTintOnHover(mousePos);
+			copyIcon.GreenTintOnHover(mousePos);
 
 			if (playIcon.Clicked(mousePos, gameData))
 			{
@@ -131,6 +140,11 @@ namespace RB
 				saved.frames = 120 * 9;
 
 				selector.Current()->stateController.currentState->UnloadColliderData();
+			}
+
+			if (copyIcon.Clicked(mousePos, gameData))
+			{
+
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -265,6 +279,10 @@ namespace RB
 			//save icon
 			olc::Renderer::ptrPGE->DrawDecal(saveIcon.topLeft, saveIcon.ptrDecal, { 1.0f, 1.0f }, saveIcon.tint);
 			olc::Renderer::ptrPGE->DrawString({ saveIcon.topLeft.x, saveIcon.topLeft.y + saveIcon.height + 4 }, "save");
+
+			//copy icon
+			olc::Renderer::ptrPGE->DrawDecal(copyIcon.topLeft, copyIcon.ptrDecal, { 1.0f, 1.0f }, copyIcon.tint);
+			olc::Renderer::ptrPGE->DrawString({ copyIcon.topLeft.x - 120, copyIcon.topLeft.y + copyIcon.height + 5 }, "copy to other frames");
 
 			//selection arrows
 			olc::Renderer::ptrPGE->DrawDecal(leftSel.topLeft, leftSel.ptrDecal, { 1.0f, 1.0f }, leftSel.tint);
