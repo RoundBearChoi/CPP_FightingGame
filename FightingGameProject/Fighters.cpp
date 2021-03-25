@@ -45,6 +45,9 @@ namespace RB
 				}
 
 				s->UpdateState(arrObjs[i].objData, gameData);
+
+				//clear quads after collision check
+				s->vecCollisionCheck.clear();
 			}
 		}
 	}

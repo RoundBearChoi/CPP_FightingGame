@@ -9,6 +9,7 @@
 #include "SpriteLoader.h"
 #include "PlayerInput.h"
 #include "Directions.h"
+#include "CollisionCheck.h"
 
 namespace RB
 {
@@ -33,6 +34,7 @@ namespace RB
 	public:
 		State* nextState = nullptr;
 		AnimationController animationController;
+		std::vector<CollisionCheck> vecCollisionCheck;
 
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
