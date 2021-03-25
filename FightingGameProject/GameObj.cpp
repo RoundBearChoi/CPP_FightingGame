@@ -55,7 +55,7 @@ namespace RB
 	{
 		State* s = stateController.currentState;
 
-		olc::vi2d colliderPos = s->GetColliderPos(_bodyType) + objData.GetPosition();
+		olc::vi2d colliderPos = s->GetCurrentColliderPos(_bodyType) + objData.GetPosition();
 
 		olc::vi2d relativePlayer = RelativeVector::GetPosition(objData.GetPosition(), cam);
 		olc::vi2d relativeCollider = RelativeVector::GetPosition(colliderPos, cam);

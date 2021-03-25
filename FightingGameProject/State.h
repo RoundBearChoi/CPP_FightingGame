@@ -195,7 +195,7 @@ namespace RB
 			return nullptr;
 		}
 
-		olc::vi2d GetColliderPos(BodyType _bodyType)
+		olc::vi2d GetCurrentColliderPos(BodyType _bodyType)
 		{
 			std::vector<BoxCollider>& vec = GetColliders();
 
