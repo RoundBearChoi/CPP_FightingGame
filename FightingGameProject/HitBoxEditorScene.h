@@ -4,7 +4,6 @@
 #include "GameData.h"
 #include "UIElement.h"
 #include "StringNotification.h"
-#include "BoxCollider.h"
 #include "TargetBodyType.h"
 #include "ColliderLoader.h"
 #include "DummySelector.h"
@@ -27,7 +26,7 @@ namespace RB
 		StringNotification copied0;
 		StringNotification copied1;
 
-		std::vector<BoxCollider> vecBoxColliders;
+		//std::vector<BoxCollider> vecBoxColliders;
 		TargetBodyType targetBodyType;
 
 		int32_t nFrames = 0;
@@ -88,8 +87,6 @@ namespace RB
 			copyIcon1.height = 42;
 			copyIcon1.topLeft = { GameSettings::window_width - copyIcon1.width - 15, 200 };
 
-			LoadBoxColliders(*selector.Current());
-
 			//notifications
 			saved.str = "saved!";
 			saved.pos = { saveIcon.topLeft.x - 20, saveIcon.topLeft.y + 55 };
@@ -110,15 +107,11 @@ namespace RB
 			if (gameData.key_left)
 			{
 				selector.Prev();
-				LoadBoxColliders(*selector.Current());
-
 				gameData.key_left->processed = true;
 			}
 			else if (gameData.key_right)
 			{
 				selector.Next();
-				LoadBoxColliders(*selector.Current());
-
 				gameData.key_right->processed = true;
 			}
 
@@ -154,7 +147,7 @@ namespace RB
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
 				std::string colliderFile = selector.Current()->stateController.currentState->animationController.GetColliderPath();
-				ColliderLoader::SaveColliderData(vecBoxColliders, colliderFile);
+				ColliderLoader::SaveColliderData(selector.GetCollider(), colliderFile);
 
 				saved.frames = 120 * 9;
 
@@ -169,13 +162,13 @@ namespace RB
 
 				for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 				{
-					currFrame.push_back(vecBoxColliders[i]);
+					currFrame.push_back(selector.GetCollider()[i]);
 				}
 
-				for (size_t i = 0; i < vecBoxColliders.size(); i++)
+				for (size_t i = 0; i < selector.GetCollider().size(); i++)
 				{
 					size_t r = i % ColliderLoader::TotalBodyParts();
-					vecBoxColliders[i] = currFrame[r];
+					selector.GetCollider()[i] = currFrame[r];
 				}
 
 				copied0.frames = 120 * 9;
@@ -212,7 +205,7 @@ namespace RB
 			int32_t currentTile = selector.Current()->stateController.currentState->animationController.status.nCurrentTile;
 			nSelectedBodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
-			if (nSelectedBodyIndex < vecBoxColliders.size())
+			if (nSelectedBodyIndex < selector.GetCollider().size())
 			{
 				if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
 				{
@@ -220,11 +213,11 @@ namespace RB
 				}
 				else if (gameData.key_t)
 				{
-					vecBoxColliders[nSelectedBodyIndex].RotateCounterClockwise();
+					selector.GetCollider()[nSelectedBodyIndex].RotateCounterClockwise();
 				}
 				else if (gameData.key_y)
 				{
-					vecBoxColliders[nSelectedBodyIndex].RotateClockwise();
+					selector.GetCollider()[nSelectedBodyIndex].RotateClockwise();
 				}
 
 				if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
@@ -235,39 +228,39 @@ namespace RB
 				{
 					if (!gameData.key_shift)
 					{
-						vecBoxColliders[nSelectedBodyIndex].IncreaseHeight(1);
+						selector.GetCollider()[nSelectedBodyIndex].IncreaseHeight(1);
 					}
 					else
 					{
-						vecBoxColliders[nSelectedBodyIndex].DecreaseHeight(1);
+						selector.GetCollider()[nSelectedBodyIndex].DecreaseHeight(1);
 					}
 				}
 				else if (gameData.key_h)
 				{
 					if (!gameData.key_shift)
 					{
-						vecBoxColliders[nSelectedBodyIndex].IncreaseWidth(1);
+						selector.GetCollider()[nSelectedBodyIndex].IncreaseWidth(1);
 					}
 					else
 					{
-						vecBoxColliders[nSelectedBodyIndex].DecreaseWidth(1);
+						selector.GetCollider()[nSelectedBodyIndex].DecreaseWidth(1);
 					}
 				}
 
 				//resize, rotate, move boxcollider
-				vecBoxColliders[nSelectedBodyIndex].SetQuad();
-				vecBoxColliders[nSelectedBodyIndex].UpdateRotation();
-				vecBoxColliders[nSelectedBodyIndex].UpdatePosition( //up down left right
+				selector.GetCollider()[nSelectedBodyIndex].SetQuad();
+				selector.GetCollider()[nSelectedBodyIndex].UpdateRotation();
+				selector.GetCollider()[nSelectedBodyIndex].UpdatePosition( //up down left right
 					gameData.key_a,
 					gameData.key_d,
 					gameData.key_w,
 					gameData.key_s);
 			}
 
-			for (int32_t i = 0; i < vecBoxColliders.size(); i++)
+			for (int32_t i = 0; i < selector.GetCollider().size(); i++)
 			{
-				vecBoxColliders[i].SetQuad();
-				vecBoxColliders[i].UpdateRotation();
+				selector.GetCollider()[i].SetQuad();
+				selector.GetCollider()[i].UpdateRotation();
 			}
 		}
 
@@ -278,12 +271,12 @@ namespace RB
 			RenderCenterMark(cam);
 
 			//current boxcollider info
-			if (nSelectedBodyIndex < vecBoxColliders.size())
+			if (nSelectedBodyIndex < selector.GetCollider().size())
 			{
-				olc::vi2d p0 = vecBoxColliders[nSelectedBodyIndex].Point0();
-				olc::vi2d p1 = vecBoxColliders[nSelectedBodyIndex].Point1();
-				olc::vi2d p2 = vecBoxColliders[nSelectedBodyIndex].Point2();
-				olc::vi2d p3 = vecBoxColliders[nSelectedBodyIndex].Point3();
+				olc::vi2d p0 = selector.GetCollider()[nSelectedBodyIndex].Point0();
+				olc::vi2d p1 = selector.GetCollider()[nSelectedBodyIndex].Point1();
+				olc::vi2d p2 = selector.GetCollider()[nSelectedBodyIndex].Point2();
+				olc::vi2d p3 = selector.GetCollider()[nSelectedBodyIndex].Point3();
 
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
@@ -340,24 +333,13 @@ namespace RB
 			{
 				if (i == nSelectedBodyIndex)
 				{
-					vecBoxColliders[i].Render(cam, olc::RED);
+					selector.GetCollider()[i].Render(cam, olc::RED);
 				}
 				else
 				{
-					vecBoxColliders[i].Render(cam, olc::BLUE);
+					selector.GetCollider()[i].Render(cam, olc::BLUE);
 				}
 			}
-		}
-
-		void LoadBoxColliders(GameObj& obj)
-		{
-			vecBoxColliders.clear();
-
-			nFrames = obj.stateController.currentState->animationController.TotalTiles();
-			ColliderLoader::SetFighterBodyParts(vecBoxColliders, nFrames);
-
-			std::string colliderFile = obj.stateController.currentState->animationController.GetColliderPath();
-			ColliderLoader::LoadColliderData(vecBoxColliders, colliderFile);
 		}
 	};
 }

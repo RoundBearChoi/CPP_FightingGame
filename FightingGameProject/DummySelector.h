@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObj.h"
+#include "BoxCollider.h"
 
 #include "Fighter_0_Idle.h"
 #include "Fighter_0_Jab.h"
@@ -13,6 +14,7 @@ namespace RB
 	{
 	private:
 		std::array<GameObj*, 4> arrObjs;
+		std::array<std::vector<BoxCollider>, 4> arrVecs;
 		size_t currentIndex = 0;
 
 	public:
@@ -27,6 +29,8 @@ namespace RB
 			Init<Fighter_0_Jab>(*arrObjs[1]);
 			Init<Fighter_0_WalkForward>(*arrObjs[2]);
 			Init<Fighter_0_WalkBack>(*arrObjs[3]);
+
+			LoadColliders();
 		}
 
 		~DummySelector()
@@ -71,6 +75,27 @@ namespace RB
 		{
 			obj.stateController.CreateNewState<T>();
 			obj.objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+		}
+
+		std::vector<BoxCollider>& GetCollider()
+		{
+			return arrVecs[currentIndex];
+		}
+
+		void LoadColliders()
+		{
+			for (size_t i = 0; i < arrVecs.size(); i++)
+			{
+				GameObj* obj = arrObjs[i];
+
+				arrVecs[i].clear();
+
+				int32_t tiles = obj->stateController.currentState->animationController.TotalTiles();
+				ColliderLoader::SetFighterBodyParts(arrVecs[i], tiles);
+
+				std::string colliderFile = obj->stateController.currentState->animationController.GetColliderPath();
+				ColliderLoader::LoadColliderData(arrVecs[i], colliderFile);
+			}
 		}
 	};
 }
