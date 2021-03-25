@@ -144,7 +144,20 @@ namespace RB
 
 			if (copyIcon.Clicked(mousePos, gameData))
 			{
+				size_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+				std::vector<BoxCollider> currFrame;
+				currFrame.reserve(ColliderLoader::TotalBodyParts());
 
+				for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
+				{
+					currFrame.push_back(vecBoxColliders[i]);
+				}
+
+				for (size_t i = 0; i < vecBoxColliders.size(); i++)
+				{
+					size_t r = i % ColliderLoader::TotalBodyParts();
+					vecBoxColliders[i] = currFrame[r];
+				}
 			}
 
 			if (leftSel.Clicked(mousePos, gameData))
@@ -289,9 +302,9 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 
 			//boxcolliders
-			int32_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			size_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
 
-			for (int32_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
+			for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 			{
 				if (i == nSelectedBodyIndex)
 				{
