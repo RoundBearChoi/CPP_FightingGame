@@ -8,8 +8,6 @@ namespace RB
 	class Fighter_0_Jab : public State
 	{
 	public:
-		STATIC_VEC_COLLIDERS;
-		STATIC_VEC_COLLIDER_QUADS;
 		GET_HASH_OVERRIDE;
 		CLEAR_COLLIDER_DATA;
 
@@ -41,6 +39,18 @@ namespace RB
 		{
 			std::vector<olc::vi2d> quads = GetColliderQuads();
 			RenderColliderQuads(objData, quads, cam);
+		}
+
+		std::vector<BoxCollider>& GetColliders() override
+		{
+			static std::vector<BoxCollider> vec;
+			return vec;
+		}
+
+		std::vector<olc::vi2d>& GetColliderQuads() override
+		{
+			static std::vector<olc::vi2d> vec;
+			return vec;
 		}
 	};
 }
