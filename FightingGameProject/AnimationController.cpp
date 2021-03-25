@@ -2,10 +2,9 @@
 
 namespace RB
 {
-	void AnimationController::SetParams(SpriteType _spriteType, int32_t _decalTypeIndex, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount)
+	void AnimationController::SetParams(SpriteType _spriteType, int32_t _totalWith, int32_t _totalHeight, int32_t _tileCountX, int32_t _tileCountY, int32_t _totalTileCount)
 	{
 		status.spriteType = _spriteType;
-		status.decalTypeIndex = _decalTypeIndex;
 
 		specs.totalWidth = _totalWith;
 		specs.totalHeight = _totalHeight;

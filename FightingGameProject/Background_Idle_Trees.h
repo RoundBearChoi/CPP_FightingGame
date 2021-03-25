@@ -13,7 +13,7 @@ namespace RB
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			animationController.SetParams(SpriteType::BACKGROUND, 0 /*no need*/, 1700, 300, 1, 1, 1);
+			animationController.SetParams(SpriteType::BACKGROUND, 1700, 300, 1, 1, 1);
 			objData.SetSpriteSize({ 1700, 300 });
 		}
 
