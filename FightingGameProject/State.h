@@ -124,6 +124,11 @@ namespace RB
 
 		void RenderColliderQuads(ObjData& objData, Camera& cam)
 		{
+			if (!DevSettings::RenderDebugBoxes(false))
+			{
+				return;
+			}
+
 			std::vector<olc::vi2d>& quads = GetColliderQuads();
 
 			if (quads.size() == 0)

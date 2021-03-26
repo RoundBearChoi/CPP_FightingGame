@@ -53,18 +53,21 @@ namespace RB
 
 	void GameObj::RenderCollisionTiming(BodyType _bodyType, Camera& cam)
 	{
-		//draw center position
-		olc::vi2d playerPos = RelativeVector::GetPosition(objData.GetPosition(), cam);
-		olc::vi2d colliderPos = stateController.currentState->GetColliderWorldPos(_bodyType, objData);
+		if (DevSettings::RenderDebugBoxes(false))
+		{
+			//draw center position
+			olc::vi2d playerPos = RelativeVector::GetPosition(objData.GetPosition(), cam);
+			olc::vi2d colliderPos = stateController.currentState->GetColliderWorldPos(_bodyType, objData);
 
-		olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(colliderPos, cam), olc::RED);
+			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(colliderPos, cam), olc::RED);
 
-		//draw quads
-		std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsWorldPos(_bodyType, objData);
+			//draw quads
+			std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsWorldPos(_bodyType, objData);
 
-		olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[0], cam), olc::YELLOW);
-		olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[1], cam), olc::YELLOW);
-		olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[2], cam), olc::YELLOW);
-		olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[3], cam), olc::YELLOW);
+			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[0], cam), olc::YELLOW);
+			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[1], cam), olc::YELLOW);
+			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[2], cam), olc::YELLOW);
+			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[3], cam), olc::YELLOW);
+		}
 	}
 }

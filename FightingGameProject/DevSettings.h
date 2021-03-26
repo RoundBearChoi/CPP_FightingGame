@@ -9,5 +9,14 @@ namespace RB
 	{
 	public:
 		const static bool use_cout = true;
+
+		static bool RenderDebugBoxes(bool _render)
+		{
+			static bool render = false;
+
+			render = _render;
+
+			return render;
+		}
 	};
 }
