@@ -60,6 +60,7 @@ namespace RB
 					for (BodyType& b : collisionCheck->vecBodies)
 					{
 						olc::vi2d colliderPos = s->GetColliderWorldPos(b, obj.objData);
+						std::array<olc::vi2d, 4> arrQuads = s->GetColliderQuadsWorldPos(b, obj.objData);
 						int n = 0;
 					}
 				}
