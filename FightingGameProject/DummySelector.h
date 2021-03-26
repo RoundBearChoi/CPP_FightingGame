@@ -7,14 +7,15 @@
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
+#include "Fighter_0_HitReaction_0.h"
 
 namespace RB
 {
 	class DummySelector
 	{
 	private:
-		std::array<GameObj*, 4> arrObjs;
-		std::array<std::vector<BoxCollider>, 4> arrVecs;
+		std::array<GameObj*, 5> arrObjs;
+		std::array<std::vector<BoxCollider>, 5> arrVecs;
 		size_t currentIndex = 0;
 
 	public:
@@ -29,6 +30,7 @@ namespace RB
 			Init<Fighter_0_Jab>(*arrObjs[1]);
 			Init<Fighter_0_WalkForward>(*arrObjs[2]);
 			Init<Fighter_0_WalkBack>(*arrObjs[3]);
+			Init<Fighter_0_HitReaction_0>(*arrObjs[4]);
 
 			LoadColliders();
 		}

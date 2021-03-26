@@ -173,6 +173,7 @@
     <ClInclude Include="DiagonalOverlap.h" />
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DummySelector.h" />
+    <ClInclude Include="Fighter_0_HitReaction_0.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
     <ClInclude Include="Fighter_0_Jab.h" />
     <ClInclude Include="Fighter_0_WalkBack.h" />

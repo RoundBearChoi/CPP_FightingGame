@@ -263,5 +263,8 @@
     <ClInclude Include="DiagonalOverlap.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_HitReaction_0.h">
+      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

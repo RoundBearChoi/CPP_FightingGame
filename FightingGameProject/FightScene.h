@@ -8,6 +8,8 @@
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_Jab.h"
+#include "Fighter_0_HitReaction_0.h"
+
 #include "Fighter_1_Idle.h"
 
 //background states
