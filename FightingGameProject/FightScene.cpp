@@ -17,7 +17,7 @@ namespace RB
 		fighters.SetFighterInfo(0, { -220, 0 }, PlayerType::PLAYER_1);
 		fighters.SetFighterInfo(1, { 220, 0 }, PlayerType::PLAYER_2);
 
-		fighters.SetInitialState<Fighter_0_HitReaction_0>(0);
+		fighters.SetInitialState<Fighter_0_Idle>(0);
 		fighters.SetInitialState<Fighter_0_Idle>(1);
 
 		background.SetBackgroundInfo(0, { 0, -250 }); //trees

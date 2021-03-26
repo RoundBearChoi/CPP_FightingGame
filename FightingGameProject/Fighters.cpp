@@ -4,6 +4,7 @@ namespace RB
 {
 	void Fighters::UpdateState(GameData& gameData)
 	{
+		//forward directions
 		if (arrObjs[0].objData.GetPosition().x < arrObjs[1].objData.GetPosition().x)
 		{
 			arrObjs[0].objData.SetLeftSide(true);
@@ -24,6 +25,7 @@ namespace RB
 
 		for (GameObj& obj : arrObjs)
 		{
+			//forward directions
 			obj.stateController.MakeStateTransition();
 
 			if (obj.objData.IsOnLeftSide())
@@ -35,6 +37,7 @@ namespace RB
 				obj.objData.FaceRight(false);
 			}
 
+			//update state
 			State* s = obj.stateController.currentState;
 
 			if (s != nullptr)
@@ -51,6 +54,7 @@ namespace RB
 					s->OnAnimationUpdate(obj.objData, gameData);
 				}
 
+				//collision check
 				CollisionCheck* collisionCheck = s->GetCollisionCheck();
 
 				if (collisionCheck)
@@ -75,10 +79,14 @@ namespace RB
 
 								if (DiagonalOverlap::yes(p1col, p1Quads, p2col, p2Quads))
 								{
+									enemyObj->stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
 									IF_COUT{ std::cout << "overlap!" << std::endl; };
+									IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
 								}
 							}
 						}
+
+						IF_COUT{ std::cout << "collision check done" << std::endl; };
 					}
 				}
 			}

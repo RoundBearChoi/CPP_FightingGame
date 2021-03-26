@@ -10,12 +10,16 @@
 #include "PlayerType.h"
 #include "DiagonalOverlap.h"
 
+//for loading
+#include "Preload_Fighter_0.h"
+
 namespace RB
 {
 	class Fighters : public ObjGroup
 	{
 	private:
 		std::array<GameObj, 2> arrObjs;
+		Preload_Fighter_0 preload_fighter_0;
 
 	public:
 		void UpdateState(GameData& gameData) override;

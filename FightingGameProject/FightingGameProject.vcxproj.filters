@@ -40,9 +40,6 @@
     <Filter Include="Source Files\State\Concrete States">
       <UniqueIdentifier>{df5d7528-dd7e-4b99-9244-f1c97ba3f8b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\State\Concrete States\Fighter">
-      <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{48ce50f8-b65b-42b0-b79e-6232cdc28a75}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,9 @@
     </Filter>
     <Filter Include="Source Files\GameObj Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Concrete States\Fighters">
+      <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,10 +147,10 @@
       <Filter>Source Files\State\Base</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_Idle.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_1_Idle.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="AnimationController.h">
       <Filter>Source Files\Animation</Filter>
@@ -183,10 +183,10 @@
       <Filter>Source Files\State\Concrete States\Background</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_WalkForward.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_Jab.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="HitBoxEditorScene.h">
       <Filter>Source Files\Scenes\Concrete Scenes</Filter>
@@ -231,7 +231,7 @@
       <Filter>Source Files\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_WalkBack.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="PlayerType.h">
       <Filter>Source Files\GameObj\Base</Filter>
@@ -264,7 +264,10 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_0.h">
-      <Filter>Source Files\State\Concrete States\Fighter</Filter>
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Preload_Fighter_0.h">
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

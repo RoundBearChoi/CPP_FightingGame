@@ -196,6 +196,7 @@
     <ClInclude Include="OffsetType.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="PlayerType.h" />
+    <ClInclude Include="Preload_Fighter_0.h" />
     <ClInclude Include="RelativeVector.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
