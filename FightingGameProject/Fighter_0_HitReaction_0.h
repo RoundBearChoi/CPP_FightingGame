@@ -28,6 +28,28 @@ namespace RB
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
 			UpdateColliders();
+
+			PlayerInput p = PlayerInput::Get(objData, gameData);
+			Directions d = Directions::Get(objData, p);
+
+			if (updateCount == 0 && updateCount < 5)
+			{
+				int32_t speed = Directions::GetBackSpeed(objData, 2);
+				olc::vi2d pos = objData.GetPosition();
+				pos.x += speed;
+				objData.SetPosition(pos);
+			}
+			else if (updateCount < 15)
+			{
+				int32_t speed = Directions::GetBackSpeed(objData, 1);
+				olc::vi2d pos = objData.GetPosition();
+				pos.x += speed;
+				objData.SetPosition(pos);
+			}
+			else if (updateCount >= 15)
+			{
+				nextState = State::NewState<Fighter_0_Idle>();
+			}
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }

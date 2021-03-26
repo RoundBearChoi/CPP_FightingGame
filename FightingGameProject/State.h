@@ -35,6 +35,7 @@ namespace RB
 		State* nextState = nullptr;
 		AnimationController animationController;
 		std::vector<CollisionCheck> vecCollisionCheck;
+		int32_t updateCount = 0;
 
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;

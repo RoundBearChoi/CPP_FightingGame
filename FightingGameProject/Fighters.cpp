@@ -38,24 +38,25 @@ namespace RB
 			}
 
 			//update state
-			State* s = obj.stateController.currentState;
+			State* state = obj.stateController.currentState;
 
-			if (s != nullptr)
+			if (state != nullptr)
 			{
-				if (s->IsNew())
+				if (state->IsNew())
 				{
-					s->OnEnter(obj.objData, gameData);
+					state->OnEnter(obj.objData, gameData);
 				}
 
-				s->UpdateState(obj.objData, gameData);
+				state->UpdateState(obj.objData, gameData);
+				state->updateCount++;
 
 				if (obj.stateController.currentState->animationController.status.nDelayCount == 0)
 				{
-					s->OnAnimationUpdate(obj.objData, gameData);
+					state->OnAnimationUpdate(obj.objData, gameData);
 				}
 
 				//collision check
-				CollisionCheck* collisionCheck = s->GetCollisionCheck();
+				CollisionCheck* collisionCheck = state->GetCollisionCheck();
 
 				if (collisionCheck)
 				{
@@ -65,7 +66,7 @@ namespace RB
 
 						for (BodyType& b : collisionCheck->vecBodies)
 						{
-							GameObj& enemy = *GetEnemyObj(*s);
+							GameObj& enemy = *GetEnemyObj(*state);
 
 							//temp - only checking against head
 							BodyType enemyBody = BodyType::HEAD;
