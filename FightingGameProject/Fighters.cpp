@@ -61,7 +61,13 @@ namespace RB
 					{
 						olc::vi2d colliderPos = s->GetColliderWorldPos(b, obj.objData);
 						std::array<olc::vi2d, 4> arrQuads = s->GetColliderQuadsWorldPos(b, obj.objData);
-						int n = 0;
+
+						State* enemyState = GetEnemyState(*s);
+
+						if (enemyState != nullptr)
+						{
+							int n = 0;
+						}
 					}
 				}
 			}
@@ -124,5 +130,19 @@ namespace RB
 		arrObjs[_index].stateController.SetCreationID(count);
 
 		arrObjs[_index].objData.SetPlayerType(_playerType);
+	}
+
+	State* Fighters::GetEnemyState(State& me)
+	{
+		for (GameObj& obj : arrObjs)
+		{
+			//compare addresses
+			if (&(*obj.stateController.currentState) != &me)
+			{
+				return obj.stateController.currentState;
+			}
+		}
+
+		return nullptr;
 	}
 }

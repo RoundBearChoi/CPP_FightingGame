@@ -23,6 +23,7 @@ namespace RB
 		void RenderBoxColliders(Camera& cam) override;
 
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
+		State* GetEnemyState(State& me);
 
 		template<class T>
 		void SetInitialState(int32_t _index)
