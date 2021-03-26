@@ -46,9 +46,6 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{48ce50f8-b65b-42b0-b79e-6232cdc28a75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObj\Concrete Groups">
-      <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\State\Concrete States\Background">
       <UniqueIdentifier>{e9bc8b0d-d93a-44bb-a598-dd45318ea197}</UniqueIdentifier>
     </Filter>
@@ -67,6 +64,9 @@
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{2758f219-0648-4409-a634-18c29d03706d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameObj Groups">
+      <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,10 +82,10 @@
       <Filter>Source Files\GameObj\Base</Filter>
     </ClCompile>
     <ClCompile Include="Background.cpp">
-      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClCompile>
     <ClCompile Include="Fighters.cpp">
-      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClCompile>
     <ClCompile Include="StateController.cpp">
       <Filter>Source Files\State\Base</Filter>
@@ -117,7 +117,7 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighters.h">
-      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
     <ClInclude Include="GameObj.h">
       <Filter>Source Files\GameObj\Base</Filter>
@@ -167,11 +167,8 @@
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGroup.h">
-      <Filter>Source Files\GameObj\Base</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
-      <Filter>Source Files\GameObj\Concrete Groups</Filter>
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
     <ClInclude Include="Background_Idle_Trees.h">
       <Filter>Source Files\State\Concrete States\Background</Filter>
@@ -259,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="CollisionCheck.h">
       <Filter>Source Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGroup.h">
+      <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
