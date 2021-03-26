@@ -1,11 +1,13 @@
 #pragma once
 #include "olcPixelGameEngine.h"
+#include "GameObj.h"
+#include "BodyType.h"
 
 namespace RB
 {
 	class DiagonalOverlap
 	{
-	public:
+	private:
 		static bool yes(olc::vi2d& p1Pos, std::array<olc::vi2d, 4>& p1Quads, olc::vi2d& p2Pos, std::array<olc::vi2d, 4>& p2Quads)
 		{
 			olc::vi2d* r1 = &p1Pos;
@@ -49,6 +51,23 @@ namespace RB
 						}
 					}
 				}
+			}
+
+			return false;
+		}
+
+	public:
+		static bool IsColliding(GameObj& me, BodyType& myBody, GameObj& enemy, BodyType& enemyBody)
+		{
+			olc::vi2d p1col = me.stateController.currentState->GetColliderWorldPos(myBody, me.objData);
+			std::array<olc::vi2d, 4> p1Quads = me.stateController.currentState->GetColliderQuadsWorldPos(myBody, me.objData);
+
+			olc::vi2d p2col = enemy.stateController.currentState->GetColliderWorldPos(enemyBody, enemy.objData);
+			std::array<olc::vi2d, 4> p2Quads = enemy.stateController.currentState->GetColliderQuadsWorldPos(enemyBody, enemy.objData);
+
+			if (DiagonalOverlap::yes(p1col, p1Quads, p2col, p2Quads))
+			{
+				return true;
 			}
 
 			return false;

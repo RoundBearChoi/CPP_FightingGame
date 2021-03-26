@@ -59,34 +59,26 @@ namespace RB
 
 				if (collisionCheck)
 				{
-					//IF_COUT{ std::cout << "fighter creation id: " << obj.objData.GetCreationID() << std::endl; };
-
 					if (!collisionCheck->processed)
 					{
 						collisionCheck->processed = true;
 
 						for (BodyType& b : collisionCheck->vecBodies)
 						{
-							olc::vi2d p1col = s->GetColliderWorldPos(b, obj.objData);
-							std::array<olc::vi2d, 4> p1Quads = s->GetColliderQuadsWorldPos(b, obj.objData);
+							GameObj& enemy = *GetEnemyObj(*s);
 
-							GameObj* enemyObj = GetEnemyObj(*s);
+							//temp - only checking against head
+							BodyType enemyBody = BodyType::HEAD;
 
-							if (enemyObj != nullptr)
+							if (DiagonalOverlap::IsColliding(obj, b, enemy, enemyBody))
 							{
-								olc::vi2d p2col = enemyObj->stateController.currentState->GetColliderWorldPos(BodyType::HEAD, enemyObj->objData);
-								std::array<olc::vi2d, 4> p2Quads = enemyObj->stateController.currentState->GetColliderQuadsWorldPos(BodyType::HEAD, enemyObj->objData);
-
-								if (DiagonalOverlap::yes(p1col, p1Quads, p2col, p2Quads))
-								{
-									enemyObj->stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
-									IF_COUT{ std::cout << "overlap!" << std::endl; };
-									IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
-								}
+								enemy.stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
+								IF_COUT{ std::cout << "overlap!" << std::endl; };
+								IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
 							}
 						}
 
-						IF_COUT{ std::cout << "collision check done" << std::endl; };
+						IF_COUT{ std::cout << "collision check processed" << std::endl; };
 					}
 				}
 			}
