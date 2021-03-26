@@ -260,5 +260,8 @@
     <ClInclude Include="ObjGroup.h">
       <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
+    <ClInclude Include="DiagonalOverlap.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -187,7 +187,7 @@ namespace RB
 			{
 				if (vecCollisionCheck[i].frame == animationController.status.nCurrentTile)
 				{
-					IF_COUT{ std::cout << "checking collision: frame index " << vecCollisionCheck[i].frame << std::endl; };
+					//IF_COUT{ std::cout << "checking collision: frame index " << vecCollisionCheck[i].frame << std::endl; };
 					return &vecCollisionCheck[i];
 				}
 			}
@@ -203,7 +203,15 @@ namespace RB
 
 			if (index < vec.size())
 			{
-				olc::vi2d pos = vec[index].Position() + objData.GetPosition();
+				olc::vi2d pos = vec[index].Position();
+
+				if (!objData.IsFacingRight())
+				{
+					pos.x *= -1;
+				}
+
+				pos += objData.GetPosition();
+
 				return pos;
 			}
 			else
@@ -221,10 +229,23 @@ namespace RB
 
 			std::array<olc::vi2d, 4> arr;
 
-			arr[0] = vec[start] + objData.GetPosition();
-			arr[1] = vec[start + 1] + objData.GetPosition();
-			arr[2] = vec[start + 2] + objData.GetPosition();
-			arr[3] = vec[start + 3] + objData.GetPosition();
+			arr[0] = vec[start];
+			arr[1] = vec[start + 1];
+			arr[2] = vec[start + 2];
+			arr[3] = vec[start + 3];
+
+			if (!objData.IsFacingRight())
+			{
+				arr[0].x *= -1;
+				arr[1].x *= -1;
+				arr[2].x *= -1;
+				arr[3].x *= -1;
+			}
+
+			arr[0] += objData.GetPosition();
+			arr[1] += objData.GetPosition();
+			arr[2] += objData.GetPosition();
+			arr[3] += objData.GetPosition();
 
 			return arr;
 		}

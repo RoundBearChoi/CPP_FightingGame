@@ -170,6 +170,7 @@
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DebugRenderer.h" />
     <ClInclude Include="DevSettings.h" />
+    <ClInclude Include="DiagonalOverlap.h" />
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DummySelector.h" />
     <ClInclude Include="Fighter_0_Idle.h" />

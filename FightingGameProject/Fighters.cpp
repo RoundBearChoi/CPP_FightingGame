@@ -55,18 +55,29 @@ namespace RB
 
 				if (collisionCheck)
 				{
-					IF_COUT{ std::cout << "fighter creation id: " << obj.objData.GetCreationID() << std::endl; };
+					//IF_COUT{ std::cout << "fighter creation id: " << obj.objData.GetCreationID() << std::endl; };
 
 					for (BodyType& b : collisionCheck->vecBodies)
 					{
-						olc::vi2d colliderPos = s->GetColliderWorldPos(b, obj.objData);
-						std::array<olc::vi2d, 4> arrQuads = s->GetColliderQuadsWorldPos(b, obj.objData);
+						olc::vi2d p1col = s->GetColliderWorldPos(b, obj.objData);
+						std::array<olc::vi2d, 4> p1Quads = s->GetColliderQuadsWorldPos(b, obj.objData);
 
-						State* enemyState = GetEnemyState(*s);
+						GameObj* enemyObj = GetEnemyObj(*s);
 
-						if (enemyState != nullptr)
+						if (enemyObj != nullptr)
 						{
-							int n = 0;
+							olc::vi2d p2col = enemyObj->stateController.currentState->GetColliderWorldPos(BodyType::HEAD, enemyObj->objData);
+							std::array<olc::vi2d, 4> p2Quads = enemyObj->stateController.currentState->GetColliderQuadsWorldPos(BodyType::HEAD, enemyObj->objData);
+
+							if (DiagonalOverlap::yes(p1col, p1Quads, p2Quads))
+							{
+								IF_COUT{ std::cout << "overlap!" << std::endl; };
+							}
+
+							if (DiagonalOverlap::yes(p2col, p2Quads, p1Quads))
+							{
+								IF_COUT{ std::cout << "overlap!" << std::endl; };
+							}
 						}
 					}
 				}
@@ -140,6 +151,20 @@ namespace RB
 			if (&(*obj.stateController.currentState) != &me)
 			{
 				return obj.stateController.currentState;
+			}
+		}
+
+		return nullptr;
+	}
+
+	GameObj* Fighters::GetEnemyObj(State& me)
+	{
+		for (GameObj& obj : arrObjs)
+		{
+			//compare addresses
+			if (&(*obj.stateController.currentState) != &me)
+			{
+				return &obj;
 			}
 		}
 

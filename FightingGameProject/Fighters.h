@@ -8,6 +8,7 @@
 #include "CreationCount.h"
 #include "DevSettings.h"
 #include "PlayerType.h"
+#include "DiagonalOverlap.h"
 
 namespace RB
 {
@@ -24,6 +25,7 @@ namespace RB
 
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		State* GetEnemyState(State& me);
+		GameObj* GetEnemyObj(State& me);
 
 		template<class T>
 		void SetInitialState(int32_t _index)
