@@ -40,6 +40,7 @@ namespace RB
 		//etc
 		Key* key_mouse0 = nullptr;
 		Key* key_shift = nullptr;
+		Key* key_f8 = nullptr;
 		Key* key_f9 = nullptr;
 		Key* key_f10 = nullptr;
 		Key* key_f11 = nullptr;

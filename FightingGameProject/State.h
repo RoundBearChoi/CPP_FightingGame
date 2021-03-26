@@ -124,7 +124,7 @@ namespace RB
 
 		void RenderColliderQuads(ObjData& objData, Camera& cam)
 		{
-			if (!DevSettings::RenderDebugBoxes(false))
+			if (!DevSettings::renderDebugBoxes)
 			{
 				return;
 			}

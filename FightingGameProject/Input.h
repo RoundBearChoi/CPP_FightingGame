@@ -39,6 +39,7 @@ namespace RB
 		//etc
 		std::vector<Key> vecMouse0;
 		std::vector<Key> vecShift;
+		std::vector<Key> vecF8;
 		std::vector<Key> vecF9;
 		std::vector<Key> vecF10;
 		std::vector<Key> vecF11;
@@ -73,6 +74,7 @@ namespace RB
 
 			UpdateKey(vecMouse0, KeyType::MOUSE_0, olc::Platform::ptrPGE->GetMouse(0));
 			UpdateKey(vecShift, KeyType::SHIFT, olc::Platform::ptrPGE->GetKey(olc::Key::SHIFT));
+			UpdateKey(vecF8, KeyType::F8, olc::Platform::ptrPGE->GetKey(olc::Key::F8));
 			UpdateKey(vecF9, KeyType::F9, olc::Platform::ptrPGE->GetKey(olc::Key::F9));
 			UpdateKey(vecF10, KeyType::F10, olc::Platform::ptrPGE->GetKey(olc::Key::F10));
 			UpdateKey(vecF11, KeyType::F11, olc::Platform::ptrPGE->GetKey(olc::Key::F11));
@@ -129,6 +131,7 @@ namespace RB
 
 			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
 			gameData.key_shift = GetUnprocessedKey(vecShift);
+			gameData.key_f8 = GetUnprocessedKey(vecF8);
 			gameData.key_f9 = GetUnprocessedKey(vecF9);
 			gameData.key_f10 = GetUnprocessedKey(vecF10);
 			gameData.key_f11 = GetUnprocessedKey(vecF11);
@@ -176,6 +179,7 @@ namespace RB
 
 			ClearReleasedKeys(vecMouse0);
 			ClearReleasedKeys(vecShift);
+			ClearReleasedKeys(vecF8);
 			ClearReleasedKeys(vecF9);
 			ClearReleasedKeys(vecF10);
 			ClearReleasedKeys(vecF11);

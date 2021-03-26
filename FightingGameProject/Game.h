@@ -44,6 +44,20 @@ namespace RB
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
+				if (gameData.key_f8)
+				{
+					if (DevSettings::renderDebugBoxes)
+					{
+						gameData.key_f8->processed = true;
+						DevSettings::renderDebugBoxes = false;
+					}
+					else
+					{
+						gameData.key_f8->processed = true;
+						DevSettings::renderDebugBoxes = true;
+					}
+				}
+
 				if (gameData.key_f9)
 				{
 					gameData.key_f9->processed = true;
@@ -71,6 +85,11 @@ namespace RB
 
 			sceneController.currentScene->RenderObjs();
 			timer.ShowUpdateCount();
+
+			if (DevSettings::renderDebugBoxes)
+			{
+				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "debug");
+			}
 
 			return true;
 		}

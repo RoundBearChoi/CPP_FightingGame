@@ -146,6 +146,7 @@
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="Fighters.cpp" />
     <ClCompile Include="FightScene.cpp" />

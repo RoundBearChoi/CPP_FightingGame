@@ -102,6 +102,9 @@
     <ClCompile Include="SpriteLoader.cpp">
       <Filter>Source Files\SpriteLoader</Filter>
     </ClCompile>
+    <ClCompile Include="DevSettings.cpp">
+      <Filter>Source Files\Settings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

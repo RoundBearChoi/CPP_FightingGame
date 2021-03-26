@@ -53,7 +53,7 @@ namespace RB
 
 	void GameObj::RenderCollisionTiming(BodyType _bodyType, Camera& cam)
 	{
-		if (DevSettings::RenderDebugBoxes(false))
+		if (DevSettings::renderDebugBoxes)
 		{
 			//draw center position
 			olc::vi2d playerPos = RelativeVector::GetPosition(objData.GetPosition(), cam);
