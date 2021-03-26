@@ -22,40 +22,46 @@ namespace RB
 			arrObjs[1].objData.SetLeftSide(false);
 		}
 
-		for (int32_t i = 0; i < arrObjs.size(); i++)
+		for (GameObj& obj : arrObjs)
 		{
-			arrObjs[i].stateController.MakeStateTransition();
+			obj.stateController.MakeStateTransition();
 
-			if (arrObjs[i].objData.IsOnLeftSide())
+			if (obj.objData.IsOnLeftSide())
 			{
-				arrObjs[i].objData.FaceRight(true);
+				obj.objData.FaceRight(true);
 			}
 			else
 			{
-				arrObjs[i].objData.FaceRight(false);
+				obj.objData.FaceRight(false);
 			}
 
-			State* s = arrObjs[i].stateController.currentState;
+			State* s = obj.stateController.currentState;
 
 			if (s != nullptr)
 			{
 				if (s->IsNew())
 				{
-					s->OnEnter(arrObjs[i].objData, gameData);
+					s->OnEnter(obj.objData, gameData);
 				}
 
-				s->UpdateState(arrObjs[i].objData, gameData);
+				s->UpdateState(obj.objData, gameData);
 
-				if (arrObjs[i].stateController.currentState->animationController.status.nDelayCount == 0)
+				if (obj.stateController.currentState->animationController.status.nDelayCount == 0)
 				{
-					s->OnAnimationUpdate(arrObjs[i].objData, gameData);
+					s->OnAnimationUpdate(obj.objData, gameData);
 				}
 
 				CollisionCheck* collisionCheck = s->GetCollisionCheck();
 
 				if (collisionCheck)
 				{
-					IF_COUT{ std::cout << "fighter creation id: " << arrObjs[i].objData.GetCreationID() << std::endl; }
+					IF_COUT{ std::cout << "fighter creation id: " << obj.objData.GetCreationID() << std::endl; };
+
+					for (BodyType& b : collisionCheck->vecBodies)
+					{
+						olc::vi2d colliderPos = s->GetColliderWorldPos(b, obj.objData);
+						int n = 0;
+					}
 				}
 			}
 		}
