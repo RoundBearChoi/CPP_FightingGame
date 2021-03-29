@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 #include "GameData.h"
-#include "UIElement.h"
+#include "PrimitiveDecal.h"
 #include "StringNotification.h"
 #include "TargetBodyType.h"
 #include "ColliderLoader.h"
@@ -15,12 +15,12 @@ namespace RB
 	private:
 		DummySelector selector;
 
-		UIElement playIcon;
-		UIElement saveIcon;
-		UIElement leftSel;
-		UIElement rightSel;
-		UIElement copyIcon0;
-		UIElement copyIcon1;
+		PrimitiveDecal playIcon;
+		PrimitiveDecal saveIcon;
+		PrimitiveDecal leftSel;
+		PrimitiveDecal rightSel;
+		PrimitiveDecal copyIcon0;
+		PrimitiveDecal copyIcon1;
 
 		StringNotification saved;
 		StringNotification copied0;

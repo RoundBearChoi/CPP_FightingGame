@@ -3,7 +3,7 @@
 
 namespace RB
 {
-	class UIElement
+	class PrimitiveDecal
 	{
 	public:
 		olc::vi2d topLeft = { 0, 0 };
