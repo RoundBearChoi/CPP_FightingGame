@@ -49,5 +49,7 @@ namespace RB
 		background.RenderStates(cam, update);
 		fighters.RenderStates(cam, update);
 		fighters.RenderBoxColliders(cam);
+
+		DecalLineRenderer::Draw({ 0, 0 }, { 100, 100 }, olc::RED);
 	}
 }

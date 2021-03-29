@@ -9,6 +9,9 @@
 #include "Background_Idle_Mountains.h"
 #include "Background_Idle_Sun.h"
 
+//temp
+#include "DecalLineRenderer.h"
+
 namespace RB
 {
 	class FightScene : public Scene

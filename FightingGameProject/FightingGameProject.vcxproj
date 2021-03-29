@@ -146,6 +146,7 @@
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DecalLineRenderer.cpp" />
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="Fighters.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DebugRenderer.h" />
+    <ClInclude Include="DecalLineRenderer.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="DiagonalOverlap.h" />
     <ClInclude Include="Directions.h" />
