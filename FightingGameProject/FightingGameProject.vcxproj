@@ -210,7 +210,7 @@
     <ClInclude Include="TargetBodyType.h" />
     <ClInclude Include="SpriteLoader.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="PrimitiveDecal.h" />
+    <ClInclude Include="UIElement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

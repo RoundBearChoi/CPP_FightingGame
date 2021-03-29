@@ -209,7 +209,7 @@
     <ClInclude Include="DevSettings.h">
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="PrimitiveDecal.h">
+    <ClInclude Include="UIElement.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
