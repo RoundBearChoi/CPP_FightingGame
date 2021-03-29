@@ -1,5 +1,4 @@
 #pragma once
-#include "Renderer.h"
 #include "SpriteLoader.h"
 
 namespace RB
@@ -25,7 +24,7 @@ namespace RB
 			}
 			else
 			{
-				RENDERER->DrawPartialWarpedDecal(d, points, { 245, 245 }, { 0, 0 }, olc::RED);
+				olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, points, { 245, 245 }, { 0, 0 }, olc::RED);
 			}
 		}
 	};

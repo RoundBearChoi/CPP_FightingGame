@@ -4,7 +4,6 @@
 #include "ObjData.h"
 #include "GameData.h"
 #include "AnimationController.h"
-#include "Renderer.h"
 #include "DebugRenderer.h"
 #include "SpriteLoader.h"
 #include "PlayerInput.h"

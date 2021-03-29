@@ -3,7 +3,6 @@
 #include "Camera.h"
 #include "DevSettings.h"
 #include "RelativeVector.h"
-#include "Renderer.h"
 #include "SceneType.h"
 
 namespace RB

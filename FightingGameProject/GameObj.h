@@ -3,7 +3,6 @@
 #include "StateController.h"
 #include "RelativeVector.h"
 #include "DevSettings.h"
-#include "Renderer.h"
 
 namespace RB
 {

@@ -1,5 +1,4 @@
 #pragma once
-#include "Renderer.h"
 #include "GameSettings.h"
 
 namespace RB
@@ -44,7 +43,7 @@ namespace RB
 
 		void ShowUpdateCount()
 		{
-			RENDERER->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
+			olc::Renderer::ptrPGE->DrawString({0, 0}, "update count: " + std::to_string(nUpdateCountPerSec), olc::WHITE);
 		}
 	};
 }
