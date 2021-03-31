@@ -360,3 +360,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# CMake files
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+CPPFightingGame
+CMakeFiles/
