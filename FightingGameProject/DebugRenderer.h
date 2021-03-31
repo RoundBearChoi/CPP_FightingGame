@@ -13,7 +13,7 @@ namespace RB
 
 			if (hash == 0)
 			{
-				hash = std::hash<std::string>{}("PNG files/DebugElements/245whitesq_tr80.png");
+				hash = std::hash<std::string>{}("PNG files/DebugElements/1whitesq_tr80.png");
 
 				IF_COUT{ std::cout << "collider png hash: " << hash << std::endl; };
 			}

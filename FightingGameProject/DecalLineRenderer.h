@@ -10,8 +10,6 @@ namespace RB
 	{
 	private:
 		static std::string path;
-		static olc::vi2d sourcePos;
-		static olc::vi2d sourceSize;
 
 	public:
 		static size_t GetHash()
@@ -36,7 +34,7 @@ namespace RB
 			points[2] = to - olc::vi2d(0, -1);
 			points[3] = to;
 
-			olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, points, sourcePos, sourceSize, tint);
+			olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, tint);
 		}
 	};
 }

@@ -59,15 +59,15 @@ namespace RB
 			olc::vi2d playerPos = RelativeVector::GetPosition(objData.GetPosition(), cam);
 			olc::vi2d colliderPos = stateController.currentState->GetColliderWorldPos(_bodyType, objData);
 
-			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(colliderPos, cam), olc::RED);
+			DecalLineRenderer::Draw(playerPos, RelativeVector::GetPosition(colliderPos, cam), olc::RED);
 
 			//draw quads
 			std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsWorldPos(_bodyType, objData);
 
-			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[0], cam), olc::YELLOW);
-			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[1], cam), olc::YELLOW);
-			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[2], cam), olc::YELLOW);
-			olc::Renderer::ptrPGE->DrawLine(playerPos, RelativeVector::GetPosition(quads[3], cam), olc::YELLOW);
+			DecalLineRenderer::Draw(playerPos, RelativeVector::GetPosition(quads[0], cam), olc::YELLOW);
+			DecalLineRenderer::Draw(playerPos, RelativeVector::GetPosition(quads[1], cam), olc::YELLOW);
+			DecalLineRenderer::Draw(playerPos, RelativeVector::GetPosition(quads[2], cam), olc::YELLOW);
+			DecalLineRenderer::Draw(playerPos, RelativeVector::GetPosition(quads[3], cam), olc::YELLOW);
 		}
 	}
 }
