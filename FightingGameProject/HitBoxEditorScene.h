@@ -14,6 +14,7 @@ namespace RB
 	{
 	private:
 		DummySelector selector;
+		TargetBodyType targetBodyType;
 
 		UIElement playIcon;
 		UIElement saveIcon;
@@ -26,10 +27,6 @@ namespace RB
 		StringNotification copied0;
 		StringNotification copied1;
 
-		//std::vector<BoxCollider> vecBoxColliders;
-		TargetBodyType targetBodyType;
-
-		int32_t nFrames = 0;
 		size_t nSelectedBodyIndex = 0;
 
 	public:
