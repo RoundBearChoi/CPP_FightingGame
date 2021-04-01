@@ -9,5 +9,10 @@ namespace RB
 	public:
 		InputType inputType;
 		int32_t frameCount = 0;
+
+		InputElement(InputType _inputType)
+		{
+			inputType = _inputType;
+		}
 	};
 }
