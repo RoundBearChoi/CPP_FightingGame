@@ -117,14 +117,22 @@ namespace RB
 		{
 			if (!bUpLeft && !bDownLeft)
 			{
-
+				if (!bLeft)
+				{
+					bLeft = true;
+					vecBuffer.push_back(InputElement(InputType::LEFT));
+				}
 			}
 		}
 		else if (keyRight)
 		{
 			if (!bUpRight && !bDownRight)
 			{
-
+				if (!bRight)
+				{
+					bRight = true;
+					vecBuffer.push_back(InputElement(InputType::RIGHT));
+				}
 			}
 		}
 
@@ -152,6 +160,18 @@ namespace RB
 		if (!keyUp || !keyLeft)
 		{
 			bUpLeft = false;
+		}
+
+		// ¡ç
+		if (!keyLeft)
+		{
+			bLeft = false;
+		}
+
+		// ¡æ
+		if (!keyRight)
+		{
+			bRight = false;
 		}
 	}
 }
