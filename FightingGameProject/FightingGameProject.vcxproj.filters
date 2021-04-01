@@ -284,5 +284,8 @@
     <ClInclude Include="InputType.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
+    <ClInclude Include="InputElement.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

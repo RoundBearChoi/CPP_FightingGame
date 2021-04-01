@@ -190,6 +190,7 @@
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
+    <ClInclude Include="InputElement.h" />
     <ClInclude Include="InputQueue.h" />
     <ClInclude Include="InputType.h" />
     <ClInclude Include="PlayerInput.h" />

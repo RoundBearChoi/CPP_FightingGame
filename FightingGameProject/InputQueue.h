@@ -14,5 +14,6 @@ namespace RB
 
 		static InputQueue* ptr;
 		void AddInputs(GameData& gameData, ObjData& p1, ObjData& p2);
+		void UpdateFrameCount();
 	};
 }

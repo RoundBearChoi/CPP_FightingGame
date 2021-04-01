@@ -58,6 +58,8 @@ namespace RB
 
 				//only clear after update
 				input.ClearKeyQueues();
+
+				inputQueue.UpdateFrameCount();
 			}
 			else
 			{
