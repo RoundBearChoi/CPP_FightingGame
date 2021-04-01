@@ -11,14 +11,27 @@ namespace RB
 
 	void InputBuffer::Update()
 	{
+		size_t p1DeleteCount = 0;
+		size_t p2DeleteCount = 0;
+
 		for (size_t i = 0; i < vecP1Inputs.size(); i++)
 		{
 			vecP1Inputs[i].updateCount++;
+
+			if (vecP1Inputs[i].updateCount > 120)
+			{
+				p1DeleteCount++;
+			}
 		}
 
 		for (size_t i = 0; i < vecP2Inputs.size(); i++)
 		{
 			vecP2Inputs[i].updateCount++;
+		}
+
+		for (size_t i = 0; i < p1DeleteCount; i++)
+		{
+			vecP1Inputs.erase(vecP1Inputs.begin());
 		}
 	}
 
