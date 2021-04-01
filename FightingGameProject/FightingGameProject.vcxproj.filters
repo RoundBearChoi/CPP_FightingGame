@@ -52,9 +52,6 @@
     <Filter Include="Source Files\Settings">
       <UniqueIdentifier>{b23c14bb-9e57-43e7-939e-a7e5a1329e85}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Collider">
-      <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SpriteLoader">
       <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,9 @@
     </Filter>
     <Filter Include="Source Files\State\Concrete States\Fighters">
       <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collision">
+      <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -216,10 +216,10 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
-      <Filter>Source Files\Collider</Filter>
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="BodyType.h">
-      <Filter>Source Files\Collider</Filter>
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="TargetBodyType.h">
       <Filter>Source Files</Filter>
@@ -234,7 +234,7 @@
       <Filter>Source Files\SpriteLoader</Filter>
     </ClInclude>
     <ClInclude Include="ColliderLoader.h">
-      <Filter>Source Files\Collider</Filter>
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_WalkBack.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
@@ -258,13 +258,10 @@
       <Filter>Source Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="CollisionStatus.h">
-      <Filter>Source Files\Collider</Filter>
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="ObjGroup.h">
       <Filter>Source Files\GameObj Groups</Filter>
-    </ClInclude>
-    <ClInclude Include="DiagonalOverlap.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_0.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
@@ -274,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="DecalLineRenderer.h">
       <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagonalOverlap.h">
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
