@@ -23,6 +23,9 @@ namespace RB
 
 	void Fighters::UpdateState(GameData& gameData)
 	{
+		//input queues
+		InputBuffer::ptr->AddInputs(gameData);
+
 		//forward directions
 		if (arrObjs[0].objData.GetPosition().x < arrObjs[1].objData.GetPosition().x)
 		{
@@ -41,9 +44,6 @@ namespace RB
 		{
 			arrObjs[1].objData.SetLeftSide(false);
 		}
-
-		//input queues
-		InputBuffer::ptr->AddInputs(gameData);
 
 		for (GameObj& obj : arrObjs)
 		{

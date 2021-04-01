@@ -71,7 +71,6 @@ namespace RB
 			{
 				if (!upright)
 				{
-					IF_COUT{ std::cout << "queued upforward" << std::endl; };
 					vecBuffer.push_back(InputElement(InputType::UP_RIGHT));
 					upright = true;
 				}
@@ -82,7 +81,6 @@ namespace RB
 			{
 				if (!downright)
 				{
-					IF_COUT{ std::cout << "queued downforward" << std::endl; };
 					vecBuffer.push_back(InputElement(InputType::DOWN_RIGHT));
 					downright = true;
 				}
@@ -93,7 +91,6 @@ namespace RB
 			{
 				if (!downleft)
 				{
-					IF_COUT{ std::cout << "queued downback" << std::endl; };
 					vecBuffer.push_back(InputElement(InputType::DOWN_LEFT));
 					downleft = true;
 				}
@@ -104,7 +101,6 @@ namespace RB
 			{
 				if (!upleft)
 				{
-					IF_COUT{ std::cout << "queued upback" << std::endl; };
 					vecBuffer.push_back(InputElement(InputType::UP_LEFT));
 					upleft = true;
 				}
@@ -113,25 +109,25 @@ namespace RB
 
 		//clear for next queue
 
-		//up forward
+		// ¢Ö
 		if (!up || !right)
 		{
 			upright = false;
 		}
 
-		//down forward
+		// ¢Ù
 		if (!down || !right)
 		{
 			downright = false;
 		}
 
-		//down back
+		// ¢×
 		if (!down || !left)
 		{
 			downleft = false;
 		}
 
-		//up back
+		// ¢Ø
 		if (!up || !left)
 		{
 			upleft = false;
