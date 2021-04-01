@@ -56,15 +56,15 @@ namespace RB
 				}
 
 				//collision check
-				CollisionCheck* collisionCheck = state->GetCollisionCheck();
+				CollisionStatus* col = state->GetCollisionStatus();
 
-				if (collisionCheck)
+				if (col)
 				{
-					if (!collisionCheck->processed)
+					if (!col->processed)
 					{
-						collisionCheck->processed = true;
+						col->processed = true;
 
-						for (BodyType& b : collisionCheck->vecBodies)
+						for (BodyType& b : col->vecBodies)
 						{
 							GameObj& enemy = *GetEnemyObj(*state);
 
@@ -97,7 +97,7 @@ namespace RB
 
 			if (obj.stateController.currentState != nullptr)
 			{
-				CollisionCheck* check = obj.stateController.currentState->GetCollisionCheck();
+				CollisionStatus* check = obj.stateController.currentState->GetCollisionStatus();
 
 				if (check)
 				{

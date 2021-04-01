@@ -8,7 +8,7 @@
 #include "SpriteLoader.h"
 #include "PlayerInput.h"
 #include "Directions.h"
-#include "CollisionCheck.h"
+#include "CollisionStatus.h"
 
 namespace RB
 {
@@ -33,7 +33,7 @@ namespace RB
 	public:
 		State* nextState = nullptr;
 		AnimationController animationController;
-		std::vector<CollisionCheck> vecCollisionCheck;
+		std::vector<CollisionStatus> vecCollisionStatus;
 		int32_t updateCount = 0;
 
 		virtual ~State() {};
@@ -185,15 +185,14 @@ namespace RB
 			col.clear();
 		}
 
-		CollisionCheck* GetCollisionCheck()
+		CollisionStatus* GetCollisionStatus()
 		{
 			//collision check
-			for (size_t i = 0; i < vecCollisionCheck.size(); i++)
+			for (size_t i = 0; i < vecCollisionStatus.size(); i++)
 			{
-				if (vecCollisionCheck[i].frame == animationController.status.nCurrentTile)
+				if (vecCollisionStatus[i].frame == animationController.status.nCurrentTile)
 				{
-					//IF_COUT{ std::cout << "checking collision: frame index " << vecCollisionCheck[i].frame << std::endl; };
-					return &vecCollisionCheck[i];
+					return &vecCollisionStatus[i];
 				}
 			}
 
