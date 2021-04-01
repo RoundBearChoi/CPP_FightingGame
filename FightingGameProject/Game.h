@@ -5,6 +5,7 @@
 #include "SceneController.h"
 #include "GameSettings.h"
 #include "Input.h"
+#include "InputQueue.h"
 
 namespace RB
 {
@@ -13,6 +14,7 @@ namespace RB
 	private:
 		SceneController sceneController;
 		Input input;
+		InputQueue inputQueue;
 		Timer timer;
 		
 	public:
@@ -35,6 +37,11 @@ namespace RB
 		{
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
+
+			if (InputQueue::ptr == nullptr)
+			{
+				InputQueue::ptr = &inputQueue;
+			}
 
 			input.UpdateInput();
 

@@ -14,6 +14,7 @@ DevSettings.cpp
 Fighters.cpp
 FightScene.cpp
 GameObj.cpp
+InputQueue.cpp
 main.cpp
 Scene.cpp
 SceneController.cpp
