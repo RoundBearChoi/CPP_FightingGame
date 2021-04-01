@@ -29,6 +29,9 @@ namespace RB
 		UIElement downleft;
 		UIElement downright;
 
+		UIElement left;
+		UIElement right;
+
 	public:
 		Fighters();
 

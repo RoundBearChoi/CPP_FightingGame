@@ -6,7 +6,7 @@ namespace RB
 
 	void InputBuffer::AddInputs(GameData& gameData)
 	{
-		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft);
+		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft, p1_left, p1_right);
 	}
 
 	void InputBuffer::Update()
@@ -54,83 +54,104 @@ namespace RB
 		else { return false; }
 	}
 
-	void InputBuffer::PlayerBuffer(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upright, bool& downright, bool& downleft, bool& upleft)
+	void InputBuffer::PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight)
 	{
-		if (QuadruplePress(up, down, left, right))
+		if (QuadruplePress(keyUp, keyDown, keyLeft, keyRight))
 		{
 			//do nothing
 		}
-		else if (TriplePress(up, down, left, right))
+		else if (TriplePress(keyUp, keyDown, keyLeft, keyRight))
 		{
 			//do nothing
 		}
 		else
 		{
 			// ¢Ö
-			if (up && right)
+			if (keyUp && keyRight)
 			{
-				if (!upright)
+				if (!bUpRight)
 				{
 					vecBuffer.push_back(InputElement(InputType::UP_RIGHT));
-					upright = true;
+					bUpRight = true;
 				}
 			}
 
 			// ¢Ù
-			if (down && right)
+			if (keyDown && keyRight)
 			{
-				if (!downright)
+				if (!bDownRight)
 				{
 					vecBuffer.push_back(InputElement(InputType::DOWN_RIGHT));
-					downright = true;
+					bDownRight = true;
 				}
 			}
 
 			// ¢×
-			if (down && left)
+			if (keyDown && keyLeft)
 			{
-				if (!downleft)
+				if (!bDownLeft)
 				{
 					vecBuffer.push_back(InputElement(InputType::DOWN_LEFT));
-					downleft = true;
+					bDownLeft = true;
 				}
 			}
 
 			// ¢Ø
-			if (up && left)
+			if (keyUp && keyLeft)
 			{
-				if (!upleft)
+				if (!bUpLeft)
 				{
 					vecBuffer.push_back(InputElement(InputType::UP_LEFT));
-					upleft = true;
+					bUpLeft = true;
 				}
+			}
+		}
+
+		//straight left or right
+
+		if (keyLeft && keyRight || !keyLeft && !keyRight)
+		{
+			// double press: do nothing
+		}
+		else if (keyLeft)
+		{
+			if (!bUpLeft && !bDownLeft)
+			{
+
+			}
+		}
+		else if (keyRight)
+		{
+			if (!bUpRight && !bDownRight)
+			{
+
 			}
 		}
 
 		//clear for next queue
 
 		// ¢Ö
-		if (!up || !right)
+		if (!keyUp || !keyRight)
 		{
-			upright = false;
+			bUpRight = false;
 		}
 
 		// ¢Ù
-		if (!down || !right)
+		if (!keyDown || !keyRight)
 		{
-			downright = false;
+			bDownRight = false;
 		}
 
 		// ¢×
-		if (!down || !left)
+		if (!keyDown || !keyLeft)
 		{
-			downleft = false;
+			bDownLeft = false;
 		}
 
 		// ¢Ø
-		if (!up || !left)
+		if (!keyUp || !keyLeft)
 		{
-			upleft = false;
+			bUpLeft = false;
 		}
 	}
 }
