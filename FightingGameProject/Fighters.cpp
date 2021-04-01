@@ -7,22 +7,18 @@ namespace RB
 		upback.path = "PNG files/BoxColliderEditor/upback.png";
 		upback.SetHash();
 		upback.SetDecal();
-		upback.topLeft = { 0, 0 };
 
 		upforward.path = "PNG files/BoxColliderEditor/upforward.png";
 		upforward.SetHash();
 		upforward.SetDecal();
-		upforward.topLeft = { 0, 0 };
 
 		downback.path = "PNG files/BoxColliderEditor/downback.png";
 		downback.SetHash();
 		downback.SetDecal();
-		downback.topLeft = { 0, 0 };
 
 		downforward.path = "PNG files/BoxColliderEditor/downforward.png";
 		downforward.SetHash();
 		downforward.SetDecal();
-		downforward.topLeft = { 0, 0 };
 	}
 
 	void Fighters::UpdateState(GameData& gameData)
