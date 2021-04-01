@@ -25,6 +25,6 @@ namespace RB
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
-		void P1FacingRight(Key* up, Key* down, Key* left, Key* right);
+		void PlayerFacingRight(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upforward, bool& downforward, bool& downback, bool& upback);
 	};
 }
