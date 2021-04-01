@@ -4,6 +4,27 @@ namespace RB
 {
 	InputQueue* InputQueue::ptr = nullptr;
 
+	void InputQueue::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
+	{
+		if (p1.IsFacingRight())
+		{
+			P1FacingRight(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d);
+		}
+	}
+
+	void InputQueue::Update()
+	{
+		for (size_t i = 0; i < vecP1Inputs.size(); i++)
+		{
+			vecP1Inputs[i].updateCount++;
+		}
+
+		for (size_t i = 0; i < vecP2Inputs.size(); i++)
+		{
+			vecP2Inputs[i].updateCount++;
+		}
+	}
+
 	bool InputQueue::QuadruplePress(Key* up, Key* down, Key* left, Key* right)
 	{
 		if (up && down && left && right)
@@ -50,100 +71,87 @@ namespace RB
 		}
 	}
 
-	void InputQueue::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
+	void InputQueue::P1FacingRight(Key* up, Key* down, Key* left, Key* right)
 	{
-		if (QuadruplePress(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d))
+		if (QuadruplePress(up, down, left, right))
 		{
 			//do nothing
 		}
-		else if (TriplePress(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d))
+		else if (TriplePress(up, down, left, right))
 		{
 			//do nothing
 		}
 		else
 		{
 			//up forward
-			if (gameData.key_d && gameData.key_w)
+			if (up && right)
 			{
-				if (!upforward)
+				if (!p1_upforward)
 				{
-					IF_COUT{ std::cout << "queued upforward" << std::endl; };
+					IF_COUT{ std::cout << "p1 queued upforward" << std::endl; };
 					vecP1Inputs.push_back(InputElement(InputType::UP_FORWARD));
-					upforward = true;
+					p1_upforward = true;
 				}
 			}
 
 			//down forward
-			if (gameData.key_d && gameData.key_s)
+			if (down && right)
 			{
-				if (!downforward)
+				if (!p1_downforward)
 				{
-					IF_COUT{ std::cout << "queued downforward" << std::endl; };
+					IF_COUT{ std::cout << "p1 queued downforward" << std::endl; };
 					vecP1Inputs.push_back(InputElement(InputType::DOWN_FORWARD));
-					downforward = true;
+					p1_downforward = true;
 				}
 			}
 
 			//down back
-			if (gameData.key_s && gameData.key_a)
+			if (down && left)
 			{
-				if (!downback)
+				if (!p1_downback)
 				{
-					IF_COUT{ std::cout << "queued downback" << std::endl; };
+					IF_COUT{ std::cout << "p1 queued downback" << std::endl; };
 					vecP1Inputs.push_back(InputElement(InputType::DOWN_BACK));
-					downback = true;
+					p1_downback = true;
 				}
 			}
 
 			//up back
-			if (gameData.key_a && gameData.key_w)
+			if (up && left)
 			{
-				if (!upback)
+				if (!p1_upback)
 				{
-					IF_COUT{ std::cout << "queued upback" << std::endl; };
+					IF_COUT{ std::cout << "p1 queued upback" << std::endl; };
 					vecP1Inputs.push_back(InputElement(InputType::UP_BACK));
-					upback = true;
+					p1_upback = true;
 				}
 			}
 		}
-		
+
 		//clear for next queue
 
 		//up forward
-		if (!gameData.key_d || !gameData.key_w)
+		if (!up || !right)
 		{
-			upforward = false;
+			p1_upforward = false;
 		}
 
 		//down forward
-		if (!gameData.key_d || !gameData.key_s)
+		if (!down || !right)
 		{
-			downforward = false;
+			p1_downforward = false;
 		}
 
 		//down back
-		if (!gameData.key_s || !gameData.key_a)
+		if (!down || !left)
 		{
-			downback = false;
+			p1_downback = false;
 		}
 
 		//up back
-		if (!gameData.key_a || !gameData.key_w)
+		if (!up || !left)
 		{
-			upback = false;
-		}
-	}
-
-	void InputQueue::Update()
-	{
-		for (size_t i = 0; i < vecP1Inputs.size(); i++)
-		{
-			vecP1Inputs[i].updateCount++;
-		}
-
-		for (size_t i = 0; i < vecP2Inputs.size(); i++)
-		{
-			vecP2Inputs[i].updateCount++;
+			p1_upback = false;
 		}
 	}
 }

@@ -10,19 +10,21 @@ namespace RB
 	class InputQueue
 	{
 	private:
-		bool upforward = false;
-		bool downforward = false;
-		bool downback = false;
-		bool upback = false;
+		bool p1_upforward = false;
+		bool p1_downforward = false;
+		bool p1_downback = false;
+		bool p1_upback = false;
 
 	public:
+		static InputQueue* ptr;
+
 		std::vector<InputElement> vecP1Inputs;
 		std::vector<InputElement> vecP2Inputs;
 
-		static InputQueue* ptr;
 		void AddInputs(GameData& gameData, ObjData& p1, ObjData& p2);
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
+		void P1FacingRight(Key* up, Key* down, Key* left, Key* right);
 	};
 }
