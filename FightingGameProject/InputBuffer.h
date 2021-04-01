@@ -18,6 +18,8 @@ namespace RB
 		bool p1_left = false;
 		bool p1_right = false;
 
+		bool p1_down = false;
+
 	public:
 		static InputBuffer* ptr;
 
@@ -28,6 +30,6 @@ namespace RB
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
-		void PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight);
+		void PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight, bool& bDown);
 	};
 }

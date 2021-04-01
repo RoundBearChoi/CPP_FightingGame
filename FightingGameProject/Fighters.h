@@ -32,6 +32,8 @@ namespace RB
 		UIElement left;
 		UIElement right;
 
+		UIElement down;
+
 	public:
 		Fighters();
 

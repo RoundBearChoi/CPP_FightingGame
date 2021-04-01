@@ -27,6 +27,10 @@ namespace RB
 		right.path = "PNG files/BoxColliderEditor/right.png";
 		right.SetHash();
 		right.SetDecal();
+
+		down.path = "PNG files/BoxColliderEditor/down.png";
+		down.SetHash();
+		down.SetDecal();
 	}
 
 	void Fighters::UpdateState(GameData& gameData)
@@ -250,6 +254,9 @@ namespace RB
 			return left.ptrDecal;
 		case InputType::RIGHT:
 			return right.ptrDecal;
+
+		case InputType::DOWN:
+			return down.ptrDecal;
 		}
 
 		return nullptr;

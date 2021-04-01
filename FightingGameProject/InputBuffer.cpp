@@ -6,7 +6,7 @@ namespace RB
 
 	void InputBuffer::AddInputs(GameData& gameData)
 	{
-		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft, p1_left, p1_right);
+		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft, p1_left, p1_right, p1_down);
 	}
 
 	void InputBuffer::Update()
@@ -54,7 +54,7 @@ namespace RB
 		else { return false; }
 	}
 
-	void InputBuffer::PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight)
+	void InputBuffer::PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight, bool& bDown)
 	{
 		if (QuadruplePress(keyUp, keyDown, keyLeft, keyRight))
 		{
@@ -136,6 +136,23 @@ namespace RB
 			}
 		}
 
+		//straight up or down
+		if (keyUp && keyDown || !keyUp && !keyDown)
+		{
+			// double press: do nothing
+		}
+		else if (keyDown)
+		{
+			if (!bDownLeft && !bDownRight)
+			{
+				if (!bDown)
+				{
+					bDown = true;
+					vecBuffer.push_back(InputElement(InputType::DOWN));
+				}
+			}
+		}
+
 		//clear for next queue
 
 		// ขึ
@@ -172,6 +189,12 @@ namespace RB
 		if (!keyRight)
 		{
 			bRight = false;
+		}
+
+		// ก้
+		if (!keyDown)
+		{
+			bDown = false;
 		}
 	}
 }
