@@ -135,7 +135,7 @@ namespace RB
 				return;
 			}
 
-			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
+			size_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
 
 			for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)
 			{
@@ -228,8 +228,8 @@ namespace RB
 		{
 			std::vector<olc::vi2d>& vec = GetColliderQuads();
 
-			int32_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
-			start += ((int32_t)_bodyType * 4);
+			size_t start = animationController.status.nCurrentTile * (4 * ColliderLoader::TotalBodyParts());
+			start += ((size_t)_bodyType * 4);
 
 			std::array<olc::vi2d, 4> arr;
 

@@ -41,7 +41,7 @@ namespace RB
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		State* GetEnemyState(State& me);
 		GameObj* GetEnemyObj(State& me);
-		olc::Decal* GetBufferDecal(ObjData& objData, InputType inputType);
+		olc::Decal* GetBufferDecal(InputType inputType);
 
 		template<class T>
 		void SetInitialState(int32_t _index)

@@ -175,7 +175,7 @@ namespace RB
 			points[2] += pos;
 			points[3] += pos;
 
-			olc::Decal* d = GetBufferDecal(arrObjs[0].objData, InputBuffer::ptr->vecP1Inputs[i].inputType);
+			olc::Decal* d = GetBufferDecal(InputBuffer::ptr->vecP1Inputs[i].inputType);
 
 			if (d != nullptr)
 			{
@@ -225,7 +225,7 @@ namespace RB
 		return nullptr;
 	}
 
-	olc::Decal* Fighters::GetBufferDecal(ObjData& objData, InputType inputType)
+	olc::Decal* Fighters::GetBufferDecal(InputType inputType)
 	{
 		switch (inputType)
 		{

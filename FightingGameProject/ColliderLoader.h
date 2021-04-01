@@ -9,12 +9,12 @@ namespace RB
 	class ColliderLoader
 	{
 	public:
-		static int32_t TotalBodyParts()
+		static size_t TotalBodyParts()
 		{
-			return (int32_t)BodyType::RIGHT_FOOT + 1;
+			return (size_t)BodyType::RIGHT_FOOT + 1;
 		}
 
-		static void SetFighterBodyParts(std::vector<BoxCollider>& vecColliders, int32_t frames)
+		static void SetFighterBodyParts(std::vector<BoxCollider>& vecColliders, size_t frames)
 		{
 			vecColliders.reserve(ColliderLoader::TotalBodyParts() * frames);
 

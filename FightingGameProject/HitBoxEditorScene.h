@@ -30,7 +30,7 @@ namespace RB
 		TargetBodyType targetBodyType;
 
 		int32_t nFrames = 0;
-		int32_t nSelectedBodyIndex = 0;
+		size_t nSelectedBodyIndex = 0;
 
 	public:
 		HitBoxEditorScene()
