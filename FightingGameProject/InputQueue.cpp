@@ -6,53 +6,79 @@ namespace RB
 
 	void InputQueue::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
 	{
-		bool upforward = false;
-		bool downforward = false;
-		bool downback = false;
-		bool upback = false;
+
 
 		//up forward
 		if (gameData.key_d && gameData.key_w)
 		{
-			//std::cout << "adding" << std::endl;
-			//gameData.key_d->processed = true;
-			//gameData.key_w->processed = true;
-			vecP1Inputs.push_back(InputElement(InputType::UP_FORWARD));
-			upforward = true;
+			if (!upforward)
+			{
+				IF_COUT{ std::cout << "queued upforward" << std::endl; };
+				vecP1Inputs.push_back(InputElement(InputType::UP_FORWARD));
+				upforward = true;
+			}
+		}
+		else
+		{
+			upforward = false;
 		}
 
 		//down forward
 		if (gameData.key_d && gameData.key_s)
 		{
-			vecP1Inputs.push_back(InputElement(InputType::DOWN_FORWARD));
-			downforward = true;
+			if (!downforward)
+			{
+				IF_COUT{ std::cout << "queued downforward" << std::endl; };
+				vecP1Inputs.push_back(InputElement(InputType::DOWN_FORWARD));
+				downforward = true;
+			}
+		}
+		else
+		{
+			downforward = false;
 		}
 
 		//down back
 		if (gameData.key_s && gameData.key_a)
 		{
-			vecP1Inputs.push_back(InputElement(InputType::DOWN_BACK));
-			downback = true;
+			if (!downback)
+			{
+				IF_COUT{ std::cout << "queued downback" << std::endl; };
+				vecP1Inputs.push_back(InputElement(InputType::DOWN_BACK));
+				downback = true;
+			}
+		}
+		else
+		{
+			downback = false;
 		}
 
 		//up back
 		if (gameData.key_a && gameData.key_w)
 		{
-			vecP1Inputs.push_back(InputElement(InputType::UP_BACK));
-			upback = true;
+			if (!upback)
+			{
+				IF_COUT{ std::cout << "queued upback" << std::endl; };
+				vecP1Inputs.push_back(InputElement(InputType::UP_BACK));
+				upback = true;
+			}
+		}
+		else
+		{
+			upback = false;
 		}
 	}
 
-	void InputQueue::UpdateFrameCount()
+	void InputQueue::Update()
 	{
 		for (size_t i = 0; i < vecP1Inputs.size(); i++)
 		{
-			vecP1Inputs[i].frameCount++;
+			vecP1Inputs[i].updateCount++;
 		}
 
 		for (size_t i = 0; i < vecP2Inputs.size(); i++)
 		{
-			vecP2Inputs[i].frameCount++;
+			vecP2Inputs[i].updateCount++;
 		}
 	}
 }

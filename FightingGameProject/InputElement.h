@@ -8,7 +8,7 @@ namespace RB
 	{
 	public:
 		InputType inputType;
-		int32_t frameCount = 0;
+		int32_t updateCount = 0;
 
 		InputElement(InputType _inputType)
 		{
