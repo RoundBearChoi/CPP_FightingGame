@@ -175,7 +175,12 @@ namespace RB
 			points[2] += pos;
 			points[3] += pos;
 
-			olc::Renderer::ptrPGE->DrawWarpedDecal(downback.ptrDecal, points, olc::RED);
+			olc::Decal* d = GetBufferDecal(arrObjs[0].objData, InputBuffer::ptr->vecP1Inputs[i].inputType);
+
+			if (d != nullptr)
+			{
+				olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, olc::RED);
+			}
 		}
 	}
 
@@ -214,6 +219,26 @@ namespace RB
 			if (&(*obj.stateController.currentState) != &me)
 			{
 				return &obj;
+			}
+		}
+
+		return nullptr;
+	}
+
+	olc::Decal* Fighters::GetBufferDecal(ObjData& objData, InputType inputType)
+	{
+		if (objData.IsFacingRight())
+		{
+			switch (inputType)
+			{
+			case InputType::UP_FORWARD:
+				return upforward.ptrDecal;
+			case InputType::DOWN_FORWARD:
+				return downforward.ptrDecal;
+			case InputType::DOWN_BACK:
+				return downback.ptrDecal;
+			case InputType::UP_BACK:
+				return upback.ptrDecal;
 			}
 		}
 

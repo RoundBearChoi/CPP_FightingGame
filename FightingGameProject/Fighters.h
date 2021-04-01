@@ -10,6 +10,7 @@
 #include "PlayerType.h"
 #include "DiagonalOverlap.h"
 #include "InputBuffer.h"
+#include "InputType.h"
 #include "UIElement.h"
 
 //for loading
@@ -40,6 +41,7 @@ namespace RB
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		State* GetEnemyState(State& me);
 		GameObj* GetEnemyObj(State& me);
+		olc::Decal* GetBufferDecal(ObjData& objData, InputType inputType);
 
 		template<class T>
 		void SetInitialState(int32_t _index)
