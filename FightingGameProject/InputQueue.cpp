@@ -27,48 +27,21 @@ namespace RB
 
 	bool InputQueue::QuadruplePress(Key* up, Key* down, Key* left, Key* right)
 	{
-		if (up && down && left && right)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		if (up && down && left && right) { return true; }
+		else { return false; }
 	}
 
 	bool InputQueue::TriplePress(Key* up, Key* down, Key* left, Key* right)
 	{
 		int32_t count = 0;
 
-		if (up)
-		{
-			count++;
-		}
+		if (up) { count++; }
+		if (down) { count++; }
+		if (left) { count++; }
+		if (right) { count++; }
 
-		if (down)
-		{
-			count++;
-		}
-
-		if (left)
-		{
-			count++;
-		}
-
-		if (right)
-		{
-			count++;
-		}
-
-		if (count >= 3)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		if (count >= 3) { return true; }
+		else { return false; }
 	}
 
 	void InputQueue::PlayerFacingRight(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upforward, bool& downforward, bool& downback, bool& upback)
