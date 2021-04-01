@@ -148,6 +148,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DecalLineRenderer.cpp" />
     <ClCompile Include="DevSettings.cpp" />
+    <ClCompile Include="InputQueue.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="Fighters.cpp" />
     <ClCompile Include="FightScene.cpp" />
@@ -189,6 +190,8 @@
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
+    <ClInclude Include="InputQueue.h" />
+    <ClInclude Include="InputType.h" />
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="HitBoxEditorScene.h" />
     <ClInclude Include="Input.h" />

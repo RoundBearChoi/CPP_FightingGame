@@ -30,6 +30,8 @@ namespace RB
 			sceneController.Load();
 			sceneController.CreateScene(GameSettings::startingScene);
 			
+			InputQueue::ptr = &inputQueue;
+
 			return true;
 		}
 
@@ -37,11 +39,6 @@ namespace RB
 		{
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
-
-			if (InputQueue::ptr == nullptr)
-			{
-				InputQueue::ptr = &inputQueue;
-			}
 
 			input.UpdateInput();
 

@@ -108,6 +108,9 @@
     <ClCompile Include="DecalLineRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="InputQueue.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -274,6 +277,12 @@
     </ClInclude>
     <ClInclude Include="DiagonalOverlap.h">
       <Filter>Source Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="InputQueue.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputType.h">
+      <Filter>Source Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
