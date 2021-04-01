@@ -65,7 +65,7 @@ namespace RB
 			olc::vi2d p2Center = enemy.stateController.currentState->GetColliderWorldPos(enemyBody, enemy.objData);
 			std::array<olc::vi2d, 4> p2Quads = enemy.stateController.currentState->GetColliderQuadsWorldPos(enemyBody, enemy.objData);
 
-			if (DiagonalOverlap::yes(p1Center, p1Quads, p2Center, p2Quads))
+			if (yes(p1Center, p1Quads, p2Center, p2Quads))
 			{
 				return true;
 			}
