@@ -22,5 +22,7 @@ namespace RB
 		static InputQueue* ptr;
 		void AddInputs(GameData& gameData, ObjData& p1, ObjData& p2);
 		void Update();
+		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
+		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
 	};
 }
