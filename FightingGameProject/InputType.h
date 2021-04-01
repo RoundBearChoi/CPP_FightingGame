@@ -4,14 +4,14 @@ namespace RB
 {
 	enum class InputType
 	{
-		FORWARD,
-		DOWN_FORWARD,
+		RIGHT,
+		DOWN_RIGHT,
 		DOWN,
-		DOWN_BACK,
-		BACK,
-		UP_BACK,
+		DOWN_LEFT,
+		LEFT,
+		UP_LEFT,
 		UP,
-		UP_FORWARD,
+		UP_RIGHT,
 
 		WEAK_PUNCH,
 		STRING_PUNCH,

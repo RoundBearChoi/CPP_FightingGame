@@ -6,10 +6,7 @@ namespace RB
 
 	void InputBuffer::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
 	{
-		if (p1.IsFacingRight())
-		{
-			PlayerFacingRight(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upforward, p1_downforward, p1_downback, p1_upback);
-		}
+		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft);
 	}
 
 	void InputBuffer::Update()
@@ -44,7 +41,7 @@ namespace RB
 		else { return false; }
 	}
 
-	void InputBuffer::PlayerFacingRight(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upforward, bool& downforward, bool& downback, bool& upback)
+	void InputBuffer::PlayerBuffer(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upright, bool& downright, bool& downleft, bool& upleft)
 	{
 		if (QuadruplePress(up, down, left, right))
 		{
@@ -56,47 +53,47 @@ namespace RB
 		}
 		else
 		{
-			//up forward
+			// ¢Ö
 			if (up && right)
 			{
-				if (!upforward)
+				if (!upright)
 				{
 					IF_COUT{ std::cout << "queued upforward" << std::endl; };
-					vecBuffer.push_back(InputElement(InputType::UP_FORWARD));
-					upforward = true;
+					vecBuffer.push_back(InputElement(InputType::UP_RIGHT));
+					upright = true;
 				}
 			}
 
-			//down forward
+			// ¢Ù
 			if (down && right)
 			{
-				if (!downforward)
+				if (!downright)
 				{
 					IF_COUT{ std::cout << "queued downforward" << std::endl; };
-					vecBuffer.push_back(InputElement(InputType::DOWN_FORWARD));
-					downforward = true;
+					vecBuffer.push_back(InputElement(InputType::DOWN_RIGHT));
+					downright = true;
 				}
 			}
 
-			//down back
+			// ¢×
 			if (down && left)
 			{
-				if (!downback)
+				if (!downleft)
 				{
 					IF_COUT{ std::cout << "queued downback" << std::endl; };
-					vecBuffer.push_back(InputElement(InputType::DOWN_BACK));
-					downback = true;
+					vecBuffer.push_back(InputElement(InputType::DOWN_LEFT));
+					downleft = true;
 				}
 			}
 
-			//up back
+			// ¢Ø
 			if (up && left)
 			{
-				if (!upback)
+				if (!upleft)
 				{
 					IF_COUT{ std::cout << "queued upback" << std::endl; };
-					vecBuffer.push_back(InputElement(InputType::UP_BACK));
-					upback = true;
+					vecBuffer.push_back(InputElement(InputType::UP_LEFT));
+					upleft = true;
 				}
 			}
 		}
@@ -106,25 +103,25 @@ namespace RB
 		//up forward
 		if (!up || !right)
 		{
-			upforward = false;
+			upright = false;
 		}
 
 		//down forward
 		if (!down || !right)
 		{
-			downforward = false;
+			downright = false;
 		}
 
 		//down back
 		if (!down || !left)
 		{
-			downback = false;
+			downleft = false;
 		}
 
 		//up back
 		if (!up || !left)
 		{
-			upback = false;
+			upleft = false;
 		}
 	}
 }

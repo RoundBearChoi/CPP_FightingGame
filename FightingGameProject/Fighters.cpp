@@ -227,19 +227,16 @@ namespace RB
 
 	olc::Decal* Fighters::GetBufferDecal(ObjData& objData, InputType inputType)
 	{
-		if (objData.IsFacingRight())
+		switch (inputType)
 		{
-			switch (inputType)
-			{
-			case InputType::UP_FORWARD:
-				return upright.ptrDecal;
-			case InputType::DOWN_FORWARD:
-				return downright.ptrDecal;
-			case InputType::DOWN_BACK:
-				return downleft.ptrDecal;
-			case InputType::UP_BACK:
-				return upleft.ptrDecal;
-			}
+		case InputType::UP_RIGHT:
+			return upright.ptrDecal;
+		case InputType::DOWN_RIGHT:
+			return downright.ptrDecal;
+		case InputType::DOWN_LEFT:
+			return downleft.ptrDecal;
+		case InputType::UP_LEFT:
+			return upleft.ptrDecal;
 		}
 
 		return nullptr;
