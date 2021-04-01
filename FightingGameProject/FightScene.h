@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Fighters.h"
 #include "Background.h"
+#include "InputBuffer.h"
 
 //temp
 #include "Fighter_1_Idle.h"

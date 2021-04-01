@@ -155,13 +155,28 @@ namespace RB
 
 	void Fighters::RenderInputBuffer()
 	{
-		//testing
-		std::array<olc::vf2d, 4> points;
-		points[0] = { 0, 0 };
-		points[1] = { 0, 20 };
-		points[2] = { 20, 20 };
-		points[3] = { 20, 0 };
-		olc::Renderer::ptrPGE->DrawWarpedDecal(downback.ptrDecal, points);
+		olc::vi2d startPos = { 20, 100 };
+
+		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
+		{
+			olc::vf2d pos(0, 0);
+			pos.x += ((20 * i) + (8 * i));
+			pos += startPos;
+
+			std::array<olc::vf2d, 4> points;
+
+			points[0] = { 0, 0 };
+			points[1] = { 0, 20 };
+			points[2] = { 20, 20 };
+			points[3] = { 20, 0 };
+
+			points[0] += pos;
+			points[1] += pos;
+			points[2] += pos;
+			points[3] += pos;
+
+			olc::Renderer::ptrPGE->DrawWarpedDecal(downback.ptrDecal, points, olc::RED);
+		}
 	}
 
 	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)

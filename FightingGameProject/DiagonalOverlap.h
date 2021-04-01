@@ -16,7 +16,7 @@ namespace RB
 			olc::vi2d* r2 = &p2Pos;
 			std::array<olc::vi2d, 4>* r2Quads = &p2Quads;
 
-			for (int32_t shape = 0; shape < 2; shape++)
+			for (size_t shape = 0; shape < 2; shape++)
 			{
 				//switch
 				if (shape == 1)
@@ -29,13 +29,13 @@ namespace RB
 				}
 
 				// Check diagonals of polygon...
-				for (int32_t p = 0; p < r1Quads->size(); p++)
+				for (size_t p = 0; p < r1Quads->size(); p++)
 				{
 					olc::vi2d line_r1s = *r1;
 					olc::vi2d line_r1e = (*r1Quads)[p];
 
 					// ...against edges of the other
-					for (int32_t q = 0; q < r2Quads->size(); q++)
+					for (size_t q = 0; q < r2Quads->size(); q++)
 					{
 						olc::vi2d line_r2s = (*r2Quads)[q];
 						olc::vi2d line_r2e = (*r2Quads)[(q + 1) % r2Quads->size()];
