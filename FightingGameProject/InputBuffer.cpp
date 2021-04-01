@@ -4,7 +4,7 @@ namespace RB
 {
 	InputBuffer* InputBuffer::ptr = nullptr;
 
-	void InputBuffer::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
+	void InputBuffer::AddInputs(GameData& gameData)
 	{
 		PlayerBuffer(gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, vecP1Inputs, p1_upright, p1_downright, p1_downleft, p1_upleft);
 	}

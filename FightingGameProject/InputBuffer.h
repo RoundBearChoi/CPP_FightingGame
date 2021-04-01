@@ -21,7 +21,7 @@ namespace RB
 		std::vector<InputElement> vecP1Inputs;
 		std::vector<InputElement> vecP2Inputs;
 
-		void AddInputs(GameData& gameData, ObjData& p1, ObjData& p2);
+		void AddInputs(GameData& gameData);
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
