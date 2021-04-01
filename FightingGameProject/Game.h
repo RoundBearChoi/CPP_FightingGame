@@ -47,6 +47,7 @@ namespace RB
 				//set gamedata per frame
 				GameData gameData;
 				input.UpdateGameData(gameData);
+				inputQueue.AddInputs(gameData);
 
 				DevSettings::UpdateDebugBoxSettings(gameData);
 				GameSettings::UpdateTargetFrame(gameData);
