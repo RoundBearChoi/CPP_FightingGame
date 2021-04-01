@@ -7,7 +7,7 @@
 
 namespace RB
 {
-	class InputQueue
+	class InputBuffer
 	{
 	private:
 		bool p1_upforward = false;
@@ -16,7 +16,7 @@ namespace RB
 		bool p1_upback = false;
 
 	public:
-		static InputQueue* ptr;
+		static InputBuffer* ptr;
 
 		std::vector<InputElement> vecP1Inputs;
 		std::vector<InputElement> vecP2Inputs;

@@ -9,7 +9,7 @@
 #include "DevSettings.h"
 #include "PlayerType.h"
 #include "DiagonalOverlap.h"
-#include "InputQueue.h"
+#include "InputBuffer.h"
 #include "UIElement.h"
 
 //for loading

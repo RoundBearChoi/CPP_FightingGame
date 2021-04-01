@@ -108,7 +108,7 @@
     <ClCompile Include="DecalLineRenderer.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="InputQueue.cpp">
+    <ClCompile Include="InputBuffer.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
@@ -278,7 +278,7 @@
     <ClInclude Include="DiagonalOverlap.h">
       <Filter>Source Files\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="InputQueue.h">
+    <ClInclude Include="InputBuffer.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="InputType.h">

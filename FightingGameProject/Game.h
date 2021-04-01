@@ -5,7 +5,7 @@
 #include "SceneController.h"
 #include "GameSettings.h"
 #include "Input.h"
-#include "InputQueue.h"
+#include "InputBuffer.h"
 
 namespace RB
 {
@@ -14,7 +14,7 @@ namespace RB
 	private:
 		SceneController sceneController;
 		Input input;
-		InputQueue inputQueue;
+		InputBuffer inputBuffer;
 		Timer timer;
 		
 	public:
@@ -30,7 +30,7 @@ namespace RB
 			sceneController.Load();
 			sceneController.CreateScene(GameSettings::startingScene);
 			
-			InputQueue::ptr = &inputQueue;
+			InputBuffer::ptr = &inputBuffer;
 
 			return true;
 		}
@@ -59,7 +59,7 @@ namespace RB
 				//only clear after update
 				input.ClearKeyQueues();
 
-				inputQueue.Update();
+				inputBuffer.Update();
 			}
 			else
 			{

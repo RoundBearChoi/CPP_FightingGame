@@ -1,10 +1,10 @@
-#include "InputQueue.h"
+#include "InputBuffer.h"
 
 namespace RB
 {
-	InputQueue* InputQueue::ptr = nullptr;
+	InputBuffer* InputBuffer::ptr = nullptr;
 
-	void InputQueue::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
+	void InputBuffer::AddInputs(GameData& gameData, ObjData& p1, ObjData& p2)
 	{
 		if (p1.IsFacingRight())
 		{
@@ -12,7 +12,7 @@ namespace RB
 		}
 	}
 
-	void InputQueue::Update()
+	void InputBuffer::Update()
 	{
 		for (size_t i = 0; i < vecP1Inputs.size(); i++)
 		{
@@ -25,13 +25,13 @@ namespace RB
 		}
 	}
 
-	bool InputQueue::QuadruplePress(Key* up, Key* down, Key* left, Key* right)
+	bool InputBuffer::QuadruplePress(Key* up, Key* down, Key* left, Key* right)
 	{
 		if (up && down && left && right) { return true; }
 		else { return false; }
 	}
 
-	bool InputQueue::TriplePress(Key* up, Key* down, Key* left, Key* right)
+	bool InputBuffer::TriplePress(Key* up, Key* down, Key* left, Key* right)
 	{
 		int32_t count = 0;
 
@@ -44,7 +44,7 @@ namespace RB
 		else { return false; }
 	}
 
-	void InputQueue::PlayerFacingRight(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upforward, bool& downforward, bool& downback, bool& upback)
+	void InputBuffer::PlayerFacingRight(Key* up, Key* down, Key* left, Key* right, std::vector<InputElement>& vecBuffer, bool& upforward, bool& downforward, bool& downback, bool& upback)
 	{
 		if (QuadruplePress(up, down, left, right))
 		{

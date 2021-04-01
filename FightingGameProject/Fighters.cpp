@@ -43,7 +43,7 @@ namespace RB
 		}
 
 		//input queues
-		InputQueue::ptr->AddInputs(gameData, arrObjs[0].objData, arrObjs[1].objData);
+		InputBuffer::ptr->AddInputs(gameData, arrObjs[0].objData, arrObjs[1].objData);
 
 		for (GameObj& obj : arrObjs)
 		{
