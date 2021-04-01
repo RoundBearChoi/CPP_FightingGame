@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include "SceneType.h"
+#include "GameData.h"
 
 namespace RB
 {
@@ -36,6 +37,21 @@ namespace RB
 			}
 
 			return target;
+		}
+
+		static void UpdateTargetFrame(GameData& gameData)
+		{
+			if (gameData.key_f9)
+			{
+				gameData.key_f9->processed = true;
+				TargetFrameTime(ChangeTimer::DOUBLE);
+			}
+
+			if (gameData.key_f10)
+			{
+				gameData.key_f10->processed = true;
+				TargetFrameTime(ChangeTimer::HALF);
+			}
 		}
 	};
 }

@@ -44,31 +44,8 @@ namespace RB
 				GameData gameData;
 				input.UpdateGameData(gameData);
 
-				if (gameData.key_f8)
-				{
-					if (DevSettings::renderDebugBoxes)
-					{
-						gameData.key_f8->processed = true;
-						DevSettings::renderDebugBoxes = false;
-					}
-					else
-					{
-						gameData.key_f8->processed = true;
-						DevSettings::renderDebugBoxes = true;
-					}
-				}
-
-				if (gameData.key_f9)
-				{
-					gameData.key_f9->processed = true;
-					GameSettings::TargetFrameTime(ChangeTimer::DOUBLE);
-				}
-
-				if (gameData.key_f10)
-				{
-					gameData.key_f10->processed = true;
-					GameSettings::TargetFrameTime(ChangeTimer::HALF);
-				}
+				DevSettings::UpdateDebugBoxSettings(gameData);
+				GameSettings::UpdateTargetFrame(gameData);
 
 				sceneController.ChangeScene(gameData);
 				sceneController.currentScene->cam.Update(gameData);
