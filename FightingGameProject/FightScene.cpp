@@ -41,7 +41,9 @@ namespace RB
 		RenderCenterMark(cam);
 
 		background.RenderObjPosition(cam);
+
 		fighters.RenderObjPosition(cam);
+		fighters.RenderInputBuffer();
 	}
 
 	void FightScene::RenderStates(bool update)

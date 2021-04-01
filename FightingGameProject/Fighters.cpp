@@ -130,14 +130,6 @@ namespace RB
 				}
 			}
 		}
-
-		//testing
-		std::array<olc::vf2d, 4> points;
-		points[0] = { 0, 0 };
-		points[1] = { 0, 20 };
-		points[2] = { 20, 20 };
-		points[3] = { 20, 0 };
-		olc::Renderer::ptrPGE->DrawWarpedDecal(downback.ptrDecal, points);
 	}
 
 	void Fighters::RenderStates(Camera& cam, bool update)
@@ -159,6 +151,17 @@ namespace RB
 		{
 			arrObjs[i].stateController.currentState->RenderColliderQuads(arrObjs[i].objData, cam);
 		}
+	}
+
+	void Fighters::RenderInputBuffer()
+	{
+		//testing
+		std::array<olc::vf2d, 4> points;
+		points[0] = { 0, 0 };
+		points[1] = { 0, 20 };
+		points[2] = { 20, 20 };
+		points[3] = { 20, 0 };
+		olc::Renderer::ptrPGE->DrawWarpedDecal(downback.ptrDecal, points);
 	}
 
 	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)
