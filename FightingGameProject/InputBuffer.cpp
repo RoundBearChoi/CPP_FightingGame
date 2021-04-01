@@ -154,47 +154,15 @@ namespace RB
 		}
 
 		//clear for next queue
+		
+		if (!keyUp || !keyRight) { bUpRight = false; } // ¢Ö
+		if (!keyDown || !keyRight) { bDownRight = false; } // ¢Ù
+		if (!keyDown || !keyLeft) { bDownLeft = false; } // ¢×
+		if (!keyUp || !keyLeft) { bUpLeft = false; } // ¢Ø
 
-		// ¢Ö
-		if (!keyUp || !keyRight)
-		{
-			bUpRight = false;
-		}
+		if (!keyLeft) { bLeft = false; } // ¡ç
+		if (!keyRight) { bRight = false; } // ¡æ
 
-		// ¢Ù
-		if (!keyDown || !keyRight)
-		{
-			bDownRight = false;
-		}
-
-		// ¢×
-		if (!keyDown || !keyLeft)
-		{
-			bDownLeft = false;
-		}
-
-		// ¢Ø
-		if (!keyUp || !keyLeft)
-		{
-			bUpLeft = false;
-		}
-
-		// ¡ç
-		if (!keyLeft)
-		{
-			bLeft = false;
-		}
-
-		// ¡æ
-		if (!keyRight)
-		{
-			bRight = false;
-		}
-
-		// ¡é
-		if (!keyDown)
-		{
-			bDown = false;
-		}
+		if (!keyDown) { bDown = false; } // ¡é
 	}
 }
