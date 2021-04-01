@@ -2,6 +2,7 @@
 #include <vector>
 #include "GameData.h"
 #include "InputType.h"
+#include "ObjData.h"
 
 namespace RB
 {
@@ -12,6 +13,6 @@ namespace RB
 		std::vector<InputType> vecP2Inputs;
 
 		static InputQueue* ptr;
-		void AddInputs(GameData& gameData);
+		void AddInputs(GameData& gameData, ObjData& p1, ObjData& p2);
 	};
 }

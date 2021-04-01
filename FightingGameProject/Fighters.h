@@ -9,6 +9,7 @@
 #include "DevSettings.h"
 #include "PlayerType.h"
 #include "DiagonalOverlap.h"
+#include "InputQueue.h"
 
 //for loading
 #include "Preload_Fighter_0.h"

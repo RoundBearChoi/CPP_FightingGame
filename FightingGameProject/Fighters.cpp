@@ -23,6 +23,9 @@ namespace RB
 			arrObjs[1].objData.SetLeftSide(false);
 		}
 
+		//input queues
+		InputQueue::ptr->AddInputs(gameData, arrObjs[0].objData, arrObjs[1].objData);
+
 		for (GameObj& obj : arrObjs)
 		{
 			//forward directions
