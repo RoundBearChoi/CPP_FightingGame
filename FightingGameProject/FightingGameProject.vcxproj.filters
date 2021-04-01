@@ -105,6 +105,9 @@
     <ClCompile Include="DevSettings.cpp">
       <Filter>Source Files\Settings</Filter>
     </ClCompile>
+    <ClCompile Include="DecalLineRenderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="Preload_Fighter_0.h">
       <Filter>Source Files\GameObj Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalLineRenderer.h">
+      <Filter>Source Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
