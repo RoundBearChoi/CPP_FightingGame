@@ -24,10 +24,10 @@ namespace RB
 		std::array<GameObj, 2> arrObjs;
 		Preload_Fighter_0 preload_fighter_0;
 
-		UIElement upback;
-		UIElement upforward;
-		UIElement downback;
-		UIElement downforward;
+		UIElement upleft;
+		UIElement upright;
+		UIElement downleft;
+		UIElement downright;
 
 	public:
 		Fighters();

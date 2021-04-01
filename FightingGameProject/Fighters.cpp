@@ -4,21 +4,21 @@ namespace RB
 {
 	Fighters::Fighters()
 	{
-		upback.path = "PNG files/BoxColliderEditor/upback.png";
-		upback.SetHash();
-		upback.SetDecal();
+		upleft.path = "PNG files/BoxColliderEditor/upleft.png";
+		upleft.SetHash();
+		upleft.SetDecal();
 
-		upforward.path = "PNG files/BoxColliderEditor/upforward.png";
-		upforward.SetHash();
-		upforward.SetDecal();
+		upright.path = "PNG files/BoxColliderEditor/upright.png";
+		upright.SetHash();
+		upright.SetDecal();
 
-		downback.path = "PNG files/BoxColliderEditor/downback.png";
-		downback.SetHash();
-		downback.SetDecal();
+		downleft.path = "PNG files/BoxColliderEditor/downleft.png";
+		downleft.SetHash();
+		downleft.SetDecal();
 
-		downforward.path = "PNG files/BoxColliderEditor/downforward.png";
-		downforward.SetHash();
-		downforward.SetDecal();
+		downright.path = "PNG files/BoxColliderEditor/downright.png";
+		downright.SetHash();
+		downright.SetDecal();
 	}
 
 	void Fighters::UpdateState(GameData& gameData)
@@ -232,13 +232,13 @@ namespace RB
 			switch (inputType)
 			{
 			case InputType::UP_FORWARD:
-				return upforward.ptrDecal;
+				return upright.ptrDecal;
 			case InputType::DOWN_FORWARD:
-				return downforward.ptrDecal;
+				return downright.ptrDecal;
 			case InputType::DOWN_BACK:
-				return downback.ptrDecal;
+				return downleft.ptrDecal;
 			case InputType::UP_BACK:
-				return upback.ptrDecal;
+				return upleft.ptrDecal;
 			}
 		}
 
