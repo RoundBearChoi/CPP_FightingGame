@@ -308,5 +308,8 @@
     <ClInclude Include="Fighter_0_Hadouken_Recover.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
+    <ClInclude Include="ConvertedInputType.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

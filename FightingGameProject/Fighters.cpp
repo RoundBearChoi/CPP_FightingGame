@@ -75,7 +75,7 @@ namespace RB
 
 		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
 		{
-			h.Update(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
+			h.Check(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
 		}
 
 		//mark as processed

@@ -171,6 +171,7 @@
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CollisionStatus.h" />
     <ClInclude Include="ComboChecker.h" />
+    <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DebugRenderer.h" />
     <ClInclude Include="DecalLineRenderer.h" />

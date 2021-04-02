@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_hadouken_fire.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 1600, 200, 4, 1, 4);
-			animationController.status.nTransitionDelay = 10;
+			animationController.status.nTransitionDelay = 8;
 			animationController.status.bPlayOnce = true;
 		}
 
@@ -30,7 +30,7 @@ namespace RB
 		{
 			UpdateColliders();
 
-			if (updateCount >= 7 * 10)
+			if (updateCount >= 7 * 8)
 			{
 				nextState = State::NewState<Fighter_0_Hadouken_Recover>();
 			}

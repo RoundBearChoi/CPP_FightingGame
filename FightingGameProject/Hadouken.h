@@ -7,26 +7,28 @@ namespace RB
 	class Hadouken : public ComboChecker
 	{
 	private:
-		std::array<InputType, 4> arr;
+		std::array<ConvertedInputType, 4> arr;
 		
 	public:
 		std::array<size_t, 4> correctBuffers;
 
 		void SetCombo() override
 		{
-			arr[0] = InputType::DOWN;
-			arr[1] = InputType::DOWN_RIGHT;
-			arr[2] = InputType::RIGHT;
-			arr[3] = InputType::WEAK_PUNCH;
+			arr[0] = ConvertedInputType::DOWN;
+			arr[1] = ConvertedInputType::DOWN_FORWARD;
+			arr[2] = ConvertedInputType::FORWARD;
+			arr[3] = ConvertedInputType::WEAK_PUNCH;
 		}
 
-		void Update(const InputElement& _inputElement, const size_t bufferIndex, const ObjData& objData) override
+		void Check(InputElement& _inputElement, size_t bufferIndex, ObjData& objData) override
 		{
 			if (currIndex < arr.size())
 			{
 				if (!_inputElement.processed)
 				{
-					if (_inputElement.inputType == arr[currIndex])
+					ConvertedInputType converted = GetConvert(_inputElement.inputType, objData);
+
+					if (converted == arr[currIndex])
 					{
 						correctBuffers[currIndex] = bufferIndex;
 						currIndex++;
