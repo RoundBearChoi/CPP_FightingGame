@@ -8,8 +8,10 @@ namespace RB
 	{
 	private:
 		std::array<InputType, 4> arr;
-
+		
 	public:
+		std::array<size_t, 4> correctBuffers;
+
 		void SetCombo() override
 		{
 			arr[0] = InputType::DOWN;
@@ -18,13 +20,17 @@ namespace RB
 			arr[3] = InputType::WEAK_PUNCH;
 		}
 
-		void Update(const InputType& _input, const ObjData& objData) override
+		void Update(const InputElement& _inputElement, const size_t bufferIndex, const ObjData& objData) override
 		{
 			if (currIndex < arr.size())
 			{
-				if (_input == arr[currIndex])
+				if (!_inputElement.processed)
 				{
-					currIndex++;
+					if (_inputElement.inputType == arr[currIndex])
+					{
+						correctBuffers[currIndex] = bufferIndex;
+						currIndex++;
+					}
 				}
 			}
 		}

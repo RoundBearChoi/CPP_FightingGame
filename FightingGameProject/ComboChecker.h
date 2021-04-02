@@ -1,5 +1,5 @@
 #pragma once
-#include "InputType.h"
+#include "InputElement.h"
 
 namespace RB
 {
@@ -10,7 +10,7 @@ namespace RB
 
 	public:
 		virtual void SetCombo() = 0;
-		virtual void Update(const InputType& _input, const ObjData& objData) = 0;
+		virtual void Update(const InputElement& _inputElement, const size_t bufferIndex, const ObjData& objData) = 0;
 		virtual bool Yes() = 0;
 	};
 }

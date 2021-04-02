@@ -75,12 +75,21 @@ namespace RB
 
 		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
 		{
-			h.Update(InputBuffer::ptr->vecP1Inputs[i].inputType, arrObjs[0].objData);
+			h.Update(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
 		}
 
+		//mark as processed
 		if (h.Yes() == true)
 		{
-			int n = 0;
+			for (size_t i = 0; i < h.correctBuffers.size(); i++)
+			{
+				size_t correctIndex = h.correctBuffers[i];
+
+				if (correctIndex < InputBuffer::ptr->vecP1Inputs.size())
+				{
+					InputBuffer::ptr->vecP1Inputs[correctIndex].processed = true;
+				}
+			}
 		}
 
 		for (GameObj& obj : arrObjs)
