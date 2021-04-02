@@ -57,6 +57,7 @@ namespace RB
 		spriteLoader.Load_Fighter_1_Sprites();
 		spriteLoader.LoadBoxColliderEditorSprites();
 		spriteLoader.LoadDebugElementSprites();
+		spriteLoader.LoadInputBufferSprites();
 
 		SpriteLoader::ptr = &spriteLoader;
 	}

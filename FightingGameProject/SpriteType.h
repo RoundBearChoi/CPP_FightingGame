@@ -15,6 +15,8 @@ namespace RB
 
 		DEBUG_ELEMENTS,
 
+		INPUT_BUFFER,
+
 		COUNT,
 	};
 }

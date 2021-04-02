@@ -4,43 +4,43 @@ namespace RB
 {
 	Fighters::Fighters()
 	{
-		upleft.path = "PNG files/BoxColliderEditor/upleft.png";
-		upleft.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		upleft.path = "PNG files/InputBuffer/upleft.png";
+		upleft.spriteType = SpriteType::INPUT_BUFFER;
 		upleft.SetHash();
 		upleft.SetDecal();
 
-		upright.path = "PNG files/BoxColliderEditor/upright.png";
-		upright.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		upright.path = "PNG files/InputBuffer/upright.png";
+		upright.spriteType = SpriteType::INPUT_BUFFER;
 		upright.SetHash();
 		upright.SetDecal();
 
-		downleft.path = "PNG files/BoxColliderEditor/downleft.png";
-		downleft.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		downleft.path = "PNG files/InputBuffer/downleft.png";
+		downleft.spriteType = SpriteType::INPUT_BUFFER;
 		downleft.SetHash();
 		downleft.SetDecal();
 
-		downright.path = "PNG files/BoxColliderEditor/downright.png";
-		downright.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		downright.path = "PNG files/InputBuffer/downright.png";
+		downright.spriteType = SpriteType::INPUT_BUFFER;
 		downright.SetHash();
 		downright.SetDecal();
 
-		left.path = "PNG files/BoxColliderEditor/left.png";
-		left.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		left.path = "PNG files/InputBuffer/left.png";
+		left.spriteType = SpriteType::INPUT_BUFFER;
 		left.SetHash();
 		left.SetDecal();
 
-		right.path = "PNG files/BoxColliderEditor/right.png";
-		right.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		right.path = "PNG files/InputBuffer/right.png";
+		right.spriteType = SpriteType::INPUT_BUFFER;
 		right.SetHash();
 		right.SetDecal();
 
-		down.path = "PNG files/BoxColliderEditor/down.png";
-		down.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		down.path = "PNG files/InputBuffer/down.png";
+		down.spriteType = SpriteType::INPUT_BUFFER;
 		down.SetHash();
 		down.SetDecal();
 
-		punch.path = "PNG files/BoxColliderEditor/punch.png";
-		punch.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+		punch.path = "PNG files/InputBuffer/punch.png";
+		punch.spriteType = SpriteType::INPUT_BUFFER;
 		punch.SetHash();
 		punch.SetDecal();
 	}
