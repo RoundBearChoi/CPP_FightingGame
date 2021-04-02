@@ -13,10 +13,10 @@
 #include "InputType.h"
 #include "UIElement.h"
 
-//Combos
+//combos
 #include "Hadouken.h"
 
-//for loading
+//loading
 #include "Preload_Fighter_0.h"
 
 namespace RB
