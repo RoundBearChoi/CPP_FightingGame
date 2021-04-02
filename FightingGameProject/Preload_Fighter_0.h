@@ -5,6 +5,7 @@
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_HitReaction_0.h"
 #include "Fighter_0_Hadouken_Fire.h"
+#include "Fighter_0_Hadouken_Recover.h"
 
 namespace RB
 {
@@ -26,6 +27,8 @@ namespace RB
 			Load<Fighter_0_WalkBack>();
 			Load<Fighter_0_Jab>();
 			Load<Fighter_0_HitReaction_0>();
+			Load<Fighter_0_Hadouken_Fire>();
+			Load<Fighter_0_Hadouken_Recover>();
 		}
 	};
 }

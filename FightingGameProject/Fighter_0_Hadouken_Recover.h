@@ -3,21 +3,21 @@
 
 namespace RB
 {
-	class Fighter_0_Hadouken_Recover;
+	class Fighter_0_Idle;
 
-	class Fighter_0_Hadouken_Fire : public State
+	class Fighter_0_Hadouken_Recover : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Hadouken_Fire()
+		Fighter_0_Hadouken_Recover()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_hadouken_fire.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_hadouken_fire.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_hadouken_recover.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_hadouken_recover.collider");
 
-			animationController.SetParams(SpriteType::FIGHTER_0, 1600, 200, 4, 1, 4);
-			animationController.status.nTransitionDelay = 10;
+			animationController.SetParams(SpriteType::FIGHTER_0, 2000, 200, 5, 1, 5);
+			animationController.status.nTransitionDelay = 8;
 			animationController.status.bPlayOnce = true;
 		}
 
@@ -30,9 +30,9 @@ namespace RB
 		{
 			UpdateColliders();
 
-			if (updateCount >= 7 * 10)
+			if (animationController.status.nCurrentTile >= 4)
 			{
-				nextState = State::NewState<Fighter_0_Hadouken_Recover>();
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 		}
 
