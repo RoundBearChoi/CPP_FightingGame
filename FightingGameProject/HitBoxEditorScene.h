@@ -128,6 +128,7 @@ namespace RB
 				if (s->IsNew())
 				{
 					s->OnEnter(selector.Current()->objData, gameData);
+					s->animationController.status.bPlayOnce = false;
 				}
 			}
 

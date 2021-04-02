@@ -76,6 +76,9 @@
     <Filter Include="Source Files\Combo Checker\Concrete Checkers">
       <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Projectile">
+      <UniqueIdentifier>{2b018585-e2fa-49da-b091-419cb3e257c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -310,6 +313,12 @@
     </ClInclude>
     <ClInclude Include="ConvertedInputType.h">
       <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateProjectile.h">
+      <Filter>Source Files\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileType.h">
+      <Filter>Source Files\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -172,6 +172,7 @@
     <ClInclude Include="CollisionStatus.h" />
     <ClInclude Include="ComboChecker.h" />
     <ClInclude Include="ConvertedInputType.h" />
+    <ClInclude Include="CreateProjectile.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DebugRenderer.h" />
     <ClInclude Include="DecalLineRenderer.h" />
@@ -209,6 +210,7 @@
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="PlayerType.h" />
     <ClInclude Include="Preload_Fighter_0.h" />
+    <ClInclude Include="ProjectileType.h" />
     <ClInclude Include="RelativeVector.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />
