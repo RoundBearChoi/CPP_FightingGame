@@ -89,6 +89,9 @@ namespace RB
 				{
 					InputBuffer::ptr->vecP1Inputs[correctIndex].processed = true;
 				}
+
+				//make transition
+				arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
 			}
 		}
 
@@ -142,6 +145,7 @@ namespace RB
 
 							if (DiagonalOverlap::IsColliding(obj, b, enemy, enemyBody))
 							{
+								//make transition
 								enemy.stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
 								IF_COUT{ std::cout << "overlap!" << std::endl; };
 								IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
