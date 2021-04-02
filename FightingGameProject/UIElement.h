@@ -13,6 +13,7 @@ namespace RB
 		olc::Pixel tint = olc::WHITE;
 		std::string path = "none";
 		size_t hash = 0;
+		SpriteType spriteType = SpriteType::NONE;
 
 		void SetHash()
 		{
@@ -23,7 +24,7 @@ namespace RB
 
 		void SetDecal()
 		{
-			ptrDecal = SpriteLoader::ptr->FindDecal(hash, (size_t)SpriteType::BOXCOLLIDER_EDITOR_UI);
+			ptrDecal = SpriteLoader::ptr->FindDecal(hash, (size_t)spriteType);
 
 			if (ptrDecal == nullptr)
 			{

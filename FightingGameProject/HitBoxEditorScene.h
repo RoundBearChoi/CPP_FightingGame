@@ -43,46 +43,52 @@ namespace RB
 		void InitScene() override
 		{
 			playIcon.path = "PNG files/BoxColliderEditor/editor_playframe.png";
-			playIcon.SetHash();
-			playIcon.SetDecal();
 			playIcon.width = 54;
 			playIcon.height = 42;
 			playIcon.topLeft = { GameSettings::window_width / 2 - playIcon.width / 2, 10 };
+			playIcon.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			playIcon.SetHash();
+			playIcon.SetDecal();
 
 			saveIcon.path = "PNG files/BoxColliderEditor/editor_save.png";
-			saveIcon.SetHash();
-			saveIcon.SetDecal();
 			saveIcon.width = 33;
 			saveIcon.height = 29;
 			saveIcon.topLeft = { GameSettings::window_width - saveIcon.width - 15, 15 };
+			saveIcon.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			saveIcon.SetHash();
+			saveIcon.SetDecal();
 
 			leftSel.path = "PNG files/BoxColliderEditor/editor_left_sel.png";
-			leftSel.SetHash();
-			leftSel.SetDecal();
 			leftSel.width = 18;
 			leftSel.height = 24;
 			leftSel.topLeft = { 5, 92 };
+			leftSel.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			leftSel.SetHash();
+			leftSel.SetDecal();
 
 			rightSel.path = "PNG files/BoxColliderEditor/editor_right_sel.png";
-			rightSel.SetHash();
-			rightSel.SetDecal();
 			rightSel.width = 18;
 			rightSel.height = 24;
 			rightSel.topLeft = { 5 + 24 + 1, 92 };
+			rightSel.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			rightSel.SetHash();
+			rightSel.SetDecal();
 
 			copyIcon0.path = "PNG files/BoxColliderEditor/editor_copy.png";
-			copyIcon0.SetHash();
-			copyIcon0.SetDecal();
 			copyIcon0.width = 32;
 			copyIcon0.height = 42;
 			copyIcon0.topLeft = { GameSettings::window_width - copyIcon0.width - 15, 100 };
+			copyIcon0.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			copyIcon0.SetHash();
+			copyIcon0.SetDecal();
 
 			copyIcon1.path = "PNG files/BoxColliderEditor/editor_copy.png";
-			copyIcon1.SetHash();
-			copyIcon1.SetDecal();
 			copyIcon1.width = 32;
 			copyIcon1.height = 42;
 			copyIcon1.topLeft = { GameSettings::window_width - copyIcon1.width - 15, 200 };
+			copyIcon1.spriteType = SpriteType::BOXCOLLIDER_EDITOR_UI;
+			copyIcon1.SetHash();
+			copyIcon1.SetDecal();
 
 			//notifications
 			saved.str = "saved!";
