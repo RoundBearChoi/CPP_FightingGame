@@ -8,14 +8,15 @@
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_HitReaction_0.h"
+#include "Fighter_0_Hadouken_Fire.h"
 
 namespace RB
 {
 	class DummySelector
 	{
 	private:
-		std::array<GameObj*, 5> arrObjs;
-		std::array<std::vector<BoxCollider>, 5> arrVecs;
+		std::array<GameObj*, 6> arrObjs;
+		std::array<std::vector<BoxCollider>, 6> arrVecs;
 		size_t currentIndex = 0;
 
 	public:
@@ -31,6 +32,7 @@ namespace RB
 			Init<Fighter_0_WalkForward>(*arrObjs[2]);
 			Init<Fighter_0_WalkBack>(*arrObjs[3]);
 			Init<Fighter_0_HitReaction_0>(*arrObjs[4]);
+			Init<Fighter_0_Hadouken_Fire>(*arrObjs[5]);
 
 			LoadColliders();
 		}

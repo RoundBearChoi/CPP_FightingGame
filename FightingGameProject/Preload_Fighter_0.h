@@ -4,6 +4,7 @@
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_HitReaction_0.h"
+#include "Fighter_0_Hadouken_Fire.h"
 
 namespace RB
 {

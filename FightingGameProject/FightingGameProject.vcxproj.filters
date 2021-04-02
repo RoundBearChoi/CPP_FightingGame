@@ -302,5 +302,8 @@
     <ClInclude Include="Hadouken.h">
       <Filter>Source Files\Combo Checker\Concrete Checkers</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_Hadouken_Fire.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
