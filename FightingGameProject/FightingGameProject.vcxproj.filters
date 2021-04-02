@@ -67,6 +67,15 @@
     <Filter Include="Source Files\Collision">
       <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Combo Checker">
+      <UniqueIdentifier>{cdd34091-65f7-4ceb-9857-0aeaf50f33dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Combo Checker\Base">
+      <UniqueIdentifier>{88e45e30-a716-4eba-a56b-f2150e9ce0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Combo Checker\Concrete Checkers">
+      <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -286,6 +295,12 @@
     </ClInclude>
     <ClInclude Include="InputElement.h">
       <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboChecker.h">
+      <Filter>Source Files\Combo Checker\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Hadouken.h">
+      <Filter>Source Files\Combo Checker\Concrete Checkers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

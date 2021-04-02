@@ -13,6 +13,9 @@
 #include "InputType.h"
 #include "UIElement.h"
 
+//Combos
+#include "Hadouken.h"
+
 //for loading
 #include "Preload_Fighter_0.h"
 

@@ -69,6 +69,20 @@ namespace RB
 			arrObjs[1].objData.SetLeftSide(false);
 		}
 
+		//check combos
+		Hadouken h;
+		h.SetCombo();
+
+		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
+		{
+			h.Update(InputBuffer::ptr->vecP1Inputs[i].inputType, arrObjs[0].objData);
+		}
+
+		if (h.Yes() == true)
+		{
+			int n = 0;
+		}
+
 		for (GameObj& obj : arrObjs)
 		{
 			//forward directions

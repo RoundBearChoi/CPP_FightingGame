@@ -170,6 +170,7 @@
     <ClInclude Include="BodyType.h" />
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CollisionStatus.h" />
+    <ClInclude Include="ComboChecker.h" />
     <ClInclude Include="CreationCount.h" />
     <ClInclude Include="DebugRenderer.h" />
     <ClInclude Include="DecalLineRenderer.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Fighters.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
+    <ClInclude Include="Hadouken.h" />
     <ClInclude Include="InputElement.h" />
     <ClInclude Include="InputBuffer.h" />
     <ClInclude Include="InputType.h" />
