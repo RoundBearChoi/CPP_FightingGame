@@ -124,7 +124,7 @@ namespace RB
 					state->OnAnimationUpdate(obj.objData, gameData);
 				}
 
-				//collision check
+				//collision check between bodyparts
 				CollisionStatus* col = state->GetCollisionStatus();
 
 				if (col)
