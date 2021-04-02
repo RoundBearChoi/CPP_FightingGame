@@ -20,6 +20,8 @@ namespace RB
 
 		bool p1_down = false;
 
+		bool p1_weakpunch = false;
+
 	public:
 		static InputBuffer* ptr;
 
@@ -30,6 +32,12 @@ namespace RB
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
-		void PlayerBuffer(Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight, std::vector<InputElement>& vecBuffer, bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft, bool& bLeft, bool& bRight, bool& bDown);
+		void PlayerBuffer(
+			Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight,
+			Key* keyWeakPunch,
+			std::vector<InputElement>& vecBuffer,
+			bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft,
+			bool& bLeft, bool& bRight, bool& bDown,
+			bool& bWeakPunch);
 	};
 }

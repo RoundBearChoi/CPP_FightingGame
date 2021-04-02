@@ -31,6 +31,10 @@ namespace RB
 		down.path = "PNG files/BoxColliderEditor/down.png";
 		down.SetHash();
 		down.SetDecal();
+
+		punch.path = "PNG files/BoxColliderEditor/punch.png";
+		punch.SetHash();
+		punch.SetDecal();
 	}
 
 	void Fighters::UpdateState(GameData& gameData)
@@ -191,7 +195,14 @@ namespace RB
 
 			if (d != nullptr)
 			{
-				olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, olc::RED);
+				if (InputBuffer::ptr->vecP1Inputs[i].inputType == InputType::WEAK_PUNCH)
+				{
+					olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, olc::MAGENTA);
+				}
+				else
+				{
+					olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, olc::RED);
+				}
 			}
 		}
 	}
@@ -257,6 +268,9 @@ namespace RB
 
 		case InputType::DOWN:
 			return down.ptrDecal;
+
+		case InputType::WEAK_PUNCH:
+			return punch.ptrDecal;
 		}
 
 		return nullptr;

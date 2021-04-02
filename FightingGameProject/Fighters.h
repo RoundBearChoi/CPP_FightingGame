@@ -34,6 +34,8 @@ namespace RB
 
 		UIElement down;
 
+		UIElement punch;
+
 	public:
 		Fighters();
 
