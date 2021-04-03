@@ -50,24 +50,9 @@ namespace RB
 		//input queues
 		InputBuffer::ptr->AddInputs(gameData);
 
-		//forward directions
-		if (arrObjs[0].objData.GetPosition().x < arrObjs[1].objData.GetPosition().x)
-		{
-			arrObjs[0].objData.SetLeftSide(true);
-		}
-		else if (arrObjs[0].objData.GetPosition().x > arrObjs[1].objData.GetPosition().x)
-		{
-			arrObjs[0].objData.SetLeftSide(false);
-		}
-
-		if (arrObjs[1].objData.GetPosition().x < arrObjs[0].objData.GetPosition().x)
-		{
-			arrObjs[1].objData.SetLeftSide(true);
-		}
-		else if (arrObjs[1].objData.GetPosition().x > arrObjs[0].objData.GetPosition().x)
-		{
-			arrObjs[1].objData.SetLeftSide(false);
-		}
+		//directions
+		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
+		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
 		//check combos
 		Hadouken h;

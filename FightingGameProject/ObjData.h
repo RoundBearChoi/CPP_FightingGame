@@ -41,5 +41,17 @@ namespace RB
 
 		void SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
 		PlayerType GetPlayerType() { return playerType; }
+
+		void UpdateFigherDirection(ObjData& enemy)
+		{
+			if (position.x < enemy.GetPosition().x)
+			{
+				onLeftSide = true;
+			}
+			else if (position.x > enemy.GetPosition().x)
+			{
+				onLeftSide = false;
+			}
+		}
 	};
 }
