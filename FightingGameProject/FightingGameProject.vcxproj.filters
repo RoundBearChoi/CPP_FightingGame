@@ -323,5 +323,8 @@
     <ClInclude Include="ProjectileType.h">
       <Filter>Source Files\Projectile</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectileGroup.h">
+      <Filter>Source Files\Groups</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

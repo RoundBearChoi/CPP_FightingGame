@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "FightersGroup.h"
+#include "ProjectileGroup.h"
 #include "BackgroundGroup.h"
 #include "InputBuffer.h"
 
@@ -16,6 +17,7 @@ namespace RB
 	{
 	private:
 		FightersGroup fighters;
+		ProjectileGroup projectiles;
 		BackgroundGroup background;
 
 	public:
