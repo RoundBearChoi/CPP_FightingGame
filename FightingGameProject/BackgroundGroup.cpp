@@ -44,9 +44,8 @@ namespace RB
 
 		arrObjs[_index].objData.SetOffsetType(OffsetType::CENTER_CENTER);
 		arrObjs[_index].objData.SetPosition(_startingPos);
-
 		arrObjs[_index].objData.SetCreationID(count);
-		arrObjs[_index].stateController.SetCreationID(count);
+		//arrObjs[_index].stateController.SetCreationID(count);
 	}
 
 	void BackgroundGroup::SetBackgroundPosition(int32_t _index, olc::vi2d _pos)

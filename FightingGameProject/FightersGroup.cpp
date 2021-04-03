@@ -248,9 +248,8 @@ namespace RB
 
 		arrObjs[_index].objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		arrObjs[_index].objData.SetPosition(_startingPos);
-
 		arrObjs[_index].objData.SetCreationID(count);
-		arrObjs[_index].stateController.SetCreationID(count);
+		//arrObjs[_index].stateController.SetCreationID(count);
 
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}

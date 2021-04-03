@@ -7,6 +7,9 @@ namespace RB
 
 	class Fighter_0_Hadouken_Fire : public State
 	{
+	private:
+		bool fired = false;
+
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
@@ -29,6 +32,16 @@ namespace RB
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
 			UpdateColliders();
+
+			if (animationController.status.nCurrentTile == 3)
+			{
+				if (!fired)
+				{
+					fired = true;
+					CreateProjectile p;
+					vecCreateProjectiles.push_back(p);
+				}
+			}
 
 			if (updateCount >= 7 * 8)
 			{

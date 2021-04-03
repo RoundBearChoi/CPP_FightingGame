@@ -7,7 +7,7 @@ namespace RB
 	class StateController
 	{
 	private:
-		size_t creationID = 0;
+		//size_t creationID = 0;
 		State* prevState = nullptr;
 
 	public:
@@ -15,7 +15,7 @@ namespace RB
 
 		~StateController();
 		void MakeStateTransition();
-		void SetCreationID(size_t _id);
+		//void SetCreationID(size_t _id);
 
 		template<class T>
 		void CreateNewState()

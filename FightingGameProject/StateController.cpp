@@ -4,7 +4,7 @@ namespace RB
 {
 	StateController::~StateController()
 	{
-		IF_COUT{ std::cout << "destructing StateController: " << creationID << std::endl; };
+		IF_COUT{ std::cout << "destructing StateController" /*<< creationID*/ << std::endl; };
 		delete currentState;
 	}
 
@@ -20,8 +20,8 @@ namespace RB
 		}
 	}
 
-	void StateController::SetCreationID(size_t _id)
-	{
-		creationID = _id;
-	}
+	//void StateController::SetCreationID(size_t _id)
+	//{
+	//	creationID = _id;
+	//}
 }

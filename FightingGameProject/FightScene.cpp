@@ -37,6 +37,11 @@ namespace RB
 
 		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
 		std::vector<CreateProjectile>* p2 = fighters.GetProjectileQueues(1);
+
+		projectiles.CreateProjectiles(*p1);
+
+		p1->clear();
+		p2->clear();
 	}
 
 	void FightScene::RenderObjs()
