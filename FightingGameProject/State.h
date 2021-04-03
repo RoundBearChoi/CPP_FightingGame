@@ -22,22 +22,22 @@ namespace RB
 
 	public:
 		State* nextState = nullptr;
+		int32_t updateCount = 0;
 		AnimationController animationController;
 		std::vector<CollisionStatus> vecCollisionStatus;
 		std::vector<CreateProjectile> vecCreateProjectiles;
-		int32_t updateCount = 0;
 
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 		
+		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) { /*do nothing*/ };
 		virtual std::vector<BoxCollider>& GetColliders();
 		virtual std::vector<olc::vi2d>& GetColliderQuads();
-		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) { /*do nothing*/ };
-
+		
 		size_t GetHash();
-		void UpdateColliders();
 		bool IsNew();
+		void UpdateColliders();
 		void RenderColliderQuads(ObjData& objData, Camera& cam);
 		void UnloadColliderData();
 		CollisionStatus* GetCollisionStatus();

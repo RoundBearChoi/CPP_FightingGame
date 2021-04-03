@@ -39,6 +39,19 @@ namespace RB
 		return h;
 	}
 
+	bool State::IsNew()
+	{
+		if (isNew)
+		{
+			isNew = false;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	void State::UpdateColliders()
 	{
 		std::vector<BoxCollider>& vec = GetColliders();
@@ -62,19 +75,6 @@ namespace RB
 				vecQuads.push_back(vec[i].Point2());
 				vecQuads.push_back(vec[i].Point3());
 			}
-		}
-	}
-
-	bool State::IsNew()
-	{
-		if (isNew)
-		{
-			isNew = false;
-			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 
