@@ -82,7 +82,7 @@ namespace RB
 
 		for (GameObj& obj : arrObjs)
 		{
-			//forward directions
+			//change directions
 			obj.stateController.MakeStateTransition();
 
 			if (obj.objData.IsOnLeftSide())
