@@ -19,6 +19,7 @@ main.cpp
 Scene.cpp
 SceneController.cpp
 SpriteLoader.cpp
+State.cpp
 StateController.cpp
 )
 

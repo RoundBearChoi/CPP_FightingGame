@@ -9,6 +9,7 @@
 #include "PlayerInput.h"
 #include "Directions.h"
 #include "CollisionStatus.h"
+#include "CreateProjectile.h"
 
 namespace RB
 {
@@ -34,22 +35,16 @@ namespace RB
 		State* nextState = nullptr;
 		AnimationController animationController;
 		std::vector<CollisionStatus> vecCollisionStatus;
+		std::vector<CreateProjectile> vecCreateProjectiles;
 		int32_t updateCount = 0;
 
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
 		
-		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) 
-		{
+		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) { /*do nothing*/ };
 
-		};
-
-		virtual std::vector<BoxCollider>& GetColliders()
-		{
-			static std::vector<BoxCollider> defaultVec;
-			return defaultVec;
-		}
+		virtual std::vector<BoxCollider>& GetColliders();
 
 		virtual std::vector<olc::vi2d>& GetColliderQuads()
 		{

@@ -156,6 +156,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneController.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="StateController.cpp" />
   </ItemGroup>
   <ItemGroup>
