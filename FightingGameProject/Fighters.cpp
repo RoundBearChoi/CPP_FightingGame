@@ -255,20 +255,6 @@ namespace RB
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 
-	State* Fighters::GetEnemyState(State& me)
-	{
-		for (GameObj& obj : arrObjs)
-		{
-			//compare addresses
-			if (&(*obj.stateController.currentState) != &me)
-			{
-				return obj.stateController.currentState;
-			}
-		}
-
-		return nullptr;
-	}
-
 	GameObj* Fighters::GetEnemyObj(State& me)
 	{
 		for (GameObj& obj : arrObjs)
