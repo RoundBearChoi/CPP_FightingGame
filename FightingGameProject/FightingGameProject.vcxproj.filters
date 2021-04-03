@@ -79,6 +79,9 @@
     <Filter Include="Source Files\Groups">
       <UniqueIdentifier>{380ae61c-d9b1-42da-80e4-1fe2b14f1400}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State\Concrete States\Projectiles">
+      <UniqueIdentifier>{ad0f771c-2ad4-4cd6-9e5c-481941152952}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="ProjectileGroup.h">
       <Filter>Source Files\Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="Hadouken_MoveForward.h">
+      <Filter>Source Files\State\Concrete States\Projectiles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

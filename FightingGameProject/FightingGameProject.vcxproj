@@ -195,6 +195,7 @@
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
     <ClInclude Include="Hadouken.h" />
+    <ClInclude Include="Hadouken_MoveForward.h" />
     <ClInclude Include="InputElement.h" />
     <ClInclude Include="InputBuffer.h" />
     <ClInclude Include="InputType.h" />

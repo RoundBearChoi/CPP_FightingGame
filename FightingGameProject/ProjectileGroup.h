@@ -2,6 +2,9 @@
 #include "ObjGroup.h"
 #include "GameObj.h"
 
+//projectiles
+#include "Hadouken_MoveForward.h"
+
 namespace RB
 {
 	class ProjectileGroup : public ObjGroup
@@ -29,7 +32,27 @@ namespace RB
 
 		void UpdateState(GameData& gameData) override
 		{
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				GameObj& obj = *vecObjs[i];
+				State* state = vecObjs[i]->stateController.currentState;
 
+				if (state != nullptr)
+				{
+					if (state->IsNew())
+					{
+						state->OnEnter(obj.objData, gameData);
+					}
+
+					state->UpdateState(obj.objData, gameData);
+					state->updateCount++;
+
+					//if (obj.stateController.currentState->animationController.status.nDelayCount == 0)
+					//{
+					//	state->OnAnimationUpdate(obj.objData, gameData);
+					//}
+				}
+			}
 		}
 
 		void RenderObjPosition(Camera& cam) override
@@ -51,7 +74,14 @@ namespace RB
 		{
 			for (size_t i = 0; i < vecSpecs.size(); i++)
 			{
-				vecObjs.push_back(_Create());
+				GameObj* obj = _Create();
+
+				if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
+				{
+					obj->stateController.currentState = State::NewState<Hadouken_MoveForward>();
+				}
+
+				vecObjs.push_back(obj);
 			}
 		}
 

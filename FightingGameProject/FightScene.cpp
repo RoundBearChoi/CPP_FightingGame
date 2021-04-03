@@ -31,10 +31,12 @@ namespace RB
 
 	void FightScene::Update(GameData& gameData)
 	{
+		//update objs
 		background.UpdateState(gameData);
 		background.UpdateOffset(cam);
 		fighters.UpdateState(gameData);
 
+		//create projectiles
 		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
 		std::vector<CreateProjectile>* p2 = fighters.GetProjectileQueues(1);
 
@@ -42,6 +44,9 @@ namespace RB
 
 		p1->clear();
 		p2->clear();
+
+		//update objs
+		projectiles.UpdateState(gameData);
 	}
 
 	void FightScene::RenderObjs()
