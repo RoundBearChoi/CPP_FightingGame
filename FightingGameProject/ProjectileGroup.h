@@ -89,6 +89,15 @@ namespace RB
 					obj->stateController.currentState = State::NewState<Hadouken_MoveForward>();
 				}
 
+				if (vecSpecs[i].forward.x < 0)
+				{
+					obj->objData.FaceRight(false);
+				}
+				else if (vecSpecs[i].forward.x > 0)
+				{
+					obj->objData.FaceRight(true);
+				}
+
 				vecObjs.push_back(obj);
 			}
 		}
