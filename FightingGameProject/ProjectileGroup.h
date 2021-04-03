@@ -98,6 +98,8 @@ namespace RB
 					obj->objData.FaceRight(true);
 				}
 
+				obj->objData.SetPosition(vecSpecs[i].startPos);
+
 				vecObjs.push_back(obj);
 			}
 		}

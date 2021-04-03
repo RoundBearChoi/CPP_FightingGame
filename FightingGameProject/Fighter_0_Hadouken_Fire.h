@@ -41,13 +41,17 @@ namespace RB
 					CreateProjectile p;
 					p.projectileType = ProjectileType::HADOUKEN;
 
+					p.startPos = objData.GetPosition() + olc::vi2d(0, -105);
+
 					if (objData.IsFacingRight())
 					{
 						p.forward = { 1, 0 };
+						p.startPos += olc::vi2d(55, 0);
 					}
 					else
 					{
 						p.forward = { -1, 0 };
+						p.startPos += olc::vi2d(-55, 0);
 					}
 
 					vecCreateProjectiles.push_back(p);
