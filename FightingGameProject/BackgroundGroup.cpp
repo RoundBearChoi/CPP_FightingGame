@@ -1,8 +1,8 @@
-#include "Background.h"
+#include "BackgroundGroup.h"
 
 namespace RB
 {
-	void Background::UpdateState(GameData& gameData)
+	void BackgroundGroup::UpdateState(GameData& gameData)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
@@ -19,26 +19,26 @@ namespace RB
 		}
 	}
 
-	void Background::RenderObjPosition(Camera& cam)
+	void BackgroundGroup::RenderObjPosition(Camera& cam)
 	{
 		//arrObjs[0].RenderSpriteSize(cam);
 		arrObjs[1].RenderPosition(cam);
 		arrObjs[2].RenderPosition(cam);
 	}
 
-	void Background::RenderStates(Camera& cam, bool update)
+	void BackgroundGroup::RenderStates(Camera& cam, bool update)
 	{
 		SheetRenderer::Render(&arrObjs[2], cam);
 		SheetRenderer::Render(&arrObjs[1], cam);
 		SheetRenderer::Render(&arrObjs[0], cam);
 	}
 
-	void Background::RenderBoxColliders(Camera& cam)
+	void BackgroundGroup::RenderBoxColliders(Camera& cam)
 	{
 		//do nothing
 	}
 
-	void Background::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
+	void BackgroundGroup::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 	{
 		size_t count = CreationCount::UpdateCount();
 
@@ -49,12 +49,12 @@ namespace RB
 		arrObjs[_index].stateController.SetCreationID(count);
 	}
 
-	void Background::SetBackgroundPosition(int32_t _index, olc::vi2d _pos)
+	void BackgroundGroup::SetBackgroundPosition(int32_t _index, olc::vi2d _pos)
 	{
 		arrObjs[_index].objData.SetPosition(_pos);
 	}
 
-	void Background::UpdateOffset(Camera& cam)
+	void BackgroundGroup::UpdateOffset(Camera& cam)
 	{
 		float x0 = (float)cam.GetPosition().x * 0.65f;
 		float x1 = (float)cam.GetPosition().x * 0.8f;

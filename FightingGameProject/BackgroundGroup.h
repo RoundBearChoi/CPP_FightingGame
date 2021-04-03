@@ -7,7 +7,7 @@
 
 namespace RB
 {
-	class Background : public ObjGroup
+	class BackgroundGroup : public ObjGroup
 	{
 	private:
 		std::array<GameObj, 3> arrObjs;

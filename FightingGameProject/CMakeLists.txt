@@ -7,11 +7,11 @@ project(CPPFightingGame)
 
 add_executable(CPPFightingGame
 AnimationController.cpp
-Background.cpp
+BackgroundGroup.cpp
 Camera.cpp
 DecalLineRenderer.cpp
 DevSettings.cpp
-Fighters.cpp
+FightersGroup.cpp
 FightScene.cpp
 GameObj.cpp
 InputBuffer.cpp

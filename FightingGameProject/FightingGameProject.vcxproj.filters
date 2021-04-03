@@ -93,10 +93,10 @@
     <ClCompile Include="GameObj.cpp">
       <Filter>Source Files\GameObj\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Background.cpp">
+    <ClCompile Include="BackgroundGroup.cpp">
       <Filter>Source Files\GameObj Groups</Filter>
     </ClCompile>
-    <ClCompile Include="Fighters.cpp">
+    <ClCompile Include="FightersGroup.cpp">
       <Filter>Source Files\GameObj Groups</Filter>
     </ClCompile>
     <ClCompile Include="StateController.cpp">
@@ -140,7 +140,7 @@
     <ClInclude Include="GameData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Fighters.h">
+    <ClInclude Include="FightersGroup.h">
       <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
     <ClInclude Include="GameObj.h">
@@ -191,7 +191,7 @@
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Background.h">
+    <ClInclude Include="BackgroundGroup.h">
       <Filter>Source Files\GameObj Groups</Filter>
     </ClInclude>
     <ClInclude Include="Background_Idle_Trees.h">

@@ -1,8 +1,8 @@
-#include "Fighters.h"
+#include "FightersGroup.h"
 
 namespace RB
 {
-	Fighters::Fighters()
+	FightersGroup::FightersGroup()
 	{
 		upleft.path = "PNG files/InputBuffer/upleft.png";
 		upleft.spriteType = SpriteType::INPUT_BUFFER;
@@ -45,7 +45,7 @@ namespace RB
 		punch.SetDecal();
 	}
 
-	void Fighters::UpdateState(GameData& gameData)
+	void FightersGroup::UpdateState(GameData& gameData)
 	{
 		//input queues
 		InputBuffer::ptr->AddInputs(gameData);
@@ -159,7 +159,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderObjPosition(Camera& cam)
+	void FightersGroup::RenderObjPosition(Camera& cam)
 	{
 		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
@@ -183,7 +183,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderStates(Camera& cam, bool update)
+	void FightersGroup::RenderStates(Camera& cam, bool update)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
@@ -196,7 +196,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderBoxColliders(Camera& cam)
+	void FightersGroup::RenderBoxColliders(Camera& cam)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
@@ -204,7 +204,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::RenderInputBuffer()
+	void FightersGroup::RenderInputBuffer()
 	{
 		olc::vi2d startPos = { 20, 100 };
 
@@ -242,7 +242,7 @@ namespace RB
 		}
 	}
 
-	void Fighters::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)
+	void FightersGroup::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)
 	{
 		size_t count = CreationCount::UpdateCount();
 
@@ -255,7 +255,7 @@ namespace RB
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 
-	GameObj* Fighters::GetEnemyObj(State& me)
+	GameObj* FightersGroup::GetEnemyObj(State& me)
 	{
 		for (GameObj& obj : arrObjs)
 		{
@@ -269,7 +269,7 @@ namespace RB
 		return nullptr;
 	}
 
-	olc::Decal* Fighters::GetBufferDecal(InputType inputType)
+	olc::Decal* FightersGroup::GetBufferDecal(InputType inputType)
 	{
 		switch (inputType)
 		{
@@ -297,7 +297,7 @@ namespace RB
 		return nullptr;
 	}
 
-	std::vector<CreateProjectile>* Fighters::GetProjectileQueues(size_t _index)
+	std::vector<CreateProjectile>* FightersGroup::GetProjectileQueues(size_t _index)
 	{
 		if (_index < arrObjs.size())
 		{

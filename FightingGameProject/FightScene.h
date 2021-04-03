@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
-#include "Fighters.h"
-#include "Background.h"
+#include "FightersGroup.h"
+#include "BackgroundGroup.h"
 #include "InputBuffer.h"
 
 //temp
@@ -15,8 +15,8 @@ namespace RB
 	class FightScene : public Scene
 	{
 	private:
-		Fighters fighters;
-		Background background;
+		FightersGroup fighters;
+		BackgroundGroup background;
 
 	public:
 		FightScene();

@@ -144,13 +144,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationController.cpp" />
-    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BackgroundGroup.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DecalLineRenderer.cpp" />
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="InputBuffer.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
-    <ClCompile Include="Fighters.cpp" />
+    <ClCompile Include="FightersGroup.cpp" />
     <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameObj.cpp" />
     <ClCompile Include="main.cpp" />
@@ -162,7 +162,7 @@
   <ItemGroup>
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AnimationStatus.h" />
-    <ClInclude Include="Background.h" />
+    <ClInclude Include="BackgroundGroup.h" />
     <ClInclude Include="Background_Idle_Mountains.h" />
     <ClInclude Include="Background_Idle_Sun.h" />
     <ClInclude Include="Background_Idle_Trees.h" />
@@ -193,7 +193,7 @@
     <ClInclude Include="GameData.h" />
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameObj.h" />
-    <ClInclude Include="Fighters.h" />
+    <ClInclude Include="FightersGroup.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="AnimationSpecs.h" />
     <ClInclude Include="Hadouken.h" />

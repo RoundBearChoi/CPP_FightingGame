@@ -22,7 +22,7 @@
 
 namespace RB
 {
-	class Fighters : public ObjGroup
+	class FightersGroup : public ObjGroup
 	{
 	private:
 		std::array<GameObj, 2> arrObjs;
@@ -41,7 +41,7 @@ namespace RB
 		UIElement punch;
 
 	public:
-		Fighters();
+		FightersGroup();
 
 		void UpdateState(GameData& gameData) override;
 		void RenderObjPosition(Camera& cam) override;
