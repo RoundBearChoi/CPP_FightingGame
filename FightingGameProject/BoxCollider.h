@@ -4,7 +4,6 @@
 #include "Camera.h"
 #include "RelativeVector.h"
 #include "DebugRenderer.h"
-#include "DecalLineRenderer.h"
 
 namespace RB
 {
@@ -136,10 +135,10 @@ namespace RB
 				DebugRenderer::RenderBox(floats);
 			}
 
-			DecalLineRenderer::Draw(quad[0], quad[1], _color);
-			DecalLineRenderer::Draw(quad[1], quad[2], _color);
-			DecalLineRenderer::Draw(quad[2], quad[3], _color);
-			DecalLineRenderer::Draw(quad[3], quad[0], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], _color);
 		}
 
 		void IncreaseWidth(int32_t _width) { width += _width; }

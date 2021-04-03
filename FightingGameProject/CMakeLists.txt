@@ -9,7 +9,6 @@ add_executable(CPPFightingGame
 AnimationController.cpp
 BackgroundGroup.cpp
 Camera.cpp
-DecalLineRenderer.cpp
 DevSettings.cpp
 FightersGroup.cpp
 FightScene.cpp

@@ -117,9 +117,6 @@
     <ClCompile Include="DevSettings.cpp">
       <Filter>Source Files\Settings</Filter>
     </ClCompile>
-    <ClCompile Include="DecalLineRenderer.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="InputBuffer.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
@@ -286,9 +283,6 @@
     </ClInclude>
     <ClInclude Include="Preload_Fighter_0.h">
       <Filter>Source Files\Groups</Filter>
-    </ClInclude>
-    <ClInclude Include="DecalLineRenderer.h">
-      <Filter>Source Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="DiagonalOverlap.h">
       <Filter>Source Files\Collision</Filter>
