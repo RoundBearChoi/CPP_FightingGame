@@ -29,9 +29,9 @@ namespace RB
 
 		virtual ~State() {};
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
-		virtual void UpdateState(ObjData& objData, GameData& gameData) = 0;
-		
+		virtual void OnUpdate(ObjData& objData, GameData& gameData) = 0;
 		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) { /*do nothing*/ };
+
 		virtual std::vector<BoxCollider>& GetColliders();
 		virtual std::vector<olc::vi2d>& GetColliderQuads();
 		

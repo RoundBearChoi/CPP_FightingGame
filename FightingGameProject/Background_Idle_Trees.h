@@ -20,7 +20,7 @@ namespace RB
 			objData.SetSpriteSize({ 1700, 300 });
 		}
 
-		void UpdateState(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
 
 		}

@@ -21,7 +21,7 @@ namespace RB
 			objData.SetSpriteSize({ 78, 46 });
 		}
 
-		void UpdateState(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
 			int32_t speed = Directions::GetForwardSpeed(objData, 2);
 

@@ -14,7 +14,8 @@ namespace RB
 				{
 					s->OnEnter(arrObjs[i].objData, gameData);
 				}
-				s->UpdateState(arrObjs[i].objData, gameData);
+
+				s->OnUpdate(arrObjs[i].objData, gameData);
 			}
 		}
 	}

@@ -44,13 +44,8 @@ namespace RB
 						state->OnEnter(obj.objData, gameData);
 					}
 
-					state->UpdateState(obj.objData, gameData);
+					state->OnUpdate(obj.objData, gameData);
 					state->updateCount++;
-
-					//if (obj.stateController.currentState->animationController.status.nDelayCount == 0)
-					//{
-					//	state->OnAnimationUpdate(obj.objData, gameData);
-					//}
 				}
 			}
 		}
