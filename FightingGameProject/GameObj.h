@@ -13,6 +13,7 @@ namespace RB
 		StateController stateController;
 
 		GameObj();
+		GameObj(size_t _creationID);
 		~GameObj();
 
 		void RenderPosition(Camera& cam);

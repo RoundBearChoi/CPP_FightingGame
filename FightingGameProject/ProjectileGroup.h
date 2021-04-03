@@ -106,9 +106,8 @@ namespace RB
 
 		GameObj* _Create()
 		{
-			GameObj* obj = new GameObj();
 			creationCount++;
-			obj->objData.SetCreationID(creationCount);
+			GameObj* obj = new GameObj(creationCount);
 			return obj;
 		}
 	};
