@@ -296,4 +296,14 @@ namespace RB
 
 		return nullptr;
 	}
+
+	std::vector<CreateProjectile>* Fighters::GetProjectileQueues(size_t _index)
+	{
+		if (_index < arrObjs.size())
+		{
+			return &arrObjs[_index].stateController.currentState->vecCreateProjectiles;
+		}
+
+		return nullptr;
+	}
 }

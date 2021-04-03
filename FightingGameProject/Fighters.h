@@ -12,6 +12,7 @@
 #include "InputBuffer.h"
 #include "InputType.h"
 #include "UIElement.h"
+#include "CreateProjectile.h"
 
 //combos
 #include "Hadouken.h"
@@ -51,6 +52,7 @@ namespace RB
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
 		olc::Decal* GetBufferDecal(InputType inputType);
+		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
 
 		template<class T>
 		void SetInitialState(int32_t _index)

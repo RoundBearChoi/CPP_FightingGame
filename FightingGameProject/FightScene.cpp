@@ -34,6 +34,9 @@ namespace RB
 		background.UpdateState(gameData);
 		background.UpdateOffset(cam);
 		fighters.UpdateState(gameData);
+
+		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
+		std::vector<CreateProjectile>* p2 = fighters.GetProjectileQueues(1);
 	}
 
 	void FightScene::RenderObjs()
