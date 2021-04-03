@@ -62,7 +62,15 @@ namespace RB
 
 		void RenderStates(Camera& cam, bool update) override
 		{
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				SheetRenderer::Render(vecObjs[i], cam);
 
+				if (update)
+				{
+					vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+				}
+			}
 		}
 
 		void RenderBoxColliders(Camera& cam) override

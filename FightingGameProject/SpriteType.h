@@ -17,6 +17,8 @@ namespace RB
 
 		INPUT_BUFFER,
 
+		PROJECTILES,
+
 		COUNT,
 	};
 }

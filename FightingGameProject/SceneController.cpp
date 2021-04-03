@@ -58,6 +58,7 @@ namespace RB
 		spriteLoader.LoadBoxColliderEditorSprites();
 		spriteLoader.LoadDebugElementSprites();
 		spriteLoader.LoadInputBufferSprites();
+		spriteLoader.LoadProjectileSprites();
 
 		SpriteLoader::ptr = &spriteLoader;
 	}

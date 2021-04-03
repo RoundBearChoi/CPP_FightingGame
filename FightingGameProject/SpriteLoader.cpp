@@ -94,6 +94,14 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
+	void SpriteLoader::LoadProjectileSprites()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::PROJECTILES;
+
+		std::string path = "PNG files/Projectiles";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
 	void SpriteLoader::DeleteSprites(size_t arrayIndex)
 	{
 		if (sprites.size() > arrayIndex)

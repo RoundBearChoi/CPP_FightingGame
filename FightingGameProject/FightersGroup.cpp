@@ -185,7 +185,7 @@ namespace RB
 
 	void FightersGroup::RenderStates(Camera& cam, bool update)
 	{
-		for (int32_t i = 0; i < arrObjs.size(); i++)
+		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
 			SheetRenderer::Render(&arrObjs[i], cam);
 

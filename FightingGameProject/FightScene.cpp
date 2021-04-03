@@ -64,5 +64,6 @@ namespace RB
 		background.RenderStates(cam, update);
 		fighters.RenderStates(cam, update);
 		fighters.RenderBoxColliders(cam);
+		projectiles.RenderStates(cam, update);
 	}
 }

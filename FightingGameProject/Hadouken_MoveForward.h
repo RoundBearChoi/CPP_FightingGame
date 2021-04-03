@@ -11,22 +11,23 @@ namespace RB
 	public:
 		Hadouken_MoveForward()
 		{
-			//animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_idle.png");
-			//animationController.SetColliderFile("Fighter_0/fighter_0_idle.collider");
-
-			//animationController.SetParams(SpriteType::FIGHTER_0, 2000, 200, 5, 1, 5);
-			//animationController.status.nTransitionDelay = 10;
+			animationController.SetSpritePath("PNG files/Projectiles/hadouken_ball.png");
+			animationController.SetParams(SpriteType::PROJECTILES, 78, 46, 1, 1, 1);
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			//objData.SetSpriteSize({ 400, 230 });
+			objData.SetOffsetType(OffsetType::CENTER_CENTER);
+			objData.SetSpriteSize({ 78, 46 });
 		}
 
 		void UpdateState(ObjData& objData, GameData& gameData) override
 		{
-			//PlayerInput p = PlayerInput::Get(objData, gameData);
-			//Directions d = Directions::Get(objData, p);
+			int32_t speed = Directions::GetForwardSpeed(objData, 2);
+
+			olc::vi2d pos = objData.GetPosition();
+			pos.x += speed;
+			objData.SetPosition(pos);
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }
