@@ -2,7 +2,7 @@
 
 namespace RB
 {
-	void BackgroundGroup::UpdateState(GameData& gameData)
+	void BackgroundGroup::UpdateStates(GameData& gameData)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{

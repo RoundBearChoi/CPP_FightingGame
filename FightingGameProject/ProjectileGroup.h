@@ -30,7 +30,7 @@ namespace RB
 			}
 		}
 
-		void UpdateState(GameData& gameData) override
+		void UpdateStates(GameData& gameData) override
 		{
 			for (size_t i = 0; i < vecObjs.size(); i++)
 			{

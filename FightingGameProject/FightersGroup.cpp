@@ -45,7 +45,7 @@ namespace RB
 		punch.SetDecal();
 	}
 
-	void FightersGroup::UpdateState(GameData& gameData)
+	void FightersGroup::UpdateStates(GameData& gameData)
 	{
 		//input queues
 		InputBuffer::ptr->AddInputs(gameData);
