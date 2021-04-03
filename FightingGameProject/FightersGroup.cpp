@@ -114,18 +114,7 @@ namespace RB
 
 			if (state != nullptr)
 			{
-				if (state->IsNew())
-				{
-					state->OnEnter(obj.objData, gameData);
-				}
-
-				state->OnUpdate(obj.objData, gameData);
-				state->updateCount++;
-
-				if (state->animationController.status.nDelayCount == 0)
-				{
-					state->OnAnimationUpdate(obj.objData, gameData);
-				}
+				state->RunUpdateProcess(obj.objData, gameData);
 
 				//collision check between bodyparts
 				CollisionStatus* col = state->GetCollisionStatus();

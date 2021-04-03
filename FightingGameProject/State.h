@@ -35,6 +35,7 @@ namespace RB
 		virtual std::vector<BoxCollider>& GetColliders();
 		virtual std::vector<olc::vi2d>& GetColliderQuads();
 		
+		void RunUpdateProcess(ObjData& objData, GameData& gameData);
 		size_t GetHash();
 		bool IsNew();
 		void UpdateColliders();

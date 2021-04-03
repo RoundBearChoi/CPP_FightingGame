@@ -6,16 +6,11 @@ namespace RB
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
 		{
-			State* s = arrObjs[i].stateController.currentState;
+			State* state = arrObjs[i].stateController.currentState;
 
-			if (s != nullptr)
+			if (state != nullptr)
 			{
-				if (s->IsNew())
-				{
-					s->OnEnter(arrObjs[i].objData, gameData);
-				}
-
-				s->OnUpdate(arrObjs[i].objData, gameData);
+				state->RunUpdateProcess(arrObjs[i].objData, gameData);
 			}
 		}
 	}

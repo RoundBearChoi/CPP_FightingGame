@@ -27,6 +27,22 @@ namespace RB
 		return defaultVec;
 	}
 
+	void State::RunUpdateProcess(ObjData& objData, GameData& gameData)
+	{
+		if (IsNew())
+		{
+			OnEnter(objData, gameData);
+		}
+
+		OnUpdate(objData, gameData);
+		updateCount++;
+
+		if (animationController.status.nDelayCount == 0)
+		{
+			OnAnimationUpdate(objData, gameData);
+		}
+	}
+
 	size_t State::GetHash()
 	{
 		size_t& h = Hash();

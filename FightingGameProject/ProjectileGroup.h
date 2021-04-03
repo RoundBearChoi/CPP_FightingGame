@@ -39,13 +39,7 @@ namespace RB
 
 				if (state != nullptr)
 				{
-					if (state->IsNew())
-					{
-						state->OnEnter(obj.objData, gameData);
-					}
-
-					state->OnUpdate(obj.objData, gameData);
-					state->updateCount++;
+					state->RunUpdateProcess(vecObjs[i]->objData, gameData);
 				}
 			}
 		}
