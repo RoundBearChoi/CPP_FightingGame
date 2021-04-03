@@ -39,6 +39,17 @@ namespace RB
 				{
 					fired = true;
 					CreateProjectile p;
+					p.projectileType = ProjectileType::HADOUKEN;
+
+					if (objData.IsFacingRight())
+					{
+						p.forward = { 1, 0 };
+					}
+					else
+					{
+						p.forward = { -1, 0 };
+					}
+
 					vecCreateProjectiles.push_back(p);
 				}
 			}

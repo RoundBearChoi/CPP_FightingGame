@@ -19,7 +19,7 @@ namespace RB
 
 				for (size_t i = 0; i < vecObjs.size(); i++)
 				{
-					IF_COUT{ std::cout << "destroying projectile: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
+					IF_COUT{ std::cout << "destructing projectile: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
 					delete vecObjs[i];
 				}
 
@@ -47,9 +47,9 @@ namespace RB
 
 		}
 
-		void CreateProjectiles(std::vector<CreateProjectile>& vec)
+		void CreateProjectiles(std::vector<CreateProjectile>& vecSpecs)
 		{
-			for (size_t i = 0; i < vec.size(); i++)
+			for (size_t i = 0; i < vecSpecs.size(); i++)
 			{
 				vecObjs.push_back(_Create());
 			}
