@@ -46,9 +46,6 @@ namespace RB
 		p1->clear();
 		p2->clear();
 
-		//collision between projectiles vs players
-		olc::vi2d pos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
-		
 		//update objs
 		projectiles.UpdateStates(gameData);
 	}
@@ -61,6 +58,12 @@ namespace RB
 
 		fighters.RenderObjPosition(cam);
 		fighters.RenderInputBuffer();
+
+		//testing collision between projectiles vs players
+		olc::vi2d f1Pos = fighters.GetFighterWorldPos(0);
+		olc::vi2d f1ColPos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
+		//screenspace
+		olc::Renderer::ptrPGE->DrawLine(RelativeVector::GetPosition(f1Pos, cam), RelativeVector::GetPosition(f1ColPos, cam), olc::CYAN);
 	}
 
 	void FightScene::RenderStates(bool update)
