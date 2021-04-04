@@ -126,6 +126,9 @@
     <ClCompile Include="State.cpp">
       <Filter>Source Files\State\Base</Filter>
     </ClCompile>
+    <ClCompile Include="DiagonalOverlap.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

@@ -10,6 +10,7 @@ AnimationController.cpp
 BackgroundGroup.cpp
 Camera.cpp
 DevSettings.cpp
+DiagonalOverlap.cpp
 FightersGroup.cpp
 FightScene.cpp
 GameObj.cpp
