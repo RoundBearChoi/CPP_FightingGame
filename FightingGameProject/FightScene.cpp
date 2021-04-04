@@ -46,6 +46,9 @@ namespace RB
 		p1->clear();
 		p2->clear();
 
+		//collision between projectiles vs players
+		olc::vi2d pos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
+		
 		//update objs
 		projectiles.UpdateStates(gameData);
 	}

@@ -53,6 +53,7 @@ namespace RB
 		GameObj* GetEnemyObj(State& me);
 		olc::Decal* GetBufferDecal(InputType inputType);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
+		olc::vi2d GetColliderWorldPos(int32_t fighterIndex, BodyType bodyType);
 
 		template<class T>
 		void SetInitialState(int32_t _index)
