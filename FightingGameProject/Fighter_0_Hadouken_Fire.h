@@ -54,6 +54,8 @@ namespace RB
 						p.startPos += olc::vi2d(-55, 0);
 					}
 
+					p.ownerObjCreationID = objData.GetCreationID();
+
 					vecCreateProjectiles.push_back(p);
 				}
 			}

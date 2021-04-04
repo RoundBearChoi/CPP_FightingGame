@@ -88,6 +88,7 @@ namespace RB
 				}
 
 				obj->objData.SetPosition(vecSpecs[i].startPos);
+				obj->objData.SetOwnerID(vecSpecs[i].ownerObjCreationID);
 
 				vecObjs.push_back(obj);
 			}

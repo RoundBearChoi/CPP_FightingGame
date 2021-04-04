@@ -10,6 +10,6 @@ namespace RB
 		ProjectileType projectileType = ProjectileType::NONE;
 		olc::vi2d forward = { 0, 0 };
 		olc::vi2d startPos = { 0, 0 };
-		int32_t ownerPlayer = 0;
+		size_t ownerObjCreationID = 0;
 	};
 }

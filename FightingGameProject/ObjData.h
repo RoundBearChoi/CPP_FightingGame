@@ -11,6 +11,7 @@ namespace RB
 		olc::vi2d position = { 0, 0 };
 		olc::vi2d spriteSize = { 0, 0 };
 		size_t creationID = 0;
+		size_t ownerID = 0;
 		OffsetType offsetType = OffsetType::NONE;
 		int32_t currentAnimationIndex = 0;
 		bool onLeftSide = true;
@@ -26,6 +27,9 @@ namespace RB
 
 		size_t GetCreationID() { return creationID;	}
 		void SetCreationID(size_t t) { creationID = t; }
+
+		size_t GetOwnerID() { return ownerID; }
+		void SetOwnerID(size_t t) { ownerID = t; }
 
 		OffsetType GetOffsetType() { return offsetType; }
 		void SetOffsetType(OffsetType _type) { offsetType = _type; }
