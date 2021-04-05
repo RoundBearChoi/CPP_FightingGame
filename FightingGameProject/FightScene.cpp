@@ -86,8 +86,8 @@ namespace RB
 		{
 			size_t ownerID = projectiles.GetObjCreationID(i);
 
-			olc::vi2d worldPos = projectiles.GetObjBoxColliderWorldPos(i);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
+			olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(i);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectilePos, cam), olc::CYAN);
 
 			std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(i);
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[0], cam), olc::CYAN);
@@ -95,7 +95,11 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[2], cam), olc::CYAN);
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[3], cam), olc::CYAN);
 
-			//DiagonalOverlap::yes()
+			//collision test
+			if (DiagonalOverlap::yes(f2ColPos, bodyQuads, projectilePos, projectileQuads))
+			{
+				int n = 0;
+			}
 		}
 	}
 
