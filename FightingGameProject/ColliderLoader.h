@@ -97,8 +97,8 @@ namespace RB
 
 					for (size_t i = 0; i < vecColliders.size(); i++)
 					{
-						int32_t x = vecColliders[i].Position().x;
-						int32_t y = vecColliders[i].Position().y;
+						int32_t x = vecColliders[i].RelativePosition().x;
+						int32_t y = vecColliders[i].RelativePosition().y;
 						int32_t width = vecColliders[i].Width();
 						int32_t height = vecColliders[i].Height();
 						float rotation = vecColliders[i].Rotation();

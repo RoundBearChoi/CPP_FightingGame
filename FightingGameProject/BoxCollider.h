@@ -29,7 +29,7 @@ namespace RB
 		olc::vi2d RelPoint2() { return rotatedQuad[2] + pos; } //bottomright
 		olc::vi2d RelPoint3() { return rotatedQuad[3] + pos; } // topright
 
-		olc::vi2d Position() { return pos; }
+		olc::vi2d RelativePosition() { return pos; }
 		void SetPosition(int32_t _x, int32_t _y) { pos.x = _x; pos.y = _y; }
 		int32_t Width() { return width; }
 		void SetWidth(int32_t _width) { width = _width; }

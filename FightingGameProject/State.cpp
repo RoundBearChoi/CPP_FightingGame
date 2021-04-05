@@ -180,16 +180,16 @@ namespace RB
 
 		if (index < vec.size())
 		{
-			olc::vi2d pos = vec[index].Position();
+			olc::vi2d relativePos = vec[index].RelativePosition();
 
 			if (!objData.IsFacingRight())
 			{
-				pos.x *= -1;
+				relativePos.x *= -1;
 			}
 
-			pos += objData.GetPosition();
+			olc::vi2d worldPos = relativePos + objData.GetPosition();
 
-			return pos;
+			return worldPos;
 		}
 		else
 		{
