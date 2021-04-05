@@ -4,6 +4,7 @@
 #include "GameObj.h"
 #include "AnimationStatus.h"
 #include "Camera.h"
+#include "DevSettings.h"
 
 namespace RB
 {
@@ -73,7 +74,10 @@ namespace RB
 			relativePoints[2] = ScreenVector::GetScreenPosition(points[2], cam);
 			relativePoints[3] = ScreenVector::GetScreenPosition(points[3], cam);
 
-			olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
+			if (DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG || DevSettings::renderMode == RenderMode::SPRITES_ONLY)
+			{
+				olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
+			}
 		}
 	};
 }

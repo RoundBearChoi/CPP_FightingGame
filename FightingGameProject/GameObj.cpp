@@ -59,7 +59,7 @@ namespace RB
 
 	void GameObj::RenderCollisionTiming(BodyType _bodyType, Camera& cam)
 	{
-		if (DevSettings::renderDebugBoxes)
+		if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
 		{
 			//draw center position
 			olc::vi2d playerPos = ScreenVector::GetScreenPosition(objData.GetPosition(), cam);

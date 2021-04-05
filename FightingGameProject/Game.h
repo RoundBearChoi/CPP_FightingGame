@@ -69,9 +69,17 @@ namespace RB
 			sceneController.currentScene->RenderObjs();
 			timer.ShowUpdateCount();
 
-			if (DevSettings::renderDebugBoxes)
+			if (DevSettings::renderMode == RenderMode::DEBUG_ONLY)
 			{
-				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: debug");
+				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: debug only");
+			}
+			else if (DevSettings::renderMode == RenderMode::SPRITES_ONLY)
+			{
+				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: sprites only");
+			}
+			else if (DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
+			{
+				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: sprites and debug");
 			}
 
 			return true;

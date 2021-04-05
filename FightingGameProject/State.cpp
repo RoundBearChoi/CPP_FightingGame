@@ -96,7 +96,7 @@ namespace RB
 
 	void State::RenderColliderQuads(ObjData& objData, Camera& cam)
 	{
-		if (!DevSettings::renderDebugBoxes)
+		if (DevSettings::renderMode == RenderMode::SPRITES_ONLY)
 		{
 			return;
 		}
