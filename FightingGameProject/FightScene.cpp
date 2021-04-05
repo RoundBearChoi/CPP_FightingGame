@@ -68,6 +68,12 @@ namespace RB
 		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(f1ColPos, cam), olc::CYAN);
 
 		size_t count = projectiles.GetObjCount();
+
+		for (size_t i = 0; i < count; i++)
+		{
+			olc::vi2d worldPos = projectiles.GetObjBoxColliderWorldPos(i);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
+		}
 	}
 
 	void FightScene::RenderStates(bool update)

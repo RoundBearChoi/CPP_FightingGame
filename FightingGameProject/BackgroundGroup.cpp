@@ -38,6 +38,11 @@ namespace RB
 	{
 		return arrObjs.size();
 	}
+	
+	olc::vi2d BackgroundGroup::GetObjBoxColliderWorldPos(size_t index)
+	{
+		return { 0, 0 };
+	}
 
 	void BackgroundGroup::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 	{

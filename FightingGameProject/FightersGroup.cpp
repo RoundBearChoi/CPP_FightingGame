@@ -183,6 +183,11 @@ namespace RB
 		return arrObjs.size();
 	}
 
+	olc::vi2d FightersGroup::GetObjBoxColliderWorldPos(size_t index)
+	{
+		return { 0, 0 };
+	}
+
 	void FightersGroup::RenderInputBuffer()
 	{
 		olc::vi2d startPos = { 20, 100 };

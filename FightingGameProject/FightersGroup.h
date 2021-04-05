@@ -48,6 +48,7 @@ namespace RB
 		void RenderStates(Camera& cam, bool update) override;
 		void RenderBoxColliders(Camera& cam) override;
 		size_t GetObjCount() override;
+		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 
 		void RenderInputBuffer();
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);

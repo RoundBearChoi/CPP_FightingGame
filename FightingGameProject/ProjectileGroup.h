@@ -79,6 +79,21 @@ namespace RB
 
 		}
 
+		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override
+		{
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					olc::vi2d relativePos = vecObjs[index]->objData.objBoxCollider.RelativePosition();
+					olc::vi2d worldPos = relativePos + vecObjs[index]->objData.GetPosition();
+					return worldPos;
+				}
+			}
+
+			return { 0, 0 };
+		}
+
 		void CreateProjectiles(std::vector<CreateProjectile>& vecSpecs)
 		{
 			for (size_t i = 0; i < vecSpecs.size(); i++)
