@@ -10,6 +10,7 @@ namespace RB
 	class InputBuffer
 	{
 	private:
+		//player1
 		bool p1_upright = false;
 		bool p1_downright = false;
 		bool p1_downleft = false;
@@ -17,10 +18,21 @@ namespace RB
 
 		bool p1_left = false;
 		bool p1_right = false;
-
 		bool p1_down = false;
 
 		bool p1_weakpunch = false;
+
+		//player2
+		bool p2_upright = false;
+		bool p2_downright = false;
+		bool p2_downleft = false;
+		bool p2_upleft = false;
+
+		bool p2_left = false;
+		bool p2_right = false;
+		bool p2_down = false;
+
+		bool p2_weakpunch = false;
 
 	public:
 		static InputBuffer* ptr;

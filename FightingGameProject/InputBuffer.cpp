@@ -7,12 +7,20 @@ namespace RB
 	void InputBuffer::AddInputs(GameData& gameData)
 	{
 		AddInputBuffer(
-			gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d,
-			gameData.key_t,
-			vecP1Inputs,
-			p1_upright, p1_downright, p1_downleft, p1_upleft,
-			p1_left, p1_right, p1_down,
+			gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, //up down left right
+			gameData.key_t, //weak punch
+			vecP1Inputs, //p1
+			p1_upright, p1_downright, p1_downleft, p1_upleft, //¢Ö ¢Ù ¢× ¢Ø
+			p1_left, p1_right, p1_down, //¡ç ¡æ ¡é
 			p1_weakpunch);
+
+		AddInputBuffer(
+			gameData.key_up, gameData.key_down, gameData.key_left, gameData.key_right, //up down left right
+			gameData.key_np7, //weak punch
+			vecP2Inputs, //p2
+			p2_upright, p2_downright, p2_downleft, p2_upleft, //¢Ö ¢Ù ¢× ¢Ø
+			p2_left, p2_right, p2_down, //¡ç ¡æ ¡é
+			p2_weakpunch);
 	}
 
 	void InputBuffer::Update()
@@ -33,11 +41,21 @@ namespace RB
 		for (size_t i = 0; i < vecP2Inputs.size(); i++)
 		{
 			vecP2Inputs[i].updateCount++;
+
+			if (vecP2Inputs[i].updateCount > 120)
+			{
+				p2DeleteCount++;
+			}
 		}
 
 		for (size_t i = 0; i < p1DeleteCount; i++)
 		{
 			vecP1Inputs.erase(vecP1Inputs.begin());
+		}
+
+		for (size_t i = 0; i < p2DeleteCount; i++)
+		{
+			vecP2Inputs.erase(vecP2Inputs.begin());
 		}
 	}
 

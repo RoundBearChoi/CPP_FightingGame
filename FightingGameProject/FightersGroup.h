@@ -4,7 +4,6 @@
 #include "GameObj.h"
 #include "ObjGroup.h"
 #include "GameData.h"
-#include "SheetRenderer.h"
 #include "CreationCount.h"
 #include "DevSettings.h"
 #include "PlayerType.h"
@@ -13,6 +12,7 @@
 #include "InputType.h"
 #include "UIElement.h"
 #include "CreateProjectile.h"
+#include "SheetRenderer.h"
 
 //combos
 #include "Hadouken.h"
@@ -53,7 +53,7 @@ namespace RB
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 
-		void RenderInputBuffer();
+		void RenderInputBuffer(olc::vi2d& startPos, std::vector<InputElement>& vecInputs);
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
 		olc::Decal* GetBufferDecal(InputType inputType);

@@ -214,11 +214,9 @@ namespace RB
 		return arr;
 	}
 
-	void FightersGroup::RenderInputBuffer()
+	void FightersGroup::RenderInputBuffer(olc::vi2d& startPos, std::vector<InputElement>& vecInputs)
 	{
-		olc::vi2d startPos = { 20, 100 };
-
-		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
+		for (size_t i = 0; i < vecInputs.size(); i++)
 		{
 			olc::vf2d pos(0, 0);
 			pos.x += ((20 * i) + (8 * i));
@@ -236,11 +234,11 @@ namespace RB
 			points[2] += pos;
 			points[3] += pos;
 
-			olc::Decal* d = GetBufferDecal(InputBuffer::ptr->vecP1Inputs[i].inputType);
+			olc::Decal* d = GetBufferDecal(vecInputs[i].inputType);
 
 			if (d != nullptr)
 			{
-				if (InputBuffer::ptr->vecP1Inputs[i].inputType == InputType::WEAK_PUNCH)
+				if (vecInputs[i].inputType == InputType::WEAK_PUNCH)
 				{
 					olc::Renderer::ptrPGE->DrawWarpedDecal(d, points, olc::MAGENTA);
 				}
