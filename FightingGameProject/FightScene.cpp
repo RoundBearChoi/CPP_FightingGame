@@ -74,11 +74,11 @@ namespace RB
 		//body collider render test
 		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColPos, cam), olc::CYAN);
 
-		std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(1, BodyType::HEAD);
-		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[0], cam), olc::CYAN);
-		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[1], cam), olc::CYAN);
-		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[2], cam), olc::CYAN);
-		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[3], cam), olc::CYAN);
+		std::array<olc::vi2d, 4>f2ColQuads = fighters.GetBodyWorldQuad(1, BodyType::HEAD);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColQuads[0], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColQuads[1], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColQuads[2], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColQuads[3], cam), olc::CYAN);
 
 		size_t count = projectiles.GetObjCount();
 
@@ -96,7 +96,7 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[3], cam), olc::CYAN);
 
 			//collision test
-			if (DiagonalOverlap::yes(f2ColPos, bodyQuads, projectilePos, projectileQuads))
+			if (DiagonalOverlap::yes(f2ColPos, f2ColQuads, projectilePos, projectileQuads))
 			{
 				int n = 0;
 			}
