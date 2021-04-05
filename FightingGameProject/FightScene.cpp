@@ -31,6 +31,31 @@ namespace RB
 
 	void FightScene::Update(GameData& gameData)
 	{
+		//projectile collision
+		for (size_t projectileIndex = 0; projectileIndex < projectiles.GetObjCount(); projectileIndex++)
+		{
+			for (int32_t playerIndex = 0; playerIndex < 2; playerIndex++)
+			{
+				size_t id = fighters.GetObjCreationID(playerIndex);
+				size_t ownerID = projectiles.GetObjCreationID(projectileIndex);
+
+				if (id != ownerID)
+				{
+					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
+					olc::vi2d playerPos = fighters.GetBodyWorldPos(playerIndex, BodyType::HEAD);
+
+					std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
+					std::array<olc::vi2d, 4>playerQuads = fighters.GetBodyWorldQuad(playerIndex, BodyType::HEAD);
+
+					//collision test
+					if (DiagonalOverlap::yes(projectilePos, projectileQuads, playerPos, playerQuads))
+					{
+						int n = 0;
+					}
+				}
+			}
+		}
+
 		//update objs
 		background.UpdateStates(gameData);
 		background.UpdateOffset(cam);
@@ -46,7 +71,7 @@ namespace RB
 		p1->clear();
 		p2->clear();
 
-		//update objs
+		//update projectiles
 		projectiles.UpdateStates(gameData);
 	}
 
@@ -61,12 +86,7 @@ namespace RB
 
 		projectiles.RenderObjPosition(cam);
 
-		//testing collision between projectiles vs players
-		//player1
-		//olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
-		//olc::vi2d f1ColPos = fighters.GetBodyWorldPos(0, BodyType::HEAD);
-		size_t fighterID = fighters.GetObjCreationID(0);
-
+		/*
 		//player2
 		olc::vi2d f2Pos = fighters.GetObjWorldPos(1);
 		olc::vi2d f2ColPos = fighters.GetBodyWorldPos(1, BodyType::HEAD);
@@ -101,6 +121,7 @@ namespace RB
 				int n = 0;
 			}
 		}
+		*/
 	}
 
 	void FightScene::RenderStates(bool update)
