@@ -2,6 +2,7 @@
 #include "olcPixelGameEngine.h"
 #include "OffsetType.h"
 #include "PlayerType.h"
+#include "BoxCollider.h"
 
 namespace RB
 {
@@ -17,8 +18,10 @@ namespace RB
 		bool onLeftSide = true;
 		bool faceRight = true;
 		PlayerType playerType = PlayerType::NONE;
-
+		
 	public:
+		BoxCollider objBoxCollider;
+
 		olc::vi2d GetPosition() { return position; }
 		void SetPosition(olc::vi2d _pos) { position = _pos; }
 

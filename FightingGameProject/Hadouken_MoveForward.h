@@ -19,6 +19,11 @@ namespace RB
 		{
 			objData.SetOffsetType(OffsetType::CENTER_CENTER);
 			objData.SetSpriteSize({ 78, 46 });
+
+			objData.objBoxCollider.SetWidth(80);
+			objData.objBoxCollider.SetHeight(60);
+			objData.objBoxCollider.SetQuad();
+			objData.objBoxCollider.UpdateRotation();
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override

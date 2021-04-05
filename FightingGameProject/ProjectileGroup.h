@@ -34,30 +34,42 @@ namespace RB
 		{
 			for (size_t i = 0; i < vecObjs.size(); i++)
 			{
-				GameObj& obj = *vecObjs[i];
-				State* state = vecObjs[i]->stateController.currentState;
-
-				if (state != nullptr)
+				if (vecObjs[i] != nullptr)
 				{
-					state->RunUpdateProcess(vecObjs[i]->objData, gameData);
+					GameObj& obj = *vecObjs[i];
+					State* state = vecObjs[i]->stateController.currentState;
+
+					if (state != nullptr)
+					{
+						state->RunUpdateProcess(vecObjs[i]->objData, gameData);
+					}
 				}
 			}
 		}
 
 		void RenderObjPosition(Camera& cam) override
 		{
-
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				if (vecObjs[i] != nullptr)
+				{
+					vecObjs[i]->objData.objBoxCollider.Render(cam, vecObjs[i]->objData.GetPosition(), olc::CYAN);
+				}
+			}
 		}
 
 		void RenderStates(Camera& cam, bool update) override
 		{
 			for (size_t i = 0; i < vecObjs.size(); i++)
 			{
-				SheetRenderer::Render(vecObjs[i], cam);
-
-				if (update)
+				if (vecObjs[i] != nullptr)
 				{
-					vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+					SheetRenderer::Render(vecObjs[i], cam);
+
+					if (update)
+					{
+						vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+					}
 				}
 			}
 		}

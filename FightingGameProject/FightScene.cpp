@@ -59,6 +59,8 @@ namespace RB
 		fighters.RenderObjPosition(cam);
 		fighters.RenderInputBuffer();
 
+		projectiles.RenderObjPosition(cam);
+
 		//testing collision between projectiles vs players
 		olc::vi2d f1Pos = fighters.GetFighterWorldPos(0);
 		olc::vi2d f1ColPos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
