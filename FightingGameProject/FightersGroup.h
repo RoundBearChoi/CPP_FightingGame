@@ -35,7 +35,6 @@ namespace RB
 
 		UIElement left;
 		UIElement right;
-
 		UIElement down;
 
 		UIElement punch;

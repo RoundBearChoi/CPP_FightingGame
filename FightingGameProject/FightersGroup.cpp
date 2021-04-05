@@ -54,21 +54,28 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//check combos
-		Hadouken h;
-		h.SetCombo();
+		//check combos (temp)
+		Hadouken h1;
+		Hadouken h2;
+		h1.SetCombo();
+		h2.SetCombo();
 
 		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
 		{
-			h.Check(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
+			h1.Check(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
+		}
+
+		for (size_t i = 0; i < InputBuffer::ptr->vecP2Inputs.size(); i++)
+		{
+			h2.Check(InputBuffer::ptr->vecP2Inputs[i], i, arrObjs[1].objData);
 		}
 
 		//mark as processed
-		if (h.Yes() == true)
+		if (h1.Yes())
 		{
-			for (size_t i = 0; i < h.correctBuffers.size(); i++)
+			for (size_t i = 0; i < h1.correctBuffers.size(); i++)
 			{
-				size_t correctIndex = h.correctBuffers[i];
+				size_t correctIndex = h1.correctBuffers[i];
 
 				if (correctIndex < InputBuffer::ptr->vecP1Inputs.size())
 				{
@@ -77,6 +84,22 @@ namespace RB
 
 				//make transition
 				arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
+			}
+		}
+
+		if (h2.Yes())
+		{
+			for (size_t i = 0; i < h2.correctBuffers.size(); i++)
+			{
+				size_t correctIndex = h2.correctBuffers[i];
+
+				if (correctIndex < InputBuffer::ptr->vecP2Inputs.size())
+				{
+					InputBuffer::ptr->vecP2Inputs[correctIndex].processed = true;
+				}
+
+				//make transition
+				arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
 			}
 		}
 
