@@ -167,7 +167,7 @@
     <ClInclude Include="OffsetType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="RelativeVector.h">
+    <ClInclude Include="ScreenVector.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="State.h">

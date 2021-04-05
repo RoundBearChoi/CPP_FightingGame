@@ -5,10 +5,10 @@
 
 namespace RB
 {
-	class RelativeVector
+	class ScreenVector
 	{
 	public:
-		static olc::vi2d GetPosition(const olc::vi2d& objPos, Camera& cam)
+		static olc::vi2d GetScreenPosition(const olc::vi2d& objPos, Camera& cam)
 		{
 			olc::vi2d fromCam = objPos - cam.GetPosition();
 

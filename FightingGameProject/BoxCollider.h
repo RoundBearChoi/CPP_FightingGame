@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "olcPixelGameEngine.h"
 #include "Camera.h"
-#include "RelativeVector.h"
+#include "ScreenVector.h"
 #include "DebugRenderer.h"
 
 namespace RB

@@ -14,10 +14,10 @@ namespace RB
 		olc::vi2d left{ -7, 0 };
 		olc::vi2d right{ 7, 0 };
 
-		olc::vi2d relativeTop = RelativeVector::GetPosition(top, cam);
-		olc::vi2d relativeBottom = RelativeVector::GetPosition(bottom, cam);
-		olc::vi2d relativeLeft = RelativeVector::GetPosition(left, cam);
-		olc::vi2d relativeRight = RelativeVector::GetPosition(right, cam);
+		olc::vi2d relativeTop = ScreenVector::GetScreenPosition(top, cam);
+		olc::vi2d relativeBottom = ScreenVector::GetScreenPosition(bottom, cam);
+		olc::vi2d relativeLeft = ScreenVector::GetScreenPosition(left, cam);
+		olc::vi2d relativeRight = ScreenVector::GetScreenPosition(right, cam);
 
 		olc::Renderer::ptrPGE->DrawLine(relativeTop, relativeBottom, olc::GREEN);
 		olc::Renderer::ptrPGE->DrawLine(relativeLeft, relativeRight, olc::GREEN);

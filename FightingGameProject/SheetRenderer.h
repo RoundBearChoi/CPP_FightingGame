@@ -68,10 +68,10 @@ namespace RB
 			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;
-			relativePoints[0] = RelativeVector::GetPosition(points[0], cam);
-			relativePoints[1] = RelativeVector::GetPosition(points[1], cam);
-			relativePoints[2] = RelativeVector::GetPosition(points[2], cam);
-			relativePoints[3] = RelativeVector::GetPosition(points[3], cam);
+			relativePoints[0] = ScreenVector::GetScreenPosition(points[0], cam);
+			relativePoints[1] = ScreenVector::GetScreenPosition(points[1], cam);
+			relativePoints[2] = ScreenVector::GetScreenPosition(points[2], cam);
+			relativePoints[3] = ScreenVector::GetScreenPosition(points[3], cam);
 
 			olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, relativePoints, animationStatus->sourcePos, animationStatus->sourceSize);
 		}

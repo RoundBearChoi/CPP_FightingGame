@@ -136,10 +136,10 @@ namespace RB
 
 			//convert to screenpos
 			std::array<olc::vf2d, 4>render;
-			render[0] = RelativeVector::GetPosition(worldPos[0], cam);
-			render[1] = RelativeVector::GetPosition(worldPos[1], cam);
-			render[2] = RelativeVector::GetPosition(worldPos[2], cam);
-			render[3] = RelativeVector::GetPosition(worldPos[3], cam);
+			render[0] = ScreenVector::GetScreenPosition(worldPos[0], cam);
+			render[1] = ScreenVector::GetScreenPosition(worldPos[1], cam);
+			render[2] = ScreenVector::GetScreenPosition(worldPos[2], cam);
+			render[3] = ScreenVector::GetScreenPosition(worldPos[3], cam);
 
 			//lines
 			olc::Renderer::ptrPGE->DrawLine(render[0], render[1], olc::BLUE);

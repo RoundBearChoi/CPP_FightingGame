@@ -2,7 +2,7 @@
 #include "GameData.h"
 #include "Camera.h"
 #include "DevSettings.h"
-#include "RelativeVector.h"
+#include "ScreenVector.h"
 #include "SceneType.h"
 
 namespace RB
