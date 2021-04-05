@@ -71,15 +71,15 @@ namespace RB
 
 			if (DevSettings::renderMode == RenderMode::DEBUG_ONLY)
 			{
-				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: debug only");
+				olc::Renderer::ptrPGE->DrawString({ 0, 28 }, "render mode: debug only");
 			}
 			else if (DevSettings::renderMode == RenderMode::SPRITES_ONLY)
 			{
-				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: sprites only");
+				olc::Renderer::ptrPGE->DrawString({ 0, 28 }, "render mode: sprites only");
 			}
 			else if (DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
 			{
-				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: sprites and debug");
+				olc::Renderer::ptrPGE->DrawString({ 0, 28 }, "render mode: sprites and debug");
 			}
 
 			return true;
