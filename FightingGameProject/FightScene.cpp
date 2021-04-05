@@ -65,6 +65,7 @@ namespace RB
 		//player1
 		olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
 		olc::vi2d f1ColPos = fighters.GetBodyWorldPos(0, BodyType::HEAD);
+		size_t fighterID = fighters.GetObjCreationID(0);
 		//screenspace
 		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(f1ColPos, cam), olc::CYAN);
 
@@ -72,6 +73,8 @@ namespace RB
 
 		for (size_t i = 0; i < count; i++)
 		{
+			size_t ownerID = projectiles.GetObjCreationID(i);
+
 			olc::vi2d worldPos = projectiles.GetObjBoxColliderWorldPos(i);
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
 

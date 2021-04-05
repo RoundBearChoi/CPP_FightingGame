@@ -38,6 +38,11 @@ namespace RB
 	{
 		return arrObjs.size();
 	}
+
+	size_t BackgroundGroup::GetObjCreationID(size_t index)
+	{
+		return 0;
+	}
 	
 	olc::vi2d BackgroundGroup::GetObjWorldPos(size_t index)
 	{

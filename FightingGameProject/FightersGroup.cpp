@@ -183,6 +183,16 @@ namespace RB
 		return arrObjs.size();
 	}
 
+	size_t FightersGroup::GetObjCreationID(size_t index)
+	{
+		if (index < arrObjs.size())
+		{
+			return (arrObjs[index].objData.GetCreationID());
+		}
+
+		return 0;
+	}
+
 	olc::vi2d FightersGroup::GetObjWorldPos(size_t index)
 	{
 		if (index < arrObjs.size())

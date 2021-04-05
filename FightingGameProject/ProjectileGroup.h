@@ -177,5 +177,18 @@ namespace RB
 			GameObj* obj = new GameObj(creationCount);
 			return obj;
 		}
+
+		size_t GetObjCreationID(size_t index) override
+		{
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					return vecObjs[index]->objData.GetCreationID();
+				}
+			}
+
+			return 0;
+		}
 	};
 }
