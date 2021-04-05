@@ -308,7 +308,7 @@
     <ClInclude Include="InputElement.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="ComboChecker.h">
+    <ClInclude Include="SpecialMove.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
     </ClInclude>
     <ClInclude Include="Hadouken.h">

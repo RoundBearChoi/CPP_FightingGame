@@ -1,10 +1,10 @@
 #pragma once
 #include <array>
-#include "ComboChecker.h"
+#include "SpecialMove.h"
 
 namespace RB
 {
-	class Hadouken : public ComboChecker
+	class Hadouken : public SpecialMove
 	{
 	private:
 		std::array<ConvertedInputType, 4> arr;

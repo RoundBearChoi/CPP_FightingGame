@@ -4,7 +4,7 @@
 
 namespace RB
 {
-	class ComboChecker
+	class SpecialMove
 	{
 	protected:
 		size_t currIndex = 0;
@@ -71,5 +71,7 @@ namespace RB
 
 			return ConvertedInputType::NONE;
 		}
+
+
 	};
 }
