@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="BackgroundGroup.cpp" />
+    <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="DiagonalOverlap.cpp" />

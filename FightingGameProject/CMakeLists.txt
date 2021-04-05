@@ -8,6 +8,7 @@ project(CPPFightingGame)
 add_executable(CPPFightingGame
 AnimationController.cpp
 BackgroundGroup.cpp
+BoxCollider.cpp
 Camera.cpp
 DevSettings.cpp
 DiagonalOverlap.cpp
