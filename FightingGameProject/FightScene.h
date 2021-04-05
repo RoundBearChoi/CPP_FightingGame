@@ -4,6 +4,7 @@
 #include "ProjectileGroup.h"
 #include "BackgroundGroup.h"
 #include "InputBuffer.h"
+#include "ProjectileCollision.h"
 
 //temp
 #include "Fighter_1_Idle.h"

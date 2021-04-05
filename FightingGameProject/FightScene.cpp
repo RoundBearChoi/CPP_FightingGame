@@ -31,34 +31,11 @@ namespace RB
 
 	void FightScene::Update(GameData& gameData)
 	{
-		//projectile collision
-		for (size_t projectileIndex = 0; projectileIndex < projectiles.GetObjCount(); projectileIndex++)
+		size_t p = 0;
+
+		if (ProjectileCollision::yes(projectiles, fighters, p))
 		{
-			for (int32_t playerIndex = 0; playerIndex < 2; playerIndex++)
-			{
-				size_t id = fighters.GetObjCreationID(playerIndex);
-				size_t ownerID = projectiles.GetObjCreationID(projectileIndex);
-
-				if (id != ownerID)
-				{
-					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
-
-					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
-					{
-						olc::vi2d bodyPos = fighters.GetBodyWorldPos(playerIndex, (BodyType)bodyIndex);
-
-						std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
-						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(playerIndex, (BodyType)bodyIndex);
-
-						//collision test
-						if (DiagonalOverlap::yes(projectilePos, projectileQuads, bodyPos, bodyQuads))
-						{
-							IF_COUT{ std::cout << "projectile collision against player: " << playerIndex << std::endl; };
-							IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
-						}
-					}
-				}
-			}
+			projectiles.DeleteObj(p);
 		}
 
 		//update objs

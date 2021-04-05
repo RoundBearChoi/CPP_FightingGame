@@ -190,5 +190,26 @@ namespace RB
 
 			return 0;
 		}
+
+		void DeleteObj(size_t index) override
+		{
+			delete vecObjs[index];
+			vecObjs[index] = nullptr;
+
+			vecObjs.erase(vecObjs.begin() + index);
+		}
+
+		size_t GetOwnerCreationID(size_t index) override
+		{
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					return vecObjs[index]->objData.GetOwnerID();
+				}
+			}
+
+			return 0;
+		}
 	};
 }

@@ -335,5 +335,8 @@
     <ClInclude Include="RenderMode.h">
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectileCollision.h">
+      <Filter>Source Files\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
