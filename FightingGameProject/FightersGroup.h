@@ -48,6 +48,7 @@ namespace RB
 		void RenderStates(Camera& cam, bool update) override;
 		void RenderBoxColliders(Camera& cam) override;
 		size_t GetObjCount() override;
+		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 
 		void RenderInputBuffer();
@@ -55,7 +56,6 @@ namespace RB
 		GameObj* GetEnemyObj(State& me);
 		olc::Decal* GetBufferDecal(InputType inputType);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
-		olc::vi2d GetFighterWorldPos(int32_t fighterIndex);
 		olc::vi2d GetColliderWorldPos(int32_t fighterIndex, BodyType bodyType);
 
 		template<class T>

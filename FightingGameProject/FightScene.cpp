@@ -62,7 +62,7 @@ namespace RB
 		projectiles.RenderObjPosition(cam);
 
 		//testing collision between projectiles vs players
-		olc::vi2d f1Pos = fighters.GetFighterWorldPos(0);
+		olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
 		olc::vi2d f1ColPos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
 		//screenspace
 		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(f1ColPos, cam), olc::CYAN);

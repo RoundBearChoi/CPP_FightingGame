@@ -183,6 +183,16 @@ namespace RB
 		return arrObjs.size();
 	}
 
+	olc::vi2d FightersGroup::GetObjWorldPos(size_t index)
+	{
+		if (index < arrObjs.size())
+		{
+			return arrObjs[index].objData.GetPosition();
+		}
+		
+		return { 0, 0 };
+	}
+
 	olc::vi2d FightersGroup::GetObjBoxColliderWorldPos(size_t index)
 	{
 		return { 0, 0 };
@@ -287,18 +297,6 @@ namespace RB
 		}
 
 		return nullptr;
-	}
-
-	olc::vi2d FightersGroup::GetFighterWorldPos(int32_t fighterIndex)
-	{
-		if (fighterIndex < arrObjs.size())
-		{
-			return arrObjs[fighterIndex].objData.GetPosition();
-		}
-		else
-		{
-			return { 0, 0 };
-		}
 	}
 
 	olc::vi2d FightersGroup::GetColliderWorldPos(int32_t fighterIndex, BodyType bodyType)
