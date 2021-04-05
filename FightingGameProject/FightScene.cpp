@@ -62,6 +62,7 @@ namespace RB
 		projectiles.RenderObjPosition(cam);
 
 		//testing collision between projectiles vs players
+		//player1
 		olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
 		olc::vi2d f1ColPos = fighters.GetBodyWorldPos(0, BodyType::HEAD);
 		//screenspace
@@ -75,6 +76,10 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
 
 			std::array<olc::vi2d, 4>arr = projectiles.GetObjBoxColliderWorldQuad(i);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[0], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[1], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[2], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[3], cam), olc::CYAN);
 		}
 	}
 
