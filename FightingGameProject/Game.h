@@ -71,7 +71,7 @@ namespace RB
 
 			if (DevSettings::renderDebugBoxes)
 			{
-				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "rendermode: debug");
+				olc::Renderer::ptrPGE->DrawString({ 0, 14 }, "render mode: debug");
 			}
 
 			return true;

@@ -214,6 +214,7 @@
     <ClInclude Include="Preload_Fighter_0.h" />
     <ClInclude Include="ProjectileGroup.h" />
     <ClInclude Include="ProjectileType.h" />
+    <ClInclude Include="RenderMode.h" />
     <ClInclude Include="ScreenVector.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />

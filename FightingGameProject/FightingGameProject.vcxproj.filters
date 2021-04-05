@@ -332,5 +332,8 @@
     <ClInclude Include="Hadouken_MoveForward.h">
       <Filter>Source Files\State\Concrete States\Projectiles</Filter>
     </ClInclude>
+    <ClInclude Include="RenderMode.h">
+      <Filter>Source Files\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
