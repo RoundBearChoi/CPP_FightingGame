@@ -59,6 +59,7 @@ namespace RB
 		olc::Decal* GetBufferDecal(InputType inputType);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
 		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType);
+		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType);
 
 		template<class T>
 		void SetInitialState(int32_t _index)

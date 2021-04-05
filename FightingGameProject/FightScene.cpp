@@ -63,11 +63,22 @@ namespace RB
 
 		//testing collision between projectiles vs players
 		//player1
-		olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
-		olc::vi2d f1ColPos = fighters.GetBodyWorldPos(0, BodyType::HEAD);
+		//olc::vi2d f1Pos = fighters.GetObjWorldPos(0);
+		//olc::vi2d f1ColPos = fighters.GetBodyWorldPos(0, BodyType::HEAD);
 		size_t fighterID = fighters.GetObjCreationID(0);
-		//screenspace
-		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(f1ColPos, cam), olc::CYAN);
+
+		//player2
+		olc::vi2d f2Pos = fighters.GetObjWorldPos(1);
+		olc::vi2d f2ColPos = fighters.GetBodyWorldPos(1, BodyType::HEAD);
+
+		//body collider render test
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(f2ColPos, cam), olc::CYAN);
+
+		std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(1, BodyType::HEAD);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[0], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[1], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[2], cam), olc::CYAN);
+		olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(bodyQuads[3], cam), olc::CYAN);
 
 		size_t count = projectiles.GetObjCount();
 
@@ -76,13 +87,15 @@ namespace RB
 			size_t ownerID = projectiles.GetObjCreationID(i);
 
 			olc::vi2d worldPos = projectiles.GetObjBoxColliderWorldPos(i);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
 
-			std::array<olc::vi2d, 4>arr = projectiles.GetObjBoxColliderWorldQuad(i);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[0], cam), olc::CYAN);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[1], cam), olc::CYAN);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[2], cam), olc::CYAN);
-			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(arr[3], cam), olc::CYAN);
+			std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(i);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[0], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[1], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[2], cam), olc::CYAN);
+			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f2Pos, cam), ScreenVector::GetScreenPosition(projectileQuads[3], cam), olc::CYAN);
+
+			//DiagonalOverlap::yes()
 		}
 	}
 

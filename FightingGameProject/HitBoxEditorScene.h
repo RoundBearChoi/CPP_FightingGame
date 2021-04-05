@@ -33,6 +33,8 @@ namespace RB
 		HitBoxEditorScene()
 		{
 			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
+
+			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
 		}
 
 		~HitBoxEditorScene() override
