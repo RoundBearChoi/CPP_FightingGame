@@ -43,7 +43,7 @@ namespace RB
 		void DecreaseHeight(int32_t _height) { height -= _height; }
 
 		BoxCollider(olc::vi2d _pos, int32_t _width, int32_t _height, float _rotation);
-		void UpdatePosition(bool left, bool right, bool up, bool down);
+		void MovePosition(bool left, bool right, bool up, bool down);
 		void RotateCounterClockwise();
 		void RotateClockwise();
 		void UpdateRotation();

@@ -241,7 +241,7 @@ namespace RB
 				//resize, rotate, move boxcollider
 				selector.GetCollider()[nSelectedBodyIndex].SetQuad();
 				selector.GetCollider()[nSelectedBodyIndex].UpdateRotation();
-				selector.GetCollider()[nSelectedBodyIndex].UpdatePosition( //up down left right
+				selector.GetCollider()[nSelectedBodyIndex].MovePosition( //up down left right
 					gameData.key_a,
 					gameData.key_d,
 					gameData.key_w,

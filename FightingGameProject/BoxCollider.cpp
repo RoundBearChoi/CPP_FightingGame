@@ -12,7 +12,7 @@ namespace RB
 		SetQuad();
 	}
 
-	void BoxCollider::UpdatePosition(bool left, bool right, bool up, bool down)
+	void BoxCollider::MovePosition(bool left, bool right, bool up, bool down)
 	{
 		if (left && right || !left && !right)
 		{
