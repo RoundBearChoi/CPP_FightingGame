@@ -31,9 +31,10 @@ namespace RB
 
 	void FightScene::Update(GameData& gameData)
 	{
+		//projectiles vs player collision
 		size_t p = 0;
 
-		if (ProjectileCollision::yes(projectiles, fighters, p))
+		if (ProjectileCollision::Collided(projectiles, fighters, p))
 		{
 			projectiles.DeleteObj(p);
 		}

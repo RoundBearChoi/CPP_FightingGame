@@ -7,7 +7,7 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool yes(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex)
+		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex)
 		{
 			for (size_t projectileIndex = 0; projectileIndex < projectileGroup.GetObjCount(); projectileIndex++)
 			{
