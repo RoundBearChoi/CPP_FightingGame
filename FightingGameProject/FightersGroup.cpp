@@ -247,7 +247,6 @@ namespace RB
 		arrObjs[_index].objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		arrObjs[_index].objData.SetPosition(_startingPos);
 		arrObjs[_index].objData.SetCreationID(count);
-
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 
@@ -282,7 +281,6 @@ namespace RB
 			return left.ptrDecal;
 		case InputType::RIGHT:
 			return right.ptrDecal;
-
 		case InputType::DOWN:
 			return down.ptrDecal;
 
