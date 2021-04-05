@@ -96,9 +96,12 @@ namespace RB
 			DebugRenderer::RenderBox(floats);
 		}
 
-		olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], _color);
-		olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], _color);
-		olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], _color);
-		olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], _color);
+		if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
+		{
+			olc::Renderer::ptrPGE->DrawLine(quad[0], quad[1], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[1], quad[2], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[2], quad[3], _color);
+			olc::Renderer::ptrPGE->DrawLine(quad[3], quad[0], _color);
+		}
 	}
 }

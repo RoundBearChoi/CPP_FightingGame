@@ -19,7 +19,10 @@ namespace RB
 		olc::vi2d relativeLeft = ScreenVector::GetScreenPosition(left, cam);
 		olc::vi2d relativeRight = ScreenVector::GetScreenPosition(right, cam);
 
-		olc::Renderer::ptrPGE->DrawLine(relativeTop, relativeBottom, olc::GREEN);
-		olc::Renderer::ptrPGE->DrawLine(relativeLeft, relativeRight, olc::GREEN);
+		if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
+		{
+			olc::Renderer::ptrPGE->DrawLine(relativeTop, relativeBottom, olc::GREEN);
+			olc::Renderer::ptrPGE->DrawLine(relativeLeft, relativeRight, olc::GREEN);
+		}
 	}
 }
