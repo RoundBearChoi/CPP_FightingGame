@@ -64,6 +64,8 @@ namespace RB
 		olc::vi2d f1ColPos = fighters.GetColliderWorldPos(0, BodyType::HEAD);
 		//screenspace
 		olc::Renderer::ptrPGE->DrawLine(RelativeVector::GetPosition(f1Pos, cam), RelativeVector::GetPosition(f1ColPos, cam), olc::CYAN);
+
+		size_t count = projectiles.GetObjCount();
 	}
 
 	void FightScene::RenderStates(bool update)

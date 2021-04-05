@@ -94,6 +94,11 @@ namespace RB
 			}
 		}
 
+		size_t GetObjCount() override
+		{
+			return vecObjs.size();
+		}
+
 		GameObj* _Create()
 		{
 			creationCount++;

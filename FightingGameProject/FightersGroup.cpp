@@ -178,6 +178,11 @@ namespace RB
 		}
 	}
 
+	size_t FightersGroup::GetObjCount()
+	{
+		return arrObjs.size();
+	}
+
 	void FightersGroup::RenderInputBuffer()
 	{
 		olc::vi2d startPos = { 20, 100 };

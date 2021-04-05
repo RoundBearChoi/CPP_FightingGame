@@ -34,6 +34,11 @@ namespace RB
 		//do nothing
 	}
 
+	size_t BackgroundGroup::GetObjCount()
+	{
+		return arrObjs.size();
+	}
+
 	void BackgroundGroup::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 	{
 		size_t count = CreationCount::UpdateCount();

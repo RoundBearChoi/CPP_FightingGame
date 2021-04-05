@@ -10,5 +10,6 @@ namespace RB
 		virtual void RenderObjPosition(Camera& cam) = 0;
 		virtual void RenderStates(Camera& cam, bool update) = 0;
 		virtual void RenderBoxColliders(Camera& cam) = 0;
+		virtual size_t GetObjCount() = 0;
 	};
 }
