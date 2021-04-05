@@ -48,6 +48,6 @@ namespace RB
 		void RotateClockwise();
 		void UpdateRotation();
 		void SetQuad();
-		void Render(Camera& cam, olc::Pixel _color);
+		void Render(Camera& cam, olc::vi2d playerPos, olc::Pixel _color);
 	};
 }

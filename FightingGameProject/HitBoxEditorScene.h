@@ -324,11 +324,11 @@ namespace RB
 			{
 				if (i == nSelectedBodyIndex)
 				{
-					selector.GetCollider()[i].Render(cam, olc::RED);
+					selector.GetCollider()[i].Render(cam, { 0, 0 }, olc::RED);
 				}
 				else
 				{
-					selector.GetCollider()[i].Render(cam, olc::BLUE);
+					selector.GetCollider()[i].Render(cam, { 0, 0 }, olc::BLUE);
 				}
 			}
 		}

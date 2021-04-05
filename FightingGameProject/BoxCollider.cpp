@@ -77,13 +77,13 @@ namespace RB
 		quad[3] = topRight;
 	}
 
-	void BoxCollider::Render(Camera& cam, olc::Pixel _color)
+	void BoxCollider::Render(Camera& cam, olc::vi2d playerPos, olc::Pixel _color)
 	{
 		std::array<olc::vi2d, 4> quad;
-		quad[0] = RelativeVector::GetPosition(Point0(), cam);
-		quad[1] = RelativeVector::GetPosition(Point1(), cam);
-		quad[2] = RelativeVector::GetPosition(Point2(), cam);
-		quad[3] = RelativeVector::GetPosition(Point3(), cam);
+		quad[0] = RelativeVector::GetPosition(Point0() + playerPos, cam);
+		quad[1] = RelativeVector::GetPosition(Point1() + playerPos, cam);
+		quad[2] = RelativeVector::GetPosition(Point2() + playerPos, cam);
+		quad[3] = RelativeVector::GetPosition(Point3() + playerPos, cam);
 
 		if (_color == olc::RED)
 		{
