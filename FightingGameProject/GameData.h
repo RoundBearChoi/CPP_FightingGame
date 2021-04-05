@@ -1,6 +1,7 @@
 #pragma once
 #include "SceneType.h"
 #include "Key.h"
+#include "PlayerType.h"
 
 namespace RB
 {
@@ -8,6 +9,9 @@ namespace RB
 	{
 	public:
 		SceneType nextSceneType = SceneType::NONE;
+
+		//get
+		Key* GetWeakPunchKey(PlayerType playerType);
 
 		//manual camera movement
 		Key* key_j = nullptr; //cam left

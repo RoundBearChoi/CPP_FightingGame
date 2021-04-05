@@ -119,8 +119,8 @@ namespace RB
 			gameData.key_a = GetUnprocessedKey(vecP1Left);
 			gameData.key_d = GetUnprocessedKey(vecP1Right);
 
-			gameData.key_np7 = GetUnprocessedKey(vecP2StrongPunch);
-			gameData.key_np8 = GetUnprocessedKey(vecP2WeakPunch);
+			gameData.key_np7 = GetUnprocessedKey(vecP2WeakPunch);
+			gameData.key_np8 = GetUnprocessedKey(vecP2StrongPunch);
 			gameData.key_np4 = GetUnprocessedKey(vecP2WeakKick);
 			gameData.key_np5 = GetUnprocessedKey(vecP2StrongKick);
 

@@ -37,6 +37,8 @@ namespace RB
 				if (gameData.key_down) { input.down = true; }
 				if (gameData.key_left) { input.left = true; }
 				if (gameData.key_right) { input.right = true; }
+
+				if (gameData.key_np7) { input.weakpunch = true; }
 			}
 
 			return input;

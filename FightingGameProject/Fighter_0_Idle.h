@@ -36,7 +36,9 @@ namespace RB
 
 			if (p.weakpunch)
 			{
-				gameData.key_t->processed = true;
+				Key* wp = gameData.GetWeakPunchKey(objData.GetPlayerType());
+				wp->processed = true;
+
 				nextState = State::NewState<Fighter_0_Jab>();
 			}
 

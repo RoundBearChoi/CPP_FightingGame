@@ -14,6 +14,7 @@ DevSettings.cpp
 DiagonalOverlap.cpp
 FightersGroup.cpp
 FightScene.cpp
+GameData.cpp
 GameObj.cpp
 InputBuffer.cpp
 main.cpp

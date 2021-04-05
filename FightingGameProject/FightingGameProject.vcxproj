@@ -149,6 +149,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="DiagonalOverlap.cpp" />
+    <ClCompile Include="GameData.cpp" />
     <ClCompile Include="InputBuffer.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="FightersGroup.cpp" />
