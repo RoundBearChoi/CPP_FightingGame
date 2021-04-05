@@ -32,7 +32,7 @@ namespace RB
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);
-		void PlayerBuffer(
+		void AddInputBuffer(
 			Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight,
 			Key* keyWeakPunch,
 			std::vector<InputElement>& vecBuffer,

@@ -6,7 +6,7 @@ namespace RB
 
 	void InputBuffer::AddInputs(GameData& gameData)
 	{
-		PlayerBuffer(
+		AddInputBuffer(
 			gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d,
 			gameData.key_t,
 			vecP1Inputs,
@@ -60,7 +60,7 @@ namespace RB
 		else { return false; }
 	}
 
-	void InputBuffer::PlayerBuffer(
+	void InputBuffer::AddInputBuffer(
 		Key* keyUp, Key* keyDown, Key* keyLeft, Key* keyRight,
 		Key* keyWeakPunch,
 		std::vector<InputElement>& vecBuffer,
