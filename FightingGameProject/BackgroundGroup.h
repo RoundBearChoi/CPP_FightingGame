@@ -20,6 +20,7 @@ namespace RB
 		size_t GetObjCount() override;
 		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
+		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 
 		void SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos);
 		void SetBackgroundPosition(int32_t _index, olc::vi2d _pos);

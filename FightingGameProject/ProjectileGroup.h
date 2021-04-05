@@ -107,6 +107,38 @@ namespace RB
 			return { 0, 0 };
 		}
 
+		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override
+		{
+			std::array<olc::vi2d, 4> arr;
+
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					arr[0] = vecObjs[index]->objData.objBoxCollider.RelativePoint0();
+					arr[1] = vecObjs[index]->objData.objBoxCollider.RelativePoint1();
+					arr[2] = vecObjs[index]->objData.objBoxCollider.RelativePoint2();
+					arr[3] = vecObjs[index]->objData.objBoxCollider.RelativePoint3();
+
+					olc::vi2d relativePos = vecObjs[index]->objData.objBoxCollider.RelativePosition();
+
+					arr[0] += relativePos;
+					arr[1] += relativePos;
+					arr[2] += relativePos;
+					arr[3] += relativePos;
+
+					olc::vi2d playerPos = vecObjs[index]->objData.GetPosition();
+
+					arr[0] += playerPos;
+					arr[1] += playerPos;
+					arr[2] += playerPos;
+					arr[3] += playerPos;
+				}
+			}
+
+			return arr;
+		}
+
 		void CreateProjectiles(std::vector<CreateProjectile>& vecSpecs)
 		{
 			for (size_t i = 0; i < vecSpecs.size(); i++)

@@ -73,6 +73,8 @@ namespace RB
 		{
 			olc::vi2d worldPos = projectiles.GetObjBoxColliderWorldPos(i);
 			olc::Renderer::ptrPGE->DrawLine(ScreenVector::GetScreenPosition(f1Pos, cam), ScreenVector::GetScreenPosition(worldPos, cam), olc::CYAN);
+
+			std::array<olc::vi2d, 4>arr = projectiles.GetObjBoxColliderWorldQuad(i);
 		}
 	}
 

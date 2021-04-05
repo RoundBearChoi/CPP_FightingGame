@@ -49,6 +49,12 @@ namespace RB
 		return { 0, 0 };
 	}
 
+	std::array<olc::vi2d, 4> BackgroundGroup::GetObjBoxColliderWorldQuad(size_t index)
+	{
+		std::array<olc::vi2d, 4> arr;
+		return arr;
+	}
+
 	void BackgroundGroup::SetBackgroundInfo(int32_t _index, olc::vi2d _startingPos)
 	{
 		size_t count = CreationCount::UpdateCount();
