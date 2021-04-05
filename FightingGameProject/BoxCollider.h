@@ -24,10 +24,10 @@ namespace RB
 
 		}
 
-		olc::vi2d Point0() { return rotatedQuad[0] + pos; } //topleft
-		olc::vi2d Point1() { return rotatedQuad[1] + pos; } //bottomleft
-		olc::vi2d Point2() { return rotatedQuad[2] + pos; } //bottomright
-		olc::vi2d Point3() { return rotatedQuad[3] + pos; } // topright
+		olc::vi2d RelPoint0() { return rotatedQuad[0] + pos; } //topleft
+		olc::vi2d RelPoint1() { return rotatedQuad[1] + pos; } //bottomleft
+		olc::vi2d RelPoint2() { return rotatedQuad[2] + pos; } //bottomright
+		olc::vi2d RelPoint3() { return rotatedQuad[3] + pos; } // topright
 
 		olc::vi2d Position() { return pos; }
 		void SetPosition(int32_t _x, int32_t _y) { pos.x = _x; pos.y = _y; }

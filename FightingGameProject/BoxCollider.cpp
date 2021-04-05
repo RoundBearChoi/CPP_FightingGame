@@ -80,10 +80,10 @@ namespace RB
 	void BoxCollider::Render(Camera& cam, olc::vi2d playerPos, olc::Pixel _color)
 	{
 		std::array<olc::vi2d, 4> quad;
-		quad[0] = ScreenVector::GetScreenPosition(Point0() + playerPos, cam);
-		quad[1] = ScreenVector::GetScreenPosition(Point1() + playerPos, cam);
-		quad[2] = ScreenVector::GetScreenPosition(Point2() + playerPos, cam);
-		quad[3] = ScreenVector::GetScreenPosition(Point3() + playerPos, cam);
+		quad[0] = ScreenVector::GetScreenPosition(RelPoint0() + playerPos, cam);
+		quad[1] = ScreenVector::GetScreenPosition(RelPoint1() + playerPos, cam);
+		quad[2] = ScreenVector::GetScreenPosition(RelPoint2() + playerPos, cam);
+		quad[3] = ScreenVector::GetScreenPosition(RelPoint3() + playerPos, cam);
 
 		if (_color == olc::RED)
 		{

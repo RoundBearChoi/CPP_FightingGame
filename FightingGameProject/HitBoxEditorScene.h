@@ -264,10 +264,10 @@ namespace RB
 			//current boxcollider info
 			if (nSelectedBodyIndex < selector.GetCollider().size())
 			{
-				olc::vi2d p0 = selector.GetCollider()[nSelectedBodyIndex].Point0();
-				olc::vi2d p1 = selector.GetCollider()[nSelectedBodyIndex].Point1();
-				olc::vi2d p2 = selector.GetCollider()[nSelectedBodyIndex].Point2();
-				olc::vi2d p3 = selector.GetCollider()[nSelectedBodyIndex].Point3();
+				olc::vi2d p0 = selector.GetCollider()[nSelectedBodyIndex].RelPoint0();
+				olc::vi2d p1 = selector.GetCollider()[nSelectedBodyIndex].RelPoint1();
+				olc::vi2d p2 = selector.GetCollider()[nSelectedBodyIndex].RelPoint2();
+				olc::vi2d p3 = selector.GetCollider()[nSelectedBodyIndex].RelPoint3();
 
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 }, "point0: " + std::to_string(p0.x) + ", " + std::to_string(p0.y), olc::WHITE);
 				olc::Renderer::ptrPGE->DrawString({ 0, 200 + 12 }, "point1: " + std::to_string(p1.x) + ", " + std::to_string(p1.y), olc::WHITE);
