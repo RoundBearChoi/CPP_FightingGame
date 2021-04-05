@@ -15,6 +15,7 @@
 #include "SheetRenderer.h"
 
 //combos
+#include "ComboChecker.h"
 #include "Hadouken.h"
 
 //loading

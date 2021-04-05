@@ -10,8 +10,6 @@ namespace RB
 		std::array<ConvertedInputType, 4> arr;
 		
 	public:
-		std::array<size_t, 4> correctBuffers;
-
 		void SetCombo() override
 		{
 			arr[0] = ConvertedInputType::DOWN;
@@ -30,14 +28,14 @@ namespace RB
 
 					if (converted == arr[currIndex])
 					{
-						correctBuffers[currIndex] = bufferIndex;
+						correctBuffers.push_back(bufferIndex);
 						currIndex++;
 					}
 				}
 			}
 		}
 
-		bool Yes() override
+		bool DoneCorrectly() override
 		{
 			if (currIndex >= arr.size())
 			{

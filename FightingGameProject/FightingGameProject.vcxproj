@@ -173,6 +173,7 @@
     <ClInclude Include="BodyType.h" />
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CollisionStatus.h" />
+    <ClInclude Include="ComboChecker.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreateProjectile.h" />

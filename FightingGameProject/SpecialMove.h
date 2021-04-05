@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "InputElement.h"
 #include "ConvertedInputType.h"
 
@@ -8,11 +9,12 @@ namespace RB
 	{
 	protected:
 		size_t currIndex = 0;
-
+		
 	public:
 		virtual void SetCombo() = 0;
 		virtual void Check(InputElement& _inputElement, size_t bufferIndex, ObjData& objData) = 0;
-		virtual bool Yes() = 0;
+		virtual bool DoneCorrectly() = 0;
+		std::vector<size_t> correctBuffers;
 
 		ConvertedInputType GetConvert(InputType& _inputType, ObjData& objData)
 		{
@@ -71,7 +73,5 @@ namespace RB
 
 			return ConvertedInputType::NONE;
 		}
-
-
 	};
 }

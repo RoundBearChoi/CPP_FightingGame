@@ -341,5 +341,8 @@
     <ClInclude Include="ProjectileCollision.h">
       <Filter>Source Files\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="ComboChecker.h">
+      <Filter>Source Files\Combo Checker\Base</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

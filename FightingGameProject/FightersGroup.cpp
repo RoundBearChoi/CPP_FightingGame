@@ -54,53 +54,20 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//check combos (temp)
+		//check combos
 		Hadouken h1;
 		Hadouken h2;
 		h1.SetCombo();
 		h2.SetCombo();
 
-		for (size_t i = 0; i < InputBuffer::ptr->vecP1Inputs.size(); i++)
+		if (ComboChecker::TriggerSpecialMove(h1, InputBuffer::ptr->vecP1Inputs, arrObjs[0]))
 		{
-			h1.Check(InputBuffer::ptr->vecP1Inputs[i], i, arrObjs[0].objData);
+			arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
 		}
 
-		for (size_t i = 0; i < InputBuffer::ptr->vecP2Inputs.size(); i++)
+		if (ComboChecker::TriggerSpecialMove(h2, InputBuffer::ptr->vecP2Inputs, arrObjs[1]))
 		{
-			h2.Check(InputBuffer::ptr->vecP2Inputs[i], i, arrObjs[1].objData);
-		}
-
-		//mark as processed
-		if (h1.Yes())
-		{
-			for (size_t i = 0; i < h1.correctBuffers.size(); i++)
-			{
-				size_t correctIndex = h1.correctBuffers[i];
-
-				if (correctIndex < InputBuffer::ptr->vecP1Inputs.size())
-				{
-					InputBuffer::ptr->vecP1Inputs[correctIndex].processed = true;
-				}
-
-				//make transition
-				arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
-			}
-		}
-
-		if (h2.Yes())
-		{
-			for (size_t i = 0; i < h2.correctBuffers.size(); i++)
-			{
-				size_t correctIndex = h2.correctBuffers[i];
-
-				if (correctIndex < InputBuffer::ptr->vecP2Inputs.size())
-				{
-					InputBuffer::ptr->vecP2Inputs[correctIndex].processed = true;
-				}
-
-				//make transition
-				arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
-			}
+			arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
 		}
 
 		for (GameObj& obj : arrObjs)
