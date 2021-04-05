@@ -4,7 +4,7 @@ namespace RB
 {
 	enum class BodyType
 	{
-		HEAD,
+		HEAD = 0,
 		
 		UPPERBODY,
 		LOWERBODY,

@@ -42,15 +42,20 @@ namespace RB
 				if (id != ownerID)
 				{
 					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
-					olc::vi2d playerPos = fighters.GetBodyWorldPos(playerIndex, BodyType::HEAD);
 
-					std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
-					std::array<olc::vi2d, 4>playerQuads = fighters.GetBodyWorldQuad(playerIndex, BodyType::HEAD);
-
-					//collision test
-					if (DiagonalOverlap::yes(projectilePos, projectileQuads, playerPos, playerQuads))
+					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
 					{
-						int n = 0;
+						olc::vi2d bodyPos = fighters.GetBodyWorldPos(playerIndex, (BodyType)bodyIndex);
+
+						std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
+						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(playerIndex, (BodyType)bodyIndex);
+
+						//collision test
+						if (DiagonalOverlap::yes(projectilePos, projectileQuads, bodyPos, bodyQuads))
+						{
+							IF_COUT{ std::cout << "projectile collision against player: " << playerIndex << std::endl; };
+							IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
+						}
 					}
 				}
 			}
