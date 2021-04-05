@@ -4,7 +4,7 @@ namespace RB
 {
 	BoxCollider::BoxCollider(olc::vi2d _pos, int32_t _width, int32_t _height, float _rotation)
 	{
-		pos = _pos;
+		relativePos = _pos;
 		width = _width;
 		height = _height;
 		rotation = _rotation;
@@ -20,11 +20,11 @@ namespace RB
 		}
 		else if (left)
 		{
-			pos.x -= 1;
+			relativePos.x -= 1;
 		}
 		else if (right)
 		{
-			pos.x += 1;
+			relativePos.x += 1;
 		}
 
 		if (up && down || !up && !down)
@@ -33,11 +33,11 @@ namespace RB
 		}
 		else if (up)
 		{
-			pos.y -= 1;
+			relativePos.y -= 1;
 		}
 		else if (down)
 		{
-			pos.y += 1;
+			relativePos.y += 1;
 		}
 	}
 
@@ -80,10 +80,10 @@ namespace RB
 	void BoxCollider::Render(Camera& cam, olc::vi2d playerPos, olc::Pixel _color)
 	{
 		std::array<olc::vi2d, 4> quad;
-		quad[0] = ScreenVector::GetScreenPosition(RelPoint0() + playerPos, cam);
-		quad[1] = ScreenVector::GetScreenPosition(RelPoint1() + playerPos, cam);
-		quad[2] = ScreenVector::GetScreenPosition(RelPoint2() + playerPos, cam);
-		quad[3] = ScreenVector::GetScreenPosition(RelPoint3() + playerPos, cam);
+		quad[0] = ScreenVector::GetScreenPosition(RelativePoint0() + playerPos, cam);
+		quad[1] = ScreenVector::GetScreenPosition(RelativePoint1() + playerPos, cam);
+		quad[2] = ScreenVector::GetScreenPosition(RelativePoint2() + playerPos, cam);
+		quad[3] = ScreenVector::GetScreenPosition(RelativePoint3() + playerPos, cam);
 
 		if (_color == olc::RED)
 		{

@@ -64,7 +64,7 @@ namespace RB
 								std::cout << "vec[" << i << "]: " << x << ", " << y << ", " << width << ", " << height << ", " << rotation << std::endl;
 							};
 
-							vecColliders[i].SetPosition(x, y);
+							vecColliders[i].SetRelativePos(x, y);
 							vecColliders[i].SetWidth(width);
 							vecColliders[i].SetHeight(height);
 							vecColliders[i].SetRotation(rotation);

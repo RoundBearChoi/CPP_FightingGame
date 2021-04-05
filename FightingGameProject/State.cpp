@@ -86,10 +86,10 @@ namespace RB
 				vec[i].SetQuad();
 				vec[i].UpdateRotation();
 
-				vecQuads.push_back(vec[i].RelPoint0());
-				vecQuads.push_back(vec[i].RelPoint1());
-				vecQuads.push_back(vec[i].RelPoint2());
-				vecQuads.push_back(vec[i].RelPoint3());
+				vecQuads.push_back(vec[i].RelativePoint0());
+				vecQuads.push_back(vec[i].RelativePoint1());
+				vecQuads.push_back(vec[i].RelativePoint2());
+				vecQuads.push_back(vec[i].RelativePoint3());
 			}
 		}
 	}
