@@ -135,6 +135,9 @@
     <ClCompile Include="GameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProjectileGroup.cpp">
+      <Filter>Source Files\Groups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -346,6 +349,9 @@
     </ClInclude>
     <ClInclude Include="BodyCollision.h">
       <Filter>Source Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpactEffectsGroup.h">
+      <Filter>Source Files\Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

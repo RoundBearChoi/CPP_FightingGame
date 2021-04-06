@@ -18,6 +18,7 @@ GameData.cpp
 GameObj.cpp
 InputBuffer.cpp
 main.cpp
+ProjectileGroup.cpp
 Scene.cpp
 SceneController.cpp
 SpriteLoader.cpp
