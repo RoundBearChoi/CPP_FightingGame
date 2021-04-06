@@ -4,7 +4,6 @@
 #include "GameObj.h"
 #include "ObjGroup.h"
 #include "GameData.h"
-#include "CreationCount.h"
 #include "DevSettings.h"
 #include "PlayerType.h"
 #include "InputBuffer.h"
@@ -12,7 +11,6 @@
 #include "UIElement.h"
 #include "CreateProjectile.h"
 #include "SheetRenderer.h"
-#include "BodyCollision.h"
 
 //combos
 #include "ComboChecker.h"

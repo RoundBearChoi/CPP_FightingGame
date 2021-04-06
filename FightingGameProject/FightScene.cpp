@@ -47,33 +47,14 @@ namespace RB
 		fighters.UpdateStates(gameData);
 
 		//body vs body collision
-		CollisionQueue* collisionQueue = fighters.GetCollisionQueue(0);
-
-		if (collisionQueue)
+		if (BodyCollision::IsColliding(0, fighters))
 		{
-			if (!collisionQueue->processed)
-			{
-				collisionQueue->processed = true;
+			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
+		}
 
-				for (BodyType& b : collisionQueue->vecBodies)
-				{
-					olc::vi2d targetPos = fighters.GetBodyWorldPos(1, BodyType::HEAD);
-					std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(1, BodyType::HEAD);
-
-					olc::vi2d attackPos = fighters.GetBodyWorldPos(0, b);
-					std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(0, b);
-
-					if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
-					{
-						fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
-
-						IF_COUT{ std::cout << "overlap!" << std::endl; };
-						IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
-					}
-				}
-
-				IF_COUT{ std::cout << "collision check processed" << std::endl; };
-			}
+		if (BodyCollision::IsColliding(1, fighters))
+		{
+			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
 		}
 
 		//create projectiles

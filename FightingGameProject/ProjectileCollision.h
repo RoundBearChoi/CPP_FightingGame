@@ -1,6 +1,7 @@
 #pragma once
 #include "ProjectileGroup.h"
 #include "FightersGroup.h"
+#include "DiagonalOverlap.h"
 
 namespace RB
 {
