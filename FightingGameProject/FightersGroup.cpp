@@ -54,7 +54,7 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//check combos
+		//check special move
 		Hadouken h1;
 		Hadouken h2;
 		h1.SetCombo();
@@ -85,40 +85,9 @@ namespace RB
 			}
 
 			//update state
-			State* state = obj.stateController.currentState;
-
-			if (state != nullptr)
+			if (obj.stateController.currentState != nullptr)
 			{
-				state->RunUpdateProcess(obj.objData, gameData);
-
-				//collision check between bodyparts
-				CollisionQueue* col = state->GetCollisionStatus();
-
-				if (col)
-				{
-					if (!col->processed)
-					{
-						col->processed = true;
-
-						for (BodyType& b : col->vecBodies)
-						{
-							GameObj& enemy = *GetEnemyObj(*state);
-
-							//temp - only checking against head
-							BodyType enemyBody = BodyType::HEAD;
-
-							if (BodyCollision::IsColliding(obj, b, enemy, enemyBody))
-							{
-								//make transition
-								enemy.stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
-								IF_COUT{ std::cout << "overlap!" << std::endl; };
-								IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
-							}
-						}
-
-						IF_COUT{ std::cout << "collision check processed" << std::endl; };
-					}
-				}
+				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
 			}
 		}
 	}
@@ -212,7 +181,7 @@ namespace RB
 			{
 				if (arrObjs[index].stateController.currentState->vecCollisionStatus.size() > 0)
 				{
-					return &(arrObjs[index].stateController.currentState->vecCollisionStatus[0]);
+					return arrObjs[index].stateController.currentState->GetCollisionStatus();
 				}
 			}
 		}

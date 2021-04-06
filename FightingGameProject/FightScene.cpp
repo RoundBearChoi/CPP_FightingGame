@@ -40,18 +40,41 @@ namespace RB
 			projectiles.DeleteObj(projIndex);
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(fighterIndex);
 		}
-		//body vs body collision
-		CollisionQueue* collisionQueue = fighters.GetCollisionQueue(0);
-
-		if (collisionQueue)
-		{
-			int n = 0;
-		}
 
 		//update objs
 		background.UpdateStates(gameData);
 		background.UpdateOffset(cam);
 		fighters.UpdateStates(gameData);
+
+		//body vs body collision
+		CollisionQueue* collisionQueue = fighters.GetCollisionQueue(0);
+
+		if (collisionQueue)
+		{
+			if (!collisionQueue->processed)
+			{
+				collisionQueue->processed = true;
+
+				for (BodyType& b : collisionQueue->vecBodies)
+				{
+					olc::vi2d targetPos = fighters.GetBodyWorldPos(1, BodyType::HEAD);
+					std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(1, BodyType::HEAD);
+
+					olc::vi2d attackPos = fighters.GetBodyWorldPos(0, b);
+					std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(0, b);
+
+					if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
+					{
+						fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
+
+						IF_COUT{ std::cout << "overlap!" << std::endl; };
+						IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; }
+					}
+				}
+
+				IF_COUT{ std::cout << "collision check processed" << std::endl; };
+			}
+		}
 
 		//create projectiles
 		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
