@@ -2,7 +2,7 @@
 
 namespace RB
 {
-	bool DiagonalOverlap::yes(olc::vi2d& p1Pos, std::array<olc::vi2d, 4>& p1Quads, olc::vi2d& p2Pos, std::array<olc::vi2d, 4>& p2Quads)
+	bool DiagonalOverlap::Overlapping(olc::vi2d& p1Pos, std::array<olc::vi2d, 4>& p1Quads, olc::vi2d& p2Pos, std::array<olc::vi2d, 4>& p2Quads)
 	{
 		olc::vi2d* r1 = &p1Pos;
 		std::array<olc::vi2d, 4>* r1Quads = &p1Quads;
