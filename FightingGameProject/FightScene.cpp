@@ -51,12 +51,12 @@ namespace RB
 		if (BodyCollision::IsColliding(0, fighters))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, { 0, 0 });
 		}
 		if (BodyCollision::IsColliding(1, fighters))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, { 0, 0 });
 		}
 
 		//create projectiles

@@ -92,7 +92,7 @@ namespace RB
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override { return { 0, 0 }; };
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override { std::array<olc::vi2d, 4> arr; return arr; };
 
-		void CreateEffect(ImpactEffectType effectType)
+		void CreateEffect(ImpactEffectType effectType, olc::vi2d startPos)
 		{
 			creationCount++;
 			GameObj* obj = new GameObj(creationCount);
@@ -102,6 +102,8 @@ namespace RB
 			{
 				obj->stateController.currentState = State::NewState<ImpactEffect_Hit_0>();
 			}
+
+			obj->objData.SetPosition(startPos);
 		}
 	};
 }
