@@ -59,6 +59,7 @@ namespace RB
 		spriteLoader.LoadDebugElementSprites();
 		spriteLoader.LoadInputBufferSprites();
 		spriteLoader.LoadProjectileSprites();
+		spriteLoader.LoadImpactEffectSprites();
 
 		SpriteLoader::ptr = &spriteLoader;
 	}

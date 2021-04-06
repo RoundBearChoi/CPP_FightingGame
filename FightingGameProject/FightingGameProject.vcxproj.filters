@@ -85,6 +85,9 @@
     <Filter Include="Source Files\Effects">
       <UniqueIdentifier>{dbe82174-a123-4413-ae23-c610bb130aad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State\Concrete States\ImpactEffects">
+      <UniqueIdentifier>{80182361-cfd5-4e6b-8c5f-6c2e6f13d720}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

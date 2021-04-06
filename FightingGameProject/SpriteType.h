@@ -19,6 +19,8 @@ namespace RB
 
 		PROJECTILES,
 
+		IMPACT_EFFECTS,
+
 		COUNT,
 	};
 }

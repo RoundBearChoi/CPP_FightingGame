@@ -11,9 +11,9 @@ namespace RB
 	class SpriteLoader
 	{
 	private:
-		std::array<std::vector<olc::Sprite*>, 7> sprites;
-		std::array<std::vector<olc::Decal*>, 7> decals;
-		std::array<std::vector<size_t>, 7> hashes;
+		std::array<std::vector<olc::Sprite*>, (int32_t)SpriteType::COUNT> sprites;
+		std::array<std::vector<olc::Decal*>, (int32_t)SpriteType::COUNT> decals;
+		std::array<std::vector<size_t>, (int32_t)SpriteType::COUNT> hashes;
 
 		void LoadSprites(std::string path, std::vector<olc::Sprite*>& vecSprites, std::vector<olc::Decal*>& vecDecals, std::vector<size_t>& vecHash);
 		
@@ -30,6 +30,7 @@ namespace RB
 		void LoadDebugElementSprites();
 		void LoadInputBufferSprites();
 		void LoadProjectileSprites();
+		void LoadImpactEffectSprites();
 		void DeleteSprites(size_t arrayIndex);
 		olc::Decal* FindDecal(size_t _hash, size_t arrayIndex);
 	};

@@ -102,6 +102,14 @@ namespace RB
 		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
 	}
 
+	void SpriteLoader::LoadImpactEffectSprites()
+	{
+		int32_t arrayIndex = (int32_t)SpriteType::IMPACT_EFFECTS;
+
+		std::string path = "PNG files/ImpactEffects";
+		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
+	}
+
 	void SpriteLoader::DeleteSprites(size_t arrayIndex)
 	{
 		if (sprites.size() > arrayIndex)
