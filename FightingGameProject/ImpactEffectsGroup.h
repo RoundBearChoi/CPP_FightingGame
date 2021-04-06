@@ -1,10 +1,16 @@
 #pragma once
 #include "ObjGroup.h"
+#include "GameObj.h"
 
 namespace RB
 {
 	class ImpactEffectsGroup : public ObjGroup
 	{
+	private:
+		std::vector<GameObj*> vecObjs;
+		size_t creationCount = 0;
+
+	public:
 		void UpdateStates(GameData& gameData) override {};
 		void RenderObjPosition(Camera& cam) override {};
 		void RenderStates(Camera& cam, bool update) override {};
