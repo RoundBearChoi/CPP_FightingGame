@@ -5,6 +5,7 @@ namespace RB
 	FightScene::FightScene()
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
+		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
 
 	FightScene::~FightScene()
