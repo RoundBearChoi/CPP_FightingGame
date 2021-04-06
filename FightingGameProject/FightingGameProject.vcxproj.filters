@@ -362,5 +362,8 @@
     <ClInclude Include="ImpactEffectType.h">
       <Filter>Source Files\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="ImpactEffect_Hit_0.h">
+      <Filter>Source Files\State\Concrete States\ImpactEffects</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -45,6 +45,7 @@ namespace RB
 		background.UpdateStates(gameData);
 		background.UpdateOffset(cam);
 		fighters.UpdateStates(gameData);
+		impactEffects.UpdateStates(gameData);
 
 		//body vs body collision
 		if (BodyCollision::IsColliding(0, fighters))
@@ -87,6 +88,7 @@ namespace RB
 		fighters.RenderInputBuffer(startPos2, InputBuffer::ptr->vecP2Inputs);
 
 		projectiles.RenderObjPosition(cam);
+		impactEffects.RenderObjPosition(cam);
 	}
 
 	void FightScene::RenderStates(bool update)
@@ -95,5 +97,6 @@ namespace RB
 		fighters.RenderStates(cam, update);
 		fighters.RenderBoxColliders(cam);
 		projectiles.RenderStates(cam, update);
+		impactEffects.RenderStates(cam, update);
 	}
 }

@@ -5,6 +5,8 @@
 
 namespace RB
 {
+	class ImpactEffect_Hit_0;
+
 	class ImpactEffectsGroup : public ObjGroup
 	{
 	private:
@@ -28,9 +30,41 @@ namespace RB
 			}
 		}
 
-		void UpdateStates(GameData& gameData) override {};
+		void UpdateStates(GameData& gameData) override
+		{
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				if (vecObjs[i] != nullptr)
+				{
+					GameObj& obj = *vecObjs[i];
+					State* state = vecObjs[i]->stateController.currentState;
+
+					if (state != nullptr)
+					{
+						state->RunUpdateProcess(vecObjs[i]->objData, gameData);
+					}
+				}
+			}
+		};
+
 		void RenderObjPosition(Camera& cam) override {};
-		void RenderStates(Camera& cam, bool update) override {};
+
+		void RenderStates(Camera& cam, bool update) override
+		{
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				if (vecObjs[i] != nullptr)
+				{
+					SheetRenderer::Render(vecObjs[i], cam);
+
+					if (update)
+					{
+						vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+					}
+				}
+			}
+		};
+
 		void RenderBoxColliders(Camera& cam) override {};
 		size_t GetObjCount() override { return 0; };
 		size_t GetObjCreationID(size_t index) override { return 0; };
@@ -40,9 +74,13 @@ namespace RB
 
 		void CreateEffect(ImpactEffectType effectType)
 		{
+			creationCount++;
+			GameObj* obj = new GameObj(creationCount);
+			vecObjs.push_back(obj);
+
 			if (effectType == ImpactEffectType::HIT_0)
 			{
-				int n = 0;
+				obj->stateController.currentState = State::NewState<ImpactEffect_Hit_0>();
 			}
 		}
 	};
