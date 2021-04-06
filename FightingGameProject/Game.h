@@ -5,7 +5,6 @@
 #include "SceneController.h"
 #include "GameSettings.h"
 #include "Input.h"
-#include "InputBuffer.h"
 
 namespace RB
 {

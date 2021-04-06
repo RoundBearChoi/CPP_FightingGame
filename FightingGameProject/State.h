@@ -5,8 +5,6 @@
 #include "GameData.h"
 #include "AnimationController.h"
 #include "DebugRenderer.h"
-#include "SpriteLoader.h"
-#include "PlayerInput.h"
 #include "Directions.h"
 #include "CollisionQueue.h"
 #include "CreateProjectile.h"

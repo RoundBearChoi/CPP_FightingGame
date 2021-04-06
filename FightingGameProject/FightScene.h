@@ -3,7 +3,6 @@
 #include "FightersGroup.h"
 #include "ProjectileGroup.h"
 #include "BackgroundGroup.h"
-#include "InputBuffer.h"
 #include "ProjectileCollision.h"
 #include "BodyCollision.h"
 
