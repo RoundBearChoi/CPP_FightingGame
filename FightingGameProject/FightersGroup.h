@@ -7,12 +7,12 @@
 #include "CreationCount.h"
 #include "DevSettings.h"
 #include "PlayerType.h"
-#include "DiagonalOverlap.h"
 #include "InputBuffer.h"
 #include "InputType.h"
 #include "UIElement.h"
 #include "CreateProjectile.h"
 #include "SheetRenderer.h"
+#include "BodyCollision.h"
 
 //combos
 #include "ComboChecker.h"

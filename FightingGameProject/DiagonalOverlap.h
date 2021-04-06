@@ -8,7 +8,6 @@ namespace RB
 	class DiagonalOverlap
 	{
 	public:
-		static bool IsColliding(GameObj& me, BodyType& myBody, GameObj& enemy, BodyType& enemyBody);
 		static bool yes(olc::vi2d& p1Pos, std::array<olc::vi2d, 4>& p1Quads, olc::vi2d& p2Pos, std::array<olc::vi2d, 4>& p2Quads);
 	};
 }

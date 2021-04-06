@@ -344,5 +344,8 @@
     <ClInclude Include="ComboChecker.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
     </ClInclude>
+    <ClInclude Include="BodyCollision.h">
+      <Filter>Source Files\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

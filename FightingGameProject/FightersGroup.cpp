@@ -107,7 +107,7 @@ namespace RB
 							//temp - only checking against head
 							BodyType enemyBody = BodyType::HEAD;
 
-							if (DiagonalOverlap::IsColliding(obj, b, enemy, enemyBody))
+							if (BodyCollision::IsColliding(obj, b, enemy, enemyBody))
 							{
 								//make transition
 								enemy.stateController.currentState->nextState = State::NewState<Fighter_0_HitReaction_0>();
