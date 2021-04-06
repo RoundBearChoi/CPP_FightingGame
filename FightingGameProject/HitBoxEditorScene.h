@@ -106,7 +106,7 @@ namespace RB
 			copied1.color = olc::RED;
 		}
 
-		void Update(GameData& gameData) override
+		void UpdateScene(GameData& gameData) override
 		{
 			//change dummy fighter
 			if (gameData.key_left)

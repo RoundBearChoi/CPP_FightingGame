@@ -29,7 +29,7 @@ namespace RB
 		background.SetInitialState<Background_Idle_Sun>(2);
 	}
 
-	void FightScene::Update(GameData& gameData)
+	void FightScene::UpdateScene(GameData& gameData)
 	{
 		//projectiles vs player collision
 		size_t projIndex = 0;

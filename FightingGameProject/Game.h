@@ -52,7 +52,7 @@ namespace RB
 
 				sceneController.ChangeScene(gameData);
 				sceneController.currentScene->cam.Update(gameData);
-				sceneController.currentScene->Update(gameData);
+				sceneController.currentScene->UpdateScene(gameData);
 				sceneController.currentScene->RenderStates(true);
 
 				//only clear after update
