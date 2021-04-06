@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_hitreaction_0.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
-			animationController.status.nTransitionDelay = 10;
+			animationController.status.nTransitionDelay = 12;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
