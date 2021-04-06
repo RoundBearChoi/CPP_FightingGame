@@ -7,7 +7,7 @@ namespace RB
 	class BodyCollision
 	{
 	public:
-		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters)
+		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& midPoint)
 		{
 			int32_t targetIndex = 0;
 
@@ -40,6 +40,12 @@ namespace RB
 						{
 							IF_COUT{ std::cout << "overlap!" << std::endl; };
 							IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; };
+
+							olc::vf2d distance = targetPos - attackPos;
+							distance *= 0.5f;
+							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
+							midPoint = attackPos + rounded;
+
 							return true;
 						}
 					}

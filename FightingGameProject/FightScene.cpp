@@ -48,15 +48,16 @@ namespace RB
 		impactEffects.UpdateStates(gameData);
 
 		//body vs body collision
-		if (BodyCollision::IsColliding(0, fighters))
+		olc::vi2d point;
+		if (BodyCollision::IsColliding(0, fighters, point))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, { 0, 0 });
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, point);
 		}
-		if (BodyCollision::IsColliding(1, fighters))
+		if (BodyCollision::IsColliding(1, fighters, point))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, { 0, 0 });
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, point);
 		}
 
 		//create projectiles

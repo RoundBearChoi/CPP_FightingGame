@@ -13,27 +13,25 @@ namespace RB
 		{
 			animationController.SetSpritePath("PNG files/ImpactEffects/hiteffect_0.png");
 			animationController.SetParams(SpriteType::IMPACT_EFFECTS, 1840, 384, 5, 1, 5);
-			animationController.status.nTransitionDelay = 8;
+			animationController.status.nTransitionDelay = 6;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
 			objData.SetOffsetType(OffsetType::CENTER_CENTER);
-			objData.SetSpriteSize({ 368, 384 });
 
-			//objData.objBoxCollider.SetWidth(80);
-			//objData.objBoxCollider.SetHeight(60);
-			//objData.objBoxCollider.SetQuad();
-			//objData.objBoxCollider.UpdateRotation();
+			float originalWidth = 368.0f;
+			float originalHeight = 384.0f;
+
+			int32_t roundedW = (int32_t)std::round(originalWidth * 0.7f);
+			int32_t roundedH = (int32_t)std::round(originalHeight * 0.7f);
+
+			objData.SetSpriteSize({ roundedW, roundedH });
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
-			//int32_t speed = Directions::GetForwardSpeed(objData, 2);
-			//
-			//olc::vi2d pos = objData.GetPosition();
-			//pos.x += speed;
-			//objData.SetPosition(pos);
+
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }
