@@ -4,6 +4,7 @@
 #include "ProjectileGroup.h"
 #include "BackgroundGroup.h"
 #include "ProjectileCollision.h"
+#include "ImpactEffectsGroup.h"
 #include "BodyCollision.h"
 
 //temp
@@ -19,6 +20,7 @@ namespace RB
 	private:
 		FightersGroup fighters;
 		ProjectileGroup projectiles;
+		ImpactEffectsGroup impactEffects;
 		BackgroundGroup background;
 
 	public:
