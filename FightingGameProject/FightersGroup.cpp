@@ -204,6 +204,22 @@ namespace RB
 		return arr;
 	}
 
+	CollisionQueue* FightersGroup::GetCollisionQueue(size_t index)
+	{
+		if (index < arrObjs.size())
+		{
+			if (arrObjs[index].stateController.currentState != nullptr)
+			{
+				if (arrObjs[index].stateController.currentState->vecCollisionStatus.size() > 0)
+				{
+					return &(arrObjs[index].stateController.currentState->vecCollisionStatus[0]);
+				}
+			}
+		}
+
+		return nullptr;
+	}
+
 	void FightersGroup::RenderInputBuffer(olc::vi2d& startPos, std::vector<InputElement>& vecInputs)
 	{
 		for (size_t i = 0; i < vecInputs.size(); i++)

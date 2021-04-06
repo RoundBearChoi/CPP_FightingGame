@@ -1,5 +1,6 @@
 #pragma once
 #include "Camera.h"
+#include "CollisionQueue.h"
 
 namespace RB
 {
@@ -26,6 +27,12 @@ namespace RB
 		{
 			//override at individual groups
 			return 0;
+		}
+
+		virtual CollisionQueue* GetCollisionQueue(size_t index)
+		{
+			//override at individual groups
+			return nullptr;
 		}
 	};
 }

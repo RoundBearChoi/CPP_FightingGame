@@ -40,6 +40,13 @@ namespace RB
 			projectiles.DeleteObj(projIndex);
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(fighterIndex);
 		}
+		//body vs body collision
+		CollisionQueue* collisionQueue = fighters.GetCollisionQueue(0);
+
+		if (collisionQueue)
+		{
+			int n = 0;
+		}
 
 		//update objs
 		background.UpdateStates(gameData);
