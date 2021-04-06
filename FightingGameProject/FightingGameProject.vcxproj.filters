@@ -82,6 +82,9 @@
     <Filter Include="Source Files\State\Concrete States\Projectiles">
       <UniqueIdentifier>{ad0f771c-2ad4-4cd6-9e5c-481941152952}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Effects">
+      <UniqueIdentifier>{dbe82174-a123-4413-ae23-c610bb130aad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -352,6 +355,9 @@
     </ClInclude>
     <ClInclude Include="ImpactEffectsGroup.h">
       <Filter>Source Files\Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpactEffectType.h">
+      <Filter>Source Files\Effects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

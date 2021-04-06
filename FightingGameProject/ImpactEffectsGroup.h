@@ -1,6 +1,7 @@
 #pragma once
 #include "ObjGroup.h"
 #include "GameObj.h"
+#include "ImpactEffectType.h"
 
 namespace RB
 {
@@ -36,5 +37,13 @@ namespace RB
 		olc::vi2d GetObjWorldPos(size_t index) override { return { 0, 0 }; };
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override { return { 0, 0 }; };
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override { std::array<olc::vi2d, 4> arr; return arr; };
+
+		void CreateEffect(ImpactEffectType effectType)
+		{
+			if (effectType == ImpactEffectType::HIT_0)
+			{
+				int n = 0;
+			}
+		}
 	};
 }
