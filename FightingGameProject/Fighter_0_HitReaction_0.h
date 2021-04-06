@@ -32,21 +32,21 @@ namespace RB
 			PlayerInput p = PlayerInput::Get(objData, gameData);
 			Directions d = Directions::Get(objData, p);
 
-			if (updateCount == 0 && updateCount < 5)
+			if (updateCount == 0 && updateCount < 10)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData, 2);
+				int32_t speed = Directions::GetBackSpeed(objData, 3);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount < 15)
+			else if (updateCount < 20)
 			{
 				int32_t speed = Directions::GetBackSpeed(objData, 1);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount >= 15)
+			else if (updateCount >= 30)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
 			}

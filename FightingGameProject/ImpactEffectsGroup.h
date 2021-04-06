@@ -22,8 +22,11 @@ namespace RB
 
 				for (size_t i = 0; i < vecObjs.size(); i++)
 				{
-					IF_COUT{ std::cout << "destructing effect: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
-					delete vecObjs[i];
+					if (vecObjs[i] != nullptr)
+					{
+						IF_COUT{ std::cout << "destructing effect: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
+						delete vecObjs[i];
+					}
 				}
 
 				IF_COUT{ std::cout << std::endl; };
@@ -42,7 +45,24 @@ namespace RB
 					if (state != nullptr)
 					{
 						state->RunUpdateProcess(vecObjs[i]->objData, gameData);
+
+						int32_t finalFrame = state->animationController.GetTotalTiles() * state->animationController.status.nTransitionDelay;
+						
+						if (state->updateCount >= finalFrame - 1)
+						{
+							delete vecObjs[i];
+							vecObjs[i] = nullptr;
+						}
 					}
+				}
+			}
+
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				if (vecObjs[i] == nullptr)
+				{
+					vecObjs.erase(vecObjs.begin() + i);
+					break;
 				}
 			}
 		};
