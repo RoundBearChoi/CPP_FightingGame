@@ -32,11 +32,13 @@ namespace RB
 	void FightScene::Update(GameData& gameData)
 	{
 		//projectiles vs player collision
-		size_t index = 0;
+		size_t projIndex = 0;
+		int32_t fighterIndex = 0;
 
-		if (ProjectileCollision::Collided(projectiles, fighters, index))
+		if (ProjectileCollision::Collided(projectiles, fighters, projIndex, fighterIndex))
 		{
-			projectiles.DeleteObj(index);
+			projectiles.DeleteObj(projIndex);
+			fighters.MakeNewState<Fighter_0_HitReaction_0>(fighterIndex);
 		}
 
 		//update objs

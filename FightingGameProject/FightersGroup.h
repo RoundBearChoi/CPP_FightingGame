@@ -66,5 +66,17 @@ namespace RB
 		{
 			arrObjs[_index].stateController.CreateNewState<T>();
 		}
+
+		template<class T>
+		void MakeNewState(int32_t _index)
+		{
+			if (_index < arrObjs.size())
+			{
+				if (arrObjs[_index].stateController.currentState != nullptr)
+				{
+					arrObjs[_index].stateController.currentState->nextState = State::NewState<T>();
+				}
+			}
+		}
 	};
 }

@@ -7,7 +7,7 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex)
+		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex, int32_t& fighterIndex)
 		{
 			for (size_t projectileIndex = 0; projectileIndex < projectileGroup.GetObjCount(); projectileIndex++)
 			{
@@ -33,6 +33,7 @@ namespace RB
 								IF_COUT{ std::cout << "projectile collision against player: " << playerIndex << std::endl; };
 								IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
 								collidingProjectileIndex = projectileIndex;
+								fighterIndex = playerIndex;
 								return true;
 							}
 						}
