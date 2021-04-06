@@ -92,7 +92,7 @@ namespace RB
 				state->RunUpdateProcess(obj.objData, gameData);
 
 				//collision check between bodyparts
-				CollisionStatus* col = state->GetCollisionStatus();
+				CollisionQueue* col = state->GetCollisionStatus();
 
 				if (col)
 				{
@@ -134,7 +134,7 @@ namespace RB
 
 			if (obj.stateController.currentState != nullptr)
 			{
-				CollisionStatus* check = obj.stateController.currentState->GetCollisionStatus();
+				CollisionQueue* check = obj.stateController.currentState->GetCollisionStatus();
 
 				if (check)
 				{

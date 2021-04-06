@@ -3,7 +3,7 @@
 
 namespace RB
 {
-	class CollisionStatus
+	class CollisionQueue
 	{
 	public:
 		std::vector<BodyType> vecBodies;

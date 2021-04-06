@@ -284,7 +284,7 @@
     <ClInclude Include="DebugRenderer.h">
       <Filter>Source Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionStatus.h">
+    <ClInclude Include="CollisionQueue.h">
       <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="ObjGroup.h">

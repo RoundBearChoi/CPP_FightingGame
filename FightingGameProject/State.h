@@ -8,7 +8,7 @@
 #include "SpriteLoader.h"
 #include "PlayerInput.h"
 #include "Directions.h"
-#include "CollisionStatus.h"
+#include "CollisionQueue.h"
 #include "CreateProjectile.h"
 
 namespace RB
@@ -24,7 +24,7 @@ namespace RB
 		State* nextState = nullptr;
 		size_t updateCount = 0;
 		AnimationController animationController;
-		std::vector<CollisionStatus> vecCollisionStatus;
+		std::vector<CollisionQueue> vecCollisionStatus;
 		std::vector<CreateProjectile> vecCreateProjectiles;
 
 		virtual ~State() {};
@@ -41,7 +41,7 @@ namespace RB
 		void UpdateColliders();
 		void RenderColliderQuads(ObjData& objData, Camera& cam);
 		void UnloadColliderData();
-		CollisionStatus* GetCollisionStatus();
+		CollisionQueue* GetCollisionStatus();
 		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData);
 		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData);
 
