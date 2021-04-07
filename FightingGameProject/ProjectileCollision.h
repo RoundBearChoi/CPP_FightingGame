@@ -19,13 +19,12 @@ namespace RB
 				if (id != ownerID)
 				{
 					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
+					std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
 
 					//check all body parts
 					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
 					{
 						olc::vi2d bodyPos = fighters.GetBodyWorldPos(targetFighterIndex, (BodyType)bodyIndex);
-
-						std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
 						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(targetFighterIndex, (BodyType)bodyIndex);
 
 						//collision test
