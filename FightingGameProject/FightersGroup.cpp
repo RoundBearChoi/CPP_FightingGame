@@ -323,7 +323,7 @@ namespace RB
 		{
 			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
 			{
-				return &arrObjs[fighterIndex].stateController.currentState->collisionCount;
+				return &arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount;
 			}
 		}
 
@@ -336,7 +336,7 @@ namespace RB
 		{
 			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
 			{
-				return arrObjs[fighterIndex].stateController.currentState->maxCollisions;
+				return arrObjs[fighterIndex].stateController.currentState->maxBodyCollisions;
 			}
 		}
 
