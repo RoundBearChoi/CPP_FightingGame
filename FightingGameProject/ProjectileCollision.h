@@ -1,4 +1,5 @@
 #pragma once
+#include "olcPixelGameEngine.h"
 #include "ProjectileGroup.h"
 #include "FightersGroup.h"
 #include "DiagonalOverlap.h"
@@ -8,42 +9,39 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex, int32_t& fighterIndex, olc::vi2d& projCollisionPoint)
+		static bool IsColliding(int32_t targetFighterIndex, FightersGroup& fighters, ProjectileGroup& projectiles, size_t& collidingProjectileIndex, olc::vi2d& midPoint)
 		{
-			for (size_t projectileIndex = 0; projectileIndex < projectileGroup.GetObjCount(); projectileIndex++)
+			for (size_t projectileIndex = 0; projectileIndex < projectiles.GetObjCount(); projectileIndex++)
 			{
-				for (int32_t playerIndex = 0; playerIndex < 2; playerIndex++)
+				size_t id = fighters.GetObjCreationID(targetFighterIndex);
+				size_t ownerID = projectiles.GetOwnerCreationID(projectileIndex);
+
+				if (id != ownerID)
 				{
-					size_t id = fighterGroup.GetObjCreationID(playerIndex);
-					size_t ownerID = projectileGroup.GetOwnerCreationID(projectileIndex);
+					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
 
-					if (id != ownerID)
+					//check all body parts
+					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
 					{
-						olc::vi2d projectilePos = projectileGroup.GetObjBoxColliderWorldPos(projectileIndex);
+						olc::vi2d bodyPos = fighters.GetBodyWorldPos(targetFighterIndex, (BodyType)bodyIndex);
 
-						for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
+						std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
+						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(targetFighterIndex, (BodyType)bodyIndex);
+
+						//collision test
+						if (DiagonalOverlap::Overlapping(projectilePos, projectileQuads, bodyPos, bodyQuads))
 						{
-							olc::vi2d bodyPos = fighterGroup.GetBodyWorldPos(playerIndex, (BodyType)bodyIndex);
+							IF_COUT{ std::cout << "projectile collision against player: " << targetFighterIndex << std::endl; };
+							IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
 
-							std::array<olc::vi2d, 4>projectileQuads = projectileGroup.GetObjBoxColliderWorldQuad(projectileIndex);
-							std::array<olc::vi2d, 4>bodyQuads = fighterGroup.GetBodyWorldQuad(playerIndex, (BodyType)bodyIndex);
+							collidingProjectileIndex = projectileIndex;
 
-							//collision test
-							if (DiagonalOverlap::Overlapping(projectilePos, projectileQuads, bodyPos, bodyQuads))
-							{
-								IF_COUT{ std::cout << "projectile collision against player: " << playerIndex << std::endl; };
-								IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
+							olc::vf2d distance = bodyPos - projectilePos;
+							distance *= 0.5f;
+							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
+							midPoint = rounded + projectilePos;
 
-								collidingProjectileIndex = projectileIndex;
-								fighterIndex = playerIndex;
-
-								olc::vf2d distance = bodyPos - projectilePos;
-								distance *= 0.5f;
-								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-								projCollisionPoint = rounded + projectilePos;
-
-								return true;
-							}
+							return true;
 						}
 					}
 				}

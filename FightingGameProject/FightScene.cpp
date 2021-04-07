@@ -34,13 +34,19 @@ namespace RB
 	{
 		//projectiles vs player collision
 		size_t projIndex = 0;
-		int32_t fighterIndex = 0;
 		olc::vi2d projCollisionPoint;
 
-		if (ProjectileCollision::Collided(projectiles, fighters, projIndex, fighterIndex, projCollisionPoint))
+		if (ProjectileCollision::IsColliding(0, fighters, projectiles, projIndex, projCollisionPoint))
 		{
 			projectiles.DeleteObj(projIndex);
-			fighters.MakeNewState<Fighter_0_HitReaction_0>(fighterIndex);
+			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
+		}
+
+		if (ProjectileCollision::IsColliding(1, fighters, projectiles, projIndex, projCollisionPoint))
+		{
+			projectiles.DeleteObj(projIndex);
+			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
 		}
 
