@@ -32,11 +32,11 @@ namespace RB
 					{
 						for (BodyType& b : collisionQueue->vecBodies)
 						{
-							olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, BodyType::HEAD);
-							std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, BodyType::HEAD);
-
 							olc::vi2d attackPos = fighters.GetBodyWorldPos(attackerIndex, b);
 							std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(attackerIndex, b);
+
+							olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, BodyType::HEAD);
+							std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, BodyType::HEAD);
 
 							if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
 							{
