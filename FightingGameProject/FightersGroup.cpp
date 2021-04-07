@@ -316,4 +316,30 @@ namespace RB
 		std::array<olc::vi2d, 4> arr;
 		return arr;
 	}
+
+	int32_t* FightersGroup::CollisionCount(int32_t fighterIndex)
+	{
+		if (fighterIndex < arrObjs.size())
+		{
+			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
+			{
+				return &arrObjs[fighterIndex].stateController.currentState->collisionCount;
+			}
+		}
+
+		return nullptr;
+	}
+
+	int32_t FightersGroup::MaxCollisions(int32_t fighterIndex)
+	{
+		if (fighterIndex < arrObjs.size())
+		{
+			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
+			{
+				return arrObjs[fighterIndex].stateController.currentState->maxCollisions;
+			}
+		}
+
+		return 0;
+	}
 }

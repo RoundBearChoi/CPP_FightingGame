@@ -32,6 +32,8 @@ namespace RB
 
 			vecCollisionStatus.push_back(c0);
 			vecCollisionStatus.push_back(c1);
+
+			maxCollisions = 1;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

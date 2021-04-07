@@ -21,6 +21,8 @@ namespace RB
 	public:
 		State* nextState = nullptr;
 		size_t updateCount = 0;
+		int32_t collisionCount = 0;
+		int32_t maxCollisions = 0;
 		AnimationController animationController;
 		std::vector<CollisionQueue> vecCollisionStatus;
 		std::vector<CreateProjectile> vecCreateProjectiles;

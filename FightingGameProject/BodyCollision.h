@@ -28,25 +28,31 @@ namespace RB
 				{
 					collisionQueue->processed = true;
 
-					for (BodyType& b : collisionQueue->vecBodies)
+					if (*fighters.CollisionCount(attackerIndex) < fighters.MaxCollisions(attackerIndex))
 					{
-						olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, BodyType::HEAD);
-						std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, BodyType::HEAD);
-
-						olc::vi2d attackPos = fighters.GetBodyWorldPos(attackerIndex, b);
-						std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(attackerIndex, b);
-
-						if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
+						for (BodyType& b : collisionQueue->vecBodies)
 						{
-							IF_COUT{ std::cout << "overlap!" << std::endl; };
-							IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; };
+							olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, BodyType::HEAD);
+							std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, BodyType::HEAD);
 
-							olc::vf2d distance = targetPos - attackPos;
-							distance *= 0.5f;
-							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-							midPoint = attackPos + rounded;
+							olc::vi2d attackPos = fighters.GetBodyWorldPos(attackerIndex, b);
+							std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(attackerIndex, b);
 
-							return true;
+							if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
+							{
+								IF_COUT{ std::cout << "overlap!" << std::endl; };
+								IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; };
+
+								olc::vf2d distance = targetPos - attackPos;
+								distance *= 0.5f;
+								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
+								midPoint = attackPos + rounded;
+
+								int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
+								collisionCount++;
+
+								return true;
+							}
 						}
 					}
 
