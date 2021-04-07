@@ -8,7 +8,7 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex, int32_t& fighterIndex)
+		static bool Collided(ProjectileGroup& projectileGroup, FightersGroup& fighterGroup, size_t& collidingProjectileIndex, int32_t& fighterIndex, olc::vi2d& projCollisionPoint)
 		{
 			for (size_t projectileIndex = 0; projectileIndex < projectileGroup.GetObjCount(); projectileIndex++)
 			{
@@ -33,8 +33,15 @@ namespace RB
 							{
 								IF_COUT{ std::cout << "projectile collision against player: " << playerIndex << std::endl; };
 								IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
+
 								collidingProjectileIndex = projectileIndex;
 								fighterIndex = playerIndex;
+
+								olc::vf2d distance = bodyPos - projectilePos;
+								distance *= 0.5f;
+								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
+								projCollisionPoint = rounded + projectilePos;
+
 								return true;
 							}
 						}

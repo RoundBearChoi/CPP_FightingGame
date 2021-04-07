@@ -35,11 +35,13 @@ namespace RB
 		//projectiles vs player collision
 		size_t projIndex = 0;
 		int32_t fighterIndex = 0;
+		olc::vi2d projCollisionPoint;
 
-		if (ProjectileCollision::Collided(projectiles, fighters, projIndex, fighterIndex))
+		if (ProjectileCollision::Collided(projectiles, fighters, projIndex, fighterIndex, projCollisionPoint))
 		{
 			projectiles.DeleteObj(projIndex);
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(fighterIndex);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
 		}
 
 		//update objs
@@ -49,16 +51,18 @@ namespace RB
 		impactEffects.UpdateStates(gameData);
 
 		//body vs body collision
-		olc::vi2d point;
-		if (BodyCollision::IsColliding(0, fighters, point))
+		olc::vi2d bodyCollisionPoint;
+
+		if (BodyCollision::IsColliding(0, fighters, bodyCollisionPoint))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, point);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyCollisionPoint);
 		}
-		if (BodyCollision::IsColliding(1, fighters, point))
+
+		if (BodyCollision::IsColliding(1, fighters, bodyCollisionPoint))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, point);
+			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyCollisionPoint);
 		}
 
 		//create projectiles
