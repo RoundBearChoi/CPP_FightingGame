@@ -241,7 +241,7 @@ namespace RB
 				}
 
 				//resize, rotate, move boxcollider
-				selector.GetCollider()[nSelectedBodyIndex].SetQuad();
+				selector.GetCollider()[nSelectedBodyIndex].SetQuad(OffsetType::CENTER_CENTER);
 				selector.GetCollider()[nSelectedBodyIndex].UpdateRotation();
 				selector.GetCollider()[nSelectedBodyIndex].MovePosition( //up down left right
 					gameData.key_a,
@@ -252,7 +252,7 @@ namespace RB
 
 			for (int32_t i = 0; i < selector.GetCollider().size(); i++)
 			{
-				selector.GetCollider()[i].SetQuad();
+				selector.GetCollider()[i].SetQuad(OffsetType::CENTER_CENTER);
 				selector.GetCollider()[i].UpdateRotation();
 			}
 		}

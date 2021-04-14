@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "ScreenVector.h"
 #include "DebugRenderer.h"
+#include "OffsetType.h"
 
 namespace RB
 {
@@ -47,7 +48,7 @@ namespace RB
 		void RotateCounterClockwise();
 		void RotateClockwise();
 		void UpdateRotation();
-		void SetQuad();
+		void SetQuad(OffsetType offsetType);
 		void Render(Camera& cam, olc::vi2d playerPos, olc::Pixel _color);
 	};
 }

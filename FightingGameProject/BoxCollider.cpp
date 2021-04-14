@@ -9,7 +9,7 @@ namespace RB
 		height = _height;
 		rotation = _rotation;
 
-		SetQuad();
+		SetQuad(OffsetType::CENTER_CENTER);
 	}
 
 	void BoxCollider::MovePosition(bool left, bool right, bool up, bool down)
@@ -62,10 +62,17 @@ namespace RB
 		}
 	}
 
-	void BoxCollider::SetQuad()
+	void BoxCollider::SetQuad(OffsetType offsetType)
 	{
-		int32_t topLeftX = (int32_t)std::round(-(float)width / 2.0f);
-		int32_t topLeftY = (int32_t)std::round(-(float)height / 2.0f);
+		int32_t topLeftX = 0;
+		int32_t topLeftY = 0;
+
+		if (offsetType == OffsetType::CENTER_CENTER)
+		{
+			topLeftX = (int32_t)std::round(-(float)width / 2.0f);
+			topLeftY = (int32_t)std::round(-(float)height / 2.0f);
+		}
+
 		olc::vi2d topLeft = { topLeftX, topLeftY };
 		olc::vi2d bottomLeft = topLeft + olc::vi2d{ 0, height };
 		olc::vi2d topRight = topLeft + olc::vi2d{ width, 0 };

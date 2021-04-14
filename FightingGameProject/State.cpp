@@ -83,7 +83,7 @@ namespace RB
 
 			for (size_t i = 0; i < vec.size(); i++)
 			{
-				vec[i].SetQuad();
+				vec[i].SetQuad(OffsetType::CENTER_CENTER);
 				vec[i].UpdateRotation();
 
 				vecQuads.push_back(vec[i].RelativePoint0());

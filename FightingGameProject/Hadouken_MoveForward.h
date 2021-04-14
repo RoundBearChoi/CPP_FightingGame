@@ -22,7 +22,7 @@ namespace RB
 
 			objData.objBoxCollider.SetWidth(80);
 			objData.objBoxCollider.SetHeight(60);
-			objData.objBoxCollider.SetQuad();
+			objData.objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
 			objData.objBoxCollider.UpdateRotation();
 		}
 
