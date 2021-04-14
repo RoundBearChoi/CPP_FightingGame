@@ -27,7 +27,7 @@ namespace RB
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
-			UpdateColliders();
+			UpdateColliderParts();
 
 			PlayerInput p = PlayerInput::Get(objData, gameData);
 			Directions d = Directions::Get(objData, p);

@@ -16,7 +16,7 @@ namespace RB
 		void Load()
 		{
 			T state;
-			state.UpdateColliders();
+			state.UpdateColliderParts();
 		}
 
 	public:

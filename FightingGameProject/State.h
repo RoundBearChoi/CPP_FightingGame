@@ -38,7 +38,7 @@ namespace RB
 		void RunUpdateProcess(ObjData& objData, GameData& gameData);
 		size_t GetHash();
 		bool IsNew();
-		void UpdateColliders();
+		void UpdateColliderParts();
 		void RenderColliderQuads(ObjData& objData, Camera& cam);
 		void UnloadColliderData();
 		CollisionQueue* GetCollisionStatus();

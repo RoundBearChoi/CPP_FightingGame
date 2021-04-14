@@ -27,7 +27,7 @@ namespace RB
 		olc::vi2d RelativePoint0() { return rotatedQuad[0] + relativePos; } //topleft
 		olc::vi2d RelativePoint1() { return rotatedQuad[1] + relativePos; } //bottomleft
 		olc::vi2d RelativePoint2() { return rotatedQuad[2] + relativePos; } //bottomright
-		olc::vi2d RelativePoint3() { return rotatedQuad[3] + relativePos; } // topright
+		olc::vi2d RelativePoint3() { return rotatedQuad[3] + relativePos; } //topright
 
 		olc::vi2d RelativePosition() { return relativePos; }
 		void SetRelativePos(int32_t _x, int32_t _y) { relativePos.x = _x; relativePos.y = _y; }

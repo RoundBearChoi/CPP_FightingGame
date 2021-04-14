@@ -68,7 +68,7 @@ namespace RB
 		}
 	}
 
-	void State::UpdateColliders()
+	void State::UpdateColliderParts()
 	{
 		std::vector<BoxCollider>& vec = GetColliders();
 		std::vector<olc::vi2d>& vecQuads = GetColliderQuads();

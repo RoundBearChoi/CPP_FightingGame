@@ -43,7 +43,7 @@ namespace RB
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
-			UpdateColliders();
+			UpdateColliderParts();
 
 			if (objData.GetAnimationIndex() == 5)
 			{
