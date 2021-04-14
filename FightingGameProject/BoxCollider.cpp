@@ -72,6 +72,11 @@ namespace RB
 			topLeftX = (int32_t)std::round(-(float)width / 2.0f);
 			topLeftY = (int32_t)std::round(-(float)height / 2.0f);
 		}
+		else if (offsetType == OffsetType::BOTTOM_CENTER)
+		{
+			topLeftX = (int32_t)std::round(-(float)width / 2.0f);
+			topLeftY = (int32_t)std::round(-(float)height);
+		}
 
 		olc::vi2d topLeft = { topLeftX, topLeftY };
 		olc::vi2d bottomLeft = topLeft + olc::vi2d{ 0, height };
