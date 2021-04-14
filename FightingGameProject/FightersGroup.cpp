@@ -100,6 +100,7 @@ namespace RB
 
 			//arrObjs[i].RenderSpriteSize(cam);
 			obj.RenderPosition(cam);
+			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
 
 			if (obj.stateController.currentState != nullptr)
 			{
