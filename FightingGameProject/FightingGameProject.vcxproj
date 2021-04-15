@@ -169,7 +169,7 @@
     <ClInclude Include="Background_Idle_Mountains.h" />
     <ClInclude Include="Background_Idle_Sun.h" />
     <ClInclude Include="Background_Idle_Trees.h" />
-    <ClInclude Include="BodyCollision.h" />
+    <ClInclude Include="BodyPartCollision.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />

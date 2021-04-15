@@ -88,6 +88,12 @@
     <Filter Include="Source Files\State\Concrete States\ImpactEffects">
       <UniqueIdentifier>{80182361-cfd5-4e6b-8c5f-6c2e6f13d720}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Collision\Static Functions">
+      <UniqueIdentifier>{1b907e4d-a637-40a5-be4a-7b294d0bd00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collision\Base">
+      <UniqueIdentifier>{3cab7759-4c64-4299-889b-2dafa2f741ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -132,17 +138,17 @@
     <ClCompile Include="State.cpp">
       <Filter>Source Files\State\Base</Filter>
     </ClCompile>
-    <ClCompile Include="DiagonalOverlap.cpp">
-      <Filter>Source Files\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="BoxCollider.cpp">
-      <Filter>Source Files\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="GameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ProjectileGroup.cpp">
       <Filter>Source Files\Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Source Files\Collision\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagonalOverlap.cpp">
+      <Filter>Source Files\Collision\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,12 +257,6 @@
     <ClInclude Include="UIElement.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="BoxCollider.h">
-      <Filter>Source Files\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="BodyType.h">
-      <Filter>Source Files\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="TargetBodyType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -268,9 +268,6 @@
     </ClInclude>
     <ClInclude Include="SpriteType.h">
       <Filter>Source Files\SpriteLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="ColliderLoader.h">
-      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_WalkBack.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
@@ -293,9 +290,6 @@
     <ClInclude Include="DebugRenderer.h">
       <Filter>Source Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionQueue.h">
-      <Filter>Source Files\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGroup.h">
       <Filter>Source Files\Groups</Filter>
     </ClInclude>
@@ -304,9 +298,6 @@
     </ClInclude>
     <ClInclude Include="Preload_Fighter_0.h">
       <Filter>Source Files\Groups</Filter>
-    </ClInclude>
-    <ClInclude Include="DiagonalOverlap.h">
-      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="InputBuffer.h">
       <Filter>Source Files\Input</Filter>
@@ -347,14 +338,8 @@
     <ClInclude Include="RenderMode.h">
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectileCollision.h">
-      <Filter>Source Files\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="ComboChecker.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="BodyCollision.h">
-      <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="ImpactEffectsGroup.h">
       <Filter>Source Files\Groups</Filter>
@@ -364,6 +349,27 @@
     </ClInclude>
     <ClInclude Include="ImpactEffect_Hit_0.h">
       <Filter>Source Files\State\Concrete States\ImpactEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileCollision.h">
+      <Filter>Source Files\Collision\Static Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyPartCollision.h">
+      <Filter>Source Files\Collision\Static Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyType.h">
+      <Filter>Source Files\Collision\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Source Files\Collision\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderLoader.h">
+      <Filter>Source Files\Collision\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionQueue.h">
+      <Filter>Source Files\Collision\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagonalOverlap.h">
+      <Filter>Source Files\Collision\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

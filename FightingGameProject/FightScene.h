@@ -5,7 +5,7 @@
 #include "BackgroundGroup.h"
 #include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
-#include "BodyCollision.h"
+#include "BodyPartCollision.h"
 
 //temp
 #include "Fighter_1_Idle.h"

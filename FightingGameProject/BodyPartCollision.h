@@ -4,10 +4,10 @@
 
 namespace RB
 {
-	class BodyCollision
+	class BodyPartCollision
 	{
 	public:
-		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& midPoint)
+		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& resultMid)
 		{
 			int32_t targetIndex = 0;
 
@@ -46,7 +46,7 @@ namespace RB
 								olc::vf2d distance = targetPos - attackPos;
 								distance *= 0.5f;
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-								midPoint = attackPos + rounded;
+								resultMid = attackPos + rounded;
 
 								int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
 								collisionCount++;
