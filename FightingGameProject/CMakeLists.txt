@@ -16,6 +16,7 @@ FightersGroup.cpp
 FightScene.cpp
 GameData.cpp
 GameObj.cpp
+ImpactEffectsGroup.cpp
 InputBuffer.cpp
 main.cpp
 ProjectileGroup.cpp
