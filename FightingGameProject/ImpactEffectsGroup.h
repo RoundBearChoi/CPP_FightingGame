@@ -2,11 +2,11 @@
 #include "ObjGroup.h"
 #include "GameObj.h"
 #include "ImpactEffectType.h"
+#include "SheetRenderer.h"
+#include "ImpactEffect_Hit_0.h"
 
 namespace RB
 {
-	class ImpactEffect_Hit_0;
-
 	class ImpactEffectsGroup : public ObjGroup
 	{
 	private:
@@ -14,96 +14,18 @@ namespace RB
 		size_t creationCount = 0;
 
 	public:
-		~ImpactEffectsGroup()
-		{
-			if (vecObjs.size() != 0)
-			{
-				IF_COUT{ std::cout << std::endl; };
+		~ImpactEffectsGroup();
 
-				for (size_t i = 0; i < vecObjs.size(); i++)
-				{
-					if (vecObjs[i] != nullptr)
-					{
-						IF_COUT{ std::cout << "destructing effect: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
-						delete vecObjs[i];
-					}
-				}
+		void UpdateStates(GameData& gameData) override;
+		void RenderObjPosition(Camera& cam) override;
+		void RenderStates(Camera& cam, bool update) override;
+		void RenderBoxColliders(Camera& cam) override;
+		size_t GetObjCount() override;
+		size_t GetObjCreationID(size_t index) override;
+		olc::vi2d GetObjWorldPos(size_t index) override;
+		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
+		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 
-				IF_COUT{ std::cout << std::endl; };
-			}
-		}
-
-		void UpdateStates(GameData& gameData) override
-		{
-			for (size_t i = 0; i < vecObjs.size(); i++)
-			{
-				if (vecObjs[i] != nullptr)
-				{
-					GameObj& obj = *vecObjs[i];
-					State* state = vecObjs[i]->stateController.currentState;
-
-					if (state != nullptr)
-					{
-						state->RunUpdateProcess(vecObjs[i]->objData, gameData);
-
-						int32_t finalFrame = state->animationController.GetTotalTiles() * state->animationController.status.nTransitionDelay;
-						
-						if (state->updateCount >= finalFrame - 1)
-						{
-							delete vecObjs[i];
-							vecObjs[i] = nullptr;
-						}
-					}
-				}
-			}
-
-			for (size_t i = 0; i < vecObjs.size(); i++)
-			{
-				if (vecObjs[i] == nullptr)
-				{
-					vecObjs.erase(vecObjs.begin() + i);
-					break;
-				}
-			}
-		};
-
-		void RenderObjPosition(Camera& cam) override {};
-
-		void RenderStates(Camera& cam, bool update) override
-		{
-			for (size_t i = 0; i < vecObjs.size(); i++)
-			{
-				if (vecObjs[i] != nullptr)
-				{
-					SheetRenderer::Render(vecObjs[i], cam);
-
-					if (update)
-					{
-						vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
-					}
-				}
-			}
-		};
-
-		void RenderBoxColliders(Camera& cam) override {};
-		size_t GetObjCount() override { return 0; };
-		size_t GetObjCreationID(size_t index) override { return 0; };
-		olc::vi2d GetObjWorldPos(size_t index) override { return { 0, 0 }; };
-		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override { return { 0, 0 }; };
-		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override { std::array<olc::vi2d, 4> arr; return arr; };
-
-		void CreateEffect(ImpactEffectType effectType, olc::vi2d startPos)
-		{
-			creationCount++;
-			GameObj* obj = new GameObj(creationCount);
-			vecObjs.push_back(obj);
-
-			if (effectType == ImpactEffectType::HIT_0)
-			{
-				obj->stateController.currentState = State::NewState<ImpactEffect_Hit_0>();
-			}
-
-			obj->objData.SetPosition(startPos);
-		}
+		void CreateEffect(ImpactEffectType effectType, olc::vi2d startPos);
 	};
 }

@@ -12,7 +12,6 @@
 #include "Background_Idle_Trees.h"
 #include "Background_Idle_Mountains.h"
 #include "Background_Idle_Sun.h"
-#include "ImpactEffect_Hit_0.h"
 
 namespace RB
 {

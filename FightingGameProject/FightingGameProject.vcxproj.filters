@@ -150,6 +150,9 @@
     <ClCompile Include="DiagonalOverlap.cpp">
       <Filter>Source Files\Collision\Base</Filter>
     </ClCompile>
+    <ClCompile Include="ImpactEffectsGroup.cpp">
+      <Filter>Source Files\Groups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
