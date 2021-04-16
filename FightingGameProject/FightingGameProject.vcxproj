@@ -164,6 +164,7 @@
     <ClCompile Include="StateController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AnimationStatus.h" />
     <ClInclude Include="BackgroundGroup.h" />

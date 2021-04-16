@@ -7,6 +7,8 @@
 #include "DevSettings.h"
 #include "UIElement.h"
 #include "SheetRenderer.h"
+#include "DiagonalOverlap.h"
+#include "AABB.h"
 
 //combos
 #include "InputBuffer.h"

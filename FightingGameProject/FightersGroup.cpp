@@ -70,6 +70,7 @@ namespace RB
 			arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
 		}
 
+		//main update
 		for (GameObj& obj : arrObjs)
 		{
 			//change directions
@@ -88,6 +89,19 @@ namespace RB
 			if (obj.stateController.currentState != nullptr)
 			{
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
+			}
+		}
+
+		//resolve body mass collision
+
+		//ground vs ground
+		if (arrObjs[0].objData.GetPosition().y == 0 && arrObjs[1].objData.GetPosition().y == 0)
+		{
+			if (AABB::IsColliding(
+				arrObjs[0].objData.objBoxCollider, arrObjs[0].objData.GetPosition(), //p1 obj boxcollider
+				arrObjs[1].objData.objBoxCollider, arrObjs[1].objData.GetPosition())) //p2 obj boxcollider
+			{
+				int n = 0;
 			}
 		}
 	}

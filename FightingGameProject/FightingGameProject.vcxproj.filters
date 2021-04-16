@@ -374,5 +374,8 @@
     <ClInclude Include="DiagonalOverlap.h">
       <Filter>Source Files\Collision\Base</Filter>
     </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Source Files\Collision\Static Functions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
