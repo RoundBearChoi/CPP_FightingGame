@@ -9,6 +9,7 @@
 #include "SheetRenderer.h"
 #include "DiagonalOverlap.h"
 #include "AABB.h"
+#include "Normalize.h"
 
 //combos
 #include "InputBuffer.h"

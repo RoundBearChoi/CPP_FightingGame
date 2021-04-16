@@ -181,6 +181,7 @@
     <ClInclude Include="ImpactEffectsGroup.h" />
     <ClInclude Include="ImpactEffectType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
+    <ClInclude Include="Normalize.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreateProjectile.h" />

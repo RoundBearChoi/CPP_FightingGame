@@ -22,6 +22,7 @@ namespace RB
 		
 	public:
 		BoxCollider objBoxCollider;
+		olc::vi2d lastPosition = { 0, 0 };
 
 		olc::vi2d GetPosition() { return position; }
 		void SetPosition(olc::vi2d _pos) { position = _pos; }

@@ -377,5 +377,8 @@
     <ClInclude Include="AABB.h">
       <Filter>Source Files\Collision\Static Functions</Filter>
     </ClInclude>
+    <ClInclude Include="Normalize.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
