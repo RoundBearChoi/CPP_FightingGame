@@ -26,8 +26,8 @@ namespace RB
 		{
 			objData.SetSpriteSize({ 400, 230 });
 
-			objData.objBoxCollider.SetWidth(80);
-			objData.objBoxCollider.SetHeight(60);
+			objData.objBoxCollider.SetWidth(76);
+			objData.objBoxCollider.SetHeight(170);
 			objData.objBoxCollider.SetQuad(OffsetType::BOTTOM_CENTER);
 			objData.objBoxCollider.UpdateRotation();
 		}
