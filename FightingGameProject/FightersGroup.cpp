@@ -101,6 +101,11 @@ namespace RB
 				arrObjs[0].objData.objBoxCollider, arrObjs[0].objData.GetPosition(), //p1 obj boxcollider
 				arrObjs[1].objData.objBoxCollider, arrObjs[1].objData.GetPosition())) //p2 obj boxcollider
 			{
+				olc::vi2d midPoint = arrObjs[1].objData.GetPosition() - arrObjs[0].objData.GetPosition();
+				midPoint.x = (int32_t)std::round(midPoint.x / 2.0f);
+				midPoint.y = (int32_t)std::round(midPoint.y / 2.0f);
+				midPoint += arrObjs[0].objData.GetPosition();
+
 				int n = 0;
 			}
 		}
