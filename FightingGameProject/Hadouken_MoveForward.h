@@ -28,7 +28,7 @@ namespace RB
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
-			int32_t speed = Directions::GetForwardSpeed(objData, 2);
+			int32_t speed = Directions::GetForwardSpeed(objData, 4);
 
 			olc::vi2d pos = objData.GetPosition();
 			pos.x += speed;

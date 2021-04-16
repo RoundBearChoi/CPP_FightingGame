@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_hitreaction_0.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
-			animationController.status.nTransitionDelay = 12;
+			animationController.status.nTransitionDelay = 8;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
@@ -32,21 +32,21 @@ namespace RB
 			PlayerInput p = PlayerInput::Get(objData, gameData);
 			Directions d = Directions::Get(objData, p);
 
-			if (updateCount == 0 && updateCount < 10)
+			if (updateCount == 0 && updateCount < 8)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData, 3);
+				int32_t speed = Directions::GetBackSpeed(objData, 2);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount < 20)
+			else if (updateCount < 16)
 			{
 				int32_t speed = Directions::GetBackSpeed(objData, 1);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount >= 30)
+			else if (updateCount >= 24)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
 			}

@@ -21,7 +21,7 @@ namespace RB
 
 		static float TargetFrameTime(ChangeTimer _change)
 		{
-			static float target = 1.0f / 120.0f;
+			static float target = 1.0f / 85.0f;
 
 			if (_change == ChangeTimer::NONE)
 			{

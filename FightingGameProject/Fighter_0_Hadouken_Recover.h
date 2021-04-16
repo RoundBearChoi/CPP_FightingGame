@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_hadouken_recover.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2000, 200, 5, 1, 5);
-			animationController.status.nTransitionDelay = 6;
+			animationController.status.nTransitionDelay = 4;
 			animationController.status.bPlayOnce = true;
 		}
 

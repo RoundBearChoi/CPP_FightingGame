@@ -106,52 +106,18 @@ namespace RB
 				arrObjs[1].objData.objBoxCollider, arrObjs[1].objData.GetPosition())) //p2 obj boxcollider
 			{
 				olc::vi2d relMidPoint = arrObjs[1].objData.GetPosition() - arrObjs[0].objData.GetPosition();
-
-				int32_t currDistanceSq = relMidPoint.mag();
-				int32_t minimumDistanceSq = arrObjs[0].objData.objBoxCollider.Width();
-				int32_t overlapDistanceSq = minimumDistanceSq - currDistanceSq;
-
 				relMidPoint.x = (int32_t)std::round(relMidPoint.x / 2.0f);
 				relMidPoint.y = (int32_t)std::round(relMidPoint.y / 2.0f);
-				olc::vf2d midPoint = relMidPoint + arrObjs[0].objData.GetPosition();
+				olc::vf2d midPoint = arrObjs[0].objData.GetPosition() + relMidPoint;
 
-				olc::vf2d p1velocity = arrObjs[0].objData.GetPosition() - arrObjs[0].objData.lastPosition;
-				olc::vf2d p2velocity = arrObjs[1].objData.GetPosition() - arrObjs[1].objData.lastPosition;
-
-				float p1mag = (float)p1velocity.mag();
-				float p2mag = (float)p2velocity.mag();
-
-				float dif = 0.0f;
-				
-				if (p1mag != 0.0f && p2mag == 0.0f)
-				{
-					dif = (p1mag - p2mag) / p1mag;
-				}
-				else if (p2mag != 0.0f && p1mag == 0.0f)
-				{
-					dif = (p2mag - p1mag) / p2mag;
-					dif *= -1.0f;
-				}
-				else if (p1mag == 0.0f && p2mag == 0.0f)
-				{
-					//dif is 0.0f
-				}
-				else if (p1mag > p2mag)
-				{
-					dif = (p1mag - p2mag) / p1mag;
-				}
-
-				//temp
-				olc::vf2d resolvedMidPoint = midPoint + (olc::vf2d(1.0f, 0.0f) * dif);
-
-				olc::vi2d p1Dir = arrObjs[0].objData.GetPosition() - resolvedMidPoint;
-				olc::vi2d p2Dir = arrObjs[1].objData.GetPosition() - resolvedMidPoint;
+				olc::vi2d p1Dir = arrObjs[0].objData.GetPosition() - midPoint;
+				olc::vi2d p2Dir = arrObjs[1].objData.GetPosition() - midPoint;
 
 				olc::vf2d p1rel = (olc::vf2d)Normalize::Norm(p1Dir) * (float)arrObjs[0].objData.objBoxCollider.Width() / 2.0f;
 				olc::vf2d p2rel = (olc::vf2d)Normalize::Norm(p2Dir) * (float)arrObjs[1].objData.objBoxCollider.Width() / 2.0f;
 
-				olc::vf2d p1Resolved = resolvedMidPoint + p1rel;
-				olc::vf2d p2Resolved = resolvedMidPoint + p2rel;
+				olc::vf2d p1Resolved = midPoint + p1rel;
+				olc::vf2d p2Resolved = midPoint + p2rel;
 
 				olc::vi2d p1Rounded{ 0, 0 };
 				olc::vi2d p2Rounded{ 0, 0 };
