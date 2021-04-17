@@ -55,6 +55,18 @@ namespace RB
 			{
 				nextState = State::NewState<Fighter_0_WalkBack>();
 			}
+
+			if (d.up)
+			{
+				int n = 0;
+			}
+			else
+			{
+				if (d.down)
+				{
+
+				}
+			}
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }
