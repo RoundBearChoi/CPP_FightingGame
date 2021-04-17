@@ -11,7 +11,7 @@ namespace RB
 			gameData.key_t, //weak punch
 			vecP1Inputs, //p1
 			p1_upright, p1_downright, p1_downleft, p1_upleft, //¢Ö ¢Ù ¢× ¢Ø
-			p1_left, p1_right, p1_down, //¡ç ¡æ ¡é
+			p1_left, p1_right, p1_up, p1_down, //¡ç ¡æ ¡é
 			p1_weakpunch);
 
 		AddInputBuffer(
@@ -19,7 +19,7 @@ namespace RB
 			gameData.key_np7, //weak punch
 			vecP2Inputs, //p2
 			p2_upright, p2_downright, p2_downleft, p2_upleft, //¢Ö ¢Ù ¢× ¢Ø
-			p2_left, p2_right, p2_down, //¡ç ¡æ ¡é
+			p2_left, p2_right, p2_up, p2_down, //¡ç ¡æ ¡é
 			p2_weakpunch);
 	}
 
@@ -83,7 +83,7 @@ namespace RB
 		Key* keyWeakPunch,
 		std::vector<InputElement>& vecBuffer,
 		bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft,
-		bool& bLeft, bool& bRight, bool& bDown,
+		bool& bLeft, bool& bRight, bool& bUp, bool& bDown,
 		bool& bWeakPunch)
 	{
 		if (QuadruplePress(keyUp, keyDown, keyLeft, keyRight))
@@ -182,6 +182,17 @@ namespace RB
 				}
 			}
 		}
+		else if (keyUp)
+		{
+			if (!bUpLeft && !bUpRight)
+			{
+				if (!bUp)
+				{
+					bUp = true;
+					vecBuffer.push_back(InputElement(InputType::UP));
+				}
+			}
+		}
 
 		//punch
 		if (keyWeakPunch)
@@ -202,7 +213,7 @@ namespace RB
 
 		if (!keyLeft) { bLeft = false; } // ¡ç
 		if (!keyRight) { bRight = false; } // ¡æ
-
+		if (!keyUp) { bUp = false; } // ¡è
 		if (!keyDown) { bDown = false; } // ¡é
 
 		if (!keyWeakPunch) { bWeakPunch = false; }

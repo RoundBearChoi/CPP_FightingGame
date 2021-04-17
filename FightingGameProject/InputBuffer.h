@@ -18,6 +18,7 @@ namespace RB
 
 		bool p1_left = false;
 		bool p1_right = false;
+		bool p1_up = false;
 		bool p1_down = false;
 
 		bool p1_weakpunch = false;
@@ -30,6 +31,7 @@ namespace RB
 
 		bool p2_left = false;
 		bool p2_right = false;
+		bool p2_up = false;
 		bool p2_down = false;
 
 		bool p2_weakpunch = false;
@@ -49,7 +51,7 @@ namespace RB
 			Key* keyWeakPunch,
 			std::vector<InputElement>& vecBuffer,
 			bool& bUpRight, bool& bDownRight, bool& bDownLeft, bool& bUpLeft,
-			bool& bLeft, bool& bRight, bool& bDown,
+			bool& bLeft, bool& bRight, bool& bUp, bool& bDown,
 			bool& bWeakPunch);
 	};
 }

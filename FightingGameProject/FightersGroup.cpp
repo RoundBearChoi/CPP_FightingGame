@@ -39,6 +39,11 @@ namespace RB
 		down.SetHash();
 		down.SetDecal();
 
+		up.path = "PNG files/InputBuffer/up.png";
+		up.spriteType = SpriteType::INPUT_BUFFER;
+		up.SetHash();
+		up.SetDecal();
+
 		punch.path = "PNG files/InputBuffer/punch.png";
 		punch.spriteType = SpriteType::INPUT_BUFFER;
 		punch.SetHash();
@@ -308,6 +313,8 @@ namespace RB
 			return right.ptrDecal;
 		case InputType::DOWN:
 			return down.ptrDecal;
+		case InputType::UP:
+			return up.ptrDecal;
 
 		case InputType::WEAK_PUNCH:
 			return punch.ptrDecal;
