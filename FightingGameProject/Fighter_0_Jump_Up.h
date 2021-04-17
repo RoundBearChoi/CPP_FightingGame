@@ -3,21 +3,19 @@
 
 namespace RB
 {
-	class Fighter_0_Jump_Up;
-
-	class Fighter_0_Jump_Prep : public State
+	class Fighter_0_Jump_Up : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jump_Prep()
+		Fighter_0_Jump_Up()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_prep.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_up.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_jump_up.collider");
 
-			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
-			animationController.status.nTransitionDelay = 4;
+			animationController.SetParams(SpriteType::FIGHTER_0, 1200, 200, 3, 1, 3);
+			animationController.status.nTransitionDelay = 10;
 			animationController.status.bPlayOnce = true;
 		}
 
@@ -35,10 +33,7 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			if (updateCount >= 5)
-			{
-				nextState = State::NewState<Fighter_0_Jump_Up>();
-			}
+
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }

@@ -383,5 +383,8 @@
     <ClInclude Include="Fighter_0_Jump_Prep.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_Jump_Up.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
