@@ -26,15 +26,20 @@ namespace RB
 
 			if (updateCount % gravityInterval == 0 && updateCount != 0)
 			{
-				upForce--;
-
-				if (p.up)
+				if (upForce > 0)
 				{
-					int n = 0;
+					if (p.up)
+					{
+						upForce--;
+					}
+					else
+					{
+						upForce -= 2;
+					}
 				}
 				else
 				{
-					int n = 0;
+					upForce--;
 				}
 			}
 
