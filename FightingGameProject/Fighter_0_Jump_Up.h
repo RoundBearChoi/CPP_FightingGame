@@ -36,7 +36,13 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-
+			if (objData.ptrJumpProcessor != nullptr)
+			{
+				if (objData.ptrJumpProcessor->GetUpForce() <= 0)
+				{
+					int n = 0;
+				}
+			}
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }
