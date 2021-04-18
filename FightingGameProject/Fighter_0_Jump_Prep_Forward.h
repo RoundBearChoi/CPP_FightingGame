@@ -3,7 +3,7 @@
 
 namespace RB
 {
-	class Fighter_0_Jump_Up_Vertical;
+	class Fighter_0_Jump_Up_Forward;
 
 	class Fighter_0_Jump_Prep_Forward : public State
 	{
@@ -32,7 +32,7 @@ namespace RB
 
 			if (updateCount >= 5)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Up_Vertical>();
+				nextState = State::NewState<Fighter_0_Jump_Up_Forward>();
 			}
 		}
 
