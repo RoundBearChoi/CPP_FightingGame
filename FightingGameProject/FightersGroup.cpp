@@ -116,6 +116,7 @@ namespace RB
 				{
 					olc::vi2d groundPos = olc::vi2d(obj.objData.GetPosition().x, 0);
 					obj.objData.SetPosition(groundPos);
+
 					delete obj.objData.ptrJumpProcessor;
 					obj.objData.ptrJumpProcessor = nullptr;
 				}
