@@ -10,6 +10,7 @@ namespace RB
 	private:
 		size_t updateCount = 0;
 		int32_t upForce = 0;
+		int32_t horizontalForce = 0;
 		const int32_t gravityInterval = 4;
 
 	public:
@@ -18,10 +19,13 @@ namespace RB
 			upForce = force;
 		}
 
+		void SetHorizontalForce(int32_t force)
+		{
+			horizontalForce = force;
+		}
+
 		void UpdateJump(PlayerType playerType, GameData& gameData)
 		{
-
-
 			PlayerInput p = PlayerInput::Get(playerType, gameData);
 
 			if (updateCount % gravityInterval == 0 && updateCount != 0)
@@ -40,6 +44,11 @@ namespace RB
 				else
 				{
 					upForce--;
+				}
+
+				if (horizontalForce > 0)
+				{
+					int n = 0;
 				}
 			}
 
