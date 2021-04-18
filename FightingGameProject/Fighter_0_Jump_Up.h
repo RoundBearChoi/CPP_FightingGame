@@ -3,6 +3,8 @@
 
 namespace RB
 {
+	class Fighter_0_Idle;
+
 	class Fighter_0_Jump_Up : public State
 	{
 	protected:
@@ -42,6 +44,11 @@ namespace RB
 				{
 					int n = 0;
 				}
+			}
+
+			if (objData.GetPosition().y >= 0 && updateCount != 0)
+			{
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 		}
 
