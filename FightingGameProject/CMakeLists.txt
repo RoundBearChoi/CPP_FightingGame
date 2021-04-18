@@ -20,11 +20,11 @@ GameSettings.cpp
 ImpactEffectsGroup.cpp
 InputBuffer.cpp
 main.cpp
+ObjData.cpp
 ProjectileGroup.cpp
 Scene.cpp
 SceneController.cpp
 SpriteLoader.cpp
-State.cpp
 State.cpp
 StateController.cpp
 )
