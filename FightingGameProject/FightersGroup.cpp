@@ -104,6 +104,21 @@ namespace RB
 			if (obj.objData.ptrJumpProcessor != nullptr)
 			{
 				obj.objData.ptrJumpProcessor->UpdateJump(obj.objData.GetPlayerType(), gameData);
+
+				if (obj.objData.GetPosition().y <= 0)
+				{
+					olc::vi2d jumpPos = obj.objData.GetPosition() - olc::vi2d(0, obj.objData.ptrJumpProcessor->GetUpForce());
+					obj.objData.SetPosition(jumpPos);
+				}
+				
+				//clear jump
+				if (obj.objData.GetPosition().y > 0)
+				{
+					olc::vi2d groundPos = olc::vi2d(obj.objData.GetPosition().x, 0);
+					obj.objData.SetPosition(groundPos);
+					delete obj.objData.ptrJumpProcessor;
+					obj.objData.ptrJumpProcessor = nullptr;
+				}
 			}
 		}
 
