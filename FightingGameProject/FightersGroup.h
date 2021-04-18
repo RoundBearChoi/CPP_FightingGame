@@ -10,6 +10,7 @@
 #include "DiagonalOverlap.h"
 #include "AABB.h"
 #include "Normalize.h"
+#include "JumpProcessor.h"
 
 //combos
 #include "InputBuffer.h"

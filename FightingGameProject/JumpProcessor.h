@@ -4,6 +4,10 @@ namespace RB
 {
 	class JumpProcessor
 	{
+	public:
+		void UpdateJump()
+		{
 
+		}
 	};
 }

@@ -103,7 +103,7 @@ namespace RB
 			//process jump
 			if (obj.objData.ptrJumpProcessor != nullptr)
 			{
-				int n = 0;
+				obj.objData.ptrJumpProcessor->UpdateJump();
 			}
 		}
 
