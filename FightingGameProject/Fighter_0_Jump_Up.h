@@ -27,6 +27,8 @@ namespace RB
 			//objData.objBoxCollider.SetHeight(170);
 			//objData.objBoxCollider.SetQuad(OffsetType::BOTTOM_CENTER);
 			//objData.objBoxCollider.UpdateRotation();
+
+			objData.CreateJumpProcessor();
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override

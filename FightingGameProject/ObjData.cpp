@@ -48,4 +48,14 @@ namespace RB
 			onLeftSide = false;
 		}
 	}
+
+	void ObjData::CreateJumpProcessor()
+	{
+		if (ptrJumpProcessor != nullptr)
+		{
+			delete ptrJumpProcessor;
+		}
+
+		ptrJumpProcessor = new JumpProcessor();
+	}
 }
