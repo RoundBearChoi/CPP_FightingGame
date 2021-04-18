@@ -27,7 +27,7 @@ namespace RB
 		std::vector<CollisionQueue> vecCollisionStatus;
 		std::vector<CreateProjectile> vecCreateProjectiles;
 
-		virtual ~State() {};
+		virtual ~State();
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
 		virtual void OnUpdate(ObjData& objData, GameData& gameData) = 0;
 		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) { /*do nothing*/ };

@@ -2,6 +2,11 @@
 
 namespace RB
 {
+	State::~State()
+	{
+
+	}
+
 	size_t& State::Hash()
 	{
 		static size_t defaultHash = 0;

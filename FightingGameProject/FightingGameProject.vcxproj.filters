@@ -94,6 +94,9 @@
     <Filter Include="Source Files\Collision\Base">
       <UniqueIdentifier>{3cab7759-4c64-4299-889b-2dafa2f741ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\JumpProcessor">
+      <UniqueIdentifier>{28b5fdfa-e1f4-49e0-ac57-7aa60a014636}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -385,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="Fighter_0_Jump_Up.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpProcessor.h">
+      <Filter>Source Files\JumpProcessor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
