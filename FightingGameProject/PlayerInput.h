@@ -1,5 +1,4 @@
 #pragma once
-#include "ObjData.h"
 #include "GameData.h"
 
 namespace RB
@@ -18,11 +17,11 @@ namespace RB
 		bool weakkick = false;
 		bool strongkick = false;
 
-		static PlayerInput Get(ObjData& objData, GameData& gameData)
+		static PlayerInput Get(PlayerType _playerType, GameData& gameData)
 		{
 			PlayerInput input;
 
-			if (objData.GetPlayerType() == PlayerType::PLAYER_1)
+			if (_playerType == PlayerType::PLAYER_1)
 			{
 				if (gameData.key_w) { input.up = true; }
 				if (gameData.key_s) { input.down = true; }
@@ -31,7 +30,7 @@ namespace RB
 
 				if (gameData.key_t) { input.weakpunch = true; }
 			}
-			else if (objData.GetPlayerType() == PlayerType::PLAYER_2)
+			else if (_playerType == PlayerType::PLAYER_2)
 			{
 				if (gameData.key_up) { input.up = true; }
 				if (gameData.key_down) { input.down = true; }
