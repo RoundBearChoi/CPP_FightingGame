@@ -4,6 +4,7 @@
 namespace RB
 {
 	class Fighter_0_Idle;
+	class Fighter_0_Jump_Prep_Forward;
 
 	class Fighter_0_WalkForward : public State
 	{
@@ -32,6 +33,11 @@ namespace RB
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
 			Directions d = Directions::Get(objData, p);
 			
+			if (d.up)
+			{
+				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>();
+			}
+
 			if (d.forward)
 			{
 				int32_t speed = Directions::GetForwardSpeed(objData, 2);
