@@ -24,11 +24,6 @@ namespace RB
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
 			objData.SetSpriteSize({ 400, 230 });
-
-			//objData.objBoxCollider.SetWidth(76);
-			//objData.objBoxCollider.SetHeight(170);
-			//objData.objBoxCollider.SetQuad(OffsetType::BOTTOM_CENTER);
-			//objData.objBoxCollider.UpdateRotation();
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
