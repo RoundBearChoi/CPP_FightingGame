@@ -39,13 +39,17 @@ namespace RB
 
 	void ObjData::UpdateFigherDirection(ObjData& enemy)
 	{
-		if (position.x < enemy.GetPosition().x)
+		//only turn when grounded
+		if (position.y == 0)
 		{
-			onLeftSide = true;
-		}
-		else if (position.x > enemy.GetPosition().x)
-		{
-			onLeftSide = false;
+			if (position.x < enemy.GetPosition().x)
+			{
+				onLeftSide = true;
+			}
+			else if (position.x > enemy.GetPosition().x)
+			{
+				onLeftSide = false;
+			}
 		}
 	}
 
