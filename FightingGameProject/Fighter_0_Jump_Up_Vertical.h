@@ -6,16 +6,16 @@ namespace RB
 	class Fighter_0_Idle;
 	class Fighter_0_Jump_Fall;
 
-	class Fighter_0_Jump_Up : public State
+	class Fighter_0_Jump_Up_Vertical : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jump_Up()
+		Fighter_0_Jump_Up_Vertical()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_up.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jump_up.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_up_vertical.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_jump_up_vertical.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 1200, 200, 3, 1, 3);
 			animationController.status.nTransitionDelay = 6;

@@ -392,7 +392,7 @@
     <ClInclude Include="Fighter_0_Jump_Prep_Vertical.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
-    <ClInclude Include="Fighter_0_Jump_Up.h">
+    <ClInclude Include="Fighter_0_Jump_Up_Vertical.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="JumpProcessor.h">
