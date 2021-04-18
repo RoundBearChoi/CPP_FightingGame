@@ -26,43 +26,35 @@ namespace RB
 		olc::vi2d lastPosition = { 0, 0 };
 		JumpProcessor* ptrJumpProcessor = nullptr;
 
-		olc::vi2d GetPosition() { return position; }
-		void SetPosition(olc::vi2d _pos) { position = _pos; }
+		~ObjData();
 
-		olc::vi2d GetSpriteSize() { return spriteSize; }
-		void SetSpriteSize(olc::vi2d _size) { spriteSize = _size; }
+		olc::vi2d GetPosition();
+		void SetPosition(olc::vi2d _pos);
 
-		size_t GetCreationID() { return creationID;	}
-		void SetCreationID(size_t t) { creationID = t; }
+		olc::vi2d GetSpriteSize();
+		void SetSpriteSize(olc::vi2d _size);
 
-		size_t GetOwnerID() { return ownerID; }
-		void SetOwnerID(size_t t) { ownerID = t; }
+		size_t GetCreationID();
+		void SetCreationID(size_t t);
 
-		OffsetType GetOffsetType() { return offsetType; }
-		void SetOffsetType(OffsetType _type) { offsetType = _type; }
+		size_t GetOwnerID();
+		void SetOwnerID(size_t t);
 
-		int32_t GetAnimationIndex() { return currentAnimationIndex; }
-		void SetAnimationIndex(int32_t _int) { currentAnimationIndex = _int; }
+		OffsetType GetOffsetType();
+		void SetOffsetType(OffsetType _type);
 
-		void SetLeftSide(bool _left) { onLeftSide = _left; }
-		bool IsOnLeftSide() { return onLeftSide; }
+		int32_t GetAnimationIndex();
+		void SetAnimationIndex(int32_t _int);
 
-		void FaceRight(bool _faceRight) { faceRight = _faceRight; }
-		bool IsFacingRight() { return faceRight; }
+		void SetLeftSide(bool _left);
+		bool IsOnLeftSide();
 
-		void SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
-		PlayerType GetPlayerType() { return playerType; }
+		void FaceRight(bool _faceRight);
+		bool IsFacingRight();
 
-		void UpdateFigherDirection(ObjData& enemy)
-		{
-			if (position.x < enemy.GetPosition().x)
-			{
-				onLeftSide = true;
-			}
-			else if (position.x > enemy.GetPosition().x)
-			{
-				onLeftSide = false;
-			}
-		}
+		void SetPlayerType(PlayerType _playerType);
+		PlayerType GetPlayerType();
+
+		void UpdateFigherDirection(ObjData& enemy);
 	};
 }

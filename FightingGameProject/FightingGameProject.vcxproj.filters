@@ -156,6 +156,12 @@
     <ClCompile Include="ImpactEffectsGroup.cpp">
       <Filter>Source Files\Groups</Filter>
     </ClCompile>
+    <ClCompile Include="ObjData.cpp">
+      <Filter>Source Files\GameObj\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSettings.cpp">
+      <Filter>Source Files\Settings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
