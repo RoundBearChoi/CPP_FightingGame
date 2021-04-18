@@ -398,5 +398,8 @@
     <ClInclude Include="JumpProcessor.h">
       <Filter>Source Files\JumpProcessor</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_Jump_Fall.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

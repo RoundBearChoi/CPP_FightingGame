@@ -8,6 +8,7 @@
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep.h"
 #include "Fighter_0_Jump_Up.h"
+#include "Fighter_0_Jump_Fall.h"
 
 namespace RB
 {
