@@ -16,6 +16,7 @@ FightersGroup.cpp
 FightScene.cpp
 GameData.cpp
 GameObj.cpp
+GameSettings.cpp
 ImpactEffectsGroup.cpp
 InputBuffer.cpp
 main.cpp
@@ -23,6 +24,7 @@ ProjectileGroup.cpp
 Scene.cpp
 SceneController.cpp
 SpriteLoader.cpp
+State.cpp
 State.cpp
 StateController.cpp
 )
