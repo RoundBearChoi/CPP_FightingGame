@@ -39,7 +39,7 @@ namespace RB
 			UpdateColliderParts();
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
-			Directions d = Directions::Get(objData, p);
+			Directions d = Directions::Get(objData.IsFacingRight(), p);
 
 			if (p.weakpunch)
 			{

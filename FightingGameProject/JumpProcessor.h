@@ -2,6 +2,7 @@
 #include "GameData.h"
 #include "PlayerType.h"
 #include "PlayerInput.h"
+#include "Directions.h"
 
 namespace RB
 {
@@ -24,7 +25,7 @@ namespace RB
 			horizontalForce = force;
 		}
 
-		void UpdateJump(PlayerType playerType, GameData& gameData)
+		void UpdateJump(PlayerType playerType, bool isFacingRight, GameData& gameData)
 		{
 			PlayerInput p = PlayerInput::Get(playerType, gameData);
 
@@ -46,9 +47,18 @@ namespace RB
 					upForce--;
 				}
 
-				if (horizontalForce > 0)
+				if (horizontalForce > 1)
 				{
-					int n = 0;
+					Directions d = Directions::Get(isFacingRight, p);
+
+					if (d.forward)
+					{
+
+					}
+					else
+					{
+						int n = 0;
+					}
 				}
 			}
 

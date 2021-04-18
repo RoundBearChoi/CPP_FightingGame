@@ -31,7 +31,7 @@ namespace RB
 			UpdateColliderParts();
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
-			Directions d = Directions::Get(objData, p);
+			Directions d = Directions::Get(objData.IsFacingRight(), p);
 			
 			if (d.up)
 			{
@@ -40,7 +40,7 @@ namespace RB
 
 			if (d.forward)
 			{
-				int32_t speed = Directions::GetForwardSpeed(objData, 2);
+				int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 2);
 
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;

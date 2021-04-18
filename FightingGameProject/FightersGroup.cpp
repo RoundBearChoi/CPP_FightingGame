@@ -103,7 +103,7 @@ namespace RB
 			//process jump
 			if (obj.objData.ptrJumpProcessor != nullptr)
 			{
-				obj.objData.ptrJumpProcessor->UpdateJump(obj.objData.GetPlayerType(), gameData);
+				obj.objData.ptrJumpProcessor->UpdateJump(obj.objData.GetPlayerType(), obj.objData.IsFacingRight(), gameData);
 
 				if (obj.objData.GetPosition().y <= 0)
 				{

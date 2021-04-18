@@ -30,11 +30,11 @@ namespace RB
 			UpdateColliderParts();
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
-			Directions d = Directions::Get(objData, p);
+			Directions d = Directions::Get(objData.IsFacingRight(), p);
 
 			if (d.back)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData, 2);
+				int32_t speed = Directions::GetBackSpeed(objData.IsFacingRight(), 2);
 
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;

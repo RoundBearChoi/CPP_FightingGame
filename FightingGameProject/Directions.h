@@ -1,6 +1,5 @@
 #pragma once
 #include "PlayerInput.h"
-#include "ObjData.h"
 
 namespace RB
 {
@@ -12,11 +11,11 @@ namespace RB
 		bool up = false;
 		bool down = false;
 
-		static Directions Get(ObjData& objData, PlayerInput& playerInput)
+		static Directions Get(bool isFacingRight, PlayerInput& playerInput)
 		{
 			Directions d;
 
-			if (objData.IsFacingRight())
+			if (isFacingRight)
 			{
 				if (playerInput.left && playerInput.right || !playerInput.left && !playerInput.right)
 				{
@@ -60,9 +59,9 @@ namespace RB
 			return d;
 		}
 
-		static int32_t GetForwardSpeed(ObjData& objData, int32_t speed)
+		static int32_t GetForwardSpeed(bool isFacingRight, int32_t speed)
 		{
-			if (objData.IsFacingRight())
+			if (isFacingRight)
 			{
 				return speed;
 			}
@@ -72,9 +71,9 @@ namespace RB
 			}
 		}
 
-		static int32_t GetBackSpeed(ObjData& objData, int32_t speed)
+		static int32_t GetBackSpeed(bool isFacingRight, int32_t speed)
 		{
-			if (objData.IsFacingRight())
+			if (isFacingRight)
 			{
 				return -speed;
 			}
