@@ -10,7 +10,7 @@
 #include "Fighter_0_HitReaction_0.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
-#include "Fighter_0_Jump_Prep.h"
+#include "Fighter_0_Jump_Prep_Vertical.h"
 #include "Fighter_0_Jump_Up.h"
 #include "Fighter_0_Jump_Fall.h"
 
@@ -38,7 +38,7 @@ namespace RB
 			Init<Fighter_0_HitReaction_0>(*arrObjs[4]);
 			Init<Fighter_0_Hadouken_Fire>(*arrObjs[5]);
 			Init<Fighter_0_Hadouken_Recover>(*arrObjs[6]);
-			Init<Fighter_0_Jump_Prep>(*arrObjs[7]);
+			Init<Fighter_0_Jump_Prep_Vertical>(*arrObjs[7]);
 			Init<Fighter_0_Jump_Up>(*arrObjs[8]);
 			Init<Fighter_0_Jump_Fall>(*arrObjs[9]);
 

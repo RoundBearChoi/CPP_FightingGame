@@ -5,13 +5,13 @@ namespace RB
 {
 	class Fighter_0_Jump_Up;
 
-	class Fighter_0_Jump_Prep : public State
+	class Fighter_0_Jump_Prep_Vertical : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jump_Prep()
+		Fighter_0_Jump_Prep_Vertical()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_prep.png");
 			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep.collider");
