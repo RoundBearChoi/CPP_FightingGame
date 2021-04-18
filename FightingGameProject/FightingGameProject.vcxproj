@@ -181,6 +181,7 @@
     <ClInclude Include="CollisionQueue.h" />
     <ClInclude Include="ComboChecker.h" />
     <ClInclude Include="Fighter_0_Jump_Fall.h" />
+    <ClInclude Include="Fighter_0_Jump_Prep_Forward.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Vertical.h" />
     <ClInclude Include="Fighter_0_Jump_Up.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />

@@ -11,6 +11,7 @@
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
+#include "Fighter_0_Jump_Prep_Forward.h"
 #include "Fighter_0_Jump_Up.h"
 #include "Fighter_0_Jump_Fall.h"
 
@@ -19,8 +20,8 @@ namespace RB
 	class DummySelector
 	{
 	private:
-		std::array<GameObj*, 10> arrObjs;
-		std::array<std::vector<BoxCollider>, 10> arrVecs;
+		std::array<GameObj*, 11> arrObjs;
+		std::array<std::vector<BoxCollider>, 11> arrVecs;
 		size_t currentIndex = 0;
 
 	public:
@@ -39,8 +40,9 @@ namespace RB
 			Init<Fighter_0_Hadouken_Fire>(*arrObjs[5]);
 			Init<Fighter_0_Hadouken_Recover>(*arrObjs[6]);
 			Init<Fighter_0_Jump_Prep_Vertical>(*arrObjs[7]);
-			Init<Fighter_0_Jump_Up>(*arrObjs[8]);
-			Init<Fighter_0_Jump_Fall>(*arrObjs[9]);
+			Init<Fighter_0_Jump_Prep_Forward>(*arrObjs[8]);
+			Init<Fighter_0_Jump_Up>(*arrObjs[9]);
+			Init<Fighter_0_Jump_Fall>(*arrObjs[10]);
 
 			LoadColliders();
 		}
