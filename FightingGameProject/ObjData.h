@@ -4,6 +4,7 @@
 #include "PlayerType.h"
 #include "BoxCollider.h"
 #include "CreationCount.h"
+#include "JumpProcessor.h"
 
 namespace RB
 {
@@ -23,6 +24,7 @@ namespace RB
 	public:
 		BoxCollider objBoxCollider;
 		olc::vi2d lastPosition = { 0, 0 };
+		JumpProcessor* ptrJumpProcessor = nullptr;
 
 		olc::vi2d GetPosition() { return position; }
 		void SetPosition(olc::vi2d _pos) { position = _pos; }

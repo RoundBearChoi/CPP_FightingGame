@@ -99,6 +99,12 @@ namespace RB
 			{
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
 			}
+
+			//process jump
+			if (obj.objData.ptrJumpProcessor != nullptr)
+			{
+				int n = 0;
+			}
 		}
 
 		//resolve body mass collision
