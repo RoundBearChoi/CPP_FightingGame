@@ -105,7 +105,7 @@ namespace RB
 
 	void FightScene::RenderStates(bool update)
 	{
-		background.RenderStates(cam, update);
+		//background.RenderStates(cam, update);
 		fighters.RenderStates(cam, update);
 		fighters.RenderBoxColliders(cam);
 		projectiles.RenderStates(cam, update);
