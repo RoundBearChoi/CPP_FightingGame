@@ -194,6 +194,7 @@
     <ClInclude Include="ImpactEffect_Hit_0.h" />
     <ClInclude Include="JumpProcessor.h" />
     <ClInclude Include="Normalize.h" />
+    <ClInclude Include="RandomInteger.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreateProjectile.h" />

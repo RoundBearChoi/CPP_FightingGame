@@ -11,6 +11,7 @@
 #include "AABB.h"
 #include "Normalize.h"
 #include "JumpProcessor.h"
+#include "RandomInteger.h"
 
 //combos
 #include "InputBuffer.h"
@@ -27,6 +28,7 @@ namespace RB
 	private:
 		std::array<GameObj, 2> arrObjs;
 		Preload_Fighter_0 preload_fighter_0;
+		RandomInteger randomInteger;
 
 		UIElement upleft;
 		UIElement upright;

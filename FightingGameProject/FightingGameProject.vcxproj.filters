@@ -97,6 +97,9 @@
     <Filter Include="Source Files\JumpProcessor">
       <UniqueIdentifier>{28b5fdfa-e1f4-49e0-ac57-7aa60a014636}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Random">
+      <UniqueIdentifier>{1333cb17-618c-4c4a-a3b4-e219fd519d39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="Fighter_0_Crouch.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomInteger.h">
+      <Filter>Source Files\Random</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
