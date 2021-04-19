@@ -13,7 +13,7 @@ namespace RB
 		int32_t upForce = 0;
 		int32_t horizontalForce = 0;
 		const int32_t gravityInterval = 4;
-		const int32_t horizontalInterval = 4;
+		const int32_t horizontalInterval = 8;
 
 	public:
 		bool moveHorizontally = false;
@@ -58,7 +58,7 @@ namespace RB
 			{
 				if (updateCount % horizontalInterval == 0)
 				{
-					if (horizontalForce > 2)
+					if (horizontalForce > 3)
 					{
 						Directions d = Directions::Get(isFacingRight, p);
 
@@ -86,9 +86,9 @@ namespace RB
 						}
 					}
 
-					if (horizontalForce <= 2)
+					if (horizontalForce <= 3)
 					{
-						horizontalForce = 2;
+						horizontalForce = 3;
 					}
 				}
 			}

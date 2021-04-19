@@ -17,6 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep_back.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
+			animationController.status.nTransitionDelay = 4;
 			animationController.status.bPlayOnce = true;
 		}
 
@@ -29,7 +30,7 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			if (updateCount >= 6)
+			if (updateCount >= 3)
 			{
 				nextState = State::NewState<Fighter_0_Jump_Up_Back>();
 			}

@@ -8,7 +8,7 @@ namespace RB
 
 	float GameSettings::TargetFrameTime(ChangeTimer _change)
 	{
-		static float target = 1.0f / 110.0f;
+		static float target = 1.0f / 80.0f;
 
 		if (_change == ChangeTimer::NONE)
 		{
