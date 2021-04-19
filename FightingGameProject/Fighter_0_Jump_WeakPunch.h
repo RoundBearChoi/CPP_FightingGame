@@ -17,8 +17,18 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_jump_weakpunch.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
-			animationController.status.nTransitionDelay = 10;
 			animationController.status.bPlayOnce = true;
+
+			CollisionQueue c0;
+
+			c0.vecBodies.push_back(BodyType::LEFT_HAND);
+			c0.vecBodies.push_back(BodyType::LEFT_KNEE);
+			c0.vecBodies.push_back(BodyType::LEFT_LOWERLEG);
+			c0.animationTile = 0;
+
+			vecCollisionStatus.push_back(c0);
+
+			maxBodyCollisions = 1;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override

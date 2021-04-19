@@ -168,9 +168,13 @@ namespace RB
 		//collision check
 		for (size_t i = 0; i < vecCollisionStatus.size(); i++)
 		{
-			if (vecCollisionStatus[i].frame == animationController.status.nCurrentTile)
+			if (vecCollisionStatus[i].animationTile == animationController.status.nCurrentTile)
 			{
 				return &vecCollisionStatus[i];
+			}
+			else
+			{
+				int n = 0;
 			}
 		}
 

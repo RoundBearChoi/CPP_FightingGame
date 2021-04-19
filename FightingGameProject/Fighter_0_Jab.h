@@ -24,11 +24,11 @@ namespace RB
 
 			c0.vecBodies.push_back(BodyType::LEFT_FOREARM);
 			c0.vecBodies.push_back(BodyType::LEFT_HAND);
-			c0.frame = 2;
+			c0.animationTile = 2;
 
 			c1.vecBodies.push_back(BodyType::LEFT_FOREARM);
 			c1.vecBodies.push_back(BodyType::LEFT_HAND);
-			c1.frame = 3;
+			c1.animationTile = 3;
 
 			vecCollisionStatus.push_back(c0);
 			vecCollisionStatus.push_back(c1);
