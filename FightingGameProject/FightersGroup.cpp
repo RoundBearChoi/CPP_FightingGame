@@ -107,8 +107,8 @@ namespace RB
 
 				if (obj.objData.GetPosition().y <= 0)
 				{
-					olc::vi2d jumpPos = obj.objData.GetPosition() - olc::vi2d(0, obj.objData.ptrJumpProcessor->GetUpForce());
-					obj.objData.SetPosition(jumpPos);
+					olc::vi2d vertical = obj.objData.GetPosition() - olc::vi2d(0, obj.objData.ptrJumpProcessor->GetUpForce());
+					obj.objData.SetPosition(vertical);
 
 					olc::vi2d horizontalForce = olc::vi2d{ 0, 0 };
 
@@ -123,13 +123,13 @@ namespace RB
 
 					if (!obj.objData.ptrJumpProcessor->moveBack)
 					{
-						olc::vi2d horizontalPos = obj.objData.GetPosition() + horizontalForce;
-						obj.objData.SetPosition(horizontalPos);
+						olc::vi2d horizontal = obj.objData.GetPosition() + horizontalForce;
+						obj.objData.SetPosition(horizontal);
 					}
 					else
 					{
-						olc::vi2d horizontalPos = obj.objData.GetPosition() - horizontalForce;
-						obj.objData.SetPosition(horizontalPos);
+						olc::vi2d horizontal = obj.objData.GetPosition() - horizontalForce;
+						obj.objData.SetPosition(horizontal);
 					}
 				}
 			}
