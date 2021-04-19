@@ -36,6 +36,13 @@ namespace RB
 		{
 			UpdateColliderParts();
 
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+
+			if (p.weakpunch)
+			{
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
+			}
+
 			if (objData.ptrJumpProcessor != nullptr)
 			{
 				if (objData.ptrJumpProcessor->GetUpForce() <= 0)
