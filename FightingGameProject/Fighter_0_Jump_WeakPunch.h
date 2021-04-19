@@ -4,39 +4,31 @@
 namespace RB
 {
 	class Fighter_0_Idle;
-	class Fighter_0_Jump_WeakPunch;
 
-	class Fighter_0_Jump_Fall : public State
+	class Fighter_0_Jump_WeakPunch : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jump_Fall()
+		Fighter_0_Jump_WeakPunch()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_fall.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jump_fall.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_weakpunch.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_jump_weakpunch.collider");
 
-			animationController.SetParams(SpriteType::FIGHTER_0, 800, 200, 2, 1, 2);
+			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 			animationController.status.nTransitionDelay = 10;
 			animationController.status.bPlayOnce = true;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			objData.SetSpriteSize({ 420, 220 });
+			objData.SetSpriteSize({ 420, 230 });
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
 			UpdateColliderParts();
-
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
-
-			if (p.weakpunch)
-			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
-			}
 
 			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{

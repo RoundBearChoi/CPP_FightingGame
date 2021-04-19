@@ -5,6 +5,7 @@ namespace RB
 {
 	class Fighter_0_Idle;
 	class Fighter_0_Jump_Fall;
+	class Fighter_0_Jump_WeakPunch;
 
 	class Fighter_0_Jump_Up_Vertical : public State
 	{
@@ -33,6 +34,13 @@ namespace RB
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
 			UpdateColliderParts();
+
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+
+			if (p.weakpunch)
+			{
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
+			}
 
 			if (objData.ptrJumpProcessor != nullptr)
 			{

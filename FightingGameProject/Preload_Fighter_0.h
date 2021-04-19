@@ -13,6 +13,7 @@
 #include "Fighter_0_Jump_Up_Forward.h"
 #include "Fighter_0_Jump_Up_Back.h"
 #include "Fighter_0_Jump_Fall.h"
+#include "Fighter_0_Jump_WeakPunch.h"
 
 namespace RB
 {
@@ -41,6 +42,7 @@ namespace RB
 			Load<Fighter_0_Jump_Up_Back>();
 			Load<Fighter_0_Jump_Up_Forward>();
 			Load<Fighter_0_Jump_Up_Vertical>();
+			Load<Fighter_0_Jump_WeakPunch>();
 			Load<Fighter_0_WalkBack>();
 			Load<Fighter_0_WalkForward>();
 		}
