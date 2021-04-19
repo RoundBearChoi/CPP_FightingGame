@@ -150,6 +150,19 @@ namespace RB
 		//ground vs ground
 		if (arrObjs[0].objData.GetPosition().y == 0 && arrObjs[1].objData.GetPosition().y == 0)
 		{
+			//fighters shouldn't have same position
+			int32_t distance = std::abs(arrObjs[0].objData.GetPosition().x - arrObjs[1].objData.GetPosition().x);
+			if (distance <= 1)
+			{
+				int index = randomInteger.GetInteger(0, 1);
+				olc::vi2d newPos = arrObjs[index].objData.GetPosition() + olc::vi2d(10, 0);
+				arrObjs[index].objData.SetPosition(newPos);
+
+				IF_COUT{ std::cout << "distance between fighters: " << distance << std::endl; };
+				IF_COUT{ std::cout << "resolving same position" << std::endl; };
+				IF_COUT{ std::cout << "random index: " << index << std::endl; };
+			}
+
 			if (AABB::IsColliding(
 				arrObjs[0].objData.objBoxCollider, arrObjs[0].objData.GetPosition(), //p1 obj boxcollider
 				arrObjs[1].objData.objBoxCollider, arrObjs[1].objData.GetPosition())) //p2 obj boxcollider
