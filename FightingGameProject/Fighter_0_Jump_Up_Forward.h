@@ -28,7 +28,8 @@ namespace RB
 
 			objData.CreateJumpProcessor();
 			objData.ptrJumpProcessor->SetUpForce(10);
-			objData.ptrJumpProcessor->SetHorizontalForce(15);
+			objData.ptrJumpProcessor->SetHorizontalForce(5);
+			objData.ptrJumpProcessor->moveHorizontally = true;
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override

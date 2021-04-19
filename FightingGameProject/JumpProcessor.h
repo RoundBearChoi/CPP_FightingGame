@@ -13,8 +13,11 @@ namespace RB
 		int32_t upForce = 0;
 		int32_t horizontalForce = 0;
 		const int32_t gravityInterval = 4;
+		const int32_t horizontalInterval = 6;
 
 	public:
+		bool moveHorizontally = false;
+
 		void SetUpForce(int32_t force)
 		{
 			upForce = force;
@@ -29,6 +32,7 @@ namespace RB
 		{
 			PlayerInput p = PlayerInput::Get(playerType, gameData);
 
+			//vertical
 			if (updateCount % gravityInterval == 0 && updateCount != 0)
 			{
 				if (upForce > 0)
@@ -46,18 +50,30 @@ namespace RB
 				{
 					upForce--;
 				}
+			}
 
-				if (horizontalForce > 1)
+			//horizontal
+			if (moveHorizontally)
+			{
+				if (updateCount % horizontalInterval == 0)
 				{
-					Directions d = Directions::Get(isFacingRight, p);
-
-					if (d.forward)
+					if (horizontalForce > 3)
 					{
+						Directions d = Directions::Get(isFacingRight, p);
 
+						if (d.forward)
+						{
+							horizontalForce--;
+						}
+						else
+						{
+							horizontalForce -= 2;
+						}
 					}
-					else
+
+					if (horizontalForce <= 3)
 					{
-						int n = 0;
+						horizontalForce = 3;
 					}
 				}
 			}
@@ -68,6 +84,11 @@ namespace RB
 		int32_t GetUpForce()
 		{
 			return upForce;
+		}
+
+		int32_t GetHorizontalForce()
+		{
+			return horizontalForce;
 		}
 	};
 }
