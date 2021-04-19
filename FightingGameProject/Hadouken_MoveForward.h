@@ -28,11 +28,14 @@ namespace RB
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override
 		{
-			int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 4);
+			if (updateCount % 2 == 0)
+			{
+				int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 6);
 
-			olc::vi2d pos = objData.GetPosition();
-			pos.x += speed;
-			objData.SetPosition(pos);
+				olc::vi2d pos = objData.GetPosition();
+				pos.x += speed;
+				objData.SetPosition(pos);
+			}
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }

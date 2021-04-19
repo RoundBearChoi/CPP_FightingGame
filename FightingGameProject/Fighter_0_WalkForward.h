@@ -18,7 +18,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_walk.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
-			animationController.status.nTransitionDelay = 5;
+			animationController.status.nTransitionDelay = 8;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
@@ -40,11 +40,14 @@ namespace RB
 
 			if (d.forward)
 			{
-				int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 2);
+				if (updateCount % 3 == 0)
+				{
+					int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 4);
 
-				olc::vi2d pos = objData.GetPosition();
-				pos.x += speed;
-				objData.SetPosition(pos);
+					olc::vi2d pos = objData.GetPosition();
+					pos.x += speed;
+					objData.SetPosition(pos);
+				}
 			}
 			else
 			{

@@ -18,7 +18,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_jump_up_back.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 1200, 200, 3, 1, 3);
-			animationController.status.nTransitionDelay = 6;
+			animationController.status.nTransitionDelay = 10;
 			animationController.status.bPlayOnce = true;
 		}
 
@@ -27,7 +27,7 @@ namespace RB
 			objData.SetSpriteSize({ 400, 230 });
 
 			objData.CreateJumpProcessor();
-			objData.ptrJumpProcessor->SetUpForce(10);
+			objData.ptrJumpProcessor->SetUpForce(11);
 			objData.ptrJumpProcessor->SetHorizontalForce(4);
 			objData.ptrJumpProcessor->moveHorizontally = true;
 			objData.ptrJumpProcessor->moveBack = true;

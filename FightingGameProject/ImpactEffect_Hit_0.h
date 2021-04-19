@@ -13,7 +13,7 @@ namespace RB
 		{
 			animationController.SetSpritePath("PNG files/ImpactEffects/hiteffect_0.png");
 			animationController.SetParams(SpriteType::IMPACT_EFFECTS, 1840, 384, 5, 1, 5);
-			animationController.status.nTransitionDelay = 4;
+			animationController.status.nTransitionDelay = 6;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
