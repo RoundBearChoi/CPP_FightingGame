@@ -121,8 +121,16 @@ namespace RB
 						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetHorizontalForce() * -1, 0);
 					}
 
-					olc::vi2d horizontalPos = obj.objData.GetPosition() + horizontalForce;
-					obj.objData.SetPosition(horizontalPos);
+					if (!obj.objData.ptrJumpProcessor->moveBack)
+					{
+						olc::vi2d horizontalPos = obj.objData.GetPosition() + horizontalForce;
+						obj.objData.SetPosition(horizontalPos);
+					}
+					else
+					{
+						olc::vi2d horizontalPos = obj.objData.GetPosition() - horizontalForce;
+						obj.objData.SetPosition(horizontalPos);
+					}
 				}
 			}
 

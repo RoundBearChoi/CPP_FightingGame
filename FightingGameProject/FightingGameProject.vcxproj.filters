@@ -407,5 +407,11 @@
     <ClInclude Include="Fighter_0_Jump_Up_Forward.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_Jump_Prep_Back.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighter_0_Jump_Up_Back.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

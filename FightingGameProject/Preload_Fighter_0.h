@@ -8,8 +8,10 @@
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
 #include "Fighter_0_Jump_Prep_Forward.h"
+#include "Fighter_0_Jump_Prep_Back.h"
 #include "Fighter_0_Jump_Up_Vertical.h"
 #include "Fighter_0_Jump_Up_Forward.h"
+#include "Fighter_0_Jump_Up_Back.h"
 #include "Fighter_0_Jump_Fall.h"
 
 namespace RB
@@ -27,13 +29,20 @@ namespace RB
 	public:
 		Preload_Fighter_0()
 		{
-			Load<Fighter_0_Idle>();
-			Load<Fighter_0_WalkForward>();
-			Load<Fighter_0_WalkBack>();
-			Load<Fighter_0_Jab>();
-			Load<Fighter_0_HitReaction_0>();
 			Load<Fighter_0_Hadouken_Fire>();
 			Load<Fighter_0_Hadouken_Recover>();
+			Load<Fighter_0_HitReaction_0>();
+			Load<Fighter_0_Idle>();
+			Load<Fighter_0_Jab>();
+			Load<Fighter_0_Jump_Fall>();
+			Load<Fighter_0_Jump_Prep_Back>();
+			Load<Fighter_0_Jump_Prep_Forward>();
+			Load<Fighter_0_Jump_Prep_Vertical>();
+			Load<Fighter_0_Jump_Up_Back>();
+			Load<Fighter_0_Jump_Up_Forward>();
+			Load<Fighter_0_Jump_Up_Vertical>();
+			Load<Fighter_0_WalkBack>();
+			Load<Fighter_0_WalkForward>();
 		}
 	};
 }

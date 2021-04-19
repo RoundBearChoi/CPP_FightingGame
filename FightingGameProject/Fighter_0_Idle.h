@@ -8,6 +8,7 @@ namespace RB
 	class Fighter_0_Jab;
 	class Fighter_0_Jump_Prep_Vertical;
 	class Fighter_0_Jump_Prep_Forward;
+	class Fighter_0_Jump_Prep_Back;
 
 	class Fighter_0_Idle : public State
 	{
@@ -58,13 +59,17 @@ namespace RB
 				nextState = State::NewState<Fighter_0_WalkBack>();
 			}
 
-			if (d.up && !d.forward)
+			if (d.up && !d.forward && !d.back)
 			{
 				nextState = State::NewState<Fighter_0_Jump_Prep_Vertical>();
 			}
 			else if (d.up && d.forward)
 			{
 				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>();
+			}
+			else if (d.up && d.back)
+			{
+				nextState = State::NewState<Fighter_0_Jump_Prep_Back>();
 			}
 			else if (d.down && !d.up)
 			{

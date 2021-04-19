@@ -13,10 +13,11 @@ namespace RB
 		int32_t upForce = 0;
 		int32_t horizontalForce = 0;
 		const int32_t gravityInterval = 4;
-		const int32_t horizontalInterval = 6;
+		const int32_t horizontalInterval = 8;
 
 	public:
 		bool moveHorizontally = false;
+		bool moveBack = false;
 
 		void SetUpForce(int32_t force)
 		{
@@ -61,13 +62,27 @@ namespace RB
 					{
 						Directions d = Directions::Get(isFacingRight, p);
 
-						if (d.forward)
+						if (!moveBack)
 						{
-							horizontalForce--;
+							if (d.forward)
+							{
+								horizontalForce--;
+							}
+							else
+							{
+								horizontalForce -= 2;
+							}
 						}
 						else
 						{
-							horizontalForce -= 2;
+							if (d.back)
+							{
+								horizontalForce--;
+							}
+							else
+							{
+								horizontalForce -= 2;
+							}
 						}
 					}
 

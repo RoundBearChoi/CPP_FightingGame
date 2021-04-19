@@ -4,6 +4,7 @@
 namespace RB
 {
 	class Fighter_0_Idle;
+	class Fighter_0_Jump_Prep_Back;
 
 	class Fighter_0_WalkBack : public State
 	{
@@ -31,6 +32,11 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
 			Directions d = Directions::Get(objData.IsFacingRight(), p);
+
+			if (d.up)
+			{
+				nextState = State::NewState<Fighter_0_Jump_Prep_Back>();
+			}
 
 			if (d.back)
 			{

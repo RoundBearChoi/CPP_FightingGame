@@ -3,18 +3,18 @@
 
 namespace RB
 {
-	class Fighter_0_Jump_Up_Vertical;
+	class Fighter_0_Jump_Up_Back;
 
-	class Fighter_0_Jump_Prep_Vertical : public State
+	class Fighter_0_Jump_Prep_Back : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jump_Prep_Vertical()
+		Fighter_0_Jump_Prep_Back()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_prep_vertical.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep_vertical.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_prep_back.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep_back.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 			animationController.status.nTransitionDelay = 4;
@@ -32,7 +32,7 @@ namespace RB
 
 			if (updateCount >= 3)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Up_Vertical>();
+				nextState = State::NewState<Fighter_0_Jump_Up_Back>();
 			}
 		}
 

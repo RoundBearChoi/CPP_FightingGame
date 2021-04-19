@@ -30,7 +30,7 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			if (updateCount >= 5)
+			if (updateCount >= 3)
 			{
 				nextState = State::NewState<Fighter_0_Jump_Up_Forward>();
 			}
