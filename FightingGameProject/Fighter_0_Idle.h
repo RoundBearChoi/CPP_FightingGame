@@ -9,6 +9,7 @@ namespace RB
 	class Fighter_0_Jump_Prep_Vertical;
 	class Fighter_0_Jump_Prep_Forward;
 	class Fighter_0_Jump_Prep_Back;
+	class Fighter_0_Crouch;
 
 	class Fighter_0_Idle : public State
 	{
@@ -73,7 +74,7 @@ namespace RB
 			}
 			else if (d.down && !d.up)
 			{
-
+				nextState = State::NewState<Fighter_0_Crouch>();
 			}
 		}
 

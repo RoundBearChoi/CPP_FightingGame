@@ -14,6 +14,7 @@
 #include "Fighter_0_Jump_Up_Back.h"
 #include "Fighter_0_Jump_Fall.h"
 #include "Fighter_0_Jump_WeakPunch.h"
+#include "Fighter_0_Crouch.h"
 
 namespace RB
 {
@@ -30,6 +31,7 @@ namespace RB
 	public:
 		Preload_Fighter_0()
 		{
+			Load<Fighter_0_Crouch>();
 			Load<Fighter_0_Hadouken_Fire>();
 			Load<Fighter_0_Hadouken_Recover>();
 			Load<Fighter_0_HitReaction_0>();
