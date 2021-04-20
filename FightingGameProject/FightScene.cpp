@@ -32,22 +32,43 @@ namespace RB
 
 	void FightScene::UpdateScene(GameData& gameData)
 	{
-		//projectiles vs player collision
-		size_t projIndex = 0;
-		olc::vi2d projCollisionPoint;
-
-		if (ProjectileCollision::IsColliding(0, fighters, projectiles, projIndex, projCollisionPoint))
+		for (int32_t i = 0; i < 2; i++)
 		{
-			projectiles.DeleteObj(projIndex);
-			fighters.MakeNewState<Fighter_0_HitReaction_Side>(0);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
-		}
+			//projectiles vs player collision
+			size_t projIndex = 0;
+			olc::vi2d projCollisionPoint;
 
-		if (ProjectileCollision::IsColliding(1, fighters, projectiles, projIndex, projCollisionPoint))
-		{
-			projectiles.DeleteObj(projIndex);
-			fighters.MakeNewState<Fighter_0_HitReaction_Side>(1);
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
+			if (ProjectileCollision::IsColliding(i, fighters, projectiles, projIndex, projCollisionPoint))
+			{
+				projectiles.DeleteObj(projIndex);
+				fighters.MakeNewState<Fighter_0_HitReaction_Side>(i);
+				impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
+			}
+
+			//body part vs body part collision
+			olc::vi2d bodyPartCollisionPoint;
+			DamageData damageData;
+			int32_t enemy = 0;
+
+			if (i == 0)
+			{
+				enemy = 1;
+			}
+			
+			if (BodyPartCollision::IsColliding(enemy, fighters, bodyPartCollisionPoint, damageData))
+			{
+				impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
+
+				if (damageData.upPush != 0)
+				{
+					fighters.AddJumpProcessor(i);
+					fighters.MakeNewState<Fighter_0_HitReaction_Up>(i);
+				}
+				else
+				{
+					fighters.MakeNewState<Fighter_0_HitReaction_Side>(i);
+				}
+			}
 		}
 
 		//update objs
@@ -55,40 +76,6 @@ namespace RB
 		background.UpdateOffset(cam);
 		fighters.UpdateStates(gameData);
 		impactEffects.UpdateStates(gameData);
-
-		//body vs body collision
-		olc::vi2d bodyPartCollisionPoint;
-		DamageData damageData;
-
-		if (BodyPartCollision::IsColliding(0, fighters, bodyPartCollisionPoint, damageData))
-		{
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
-
-			if (damageData.upPush != 0)
-			{
-				fighters.AddJumpProcessor(1);
-				fighters.MakeNewState<Fighter_0_HitReaction_Up>(1);
-			}
-			else
-			{
-				fighters.MakeNewState<Fighter_0_HitReaction_Side>(1);
-			}
-		}
-
-		if (BodyPartCollision::IsColliding(1, fighters, bodyPartCollisionPoint, damageData))
-		{
-			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
-
-			if (damageData.upPush != 0)
-			{
-				fighters.AddJumpProcessor(0);
-				fighters.MakeNewState<Fighter_0_HitReaction_Up>(0);
-			}
-			else
-			{
-				fighters.MakeNewState<Fighter_0_HitReaction_Side>(0);
-			}
-		}
 
 		//create projectiles
 		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
