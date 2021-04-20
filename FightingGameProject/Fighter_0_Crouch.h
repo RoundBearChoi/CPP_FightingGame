@@ -4,6 +4,7 @@
 namespace RB
 {
 	class Fighter_0_Idle;
+	class Fighter_0_Uppercut;
 
 	class Fighter_0_Crouch : public State
 	{
@@ -32,12 +33,14 @@ namespace RB
 
 			if (p.strongpunch)
 			{
-				int n = 0;
+				nextState = State::NewState<Fighter_0_Uppercut>();
 			}
-
-			if (!p.down)
+			else
 			{
-				nextState = State::NewState<Fighter_0_Idle>();
+				if (!p.down)
+				{
+					nextState = State::NewState<Fighter_0_Idle>();
+				}
 			}
 		}
 

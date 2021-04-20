@@ -425,5 +425,8 @@
     <ClInclude Include="RandomInteger.h">
       <Filter>Source Files\Random</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_Uppercut.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

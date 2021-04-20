@@ -5,40 +5,24 @@ namespace RB
 {
 	class Fighter_0_Idle;
 
-	class Fighter_0_Jab : public State
+	class Fighter_0_Uppercut : public State
 	{
 	protected:
 		size_t& Hash() override { static size_t hash = 0; return hash; }
 
 	public:
-		Fighter_0_Jab()
+		Fighter_0_Uppercut()
 		{
-			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jab.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jab.collider");
+			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_uppercut.png");
+			animationController.SetColliderFile("Fighter_0/fighter_0_uppercut.collider");
 
-			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
+			animationController.SetParams(SpriteType::FIGHTER_0, 4000, 200, 10, 1, 10);
 			animationController.status.nTransitionDelay = 3;
-
-			CollisionQueue c0;
-			CollisionQueue c1;
-
-			c0.vecBodies.push_back(BodyType::LEFT_FOREARM);
-			c0.vecBodies.push_back(BodyType::LEFT_HAND);
-			c0.animationTile = 2;
-
-			c1.vecBodies.push_back(BodyType::LEFT_FOREARM);
-			c1.vecBodies.push_back(BodyType::LEFT_HAND);
-			c1.animationTile = 3;
-
-			vecCollisionStatus.push_back(c0);
-			vecCollisionStatus.push_back(c1);
-
-			maxBodyCollisions = 1;
 		}
 
 		void OnEnter(ObjData& objData, GameData& gameData) override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			objData.SetSpriteSize({ 450, 250 });
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override

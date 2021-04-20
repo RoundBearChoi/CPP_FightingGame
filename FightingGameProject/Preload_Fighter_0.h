@@ -15,6 +15,7 @@
 #include "Fighter_0_Jump_Fall.h"
 #include "Fighter_0_Jump_WeakPunch.h"
 #include "Fighter_0_Crouch.h"
+#include "Fighter_0_Uppercut.h"
 
 namespace RB
 {
@@ -47,6 +48,7 @@ namespace RB
 			Load<Fighter_0_Jump_WeakPunch>();
 			Load<Fighter_0_WalkBack>();
 			Load<Fighter_0_WalkForward>();
+			Load<Fighter_0_Uppercut>();
 		}
 	};
 }
