@@ -30,7 +30,7 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			if (animationController.status.nCurrentTile >= 4)
+			if (updateCount >= (animationController.GetTotalTiles() - 1) * animationController.status.nTransitionDelay)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
 			}

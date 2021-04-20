@@ -60,7 +60,7 @@ namespace RB
 				}
 			}
 
-			if (updateCount >= 9 * 5)
+			if (updateCount >= animationController.status.nTransitionDelay * 8)
 			{
 				nextState = State::NewState<Fighter_0_Hadouken_Recover>();
 			}
