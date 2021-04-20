@@ -38,7 +38,7 @@ namespace RB
 			//vertical
 			if (updateCount % gravityInterval == 0 && updateCount != 0)
 			{
-				//variable up speed
+				//variable up/down speed
 				if (allowControl)
 				{
 					if (upForce > 0)
@@ -56,6 +56,11 @@ namespace RB
 					{
 						upForce--;
 					}
+				}
+				//continuous up/down speed
+				else
+				{
+					upForce -= 2;
 				}
 			}
 

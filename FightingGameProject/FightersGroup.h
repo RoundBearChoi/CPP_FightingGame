@@ -58,6 +58,7 @@ namespace RB
 
 		void RenderInputBuffer(olc::vi2d& startPos, std::vector<InputElement>& vecInputs);
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
+		void AddJumpProcessor(int32_t _index);
 		GameObj* GetEnemyObj(State& me);
 		olc::Decal* GetBufferDecal(InputType inputType);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);

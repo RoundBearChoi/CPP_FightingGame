@@ -17,7 +17,7 @@ namespace RB
 			animationController.SetColliderFile("Fighter_0/fighter_0_uppercut.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 4000, 200, 10, 1, 10);
-			animationController.status.nTransitionDelay = 4;
+			animationController.status.nTransitionDelay = 5;
 
 			CollisionQueue c0;
 			CollisionQueue c1;

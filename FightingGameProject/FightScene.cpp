@@ -62,14 +62,32 @@ namespace RB
 
 		if (BodyPartCollision::IsColliding(0, fighters, bodyPartCollisionPoint, damageData))
 		{
-			fighters.MakeNewState<Fighter_0_HitReaction_Up>(1);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
+
+			if (damageData.upPush != 0)
+			{
+				fighters.AddJumpProcessor(1);
+				fighters.MakeNewState<Fighter_0_HitReaction_Up>(1);
+			}
+			else
+			{
+				fighters.MakeNewState<Fighter_0_HitReaction_Side>(1);
+			}
 		}
 
 		if (BodyPartCollision::IsColliding(1, fighters, bodyPartCollisionPoint, damageData))
 		{
-			fighters.MakeNewState<Fighter_0_HitReaction_Up>(0);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
+
+			if (damageData.upPush != 0)
+			{
+				fighters.AddJumpProcessor(0);
+				fighters.MakeNewState<Fighter_0_HitReaction_Up>(0);
+			}
+			else
+			{
+				fighters.MakeNewState<Fighter_0_HitReaction_Side>(0);
+			}
 		}
 
 		//create projectiles
