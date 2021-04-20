@@ -8,6 +8,7 @@
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_HitReaction_Side.h"
+#include "Fighter_0_HitReaction_Up.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
@@ -26,8 +27,8 @@ namespace RB
 	class DummySelector
 	{
 	private:
-		std::array<GameObj*, 17> arrObjs;
-		std::array<std::vector<BoxCollider>, 17> arrVecs;
+		std::array<GameObj*, 18> arrObjs;
+		std::array<std::vector<BoxCollider>, 18> arrVecs;
 		size_t currentIndex = 0;
 
 	public:
@@ -43,18 +44,19 @@ namespace RB
 			Init<Fighter_0_WalkForward>(*arrObjs[2]);
 			Init<Fighter_0_WalkBack>(*arrObjs[3]);
 			Init<Fighter_0_HitReaction_Side>(*arrObjs[4]);
-			Init<Fighter_0_Hadouken_Fire>(*arrObjs[5]);
-			Init<Fighter_0_Hadouken_Recover>(*arrObjs[6]);
-			Init<Fighter_0_Jump_Prep_Vertical>(*arrObjs[7]);
-			Init<Fighter_0_Jump_Prep_Forward>(*arrObjs[8]);
-			Init<Fighter_0_Jump_Prep_Back>(*arrObjs[9]);
-			Init<Fighter_0_Jump_Up_Vertical>(*arrObjs[10]);
-			Init<Fighter_0_Jump_Up_Forward>(*arrObjs[11]);
-			Init<Fighter_0_Jump_Up_Back>(*arrObjs[12]);
-			Init<Fighter_0_Jump_Fall>(*arrObjs[13]);
-			Init<Fighter_0_Jump_WeakPunch>(*arrObjs[14]);
-			Init<Fighter_0_Crouch>(*arrObjs[15]);
-			Init<Fighter_0_Uppercut>(*arrObjs[16]);
+			Init<Fighter_0_HitReaction_Up>(*arrObjs[5]);
+			Init<Fighter_0_Hadouken_Fire>(*arrObjs[6]);
+			Init<Fighter_0_Hadouken_Recover>(*arrObjs[7]);
+			Init<Fighter_0_Jump_Prep_Vertical>(*arrObjs[8]);
+			Init<Fighter_0_Jump_Prep_Forward>(*arrObjs[9]);
+			Init<Fighter_0_Jump_Prep_Back>(*arrObjs[10]);
+			Init<Fighter_0_Jump_Up_Vertical>(*arrObjs[11]);
+			Init<Fighter_0_Jump_Up_Forward>(*arrObjs[12]);
+			Init<Fighter_0_Jump_Up_Back>(*arrObjs[13]);
+			Init<Fighter_0_Jump_Fall>(*arrObjs[14]);
+			Init<Fighter_0_Jump_WeakPunch>(*arrObjs[15]);
+			Init<Fighter_0_Crouch>(*arrObjs[16]);
+			Init<Fighter_0_Uppercut>(*arrObjs[17]);
 
 			LoadColliders();
 		}

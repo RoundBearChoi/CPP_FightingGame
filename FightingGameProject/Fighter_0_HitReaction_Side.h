@@ -29,21 +29,25 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			if (updateCount == 0 && updateCount < animationController.status.nTransitionDelay * 1)
+			size_t e0 = animationController.status.nTransitionDelay * 1;
+			size_t e1 = animationController.status.nTransitionDelay * 2;
+			size_t e2 = animationController.status.nTransitionDelay * 3;
+
+			if (updateCount == 0 && updateCount < e0)
 			{
 				int32_t speed = Directions::GetBackSpeed(objData.IsFacingRight(), 2);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount < animationController.status.nTransitionDelay * 2)
+			else if (updateCount < e1)
 			{
 				int32_t speed = Directions::GetBackSpeed(objData.IsFacingRight(), 1);
 				olc::vi2d pos = objData.GetPosition();
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
-			else if (updateCount >= animationController.status.nTransitionDelay * 3)
+			else if (updateCount >= e2)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
 			}

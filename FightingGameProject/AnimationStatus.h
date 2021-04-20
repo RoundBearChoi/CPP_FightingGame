@@ -10,8 +10,8 @@ namespace RB
 		SpriteType spriteType = SpriteType::NONE;
 		int32_t decalTypeIndex = 0;
 		int32_t nCurrentTile = 0;
-		int32_t nTransitionDelay = 0;
 		int32_t nDelayCount = 0;
+		int32_t nTransitionDelay = 0;
 
 		bool bPlayOnce = false;
 
