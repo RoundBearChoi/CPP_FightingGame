@@ -30,6 +30,11 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
 
+			if (p.strongpunch)
+			{
+				int n = 0;
+			}
+
 			if (!p.down)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();

@@ -29,6 +29,7 @@ namespace RB
 				if (gameData.key_d) { input.right = true; }
 
 				if (gameData.key_t) { input.weakpunch = true; }
+				if (gameData.key_y) { input.strongpunch = true; }
 			}
 			else if (_playerType == PlayerType::PLAYER_2)
 			{
@@ -38,6 +39,7 @@ namespace RB
 				if (gameData.key_right) { input.right = true; }
 
 				if (gameData.key_np7) { input.weakpunch = true; }
+				if (gameData.key_np8) { input.strongpunch = true; }
 			}
 
 			return input;
