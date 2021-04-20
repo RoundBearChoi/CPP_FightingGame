@@ -434,5 +434,8 @@
     <ClInclude Include="DamageData.h">
       <Filter>Source Files\Damage</Filter>
     </ClInclude>
+    <ClInclude Include="Fighter_0_HitReaction_Up.h">
+      <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
