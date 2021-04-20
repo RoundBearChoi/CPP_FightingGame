@@ -58,14 +58,15 @@ namespace RB
 
 		//body vs body collision
 		olc::vi2d bodyPartCollisionPoint;
+		DamageData damageData;
 
-		if (BodyPartCollision::IsColliding(0, fighters, bodyPartCollisionPoint))
+		if (BodyPartCollision::IsColliding(0, fighters, bodyPartCollisionPoint, damageData))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
 		}
 
-		if (BodyPartCollision::IsColliding(1, fighters, bodyPartCollisionPoint))
+		if (BodyPartCollision::IsColliding(1, fighters, bodyPartCollisionPoint, damageData))
 		{
 			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);

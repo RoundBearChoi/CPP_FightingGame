@@ -100,6 +100,9 @@
     <Filter Include="Source Files\Random">
       <UniqueIdentifier>{1333cb17-618c-4c4a-a3b4-e219fd519d39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Damage">
+      <UniqueIdentifier>{42186ab9-0f48-401c-8ad7-44d89e99c79f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -427,6 +430,9 @@
     </ClInclude>
     <ClInclude Include="Fighter_0_Uppercut.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageData.h">
+      <Filter>Source Files\Damage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

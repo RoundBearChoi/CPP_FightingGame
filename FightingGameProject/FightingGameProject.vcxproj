@@ -180,6 +180,7 @@
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CollisionQueue.h" />
     <ClInclude Include="ComboChecker.h" />
+    <ClInclude Include="DamageData.h" />
     <ClInclude Include="Fighter_0_Crouch.h" />
     <ClInclude Include="Fighter_0_Jump_Fall.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Back.h" />

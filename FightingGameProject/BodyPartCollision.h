@@ -7,7 +7,7 @@ namespace RB
 	class BodyPartCollision
 	{
 	public:
-		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& resultMid)
+		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& resultMid, DamageData& damageData)
 		{
 			int32_t targetIndex = 0;
 
@@ -48,6 +48,8 @@ namespace RB
 
 							int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
 							collisionCount++;
+
+							damageData = collisionQueue->damageData;
 
 							return true;
 						}
