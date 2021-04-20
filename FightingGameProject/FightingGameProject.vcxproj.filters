@@ -311,7 +311,7 @@
     <ClInclude Include="ObjGroup.h">
       <Filter>Source Files\Groups</Filter>
     </ClInclude>
-    <ClInclude Include="Fighter_0_HitReaction_0.h">
+    <ClInclude Include="Fighter_0_HitReaction_Side.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
     <ClInclude Include="Preload_Fighter_0.h">

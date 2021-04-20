@@ -39,14 +39,14 @@ namespace RB
 		if (ProjectileCollision::IsColliding(0, fighters, projectiles, projIndex, projCollisionPoint))
 		{
 			projectiles.DeleteObj(projIndex);
-			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
+			fighters.MakeNewState<Fighter_0_HitReaction_Side>(0);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
 		}
 
 		if (ProjectileCollision::IsColliding(1, fighters, projectiles, projIndex, projCollisionPoint))
 		{
 			projectiles.DeleteObj(projIndex);
-			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
+			fighters.MakeNewState<Fighter_0_HitReaction_Side>(1);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
 		}
 
@@ -62,13 +62,13 @@ namespace RB
 
 		if (BodyPartCollision::IsColliding(0, fighters, bodyPartCollisionPoint, damageData))
 		{
-			fighters.MakeNewState<Fighter_0_HitReaction_0>(1);
+			fighters.MakeNewState<Fighter_0_HitReaction_Side>(1);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
 		}
 
 		if (BodyPartCollision::IsColliding(1, fighters, bodyPartCollisionPoint, damageData))
 		{
-			fighters.MakeNewState<Fighter_0_HitReaction_0>(0);
+			fighters.MakeNewState<Fighter_0_HitReaction_Side>(0);
 			impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
 		}
 

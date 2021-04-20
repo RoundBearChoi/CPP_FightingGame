@@ -208,7 +208,7 @@
     <ClInclude Include="DummySelector.h" />
     <ClInclude Include="Fighter_0_Hadouken_Fire.h" />
     <ClInclude Include="Fighter_0_Hadouken_Recover.h" />
-    <ClInclude Include="Fighter_0_HitReaction_0.h" />
+    <ClInclude Include="Fighter_0_HitReaction_Side.h" />
     <ClInclude Include="Fighter_0_Idle.h" />
     <ClInclude Include="Fighter_0_Jab.h" />
     <ClInclude Include="Fighter_0_WalkBack.h" />

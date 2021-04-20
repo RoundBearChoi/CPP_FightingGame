@@ -7,7 +7,7 @@
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
-#include "Fighter_0_HitReaction_0.h"
+#include "Fighter_0_HitReaction_Side.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
@@ -42,7 +42,7 @@ namespace RB
 			Init<Fighter_0_Jab>(*arrObjs[1]);
 			Init<Fighter_0_WalkForward>(*arrObjs[2]);
 			Init<Fighter_0_WalkBack>(*arrObjs[3]);
-			Init<Fighter_0_HitReaction_0>(*arrObjs[4]);
+			Init<Fighter_0_HitReaction_Side>(*arrObjs[4]);
 			Init<Fighter_0_Hadouken_Fire>(*arrObjs[5]);
 			Init<Fighter_0_Hadouken_Recover>(*arrObjs[6]);
 			Init<Fighter_0_Jump_Prep_Vertical>(*arrObjs[7]);

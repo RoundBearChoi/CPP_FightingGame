@@ -3,7 +3,7 @@
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_Jab.h"
-#include "Fighter_0_HitReaction_0.h"
+#include "Fighter_0_HitReaction_Side.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
@@ -35,7 +35,7 @@ namespace RB
 			Load<Fighter_0_Crouch>();
 			Load<Fighter_0_Hadouken_Fire>();
 			Load<Fighter_0_Hadouken_Recover>();
-			Load<Fighter_0_HitReaction_0>();
+			Load<Fighter_0_HitReaction_Side>();
 			Load<Fighter_0_Idle>();
 			Load<Fighter_0_Jab>();
 			Load<Fighter_0_Jump_Fall>();
