@@ -5,7 +5,6 @@
 #include "BoxCollider.h"
 #include "CreationCount.h"
 #include "JumpProcessor.h"
-#include "BounceProcessor.h"
 
 namespace RB
 {
@@ -26,7 +25,6 @@ namespace RB
 		BoxCollider objBoxCollider;
 		olc::vi2d lastPosition = { 0, 0 };
 		JumpProcessor* ptrJumpProcessor = nullptr;
-		BounceProcessor* ptrBounceProcessor = nullptr;
 
 		~ObjData();
 

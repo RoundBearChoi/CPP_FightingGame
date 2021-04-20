@@ -174,7 +174,6 @@
     <ClInclude Include="Background_Idle_Sun.h" />
     <ClInclude Include="Background_Idle_Trees.h" />
     <ClInclude Include="BodyPartCollision.h" />
-    <ClInclude Include="BounceProcessor.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />

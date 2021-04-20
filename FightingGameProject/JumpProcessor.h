@@ -18,6 +18,8 @@ namespace RB
 	public:
 		bool moveHorizontally = false;
 		bool moveBack = false;
+		bool allowControl = true;
+		int32_t minimumSideForce = 3;
 
 		void SetUpForce(int32_t force)
 		{
@@ -36,20 +38,24 @@ namespace RB
 			//vertical
 			if (updateCount % gravityInterval == 0 && updateCount != 0)
 			{
-				if (upForce > 0)
+				//variable up speed
+				if (allowControl)
 				{
-					if (p.up)
+					if (upForce > 0)
 					{
-						upForce--;
+						if (p.up)
+						{
+							upForce--;
+						}
+						else
+						{
+							upForce -= 2;
+						}
 					}
 					else
 					{
-						upForce -= 2;
+						upForce--;
 					}
-				}
-				else
-				{
-					upForce--;
 				}
 			}
 
@@ -60,35 +66,39 @@ namespace RB
 				{
 					if (horizontalForce > 3)
 					{
-						Directions d = Directions::Get(isFacingRight, p);
+						//variable side speed
+						if (allowControl)
+						{
+							Directions d = Directions::Get(isFacingRight, p);
 
-						if (!moveBack)
-						{
-							if (d.forward)
+							if (!moveBack)
 							{
-								horizontalForce--;
+								if (d.forward)
+								{
+									horizontalForce--;
+								}
+								else
+								{
+									horizontalForce -= 2;
+								}
 							}
 							else
 							{
-								horizontalForce -= 2;
-							}
-						}
-						else
-						{
-							if (d.back)
-							{
-								horizontalForce--;
-							}
-							else
-							{
-								horizontalForce -= 2;
+								if (d.back)
+								{
+									horizontalForce--;
+								}
+								else
+								{
+									horizontalForce -= 2;
+								}
 							}
 						}
 					}
 
-					if (horizontalForce <= 3)
+					if (horizontalForce <= minimumSideForce)
 					{
-						horizontalForce = 3;
+						horizontalForce = minimumSideForce;
 					}
 				}
 			}
