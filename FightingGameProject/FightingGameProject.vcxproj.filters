@@ -103,6 +103,9 @@
     <Filter Include="Source Files\Damage">
       <UniqueIdentifier>{42186ab9-0f48-401c-8ad7-44d89e99c79f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Bounce">
+      <UniqueIdentifier>{8865d0a3-0262-4fda-a7d1-e08644b58f7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -436,6 +439,9 @@
     </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_Up.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceProcessor.h">
+      <Filter>Source Files\Bounce</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
