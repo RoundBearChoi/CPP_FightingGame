@@ -1,8 +1,5 @@
 #pragma once
-#include "GameData.h"
-#include "PlayerType.h"
-#include "PlayerInput.h"
-#include "Directions.h"
+#include <stdint.h>
 
 namespace RB
 {
@@ -31,10 +28,8 @@ namespace RB
 			horizontalForce = force;
 		}
 
-		void UpdateJump(PlayerType playerType, bool isFacingRight, GameData& gameData)
+		void UpdateJump(bool upKey, bool forwardKey, bool backKey)
 		{
-			PlayerInput p = PlayerInput::Get(playerType, gameData);
-
 			//vertical
 			if (updateCount % verticalInterval == 0 && updateCount != 0)
 			{
@@ -43,7 +38,7 @@ namespace RB
 				{
 					if (upForce > 0)
 					{
-						if (p.up)
+						if (upKey)
 						{
 							upForce--;
 						}
@@ -74,12 +69,10 @@ namespace RB
 						//variable side speed
 						if (allowControl)
 						{
-							Directions d = Directions::Get(isFacingRight, p);
-
 							//forward
 							if (!moveBack)
 							{
-								if (d.forward)
+								if (forwardKey)
 								{
 									horizontalForce--;
 								}
@@ -91,7 +84,7 @@ namespace RB
 							//back
 							else
 							{
-								if (d.back)
+								if (backKey)
 								{
 									horizontalForce--;
 								}
