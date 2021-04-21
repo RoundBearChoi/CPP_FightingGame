@@ -168,6 +168,9 @@
     <ClCompile Include="GameSettings.cpp">
       <Filter>Source Files\Settings</Filter>
     </ClCompile>
+    <ClCompile Include="JumpProcessor.cpp">
+      <Filter>Source Files\JumpProcessor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

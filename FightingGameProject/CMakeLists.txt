@@ -19,6 +19,7 @@ GameObj.cpp
 GameSettings.cpp
 ImpactEffectsGroup.cpp
 InputBuffer.cpp
+JumpProcessor.cpp
 main.cpp
 ObjData.cpp
 ProjectileGroup.cpp

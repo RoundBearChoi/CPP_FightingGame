@@ -153,6 +153,7 @@
     <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="ImpactEffectsGroup.cpp" />
     <ClCompile Include="InputBuffer.cpp" />
+    <ClCompile Include="JumpProcessor.cpp" />
     <ClCompile Include="ObjData.cpp" />
     <ClCompile Include="ProjectileGroup.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />

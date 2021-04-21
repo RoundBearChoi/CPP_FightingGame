@@ -6,114 +6,26 @@ namespace RB
 	class JumpProcessor
 	{
 	private:
-		size_t updateCount = 0;
-		int32_t upForce = 0;
-		int32_t horizontalForce = 0;
 		const int32_t verticalInterval = 2;
 		const int32_t horizontalInterval = 6;
 
+		size_t updateCount;
+		int32_t upForce;
+		int32_t horizontalForce;
+
 	public:
-		bool moveHorizontally = false;
-		bool moveBack = false;
-		bool allowControl = true;
-		int32_t minimumSideForce = 3;
+		bool moveHorizontally;
+		bool moveBack;
+		bool allowControl;
+		int32_t minimumSideForce;
 
-		void SetUpForce(int32_t force)
-		{
-			upForce = force;
-		}
+		JumpProcessor();
 
-		void SetHorizontalForce(int32_t force)
-		{
-			horizontalForce = force;
-		}
+		void SetUpForce(int32_t force);
+		void SetHorizontalForce(int32_t force);
+		int32_t GetUpForce();
+		int32_t GetHorizontalForce();
 
-		void UpdateJump(bool upKey, bool forwardKey, bool backKey)
-		{
-			//vertical
-			if (updateCount % verticalInterval == 0 && updateCount != 0)
-			{
-				//variable up/down speed
-				if (allowControl)
-				{
-					if (upForce > 0)
-					{
-						if (upKey)
-						{
-							upForce--;
-						}
-						else
-						{
-							upForce -= 2;
-						}
-					}
-					else
-					{
-						upForce--;
-					}
-				}
-				//continuous up/down speed
-				else
-				{
-					upForce--;
-				}
-			}
-
-			//horizontal
-			if (moveHorizontally)
-			{
-				if (updateCount % horizontalInterval == 0)
-				{
-					if (horizontalForce > 3)
-					{
-						//variable side speed
-						if (allowControl)
-						{
-							//forward
-							if (!moveBack)
-							{
-								if (forwardKey)
-								{
-									horizontalForce--;
-								}
-								else
-								{
-									horizontalForce -= 2;
-								}
-							}
-							//back
-							else
-							{
-								if (backKey)
-								{
-									horizontalForce--;
-								}
-								else
-								{
-									horizontalForce -= 2;
-								}
-							}
-						}
-					}
-
-					if (horizontalForce <= minimumSideForce)
-					{
-						horizontalForce = minimumSideForce;
-					}
-				}
-			}
-
-			updateCount++;
-		}
-
-		int32_t GetUpForce()
-		{
-			return upForce;
-		}
-
-		int32_t GetHorizontalForce()
-		{
-			return horizontalForce;
-		}
+		void UpdateJump(bool upKey, bool forwardKey, bool backKey);
 	};
 }
