@@ -4,10 +4,6 @@ namespace RB
 {
 	JumpProcessor::JumpProcessor()
 	{
-		updateCount = 0;
-		upForce = 0;
-		horizontalForce = 0;
-
 		moveHorizontally = false;
 		moveBack = false;
 		allowControl = true;

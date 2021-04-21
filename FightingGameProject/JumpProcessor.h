@@ -8,10 +8,9 @@ namespace RB
 	private:
 		const int32_t verticalInterval = 2;
 		const int32_t horizontalInterval = 6;
-
-		size_t updateCount;
-		int32_t upForce;
-		int32_t horizontalForce;
+		size_t updateCount = 0;
+		int32_t upForce = 0;
+		int32_t horizontalForce = 0;
 
 	public:
 		bool moveHorizontally;
