@@ -22,9 +22,9 @@ namespace RB
 		JumpProcessor();
 
 		void SetUpForce(int32_t force);
-		void SetHorizontalForce(int32_t force);
+		void SetSideForce(int32_t force);
 		int32_t GetUpForce();
-		int32_t GetHorizontalForce();
+		int32_t GetSideForce();
 
 		void UpdateJump(bool upKey, bool forwardKey, bool backKey);
 	};

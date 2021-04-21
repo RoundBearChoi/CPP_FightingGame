@@ -28,7 +28,7 @@ namespace RB
 
 			objData.CreateJumpProcessor();
 			objData.ptrJumpProcessor->SetUpForce(15);
-			objData.ptrJumpProcessor->SetHorizontalForce(4);
+			objData.ptrJumpProcessor->SetSideForce(4);
 			objData.ptrJumpProcessor->moveHorizontally = true;
 			objData.ptrJumpProcessor->moveBack = true;
 		}

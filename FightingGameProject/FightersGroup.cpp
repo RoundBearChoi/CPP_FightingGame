@@ -116,11 +116,11 @@ namespace RB
 
 					if (obj.objData.IsFacingRight())
 					{
-						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetHorizontalForce(), 0);
+						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetSideForce(), 0);
 					}
 					else
 					{
-						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetHorizontalForce() * -1, 0);
+						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetSideForce() * -1, 0);
 					}
 
 					if (!obj.objData.ptrJumpProcessor->moveBack)
@@ -339,11 +339,16 @@ namespace RB
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 
-	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce)
+	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
 	{
 		arrObjs[index].objData.CreateJumpProcessor();
 		arrObjs[index].objData.ptrJumpProcessor->allowControl = false;
+		arrObjs[index].objData.ptrJumpProcessor->moveBack = true;
+		arrObjs[index].objData.ptrJumpProcessor->moveHorizontally = true;
+		arrObjs[index].objData.ptrJumpProcessor->minimumSideForce = 1;
+
 		arrObjs[index].objData.ptrJumpProcessor->SetUpForce(upForce);
+		arrObjs[index].objData.ptrJumpProcessor->SetSideForce(sideForce);
 	}
 
 	GameObj* FightersGroup::GetEnemyObj(State& me)

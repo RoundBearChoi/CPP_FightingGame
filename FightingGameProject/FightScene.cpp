@@ -61,7 +61,7 @@ namespace RB
 
 				if (damageData.upPush != 0)
 				{
-					fighters.AddJumpProcessor(i, damageData.upPush);
+					fighters.AddJumpProcessor(i, damageData.upPush, damageData.sidePush);
 					fighters.MakeNewState<Fighter_0_HitReaction_Up>(i);
 				}
 				else

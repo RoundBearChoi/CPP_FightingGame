@@ -30,7 +30,8 @@ namespace RB
 			c1.vecBodies.push_back(BodyType::RIGHT_FOREARM);
 			c1.vecBodies.push_back(BodyType::RIGHT_HAND);
 			c1.animationTile = 5;
-			c1.damageData.upPush = 15;
+			c1.damageData.upPush = 13;
+			c1.damageData.sidePush = 15;
 
 			vecCollisionStatus.push_back(c0);
 			vecCollisionStatus.push_back(c1);

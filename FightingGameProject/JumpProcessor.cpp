@@ -11,9 +11,9 @@ namespace RB
 	}
 
 	void JumpProcessor::SetUpForce(int32_t force) { upForce = force; }
-	void JumpProcessor::SetHorizontalForce(int32_t force) { horizontalForce = force; }
+	void JumpProcessor::SetSideForce(int32_t force) { horizontalForce = force; }
 	int32_t JumpProcessor::GetUpForce() { return upForce; }
-	int32_t JumpProcessor::GetHorizontalForce() { return horizontalForce; }
+	int32_t JumpProcessor::GetSideForce() { return horizontalForce; }
 
 	void JumpProcessor::UpdateJump(bool upKey, bool forwardKey, bool backKey)
 	{
