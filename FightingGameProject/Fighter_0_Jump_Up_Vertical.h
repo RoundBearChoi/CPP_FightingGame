@@ -28,7 +28,7 @@ namespace RB
 			objData.SetSpriteSize({ 400, 230 });
 
 			objData.CreateJumpProcessor();
-			objData.ptrJumpProcessor->SetUpForce(10);
+			objData.ptrJumpProcessor->SetUpForce(15);
 		}
 
 		void OnUpdate(ObjData& objData, GameData& gameData) override

@@ -337,11 +337,11 @@ namespace RB
 		arrObjs[_index].objData.SetPlayerType(_playerType);
 	}
 
-	void FightersGroup::AddJumpProcessor(int32_t index)
+	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce)
 	{
 		arrObjs[index].objData.CreateJumpProcessor();
 		arrObjs[index].objData.ptrJumpProcessor->allowControl = false;
-		arrObjs[index].objData.ptrJumpProcessor->SetUpForce(15);
+		arrObjs[index].objData.ptrJumpProcessor->SetUpForce(upForce);
 	}
 
 	GameObj* FightersGroup::GetEnemyObj(State& me)

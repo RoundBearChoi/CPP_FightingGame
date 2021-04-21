@@ -12,8 +12,8 @@ namespace RB
 		size_t updateCount = 0;
 		int32_t upForce = 0;
 		int32_t horizontalForce = 0;
-		const int32_t gravityInterval = 4;
-		const int32_t horizontalInterval = 8;
+		const int32_t verticalInterval = 2;
+		const int32_t horizontalInterval = 6;
 
 	public:
 		bool moveHorizontally = false;
@@ -36,7 +36,7 @@ namespace RB
 			PlayerInput p = PlayerInput::Get(playerType, gameData);
 
 			//vertical
-			if (updateCount % gravityInterval == 0 && updateCount != 0)
+			if (updateCount % verticalInterval == 0 && updateCount != 0)
 			{
 				//variable up/down speed
 				if (allowControl)
@@ -60,7 +60,7 @@ namespace RB
 				//continuous up/down speed
 				else
 				{
-					upForce -= 2;
+					upForce--;
 				}
 			}
 
@@ -76,6 +76,7 @@ namespace RB
 						{
 							Directions d = Directions::Get(isFacingRight, p);
 
+							//forward
 							if (!moveBack)
 							{
 								if (d.forward)
@@ -87,6 +88,7 @@ namespace RB
 									horizontalForce -= 2;
 								}
 							}
+							//back
 							else
 							{
 								if (d.back)

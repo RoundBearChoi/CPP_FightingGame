@@ -27,7 +27,7 @@ namespace RB
 			objData.SetSpriteSize({ 400, 230 });
 
 			objData.CreateJumpProcessor();
-			objData.ptrJumpProcessor->SetUpForce(10);
+			objData.ptrJumpProcessor->SetUpForce(15);
 			objData.ptrJumpProcessor->SetHorizontalForce(4);
 			objData.ptrJumpProcessor->moveHorizontally = true;
 			objData.ptrJumpProcessor->moveBack = true;
