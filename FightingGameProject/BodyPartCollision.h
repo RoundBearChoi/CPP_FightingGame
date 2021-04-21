@@ -33,25 +33,29 @@ namespace RB
 
 						std::cout << "attackpos: " << attackPos << std::endl;
 
-						olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, BodyType::HEAD);
-						std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, BodyType::HEAD);
-
-						if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
+						//check all body parts
+						for (int32_t i = 0; i <= (int32_t)BodyType::RIGHT_FOOT; i++)
 						{
-							IF_COUT{ std::cout << "overlap!" << std::endl; };
-							IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; };
+							olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, (BodyType)i);
+							std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, (BodyType)i);
 
-							olc::vf2d distance = targetPos - attackPos;
-							distance *= 0.5f;
-							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-							resultMid = attackPos + rounded;
+							if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
+							{
+								IF_COUT{ std::cout << "overlap!" << std::endl; };
+								IF_COUT{ std::cout << "attacker body index: " << (int32_t)b << std::endl; };
 
-							int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
-							collisionCount++;
+								olc::vf2d distance = targetPos - attackPos;
+								distance *= 0.5f;
+								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
+								resultMid = attackPos + rounded;
 
-							damageData = collisionQueue->damageData;
+								int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
+								collisionCount++;
 
-							return true;
+								damageData = collisionQueue->damageData;
+
+								return true;
+							}
 						}
 					}
 				}
