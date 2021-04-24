@@ -1,17 +1,18 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "SpriteLoader.h"
+#include "GroupComponent.h"
 #include "GameObj.h"
-#include "AnimationStatus.h"
 #include "Camera.h"
+#include "AnimationStatus.h"
 #include "DevSettings.h"
+#include "SpriteType.h"
 
 namespace RB
 {
-	class SheetRenderer
+	class AnimationRenderer : public GroupComponent
 	{
 	public:
-		static void Render(GameObj* obj, Camera& cam)
+		void RenderComponent(GameObj* obj, Camera& cam) override
 		{
 			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.UpdateSource();
 

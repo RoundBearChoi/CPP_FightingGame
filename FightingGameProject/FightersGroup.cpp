@@ -5,15 +5,14 @@ namespace RB
 	FightersGroup::FightersGroup()
 	{
 		//initialize components
-		vecComponents.push_back(new InputBufferRenderer);
+		ptrAnimationRenderer = new AnimationRenderer;
+		ptrInputBufferRenderer = new InputBufferRenderer;
 	}
 
 	FightersGroup::~FightersGroup()
 	{
-		for (size_t i = 0; i < vecComponents.size(); i++)
-		{
-			delete vecComponents[i];
-		}
+		delete ptrAnimationRenderer;
+		delete ptrInputBufferRenderer;
 	}
 
 	void FightersGroup::UpdateStates(GameData& gameData)
@@ -190,7 +189,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
-			SheetRenderer::Render(&arrObjs[i], cam);
+			ptrAnimationRenderer->RenderComponent(&arrObjs[i], cam);
 
 			if (update)
 			{
@@ -245,10 +244,7 @@ namespace RB
 
 	void FightersGroup::RenderComponents()
 	{
-		for (size_t i = 0; i < vecComponents.size(); i++)
-		{
-			vecComponents[i]->RenderComponent();
-		}
+		ptrInputBufferRenderer->RenderComponent();
 	}
 
 	CollisionQueue* FightersGroup::GetCollisionQueue(size_t index)

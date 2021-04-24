@@ -304,9 +304,6 @@
     <ClInclude Include="DummySelector.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="SheetRenderer.h">
-      <Filter>Source Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="DebugRenderer.h">
       <Filter>Source Files\Renderer</Filter>
     </ClInclude>
@@ -449,6 +446,9 @@
       <Filter>Source Files\Groups\Base</Filter>
     </ClInclude>
     <ClInclude Include="InputBufferRenderer.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationRenderer.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
   </ItemGroup>

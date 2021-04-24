@@ -8,6 +8,9 @@
 #include "ColliderLoader.h"
 #include "DummySelector.h"
 
+//components
+#include "AnimationRenderer.h"
+
 namespace RB
 {
 	class HitBoxEditorScene : public Scene
@@ -29,16 +32,22 @@ namespace RB
 
 		size_t nSelectedBodyIndex = 0;
 
+		GroupComponent* ptrAnimationRenderer = nullptr;
+
 	public:
 		HitBoxEditorScene()
 		{
 			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
+
+			ptrAnimationRenderer = new AnimationRenderer();
 		}
 
 		~HitBoxEditorScene() override
 		{
+			delete ptrAnimationRenderer;
+
 			IF_COUT{ std::cout << "destructing HitBoxEditorScene" << std::endl; };
 		}
 
@@ -298,7 +307,7 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			//dummy fighter
-			SheetRenderer::Render(selector.Current(), cam);
+			ptrAnimationRenderer->RenderComponent(selector.Current(), cam);
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);

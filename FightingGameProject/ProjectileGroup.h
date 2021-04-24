@@ -1,7 +1,9 @@
 #pragma once
 #include "ObjGroup.h"
 #include "GameObj.h"
-#include "SheetRenderer.h"
+
+//components
+#include "AnimationRenderer.h"
 
 //projectiles
 #include "Hadouken_MoveForward.h"
@@ -14,7 +16,10 @@ namespace RB
 		std::vector<GameObj*> vecObjs;
 		size_t creationCount = 0;
 
+		AnimationRenderer* ptrAnimationRenderer = nullptr;
+
 	public:
+		ProjectileGroup();
 		~ProjectileGroup();
 
 		void UpdateStates(GameData& gameData) override;

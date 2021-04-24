@@ -2,8 +2,15 @@
 
 namespace RB
 {
+	ProjectileGroup::ProjectileGroup()
+	{
+		ptrAnimationRenderer = new AnimationRenderer();
+	}
+
 	ProjectileGroup::~ProjectileGroup()
 	{
+		delete ptrAnimationRenderer;
+
 		if (vecObjs.size() != 0)
 		{
 			IF_COUT{ std::cout << std::endl; };
@@ -52,7 +59,7 @@ namespace RB
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				SheetRenderer::Render(vecObjs[i], cam);
+				ptrAnimationRenderer->RenderComponent(vecObjs[i], cam);
 
 				if (update)
 				{

@@ -24,9 +24,7 @@ namespace RB
 
 	void BackgroundGroup::RenderStates(Camera& cam, bool update)
 	{
-		SheetRenderer::Render(&arrObjs[2], cam);
-		SheetRenderer::Render(&arrObjs[1], cam);
-		SheetRenderer::Render(&arrObjs[0], cam);
+
 	}
 
 	void BackgroundGroup::RenderBoxColliders(Camera& cam)

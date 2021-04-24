@@ -2,7 +2,6 @@
 #include <array>
 #include "ObjGroup.h"
 #include "GameObj.h"
-#include "SheetRenderer.h"
 
 namespace RB
 {

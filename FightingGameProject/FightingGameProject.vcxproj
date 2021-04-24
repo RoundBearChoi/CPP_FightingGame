@@ -169,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="AABB.h" />
     <ClInclude Include="AnimationController.h" />
+    <ClInclude Include="AnimationRenderer.h" />
     <ClInclude Include="AnimationStatus.h" />
     <ClInclude Include="BackgroundGroup.h" />
     <ClInclude Include="Background_Idle_Mountains.h" />
@@ -249,7 +250,6 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneController.h" />
     <ClInclude Include="SceneType.h" />
-    <ClInclude Include="SheetRenderer.h" />
     <ClInclude Include="SpriteType.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />

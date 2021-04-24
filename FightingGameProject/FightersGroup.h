@@ -4,8 +4,6 @@
 #include "GameObj.h"
 #include "GameData.h"
 #include "ObjGroup.h"
-#include "DevSettings.h"
-#include "SheetRenderer.h"
 #include "DiagonalOverlap.h"
 #include "AABB.h"
 #include "Normalize.h"
@@ -14,6 +12,7 @@
 
 //components
 #include "InputBufferRenderer.h"
+#include "AnimationRenderer.h"
 
 //combos (temp)
 #include "ComboChecker.h"
@@ -28,8 +27,9 @@ namespace RB
 	{
 	private:
 		std::array<GameObj, 2> arrObjs;
-		std::vector<GroupComponent*> vecComponents;
-
+		GroupComponent* ptrInputBufferRenderer = nullptr;
+		GroupComponent* ptrAnimationRenderer = nullptr;
+		
 		Preload_Fighter_0 preload_fighter_0;
 		RandomInteger randomInteger;
 

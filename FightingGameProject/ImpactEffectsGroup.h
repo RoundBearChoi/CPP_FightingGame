@@ -2,8 +2,10 @@
 #include "ObjGroup.h"
 #include "GameObj.h"
 #include "ImpactEffectType.h"
-#include "SheetRenderer.h"
 #include "ImpactEffect_Hit_0.h"
+
+//components
+#include "AnimationRenderer.h"
 
 namespace RB
 {
@@ -13,7 +15,10 @@ namespace RB
 		std::vector<GameObj*> vecObjs;
 		size_t creationCount = 0;
 
+		AnimationRenderer* ptrAnimationRenderer = nullptr;
+
 	public:
+		ImpactEffectsGroup();
 		~ImpactEffectsGroup();
 
 		void UpdateStates(GameData& gameData) override;
