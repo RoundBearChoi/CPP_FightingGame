@@ -30,7 +30,8 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			size_t end = (animationController.GetTotalTiles() - 1) * animationController.status.nTransitionDelay;
+			int32_t tiles = animationController.GetTotalTiles() - (int32_t)1;
+			size_t end = (size_t)tiles * (size_t)animationController.status.nTransitionDelay;
 
 			if (updateCount >= end)
 			{
