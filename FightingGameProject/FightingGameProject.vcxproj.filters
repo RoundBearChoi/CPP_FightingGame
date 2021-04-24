@@ -105,6 +105,9 @@
     <Filter Include="Source Files\Groups\Concrete Groups">
       <UniqueIdentifier>{e3485dac-8cb7-4c0a-bc6b-6ae011b09218}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Groups\Concrete Components">
+      <UniqueIdentifier>{e47fd888-3caa-4737-b3e7-3a603f2e43d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -441,6 +444,12 @@
     </ClInclude>
     <ClInclude Include="ProjectileGroup.h">
       <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupComponent.h">
+      <Filter>Source Files\Groups\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="InputBufferRenderer.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

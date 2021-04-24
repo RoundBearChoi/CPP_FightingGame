@@ -96,15 +96,8 @@ namespace RB
 		RenderCenterMark(cam);
 
 		background.RenderObjPosition(cam);
-
 		fighters.RenderObjPosition(cam);
-
-		olc::vi2d startPos1(20, 100);
-		fighters.RenderInputBuffer(startPos1, InputBuffer::ptr->vecP1Inputs);
-
-		olc::vi2d startPos2(20, 150);
-		fighters.RenderInputBuffer(startPos2, InputBuffer::ptr->vecP2Inputs);
-
+		fighters.RenderComponents();
 		projectiles.RenderObjPosition(cam);
 		impactEffects.RenderObjPosition(cam);
 	}
