@@ -99,6 +99,12 @@
     <Filter Include="Source Files\Damage">
       <UniqueIdentifier>{42186ab9-0f48-401c-8ad7-44d89e99c79f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Groups\Base">
+      <UniqueIdentifier>{ca3e77ff-6c05-4ab3-8e4d-4de9132c0736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Groups\Concrete Groups">
+      <UniqueIdentifier>{e3485dac-8cb7-4c0a-bc6b-6ae011b09218}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -112,12 +118,6 @@
     </ClCompile>
     <ClCompile Include="GameObj.cpp">
       <Filter>Source Files\GameObj\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="BackgroundGroup.cpp">
-      <Filter>Source Files\Groups</Filter>
-    </ClCompile>
-    <ClCompile Include="FightersGroup.cpp">
-      <Filter>Source Files\Groups</Filter>
     </ClCompile>
     <ClCompile Include="StateController.cpp">
       <Filter>Source Files\State\Base</Filter>
@@ -146,17 +146,11 @@
     <ClCompile Include="GameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectileGroup.cpp">
-      <Filter>Source Files\Groups</Filter>
-    </ClCompile>
     <ClCompile Include="BoxCollider.cpp">
       <Filter>Source Files\Collision\Base</Filter>
     </ClCompile>
     <ClCompile Include="DiagonalOverlap.cpp">
       <Filter>Source Files\Collision\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="ImpactEffectsGroup.cpp">
-      <Filter>Source Files\Groups</Filter>
     </ClCompile>
     <ClCompile Include="ObjData.cpp">
       <Filter>Source Files\GameObj\Base</Filter>
@@ -166,6 +160,18 @@
     </ClCompile>
     <ClCompile Include="JumpProcessor.cpp">
       <Filter>Source Files\JumpProcessor</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundGroup.cpp">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="FightersGroup.cpp">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpactEffectsGroup.cpp">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileGroup.cpp">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -180,9 +186,6 @@
     </ClInclude>
     <ClInclude Include="GameData.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FightersGroup.h">
-      <Filter>Source Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="GameObj.h">
       <Filter>Source Files\GameObj\Base</Filter>
@@ -231,9 +234,6 @@
     </ClInclude>
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BackgroundGroup.h">
-      <Filter>Source Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="Background_Idle_Trees.h">
       <Filter>Source Files\State\Concrete States\Background</Filter>
@@ -307,14 +307,8 @@
     <ClInclude Include="DebugRenderer.h">
       <Filter>Source Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGroup.h">
-      <Filter>Source Files\Groups</Filter>
-    </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_Side.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
-    </ClInclude>
-    <ClInclude Include="Preload_Fighter_0.h">
-      <Filter>Source Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="InputBuffer.h">
       <Filter>Source Files\Input</Filter>
@@ -346,9 +340,6 @@
     <ClInclude Include="ProjectileType.h">
       <Filter>Source Files\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectileGroup.h">
-      <Filter>Source Files\Groups</Filter>
-    </ClInclude>
     <ClInclude Include="Hadouken_MoveForward.h">
       <Filter>Source Files\State\Concrete States\Projectiles</Filter>
     </ClInclude>
@@ -357,9 +348,6 @@
     </ClInclude>
     <ClInclude Include="ComboChecker.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="ImpactEffectsGroup.h">
-      <Filter>Source Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="ImpactEffectType.h">
       <Filter>Source Files\Effects</Filter>
@@ -435,6 +423,24 @@
     </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_Up.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGroup.h">
+      <Filter>Source Files\Groups\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Preload_Fighter_0.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundGroup.h">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="FightersGroup.h">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpactEffectsGroup.h">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileGroup.h">
+      <Filter>Source Files\Groups\Concrete Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
