@@ -1,7 +1,6 @@
 #pragma once
 #include "Camera.h"
 #include "CollisionQueue.h"
-//#include "InputElement.h"
 
 namespace RB
 {

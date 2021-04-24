@@ -15,11 +15,11 @@
 //components
 #include "InputBufferRenderer.h"
 
-//combos
+//combos (temp)
 #include "ComboChecker.h"
 #include "Hadouken.h"
 
-//loading
+//loading (temp)
 #include "Preload_Fighter_0.h"
 
 namespace RB
