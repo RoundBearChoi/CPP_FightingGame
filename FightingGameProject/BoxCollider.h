@@ -3,7 +3,7 @@
 #include "olcPixelGameEngine.h"
 #include "Camera.h"
 #include "ScreenVector.h"
-#include "DebugRenderer.h"
+#include "BoxRenderer.h"
 #include "OffsetType.h"
 
 namespace RB

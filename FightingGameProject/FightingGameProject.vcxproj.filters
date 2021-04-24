@@ -445,7 +445,7 @@
     <ClInclude Include="AnimationRenderer.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
-    <ClInclude Include="DebugRenderer.h">
+    <ClInclude Include="BoxRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,13 @@
 #pragma once
+#include "olcPixelGameEngine.h"
 #include "SpriteLoader.h"
 
 namespace RB
 {
-	class DebugRenderer
+	class BoxRenderer
 	{
 	public:
-		static void RenderBox(std::array<olc::vf2d, 4>& points)
+		static void Render(std::array<olc::vf2d, 4>& points, olc::Pixel color)
 		{
 			static size_t hash = 0;
 			static olc::Decal* d = nullptr;
@@ -24,7 +25,7 @@ namespace RB
 			}
 			else
 			{
-				olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, points, { 245, 245 }, { 0, 0 }, olc::RED);
+				olc::Renderer::ptrPGE->DrawPartialWarpedDecal(d, points, { 245, 245 }, { 0, 0 }, color);
 			}
 		}
 	};

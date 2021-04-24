@@ -105,7 +105,7 @@ namespace RB
 			floats[2] = quad[2];
 			floats[3] = quad[3];
 
-			DebugRenderer::RenderBox(floats);
+			BoxRenderer::Render(floats, _color);
 		}
 
 		if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)

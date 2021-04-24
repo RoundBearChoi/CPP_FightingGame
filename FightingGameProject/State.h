@@ -4,7 +4,7 @@
 #include "ObjData.h"
 #include "GameData.h"
 #include "AnimationController.h"
-#include "DebugRenderer.h"
+#include "BoxRenderer.h"
 #include "Directions.h"
 #include "CollisionQueue.h"
 #include "CreateProjectile.h"

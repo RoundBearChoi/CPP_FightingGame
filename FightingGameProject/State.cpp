@@ -153,7 +153,7 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawLine(render[3], render[0], olc::BLUE);
 
 			//transparent sprites
-			DebugRenderer::RenderBox(render);
+			BoxRenderer::Render(render, olc::RED);
 		}
 	}
 

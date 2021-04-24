@@ -206,7 +206,7 @@
     <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreateProjectile.h" />
     <ClInclude Include="CreationCount.h" />
-    <ClInclude Include="DebugRenderer.h" />
+    <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="DiagonalOverlap.h" />
     <ClInclude Include="Directions.h" />

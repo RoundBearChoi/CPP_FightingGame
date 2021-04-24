@@ -29,9 +29,9 @@ namespace RB
 		{
 			UpdateColliderParts();
 
-			size_t e0 = animationController.status.nTransitionDelay * 1;
-			size_t e1 = animationController.status.nTransitionDelay * 2;
-			size_t e2 = animationController.status.nTransitionDelay * 3;
+			int32_t e0 = animationController.status.nTransitionDelay * (int32_t)1;
+			int32_t e1 = animationController.status.nTransitionDelay * (int32_t)2;
+			int32_t e2 = animationController.status.nTransitionDelay * (int32_t)3;
 
 			if (updateCount == 0 && updateCount < e0)
 			{
