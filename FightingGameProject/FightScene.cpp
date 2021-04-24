@@ -46,8 +46,8 @@ namespace RB
 			}
 
 			//body part vs body part collision
-			olc::vi2d bodyPartCollisionPoint;
-			DamageData damageData;
+			olc::vi2d resultCollision;
+			DamageData resultDamage;
 			int32_t enemy = 0;
 
 			if (i == 0)
@@ -55,13 +55,13 @@ namespace RB
 				enemy = 1;
 			}
 			
-			if (BodyPartCollision::IsColliding(enemy, fighters, bodyPartCollisionPoint, damageData))
+			if (BodyPartCollision::IsColliding(enemy, fighters, resultCollision, resultDamage))
 			{
-				impactEffects.CreateEffect(ImpactEffectType::HIT_0, bodyPartCollisionPoint);
+				impactEffects.CreateEffect(ImpactEffectType::HIT_0, resultCollision);
 
-				if (damageData.upPush != 0)
+				if (resultDamage.upPush != 0)
 				{
-					fighters.AddJumpProcessor(i, damageData.upPush, damageData.sidePush);
+					fighters.AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
 					fighters.MakeNewState<Fighter_0_HitReaction_Up>(i);
 				}
 				else
