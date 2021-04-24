@@ -51,9 +51,6 @@
     <Filter Include="Source Files\SpriteLoader">
       <UniqueIdentifier>{0144d7e1-11d3-47ab-bafe-398005e1db81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Renderer">
-      <UniqueIdentifier>{2758f219-0648-4409-a634-18c29d03706d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\State\Concrete States\Fighters">
       <UniqueIdentifier>{7c76e2d5-0162-4cb6-8e2f-f13840a34f19}</UniqueIdentifier>
     </Filter>
@@ -304,9 +301,6 @@
     <ClInclude Include="DummySelector.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DebugRenderer.h">
-      <Filter>Source Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="Fighter_0_HitReaction_Side.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
@@ -450,6 +444,9 @@
     </ClInclude>
     <ClInclude Include="AnimationRenderer.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugRenderer.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
