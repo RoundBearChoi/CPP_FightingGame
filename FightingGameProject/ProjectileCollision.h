@@ -8,7 +8,7 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool IsColliding(int32_t targetFighterIndex, ObjGroup& fighters, ObjGroup& projectiles, size_t& collidingProjectileIndex, olc::vi2d& midPoint)
+		static bool IsColliding(int32_t targetFighterIndex, ObjGroup& fighters, ObjGroup& projectiles, size_t& resultProjectileIndex, olc::vi2d& resultMidPoint)
 		{
 			for (size_t projectileIndex = 0; projectileIndex < projectiles.GetObjCount(); projectileIndex++)
 			{
@@ -32,12 +32,12 @@ namespace RB
 							IF_COUT{ std::cout << "projectile collision against player: " << targetFighterIndex << std::endl; };
 							IF_COUT{ std::cout << "projectile collision against body: " << bodyIndex << std::endl; };
 
-							collidingProjectileIndex = projectileIndex;
+							resultProjectileIndex = projectileIndex;
 
 							olc::vf2d distance = bodyPos - projectilePos;
 							distance *= 0.5f;
 							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-							midPoint = rounded + projectilePos;
+							resultMidPoint = rounded + projectilePos;
 
 							return true;
 						}

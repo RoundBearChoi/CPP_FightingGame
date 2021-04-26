@@ -42,14 +42,14 @@ namespace RB
 		for (int32_t i = 0; i < 2; i++)
 		{
 			//projectiles vs player collision
-			size_t projIndex = 0;
-			olc::vi2d projCollisionPoint;
+			size_t resultProjectile = 0;
+			olc::vi2d resultMidPoint;
 
-			if (ProjectileCollision::IsColliding(i, fighters, projectiles, projIndex, projCollisionPoint))
+			if (ProjectileCollision::IsColliding(i, fighters, projectiles, resultProjectile, resultMidPoint))
 			{
-				projectiles.DeleteObj(projIndex);
+				projectiles.DeleteObj(resultProjectile);
 				fighters.SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
-				impactEffects.CreateObj(ObjType::HIT_EFFECT_0, projCollisionPoint);
+				impactEffects.CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
 			}
 
 			//body part vs body part collision
