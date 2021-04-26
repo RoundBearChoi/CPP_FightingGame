@@ -41,7 +41,7 @@ namespace RB
 			if (ProjectileCollision::IsColliding(i, fighters, projectiles, projIndex, projCollisionPoint))
 			{
 				projectiles.DeleteObj(projIndex);
-				fighters.MakeNewState<Fighter_0_HitReaction_Side>(i);
+				fighters.SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
 				impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
 			}
 
@@ -62,11 +62,11 @@ namespace RB
 				if (resultDamage.upPush != 0)
 				{
 					fighters.AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
-					fighters.MakeNewState<Fighter_0_HitReaction_Up>(i);
+					fighters.SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>());
 				}
 				else
 				{
-					fighters.MakeNewState<Fighter_0_HitReaction_Side>(i);
+					fighters.SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
 				}
 			}
 		}
