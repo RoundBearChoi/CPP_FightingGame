@@ -166,11 +166,11 @@ namespace RB
 	CheckCollisionMessage* State::GetCollisionStatus()
 	{
 		//collision check
-		for (size_t i = 0; i < vecCollisionStatus.size(); i++)
+		for (size_t i = 0; i < vecCheckCollisions.size(); i++)
 		{
-			if (vecCollisionStatus[i].animationTile == animationController.status.nCurrentTile)
+			if (vecCheckCollisions[i].animationTile == animationController.status.nCurrentTile)
 			{
-				return &vecCollisionStatus[i];
+				return &vecCheckCollisions[i];
 			}
 			else
 			{

@@ -26,7 +26,7 @@ namespace RB
 			c0.vecBodies.push_back(BodyType::LEFT_LOWERLEG);
 			c0.animationTile = 0;
 
-			vecCollisionStatus.push_back(c0);
+			vecCheckCollisions.push_back(c0);
 
 			maxBodyCollisions = 1;
 		}

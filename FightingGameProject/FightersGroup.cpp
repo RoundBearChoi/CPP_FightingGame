@@ -206,7 +206,7 @@ namespace RB
 		{
 			if (arrObjs[index].stateController.currentState != nullptr)
 			{
-				if (arrObjs[index].stateController.currentState->vecCollisionStatus.size() > 0)
+				if (arrObjs[index].stateController.currentState->vecCheckCollisions.size() > 0)
 				{
 					return arrObjs[index].stateController.currentState->GetCollisionStatus();
 				}

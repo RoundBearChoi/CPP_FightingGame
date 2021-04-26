@@ -30,8 +30,8 @@ namespace RB
 			c1.vecBodies.push_back(BodyType::LEFT_HAND);
 			c1.animationTile = 3;
 
-			vecCollisionStatus.push_back(c0);
-			vecCollisionStatus.push_back(c1);
+			vecCheckCollisions.push_back(c0);
+			vecCheckCollisions.push_back(c1);
 
 			maxBodyCollisions = 1;
 		}

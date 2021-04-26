@@ -33,8 +33,8 @@ namespace RB
 			c1.damageData.upPush = 13;
 			c1.damageData.sidePush = 15;
 
-			vecCollisionStatus.push_back(c0);
-			vecCollisionStatus.push_back(c1);
+			vecCheckCollisions.push_back(c0);
+			vecCheckCollisions.push_back(c1);
 
 			maxBodyCollisions = 1;
 		}

@@ -7,6 +7,7 @@
 #include "Directions.h"
 #include "CheckCollisionMessage.h"
 #include "CreateProjectileMessage.h"
+#include "SlowMotionMessage.h"
 
 namespace RB
 {
@@ -23,8 +24,9 @@ namespace RB
 		int32_t bodyCollisionCount = 0;
 		int32_t maxBodyCollisions = 0;
 		AnimationController animationController;
-		std::vector<CheckCollisionMessage> vecCollisionStatus;
+		std::vector<CheckCollisionMessage> vecCheckCollisions;
 		std::vector<CreateProjectileMessage> vecCreateProjectiles;
+		std::vector<SlowMotionMessage> vecSlowMotion;
 
 		virtual ~State();
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
