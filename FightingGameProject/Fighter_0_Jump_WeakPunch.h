@@ -19,7 +19,7 @@ namespace RB
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 			animationController.status.bPlayOnce = true;
 
-			CollisionQueue c0;
+			CheckCollisionMessage c0;
 
 			c0.vecBodies.push_back(BodyType::LEFT_HAND);
 			c0.vecBodies.push_back(BodyType::LEFT_KNEE);

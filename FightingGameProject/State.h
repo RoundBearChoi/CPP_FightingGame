@@ -5,7 +5,7 @@
 #include "GameData.h"
 #include "AnimationController.h"
 #include "Directions.h"
-#include "CollisionQueue.h"
+#include "CheckCollisionMessage.h"
 #include "CreateProjectileMessage.h"
 
 namespace RB
@@ -23,7 +23,7 @@ namespace RB
 		int32_t bodyCollisionCount = 0;
 		int32_t maxBodyCollisions = 0;
 		AnimationController animationController;
-		std::vector<CollisionQueue> vecCollisionStatus;
+		std::vector<CheckCollisionMessage> vecCollisionStatus;
 		std::vector<CreateProjectileMessage> vecCreateProjectiles;
 
 		virtual ~State();
@@ -40,7 +40,7 @@ namespace RB
 		void UpdateColliderParts();
 		void RenderColliderQuads(ObjData& objData, Camera& cam);
 		void UnloadColliderData();
-		CollisionQueue* GetCollisionStatus();
+		CheckCollisionMessage* GetCollisionStatus();
 		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData);
 		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData);
 

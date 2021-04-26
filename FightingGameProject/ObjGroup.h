@@ -2,11 +2,12 @@
 #include "olcPixelGameEngine.h"
 #include "ObjType.h"
 #include "Camera.h"
-#include "CollisionQueue.h"
+#include "BodyType.h"
 
 namespace RB
 {
 	class State;
+	class CheckCollisionMessage;
 
 	class ObjGroup
 	{
@@ -37,7 +38,7 @@ namespace RB
 		virtual void RenderComponents() {}
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index) {}
-		virtual CollisionQueue* GetCollisionQueue(size_t index) { return nullptr; }
+		virtual CheckCollisionMessage* GetCollisionQueue(size_t index) { return nullptr; }
 		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
 		virtual int32_t MaxCollisions(int32_t fighterIndex) { return 0; };
 		virtual void AddCollisionCount(int32_t fighterIndex) {}

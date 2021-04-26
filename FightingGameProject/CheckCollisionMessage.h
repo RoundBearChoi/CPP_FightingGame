@@ -4,7 +4,7 @@
 
 namespace RB
 {
-	class CollisionQueue
+	class CheckCollisionMessage
 	{
 	public:
 		std::vector<BodyType> vecBodies;

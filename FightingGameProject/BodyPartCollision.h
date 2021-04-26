@@ -20,13 +20,13 @@ namespace RB
 				targetIndex = 0;
 			}
 
-			CollisionQueue* collisionQueue = fighters.GetCollisionQueue(attackerIndex);
+			CheckCollisionMessage* message = fighters.GetCollisionQueue(attackerIndex);
 
-			if (collisionQueue)
+			if (message)
 			{
 				if (fighters.GetCollisionCount(attackerIndex) < fighters.MaxCollisions(attackerIndex))
 				{
-					for (BodyType& b : collisionQueue->vecBodies)
+					for (BodyType& b : message->vecBodies)
 					{
 						olc::vi2d attackPos = fighters.GetBodyWorldPos(attackerIndex, b);
 						std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(attackerIndex, b);
@@ -50,7 +50,7 @@ namespace RB
 								resultMid = attackPos + rounded;
 
 								fighters.AddCollisionCount(attackerIndex);
-								damageData = collisionQueue->damageData;
+								damageData = message->damageData;
 
 								return true;
 							}

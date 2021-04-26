@@ -75,7 +75,7 @@ namespace RB
 
 			if (obj.stateController.currentState != nullptr)
 			{
-				CollisionQueue* check = obj.stateController.currentState->GetCollisionStatus();
+				CheckCollisionMessage* check = obj.stateController.currentState->GetCollisionStatus();
 
 				if (check)
 				{
@@ -200,7 +200,7 @@ namespace RB
 		ptrInputBufferRenderer->Update();
 	}
 
-	CollisionQueue* FightersGroup::GetCollisionQueue(size_t index)
+	CheckCollisionMessage* FightersGroup::GetCollisionQueue(size_t index)
 	{
 		if (index < arrObjs.size())
 		{

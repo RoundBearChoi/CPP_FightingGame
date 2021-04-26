@@ -19,8 +19,8 @@ namespace RB
 			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 3;
 
-			CollisionQueue c0;
-			CollisionQueue c1;
+			CheckCollisionMessage c0;
+			CheckCollisionMessage c1;
 
 			c0.vecBodies.push_back(BodyType::LEFT_FOREARM);
 			c0.vecBodies.push_back(BodyType::LEFT_HAND);

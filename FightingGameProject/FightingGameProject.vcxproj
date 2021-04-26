@@ -180,7 +180,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />
     <ClInclude Include="ColliderLoader.h" />
-    <ClInclude Include="CollisionQueue.h" />
+    <ClInclude Include="CheckCollisionMessage.h" />
     <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="DamageData.h" />
     <ClInclude Include="DamageDetector.h" />

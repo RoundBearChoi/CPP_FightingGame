@@ -163,7 +163,7 @@ namespace RB
 		col.clear();
 	}
 
-	CollisionQueue* State::GetCollisionStatus()
+	CheckCollisionMessage* State::GetCollisionStatus()
 	{
 		//collision check
 		for (size_t i = 0; i < vecCollisionStatus.size(); i++)

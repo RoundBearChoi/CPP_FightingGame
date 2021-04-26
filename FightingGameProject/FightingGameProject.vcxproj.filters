@@ -358,7 +358,7 @@
     <ClInclude Include="ColliderLoader.h">
       <Filter>Source Files\Collision\Base</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionQueue.h">
+    <ClInclude Include="CheckCollisionMessage.h">
       <Filter>Source Files\Collision\Base</Filter>
     </ClInclude>
     <ClInclude Include="DiagonalOverlap.h">
