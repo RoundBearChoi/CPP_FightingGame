@@ -24,21 +24,8 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//check special move
-		Hadouken h1;
-		Hadouken h2;
-		h1.SetCombo();
-		h2.SetCombo();
-
-		if (BufferChecker::Correct(h1, InputBuffer::ptr->vecP1Inputs, arrObjs[0]))
-		{
-			arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
-		}
-
-		if (BufferChecker::Correct(h2, InputBuffer::ptr->vecP2Inputs, arrObjs[1]))
-		{
-			arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
-		}
+		//special moves
+		specialMoveProcessor.Update(arrObjs);
 
 		//position before update
 		arrObjs[0].objData.lastPosition = arrObjs[0].objData.GetPosition();

@@ -4,16 +4,14 @@
 #include "GameObj.h"
 #include "GameData.h"
 #include "ObjGroup.h"
+
 #include "FighterJump.h"
 #include "FighterGroundToGroundCollision.h"
+#include "SpecialMoveProcessor.h"
 
 //components
 #include "InputBufferRenderer.h"
 #include "AnimationRenderer.h"
-
-//combos (temp)
-#include "BufferChecker.h"
-#include "Hadouken.h"
 
 //loading (temp)
 #include "Preload_Fighter_0.h"
@@ -32,6 +30,7 @@ namespace RB
 
 		FighterJump fighterJump;
 		FighterGroundToGroundCollision fighterGroundToGroundCollision;
+		SpecialMoveProcessor specialMoveProcessor;
 
 	public:
 		FightersGroup();

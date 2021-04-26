@@ -57,12 +57,6 @@
     <Filter Include="Source Files\Collision">
       <UniqueIdentifier>{36b7f1bd-feeb-4d18-a69e-ffac0144c4f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Combo Checker">
-      <UniqueIdentifier>{cdd34091-65f7-4ceb-9857-0aeaf50f33dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Combo Checker\Base">
-      <UniqueIdentifier>{88e45e30-a716-4eba-a56b-f2150e9ce0c3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Projectile">
       <UniqueIdentifier>{2b018585-e2fa-49da-b091-419cb3e257c3}</UniqueIdentifier>
     </Filter>
@@ -99,7 +93,13 @@
     <Filter Include="Source Files\Groups\Concrete Components">
       <UniqueIdentifier>{e47fd888-3caa-4737-b3e7-3a603f2e43d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Combo Checker\Concrete Moves">
+    <Filter Include="Source Files\SpecialMove">
+      <UniqueIdentifier>{cdd34091-65f7-4ceb-9857-0aeaf50f33dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpecialMove\Base">
+      <UniqueIdentifier>{88e45e30-a716-4eba-a56b-f2150e9ce0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpecialMove\Concrete Moves">
       <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -311,10 +311,10 @@
       <Filter>Source Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="SpecialMove.h">
-      <Filter>Source Files\Combo Checker\Base</Filter>
+      <Filter>Source Files\SpecialMove\Base</Filter>
     </ClInclude>
     <ClInclude Include="Hadouken.h">
-      <Filter>Source Files\Combo Checker\Concrete Moves</Filter>
+      <Filter>Source Files\SpecialMove\Concrete Moves</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_Hadouken_Fire.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
@@ -338,7 +338,7 @@
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
     <ClInclude Include="BufferChecker.h">
-      <Filter>Source Files\Combo Checker\Base</Filter>
+      <Filter>Source Files\SpecialMove\Base</Filter>
     </ClInclude>
     <ClInclude Include="ImpactEffect_Hit_0.h">
       <Filter>Source Files\State\Concrete States\ImpactEffects</Filter>
@@ -453,6 +453,9 @@
     </ClInclude>
     <ClInclude Include="FighterGroundToGroundCollision.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialMoveProcessor.h">
+      <Filter>Source Files\SpecialMove\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
