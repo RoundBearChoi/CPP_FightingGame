@@ -5,11 +5,11 @@
 #include "GameData.h"
 #include "ObjGroup.h"
 
-#include "FighterJump.h"
 #include "FighterGroundToGroundCollision.h"
 #include "SpecialMoveProcessor.h"
 
 //components
+#include "FighterJump.h"
 #include "InputBufferRenderer.h"
 #include "AnimationRenderer.h"
 
