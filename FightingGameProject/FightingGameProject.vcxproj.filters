@@ -325,7 +325,7 @@
     <ClInclude Include="ConvertedInputType.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="CreateProjectile.h">
+    <ClInclude Include="CreateProjectileMessage.h">
       <Filter>Source Files\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="ProjectileType.h">

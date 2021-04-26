@@ -173,7 +173,7 @@ namespace RB
 		return 0;
 	}
 
-	void ProjectileGroup::CreateProjectiles(std::vector<CreateProjectile>& vecSpecs)
+	void ProjectileGroup::CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs)
 	{
 		for (size_t i = 0; i < vecSpecs.size(); i++)
 		{

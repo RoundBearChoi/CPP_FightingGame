@@ -34,7 +34,7 @@ namespace RB
 		void DeleteObj(size_t index) override;
 		size_t GetOwnerCreationID(size_t index) override;
 
-		void CreateProjectiles(std::vector<CreateProjectile>& vecSpecs);
+		void CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs);
 		GameObj* _Create();
 	};
 }

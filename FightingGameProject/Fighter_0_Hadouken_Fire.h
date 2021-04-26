@@ -38,7 +38,7 @@ namespace RB
 				if (!fired)
 				{
 					fired = true;
-					CreateProjectile p;
+					CreateProjectileMessage p;
 					p.projectileType = ProjectileType::HADOUKEN;
 
 					p.startPos = objData.GetPosition() + olc::vi2d(0, -105);

@@ -46,8 +46,8 @@ namespace RB
 		fighters.UpdateStates(gameData);
 		impactEffects.UpdateStates(gameData);
 
-		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
-		std::vector<CreateProjectile>* p2 = fighters.GetProjectileQueues(1);
+		std::vector<CreateProjectileMessage>* p1 = fighters.GetProjectileQueues(0);
+		std::vector<CreateProjectileMessage>* p2 = fighters.GetProjectileQueues(1);
 		projectiles.CreateProjectiles(*p1);
 		projectiles.CreateProjectiles(*p2);
 		p1->clear();

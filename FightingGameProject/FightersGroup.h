@@ -57,7 +57,7 @@ namespace RB
 
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
-		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
+		std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 		
 		template<class T>
 		void SetInitialState(int32_t _index)

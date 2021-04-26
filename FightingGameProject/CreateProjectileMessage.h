@@ -4,7 +4,7 @@
 
 namespace RB
 {
-	class CreateProjectile
+	class CreateProjectileMessage
 	{
 	public:
 		ProjectileType projectileType = ProjectileType::NONE;

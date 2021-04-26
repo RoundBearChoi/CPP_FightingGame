@@ -252,7 +252,7 @@ namespace RB
 		return nullptr;
 	}
 
-	std::vector<CreateProjectile>* FightersGroup::GetProjectileQueues(size_t _index)
+	std::vector<CreateProjectileMessage>* FightersGroup::GetProjectileQueues(size_t _index)
 	{
 		if (_index < arrObjs.size())
 		{

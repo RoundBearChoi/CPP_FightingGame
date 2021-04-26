@@ -4,10 +4,9 @@
 #include "ObjData.h"
 #include "GameData.h"
 #include "AnimationController.h"
-#include "BoxRenderer.h"
 #include "Directions.h"
 #include "CollisionQueue.h"
-#include "CreateProjectile.h"
+#include "CreateProjectileMessage.h"
 
 namespace RB
 {
@@ -25,7 +24,7 @@ namespace RB
 		int32_t maxBodyCollisions = 0;
 		AnimationController animationController;
 		std::vector<CollisionQueue> vecCollisionStatus;
-		std::vector<CreateProjectile> vecCreateProjectiles;
+		std::vector<CreateProjectileMessage> vecCreateProjectiles;
 
 		virtual ~State();
 		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
