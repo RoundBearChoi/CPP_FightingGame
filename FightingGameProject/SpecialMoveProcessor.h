@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include "GroupComponent.h"
 #include "GameObj.h"
 #include "Hadouken.h"
 #include "BufferChecker.h"
@@ -9,10 +10,10 @@ namespace RB
 {
 	class Fighter_0_Hadouken_Fire;
 
-	class SpecialMoveProcessor
+	class SpecialMoveProcessor : public GroupComponent
 	{
 	public:
-		void Update(std::array<GameObj, 2>& arrObjs)
+		void UpdateComponent(std::array<GameObj, 2>& arrObjs) override
 		{
 			Hadouken h1;
 			Hadouken h2;

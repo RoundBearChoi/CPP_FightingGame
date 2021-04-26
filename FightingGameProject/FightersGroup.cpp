@@ -5,7 +5,8 @@ namespace RB
 	FightersGroup::FightersGroup()
 	{
 		//initialize components
-		ptrFighterJump = new FighterJump();
+		ptrFighterJump = new FighterJump;
+		ptrSpecialMoveProcessor = new SpecialMoveProcessor;
 		ptrAnimationRenderer = new AnimationRenderer;
 		ptrInputBufferRenderer = new InputBufferRenderer;
 	}
@@ -13,6 +14,7 @@ namespace RB
 	FightersGroup::~FightersGroup()
 	{
 		delete ptrFighterJump;
+		delete ptrSpecialMoveProcessor;
 		delete ptrAnimationRenderer;
 		delete ptrInputBufferRenderer;
 	}
@@ -27,7 +29,7 @@ namespace RB
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
 		//special moves
-		specialMoveProcessor.Update(arrObjs);
+		ptrSpecialMoveProcessor->UpdateComponent(arrObjs);
 
 		//position before update
 		arrObjs[0].objData.lastPosition = arrObjs[0].objData.GetPosition();
