@@ -29,10 +29,6 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//position before update
-		arrObjs[0].objData.lastPosition = arrObjs[0].objData.GetPosition();
-		arrObjs[1].objData.lastPosition = arrObjs[1].objData.GetPosition();
-
 		//main update
 		for (GameObj& obj : arrObjs)
 		{

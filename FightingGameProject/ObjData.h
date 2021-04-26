@@ -23,7 +23,6 @@ namespace RB
 		
 	public:
 		BoxCollider objBoxCollider;
-		olc::vi2d lastPosition = { 0, 0 };
 		JumpProcessor* ptrJumpProcessor = nullptr;
 
 		~ObjData();
