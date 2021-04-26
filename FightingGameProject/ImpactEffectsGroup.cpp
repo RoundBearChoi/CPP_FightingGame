@@ -98,13 +98,13 @@ namespace RB
 		std::array<olc::vi2d, 4> arr; return arr;
 	};
 
-	void ImpactEffectsGroup::CreateEffect(ImpactEffectType effectType, olc::vi2d startPos)
+	void ImpactEffectsGroup::CreateObj(ObjType objType, olc::vi2d startPos)
 	{
 		creationCount++;
 		GameObj* obj = new GameObj(creationCount);
 		vecObjs.push_back(obj);
 
-		if (effectType == ImpactEffectType::HIT_0)
+		if (objType == ObjType::HIT_EFFECT_0)
 		{
 			obj->stateController.currentState = State::NewState<ImpactEffect_Hit_0>();
 		}

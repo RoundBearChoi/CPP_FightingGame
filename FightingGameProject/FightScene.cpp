@@ -49,7 +49,7 @@ namespace RB
 			{
 				projectiles.DeleteObj(projIndex);
 				fighters.SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
-				impactEffects.CreateEffect(ImpactEffectType::HIT_0, projCollisionPoint);
+				impactEffects.CreateObj(ObjType::HIT_EFFECT_0, projCollisionPoint);
 			}
 
 			//body part vs body part collision
@@ -64,7 +64,7 @@ namespace RB
 			
 			if (BodyPartCollision::IsColliding(enemy, fighters, resultCollision, resultDamage))
 			{
-				impactEffects.CreateEffect(ImpactEffectType::HIT_0, resultCollision);
+				impactEffects.CreateObj(ObjType::HIT_EFFECT_0, resultCollision);
 
 				if (resultDamage.upPush != 0)
 				{

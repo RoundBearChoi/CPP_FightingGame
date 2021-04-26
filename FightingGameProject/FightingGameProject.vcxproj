@@ -197,7 +197,7 @@
     <ClInclude Include="Fighter_0_Uppercut.h" />
     <ClInclude Include="GroupComponent.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />
-    <ClInclude Include="ImpactEffectType.h" />
+    <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
     <ClInclude Include="InputBufferRenderer.h" />
     <ClInclude Include="JumpProcessor.h" />

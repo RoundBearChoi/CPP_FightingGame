@@ -75,9 +75,6 @@
     <Filter Include="Source Files\State\Concrete States\Projectiles">
       <UniqueIdentifier>{ad0f771c-2ad4-4cd6-9e5c-481941152952}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Effects">
-      <UniqueIdentifier>{dbe82174-a123-4413-ae23-c610bb130aad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\State\Concrete States\ImpactEffects">
       <UniqueIdentifier>{80182361-cfd5-4e6b-8c5f-6c2e6f13d720}</UniqueIdentifier>
     </Filter>
@@ -343,9 +340,6 @@
     <ClInclude Include="ComboChecker.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
     </ClInclude>
-    <ClInclude Include="ImpactEffectType.h">
-      <Filter>Source Files\Effects</Filter>
-    </ClInclude>
     <ClInclude Include="ImpactEffect_Hit_0.h">
       <Filter>Source Files\State\Concrete States\ImpactEffects</Filter>
     </ClInclude>
@@ -448,8 +442,11 @@
     <ClInclude Include="BoxRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DamageDetector.h">
+    <ClInclude Include="ObjType.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageDetector.h">
+      <Filter>Source Files\Damage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
