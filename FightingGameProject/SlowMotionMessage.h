@@ -10,5 +10,6 @@ namespace RB
 		SlowMotionGroupType groupType = SlowMotionGroupType::ALL;
 		int32_t interval = 0;
 		int32_t maxCount = 0;
+		int32_t currentCount = 0;
 	};
 }
