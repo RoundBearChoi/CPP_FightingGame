@@ -38,7 +38,7 @@ namespace RB
 		virtual void RenderComponents() {}
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index) {}
-		virtual CheckCollisionMessage* GetCollisionQueue(size_t index) { return nullptr; }
+		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index) { return nullptr; }
 		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
 		virtual int32_t MaxCollisions(int32_t fighterIndex) { return 0; };
 		virtual void AddCollisionCount(int32_t fighterIndex) {}

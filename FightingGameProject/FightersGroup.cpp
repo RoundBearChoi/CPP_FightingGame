@@ -200,7 +200,7 @@ namespace RB
 		ptrInputBufferRenderer->Update();
 	}
 
-	CheckCollisionMessage* FightersGroup::GetCollisionQueue(size_t index)
+	CheckCollisionMessage* FightersGroup::GetCheckCollisionMessage(size_t index)
 	{
 		if (index < arrObjs.size())
 		{

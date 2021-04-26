@@ -49,7 +49,7 @@ namespace RB
 		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType) override;
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
 		void RenderComponents() override;
-		CheckCollisionMessage* GetCollisionQueue(size_t index) override;
+		CheckCollisionMessage* GetCheckCollisionMessage(size_t index) override;
 		int32_t GetCollisionCount(int32_t fighterIndex) override;
 		int32_t MaxCollisions(int32_t fighterIndex) override;
 		void AddCollisionCount(int32_t fighterIndex) override;
