@@ -13,7 +13,7 @@ namespace RB
 	public:
 		virtual void SetCombo() = 0;
 		virtual void Check(InputElement& _inputElement, size_t bufferIndex, ObjData& objData) = 0;
-		virtual bool DoneCorrectly() = 0;
+		virtual bool IsMatching() = 0;
 		std::vector<size_t> correctBuffers;
 
 		ConvertedInputType GetConvert(InputType& _inputType, ObjData& objData)

@@ -35,7 +35,7 @@ namespace RB
 			}
 		}
 
-		bool DoneCorrectly() override
+		bool IsMatching() override
 		{
 			if (currIndex >= arr.size())
 			{

@@ -15,7 +15,7 @@ namespace RB
 				move.Check(vecInputs[i], i, obj.objData);
 			}
 
-			if (move.DoneCorrectly())
+			if (move.IsMatching())
 			{
 				for (size_t i = 0; i < move.correctBuffers.size(); i++)
 				{
