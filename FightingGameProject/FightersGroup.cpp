@@ -29,9 +29,6 @@ namespace RB
 		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
-		//special moves
-		ptrSpecialMoveProcessor->Update(arrObjs);
-
 		//position before update
 		arrObjs[0].objData.lastPosition = arrObjs[0].objData.GetPosition();
 		arrObjs[1].objData.lastPosition = arrObjs[1].objData.GetPosition();
@@ -57,6 +54,7 @@ namespace RB
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
 			}
 
+			ptrSpecialMoveProcessor->Update(obj);
 			ptrFighterJump->Update(obj, gameData);
 		}
 

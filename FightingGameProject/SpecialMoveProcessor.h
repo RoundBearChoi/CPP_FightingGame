@@ -13,19 +13,26 @@ namespace RB
 	class SpecialMoveProcessor : public GroupComponent
 	{
 	public:
-		void Update(std::array<GameObj, 2>& arrObjs) override
+		void Update(GameObj& obj) override
 		{
-			Hadouken h1;
-			Hadouken h2;
+			Hadouken hadouken;
+			std::vector<InputElement>* vecInputs = nullptr;
 
-			if (BufferChecker::Correct(h1, InputBuffer::ptr->vecP1Inputs, arrObjs[0]))
+			if (obj.objData.GetCreationID() == 1)
 			{
-				arrObjs[0].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
+				vecInputs = &InputBuffer::ptr->vecP1Inputs;
+			}
+			else
+			{
+				vecInputs = &InputBuffer::ptr->vecP2Inputs;
 			}
 
-			if (BufferChecker::Correct(h2, InputBuffer::ptr->vecP2Inputs, arrObjs[1]))
+			if (vecInputs != nullptr)
 			{
-				arrObjs[1].stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
+				if (BufferChecker::Correct(hadouken, *vecInputs, obj))
+				{
+					obj.stateController.currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
+				}
 			}
 		}
 	};
