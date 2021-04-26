@@ -34,7 +34,7 @@ namespace RB
 		background.SetInitialState<Background_Idle_Mountains>(1);
 		background.SetInitialState<Background_Idle_Sun>(2);
 
-		damageDetector = new DamageDetector(&fighters, &projectiles);
+		damageDetector = new DamageDetector(&fighters, &projectiles, &impactEffects);
 	}
 
 	void FightScene::UpdateScene(GameData& gameData)
