@@ -4,10 +4,15 @@ namespace RB
 {
 	class DamageDetector
 	{
-	public:
-		DamageDetector(ObjGroup* fighters, ObjGroup* projectiles)
-		{
+	private:
+		ObjGroup* fighters = nullptr;
+		ObjGroup* projectiles = nullptr;
 
+	public:
+		DamageDetector(ObjGroup* _fighters, ObjGroup* _projectiles)
+		{
+			fighters = _fighters;
+			projectiles = _projectiles;
 		}
 	};
 }
