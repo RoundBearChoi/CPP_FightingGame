@@ -52,14 +52,15 @@ namespace RB
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
 		void RenderComponents() override;
 		CollisionQueue* GetCollisionQueue(size_t index) override;
-		
+		int32_t GetCollisionCount(int32_t fighterIndex) override;
+		int32_t MaxCollisions(int32_t fighterIndex) override;
+		void AddCollisionCount(int32_t fighterIndex) override;
+		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
+
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
-		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce);
 		GameObj* GetEnemyObj(State& me);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
-		int32_t* CollisionCount(int32_t fighterIndex);
-		int32_t MaxCollisions(int32_t fighterIndex);
-
+		
 		template<class T>
 		void SetInitialState(int32_t _index)
 		{

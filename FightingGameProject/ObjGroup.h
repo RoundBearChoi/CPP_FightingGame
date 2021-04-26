@@ -38,6 +38,11 @@ namespace RB
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index) {}
 		virtual CollisionQueue* GetCollisionQueue(size_t index) { return nullptr; }
+		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
+		virtual int32_t MaxCollisions(int32_t fighterIndex) { return 0; };
+		virtual void AddCollisionCount(int32_t fighterIndex) {}
+		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
+
 		virtual size_t GetOwnerCreationID(size_t index) { return 0; }
 	};
 }

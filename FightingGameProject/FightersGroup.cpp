@@ -359,17 +359,17 @@ namespace RB
 		return nullptr;
 	}
 
-	int32_t* FightersGroup::CollisionCount(int32_t fighterIndex)
+	int32_t FightersGroup::GetCollisionCount(int32_t fighterIndex)
 	{
 		if (fighterIndex < arrObjs.size())
 		{
 			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
 			{
-				return &arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount;
+				return arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount;
 			}
 		}
 
-		return nullptr;
+		return 0;
 	}
 
 	int32_t FightersGroup::MaxCollisions(int32_t fighterIndex)
@@ -383,5 +383,10 @@ namespace RB
 		}
 
 		return 0;
+	}
+
+	void FightersGroup::AddCollisionCount(int32_t fighterIndex)
+	{
+		arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount++;
 	}
 }

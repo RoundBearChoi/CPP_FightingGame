@@ -7,7 +7,7 @@ namespace RB
 	class BodyPartCollision
 	{
 	public:
-		static bool IsColliding(int32_t attackerIndex, FightersGroup& fighters, olc::vi2d& resultMid, DamageData& damageData)
+		static bool IsColliding(int32_t attackerIndex, ObjGroup& fighters, olc::vi2d& resultMid, DamageData& damageData)
 		{
 			int32_t targetIndex = 0;
 
@@ -24,7 +24,7 @@ namespace RB
 
 			if (collisionQueue)
 			{
-				if (*fighters.CollisionCount(attackerIndex) < fighters.MaxCollisions(attackerIndex))
+				if (fighters.GetCollisionCount(attackerIndex) < fighters.MaxCollisions(attackerIndex))
 				{
 					for (BodyType& b : collisionQueue->vecBodies)
 					{
@@ -49,9 +49,7 @@ namespace RB
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 								resultMid = attackPos + rounded;
 
-								int32_t& collisionCount = *fighters.CollisionCount(attackerIndex);
-								collisionCount++;
-
+								fighters.AddCollisionCount(attackerIndex);
 								damageData = collisionQueue->damageData;
 
 								return true;
