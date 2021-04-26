@@ -1,7 +1,7 @@
 #pragma once
 #include "olcPixelGameEngine.h"
+#include "ObjGroup.h"
 #include "ProjectileGroup.h"
-#include "FightersGroup.h"
 #include "DiagonalOverlap.h"
 
 namespace RB
@@ -9,7 +9,7 @@ namespace RB
 	class ProjectileCollision
 	{
 	public:
-		static bool IsColliding(int32_t targetFighterIndex, FightersGroup& fighters, ProjectileGroup& projectiles, size_t& collidingProjectileIndex, olc::vi2d& midPoint)
+		static bool IsColliding(int32_t targetFighterIndex, ObjGroup& fighters, ProjectileGroup& projectiles, size_t& collidingProjectileIndex, olc::vi2d& midPoint)
 		{
 			for (size_t projectileIndex = 0; projectileIndex < projectiles.GetObjCount(); projectileIndex++)
 			{
