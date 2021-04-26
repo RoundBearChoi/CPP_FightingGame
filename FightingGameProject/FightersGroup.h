@@ -24,11 +24,11 @@ namespace RB
 		std::array<GameObj, 2> arrObjs;
 		GroupComponent* ptrInputBufferRenderer = nullptr;
 		GroupComponent* ptrAnimationRenderer = nullptr;
-		
+		GroupComponent* ptrFighterJump = nullptr;
+
 		Preload_Fighter_0 preload_fighter_0;
 		RandomInteger randomInteger;
 
-		FighterJump fighterJump;
 		FighterGroundToGroundCollision fighterGroundToGroundCollision;
 		SpecialMoveProcessor specialMoveProcessor;
 

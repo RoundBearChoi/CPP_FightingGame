@@ -5,12 +5,14 @@ namespace RB
 	FightersGroup::FightersGroup()
 	{
 		//initialize components
+		ptrFighterJump = new FighterJump();
 		ptrAnimationRenderer = new AnimationRenderer;
 		ptrInputBufferRenderer = new InputBufferRenderer;
 	}
 
 	FightersGroup::~FightersGroup()
 	{
+		delete ptrFighterJump;
 		delete ptrAnimationRenderer;
 		delete ptrInputBufferRenderer;
 	}
@@ -52,7 +54,7 @@ namespace RB
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
 			}
 
-			fighterJump.Update(obj, gameData);
+			ptrFighterJump->UpdateComponent(obj, gameData);
 		}
 
 		fighterGroundToGroundCollision.Update(arrObjs);

@@ -1,13 +1,14 @@
 #pragma once
+#include "GroupComponent.h"
 #include "GameObj.h"
 #include "GameData.h"
 
 namespace RB
 {
-	class FighterJump
+	class FighterJump : public GroupComponent
 	{
 	public:
-		void Update(GameObj& obj, GameData& gameData)
+		void UpdateComponent(GameObj& obj, GameData& gameData) override
 		{
 			//process jump
 			if (obj.objData.ptrJumpProcessor != nullptr)
