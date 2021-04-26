@@ -448,5 +448,8 @@
     <ClInclude Include="DamageDetector.h">
       <Filter>Source Files\Damage</Filter>
     </ClInclude>
+    <ClInclude Include="FighterJump.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

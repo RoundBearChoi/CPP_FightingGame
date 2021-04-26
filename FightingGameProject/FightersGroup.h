@@ -9,6 +9,7 @@
 #include "Normalize.h"
 #include "JumpProcessor.h"
 #include "RandomInteger.h"
+#include "FighterJump.h"
 
 //components
 #include "InputBufferRenderer.h"
@@ -32,6 +33,8 @@ namespace RB
 		
 		Preload_Fighter_0 preload_fighter_0;
 		RandomInteger randomInteger;
+
+		FighterJump fighterJump;
 
 	public:
 		FightersGroup();
