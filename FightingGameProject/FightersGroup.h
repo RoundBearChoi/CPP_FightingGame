@@ -4,10 +4,8 @@
 #include "GameObj.h"
 #include "GameData.h"
 #include "ObjGroup.h"
-#include "DiagonalOverlap.h"
 #include "AABB.h"
 #include "Normalize.h"
-#include "JumpProcessor.h"
 #include "RandomInteger.h"
 #include "FighterJump.h"
 
