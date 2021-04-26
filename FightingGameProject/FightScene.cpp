@@ -11,6 +11,11 @@ namespace RB
 	FightScene::~FightScene()
 	{
 		IF_COUT{ std::cout << "destructing FightScene" << std::endl; };
+
+		if (damageDetector != nullptr)
+		{
+			delete damageDetector;
+		}
 	}
 
 	void FightScene::InitScene()
@@ -28,6 +33,8 @@ namespace RB
 		background.SetInitialState<Background_Idle_Trees>(0);
 		background.SetInitialState<Background_Idle_Mountains>(1);
 		background.SetInitialState<Background_Idle_Sun>(2);
+
+		damageDetector = new DamageDetector(&fighters, &projectiles);
 	}
 
 	void FightScene::UpdateScene(GameData& gameData)
