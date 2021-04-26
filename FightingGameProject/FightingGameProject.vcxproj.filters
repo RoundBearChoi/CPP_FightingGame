@@ -102,6 +102,9 @@
     <Filter Include="Source Files\SpecialMove\Concrete Moves">
       <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SlowMotion">
+      <UniqueIdentifier>{c5857686-4ca2-484c-895e-a5909ae7f256}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -456,6 +459,12 @@
     </ClInclude>
     <ClInclude Include="SpecialMoveProcessor.h">
       <Filter>Source Files\SpecialMove\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SlowMotionMessage.h">
+      <Filter>Source Files\SlowMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="SlowMotionGroupType.h">
+      <Filter>Source Files\SlowMotion</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
