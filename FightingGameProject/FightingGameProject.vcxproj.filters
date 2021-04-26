@@ -63,9 +63,6 @@
     <Filter Include="Source Files\Combo Checker\Base">
       <UniqueIdentifier>{88e45e30-a716-4eba-a56b-f2150e9ce0c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Combo Checker\Concrete Checkers">
-      <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Projectile">
       <UniqueIdentifier>{2b018585-e2fa-49da-b091-419cb3e257c3}</UniqueIdentifier>
     </Filter>
@@ -101,6 +98,9 @@
     </Filter>
     <Filter Include="Source Files\Groups\Concrete Components">
       <UniqueIdentifier>{e47fd888-3caa-4737-b3e7-3a603f2e43d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Combo Checker\Concrete Moves">
+      <UniqueIdentifier>{b91e237c-dcf6-42b4-9f77-995da52f9a97}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -314,7 +314,7 @@
       <Filter>Source Files\Combo Checker\Base</Filter>
     </ClInclude>
     <ClInclude Include="Hadouken.h">
-      <Filter>Source Files\Combo Checker\Concrete Checkers</Filter>
+      <Filter>Source Files\Combo Checker\Concrete Moves</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_Hadouken_Fire.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
@@ -337,7 +337,7 @@
     <ClInclude Include="RenderMode.h">
       <Filter>Source Files\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="ComboChecker.h">
+    <ClInclude Include="BufferChecker.h">
       <Filter>Source Files\Combo Checker\Base</Filter>
     </ClInclude>
     <ClInclude Include="ImpactEffect_Hit_0.h">
@@ -449,6 +449,9 @@
       <Filter>Source Files\Damage</Filter>
     </ClInclude>
     <ClInclude Include="FighterJump.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterGroundToGroundCollision.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

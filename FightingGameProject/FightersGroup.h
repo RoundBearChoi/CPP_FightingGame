@@ -4,17 +4,15 @@
 #include "GameObj.h"
 #include "GameData.h"
 #include "ObjGroup.h"
-#include "AABB.h"
-#include "Normalize.h"
-#include "RandomInteger.h"
 #include "FighterJump.h"
+#include "FighterGroundToGroundCollision.h"
 
 //components
 #include "InputBufferRenderer.h"
 #include "AnimationRenderer.h"
 
 //combos (temp)
-#include "ComboChecker.h"
+#include "BufferChecker.h"
 #include "Hadouken.h"
 
 //loading (temp)
@@ -33,6 +31,7 @@ namespace RB
 		RandomInteger randomInteger;
 
 		FighterJump fighterJump;
+		FighterGroundToGroundCollision fighterGroundToGroundCollision;
 
 	public:
 		FightersGroup();

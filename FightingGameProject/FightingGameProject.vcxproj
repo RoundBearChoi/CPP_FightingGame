@@ -181,9 +181,10 @@
     <ClInclude Include="BodyType.h" />
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CollisionQueue.h" />
-    <ClInclude Include="ComboChecker.h" />
+    <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="DamageData.h" />
     <ClInclude Include="DamageDetector.h" />
+    <ClInclude Include="FighterGroundToGroundCollision.h" />
     <ClInclude Include="FighterJump.h" />
     <ClInclude Include="Fighter_0_Crouch.h" />
     <ClInclude Include="Fighter_0_HitReaction_Up.h" />

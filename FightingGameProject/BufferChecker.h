@@ -5,10 +5,10 @@
 
 namespace RB
 {
-	class ComboChecker
+	class BufferChecker
 	{
 	public:
-		static bool TriggerSpecialMove(SpecialMove& move, std::vector<InputElement>& vecInputs, GameObj& obj)
+		static bool Correct(SpecialMove& move, std::vector<InputElement>& vecInputs, GameObj& obj)
 		{
 			for (size_t i = 0; i < vecInputs.size(); i++)
 			{
