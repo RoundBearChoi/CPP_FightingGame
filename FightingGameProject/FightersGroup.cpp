@@ -198,6 +198,25 @@ namespace RB
 		}
 	}
 
+	bool FightersGroup::SetNextState(int32_t _index, State* ptrState)
+	{
+		if (ptrState != nullptr)
+		{
+			if (_index < arrObjs.size())
+			{
+				if (arrObjs[_index].stateController.currentState != nullptr)
+				{
+					arrObjs[_index].stateController.currentState->nextState = ptrState;
+					return true;
+				}
+			}
+
+			delete ptrState;
+		}
+
+		return false;
+	}
+
 	void FightersGroup::RenderBoxColliders(Camera& cam)
 	{
 		for (int32_t i = 0; i < arrObjs.size(); i++)
@@ -364,24 +383,5 @@ namespace RB
 		}
 
 		return 0;
-	}
-
-	bool FightersGroup::SetNextState(int32_t _index, State* ptrState)
-	{
-		if (ptrState != nullptr)
-		{
-			if (_index < arrObjs.size())
-			{
-				if (arrObjs[_index].stateController.currentState != nullptr)
-				{
-					arrObjs[_index].stateController.currentState->nextState = ptrState;
-					return true;
-				}
-			}
-
-			delete ptrState;
-		}
-
-		return false;
 	}
 }

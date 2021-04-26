@@ -40,6 +40,7 @@ namespace RB
 		void UpdateStates(GameData& gameData) override;
 		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
+		bool SetNextState(int32_t _index, State* ptrState) override;
 		void RenderBoxColliders(Camera& cam) override;
 		
 		size_t GetObjCount() override;
@@ -47,10 +48,9 @@ namespace RB
 		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
-		
 		void RenderComponents() override;
 		CollisionQueue* GetCollisionQueue(size_t index) override;
-
+		
 		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce);
 		GameObj* GetEnemyObj(State& me);
@@ -65,7 +65,5 @@ namespace RB
 		{
 			arrObjs[_index].stateController.CreateNewState<T>();
 		}
-
-		bool SetNextState(int32_t _index, State* ptrState);
 	};
 }
