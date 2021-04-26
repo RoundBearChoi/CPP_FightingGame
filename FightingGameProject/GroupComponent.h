@@ -11,8 +11,6 @@ namespace RB
 	public:
 		virtual void UpdateComponent() {};
 		virtual void UpdateComponent(GameObj& obj, GameData& gameData) {};
-
-		virtual void RenderComponent() {};
-		virtual void RenderComponent(GameObj* obj, Camera& cam) {};
+		virtual void UpdateComponent(GameObj& obj, Camera& cam) {};
 	};
 }

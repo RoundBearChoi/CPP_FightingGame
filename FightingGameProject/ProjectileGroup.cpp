@@ -59,7 +59,7 @@ namespace RB
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				ptrAnimationRenderer->RenderComponent(vecObjs[i], cam);
+				ptrAnimationRenderer->UpdateComponent(*vecObjs[i], cam);
 
 				if (update)
 				{

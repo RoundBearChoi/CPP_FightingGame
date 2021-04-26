@@ -99,7 +99,7 @@ namespace RB
 
 		}
 
-		void RenderComponent() override
+		void UpdateComponent() override
 		{
 			olc::vi2d startPos1(20, 100);
 			RenderInputBuffer(startPos1, InputBuffer::ptr->vecP1Inputs);

@@ -307,7 +307,10 @@ namespace RB
 		void RenderStates(bool update) override
 		{
 			//dummy fighter
-			ptrAnimationRenderer->RenderComponent(selector.Current(), cam);
+			if (selector.Current() != nullptr)
+			{
+				ptrAnimationRenderer->UpdateComponent(*selector.Current(), cam);
+			}
 
 			//play icon
 			olc::Renderer::ptrPGE->DrawDecal(playIcon.topLeft, playIcon.ptrDecal, { 1.0f, 1.0f }, playIcon.tint);

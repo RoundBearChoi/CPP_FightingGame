@@ -89,7 +89,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
-			ptrAnimationRenderer->RenderComponent(&arrObjs[i], cam);
+			ptrAnimationRenderer->UpdateComponent(arrObjs[i], cam);
 
 			if (update)
 			{
@@ -194,7 +194,7 @@ namespace RB
 
 	void FightersGroup::RenderComponents()
 	{
-		ptrInputBufferRenderer->RenderComponent();
+		ptrInputBufferRenderer->UpdateComponent();
 	}
 
 	CollisionQueue* FightersGroup::GetCollisionQueue(size_t index)

@@ -12,27 +12,27 @@ namespace RB
 	class AnimationRenderer : public GroupComponent
 	{
 	public:
-		void RenderComponent(GameObj* obj, Camera& cam) override
+		void UpdateComponent(GameObj& obj, Camera& cam) override
 		{
-			AnimationStatus* animationStatus = obj->stateController.currentState->animationController.UpdateSource();
+			AnimationStatus* animationStatus = obj.stateController.currentState->animationController.UpdateSource();
 
 			if (animationStatus == nullptr)
 			{
 				return;
 			}
 
-			obj->objData.SetAnimationIndex(animationStatus->nCurrentTile);
+			obj.objData.SetAnimationIndex(animationStatus->nCurrentTile);
 
-			int32_t x = obj->objData.GetPosition().x;
-			int32_t y = obj->objData.GetPosition().y;
-			int32_t width = obj->objData.GetSpriteSize().x;
-			int32_t height = obj->objData.GetSpriteSize().y;
+			int32_t x = obj.objData.GetPosition().x;
+			int32_t y = obj.objData.GetPosition().y;
+			int32_t width = obj.objData.GetSpriteSize().x;
+			int32_t height = obj.objData.GetSpriteSize().y;
 
 			std::array<olc::vf2d, 4> points;
 
-			if (obj->objData.GetOffsetType() == OffsetType::BOTTOM_CENTER)
+			if (obj.objData.GetOffsetType() == OffsetType::BOTTOM_CENTER)
 			{
-				if (obj->objData.IsFacingRight())
+				if (obj.objData.IsFacingRight())
 				{
 					points[0] = { (float)x - (float)width / 2.0f, (float)y - (float)height };
 					points[1] = { (float)x - (float)width / 2.0f, (float)y };
@@ -47,9 +47,9 @@ namespace RB
 					points[3] = { (float)x - (float)width / 2.0f, (float)y - (float)height };
 				}
 			}
-			else if (obj->objData.GetOffsetType() == OffsetType::CENTER_CENTER)
+			else if (obj.objData.GetOffsetType() == OffsetType::CENTER_CENTER)
 			{
-				if (obj->objData.IsFacingRight())
+				if (obj.objData.IsFacingRight())
 				{
 					points[0] = { (float)x - (float)width / 2.0f, (float)y - (float)height / 2.0f };
 					points[1] = { (float)x - (float)width / 2.0f, (float)y + (float)height / 2.0f };
@@ -65,8 +65,8 @@ namespace RB
 				}
 			}
 
-			SpriteType spriteType = obj->stateController.currentState->animationController.status.spriteType;
-			size_t hash = obj->stateController.currentState->GetHash();
+			SpriteType spriteType = obj.stateController.currentState->animationController.status.spriteType;
+			size_t hash = obj.stateController.currentState->GetHash();
 			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;
