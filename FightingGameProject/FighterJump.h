@@ -8,7 +8,7 @@ namespace RB
 	class FighterJump : public GroupComponent
 	{
 	public:
-		void UpdateComponent(GameObj& obj, GameData& gameData) override
+		void Update(GameObj& obj, GameData& gameData) override
 		{
 			//process jump
 			if (obj.objData.ptrJumpProcessor != nullptr)

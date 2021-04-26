@@ -9,9 +9,9 @@ namespace RB
 	class GroupComponent
 	{
 	public:
-		virtual void UpdateComponent() {}
-		virtual void UpdateComponent(GameObj& obj, GameData& gameData) {}
-		virtual void UpdateComponent(GameObj& obj, Camera& cam) {}
-		virtual void UpdateComponent(std::array<GameObj, 2>& arrObjs) {}
+		virtual void Update() {}
+		virtual void Update(GameObj& obj, GameData& gameData) {}
+		virtual void Update(GameObj& obj, Camera& cam) {}
+		virtual void Update(std::array<GameObj, 2>& arrObjs) {}
 	};
 }

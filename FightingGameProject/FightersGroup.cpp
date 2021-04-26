@@ -29,7 +29,7 @@ namespace RB
 		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
 
 		//special moves
-		ptrSpecialMoveProcessor->UpdateComponent(arrObjs);
+		ptrSpecialMoveProcessor->Update(arrObjs);
 
 		//position before update
 		arrObjs[0].objData.lastPosition = arrObjs[0].objData.GetPosition();
@@ -56,7 +56,7 @@ namespace RB
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
 			}
 
-			ptrFighterJump->UpdateComponent(obj, gameData);
+			ptrFighterJump->Update(obj, gameData);
 		}
 
 		fighterGroundToGroundCollision.Update(arrObjs);
@@ -91,7 +91,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < arrObjs.size(); i++)
 		{
-			ptrAnimationRenderer->UpdateComponent(arrObjs[i], cam);
+			ptrAnimationRenderer->Update(arrObjs[i], cam);
 
 			if (update)
 			{
@@ -196,7 +196,7 @@ namespace RB
 
 	void FightersGroup::RenderComponents()
 	{
-		ptrInputBufferRenderer->UpdateComponent();
+		ptrInputBufferRenderer->Update();
 	}
 
 	CollisionQueue* FightersGroup::GetCollisionQueue(size_t index)

@@ -309,7 +309,7 @@ namespace RB
 			//dummy fighter
 			if (selector.Current() != nullptr)
 			{
-				ptrAnimationRenderer->UpdateComponent(*selector.Current(), cam);
+				ptrAnimationRenderer->Update(*selector.Current(), cam);
 			}
 
 			//play icon

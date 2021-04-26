@@ -13,7 +13,7 @@ namespace RB
 	class SpecialMoveProcessor : public GroupComponent
 	{
 	public:
-		void UpdateComponent(std::array<GameObj, 2>& arrObjs) override
+		void Update(std::array<GameObj, 2>& arrObjs) override
 		{
 			Hadouken h1;
 			Hadouken h2;

@@ -12,7 +12,7 @@ namespace RB
 	class AnimationRenderer : public GroupComponent
 	{
 	public:
-		void UpdateComponent(GameObj& obj, Camera& cam) override
+		void Update(GameObj& obj, Camera& cam) override
 		{
 			AnimationStatus* animationStatus = obj.stateController.currentState->animationController.UpdateSource();
 
