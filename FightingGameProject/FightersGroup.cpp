@@ -4,7 +4,6 @@ namespace RB
 {
 	FightersGroup::FightersGroup()
 	{
-		//initialize components
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
 		ptrSpecialMoveProcessor = new SpecialMoveProcessor;
