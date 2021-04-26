@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "olcPixelGameEngine.h"
 #include "ObjType.h"
 #include "Camera.h"
@@ -8,16 +9,19 @@ namespace RB
 {
 	class State;
 	class CheckCollisionMessage;
+	class SlowMotionMessage;
 
 	class ObjGroup
 	{
 	public:
+		std::vector<SlowMotionMessage> vecSlowMotion;
+
 		virtual void UpdateStates(GameData& gameData) = 0;
 		virtual void RenderObjPosition(Camera& cam) = 0;
 		virtual void RenderStates(Camera& cam, bool update) = 0;
 		virtual bool SetNextState(int32_t _index, State* ptrState) { return false; }
 		virtual void RenderBoxColliders(Camera& cam) = 0;
-				
+
 		virtual size_t GetObjCount() = 0;
 		virtual size_t GetObjCreationID(size_t index) = 0;
 		virtual olc::vi2d GetObjWorldPos(size_t index) = 0;
