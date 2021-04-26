@@ -1,11 +1,11 @@
 #pragma once
+#include "olcPixelGameEngine.h"
+#include "ObjType.h"
 #include "Camera.h"
 #include "CollisionQueue.h"
 
 namespace RB
 {
-	class InputElement;
-
 	class ObjGroup
 	{
 	public:
@@ -21,6 +21,7 @@ namespace RB
 		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) = 0;
 
 		virtual void RenderComponents() {}
+		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index) {}
 		virtual CollisionQueue* GetCollisionQueue(size_t index) { return nullptr; }
 		virtual size_t GetOwnerCreationID(size_t index) { return 0; }

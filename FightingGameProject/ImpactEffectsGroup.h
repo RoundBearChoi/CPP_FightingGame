@@ -31,6 +31,6 @@ namespace RB
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 
-		void CreateObj(ObjType objType, olc::vi2d startPos);
+		void CreateObj(ObjType objType, olc::vi2d startPos) override;
 	};
 }
