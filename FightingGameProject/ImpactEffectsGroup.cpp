@@ -41,9 +41,9 @@ namespace RB
 				{
 					state->RunUpdateProcess(vecObjs[i]->objData, gameData);
 
-					size_t finalFrame = (size_t)(state->animationController.GetTotalTiles() * state->animationController.status.nTransitionDelay);
+					int32_t end = state->animationController.GetTotalTiles() * state->animationController.status.nTransitionDelay;
 
-					if (state->updateCount >= finalFrame - 1)
+					if (state->updateCount >= end - (int32_t)1)
 					{
 						delete vecObjs[i];
 						vecObjs[i] = nullptr;

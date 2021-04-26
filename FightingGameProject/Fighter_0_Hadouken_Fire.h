@@ -61,7 +61,7 @@ namespace RB
 			}
 
 			int32_t targetdelay = 8;
-			size_t end = (size_t)animationController.status.nTransitionDelay * targetdelay;
+			size_t end = (size_t)animationController.status.nTransitionDelay * (size_t)targetdelay;
 
 			if (updateCount >= end)
 			{
