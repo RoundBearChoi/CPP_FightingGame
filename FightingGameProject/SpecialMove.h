@@ -11,7 +11,6 @@ namespace RB
 		size_t currIndex = 0;
 		
 	public:
-		virtual void SetCombo() = 0;
 		virtual void Check(InputElement& _inputElement, size_t bufferIndex, ObjData& objData) = 0;
 		virtual bool IsMatching() = 0;
 		std::vector<size_t> correctBuffers;

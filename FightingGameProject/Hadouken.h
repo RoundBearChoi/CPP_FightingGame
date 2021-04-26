@@ -7,17 +7,14 @@ namespace RB
 	class Hadouken : public SpecialMove
 	{
 	private:
-		std::array<ConvertedInputType, 4> arr;
+		std::array<ConvertedInputType, 4> arr = {
+			ConvertedInputType::DOWN,
+			ConvertedInputType::DOWN_FORWARD,
+			ConvertedInputType::FORWARD,
+			ConvertedInputType::WEAK_PUNCH
+		};
 		
 	public:
-		void SetCombo() override
-		{
-			arr[0] = ConvertedInputType::DOWN;
-			arr[1] = ConvertedInputType::DOWN_FORWARD;
-			arr[2] = ConvertedInputType::FORWARD;
-			arr[3] = ConvertedInputType::WEAK_PUNCH;
-		}
-
 		void Check(InputElement& _inputElement, size_t bufferIndex, ObjData& objData) override
 		{
 			if (currIndex < arr.size())

@@ -17,8 +17,6 @@ namespace RB
 		{
 			Hadouken h1;
 			Hadouken h2;
-			h1.SetCombo();
-			h2.SetCombo();
 
 			if (BufferChecker::Correct(h1, InputBuffer::ptr->vecP1Inputs, arrObjs[0]))
 			{
