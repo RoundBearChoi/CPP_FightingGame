@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include "GroupComponent.h"
 #include "GameObj.h"
 #include "RandomInteger.h"
 #include "AABB.h"
@@ -7,13 +8,13 @@
 
 namespace RB
 {
-	class FighterGroundToGroundCollision
+	class FighterGroundToGroundCollision : public GroupComponent
 	{
 	private:
 		RandomInteger randomInteger;
 
 	public:
-		void Update(std::array<GameObj, 2>& arrObjs)
+		void Update(std::array<GameObj, 2>& arrObjs) override
 		{
 			//ground vs ground
 			if (arrObjs[0].objData.GetPosition().y == 0 && arrObjs[1].objData.GetPosition().y == 0)

@@ -6,6 +6,7 @@ namespace RB
 	{
 		//initialize components
 		ptrFighterJump = new FighterJump;
+		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
 		ptrSpecialMoveProcessor = new SpecialMoveProcessor;
 		ptrAnimationRenderer = new AnimationRenderer;
 		ptrInputBufferRenderer = new InputBufferRenderer;
@@ -14,6 +15,7 @@ namespace RB
 	FightersGroup::~FightersGroup()
 	{
 		delete ptrFighterJump;
+		delete ptrGroundToGroundCollision;
 		delete ptrSpecialMoveProcessor;
 		delete ptrAnimationRenderer;
 		delete ptrInputBufferRenderer;
@@ -59,7 +61,7 @@ namespace RB
 			ptrFighterJump->Update(obj, gameData);
 		}
 
-		fighterGroundToGroundCollision.Update(arrObjs);
+		ptrGroundToGroundCollision->Update(arrObjs);
 	}
 
 	void FightersGroup::RenderObjPosition(Camera& cam)

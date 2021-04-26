@@ -5,10 +5,9 @@
 #include "GameData.h"
 #include "ObjGroup.h"
 
-#include "FighterGroundToGroundCollision.h"
-
 //components
 #include "FighterJump.h"
+#include "FighterGroundToGroundCollision.h"
 #include "SpecialMoveProcessor.h"
 #include "InputBufferRenderer.h"
 #include "AnimationRenderer.h"
@@ -22,16 +21,15 @@ namespace RB
 	{
 	private:
 		std::array<GameObj, 2> arrObjs;
+
+		GroupComponent* ptrFighterJump = nullptr;
+		GroupComponent* ptrGroundToGroundCollision = nullptr;
+		GroupComponent* ptrSpecialMoveProcessor = nullptr;
 		GroupComponent* ptrInputBufferRenderer = nullptr;
 		GroupComponent* ptrAnimationRenderer = nullptr;
-		GroupComponent* ptrFighterJump = nullptr;
-		GroupComponent* ptrSpecialMoveProcessor = nullptr;
 
 		Preload_Fighter_0 preload_fighter_0;
 		RandomInteger randomInteger;
-
-		FighterGroundToGroundCollision fighterGroundToGroundCollision;
-		
 
 	public:
 		FightersGroup();
