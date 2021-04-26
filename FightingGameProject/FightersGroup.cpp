@@ -261,6 +261,37 @@ namespace RB
 		return arr;
 	}
 
+	olc::vi2d FightersGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
+	{
+		if (fighterIndex < arrObjs.size())
+		{
+			State* state = arrObjs[fighterIndex].stateController.currentState;
+
+			if (state != nullptr)
+			{
+				return state->GetColliderWorldPos(bodyType, arrObjs[fighterIndex].objData);
+			}
+		}
+
+		return { 0, 0 };
+	}
+
+	std::array<olc::vi2d, 4> FightersGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
+	{
+		if (fighterIndex < arrObjs.size())
+		{
+			State* state = arrObjs[fighterIndex].stateController.currentState;
+
+			if (state != nullptr)
+			{
+				return state->GetColliderQuadsWorldPos(bodyType, arrObjs[fighterIndex].objData);
+			}
+		}
+
+		std::array<olc::vi2d, 4> arr;
+		return arr;
+	}
+
 	void FightersGroup::RenderComponents()
 	{
 		ptrInputBufferRenderer->RenderComponent();
@@ -326,37 +357,6 @@ namespace RB
 		}
 
 		return nullptr;
-	}
-
-	olc::vi2d FightersGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
-	{
-		if (fighterIndex < arrObjs.size())
-		{
-			State* state = arrObjs[fighterIndex].stateController.currentState;
-
-			if (state != nullptr)
-			{
-				return state->GetColliderWorldPos(bodyType, arrObjs[fighterIndex].objData);
-			}
-		}
-
-		return { 0, 0 };
-	}
-
-	std::array<olc::vi2d, 4> FightersGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
-	{
-		if (fighterIndex < arrObjs.size())
-		{
-			State* state = arrObjs[fighterIndex].stateController.currentState;
-
-			if (state != nullptr)
-			{
-				return state->GetColliderQuadsWorldPos(bodyType, arrObjs[fighterIndex].objData);
-			}
-		}
-
-		std::array<olc::vi2d, 4> arr;
-		return arr;
 	}
 
 	int32_t* FightersGroup::CollisionCount(int32_t fighterIndex)

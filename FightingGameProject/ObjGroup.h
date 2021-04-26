@@ -23,6 +23,17 @@ namespace RB
 		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index) = 0;
 		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) = 0;
 
+		virtual olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
+		{
+			return olc::vi2d(0, 0);
+		};
+
+		virtual std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
+		{
+			std::array<olc::vi2d, 4> arr = { olc::vi2d(0,0), olc::vi2d(0,0), olc::vi2d(0,0), olc::vi2d(0,0) };
+			return arr;
+		};
+
 		virtual void RenderComponents() {}
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index) {}

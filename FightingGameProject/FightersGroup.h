@@ -48,6 +48,8 @@ namespace RB
 		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
+		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType) override;
+		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
 		void RenderComponents() override;
 		CollisionQueue* GetCollisionQueue(size_t index) override;
 		
@@ -55,8 +57,6 @@ namespace RB
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce);
 		GameObj* GetEnemyObj(State& me);
 		std::vector<CreateProjectile>* GetProjectileQueues(size_t _index);
-		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType);
-		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType);
 		int32_t* CollisionCount(int32_t fighterIndex);
 		int32_t MaxCollisions(int32_t fighterIndex);
 
