@@ -41,23 +41,18 @@ namespace RB
 	{
 		damageDetector->Update();
 
-		//update objs
 		background.UpdateStates(gameData);
 		background.UpdateOffset(cam);
 		fighters.UpdateStates(gameData);
 		impactEffects.UpdateStates(gameData);
 
-		//create projectiles
 		std::vector<CreateProjectile>* p1 = fighters.GetProjectileQueues(0);
 		std::vector<CreateProjectile>* p2 = fighters.GetProjectileQueues(1);
-
 		projectiles.CreateProjectiles(*p1);
 		projectiles.CreateProjectiles(*p2);
-
 		p1->clear();
 		p2->clear();
 
-		//update projectiles
 		projectiles.UpdateStates(gameData);
 	}
 
@@ -74,7 +69,6 @@ namespace RB
 
 	void FightScene::RenderStates(bool update)
 	{
-		//background.RenderStates(cam, update);
 		fighters.RenderStates(cam, update);
 		fighters.RenderBoxColliders(cam);
 		projectiles.RenderStates(cam, update);
