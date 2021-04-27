@@ -27,7 +27,6 @@ namespace RB
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 		size_t GetObjCreationID(size_t index) override;
 		void DeleteObj(size_t index) override;
-		size_t GetOwnerCreationID(size_t index) override;
 
 		void CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs);
 	};

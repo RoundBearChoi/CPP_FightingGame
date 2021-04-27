@@ -52,6 +52,17 @@ namespace RB
 		virtual void AddCollisionCount(int32_t fighterIndex) {}
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
 
-		virtual size_t GetOwnerCreationID(size_t index) { return 0; }
+		virtual size_t GetOwnerCreationID(size_t index)
+		{ 
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					return vecObjs[index]->objData.GetOwnerID();
+				}
+			}
+
+			return 0;
+		}
 	};
 }

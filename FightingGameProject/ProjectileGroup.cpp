@@ -155,19 +155,6 @@ namespace RB
 		int n = 0;
 	}
 
-	size_t ProjectileGroup::GetOwnerCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				return vecObjs[index]->objData.GetOwnerID();
-			}
-		}
-
-		return 0;
-	}
-
 	void ProjectileGroup::CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs)
 	{
 		for (size_t i = 0; i < vecSpecs.size(); i++)
