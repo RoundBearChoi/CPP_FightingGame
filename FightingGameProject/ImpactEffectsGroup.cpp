@@ -41,9 +41,9 @@ namespace RB
 				{
 					state->RunUpdateProcess(vecObjs[i]->objData, gameData);
 
-					int32_t end = state->animationController.GetTotalTiles() * state->animationController.status.nTransitionDelay;
+					size_t end = (size_t)state->animationController.GetTotalTiles() * (size_t)state->animationController.status.nTransitionDelay;
 
-					if (state->updateCount >= end - (int32_t)1)
+					if (state->updateCount >= end - (size_t)1)
 					{
 						delete vecObjs[i];
 						vecObjs[i] = nullptr;
@@ -99,9 +99,9 @@ namespace RB
 
 	void ImpactEffectsGroup::CreateObj(ObjType objType, olc::vi2d startPos)
 	{
-		creationCount++;
-		GameObj* obj = new GameObj(creationCount);
+		GameObj* obj = new GameObj();
 		vecObjs.push_back(obj);
+		vecObjs.back()->objData.SetCreationID(vecObjs.size());
 
 		if (objType == ObjType::HIT_EFFECT_0)
 		{

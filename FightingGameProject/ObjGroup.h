@@ -16,7 +16,6 @@ namespace RB
 	{
 	protected:
 		std::vector<GameObj*> vecObjs;
-		size_t creationCount = 0;
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;

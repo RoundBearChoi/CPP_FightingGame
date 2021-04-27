@@ -7,12 +7,6 @@ namespace RB
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
 	}
 
-	GameObj::GameObj(size_t _creationID)
-	{
-		objData.SetCreationID(_creationID);
-		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
-	}
-
 	GameObj::~GameObj()
 	{
 		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; };

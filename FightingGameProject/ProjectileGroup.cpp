@@ -31,7 +31,6 @@ namespace RB
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				GameObj& obj = *vecObjs[i];
 				State* state = vecObjs[i]->stateController.currentState;
 
 				if (state != nullptr)
@@ -151,8 +150,9 @@ namespace RB
 	{
 		delete vecObjs[index];
 		vecObjs[index] = nullptr;
-
 		vecObjs.erase(vecObjs.begin() + index);
+
+		int n = 0;
 	}
 
 	size_t ProjectileGroup::GetOwnerCreationID(size_t index)
@@ -172,7 +172,9 @@ namespace RB
 	{
 		for (size_t i = 0; i < vecSpecs.size(); i++)
 		{
-			GameObj* obj = _Create();
+			GameObj* obj = new GameObj();
+			vecObjs.push_back(obj);
+			vecObjs.back()->objData.SetCreationID(vecObjs.size());
 
 			if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
 			{
@@ -190,15 +192,6 @@ namespace RB
 
 			obj->objData.SetPosition(vecSpecs[i].startPos);
 			obj->objData.SetOwnerID(vecSpecs[i].ownerObjCreationID);
-
-			vecObjs.push_back(obj);
 		}
-	}
-
-	GameObj* ProjectileGroup::_Create()
-	{
-		creationCount++;
-		GameObj* obj = new GameObj(creationCount);
-		return obj;
 	}
 }

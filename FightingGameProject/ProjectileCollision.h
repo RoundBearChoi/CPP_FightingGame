@@ -26,7 +26,6 @@ namespace RB
 						olc::vi2d bodyPos = fighters.GetBodyWorldPos(targetFighterIndex, (BodyType)bodyIndex);
 						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(targetFighterIndex, (BodyType)bodyIndex);
 
-						//collision test
 						if (DiagonalOverlap::Overlapping(projectilePos, projectileQuads, bodyPos, bodyQuads))
 						{
 							IF_COUT{ std::cout << "projectile collision against player: " << targetFighterIndex << std::endl; };
