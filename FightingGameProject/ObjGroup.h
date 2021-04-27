@@ -2,16 +2,10 @@
 #include <vector>
 #include "olcPixelGameEngine.h"
 #include "ObjType.h"
-#include "Camera.h"
-#include "BodyType.h"
 #include "GameObj.h"
 
 namespace RB
 {
-	class State;
-	class CheckCollisionMessage;
-	class SlowMotionMessage;
-
 	class ObjGroup
 	{
 	protected:
