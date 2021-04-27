@@ -154,6 +154,7 @@
     <ClCompile Include="InputBuffer.cpp" />
     <ClCompile Include="JumpProcessor.cpp" />
     <ClCompile Include="ObjData.cpp" />
+    <ClCompile Include="ObjGroup.cpp" />
     <ClCompile Include="ProjectileGroup.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="FightersGroup.cpp" />

@@ -167,6 +167,9 @@
     <ClCompile Include="ProjectileGroup.cpp">
       <Filter>Source Files\Groups\Concrete Groups</Filter>
     </ClCompile>
+    <ClCompile Include="ObjGroup.cpp">
+      <Filter>Source Files\Groups\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
