@@ -67,7 +67,14 @@ namespace RB
 
 		virtual void RenderComponents() {}
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
-		virtual void DeleteObj(size_t index) {}
+
+		virtual void DeleteObj(size_t index)
+		{
+			delete vecObjs[index];
+			vecObjs[index] = nullptr;
+			vecObjs.erase(vecObjs.begin() + index);
+		}
+
 		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index) { return nullptr; }
 		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
 		virtual int32_t MaxCollisions(int32_t fighterIndex) { return 0; };

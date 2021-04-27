@@ -120,15 +120,6 @@ namespace RB
 		return arr;
 	}
 
-	void ProjectileGroup::DeleteObj(size_t index)
-	{
-		delete vecObjs[index];
-		vecObjs[index] = nullptr;
-		vecObjs.erase(vecObjs.begin() + index);
-
-		int n = 0;
-	}
-
 	void ProjectileGroup::CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs)
 	{
 		for (size_t i = 0; i < vecSpecs.size(); i++)
