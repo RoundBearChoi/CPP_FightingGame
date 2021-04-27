@@ -156,4 +156,14 @@ namespace RB
 
 		return 0;
 	}
+
+	std::vector<CreateProjectileMessage>* ObjGroup::GetProjectileQueues(size_t _index)
+	{
+		if (_index < vecObjs.size())
+		{
+			return &vecObjs[_index]->stateController.currentState->vecCreateProjectiles;
+		}
+
+		return nullptr;
+	}
 }

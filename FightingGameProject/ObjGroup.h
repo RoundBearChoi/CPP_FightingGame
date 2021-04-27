@@ -41,6 +41,7 @@ namespace RB
 		virtual void AddCollisionCount(int32_t fighterIndex);
 
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
+		virtual std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 		virtual void RenderComponents() {}
 	};
 }

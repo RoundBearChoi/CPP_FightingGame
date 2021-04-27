@@ -35,19 +35,22 @@ namespace RB
 		~FightersGroup();
 
 		void UpdateStates(GameData& gameData) override;
-		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
 		bool SetNextState(int32_t _index, State* ptrState) override;
+
+		void RenderObjPosition(Camera& cam) override;
 		void RenderBoxColliders(Camera& cam) override;
-		
+
 		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType) override;
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
-		void RenderComponents() override;
+
+
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
+		void RenderComponents() override;
+		
 
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
-		std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 		
 		template<class T>
 		void SetInitialState(int32_t _index)
