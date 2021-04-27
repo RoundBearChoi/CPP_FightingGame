@@ -1,6 +1,5 @@
 #pragma once
 #include <array>
-#include "GameObj.h"
 #include "GroupComponent.h"
 
 namespace RB

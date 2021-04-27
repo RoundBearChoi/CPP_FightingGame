@@ -1,7 +1,6 @@
 #pragma once
 #include <array>
 #include "GroupComponent.h"
-#include "GameObj.h"
 #include "Hadouken.h"
 #include "BufferChecker.h"
 #include "InputBuffer.h"

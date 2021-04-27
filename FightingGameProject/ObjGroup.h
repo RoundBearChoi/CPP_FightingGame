@@ -4,6 +4,7 @@
 #include "ObjType.h"
 #include "Camera.h"
 #include "BodyType.h"
+#include "GameObj.h"
 
 namespace RB
 {
@@ -13,6 +14,10 @@ namespace RB
 
 	class ObjGroup
 	{
+	protected:
+		std::vector<GameObj*> vecObjs;
+		size_t creationCount = 0;
+
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;
 

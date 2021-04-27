@@ -1,6 +1,5 @@
 #pragma once
 #include "ObjGroup.h"
-#include "GameObj.h"
 #include "ObjType.h"
 #include "ImpactEffect_Hit_0.h"
 
@@ -12,9 +11,6 @@ namespace RB
 	class ImpactEffectsGroup : public ObjGroup
 	{
 	private:
-		std::vector<GameObj*> vecObjs;
-		size_t creationCount = 0;
-
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:

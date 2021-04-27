@@ -46,14 +46,6 @@ namespace RB
 		}
 	}
 
-	void SpriteLoader::LoadBackgroundSprites()
-	{
-		int32_t arrayIndex = (int32_t)SpriteType::BACKGROUND;
-
-		std::string path = "PNG files/Background";
-		LoadSprites(path, sprites[arrayIndex], decals[arrayIndex], hashes[arrayIndex]);
-	}
-
 	void SpriteLoader::Load_Fighter_0_Sprites()
 	{
 		int32_t arrayIndex = (int32_t)SpriteType::FIGHTER_0;

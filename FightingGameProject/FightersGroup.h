@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <array>
-#include "GameObj.h"
 #include "GameData.h"
 #include "ObjGroup.h"
 

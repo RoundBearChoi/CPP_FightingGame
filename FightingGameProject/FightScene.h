@@ -2,7 +2,6 @@
 #include "Scene.h"
 #include "FightersGroup.h"
 #include "ProjectileGroup.h"
-#include "BackgroundGroup.h"
 #include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
 #include "BodyPartCollision.h"
@@ -10,9 +9,6 @@
 
 //temp
 #include "Fighter_1_Idle.h"
-#include "Background_Idle_Trees.h"
-#include "Background_Idle_Mountains.h"
-#include "Background_Idle_Sun.h"
 
 namespace RB
 {
@@ -22,7 +18,6 @@ namespace RB
 		FightersGroup fighters;
 		ProjectileGroup projectiles;
 		ImpactEffectsGroup impactEffects;
-		BackgroundGroup background;
 		DamageDetector* damageDetector = nullptr;
 
 	public:

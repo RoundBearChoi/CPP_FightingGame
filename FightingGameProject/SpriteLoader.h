@@ -25,7 +25,6 @@ namespace RB
 
 		void Load_Fighter_0_Sprites();
 		void Load_Fighter_1_Sprites();
-		void LoadBackgroundSprites();
 		void LoadBoxColliderEditorSprites();
 		void LoadDebugElementSprites();
 		void LoadInputBufferSprites();

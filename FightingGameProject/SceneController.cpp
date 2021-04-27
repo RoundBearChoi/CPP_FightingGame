@@ -52,7 +52,6 @@ namespace RB
 
 	void SceneController::Load()
 	{
-		spriteLoader.LoadBackgroundSprites();
 		spriteLoader.Load_Fighter_0_Sprites();
 		spriteLoader.Load_Fighter_1_Sprites();
 		spriteLoader.LoadBoxColliderEditorSprites();

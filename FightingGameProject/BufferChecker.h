@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "SpecialMove.h"
-#include "GameObj.h"
 
 namespace RB
 {

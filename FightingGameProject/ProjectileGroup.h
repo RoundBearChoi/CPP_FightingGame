@@ -1,6 +1,5 @@
 #pragma once
 #include "ObjGroup.h"
-#include "GameObj.h"
 
 //components
 #include "AnimationRenderer.h"
@@ -13,9 +12,6 @@ namespace RB
 	class ProjectileGroup : public ObjGroup
 	{
 	private:
-		std::vector<GameObj*> vecObjs;
-		size_t creationCount = 0;
-
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:

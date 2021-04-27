@@ -144,7 +144,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationController.cpp" />
-    <ClCompile Include="BackgroundGroup.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DevSettings.cpp" />
@@ -171,10 +170,6 @@
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AnimationRenderer.h" />
     <ClInclude Include="AnimationStatus.h" />
-    <ClInclude Include="BackgroundGroup.h" />
-    <ClInclude Include="Background_Idle_Mountains.h" />
-    <ClInclude Include="Background_Idle_Sun.h" />
-    <ClInclude Include="Background_Idle_Trees.h" />
     <ClInclude Include="BodyPartCollision.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />

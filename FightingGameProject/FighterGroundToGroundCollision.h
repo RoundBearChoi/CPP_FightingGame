@@ -1,7 +1,6 @@
 #pragma once
 #include <array>
 #include "GroupComponent.h"
-#include "GameObj.h"
 #include "RandomInteger.h"
 #include "AABB.h"
 #include "Normalize.h"

@@ -26,23 +26,12 @@ namespace RB
 		fighters.SetInitialState<Fighter_0_Idle>(0);
 		fighters.SetInitialState<Fighter_0_Idle>(1);
 
-		background.SetBackgroundInfo(0, { 0, -250 }); //trees
-		background.SetBackgroundInfo(1, { 0, -400 }); //mountains
-		background.SetBackgroundInfo(2, { 0, -530 }); //sun
-
-		background.SetInitialState<Background_Idle_Trees>(0);
-		background.SetInitialState<Background_Idle_Mountains>(1);
-		background.SetInitialState<Background_Idle_Sun>(2);
-
 		damageDetector = new DamageDetector(&fighters, &projectiles, &impactEffects);
 	}
 
 	void FightScene::UpdateScene(GameData& gameData)
 	{
 		damageDetector->Update();
-
-		background.UpdateStates(gameData);
-		background.UpdateOffset(cam);
 
 		if (!SkipUpdate(fighters))
 		{
@@ -65,7 +54,6 @@ namespace RB
 	{
 		RenderCenterMark(cam);
 
-		background.RenderObjPosition(cam);
 		fighters.RenderObjPosition(cam);
 		fighters.RenderComponents();
 		projectiles.RenderObjPosition(cam);

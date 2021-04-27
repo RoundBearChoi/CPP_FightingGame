@@ -1,6 +1,5 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "GameObj.h"
 #include "BodyType.h"
 
 namespace RB

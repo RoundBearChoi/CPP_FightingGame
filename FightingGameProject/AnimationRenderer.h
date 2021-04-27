@@ -1,7 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "GroupComponent.h"
-#include "GameObj.h"
 #include "Camera.h"
 #include "AnimationStatus.h"
 #include "DevSettings.h"
