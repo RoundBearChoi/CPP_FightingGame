@@ -50,10 +50,17 @@ namespace RB
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
 		
-		template<class T>
-		void SetInitialState(int32_t _index)
+		void SetState(int32_t _index, State* newState)
 		{
-			vecObjs[_index]->stateController.CreateNewState<T>();
+			if (newState != nullptr)
+			{
+				if (vecObjs[_index]->stateController.currentState != nullptr)
+				{
+					delete vecObjs[_index]->stateController.currentState;
+				}
+
+				vecObjs[_index]->stateController.currentState = newState;
+			}
 		}
 	};
 }

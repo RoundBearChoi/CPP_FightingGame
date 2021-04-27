@@ -14,17 +14,5 @@ namespace RB
 
 		~StateController();
 		void MakeStateTransition();
-
-		template<class T>
-		void CreateNewState()
-		{
-			State* s = State::NewState<T>();
-
-			if (s != nullptr)
-			{
-				delete currentState;
-				currentState = s;
-			}
-		}
 	};
 }

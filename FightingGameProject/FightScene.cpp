@@ -23,8 +23,8 @@ namespace RB
 		fighters.SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
 		fighters.SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		fighters.SetInitialState<Fighter_0_Idle>(0);
-		fighters.SetInitialState<Fighter_0_Idle>(1);
+		fighters.SetState(0, State::NewState<Fighter_0_Idle>());
+		fighters.SetState(1, State::NewState<Fighter_0_Idle>());
 
 		damageDetector = new DamageDetector(&fighters, &projectiles, &impactEffects);
 	}
