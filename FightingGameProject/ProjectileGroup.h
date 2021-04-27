@@ -22,7 +22,6 @@ namespace RB
 		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
 		void RenderBoxColliders(Camera& cam) override;
-		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 
 		void CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs);
 	};

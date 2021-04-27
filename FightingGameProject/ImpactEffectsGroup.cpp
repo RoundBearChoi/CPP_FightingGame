@@ -88,11 +88,6 @@ namespace RB
 	
 	};
 
-	std::array<olc::vi2d, 4> ImpactEffectsGroup::GetObjBoxColliderWorldQuad(size_t index)
-	{
-		std::array<olc::vi2d, 4> arr; return arr;
-	};
-
 	void ImpactEffectsGroup::CreateObj(ObjType objType, olc::vi2d startPos)
 	{
 		GameObj* obj = new GameObj();

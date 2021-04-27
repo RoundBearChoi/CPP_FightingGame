@@ -136,12 +136,6 @@ namespace RB
 		}
 	}
 
-	std::array<olc::vi2d, 4> FightersGroup::GetObjBoxColliderWorldQuad(size_t index)
-	{
-		std::array<olc::vi2d, 4> arr;
-		return arr;
-	}
-
 	olc::vi2d FightersGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
 	{
 		if (fighterIndex < vecObjs.size())
