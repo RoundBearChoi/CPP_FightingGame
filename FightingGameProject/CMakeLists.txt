@@ -21,6 +21,7 @@ InputBuffer.cpp
 JumpProcessor.cpp
 main.cpp
 ObjData.cpp
+ObjGroup.cpp
 ProjectileGroup.cpp
 Scene.cpp
 SceneController.cpp
