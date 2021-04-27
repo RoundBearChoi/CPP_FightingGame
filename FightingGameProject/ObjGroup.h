@@ -22,34 +22,25 @@ namespace RB
 		virtual void RenderBoxColliders(Camera& cam) = 0;
 
 		virtual size_t GetObjCount();
-
 		virtual size_t GetObjCreationID(size_t index);
+		virtual size_t GetOwnerCreationID(size_t index);
 
 		virtual olc::vi2d GetObjWorldPos(size_t index);
-
 		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index);
-
 		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index);
 
 		virtual olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType);
-
 		virtual std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType);
 
-		virtual void RenderComponents() {}
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
-
 		virtual void DeleteObj(size_t index);
 
 		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index);
-
 		virtual int32_t GetCollisionCount(int32_t fighterIndex);
-
 		virtual int32_t GetMaxCollisions(int32_t fighterIndex);
-
 		virtual void AddCollisionCount(int32_t fighterIndex);
 
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
-
-		virtual size_t GetOwnerCreationID(size_t index);
+		virtual void RenderComponents() {}
 	};
 }
