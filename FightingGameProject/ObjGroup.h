@@ -76,7 +76,19 @@ namespace RB
 		}
 
 		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index) { return nullptr; }
-		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
+
+		virtual int32_t GetCollisionCount(int32_t fighterIndex)
+		{
+			if (fighterIndex < vecObjs.size())
+			{
+				if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
+				{
+					return vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount;
+				}
+			}
+
+			return 0;
+		}
 
 		virtual int32_t GetMaxCollisions(int32_t fighterIndex)
 		{

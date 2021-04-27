@@ -243,17 +243,4 @@ namespace RB
 
 		return nullptr;
 	}
-
-	int32_t FightersGroup::GetCollisionCount(int32_t fighterIndex)
-	{
-		if (fighterIndex < vecObjs.size())
-		{
-			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
-			{
-				return vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount;
-			}
-		}
-
-		return 0;
-	}
 }
