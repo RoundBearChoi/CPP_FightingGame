@@ -136,16 +136,6 @@ namespace RB
 		}
 	}
 
-	size_t FightersGroup::GetObjCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			return (vecObjs[index]->objData.GetCreationID());
-		}
-
-		return 0;
-	}
-
 	olc::vi2d FightersGroup::GetObjWorldPos(size_t index)
 	{
 		if (index < vecObjs.size())

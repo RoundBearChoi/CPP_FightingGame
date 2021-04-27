@@ -133,19 +133,6 @@ namespace RB
 		return arr;
 	}
 
-	size_t ProjectileGroup::GetObjCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				return vecObjs[index]->objData.GetCreationID();
-			}
-		}
-
-		return 0;
-	}
-
 	void ProjectileGroup::DeleteObj(size_t index)
 	{
 		delete vecObjs[index];
