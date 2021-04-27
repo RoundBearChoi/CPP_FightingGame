@@ -4,6 +4,7 @@ namespace RB
 {
 	FightersGroup::FightersGroup()
 	{
+		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
 		ptrSpecialMoveProcessor = new SpecialMoveProcessor;
@@ -13,6 +14,7 @@ namespace RB
 
 	FightersGroup::~FightersGroup()
 	{
+		delete ptrFighterDirection;
 		delete ptrFighterJump;
 		delete ptrGroundToGroundCollision;
 		delete ptrSpecialMoveProcessor;
@@ -25,9 +27,7 @@ namespace RB
 		//input queues
 		InputBuffer::ptr->AddInputs(gameData);
 
-		//directions
-		arrObjs[0].objData.UpdateFigherDirection(arrObjs[1].objData);
-		arrObjs[1].objData.UpdateFigherDirection(arrObjs[0].objData);
+		ptrFighterDirection->Update(arrObjs);
 
 		//main update
 		for (GameObj& obj : arrObjs)

@@ -6,6 +6,7 @@
 #include "ObjGroup.h"
 
 //components
+#include "FighterDirection.h"
 #include "FighterJump.h"
 #include "FighterGroundToGroundCollision.h"
 #include "SpecialMoveProcessor.h"
@@ -22,6 +23,7 @@ namespace RB
 	private:
 		std::array<GameObj, 2> arrObjs;
 
+		GroupComponent* ptrFighterDirection = nullptr;
 		GroupComponent* ptrFighterJump = nullptr;
 		GroupComponent* ptrGroundToGroundCollision = nullptr;
 		GroupComponent* ptrSpecialMoveProcessor = nullptr;

@@ -466,5 +466,8 @@
     <ClInclude Include="SpecialMoveProcessor.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
+    <ClInclude Include="FighterDirection.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

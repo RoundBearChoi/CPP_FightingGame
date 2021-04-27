@@ -184,6 +184,7 @@
     <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="DamageData.h" />
     <ClInclude Include="DamageDetector.h" />
+    <ClInclude Include="FighterDirection.h" />
     <ClInclude Include="FighterGroundToGroundCollision.h" />
     <ClInclude Include="FighterJump.h" />
     <ClInclude Include="Fighter_0_Crouch.h" />
