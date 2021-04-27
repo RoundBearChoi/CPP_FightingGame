@@ -78,7 +78,12 @@ namespace RB
 		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index) { return nullptr; }
 		virtual int32_t GetCollisionCount(int32_t fighterIndex) { return 0; }
 		virtual int32_t MaxCollisions(int32_t fighterIndex) { return 0; };
-		virtual void AddCollisionCount(int32_t fighterIndex) {}
+
+		virtual void AddCollisionCount(int32_t fighterIndex)
+		{
+			vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount++;
+		}
+
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
 
 		virtual size_t GetOwnerCreationID(size_t index)

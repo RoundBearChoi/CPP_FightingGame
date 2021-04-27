@@ -269,9 +269,4 @@ namespace RB
 
 		return 0;
 	}
-
-	void FightersGroup::AddCollisionCount(int32_t fighterIndex)
-	{
-		vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount++;
-	}
 }
