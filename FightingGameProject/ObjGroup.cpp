@@ -22,6 +22,19 @@ namespace RB
 		return 0;
 	}
 
+	size_t ObjGroup::GetOwnerCreationID(size_t index)
+	{
+		if (index < vecObjs.size())
+		{
+			if (vecObjs[index] != nullptr)
+			{
+				return vecObjs[index]->objData.GetOwnerID();
+			}
+		}
+
+		return 0;
+	}
+
 	olc::vi2d ObjGroup::GetObjWorldPos(size_t index)
 	{
 		if (index < vecObjs.size())
@@ -142,19 +155,6 @@ namespace RB
 	void ObjGroup::AddCollisionCount(int32_t fighterIndex)
 	{
 		vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount++;
-	}
-
-	size_t ObjGroup::GetOwnerCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				return vecObjs[index]->objData.GetOwnerID();
-			}
-		}
-
-		return 0;
 	}
 
 	std::vector<CreateProjectileMessage>* ObjGroup::GetProjectileQueues(size_t _index)
