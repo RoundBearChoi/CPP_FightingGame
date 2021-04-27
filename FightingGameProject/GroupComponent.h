@@ -13,7 +13,6 @@ namespace RB
 		virtual void Update(GameObj& obj) {}
 		virtual void Update(GameObj& obj, GameData& gameData) {}
 		virtual void Update(GameObj& obj, Camera& cam) {}
-		//virtual void Update(std::array<GameObj, 2>& arrObjs) {}
 		virtual void Update(std::vector<GameObj*>& vecObjs) {}
 	};
 }
