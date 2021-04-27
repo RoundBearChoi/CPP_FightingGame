@@ -73,21 +73,6 @@ namespace RB
 
 	}
 
-	olc::vi2d ProjectileGroup::GetObjBoxColliderWorldPos(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				olc::vi2d relativePos = vecObjs[index]->objData.objBoxCollider.RelativePosition();
-				olc::vi2d worldPos = relativePos + vecObjs[index]->objData.GetPosition();
-				return worldPos;
-			}
-		}
-
-		return { 0, 0 };
-	}
-
 	std::array<olc::vi2d, 4> ProjectileGroup::GetObjBoxColliderWorldQuad(size_t index)
 	{
 		std::array<olc::vi2d, 4> arr;

@@ -21,9 +21,10 @@ namespace RB
 		std::vector<SlowMotionMessage> vecSlowMotion;
 
 		virtual void UpdateStates(GameData& gameData) = 0;
-		virtual void RenderObjPosition(Camera& cam) = 0;
 		virtual void RenderStates(Camera& cam, bool update) = 0;
 		virtual bool SetNextState(int32_t _index, State* ptrState) { return false; }
+
+		virtual void RenderObjPosition(Camera& cam) = 0;
 		virtual void RenderBoxColliders(Camera& cam) = 0;
 
 		virtual size_t GetObjCount()
@@ -51,7 +52,21 @@ namespace RB
 			return olc::vi2d(0, 0);
 		}
 
-		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index) = 0;
+		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index)
+		{
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index] != nullptr)
+				{
+					olc::vi2d relativePos = vecObjs[index]->objData.objBoxCollider.RelativePosition();
+					olc::vi2d worldPos = relativePos + vecObjs[index]->objData.GetPosition();
+					return worldPos;
+				}
+			}
+
+			return olc::vi2d(0, 0);
+		}
+
 		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) = 0;
 
 		virtual olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)

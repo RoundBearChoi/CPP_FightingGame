@@ -88,8 +88,6 @@ namespace RB
 	
 	};
 
-	olc::vi2d ImpactEffectsGroup::GetObjBoxColliderWorldPos(size_t index) { return { 0, 0 }; };
-
 	std::array<olc::vi2d, 4> ImpactEffectsGroup::GetObjBoxColliderWorldQuad(size_t index)
 	{
 		std::array<olc::vi2d, 4> arr; return arr;
