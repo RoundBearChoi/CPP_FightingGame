@@ -24,7 +24,7 @@ namespace RB
 
 			if (message)
 			{
-				if (fighters.GetCollisionCount(attackerIndex) < fighters.MaxCollisions(attackerIndex))
+				if (fighters.GetCollisionCount(attackerIndex) < fighters.GetMaxCollisions(attackerIndex))
 				{
 					for (BodyType& b : message->vecBodies)
 					{

@@ -256,17 +256,4 @@ namespace RB
 
 		return 0;
 	}
-
-	int32_t FightersGroup::MaxCollisions(int32_t fighterIndex)
-	{
-		if (fighterIndex < vecObjs.size())
-		{
-			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
-			{
-				return vecObjs[fighterIndex]->stateController.currentState->maxBodyCollisions;
-			}
-		}
-
-		return 0;
-	}
 }

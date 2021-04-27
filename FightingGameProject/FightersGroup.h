@@ -47,7 +47,6 @@ namespace RB
 		void RenderComponents() override;
 		CheckCollisionMessage* GetCheckCollisionMessage(size_t index) override;
 		int32_t GetCollisionCount(int32_t fighterIndex) override;
-		int32_t MaxCollisions(int32_t fighterIndex) override;
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
 
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
