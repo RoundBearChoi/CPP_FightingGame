@@ -4,8 +4,6 @@ namespace RB
 {
 	FightersGroup::FightersGroup()
 	{
-
-
 		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
