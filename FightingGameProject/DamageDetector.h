@@ -32,8 +32,8 @@ namespace RB
 					impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
 
 					SlowMotionMessage slow;
-					slow.interval = 10;
-					slow.maxCount = 3;
+					slow.interval = 20;
+					slow.maxCount = 1;
 					fighters->vecSlowMotion.push_back(slow);
 				}
 

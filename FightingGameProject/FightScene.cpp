@@ -92,7 +92,8 @@ namespace RB
 		{
 			if (group.vecSlowMotion[i].SkipUpdate())
 			{
-				if (group.vecSlowMotion[i].updateCount <= group.vecSlowMotion[i].maxCount * group.vecSlowMotion[i].interval)
+				size_t max = (size_t)group.vecSlowMotion[i].maxCount * (size_t)group.vecSlowMotion[i].interval;
+				if (group.vecSlowMotion[i].updateCount <= max)
 				{
 					skip = true;
 					break;
@@ -107,7 +108,8 @@ namespace RB
 
 		if (group.vecSlowMotion.size() > 0)
 		{
-			if (group.vecSlowMotion[0].updateCount > group.vecSlowMotion[0].maxCount * group.vecSlowMotion[0].interval)
+			size_t end = (size_t)group.vecSlowMotion[0].maxCount * (size_t)group.vecSlowMotion[0].interval;
+			if (group.vecSlowMotion[0].updateCount > end)
 			{
 				group.vecSlowMotion.erase(group.vecSlowMotion.begin());
 			}
