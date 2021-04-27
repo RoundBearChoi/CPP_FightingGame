@@ -229,9 +229,6 @@
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CreationCount.h">
-      <Filter>Source Files\GameObj\Base</Filter>
-    </ClInclude>
     <ClInclude Include="Fighter_0_WalkForward.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>

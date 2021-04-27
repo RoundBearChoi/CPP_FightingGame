@@ -20,8 +20,6 @@ namespace RB
 	class FightersGroup : public ObjGroup
 	{
 	private:
-		std::array<GameObj, 2> arrObjs;
-
 		GroupComponent* ptrFighterDirection = nullptr;
 		GroupComponent* ptrFighterJump = nullptr;
 		GroupComponent* ptrGroundToGroundCollision = nullptr;
@@ -56,14 +54,14 @@ namespace RB
 		void AddCollisionCount(int32_t fighterIndex) override;
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
 
-		void SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType);
+		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
 		std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 		
 		template<class T>
 		void SetInitialState(int32_t _index)
 		{
-			arrObjs[_index].stateController.CreateNewState<T>();
+			vecObjs[_index]->stateController.CreateNewState<T>();
 		}
 	};
 }

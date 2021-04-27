@@ -4,6 +4,8 @@ namespace RB
 {
 	FightersGroup::FightersGroup()
 	{
+
+
 		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
@@ -14,6 +16,19 @@ namespace RB
 
 	FightersGroup::~FightersGroup()
 	{
+		if (vecObjs.size() != 0)
+		{
+			IF_COUT{ std::cout << std::endl; };
+
+			for (size_t i = 0; i < vecObjs.size(); i++)
+			{
+				IF_COUT{ std::cout << "destructing fighter: " << i << std::endl; };
+				delete vecObjs[i];
+			}
+
+			IF_COUT{ std::cout << std::endl; };
+		}
+
 		delete ptrFighterDirection;
 		delete ptrFighterJump;
 		delete ptrGroundToGroundCollision;
@@ -26,30 +41,29 @@ namespace RB
 	{
 		InputBuffer::ptr->AddInputs(gameData);
 
-		ptrFighterDirection->Update(arrObjs);
-		ptrGroundToGroundCollision->Update(arrObjs);
+		ptrFighterDirection->Update(vecObjs);
+		ptrGroundToGroundCollision->Update(vecObjs);
 
-		for (GameObj& obj : arrObjs)
+		for (GameObj* obj : vecObjs)
 		{
-			obj.stateController.MakeStateTransition();
+			obj->stateController.MakeStateTransition();
 
-			if (obj.stateController.currentState != nullptr)
+			if (obj->stateController.currentState != nullptr)
 			{
-				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
+				obj->stateController.currentState->RunUpdateProcess(obj->objData, gameData);
 			}
 
-			ptrSpecialMoveProcessor->Update(obj);
-			ptrFighterJump->Update(obj, gameData);
+			ptrSpecialMoveProcessor->Update(*obj);
+			ptrFighterJump->Update(*obj, gameData);
 		}
 	}
 
 	void FightersGroup::RenderObjPosition(Camera& cam)
 	{
-		for (size_t i = 0; i < arrObjs.size(); i++)
+		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			GameObj& obj = arrObjs[i];
+			GameObj& obj = *vecObjs[i];
 
-			//arrObjs[i].RenderSpriteSize(cam);
 			obj.RenderPosition(cam);
 			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
 
@@ -70,9 +84,9 @@ namespace RB
 
 	void FightersGroup::RenderStates(Camera& cam, bool update)
 	{
-		for (size_t i = 0; i < arrObjs.size(); i++)
+		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			ptrAnimationRenderer->Update(arrObjs[i], cam);
+			ptrAnimationRenderer->Update(*vecObjs[i], cam);
 
 			if (update)
 			{
@@ -89,7 +103,7 @@ namespace RB
 
 				if (!slowmotion)
 				{
-					arrObjs[i].stateController.currentState->animationController.NextTileIndex();
+					vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
 				}
 			}
 		}
@@ -99,11 +113,11 @@ namespace RB
 	{
 		if (ptrState != nullptr)
 		{
-			if (_index < arrObjs.size())
+			if (_index < vecObjs.size())
 			{
-				if (arrObjs[_index].stateController.currentState != nullptr)
+				if (vecObjs[_index]->stateController.currentState != nullptr)
 				{
-					arrObjs[_index].stateController.currentState->nextState = ptrState;
+					vecObjs[_index]->stateController.currentState->nextState = ptrState;
 					return true;
 				}
 			}
@@ -116,22 +130,22 @@ namespace RB
 
 	void FightersGroup::RenderBoxColliders(Camera& cam)
 	{
-		for (int32_t i = 0; i < arrObjs.size(); i++)
+		for (int32_t i = 0; i < vecObjs.size(); i++)
 		{
-			arrObjs[i].stateController.currentState->RenderColliderQuads(arrObjs[i].objData, cam);
+			vecObjs[i]->stateController.currentState->RenderColliderQuads(vecObjs[i]->objData, cam);
 		}
 	}
 
 	size_t FightersGroup::GetObjCount()
 	{
-		return arrObjs.size();
+		return vecObjs.size();
 	}
 
 	size_t FightersGroup::GetObjCreationID(size_t index)
 	{
-		if (index < arrObjs.size())
+		if (index < vecObjs.size())
 		{
-			return (arrObjs[index].objData.GetCreationID());
+			return (vecObjs[index]->objData.GetCreationID());
 		}
 
 		return 0;
@@ -139,9 +153,9 @@ namespace RB
 
 	olc::vi2d FightersGroup::GetObjWorldPos(size_t index)
 	{
-		if (index < arrObjs.size())
+		if (index < vecObjs.size())
 		{
-			return arrObjs[index].objData.GetPosition();
+			return vecObjs[index]->objData.GetPosition();
 		}
 		
 		return { 0, 0 };
@@ -160,13 +174,13 @@ namespace RB
 
 	olc::vi2d FightersGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
 	{
-		if (fighterIndex < arrObjs.size())
+		if (fighterIndex < vecObjs.size())
 		{
-			State* state = arrObjs[fighterIndex].stateController.currentState;
+			State* state = vecObjs[fighterIndex]->stateController.currentState;
 
 			if (state != nullptr)
 			{
-				return state->GetColliderWorldPos(bodyType, arrObjs[fighterIndex].objData);
+				return state->GetColliderWorldPos(bodyType, vecObjs[fighterIndex]->objData);
 			}
 		}
 
@@ -175,13 +189,13 @@ namespace RB
 
 	std::array<olc::vi2d, 4> FightersGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
 	{
-		if (fighterIndex < arrObjs.size())
+		if (fighterIndex < vecObjs.size())
 		{
-			State* state = arrObjs[fighterIndex].stateController.currentState;
+			State* state = vecObjs[fighterIndex]->stateController.currentState;
 
 			if (state != nullptr)
 			{
-				return state->GetColliderQuadsWorldPos(bodyType, arrObjs[fighterIndex].objData);
+				return state->GetColliderQuadsWorldPos(bodyType, vecObjs[fighterIndex]->objData);
 			}
 		}
 
@@ -196,13 +210,13 @@ namespace RB
 
 	CheckCollisionMessage* FightersGroup::GetCheckCollisionMessage(size_t index)
 	{
-		if (index < arrObjs.size())
+		if (index < vecObjs.size())
 		{
-			if (arrObjs[index].stateController.currentState != nullptr)
+			if (vecObjs[index]->stateController.currentState != nullptr)
 			{
-				if (arrObjs[index].stateController.currentState->vecCheckCollisions.size() > 0)
+				if (vecObjs[index]->stateController.currentState->vecCheckCollisions.size() > 0)
 				{
-					return arrObjs[index].stateController.currentState->GetCollisionStatus();
+					return vecObjs[index]->stateController.currentState->GetCollisionStatus();
 				}
 			}
 		}
@@ -210,36 +224,35 @@ namespace RB
 		return nullptr;
 	}
 
-	void FightersGroup::SetFighterInfo(int32_t _index, olc::vi2d _startingPos, PlayerType _playerType)
+	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
-		size_t count = CreationCount::UpdateCount();
-
-		arrObjs[_index].objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
-		arrObjs[_index].objData.SetPosition(_startingPos);
-		arrObjs[_index].objData.SetCreationID(count);
-		arrObjs[_index].objData.SetPlayerType(_playerType);
+		vecObjs.push_back(new GameObj);
+		vecObjs.back()->objData.SetCreationID(vecObjs.size());
+		vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+		vecObjs.back()->objData.SetPosition(_startingPos);
+		vecObjs.back()->objData.SetPlayerType(_playerType);
 	}
 
 	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
 	{
-		arrObjs[index].objData.CreateJumpProcessor();
-		arrObjs[index].objData.ptrJumpProcessor->allowControl = false;
-		arrObjs[index].objData.ptrJumpProcessor->moveBack = true;
-		arrObjs[index].objData.ptrJumpProcessor->moveHorizontally = true;
-		arrObjs[index].objData.ptrJumpProcessor->minimumSideForce = 1;
+		vecObjs[index]->objData.CreateJumpProcessor();
+		vecObjs[index]->objData.ptrJumpProcessor->allowControl = false;
+		vecObjs[index]->objData.ptrJumpProcessor->moveBack = true;
+		vecObjs[index]->objData.ptrJumpProcessor->moveHorizontally = true;
+		vecObjs[index]->objData.ptrJumpProcessor->minimumSideForce = 1;
 
-		arrObjs[index].objData.ptrJumpProcessor->SetUpForce(upForce);
-		arrObjs[index].objData.ptrJumpProcessor->SetSideForce(sideForce);
+		vecObjs[index]->objData.ptrJumpProcessor->SetUpForce(upForce);
+		vecObjs[index]->objData.ptrJumpProcessor->SetSideForce(sideForce);
 	}
 
 	GameObj* FightersGroup::GetEnemyObj(State& me)
 	{
-		for (GameObj& obj : arrObjs)
+		for (GameObj* obj : vecObjs)
 		{
 			//compare addresses
-			if (&(*obj.stateController.currentState) != &me)
+			if (&(*obj->stateController.currentState) != &me)
 			{
-				return &obj;
+				return obj;
 			}
 		}
 
@@ -248,9 +261,9 @@ namespace RB
 
 	std::vector<CreateProjectileMessage>* FightersGroup::GetProjectileQueues(size_t _index)
 	{
-		if (_index < arrObjs.size())
+		if (_index < vecObjs.size())
 		{
-			return &arrObjs[_index].stateController.currentState->vecCreateProjectiles;
+			return &vecObjs[_index]->stateController.currentState->vecCreateProjectiles;
 		}
 
 		return nullptr;
@@ -258,11 +271,11 @@ namespace RB
 
 	int32_t FightersGroup::GetCollisionCount(int32_t fighterIndex)
 	{
-		if (fighterIndex < arrObjs.size())
+		if (fighterIndex < vecObjs.size())
 		{
-			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
+			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
 			{
-				return arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount;
+				return vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount;
 			}
 		}
 
@@ -271,11 +284,11 @@ namespace RB
 
 	int32_t FightersGroup::MaxCollisions(int32_t fighterIndex)
 	{
-		if (fighterIndex < arrObjs.size())
+		if (fighterIndex < vecObjs.size())
 		{
-			if (arrObjs[fighterIndex].stateController.currentState != nullptr)
+			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
 			{
-				return arrObjs[fighterIndex].stateController.currentState->maxBodyCollisions;
+				return vecObjs[fighterIndex]->stateController.currentState->maxBodyCollisions;
 			}
 		}
 
@@ -284,6 +297,6 @@ namespace RB
 
 	void FightersGroup::AddCollisionCount(int32_t fighterIndex)
 	{
-		arrObjs[fighterIndex].stateController.currentState->bodyCollisionCount++;
+		vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount++;
 	}
 }

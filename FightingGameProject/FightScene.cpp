@@ -20,8 +20,8 @@ namespace RB
 
 	void FightScene::InitScene()
 	{
-		fighters.SetFighterInfo(0, { -100, 0 }, PlayerType::PLAYER_1);
-		fighters.SetFighterInfo(1, { 100, 0 }, PlayerType::PLAYER_2);
+		fighters.SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
+		fighters.SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
 		fighters.SetInitialState<Fighter_0_Idle>(0);
 		fighters.SetInitialState<Fighter_0_Idle>(1);

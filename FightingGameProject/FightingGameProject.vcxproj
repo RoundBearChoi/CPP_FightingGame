@@ -205,7 +205,6 @@
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />
     <ClInclude Include="CreateProjectileMessage.h" />
-    <ClInclude Include="CreationCount.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="DevSettings.h" />
     <ClInclude Include="DiagonalOverlap.h" />

@@ -7,10 +7,10 @@ namespace RB
 	class FighterDirection : public GroupComponent
 	{
 	public:
-		void Update(std::array<GameObj, 2>& arrObjs) override
+		void Update(std::vector<GameObj*>& vecObjs) override
 		{
-			UpdateFigherDirection(arrObjs[0].objData, arrObjs[1].objData);
-			UpdateFigherDirection(arrObjs[1].objData, arrObjs[0].objData);
+			UpdateFigherDirection(vecObjs[0]->objData, vecObjs[1]->objData);
+			UpdateFigherDirection(vecObjs[1]->objData, vecObjs[0]->objData);
 		}
 
 		void UpdateFigherDirection(ObjData& me, ObjData& enemy)
