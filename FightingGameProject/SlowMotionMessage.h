@@ -12,7 +12,8 @@ namespace RB
 
 		bool SkipUpdate()
 		{
-			if (updateCount != 0 && updateCount % interval == 0)
+			//skip on the next frame
+			if (updateCount != 0 && updateCount % interval == 1)
 			{
 				return false;
 			}
