@@ -75,7 +75,21 @@ namespace RB
 			vecObjs.erase(vecObjs.begin() + index);
 		}
 
-		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index) { return nullptr; }
+		virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index)
+		{
+			if (index < vecObjs.size())
+			{
+				if (vecObjs[index]->stateController.currentState != nullptr)
+				{
+					if (vecObjs[index]->stateController.currentState->vecCheckCollisions.size() > 0)
+					{
+						return vecObjs[index]->stateController.currentState->GetCollisionStatus();
+					}
+				}
+			}
+
+			return nullptr;
+		}
 
 		virtual int32_t GetCollisionCount(int32_t fighterIndex)
 		{

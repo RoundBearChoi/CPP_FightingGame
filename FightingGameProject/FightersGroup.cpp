@@ -183,22 +183,6 @@ namespace RB
 		ptrInputBufferRenderer->Update();
 	}
 
-	CheckCollisionMessage* FightersGroup::GetCheckCollisionMessage(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index]->stateController.currentState != nullptr)
-			{
-				if (vecObjs[index]->stateController.currentState->vecCheckCollisions.size() > 0)
-				{
-					return vecObjs[index]->stateController.currentState->GetCollisionStatus();
-				}
-			}
-		}
-
-		return nullptr;
-	}
-
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
 		vecObjs.push_back(new GameObj);
