@@ -19,8 +19,9 @@ namespace RB
 		~ProjectileGroup();
 
 		void UpdateStates(GameData& gameData) override;
-		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
+
+		void RenderObjPosition(Camera& cam) override;
 		void RenderBoxColliders(Camera& cam) override;
 
 		void CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs);

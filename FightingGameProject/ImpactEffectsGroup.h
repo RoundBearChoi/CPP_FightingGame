@@ -18,8 +18,9 @@ namespace RB
 		~ImpactEffectsGroup();
 
 		void UpdateStates(GameData& gameData) override;
-		void RenderObjPosition(Camera& cam) override;
 		void RenderStates(Camera& cam, bool update) override;
+
+		void RenderObjPosition(Camera& cam) override;
 		void RenderBoxColliders(Camera& cam) override;
 
 		void CreateObj(ObjType objType, olc::vi2d startPos) override;
