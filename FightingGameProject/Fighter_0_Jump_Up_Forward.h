@@ -38,12 +38,12 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
 
-			if (p.weakpunch)
+			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 
-			if (objData.ptrJumpProcessor != nullptr)
+			else if (objData.ptrJumpProcessor != nullptr)
 			{
 				if (objData.ptrJumpProcessor->GetUpForce() <= 0)
 				{
@@ -51,9 +51,9 @@ namespace RB
 				}
 			}
 
-			if (objData.GetPosition().y >= 0 && updateCount != 0)
+			else if (p.weakpunch)
 			{
-				nextState = State::NewState<Fighter_0_Idle>();
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
 			}
 		}
 

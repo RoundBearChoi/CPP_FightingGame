@@ -38,7 +38,7 @@ namespace RB
 				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>();
 			}
 
-			if (d.forward)
+			else if (d.forward)
 			{
 				int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 2);
 
@@ -46,6 +46,7 @@ namespace RB
 				pos.x += speed;
 				objData.SetPosition(pos);
 			}
+
 			else
 			{
 				nextState = State::NewState<Fighter_0_Idle>();

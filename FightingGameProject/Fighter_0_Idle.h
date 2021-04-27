@@ -51,7 +51,7 @@ namespace RB
 				nextState = State::NewState<Fighter_0_Jab>();
 			}
 
-			if (d.forward)
+			else if (d.forward)
 			{
 				nextState = State::NewState<Fighter_0_WalkForward>();
 			}
@@ -60,7 +60,7 @@ namespace RB
 				nextState = State::NewState<Fighter_0_WalkBack>();
 			}
 
-			if (d.up && !d.forward && !d.back)
+			else if (d.up && !d.forward && !d.back)
 			{
 				nextState = State::NewState<Fighter_0_Jump_Prep_Vertical>();
 			}

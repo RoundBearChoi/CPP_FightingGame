@@ -33,14 +33,14 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
 
-			if (p.weakpunch)
-			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
-			}
-
 			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{
 				nextState = State::NewState<Fighter_0_Idle>();
+			}
+
+			else if (p.weakpunch)
+			{
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
 			}
 		}
 
