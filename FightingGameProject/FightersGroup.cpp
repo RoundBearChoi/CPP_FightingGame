@@ -58,30 +58,6 @@ namespace RB
 		}
 	}
 
-	void FightersGroup::RenderObjPosition(Camera& cam)
-	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
-		{
-			GameObj& obj = *vecObjs[i];
-
-			obj.RenderPosition(cam);
-			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
-
-			if (obj.stateController.currentState != nullptr)
-			{
-				CheckCollisionMessage* check = obj.stateController.currentState->GetCollisionStatus();
-
-				if (check)
-				{
-					for (size_t c = 0; c < check->vecBodies.size(); c++)
-					{
-						obj.RenderCollisionTiming(check->vecBodies[c], cam);
-					}
-				}
-			}
-		}
-	}
-
 	void FightersGroup::RenderStates(Camera& cam, bool update)
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
@@ -128,6 +104,30 @@ namespace RB
 		return false;
 	}
 
+	void FightersGroup::RenderObjPosition(Camera& cam)
+	{
+		for (size_t i = 0; i < vecObjs.size(); i++)
+		{
+			GameObj& obj = *vecObjs[i];
+
+			obj.RenderPosition(cam);
+			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
+
+			if (obj.stateController.currentState != nullptr)
+			{
+				CheckCollisionMessage* check = obj.stateController.currentState->GetCollisionStatus();
+
+				if (check)
+				{
+					for (size_t c = 0; c < check->vecBodies.size(); c++)
+					{
+						obj.RenderCollisionTiming(check->vecBodies[c], cam);
+					}
+				}
+			}
+		}
+	}
+
 	void FightersGroup::RenderBoxColliders(Camera& cam)
 	{
 		for (int32_t i = 0; i < vecObjs.size(); i++)
@@ -166,7 +166,19 @@ namespace RB
 		std::array<olc::vi2d, 4> arr;
 		return arr;
 	}
+	
+	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
+	{
+		vecObjs[index]->objData.CreateJumpProcessor();
+		vecObjs[index]->objData.ptrJumpProcessor->allowControl = false;
+		vecObjs[index]->objData.ptrJumpProcessor->moveBack = true;
+		vecObjs[index]->objData.ptrJumpProcessor->moveHorizontally = true;
+		vecObjs[index]->objData.ptrJumpProcessor->minimumSideForce = 1;
 
+		vecObjs[index]->objData.ptrJumpProcessor->SetUpForce(upForce);
+		vecObjs[index]->objData.ptrJumpProcessor->SetSideForce(sideForce);
+	}
+	
 	void FightersGroup::RenderComponents()
 	{
 		ptrInputBufferRenderer->Update();
@@ -179,18 +191,6 @@ namespace RB
 		vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		vecObjs.back()->objData.SetPosition(_startingPos);
 		vecObjs.back()->objData.SetPlayerType(_playerType);
-	}
-
-	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
-	{
-		vecObjs[index]->objData.CreateJumpProcessor();
-		vecObjs[index]->objData.ptrJumpProcessor->allowControl = false;
-		vecObjs[index]->objData.ptrJumpProcessor->moveBack = true;
-		vecObjs[index]->objData.ptrJumpProcessor->moveHorizontally = true;
-		vecObjs[index]->objData.ptrJumpProcessor->minimumSideForce = 1;
-
-		vecObjs[index]->objData.ptrJumpProcessor->SetUpForce(upForce);
-		vecObjs[index]->objData.ptrJumpProcessor->SetSideForce(sideForce);
 	}
 
 	GameObj* FightersGroup::GetEnemyObj(State& me)
