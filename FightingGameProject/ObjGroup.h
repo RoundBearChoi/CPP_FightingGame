@@ -41,7 +41,16 @@ namespace RB
 			return 0;
 		}
 
-		virtual olc::vi2d GetObjWorldPos(size_t index) = 0;
+		virtual olc::vi2d GetObjWorldPos(size_t index)
+		{
+			if (index < vecObjs.size())
+			{
+				return vecObjs[index]->objData.GetPosition();
+			}
+
+			return olc::vi2d(0, 0);
+		}
+
 		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index) = 0;
 		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) = 0;
 

@@ -40,7 +40,6 @@ namespace RB
 		bool SetNextState(int32_t _index, State* ptrState) override;
 		void RenderBoxColliders(Camera& cam) override;
 		
-		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
 		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType) override;

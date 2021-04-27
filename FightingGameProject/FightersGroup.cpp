@@ -136,16 +136,6 @@ namespace RB
 		}
 	}
 
-	olc::vi2d FightersGroup::GetObjWorldPos(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			return vecObjs[index]->objData.GetPosition();
-		}
-		
-		return { 0, 0 };
-	}
-
 	olc::vi2d FightersGroup::GetObjBoxColliderWorldPos(size_t index)
 	{
 		return { 0, 0 };

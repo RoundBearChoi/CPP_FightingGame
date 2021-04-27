@@ -73,19 +73,6 @@ namespace RB
 
 	}
 
-	olc::vi2d ProjectileGroup::GetObjWorldPos(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				return vecObjs[index]->objData.GetPosition();
-			}
-		}
-
-		return { 0, 0 };
-	}
-
 	olc::vi2d ProjectileGroup::GetObjBoxColliderWorldPos(size_t index)
 	{
 		if (index < vecObjs.size())
