@@ -48,10 +48,6 @@ namespace RB
 		{
 			fighters.UpdateStates(gameData);
 		}
-		else
-		{
-			int n = 0;
-		}
 		
 		impactEffects.UpdateStates(gameData);
 

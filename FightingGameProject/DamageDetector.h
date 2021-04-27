@@ -32,7 +32,7 @@ namespace RB
 					impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
 
 					SlowMotionMessage slow;
-					slow.interval = 20;
+					slow.interval = 15;
 					slow.maxCount = 1;
 					fighters->vecSlowMotion.push_back(slow);
 				}
@@ -60,6 +60,11 @@ namespace RB
 					{
 						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
 					}
+
+					SlowMotionMessage slow;
+					slow.interval = 15;
+					slow.maxCount = 1;
+					fighters->vecSlowMotion.push_back(slow);
 				}
 			}
 		}
