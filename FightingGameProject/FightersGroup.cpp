@@ -24,27 +24,15 @@ namespace RB
 
 	void FightersGroup::UpdateStates(GameData& gameData)
 	{
-		//input queues
 		InputBuffer::ptr->AddInputs(gameData);
 
 		ptrFighterDirection->Update(arrObjs);
+		ptrGroundToGroundCollision->Update(arrObjs);
 
-		//main update
 		for (GameObj& obj : arrObjs)
 		{
-			//change directions
 			obj.stateController.MakeStateTransition();
 
-			if (obj.objData.IsOnLeftSide())
-			{
-				obj.objData.FaceRight(true);
-			}
-			else
-			{
-				obj.objData.FaceRight(false);
-			}
-
-			//update state
 			if (obj.stateController.currentState != nullptr)
 			{
 				obj.stateController.currentState->RunUpdateProcess(obj.objData, gameData);
@@ -53,8 +41,6 @@ namespace RB
 			ptrSpecialMoveProcessor->Update(obj);
 			ptrFighterJump->Update(obj, gameData);
 		}
-
-		ptrGroundToGroundCollision->Update(arrObjs);
 	}
 
 	void FightersGroup::RenderObjPosition(Camera& cam)

@@ -54,7 +54,6 @@ namespace RB
 		void SetPlayerType(PlayerType _playerType);
 		PlayerType GetPlayerType();
 
-		void UpdateFigherDirection(ObjData& enemy);
 		void CreateJumpProcessor();
 	};
 }

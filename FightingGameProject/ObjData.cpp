@@ -37,22 +37,6 @@ namespace RB
 	void ObjData::SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
 	PlayerType ObjData::GetPlayerType() { return playerType; }
 
-	void ObjData::UpdateFigherDirection(ObjData& enemy)
-	{
-		//only turn when grounded
-		if (position.y == 0)
-		{
-			if (position.x < enemy.GetPosition().x)
-			{
-				onLeftSide = true;
-			}
-			else if (position.x > enemy.GetPosition().x)
-			{
-				onLeftSide = false;
-			}
-		}
-	}
-
 	void ObjData::CreateJumpProcessor()
 	{
 		if (ptrJumpProcessor != nullptr)
