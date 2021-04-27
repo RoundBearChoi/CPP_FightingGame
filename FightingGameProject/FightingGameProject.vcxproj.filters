@@ -451,20 +451,20 @@
     <ClInclude Include="DamageDetector.h">
       <Filter>Source Files\Damage</Filter>
     </ClInclude>
-    <ClInclude Include="FighterJump.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterGroundToGroundCollision.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpecialMoveProcessor.h">
-      <Filter>Source Files\SpecialMove\Base</Filter>
-    </ClInclude>
     <ClInclude Include="SlowMotionMessage.h">
       <Filter>Source Files\SlowMotion</Filter>
     </ClInclude>
     <ClInclude Include="SlowMotionGroupType.h">
       <Filter>Source Files\SlowMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterJump.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterGroundToGroundCollision.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialMoveProcessor.h">
+      <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
