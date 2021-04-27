@@ -43,7 +43,16 @@ namespace RB
 
 		background.UpdateStates(gameData);
 		background.UpdateOffset(cam);
-		fighters.UpdateStates(gameData);
+
+		if (!SkipUpdate(fighters))
+		{
+			fighters.UpdateStates(gameData);
+		}
+		else
+		{
+			int n = 0;
+		}
+		
 		impactEffects.UpdateStates(gameData);
 
 		std::vector<CreateProjectileMessage>* p1 = fighters.GetProjectileQueues(0);
@@ -73,5 +82,37 @@ namespace RB
 		fighters.RenderBoxColliders(cam);
 		projectiles.RenderStates(cam, update);
 		impactEffects.RenderStates(cam, update);
+	}
+
+	bool FightScene::SkipUpdate(ObjGroup& group)
+	{
+		bool skip = false;
+
+		for (size_t i = 0; i < group.vecSlowMotion.size(); i++)
+		{
+			if (group.vecSlowMotion[i].SkipUpdate())
+			{
+				if (group.vecSlowMotion[i].updateCount <= group.vecSlowMotion[i].maxCount * group.vecSlowMotion[i].interval)
+				{
+					skip = true;
+					break;
+				}
+			}
+		}
+
+		for (size_t i = 0; i < group.vecSlowMotion.size(); i++)
+		{
+			group.vecSlowMotion[i].updateCount++;
+		}
+
+		if (group.vecSlowMotion.size() > 0)
+		{
+			if (group.vecSlowMotion[0].updateCount > group.vecSlowMotion[0].maxCount * group.vecSlowMotion[0].interval)
+			{
+				group.vecSlowMotion.erase(group.vecSlowMotion.begin());
+			}
+		}
+
+		return skip;
 	}
 }

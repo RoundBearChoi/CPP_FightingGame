@@ -33,5 +33,7 @@ namespace RB
 		void UpdateScene(GameData& gameData) override;
 		void RenderObjs() override;
 		void RenderStates(bool update) override;
+
+		bool SkipUpdate(ObjGroup& group);
 	};
 }

@@ -206,7 +206,6 @@
     <ClInclude Include="JumpProcessor.h" />
     <ClInclude Include="Normalize.h" />
     <ClInclude Include="RandomInteger.h" />
-    <ClInclude Include="SlowMotionGroupType.h" />
     <ClInclude Include="SlowMotionMessage.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />

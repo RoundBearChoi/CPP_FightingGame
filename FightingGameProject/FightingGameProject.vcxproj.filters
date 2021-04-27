@@ -454,9 +454,6 @@
     <ClInclude Include="SlowMotionMessage.h">
       <Filter>Source Files\SlowMotion</Filter>
     </ClInclude>
-    <ClInclude Include="SlowMotionGroupType.h">
-      <Filter>Source Files\SlowMotion</Filter>
-    </ClInclude>
     <ClInclude Include="FighterJump.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
