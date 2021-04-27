@@ -88,7 +88,6 @@ namespace RB
 	
 	};
 
-	size_t ImpactEffectsGroup::GetObjCount() { return 0; };
 	size_t ImpactEffectsGroup::GetObjCreationID(size_t index) { return 0; };
 	olc::vi2d ImpactEffectsGroup::GetObjWorldPos(size_t index) { return { 0, 0 }; };
 	olc::vi2d ImpactEffectsGroup::GetObjBoxColliderWorldPos(size_t index) { return { 0, 0 }; };

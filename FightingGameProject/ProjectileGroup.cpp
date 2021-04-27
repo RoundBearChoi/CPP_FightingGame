@@ -134,11 +134,6 @@ namespace RB
 		return arr;
 	}
 
-	size_t ProjectileGroup::GetObjCount()
-	{
-		return vecObjs.size();
-	}
-
 	size_t ProjectileGroup::GetObjCreationID(size_t index)
 	{
 		if (index < vecObjs.size())

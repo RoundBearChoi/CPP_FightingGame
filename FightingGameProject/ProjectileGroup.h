@@ -25,7 +25,6 @@ namespace RB
 		olc::vi2d GetObjWorldPos(size_t index) override;
 		olc::vi2d GetObjBoxColliderWorldPos(size_t index) override;
 		std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index) override;
-		size_t GetObjCount() override;
 		size_t GetObjCreationID(size_t index) override;
 		void DeleteObj(size_t index) override;
 		size_t GetOwnerCreationID(size_t index) override;

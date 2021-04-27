@@ -136,11 +136,6 @@ namespace RB
 		}
 	}
 
-	size_t FightersGroup::GetObjCount()
-	{
-		return vecObjs.size();
-	}
-
 	size_t FightersGroup::GetObjCreationID(size_t index)
 	{
 		if (index < vecObjs.size())

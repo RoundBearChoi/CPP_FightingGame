@@ -27,7 +27,7 @@ namespace RB
 		virtual bool SetNextState(int32_t _index, State* ptrState) { return false; }
 		virtual void RenderBoxColliders(Camera& cam) = 0;
 
-		virtual size_t GetObjCount() = 0;
+		virtual size_t GetObjCount() { return vecObjs.size(); }
 		virtual size_t GetObjCreationID(size_t index) = 0;
 		virtual olc::vi2d GetObjWorldPos(size_t index) = 0;
 		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index) = 0;
