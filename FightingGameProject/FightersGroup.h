@@ -34,7 +34,7 @@ namespace RB
 		FightersGroup(GameDataFactory* gameDataFactory);
 		~FightersGroup();
 
-		void UpdateStates(GameData& gameData) override;
+		void UpdateStates() override;
 		void RenderStates(Camera& cam, bool update) override;
 		bool SetNextState(int32_t _index, State* ptrState) override;
 

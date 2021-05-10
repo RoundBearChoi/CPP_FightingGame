@@ -48,10 +48,10 @@ namespace RB
 
 		if (!SkipUpdate(*_fighters))
 		{
-			_fighters->UpdateStates(gameData);
+			_fighters->UpdateStates();
 		}
 		
-		_impactEffects->UpdateStates(gameData);
+		_impactEffects->UpdateStates();
 
 		std::vector<CreateProjectileMessage>* p1 = _fighters->GetProjectileQueues(0);
 		std::vector<CreateProjectileMessage>* p2 = _fighters->GetProjectileQueues(1);
@@ -60,7 +60,7 @@ namespace RB
 		p1->clear();
 		p2->clear();
 
-		_projectiles->UpdateStates(gameData);
+		_projectiles->UpdateStates();
 	}
 
 	void FightScene::RenderObjs()

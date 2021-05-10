@@ -16,7 +16,7 @@ namespace RB
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;
 
-		virtual void UpdateStates(GameData& gameData) = 0;
+		virtual void UpdateStates() = 0;
 		virtual void RenderStates(Camera& cam, bool update) = 0;
 		virtual bool SetNextState(int32_t _index, State* ptrState);
 

@@ -18,7 +18,7 @@ namespace RB
 		ImpactEffectsGroup(GameDataFactory* gameDataFactory);
 		~ImpactEffectsGroup();
 
-		void UpdateStates(GameData& gameData) override;
+		void UpdateStates() override;
 		void RenderStates(Camera& cam, bool update) override;
 
 		void RenderObjPosition(Camera& cam) override;

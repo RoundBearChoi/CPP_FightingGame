@@ -19,7 +19,7 @@ namespace RB
 		ProjectileGroup(GameDataFactory* gameDataFactory);
 		~ProjectileGroup();
 
-		void UpdateStates(GameData& gameData) override;
+		void UpdateStates() override;
 		void RenderStates(Camera& cam, bool update) override;
 
 		void RenderObjPosition(Camera& cam) override;

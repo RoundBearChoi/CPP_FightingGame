@@ -29,8 +29,10 @@ namespace RB
 		}
 	}
 
-	void ImpactEffectsGroup::UpdateStates(GameData& gameData)
+	void ImpactEffectsGroup::UpdateStates()
 	{
+		GameData& gameData = *_gameDataFactory->GetGameData();
+
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)

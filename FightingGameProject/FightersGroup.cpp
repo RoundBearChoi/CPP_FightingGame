@@ -37,8 +37,10 @@ namespace RB
 		delete ptrInputBufferRenderer;
 	}
 
-	void FightersGroup::UpdateStates(GameData& gameData)
+	void FightersGroup::UpdateStates()
 	{
+		GameData& gameData = *_gameDataFactory->GetGameData();
+
 		InputBuffer::ptr->AddInputs(gameData);
 
 		ptrFighterDirection->Update(vecObjs);
