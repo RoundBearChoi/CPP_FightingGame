@@ -13,7 +13,7 @@ namespace RB
 		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
-		Camera cam;
+		Camera* _cam = nullptr;
 		SceneType sceneType = SceneType::NONE;
 
 		virtual void InitScene() = 0;

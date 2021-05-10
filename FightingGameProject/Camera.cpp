@@ -2,8 +2,15 @@
 
 namespace RB
 {
-	void Camera::Update(GameData& gameData)
+	Camera::Camera(GameDataFactory* gameDataFactory)
 	{
+		_gameDataFactory = gameDataFactory;
+	}
+
+	void Camera::Update()
+	{
+		GameData& gameData = *_gameDataFactory->GetGameData();
+
 		if (gameData.key_j && gameData.key_l || !gameData.key_j && !gameData.key_l)
 		{
 			// double press (do nothing)
@@ -14,6 +21,7 @@ namespace RB
 		}
 		else if (gameData.key_l)
 		{
+
 			position.x += 4;
 		}
 

@@ -64,7 +64,7 @@ namespace RB
 				GameSettings::UpdateTargetFrame();
 
 				_sceneController->ChangeScene();
-				_sceneController->currentScene->cam.Update(*_gameDataFactory.GetGameData());
+				_sceneController->currentScene->_cam->Update();
 				_sceneController->currentScene->UpdateScene();
 				_sceneController->currentScene->RenderStates(true);
 

@@ -40,6 +40,7 @@ namespace RB
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
 			_gameDataFactory = gameDataFactory;
+			_cam = new Camera(_gameDataFactory);
 			ptrAnimationRenderer = new AnimationRenderer();
 		}
 
@@ -271,7 +272,7 @@ namespace RB
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
-			RenderCenterMark(cam);
+			RenderCenterMark(*_cam);
 
 			//current boxcollider info
 			if (nSelectedBodyIndex < selector.GetCollider().size())
@@ -310,7 +311,7 @@ namespace RB
 			//dummy fighter
 			if (selector.Current() != nullptr)
 			{
-				ptrAnimationRenderer->Update(*selector.Current(), cam);
+				ptrAnimationRenderer->Update(*selector.Current(), *_cam);
 			}
 
 			//play icon
@@ -339,11 +340,11 @@ namespace RB
 			{
 				if (i == nSelectedBodyIndex)
 				{
-					selector.GetCollider()[i].Render(cam, { 0, 0 }, olc::RED);
+					selector.GetCollider()[i].Render(*_cam, { 0, 0 }, olc::RED);
 				}
 				else
 				{
-					selector.GetCollider()[i].Render(cam, { 0, 0 }, olc::BLUE);
+					selector.GetCollider()[i].Render(*_cam, { 0, 0 }, olc::BLUE);
 				}
 			}
 		}

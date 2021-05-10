@@ -6,6 +6,7 @@ namespace RB
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 		_gameDataFactory = gameDataFactory;
+		_cam = new Camera(_gameDataFactory);
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
 
@@ -55,20 +56,20 @@ namespace RB
 
 	void FightScene::RenderObjs()
 	{
-		RenderCenterMark(cam);
+		RenderCenterMark(*_cam);
 
-		fighters.RenderObjPosition(cam);
+		fighters.RenderObjPosition(*_cam);
 		fighters.RenderComponents();
-		projectiles.RenderObjPosition(cam);
-		impactEffects.RenderObjPosition(cam);
+		projectiles.RenderObjPosition(*_cam);
+		impactEffects.RenderObjPosition(*_cam);
 	}
 
 	void FightScene::RenderStates(bool update)
 	{
-		fighters.RenderStates(cam, update);
-		fighters.RenderBoxColliders(cam);
-		projectiles.RenderStates(cam, update);
-		impactEffects.RenderStates(cam, update);
+		fighters.RenderStates(*_cam, update);
+		fighters.RenderBoxColliders(*_cam);
+		projectiles.RenderStates(*_cam, update);
+		impactEffects.RenderStates(*_cam, update);
 	}
 
 	bool FightScene::SkipUpdate(ObjGroup& group)

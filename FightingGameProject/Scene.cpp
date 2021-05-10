@@ -5,6 +5,8 @@ namespace RB
 	Scene::~Scene()
 	{
 		IF_COUT{ std::cout << "destructing Scene (virtual)" << std::endl; };
+
+		delete _cam;
 	}
 
 	void Scene::RenderCenterMark(Camera& cam)
