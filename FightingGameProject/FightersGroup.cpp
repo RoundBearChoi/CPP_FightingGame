@@ -2,8 +2,10 @@
 
 namespace RB
 {
-	FightersGroup::FightersGroup()
+	FightersGroup::FightersGroup(GameDataFactory* gameDataFactory)
 	{
+		_gameDataFactory = gameDataFactory;
+
 		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;

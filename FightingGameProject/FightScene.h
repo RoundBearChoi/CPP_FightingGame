@@ -15,9 +15,9 @@ namespace RB
 	class FightScene : public Scene
 	{
 	private:
-		FightersGroup fighters;
-		ProjectileGroup projectiles;
-		ImpactEffectsGroup impactEffects;
+		FightersGroup* _fighters = nullptr;
+		ProjectileGroup* _projectiles = nullptr;
+		ImpactEffectsGroup* _impactEffects = nullptr;
 		DamageDetector* damageDetector = nullptr;
 
 	public:

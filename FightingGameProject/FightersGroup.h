@@ -31,7 +31,7 @@ namespace RB
 		RandomInteger randomInteger;
 
 	public:
-		FightersGroup();
+		FightersGroup(GameDataFactory* gameDataFactory);
 		~FightersGroup();
 
 		void UpdateStates(GameData& gameData) override;

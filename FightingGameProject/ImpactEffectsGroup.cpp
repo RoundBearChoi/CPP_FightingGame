@@ -2,8 +2,9 @@
 
 namespace RB
 {
-	ImpactEffectsGroup::ImpactEffectsGroup()
+	ImpactEffectsGroup::ImpactEffectsGroup(GameDataFactory* gameDataFactory)
 	{
+		_gameDataFactory = gameDataFactory;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 

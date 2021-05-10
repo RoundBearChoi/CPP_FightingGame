@@ -2,6 +2,7 @@
 #include "ObjGroup.h"
 #include "ObjType.h"
 #include "ImpactEffect_Hit_0.h"
+#include "GameDataFactory.h"
 
 //components
 #include "AnimationRenderer.h"
@@ -14,7 +15,7 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ImpactEffectsGroup();
+		ImpactEffectsGroup(GameDataFactory* gameDataFactory);
 		~ImpactEffectsGroup();
 
 		void UpdateStates(GameData& gameData) override;

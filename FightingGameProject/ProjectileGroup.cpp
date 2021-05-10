@@ -2,8 +2,9 @@
 
 namespace RB
 {
-	ProjectileGroup::ProjectileGroup()
+	ProjectileGroup::ProjectileGroup(GameDataFactory* gameDataFactory)
 	{
+		_gameDataFactory = gameDataFactory;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 

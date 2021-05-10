@@ -3,6 +3,7 @@
 #include "olcPixelGameEngine.h"
 #include "ObjType.h"
 #include "GameObj.h"
+#include "GameDataFactory.h"
 
 namespace RB
 {
@@ -10,6 +11,7 @@ namespace RB
 	{
 	protected:
 		std::vector<GameObj*> vecObjs;
+		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;

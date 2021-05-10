@@ -6,13 +6,22 @@ namespace RB
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 		_gameDataFactory = gameDataFactory;
+
+		_fighters = new FightersGroup(_gameDataFactory);
+		_projectiles = new ProjectileGroup(_gameDataFactory);
+		_impactEffects = new ImpactEffectsGroup(_gameDataFactory);
 		_cam = new Camera(_gameDataFactory);
+		
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
 
 	FightScene::~FightScene()
 	{
 		IF_COUT{ std::cout << "destructing FightScene" << std::endl; };
+
+		delete _fighters;
+		delete _projectiles;
+		delete _impactEffects;
 
 		if (damageDetector != nullptr)
 		{
@@ -22,13 +31,13 @@ namespace RB
 
 	void FightScene::InitScene()
 	{
-		fighters.SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
-		fighters.SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
+		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
+		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		fighters.SetState(0, State::NewState<Fighter_0_Idle>());
-		fighters.SetState(1, State::NewState<Fighter_0_Idle>());
+		_fighters->SetState(0, State::NewState<Fighter_0_Idle>());
+		_fighters->SetState(1, State::NewState<Fighter_0_Idle>());
 
-		damageDetector = new DamageDetector(&fighters, &projectiles, &impactEffects);
+		damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 	}
 
 	void FightScene::UpdateScene()
@@ -37,39 +46,39 @@ namespace RB
 
 		damageDetector->Update();
 
-		if (!SkipUpdate(fighters))
+		if (!SkipUpdate(*_fighters))
 		{
-			fighters.UpdateStates(gameData);
+			_fighters->UpdateStates(gameData);
 		}
 		
-		impactEffects.UpdateStates(gameData);
+		_impactEffects->UpdateStates(gameData);
 
-		std::vector<CreateProjectileMessage>* p1 = fighters.GetProjectileQueues(0);
-		std::vector<CreateProjectileMessage>* p2 = fighters.GetProjectileQueues(1);
-		projectiles.CreateProjectiles(*p1);
-		projectiles.CreateProjectiles(*p2);
+		std::vector<CreateProjectileMessage>* p1 = _fighters->GetProjectileQueues(0);
+		std::vector<CreateProjectileMessage>* p2 = _fighters->GetProjectileQueues(1);
+		_projectiles->CreateProjectiles(*p1);
+		_projectiles->CreateProjectiles(*p2);
 		p1->clear();
 		p2->clear();
 
-		projectiles.UpdateStates(gameData);
+		_projectiles->UpdateStates(gameData);
 	}
 
 	void FightScene::RenderObjs()
 	{
 		RenderCenterMark(*_cam);
 
-		fighters.RenderObjPosition(*_cam);
-		fighters.RenderComponents();
-		projectiles.RenderObjPosition(*_cam);
-		impactEffects.RenderObjPosition(*_cam);
+		_fighters->RenderObjPosition(*_cam);
+		_fighters->RenderComponents();
+		_projectiles->RenderObjPosition(*_cam);
+		_impactEffects->RenderObjPosition(*_cam);
 	}
 
 	void FightScene::RenderStates(bool update)
 	{
-		fighters.RenderStates(*_cam, update);
-		fighters.RenderBoxColliders(*_cam);
-		projectiles.RenderStates(*_cam, update);
-		impactEffects.RenderStates(*_cam, update);
+		_fighters->RenderStates(*_cam, update);
+		_fighters->RenderBoxColliders(*_cam);
+		_projectiles->RenderStates(*_cam, update);
+		_impactEffects->RenderStates(*_cam, update);
 	}
 
 	bool FightScene::SkipUpdate(ObjGroup& group)

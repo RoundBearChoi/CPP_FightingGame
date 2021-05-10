@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjGroup.h"
+#include "GameDataFactory.h"
 
 //components
 #include "AnimationRenderer.h"
@@ -15,7 +16,7 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ProjectileGroup();
+		ProjectileGroup(GameDataFactory* gameDataFactory);
 		~ProjectileGroup();
 
 		void UpdateStates(GameData& gameData) override;
