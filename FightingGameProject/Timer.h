@@ -14,7 +14,7 @@ namespace RB
 		float fTime = 0.0f;
 
 	public:
-		bool UpdateGame(float fElapsedTime)
+		bool UpdateTime(float fElapsedTime)
 		{
 			fAccumulatedTime += fElapsedTime;
 

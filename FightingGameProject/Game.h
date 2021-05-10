@@ -52,7 +52,7 @@ namespace RB
 
 			_input->UpdateInput();
 
-			if (timer.UpdateGame(fElapsedTime))
+			if (timer.UpdateTime(fElapsedTime))
 			{
 				_input->UpdateGameData();
 
