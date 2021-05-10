@@ -448,5 +448,8 @@
     <ClInclude Include="FighterDirection.h">
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
+    <ClInclude Include="GameDataFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

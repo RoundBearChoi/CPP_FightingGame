@@ -5,6 +5,7 @@
 #include "SceneController.h"
 #include "GameSettings.h"
 #include "Input.h"
+#include "GameDataFactory.h"
 
 namespace RB
 {
@@ -12,15 +13,19 @@ namespace RB
 	{
 	private:
 		SceneController sceneController;
-		Input input;
 		InputBuffer inputBuffer;
 		Timer timer;
+		GameDataFactory _gameDataFactory;
 		
+		Input* _input = nullptr;
+
 	public:
 		~Game()
 		{
 			IF_COUT{ std::cout << std::endl; };
 			IF_COUT{ std::cout << "destructing Game" << std::endl; };
+
+			delete _input;
 		}
 
 		bool OnUserCreate() override
@@ -30,6 +35,7 @@ namespace RB
 			sceneController.CreateScene(GameSettings::startingScene);
 			
 			InputBuffer::ptr = &inputBuffer;
+			_input = new Input();
 
 			return true;
 		}
@@ -39,13 +45,15 @@ namespace RB
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
 
-			input.UpdateInput();
+			_gameDataFactory.ResetGameData();
+
+			_input->UpdateInput();
 
 			if (timer.UpdateGame(fElapsedTime))
 			{
 				//set gamedata per frame
 				GameData gameData;
-				input.UpdateGameData(gameData);
+				_input->UpdateGameData(gameData);
 
 				DevSettings::UpdateDebugBoxSettings(gameData);
 				GameSettings::UpdateTargetFrame(gameData);
@@ -56,7 +64,7 @@ namespace RB
 				sceneController.currentScene->RenderStates(true);
 
 				//only clear after update
-				input.ClearKeyQueues();
+				_input->ClearKeyQueues();
 
 				inputBuffer.Update();
 			}
