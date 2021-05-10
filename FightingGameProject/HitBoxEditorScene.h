@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Scene.h"
-#include "GameData.h"
 #include "UIElement.h"
 #include "StringNotification.h"
 #include "TargetBodyType.h"
@@ -35,12 +34,12 @@ namespace RB
 		GroupComponent* ptrAnimationRenderer = nullptr;
 
 	public:
-		HitBoxEditorScene()
+		HitBoxEditorScene(GameDataFactory* gameDataFactory)
 		{
 			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
-
+			_gameDataFactory = gameDataFactory;
 			ptrAnimationRenderer = new AnimationRenderer();
 		}
 
@@ -115,8 +114,10 @@ namespace RB
 			copied1.color = olc::RED;
 		}
 
-		void UpdateScene(GameData& gameData) override
+		void UpdateScene() override
 		{
+			GameData& gameData = *_gameDataFactory->GetGameData();
+
 			//change dummy fighter
 			if (gameData.key_left)
 			{

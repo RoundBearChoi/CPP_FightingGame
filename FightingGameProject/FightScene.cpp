@@ -2,9 +2,10 @@
 
 namespace RB
 {
-	FightScene::FightScene()
+	FightScene::FightScene(GameDataFactory* gameDataFactory)
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
+		_gameDataFactory = gameDataFactory;
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
 
@@ -29,8 +30,10 @@ namespace RB
 		damageDetector = new DamageDetector(&fighters, &projectiles, &impactEffects);
 	}
 
-	void FightScene::UpdateScene(GameData& gameData)
+	void FightScene::UpdateScene()
 	{
+		GameData& gameData = *_gameDataFactory->GetGameData();
+
 		damageDetector->Update();
 
 		if (!SkipUpdate(fighters))

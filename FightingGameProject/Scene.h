@@ -1,5 +1,5 @@
 #pragma once
-#include "GameData.h"
+#include "GameDataFactory.h"
 #include "Camera.h"
 #include "DevSettings.h"
 #include "ScreenVector.h"
@@ -9,12 +9,15 @@ namespace RB
 {
 	class Scene
 	{
+	protected:
+		GameDataFactory* _gameDataFactory = nullptr;
+
 	public:
 		Camera cam;
 		SceneType sceneType = SceneType::NONE;
 
 		virtual void InitScene() = 0;
-		virtual void UpdateScene(GameData& gameData) = 0;
+		virtual void UpdateScene() = 0;
 		virtual void RenderObjs() = 0;
 		virtual void RenderStates(bool update) = 0;
 

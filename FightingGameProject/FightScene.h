@@ -21,11 +21,11 @@ namespace RB
 		DamageDetector* damageDetector = nullptr;
 
 	public:
-		FightScene();
+		FightScene(GameDataFactory* gameDataFactory);
 		~FightScene() override;
 
 		void InitScene() override;
-		void UpdateScene(GameData& gameData) override;
+		void UpdateScene() override;
 		void RenderObjs() override;
 		void RenderStates(bool update) override;
 

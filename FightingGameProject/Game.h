@@ -65,7 +65,7 @@ namespace RB
 
 				_sceneController->ChangeScene();
 				_sceneController->currentScene->cam.Update(*_gameDataFactory.GetGameData());
-				_sceneController->currentScene->UpdateScene(*_gameDataFactory.GetGameData());
+				_sceneController->currentScene->UpdateScene();
 				_sceneController->currentScene->RenderStates(true);
 
 				//only clear after update
