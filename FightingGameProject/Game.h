@@ -12,12 +12,13 @@ namespace RB
 	class Game : public olc::PixelGameEngine
 	{
 	private:
-		SceneController sceneController;
+		//SceneController sceneController;
 		InputBuffer inputBuffer;
 		Timer timer;
 		GameDataFactory _gameDataFactory;
 		
 		Input* _input = nullptr;
+		SceneController* _sceneController = nullptr;
 
 	public:
 		~Game()
@@ -26,20 +27,23 @@ namespace RB
 			IF_COUT{ std::cout << "destructing Game" << std::endl; };
 
 			delete _input;
+			delete _sceneController;
 		}
 
 		bool OnUserCreate() override
 		{
 			sAppName = "C++FightingGame";
-			sceneController.Load();
-			sceneController.CreateScene(GameSettings::startingScene);
-			
+		
 			InputBuffer::ptr = &inputBuffer;
 
 			//setup gamedatafactory dependencies
 			_input = new Input(&_gameDataFactory);
+			_sceneController = new SceneController();
 			DevSettings::gameDataFactory = &_gameDataFactory;
 			GameSettings::gameDataFactory = &_gameDataFactory;
+
+			_sceneController->Load();
+			_sceneController->CreateScene(GameSettings::startingScene);
 
 			return true;
 		}
@@ -60,10 +64,10 @@ namespace RB
 				DevSettings::UpdateDebugBoxSettings();
 				GameSettings::UpdateTargetFrame();
 
-				sceneController.ChangeScene(*_gameDataFactory.GetGameData());
-				sceneController.currentScene->cam.Update(*_gameDataFactory.GetGameData());
-				sceneController.currentScene->UpdateScene(*_gameDataFactory.GetGameData());
-				sceneController.currentScene->RenderStates(true);
+				_sceneController->ChangeScene(*_gameDataFactory.GetGameData());
+				_sceneController->currentScene->cam.Update(*_gameDataFactory.GetGameData());
+				_sceneController->currentScene->UpdateScene(*_gameDataFactory.GetGameData());
+				_sceneController->currentScene->RenderStates(true);
 
 				//only clear after update
 				_input->ClearKeyQueues();
@@ -72,10 +76,10 @@ namespace RB
 			}
 			else
 			{
-				sceneController.currentScene->RenderStates(false);
+				_sceneController->currentScene->RenderStates(false);
 			}
 
-			sceneController.currentScene->RenderObjs();
+			_sceneController->currentScene->RenderObjs();
 			timer.ShowUpdateCount();
 
 			if (DevSettings::renderMode == RenderMode::DEBUG_ONLY)
