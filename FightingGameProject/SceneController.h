@@ -1,10 +1,10 @@
 #pragma once
 #include "Scene.h"
 #include "SceneType.h"
+#include "GameDataFactory.h"
 #include "SpriteLoader.h"
 #include "FightScene.h"
 #include "HitBoxEditorScene.h"
-#include "GameData.h"
 
 namespace RB
 {
@@ -12,15 +12,21 @@ namespace RB
 	{
 	private:
 		SpriteLoader spriteLoader;
+		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
+		SceneController(GameDataFactory* gameDataFactory)
+		{
+			_gameDataFactory = gameDataFactory;
+		}
+
 		Scene* currentScene = nullptr;
 
 		SceneController();
 		~SceneController();
 
 		void CreateScene(SceneType _sceneType);
-		void ChangeScene(GameData& gameData);
+		void ChangeScene();
 		void Load();
 	};
 }

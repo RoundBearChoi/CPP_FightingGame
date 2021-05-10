@@ -12,7 +12,6 @@ namespace RB
 	class Game : public olc::PixelGameEngine
 	{
 	private:
-		//SceneController sceneController;
 		InputBuffer inputBuffer;
 		Timer timer;
 		GameDataFactory _gameDataFactory;
@@ -38,7 +37,7 @@ namespace RB
 
 			//setup gamedatafactory dependencies
 			_input = new Input(&_gameDataFactory);
-			_sceneController = new SceneController();
+			_sceneController = new SceneController(&_gameDataFactory);
 			DevSettings::gameDataFactory = &_gameDataFactory;
 			GameSettings::gameDataFactory = &_gameDataFactory;
 
@@ -64,7 +63,7 @@ namespace RB
 				DevSettings::UpdateDebugBoxSettings();
 				GameSettings::UpdateTargetFrame();
 
-				_sceneController->ChangeScene(*_gameDataFactory.GetGameData());
+				_sceneController->ChangeScene();
 				_sceneController->currentScene->cam.Update(*_gameDataFactory.GetGameData());
 				_sceneController->currentScene->UpdateScene(*_gameDataFactory.GetGameData());
 				_sceneController->currentScene->RenderStates(true);

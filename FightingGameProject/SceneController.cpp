@@ -32,8 +32,10 @@ namespace RB
 		currentScene->InitScene();
 	}
 
-	void SceneController::ChangeScene(GameData& gameData)
+	void SceneController::ChangeScene()
 	{
+		GameData& gameData = *_gameDataFactory->GetGameData();
+
 		if (gameData.key_f11)
 		{
 			if (currentScene->sceneType == SceneType::FIGHT_SCENE)
