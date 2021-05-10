@@ -35,7 +35,10 @@ namespace RB
 			sceneController.CreateScene(GameSettings::startingScene);
 			
 			InputBuffer::ptr = &inputBuffer;
+
+			//setup gameData dependencies
 			_input = new Input(&_gameDataFactory);
+			DevSettings::gameDataFactory = &_gameDataFactory;
 
 			return true;
 		}
@@ -53,7 +56,7 @@ namespace RB
 			{
 				_input->UpdateGameData();
 
-				DevSettings::UpdateDebugBoxSettings(*_gameDataFactory.GetGameData());
+				DevSettings::UpdateDebugBoxSettings();
 				GameSettings::UpdateTargetFrame(*_gameDataFactory.GetGameData());
 
 				sceneController.ChangeScene(*_gameDataFactory.GetGameData());

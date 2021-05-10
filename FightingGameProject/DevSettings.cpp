@@ -3,9 +3,12 @@
 namespace RB
 {
 	RenderMode DevSettings::renderMode = RenderMode::SPRITES_ONLY;
+	GameDataFactory* DevSettings::gameDataFactory = nullptr;
 
-	void DevSettings::UpdateDebugBoxSettings(GameData& gameData)
+	void DevSettings::UpdateDebugBoxSettings()
 	{
+		GameData& gameData = *gameDataFactory->GetGameData();
+
 		if (gameData.key_f8)
 		{
 			if (!gameData.key_f8->processed)

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "GameData.h"
 #include "RenderMode.h"
+#include "GameDataFactory.h"
 
 namespace RB
 {
@@ -12,8 +12,9 @@ namespace RB
 	public:
 		const static bool use_cout = true;
 		static RenderMode renderMode;
+		static GameDataFactory* gameDataFactory;
 
-		static void UpdateDebugBoxSettings(GameData& gameData);
+		static void UpdateDebugBoxSettings();
 		static void ChangeRenderMode();
 	};
 }
