@@ -36,7 +36,7 @@ namespace RB
 			
 			InputBuffer::ptr = &inputBuffer;
 
-			//setup gameData dependencies
+			//setup gamedatafactory dependencies
 			_input = new Input(&_gameDataFactory);
 			DevSettings::gameDataFactory = &_gameDataFactory;
 
