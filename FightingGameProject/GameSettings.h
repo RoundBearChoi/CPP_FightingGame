@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include "SceneType.h"
-#include "GameData.h"
+#include "GameDataFactory.h"
 
 namespace RB
 {
@@ -19,7 +19,9 @@ namespace RB
 		const static int32_t window_height;
 		const static SceneType startingScene;
 
+		static GameDataFactory* gameDataFactory;
+
 		static float TargetFrameTime(ChangeTimer _change);
-		static void UpdateTargetFrame(GameData& gameData);
+		static void UpdateTargetFrame();
 	};
 }

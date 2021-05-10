@@ -39,6 +39,7 @@ namespace RB
 			//setup gamedatafactory dependencies
 			_input = new Input(&_gameDataFactory);
 			DevSettings::gameDataFactory = &_gameDataFactory;
+			GameSettings::gameDataFactory = &_gameDataFactory;
 
 			return true;
 		}
@@ -57,7 +58,7 @@ namespace RB
 				_input->UpdateGameData();
 
 				DevSettings::UpdateDebugBoxSettings();
-				GameSettings::UpdateTargetFrame(*_gameDataFactory.GetGameData());
+				GameSettings::UpdateTargetFrame();
 
 				sceneController.ChangeScene(*_gameDataFactory.GetGameData());
 				sceneController.currentScene->cam.Update(*_gameDataFactory.GetGameData());
