@@ -35,7 +35,7 @@ namespace RB
 			sceneController.CreateScene(GameSettings::startingScene);
 			
 			InputBuffer::ptr = &inputBuffer;
-			_input = new Input();
+			_input = new Input(&_gameDataFactory);
 
 			return true;
 		}
@@ -51,16 +51,14 @@ namespace RB
 
 			if (timer.UpdateGame(fElapsedTime))
 			{
-				//set gamedata per frame
-				GameData gameData;
-				_input->UpdateGameData(gameData);
+				_input->UpdateGameData();
 
-				DevSettings::UpdateDebugBoxSettings(gameData);
-				GameSettings::UpdateTargetFrame(gameData);
+				DevSettings::UpdateDebugBoxSettings(*_gameDataFactory.GetGameData());
+				GameSettings::UpdateTargetFrame(*_gameDataFactory.GetGameData());
 
-				sceneController.ChangeScene(gameData);
-				sceneController.currentScene->cam.Update(gameData);
-				sceneController.currentScene->UpdateScene(gameData);
+				sceneController.ChangeScene(*_gameDataFactory.GetGameData());
+				sceneController.currentScene->cam.Update(*_gameDataFactory.GetGameData());
+				sceneController.currentScene->UpdateScene(*_gameDataFactory.GetGameData());
 				sceneController.currentScene->RenderStates(true);
 
 				//only clear after update

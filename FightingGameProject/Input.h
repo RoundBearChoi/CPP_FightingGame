@@ -2,12 +2,15 @@
 #include <vector>
 #include "olcPixelGameEngine.h"
 #include "Key.h"
+#include "GameDataFactory.h"
 
 namespace RB
 {
 	class Input
 	{
 	private:
+		GameDataFactory* _gameDataFactory = nullptr;
+
 		//manual camera movement
 		std::vector<Key> vecCamZoomIn;
 		std::vector<Key> vecCamZoomOut;
@@ -45,6 +48,11 @@ namespace RB
 		std::vector<Key> vecF11;
 		
 	public:
+		Input(GameDataFactory* gameDataFactory)
+		{
+			_gameDataFactory = gameDataFactory;
+		}
+
 		void UpdateInput()
 		{
 			UpdateKey(vecCamLeft, KeyType::CAM_LEFT, olc::Platform::ptrPGE->GetKey(olc::Key::J));
@@ -99,8 +107,10 @@ namespace RB
 			}
 		}
 
-		void UpdateGameData(GameData& gameData)
+		void UpdateGameData()
 		{
+			GameData& gameData = *_gameDataFactory->GetGameData();
+
 			gameData.key_j = GetUnprocessedKey(vecCamLeft);
 			gameData.key_l = GetUnprocessedKey(vecCamRight);
 			gameData.key_i = GetUnprocessedKey(vecCamZoomIn);

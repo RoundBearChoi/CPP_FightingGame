@@ -23,5 +23,10 @@ namespace RB
 
 			_gameData = new GameData();
 		}
+
+		GameData* GetGameData()
+		{
+			return _gameData;
+		}
 	};
 }
