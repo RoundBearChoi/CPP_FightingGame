@@ -4,6 +4,7 @@
 #include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_Jab.h"
+#include "Fighter_0_HitReaction_Side.h"
 
 namespace RB
 {
@@ -40,6 +41,15 @@ namespace RB
 		State* Create() override
 		{
 			return new Fighter_0_Jab();
+		}
+	};
+
+	class CREATOR_Fighter_0_HitReactionSide : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_HitReaction_Side();
 		}
 	};
 }
