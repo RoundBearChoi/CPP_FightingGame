@@ -16,6 +16,8 @@
 #include "Fighter_0_Jump_Up_Back.h"
 #include "Fighter_0_Jump_Fall.h"
 #include "Fighter_0_Jump_WeakPunch.h"
+#include "Fighter_0_Crouch.h"
+#include "Fighter_0_Uppercut.h"
 
 namespace RB
 {
@@ -160,6 +162,24 @@ namespace RB
 		State* Create() override
 		{
 			return new Fighter_0_Jump_WeakPunch();
+		}
+	};
+
+	class CREATOR_Fighter_0_Crouch : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_Crouch();
+		}
+	};
+
+	class CREATOR_Fighter_0_Uppercut : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_Uppercut();
 		}
 	};
 }
