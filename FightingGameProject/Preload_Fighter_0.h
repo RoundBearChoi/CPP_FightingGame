@@ -1,6 +1,6 @@
 #pragma once
 //#include "Fighter_0_Idle.h"
-#include "Fighter_0_WalkForward.h"
+//#include "Fighter_0_WalkForward.h"
 #include "Fighter_0_WalkBack.h"
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_HitReaction_Side.h"
@@ -48,6 +48,7 @@ namespace RB
 		Preload_Fighter_0()
 		{
 			Setup<Fighter_0_Idle_Creator>();
+			Setup<Fighter_0_WalkForward_Creator>();
 
 			Load<Fighter_0_Crouch>();
 			Load<Fighter_0_Hadouken_Fire>();
@@ -65,7 +66,7 @@ namespace RB
 			Load<Fighter_0_Jump_Up_Vertical>();
 			Load<Fighter_0_Jump_WeakPunch>();
 			Load<Fighter_0_WalkBack>();
-			Load<Fighter_0_WalkForward>();
+			//Load<Fighter_0_WalkForward>();
 			Load<Fighter_0_Uppercut>();
 		}
 	};
