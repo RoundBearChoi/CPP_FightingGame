@@ -6,7 +6,7 @@
 //#include "Fighter_0_HitReaction_Side.h"
 //#include "Fighter_0_HitReaction_Up.h"
 //#include "Fighter_0_Hadouken_Fire.h"
-#include "Fighter_0_Hadouken_Recover.h"
+//#include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
 #include "Fighter_0_Jump_Prep_Forward.h"
 #include "Fighter_0_Jump_Prep_Back.h"
@@ -19,7 +19,7 @@
 #include "Fighter_0_Uppercut.h"
 
 #include "StateFactory.h"
-#include "ConcreteStateCreators.h"
+#include "Fighter0Creators.h"
 
 namespace RB
 {
@@ -54,10 +54,11 @@ namespace RB
 			Setup<CREATOR_Fighter_0_HitReactionSide>();
 			Setup<CREATOR_Fighter_0_HitReactionUp>();
 			Setup<CREATOR_Fighter_0_Hadouken_Fire>();
+			Setup<CREATOR_Fighter_0_Hadouken_Recover>();
 
 			Load<Fighter_0_Crouch>();
 			//Load<Fighter_0_Hadouken_Fire>();
-			Load<Fighter_0_Hadouken_Recover>();
+			//Load<Fighter_0_Hadouken_Recover>();
 			//Load<Fighter_0_HitReaction_Side>();
 			//Load<Fighter_0_HitReaction_Up>();
 			//Load<Fighter_0_Idle>();

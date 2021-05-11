@@ -186,7 +186,7 @@
     <ClInclude Include="FighterJump.h" />
     <ClInclude Include="Fighter_0_Crouch.h" />
     <ClInclude Include="Fighter_0_HitReaction_Up.h" />
-    <ClInclude Include="ConcreteStateCreators.h" />
+    <ClInclude Include="Fighter0Creators.h" />
     <ClInclude Include="Fighter_0_Jump_Fall.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Back.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Forward.h" />

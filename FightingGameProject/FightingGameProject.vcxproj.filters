@@ -460,7 +460,7 @@
     <ClInclude Include="IStateCreator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConcreteStateCreators.h">
+    <ClInclude Include="Fighter0Creators.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
