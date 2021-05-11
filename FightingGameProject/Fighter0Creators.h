@@ -14,6 +14,7 @@
 #include "Fighter_0_Jump_Up_Vertical.h"
 #include "Fighter_0_Jump_Up_Forward.h"
 #include "Fighter_0_Jump_Up_Back.h"
+#include "Fighter_0_Jump_Fall.h"
 
 namespace RB
 {
@@ -140,6 +141,15 @@ namespace RB
 		State* Create() override
 		{
 			return new Fighter_0_Jump_Up_Back();
+		}
+	};
+
+	class CREATOR_Fighter_0_Jump_Fall : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_Jump_Fall();
 		}
 	};
 }
