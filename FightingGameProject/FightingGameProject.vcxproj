@@ -165,6 +165,7 @@
     <ClCompile Include="SceneController.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateController.cpp" />
+    <ClCompile Include="StateFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABB.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="FighterJump.h" />
     <ClInclude Include="Fighter_0_Crouch.h" />
     <ClInclude Include="Fighter_0_HitReaction_Up.h" />
+    <ClInclude Include="ConcreteStateCreators.h" />
     <ClInclude Include="Fighter_0_Jump_Fall.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Back.h" />
     <ClInclude Include="Fighter_0_Jump_Prep_Forward.h" />
@@ -197,6 +199,7 @@
     <ClInclude Include="GameDataFactory.h" />
     <ClInclude Include="GroupComponent.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />
+    <ClInclude Include="IStateCreator.h" />
     <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
     <ClInclude Include="InputBufferRenderer.h" />
@@ -255,6 +258,7 @@
     <ClInclude Include="SpriteType.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateController.h" />
+    <ClInclude Include="StateFactory.h" />
     <ClInclude Include="StringNotification.h" />
     <ClInclude Include="TargetBodyType.h" />
     <ClInclude Include="SpriteLoader.h" />

@@ -6,6 +6,7 @@
 #include "GameSettings.h"
 #include "Input.h"
 #include "GameDataFactory.h"
+#include "StateFactory.h"
 
 namespace RB
 {
@@ -15,6 +16,7 @@ namespace RB
 		InputBuffer inputBuffer;
 		Timer timer;
 		GameDataFactory _gameDataFactory;
+		StateFactory _stateFactory;
 		
 		Input* _input = nullptr;
 		SceneController* _sceneController = nullptr;
@@ -34,6 +36,7 @@ namespace RB
 			sAppName = "C++FightingGame";
 		
 			InputBuffer::ptr = &inputBuffer;
+			StateFactory::ptr = &_stateFactory;
 
 			//setup gamedatafactory dependencies
 			_input = new Input(&_gameDataFactory);

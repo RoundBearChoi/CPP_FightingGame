@@ -170,6 +170,9 @@
     <ClCompile Include="ObjGroup.cpp">
       <Filter>Source Files\Groups\Base</Filter>
     </ClCompile>
+    <ClCompile Include="StateFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -449,6 +452,15 @@
       <Filter>Source Files\Groups\Concrete Components</Filter>
     </ClInclude>
     <ClInclude Include="GameDataFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IStateCreator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteStateCreators.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
