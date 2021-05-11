@@ -8,8 +8,8 @@
 //#include "Fighter_0_Hadouken_Fire.h"
 //#include "Fighter_0_Hadouken_Recover.h"
 //#include "Fighter_0_Jump_Prep_Vertical.h"
-#include "Fighter_0_Jump_Prep_Forward.h"
-#include "Fighter_0_Jump_Prep_Back.h"
+//#include "Fighter_0_Jump_Prep_Forward.h"
+//#include "Fighter_0_Jump_Prep_Back.h"
 #include "Fighter_0_Jump_Up_Vertical.h"
 #include "Fighter_0_Jump_Up_Forward.h"
 #include "Fighter_0_Jump_Up_Back.h"
@@ -56,6 +56,8 @@ namespace RB
 			Setup<CREATOR_Fighter_0_Hadouken_Fire>();
 			Setup<CREATOR_Fighter_0_Hadouken_Recover>();
 			Setup<CREATOR_Fighter_0_Jump_Prep_Vertical>();
+			Setup<CREATOR_Fighter_0_Jump_Prep_Forward>();
+			Setup<CREATOR_Fighter_0_Jump_Prep_Back>();
 
 			Load<Fighter_0_Crouch>();
 			//Load<Fighter_0_Hadouken_Fire>();
@@ -65,8 +67,8 @@ namespace RB
 			//Load<Fighter_0_Idle>();
 			//Load<Fighter_0_Jab>();
 			Load<Fighter_0_Jump_Fall>();
-			Load<Fighter_0_Jump_Prep_Back>();
-			Load<Fighter_0_Jump_Prep_Forward>();
+			//Load<Fighter_0_Jump_Prep_Back>();
+			//Load<Fighter_0_Jump_Prep_Forward>();
 			//Load<Fighter_0_Jump_Prep_Vertical>();
 			Load<Fighter_0_Jump_Up_Back>();
 			Load<Fighter_0_Jump_Up_Forward>();
