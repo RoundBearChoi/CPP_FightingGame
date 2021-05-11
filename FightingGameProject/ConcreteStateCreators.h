@@ -6,6 +6,7 @@
 #include "Fighter_0_Jab.h"
 #include "Fighter_0_HitReaction_Side.h"
 #include "Fighter_0_HitReaction_Up.h"
+#include "Fighter_0_Hadouken_Fire.h"
 
 namespace RB
 {
@@ -60,6 +61,15 @@ namespace RB
 		State* Create() override
 		{
 			return new Fighter_0_HitReaction_Up();
+		}
+	};
+
+	class CREATOR_Fighter_0_Hadouken_Fire : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_Hadouken_Fire();
 		}
 	};
 }
