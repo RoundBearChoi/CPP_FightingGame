@@ -9,6 +9,7 @@ namespace RB
 		static StateFactory* ptr;
 		StateFactory();
 		~StateFactory();
+
 		IStateCreator* Creator_Fighter_0_Idle = nullptr;
 	};
 }

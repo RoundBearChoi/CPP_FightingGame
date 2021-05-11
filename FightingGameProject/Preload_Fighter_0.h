@@ -4,7 +4,7 @@
 //#include "Fighter_0_WalkBack.h"
 //#include "Fighter_0_Jab.h"
 //#include "Fighter_0_HitReaction_Side.h"
-#include "Fighter_0_HitReaction_Up.h"
+//#include "Fighter_0_HitReaction_Up.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
 #include "Fighter_0_Jump_Prep_Vertical.h"
@@ -34,30 +34,31 @@ namespace RB
 		}
 
 		template<class T>
-		void Setup()
+		T* Setup()
 		{
 			T* creator = new T();
 			State* newState = creator->Create();
 			newState->UpdateColliderParts();
 			delete newState;
 
-			StateFactory::ptr->Creator_Fighter_0_Idle = creator;
+			return creator;
 		}
 
 	public:
 		Preload_Fighter_0()
 		{
-			Setup<CREATOR_Fighter_0_Idle>();
+			StateFactory::ptr->Creator_Fighter_0_Idle = Setup<CREATOR_Fighter_0_Idle>();
 			Setup<CREATOR_Fighter_0_WalkForward>();
 			Setup<CREATOR_Fighter_0_WalkBack>();
 			Setup<CREATOR_Fighter_0_Jab>();
 			Setup<CREATOR_Fighter_0_HitReactionSide>();
+			Setup<CREATOR_Fighter_0_HitReactionUp>();
 
 			Load<Fighter_0_Crouch>();
 			Load<Fighter_0_Hadouken_Fire>();
 			Load<Fighter_0_Hadouken_Recover>();
 			//Load<Fighter_0_HitReaction_Side>();
-			Load<Fighter_0_HitReaction_Up>();
+			//Load<Fighter_0_HitReaction_Up>();
 			//Load<Fighter_0_Idle>();
 			//Load<Fighter_0_Jab>();
 			Load<Fighter_0_Jump_Fall>();
