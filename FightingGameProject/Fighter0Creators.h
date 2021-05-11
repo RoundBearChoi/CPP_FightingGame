@@ -8,6 +8,7 @@
 #include "Fighter_0_HitReaction_Up.h"
 #include "Fighter_0_Hadouken_Fire.h"
 #include "Fighter_0_Hadouken_Recover.h"
+#include "Fighter_0_Jump_Prep_Vertical.h"
 
 namespace RB
 {
@@ -80,6 +81,15 @@ namespace RB
 		State* Create() override
 		{
 			return new Fighter_0_Hadouken_Recover();
+		}
+	};
+
+	class CREATOR_Fighter_0_Jump_Prep_Vertical : public IStateCreator
+	{
+	public:
+		State* Create() override
+		{
+			return new Fighter_0_Jump_Prep_Vertical();
 		}
 	};
 }

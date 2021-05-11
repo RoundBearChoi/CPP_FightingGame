@@ -7,7 +7,7 @@
 //#include "Fighter_0_HitReaction_Up.h"
 //#include "Fighter_0_Hadouken_Fire.h"
 //#include "Fighter_0_Hadouken_Recover.h"
-#include "Fighter_0_Jump_Prep_Vertical.h"
+//#include "Fighter_0_Jump_Prep_Vertical.h"
 #include "Fighter_0_Jump_Prep_Forward.h"
 #include "Fighter_0_Jump_Prep_Back.h"
 #include "Fighter_0_Jump_Up_Vertical.h"
@@ -55,6 +55,7 @@ namespace RB
 			Setup<CREATOR_Fighter_0_HitReactionUp>();
 			Setup<CREATOR_Fighter_0_Hadouken_Fire>();
 			Setup<CREATOR_Fighter_0_Hadouken_Recover>();
+			Setup<CREATOR_Fighter_0_Jump_Prep_Vertical>();
 
 			Load<Fighter_0_Crouch>();
 			//Load<Fighter_0_Hadouken_Fire>();
@@ -66,7 +67,7 @@ namespace RB
 			Load<Fighter_0_Jump_Fall>();
 			Load<Fighter_0_Jump_Prep_Back>();
 			Load<Fighter_0_Jump_Prep_Forward>();
-			Load<Fighter_0_Jump_Prep_Vertical>();
+			//Load<Fighter_0_Jump_Prep_Vertical>();
 			Load<Fighter_0_Jump_Up_Back>();
 			Load<Fighter_0_Jump_Up_Forward>();
 			Load<Fighter_0_Jump_Up_Vertical>();
