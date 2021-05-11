@@ -15,7 +15,7 @@ namespace RB
 		Fighter_0_Crouch()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_crouch.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_crouch.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_crouch.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 		}

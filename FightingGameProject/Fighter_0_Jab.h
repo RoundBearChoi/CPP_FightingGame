@@ -14,7 +14,7 @@ namespace RB
 		Fighter_0_Jab()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jab.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jab.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_jab.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2400, 200, 6, 1, 6);
 			animationController.status.nTransitionDelay = 3;

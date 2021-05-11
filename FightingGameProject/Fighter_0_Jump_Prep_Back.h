@@ -14,7 +14,7 @@ namespace RB
 		Fighter_0_Jump_Prep_Back()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_jump_prep_back.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_jump_prep_back.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_jump_prep_back.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 			animationController.status.nTransitionDelay = 4;

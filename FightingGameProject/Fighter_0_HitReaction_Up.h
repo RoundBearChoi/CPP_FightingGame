@@ -14,7 +14,7 @@ namespace RB
 		Fighter_0_HitReaction_Up()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_hitreaction_up.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_hitreaction_up.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_hitreaction_up.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 1600, 200, 4, 1, 4);
 			animationController.status.nTransitionDelay = 7;

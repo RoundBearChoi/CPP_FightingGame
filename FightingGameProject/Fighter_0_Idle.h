@@ -20,7 +20,7 @@ namespace RB
 		Fighter_0_Idle()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_idle.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_idle.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_idle.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 2000, 200, 5, 1, 5);
 			animationController.status.nTransitionDelay = 6;

@@ -28,8 +28,7 @@ namespace RB
 
 		static void LoadColliderData(std::vector<BoxCollider>& vecColliders, std::string colliderFileName)
 		{
-			std::string path = "BoxColliderData/";
-			path += colliderFileName;
+			std::string path = colliderFileName;
 
 			IF_COUT{ std::cout << "loading collider: " << path << std::endl; };
 

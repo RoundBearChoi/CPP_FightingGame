@@ -14,7 +14,7 @@ namespace RB
 		Fighter_0_Uppercut()
 		{
 			animationController.SetSpritePath("PNG files/Fighter_0/fighter_0_uppercut.png");
-			animationController.SetColliderFile("Fighter_0/fighter_0_uppercut.collider");
+			animationController.SetColliderFile("BoxColliderData/Fighter_0/fighter_0_uppercut.collider");
 
 			animationController.SetParams(SpriteType::FIGHTER_0, 4000, 200, 10, 1, 10);
 			animationController.status.nTransitionDelay = 5;
