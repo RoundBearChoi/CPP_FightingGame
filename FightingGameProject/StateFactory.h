@@ -1,5 +1,6 @@
 #pragma once
 #include "IStateCreator.h"
+#include "Fighter0Creators.h"
 
 namespace RB
 {
