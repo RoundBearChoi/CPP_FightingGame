@@ -26,8 +26,8 @@ namespace RB
 		GroupComponent* ptrSpecialMoveProcessor = nullptr;
 		GroupComponent* ptrInputBufferRenderer = nullptr;
 		GroupComponent* ptrAnimationRenderer = nullptr;
+		Preload_Fighter_0* preload_fighter_0 = nullptr;
 
-		Preload_Fighter_0 preload_fighter_0;
 		RandomInteger randomInteger;
 
 	public:

@@ -7,6 +7,8 @@ namespace RB
 		_gameDataFactory = gameDataFactory;
 		_stateFactory = stateFactory;
 
+		preload_fighter_0 = new Preload_Fighter_0(_stateFactory);
+
 		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
 		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
@@ -36,6 +38,8 @@ namespace RB
 		delete ptrSpecialMoveProcessor;
 		delete ptrAnimationRenderer;
 		delete ptrInputBufferRenderer;
+
+		delete preload_fighter_0;
 	}
 
 	void FightersGroup::UpdateStates()

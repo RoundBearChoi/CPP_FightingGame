@@ -5,39 +5,35 @@ namespace RB
 {
 	class Preload_Fighter_0
 	{
-	private:
-		template<class T>
-		void Load()
-		{
-			T* creator = new T();
-			State* newState = creator->Create();
-			newState->UpdateColliderParts();
-
-			delete newState;
-			delete creator;
-		}
-
 	public:
-		Preload_Fighter_0()
+		Preload_Fighter_0(StateFactory* stateFactory)
 		{
-			Load<CREATOR_Fighter_0_Idle>();
-			Load<CREATOR_Fighter_0_WalkForward>();
-			Load<CREATOR_Fighter_0_WalkBack>();
-			Load<CREATOR_Fighter_0_Jab>();
-			Load<CREATOR_Fighter_0_HitReactionSide>();
-			Load<CREATOR_Fighter_0_HitReactionUp>();
-			Load<CREATOR_Fighter_0_Hadouken_Fire>();
-			Load<CREATOR_Fighter_0_Hadouken_Recover>();
-			Load<CREATOR_Fighter_0_Jump_Prep_Vertical>();
-			Load<CREATOR_Fighter_0_Jump_Prep_Forward>();
-			Load<CREATOR_Fighter_0_Jump_Prep_Back>();
-			Load<CREATOR_Fighter_0_Jump_Up_Vertical>();
-			Load<CREATOR_Fighter_0_Jump_Up_Forward>();
-			Load<CREATOR_Fighter_0_Jump_Up_Back>();
-			Load<CREATOR_Fighter_0_Jump_Fall>();
-			Load<CREATOR_Fighter_0_Jump_WeakPunch>();
-			Load<CREATOR_Fighter_0_Crouch>();
-			Load<CREATOR_Fighter_0_Uppercut>();
+			std::vector<State*> sampleStates;
+
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Idle->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkForward->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkBack->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jab->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionSide->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionUp->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Fire->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Recover->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Vertical->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Forward->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Back->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Vertical->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Forward->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Back->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Fall->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_WeakPunch->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Crouch->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Uppercut->Create());
+
+			for (size_t i = 0; i < sampleStates.size(); i++)
+			{
+				sampleStates[i]->UpdateColliderParts();
+				delete sampleStates[i];
+			}
 		}
 	};
 }
