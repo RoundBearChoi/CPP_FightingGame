@@ -3,16 +3,20 @@
 #include "StateController.h"
 #include "ScreenVector.h"
 #include "DevSettings.h"
+#include "StateFactory.h"
 
 namespace RB
 {
 	class GameObj
-	{	
+	{
+	private:
+		StateFactory* _stateFactory = nullptr;
+
 	public:
 		ObjData objData;
 		StateController stateController;
 
-		GameObj();
+		GameObj(StateFactory* stateFactory);
 		~GameObj();
 
 		void RenderPosition(Camera& cam);

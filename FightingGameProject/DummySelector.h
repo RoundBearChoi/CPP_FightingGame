@@ -36,7 +36,7 @@ namespace RB
 		{
 			for (size_t i = 0; i < arrObjs.size(); i++)
 			{
-				arrObjs[i] = new GameObj;
+				arrObjs[i] = new GameObj(nullptr);
 			}
 
 			arrObjs[0]->stateController.currentState = new Fighter_0_Idle();

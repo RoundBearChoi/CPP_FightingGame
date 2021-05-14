@@ -193,7 +193,7 @@ namespace RB
 
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
-		vecObjs.push_back(new GameObj);
+		vecObjs.push_back(new GameObj(_stateFactory));
 		vecObjs.back()->objData.SetCreationID(vecObjs.size());
 		vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		vecObjs.back()->objData.SetPosition(_startingPos);

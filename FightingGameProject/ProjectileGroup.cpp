@@ -80,7 +80,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < vecSpecs.size(); i++)
 		{
-			GameObj* obj = new GameObj();
+			GameObj* obj = new GameObj(nullptr);
 			vecObjs.push_back(obj);
 			vecObjs.back()->objData.SetCreationID(vecObjs.size());
 
