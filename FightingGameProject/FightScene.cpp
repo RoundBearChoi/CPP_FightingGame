@@ -2,12 +2,13 @@
 
 namespace RB
 {
-	FightScene::FightScene(GameDataFactory* gameDataFactory)
+	FightScene::FightScene(GameDataFactory* gameDataFactory, StateFactory* stateFactory)
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 		_gameDataFactory = gameDataFactory;
+		_stateFactory = stateFactory;
 
-		_fighters = new FightersGroup(_gameDataFactory);
+		_fighters = new FightersGroup(_gameDataFactory, _stateFactory);
 		_projectiles = new ProjectileGroup(_gameDataFactory);
 		_impactEffects = new ImpactEffectsGroup(_gameDataFactory);
 		_cam = new Camera(_gameDataFactory);

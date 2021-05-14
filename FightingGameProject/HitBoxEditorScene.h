@@ -34,12 +34,13 @@ namespace RB
 		GroupComponent* ptrAnimationRenderer = nullptr;
 
 	public:
-		HitBoxEditorScene(GameDataFactory* gameDataFactory)
+		HitBoxEditorScene(GameDataFactory* gameDataFactory, StateFactory* stateFactory)
 		{
 			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
 			_gameDataFactory = gameDataFactory;
+			_stateFactory = stateFactory;
 			_cam = new Camera(_gameDataFactory);
 			ptrAnimationRenderer = new AnimationRenderer();
 		}

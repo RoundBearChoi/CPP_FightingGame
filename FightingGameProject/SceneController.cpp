@@ -20,12 +20,12 @@ namespace RB
 
 		if (_sceneType == SceneType::FIGHT_SCENE)
 		{
-			currentScene = new FightScene(_gameDataFactory);
+			currentScene = new FightScene(_gameDataFactory, _stateFactory);
 			currentScene->sceneType = _sceneType;
 		}
 		else if (_sceneType == SceneType::BOXCOLLIDER_EDITOR)
 		{
-			currentScene = new HitBoxEditorScene(_gameDataFactory);
+			currentScene = new HitBoxEditorScene(_gameDataFactory, _stateFactory);
 			currentScene->sceneType = _sceneType;
 		}
 

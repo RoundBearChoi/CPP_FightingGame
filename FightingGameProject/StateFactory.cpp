@@ -2,8 +2,6 @@
 
 namespace RB
 {
-	StateFactory* StateFactory::ptr = nullptr;
-
 	StateFactory::StateFactory()
 	{
 		Creator_Fighter_0_Idle = new CREATOR_Fighter_0_Idle();

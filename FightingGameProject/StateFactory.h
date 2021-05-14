@@ -7,7 +7,6 @@ namespace RB
 	class StateFactory
 	{
 	public:
-		static StateFactory* ptr;
 		StateFactory();
 		~StateFactory();
 
