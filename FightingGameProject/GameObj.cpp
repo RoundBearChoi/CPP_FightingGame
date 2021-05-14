@@ -8,7 +8,7 @@ namespace RB
 
 		_stateFactory = stateFactory;
 		
-		stateController = new StateController(_stateFactory);
+		stateController = new StateController(/*_stateFactory*/);
 	}
 
 	GameObj::~GameObj()

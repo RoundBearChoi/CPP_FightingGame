@@ -1,7 +1,7 @@
 #pragma once
 #include "State.h"
 #include "DevSettings.h"
-#include "StateFactory.h"
+//#include "StateFactory.h"
 
 namespace RB
 {
@@ -9,12 +9,12 @@ namespace RB
 	{
 	private:
 		State* prevState = nullptr;
-		StateFactory* _stateFactory = nullptr;
+		//StateFactory* _stateFactory = nullptr;
 
 	public:
 		State* currentState = nullptr;
 
-		StateController(StateFactory* stateFactory);
+		StateController(/*StateFactory* stateFactory*/);
 		~StateController();
 		void MakeStateTransition();
 	};
