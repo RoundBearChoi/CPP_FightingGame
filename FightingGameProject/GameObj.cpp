@@ -7,11 +7,15 @@ namespace RB
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
 
 		_stateFactory = stateFactory;
+		
+		stateController = new StateController(_stateFactory);
 	}
 
 	GameObj::~GameObj()
 	{
 		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; };
+
+		delete stateController;
 	}
 
 	void GameObj::RenderPosition(Camera& cam)
@@ -62,12 +66,12 @@ namespace RB
 		{
 			//draw center position
 			olc::vi2d playerPos = ScreenVector::GetScreenPosition(objData.GetPosition(), cam);
-			olc::vi2d colliderPos = stateController.currentState->GetColliderWorldPos(_bodyType, objData);
+			olc::vi2d colliderPos = stateController->currentState->GetColliderWorldPos(_bodyType, objData);
 
 			olc::Renderer::ptrPGE->DrawLine(playerPos, ScreenVector::GetScreenPosition(colliderPos, cam), olc::RED);
 
 			//draw quads
-			std::array<olc::vi2d, 4> quads = stateController.currentState->GetColliderQuadsWorldPos(_bodyType, objData);
+			std::array<olc::vi2d, 4> quads = stateController->currentState->GetColliderQuadsWorldPos(_bodyType, objData);
 
 			if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
 			{

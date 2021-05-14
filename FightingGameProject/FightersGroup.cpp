@@ -53,11 +53,11 @@ namespace RB
 
 		for (GameObj* obj : vecObjs)
 		{
-			obj->stateController.MakeStateTransition();
+			obj->stateController->MakeStateTransition();
 
-			if (obj->stateController.currentState != nullptr)
+			if (obj->stateController->currentState != nullptr)
 			{
-				obj->stateController.currentState->RunUpdateProcess(obj->objData, gameData);
+				obj->stateController->currentState->RunUpdateProcess(obj->objData, gameData);
 			}
 
 			ptrSpecialMoveProcessor->Update(*obj);
@@ -86,7 +86,7 @@ namespace RB
 
 				if (!slowmotion)
 				{
-					vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+					vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 				}
 			}
 		}
@@ -98,9 +98,9 @@ namespace RB
 		{
 			if (_index < vecObjs.size())
 			{
-				if (vecObjs[_index]->stateController.currentState != nullptr)
+				if (vecObjs[_index]->stateController->currentState != nullptr)
 				{
-					vecObjs[_index]->stateController.currentState->nextState = ptrState;
+					vecObjs[_index]->stateController->currentState->nextState = ptrState;
 					return true;
 				}
 			}
@@ -120,9 +120,9 @@ namespace RB
 			obj.RenderPosition(cam);
 			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
 
-			if (obj.stateController.currentState != nullptr)
+			if (obj.stateController->currentState != nullptr)
 			{
-				CheckCollisionMessage* check = obj.stateController.currentState->GetCollisionStatus();
+				CheckCollisionMessage* check = obj.stateController->currentState->GetCollisionStatus();
 
 				if (check)
 				{
@@ -139,7 +139,7 @@ namespace RB
 	{
 		for (int32_t i = 0; i < vecObjs.size(); i++)
 		{
-			vecObjs[i]->stateController.currentState->RenderColliderQuads(vecObjs[i]->objData, cam);
+			vecObjs[i]->stateController->currentState->RenderColliderQuads(vecObjs[i]->objData, cam);
 		}
 	}
 
@@ -147,7 +147,7 @@ namespace RB
 	{
 		if (fighterIndex < vecObjs.size())
 		{
-			State* state = vecObjs[fighterIndex]->stateController.currentState;
+			State* state = vecObjs[fighterIndex]->stateController->currentState;
 
 			if (state != nullptr)
 			{
@@ -162,7 +162,7 @@ namespace RB
 	{
 		if (fighterIndex < vecObjs.size())
 		{
-			State* state = vecObjs[fighterIndex]->stateController.currentState;
+			State* state = vecObjs[fighterIndex]->stateController->currentState;
 
 			if (state != nullptr)
 			{
@@ -205,7 +205,7 @@ namespace RB
 		for (GameObj* obj : vecObjs)
 		{
 			//compare addresses
-			if (&(*obj->stateController.currentState) != &me)
+			if (&(*obj->stateController->currentState) != &me)
 			{
 				return obj;
 			}

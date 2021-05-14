@@ -114,11 +114,11 @@ namespace RB
 	{
 		if (index < vecObjs.size())
 		{
-			if (vecObjs[index]->stateController.currentState != nullptr)
+			if (vecObjs[index]->stateController->currentState != nullptr)
 			{
-				if (vecObjs[index]->stateController.currentState->vecCheckCollisions.size() > 0)
+				if (vecObjs[index]->stateController->currentState->vecCheckCollisions.size() > 0)
 				{
-					return vecObjs[index]->stateController.currentState->GetCollisionStatus();
+					return vecObjs[index]->stateController->currentState->GetCollisionStatus();
 				}
 			}
 		}
@@ -130,9 +130,9 @@ namespace RB
 	{
 		if (fighterIndex < vecObjs.size())
 		{
-			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
+			if (vecObjs[fighterIndex]->stateController->currentState != nullptr)
 			{
-				return vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount;
+				return vecObjs[fighterIndex]->stateController->currentState->bodyCollisionCount;
 			}
 		}
 
@@ -143,9 +143,9 @@ namespace RB
 	{
 		if (fighterIndex < vecObjs.size())
 		{
-			if (vecObjs[fighterIndex]->stateController.currentState != nullptr)
+			if (vecObjs[fighterIndex]->stateController->currentState != nullptr)
 			{
-				return vecObjs[fighterIndex]->stateController.currentState->maxBodyCollisions;
+				return vecObjs[fighterIndex]->stateController->currentState->maxBodyCollisions;
 			}
 		}
 
@@ -154,14 +154,14 @@ namespace RB
 
 	void ObjGroup::AddCollisionCount(int32_t fighterIndex)
 	{
-		vecObjs[fighterIndex]->stateController.currentState->bodyCollisionCount++;
+		vecObjs[fighterIndex]->stateController->currentState->bodyCollisionCount++;
 	}
 
 	std::vector<CreateProjectileMessage>* ObjGroup::GetProjectileQueues(size_t _index)
 	{
 		if (_index < vecObjs.size())
 		{
-			return &vecObjs[_index]->stateController.currentState->vecCreateProjectiles;
+			return &vecObjs[_index]->stateController->currentState->vecCreateProjectiles;
 		}
 
 		return nullptr;

@@ -34,7 +34,7 @@ namespace RB
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				State* state = vecObjs[i]->stateController.currentState;
+				State* state = vecObjs[i]->stateController->currentState;
 
 				if (state != nullptr)
 				{
@@ -65,7 +65,7 @@ namespace RB
 
 				if (update)
 				{
-					vecObjs[i]->stateController.currentState->animationController.NextTileIndex();
+					vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 				}
 			}
 		}
@@ -86,7 +86,7 @@ namespace RB
 
 			if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
 			{
-				obj->stateController.currentState = State::NewState<Hadouken_MoveForward>();
+				obj->stateController->currentState = State::NewState<Hadouken_MoveForward>();
 			}
 
 			if (vecSpecs[i].forward.x < 0)

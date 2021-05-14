@@ -14,7 +14,7 @@ namespace RB
 
 	public:
 		ObjData objData;
-		StateController stateController;
+		StateController* stateController = nullptr;
 
 		GameObj(StateFactory* stateFactory);
 		~GameObj();

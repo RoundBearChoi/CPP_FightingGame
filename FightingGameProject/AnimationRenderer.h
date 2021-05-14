@@ -13,7 +13,7 @@ namespace RB
 	public:
 		void Update(GameObj& obj, Camera& cam) override
 		{
-			AnimationStatus* animationStatus = obj.stateController.currentState->animationController.UpdateSource();
+			AnimationStatus* animationStatus = obj.stateController->currentState->animationController.UpdateSource();
 
 			if (animationStatus == nullptr)
 			{
@@ -64,8 +64,8 @@ namespace RB
 				}
 			}
 
-			SpriteType spriteType = obj.stateController.currentState->animationController.status.spriteType;
-			size_t hash = obj.stateController.currentState->GetHash();
+			SpriteType spriteType = obj.stateController->currentState->animationController.status.spriteType;
+			size_t hash = obj.stateController->currentState->GetHash();
 			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;

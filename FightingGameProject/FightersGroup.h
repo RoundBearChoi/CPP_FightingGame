@@ -54,12 +54,12 @@ namespace RB
 		{
 			if (newState != nullptr)
 			{
-				if (vecObjs[_index]->stateController.currentState != nullptr)
+				if (vecObjs[_index]->stateController->currentState != nullptr)
 				{
-					delete vecObjs[_index]->stateController.currentState;
+					delete vecObjs[_index]->stateController->currentState;
 				}
 
-				vecObjs[_index]->stateController.currentState = newState;
+				vecObjs[_index]->stateController->currentState = newState;
 			}
 		}
 	};

@@ -2,6 +2,11 @@
 
 namespace RB
 {
+	StateController::StateController(StateFactory* stateFactory)
+	{
+		_stateFactory = stateFactory;
+	}
+
 	StateController::~StateController()
 	{
 		IF_COUT{ std::cout << "destructing StateController" << std::endl; };

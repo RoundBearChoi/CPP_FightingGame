@@ -133,9 +133,9 @@ namespace RB
 			}
 
 			//dummy fighter state
-			selector.Current()->stateController.MakeStateTransition();
+			selector.Current()->stateController->MakeStateTransition();
 			
-			State* s = selector.Current()->stateController.currentState;
+			State* s = selector.Current()->stateController->currentState;
 			
 			if (s != nullptr)
 			{
@@ -159,17 +159,17 @@ namespace RB
 			if (playIcon.Clicked(mousePos, gameData))
 			{
 				//update dummy fighter frame
-				selector.Current()->stateController.currentState->animationController.NextTileIndex(true);
+				selector.Current()->stateController->currentState->animationController.NextTileIndex(true);
 			}
 
 			if (saveIcon.Clicked(mousePos, gameData))
 			{
-				std::string colliderFile = selector.Current()->stateController.currentState->animationController.GetColliderPath();
+				std::string colliderFile = selector.Current()->stateController->currentState->animationController.GetColliderPath();
 				ColliderLoader::SaveColliderData(selector.GetCollider(), colliderFile);
 
 				saved.frames = 120 * 9;
 
-				selector.Current()->stateController.currentState->UnloadColliderData();
+				selector.Current()->stateController->currentState->UnloadColliderData();
 			}
 
 			if (copyIcon0.Clicked(mousePos, gameData))
@@ -207,7 +207,7 @@ namespace RB
 			}
 
 			//boxcolliders
-			int32_t currentTile = selector.Current()->stateController.currentState->animationController.status.nCurrentTile;
+			int32_t currentTile = selector.Current()->stateController->currentState->animationController.status.nCurrentTile;
 			nSelectedBodyIndex = (int32_t)targetBodyType.selectedType + (ColliderLoader::TotalBodyParts() * currentTile);
 
 			if (nSelectedBodyIndex < selector.GetCollider().size())
@@ -291,11 +291,11 @@ namespace RB
 
 			//current index # for animation
 			olc::vi2d indexString = { playIcon.topLeft.x - 40, playIcon.topLeft.y + playIcon.height + 10 };
-			AnimationStatus* status = selector.Current()->stateController.currentState->animationController.UpdateSource();
+			AnimationStatus* status = selector.Current()->stateController->currentState->animationController.UpdateSource();
 			olc::Renderer::ptrPGE->DrawString(indexString, "currentIndex: " + std::to_string(status->nCurrentTile), olc::WHITE);
 			
 			olc::vi2d fileName = indexString + olc::vi2d(0, 13);
-			std::string currentFile = selector.Current()->stateController.currentState->animationController.GetColliderPath();
+			std::string currentFile = selector.Current()->stateController->currentState->animationController.GetColliderPath();
 			olc::Renderer::ptrPGE->DrawString(fileName, currentFile, olc::WHITE);
 
 			//current body part selection
@@ -335,7 +335,7 @@ namespace RB
 			olc::Renderer::ptrPGE->DrawDecal(rightSel.topLeft, rightSel.ptrDecal, { 1.0f, 1.0f }, rightSel.tint);
 
 			//boxcolliders
-			size_t indexStart = selector.Current()->stateController.currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
+			size_t indexStart = selector.Current()->stateController->currentState->animationController.status.nCurrentTile * ColliderLoader::TotalBodyParts();
 
 			for (size_t i = indexStart; i < indexStart + ColliderLoader::TotalBodyParts(); i++)
 			{
