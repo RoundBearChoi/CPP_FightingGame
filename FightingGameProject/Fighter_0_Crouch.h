@@ -33,13 +33,13 @@ namespace RB
 
 			if (p.strongpunch)
 			{
-				nextState = State::NewState<Fighter_0_Uppercut>(nullptr, nullptr);
+				nextState = State::NewState<Fighter_0_Uppercut>(_gameDataFactory, _objData);
 			}
 			else
 			{
 				if (!p.down)
 				{
-					nextState = State::NewState<Fighter_0_Idle>(nullptr, nullptr);
+					nextState = State::NewState<Fighter_0_Idle>(_gameDataFactory, _objData);
 				}
 			}
 		}
