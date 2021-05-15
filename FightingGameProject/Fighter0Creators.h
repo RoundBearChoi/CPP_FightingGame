@@ -24,7 +24,7 @@ namespace RB
 	class CREATOR_Fighter_0_Idle : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Idle();
 		}
@@ -33,7 +33,7 @@ namespace RB
 	class CREATOR_Fighter_0_WalkForward : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_WalkForward();
 		}
@@ -42,7 +42,7 @@ namespace RB
 	class CREATOR_Fighter_0_WalkBack : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_WalkBack();
 		}
@@ -51,7 +51,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jab : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jab();
 		}
@@ -60,7 +60,7 @@ namespace RB
 	class CREATOR_Fighter_0_HitReactionSide : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_HitReaction_Side();
 		}
@@ -69,7 +69,7 @@ namespace RB
 	class CREATOR_Fighter_0_HitReactionUp : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_HitReaction_Up();
 		}
@@ -78,7 +78,7 @@ namespace RB
 	class CREATOR_Fighter_0_Hadouken_Fire : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Hadouken_Fire();
 		}
@@ -87,7 +87,7 @@ namespace RB
 	class CREATOR_Fighter_0_Hadouken_Recover : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Hadouken_Recover();
 		}
@@ -96,7 +96,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Prep_Vertical : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Prep_Vertical();
 		}
@@ -105,7 +105,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Prep_Forward : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Prep_Forward();
 		}
@@ -114,7 +114,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Prep_Back : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Prep_Back();
 		}
@@ -123,7 +123,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Up_Vertical : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Up_Vertical();
 		}
@@ -132,7 +132,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Up_Forward : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Up_Forward();
 		}
@@ -141,7 +141,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Up_Back : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Up_Back();
 		}
@@ -150,7 +150,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_Fall : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_Fall();
 		}
@@ -159,7 +159,7 @@ namespace RB
 	class CREATOR_Fighter_0_Jump_WeakPunch : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Jump_WeakPunch();
 		}
@@ -168,7 +168,7 @@ namespace RB
 	class CREATOR_Fighter_0_Crouch : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Crouch();
 		}
@@ -177,7 +177,7 @@ namespace RB
 	class CREATOR_Fighter_0_Uppercut : public IStateCreator
 	{
 	public:
-		State* Create() override
+		State* Create(GameDataFactory* gameDataFactory, ObjData* objData) override
 		{
 			return new Fighter_0_Uppercut();
 		}

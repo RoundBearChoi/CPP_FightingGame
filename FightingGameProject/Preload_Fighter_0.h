@@ -10,24 +10,24 @@ namespace RB
 		{
 			std::vector<State*> sampleStates;
 
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Idle->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkForward->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkBack->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jab->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionSide->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionUp->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Fire->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Recover->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Vertical->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Forward->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Back->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Vertical->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Forward->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Back->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Fall->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_WeakPunch->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Crouch->Create());
-			sampleStates.push_back(stateFactory->Creator_Fighter_0_Uppercut->Create());
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Idle->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkForward->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_WalkBack->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jab->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionSide->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_HitReactionUp->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Fire->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Hadouken_Recover->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Vertical->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Forward->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Prep_Back->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Vertical->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Forward->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Up_Back->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_Fall->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Jump_WeakPunch->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Crouch->Create(nullptr, nullptr));
+			sampleStates.push_back(stateFactory->Creator_Fighter_0_Uppercut->Create(nullptr, nullptr));
 
 			for (size_t i = 0; i < sampleStates.size(); i++)
 			{
