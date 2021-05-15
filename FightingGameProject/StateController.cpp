@@ -2,9 +2,9 @@
 
 namespace RB
 {
-	StateController::StateController(/*StateFactory* stateFactory*/)
+	StateController::StateController()
 	{
-		//_stateFactory = stateFactory;
+
 	}
 
 	StateController::~StateController()

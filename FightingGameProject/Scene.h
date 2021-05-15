@@ -1,6 +1,5 @@
 #pragma once
 #include "GameDataFactory.h"
-#include "StateFactory.h"
 #include "Camera.h"
 #include "DevSettings.h"
 #include "ScreenVector.h"
@@ -12,7 +11,6 @@ namespace RB
 	{
 	protected:
 		GameDataFactory* _gameDataFactory = nullptr;
-		StateFactory* _stateFactory = nullptr;
 
 	public:
 		Camera* _cam = nullptr;

@@ -2,13 +2,14 @@
 
 namespace RB
 {
-	FightScene::FightScene(GameDataFactory* gameDataFactory, StateFactory* stateFactory)
+	class Fighter_0_Idle;
+
+	FightScene::FightScene(GameDataFactory* gameDataFactory)
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 		_gameDataFactory = gameDataFactory;
-		_stateFactory = stateFactory;
 
-		_fighters = new FightersGroup(_gameDataFactory, _stateFactory);
+		_fighters = new FightersGroup(_gameDataFactory);
 		_projectiles = new ProjectileGroup(_gameDataFactory);
 		_impactEffects = new ImpactEffectsGroup(_gameDataFactory);
 		_cam = new Camera(_gameDataFactory);
@@ -35,8 +36,8 @@ namespace RB
 		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
 		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		_fighters->SetState(0, _stateFactory->Creator_Fighter_0_Idle->Create(_gameDataFactory, _fighters->GetObjData(0)));
-		_fighters->SetState(1, _stateFactory->Creator_Fighter_0_Idle->Create(_gameDataFactory, _fighters->GetObjData(1)));
+		_fighters->SetState(0, State::NewState<Fighter_0_Idle>());
+		_fighters->SetState(1, State::NewState<Fighter_0_Idle>());
 
 		damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 	}

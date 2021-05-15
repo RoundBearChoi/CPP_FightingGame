@@ -2,12 +2,11 @@
 
 namespace RB
 {
-	FightersGroup::FightersGroup(GameDataFactory* gameDataFactory, StateFactory* stateFactory)
+	FightersGroup::FightersGroup(GameDataFactory* gameDataFactory)
 	{
 		_gameDataFactory = gameDataFactory;
-		_stateFactory = stateFactory;
 
-		preload_fighter_0 = new Preload_Fighter_0(_stateFactory);
+		preload_fighter_0 = new Preload_Fighter_0();
 
 		ptrFighterDirection = new FighterDirection;
 		ptrFighterJump = new FighterJump;
@@ -193,7 +192,7 @@ namespace RB
 
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
-		vecObjs.push_back(new GameObj(_stateFactory));
+		vecObjs.push_back(new GameObj());
 		vecObjs.back()->objData.SetCreationID(vecObjs.size());
 		vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		vecObjs.back()->objData.SetPosition(_startingPos);

@@ -2,13 +2,11 @@
 
 namespace RB
 {
-	GameObj::GameObj(StateFactory* stateFactory)
+	GameObj::GameObj()
 	{
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
 
-		_stateFactory = stateFactory;
-		
-		stateController = new StateController(/*_stateFactory*/);
+		stateController = new StateController();
 	}
 
 	GameObj::~GameObj()

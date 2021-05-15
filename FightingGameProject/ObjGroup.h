@@ -4,7 +4,6 @@
 #include "ObjType.h"
 #include "GameObj.h"
 #include "GameDataFactory.h"
-#include "StateFactory.h"
 #include "ObjData.h"
 
 namespace RB
@@ -14,7 +13,6 @@ namespace RB
 	protected:
 		std::vector<GameObj*> vecObjs;
 		GameDataFactory* _gameDataFactory = nullptr;
-		StateFactory* _stateFactory = nullptr;
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;
