@@ -28,7 +28,6 @@ SceneController.cpp
 SpriteLoader.cpp
 State.cpp
 StateController.cpp
-StateFactory.cpp
 )
 
 target_link_libraries(CPPFightingGame -lX11 -lGL -lpthread -lpng -lstdc++fs)
