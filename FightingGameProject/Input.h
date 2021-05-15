@@ -9,8 +9,6 @@ namespace RB
 	class Input
 	{
 	private:
-		GameDataFactory* _gameDataFactory = nullptr;
-
 		//manual camera movement
 		std::vector<Key> vecCamZoomIn;
 		std::vector<Key> vecCamZoomOut;
@@ -48,9 +46,9 @@ namespace RB
 		std::vector<Key> vecF11;
 		
 	public:
-		Input(GameDataFactory* gameDataFactory)
+		Input()
 		{
-			_gameDataFactory = gameDataFactory;
+
 		}
 
 		void UpdateInput()
@@ -109,7 +107,7 @@ namespace RB
 
 		void UpdateGameData()
 		{
-			GameData& gameData = *_gameDataFactory->GetGameData();
+			GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 			gameData.key_j = GetUnprocessedKey(vecCamLeft);
 			gameData.key_l = GetUnprocessedKey(vecCamRight);

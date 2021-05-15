@@ -12,7 +12,6 @@ namespace RB
 	{
 	protected:
 		std::vector<GameObj*> vecObjs;
-		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;

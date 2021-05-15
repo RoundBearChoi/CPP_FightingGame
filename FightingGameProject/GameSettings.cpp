@@ -6,8 +6,6 @@ namespace RB
 	const int32_t GameSettings::window_height = 480;
 	const SceneType GameSettings::startingScene = SceneType::FIGHT_SCENE;
 
-	GameDataFactory* GameSettings::gameDataFactory = nullptr;
-
 	float GameSettings::TargetFrameTime(ChangeTimer _change)
 	{
 		static float target = 1.0f / 80.0f;
@@ -30,7 +28,7 @@ namespace RB
 
 	void GameSettings::UpdateTargetFrame()
 	{
-		GameData& gameData = *gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		if (gameData.key_f9)
 		{

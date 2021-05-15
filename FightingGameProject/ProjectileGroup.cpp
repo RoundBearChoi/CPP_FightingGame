@@ -2,9 +2,8 @@
 
 namespace RB
 {
-	ProjectileGroup::ProjectileGroup(GameDataFactory* gameDataFactory)
+	ProjectileGroup::ProjectileGroup()
 	{
-		_gameDataFactory = gameDataFactory;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 
@@ -28,7 +27,7 @@ namespace RB
 
 	void ProjectileGroup::UpdateStates()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
@@ -86,7 +85,7 @@ namespace RB
 
 			if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
 			{
-				obj->stateController->currentState = State::NewState<Hadouken_MoveForward>(nullptr, nullptr);
+				obj->stateController->currentState = State::NewState<Hadouken_MoveForward>();
 			}
 
 			if (vecSpecs[i].forward.x < 0)

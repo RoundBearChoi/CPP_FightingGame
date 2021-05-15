@@ -1,5 +1,4 @@
 #pragma once
-#include "GameDataFactory.h"
 #include "Camera.h"
 #include "DevSettings.h"
 #include "ScreenVector.h"
@@ -9,9 +8,6 @@ namespace RB
 {
 	class Scene
 	{
-	protected:
-		GameDataFactory* _gameDataFactory = nullptr;
-
 	public:
 		Camera* _cam = nullptr;
 		SceneType sceneType = SceneType::NONE;

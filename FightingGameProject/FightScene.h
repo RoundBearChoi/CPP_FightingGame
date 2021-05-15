@@ -21,7 +21,7 @@ namespace RB
 		DamageDetector* damageDetector = nullptr;
 
 	public:
-		FightScene(GameDataFactory* gameDataFactory);
+		FightScene();
 		~FightScene() override;
 
 		void InitScene() override;

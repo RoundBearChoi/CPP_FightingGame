@@ -170,6 +170,9 @@
     <ClCompile Include="ObjGroup.cpp">
       <Filter>Source Files\Groups\Base</Filter>
     </ClCompile>
+    <ClCompile Include="GameDataFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

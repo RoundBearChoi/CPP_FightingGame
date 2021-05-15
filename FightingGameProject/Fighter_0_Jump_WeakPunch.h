@@ -42,7 +42,7 @@ namespace RB
 
 			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_gameDataFactory, _objData);
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 		}
 

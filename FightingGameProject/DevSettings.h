@@ -12,7 +12,6 @@ namespace RB
 	public:
 		const static bool use_cout = true;
 		static RenderMode renderMode;
-		static GameDataFactory* gameDataFactory;
 
 		static void UpdateDebugBoxSettings();
 		static void ChangeRenderMode();

@@ -12,18 +12,12 @@ namespace RB
 	{
 	private:
 		SpriteLoader spriteLoader;
-		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
-		SceneController(GameDataFactory* gameDataFactory)
-		{
-			_gameDataFactory = gameDataFactory;
-		}
-
-		Scene* currentScene = nullptr;
-
 		SceneController();
 		~SceneController();
+
+		Scene* currentScene = nullptr;
 
 		void CreateScene(SceneType _sceneType);
 		void ChangeScene();

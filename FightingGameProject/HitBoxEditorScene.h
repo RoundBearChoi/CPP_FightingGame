@@ -34,13 +34,12 @@ namespace RB
 		GroupComponent* ptrAnimationRenderer = nullptr;
 
 	public:
-		HitBoxEditorScene(GameDataFactory* gameDataFactory)
+		HitBoxEditorScene()
 		{
 			IF_COUT{ std::cout << "constructing HitBoxEditorScene" << std::endl; };
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
-			_gameDataFactory = gameDataFactory;
-			_cam = new Camera(_gameDataFactory);
+			_cam = new Camera();
 			ptrAnimationRenderer = new AnimationRenderer();
 		}
 
@@ -117,7 +116,7 @@ namespace RB
 
 		void UpdateScene() override
 		{
-			GameData& gameData = *_gameDataFactory->GetGameData();
+			GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 			//change dummy fighter
 			if (gameData.key_left)

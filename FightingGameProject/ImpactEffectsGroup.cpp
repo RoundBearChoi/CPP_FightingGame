@@ -2,9 +2,8 @@
 
 namespace RB
 {
-	ImpactEffectsGroup::ImpactEffectsGroup(GameDataFactory* gameDataFactory)
+	ImpactEffectsGroup::ImpactEffectsGroup()
 	{
-		_gameDataFactory = gameDataFactory;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 
@@ -31,7 +30,7 @@ namespace RB
 
 	void ImpactEffectsGroup::UpdateStates()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
@@ -99,7 +98,7 @@ namespace RB
 
 		if (objType == ObjType::HIT_EFFECT_0)
 		{
-			obj->stateController->currentState = State::NewState<ImpactEffect_Hit_0>(nullptr, nullptr);
+			obj->stateController->currentState = State::NewState<ImpactEffect_Hit_0>();
 		}
 
 		obj->objData.SetPosition(startPos);

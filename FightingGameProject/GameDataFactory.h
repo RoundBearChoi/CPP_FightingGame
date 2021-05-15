@@ -9,24 +9,12 @@ namespace RB
 		GameData* _gameData = nullptr;
 
 	public:
-		~GameDataFactory()
-		{
-			delete _gameData;
-		}
+		static GameDataFactory* ptr;
 
-		void ResetGameData()
-		{
-			if (_gameData != nullptr)
-			{
-				delete _gameData;
-			}
+		~GameDataFactory();
 
-			_gameData = new GameData();
-		}
+		void ResetGameData();
 
-		GameData* GetGameData()
-		{
-			return _gameData;
-		}
+		GameData* GetGameData();
 	};
 }

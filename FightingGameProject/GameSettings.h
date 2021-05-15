@@ -19,8 +19,6 @@ namespace RB
 		const static int32_t window_height;
 		const static SceneType startingScene;
 
-		static GameDataFactory* gameDataFactory;
-
 		static float TargetFrameTime(ChangeTimer _change);
 		static void UpdateTargetFrame();
 	};

@@ -2,10 +2,8 @@
 
 namespace RB
 {
-	FightersGroup::FightersGroup(GameDataFactory* gameDataFactory)
+	FightersGroup::FightersGroup()
 	{
-		_gameDataFactory = gameDataFactory;
-
 		preload_fighter_0 = new Preload_Fighter_0();
 
 		ptrFighterDirection = new FighterDirection;
@@ -43,7 +41,7 @@ namespace RB
 
 	void FightersGroup::UpdateStates()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		InputBuffer::ptr->AddInputs(gameData);
 

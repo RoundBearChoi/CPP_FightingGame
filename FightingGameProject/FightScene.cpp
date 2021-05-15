@@ -4,15 +4,14 @@ namespace RB
 {
 	class Fighter_0_Idle;
 
-	FightScene::FightScene(GameDataFactory* gameDataFactory)
+	FightScene::FightScene()
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
-		_gameDataFactory = gameDataFactory;
 
-		_fighters = new FightersGroup(_gameDataFactory);
-		_projectiles = new ProjectileGroup(_gameDataFactory);
-		_impactEffects = new ImpactEffectsGroup(_gameDataFactory);
-		_cam = new Camera(_gameDataFactory);
+		_fighters = new FightersGroup();
+		_projectiles = new ProjectileGroup();
+		_impactEffects = new ImpactEffectsGroup();
+		_cam = new Camera();
 		
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
@@ -36,16 +35,14 @@ namespace RB
 		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
 		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		_fighters->SetState(0, State::NewState<Fighter_0_Idle>(_gameDataFactory, _fighters->GetObjData(0)));
-		_fighters->SetState(1, State::NewState<Fighter_0_Idle>(_gameDataFactory, _fighters->GetObjData(1)));
+		_fighters->SetState(0, State::NewState<Fighter_0_Idle>());
+		_fighters->SetState(1, State::NewState<Fighter_0_Idle>());
 
 		damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 	}
 
 	void FightScene::UpdateScene()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
-
 		damageDetector->Update();
 
 		if (!SkipUpdate(*_fighters))

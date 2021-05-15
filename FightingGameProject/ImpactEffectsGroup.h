@@ -15,7 +15,7 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ImpactEffectsGroup(GameDataFactory* gameDataFactory);
+		ImpactEffectsGroup();
 		~ImpactEffectsGroup();
 
 		void UpdateStates() override;

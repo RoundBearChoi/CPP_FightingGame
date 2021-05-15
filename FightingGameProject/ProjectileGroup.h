@@ -16,7 +16,7 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ProjectileGroup(GameDataFactory* gameDataFactory);
+		ProjectileGroup();
 		~ProjectileGroup();
 
 		void UpdateStates() override;

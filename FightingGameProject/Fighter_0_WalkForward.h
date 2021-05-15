@@ -35,7 +35,7 @@ namespace RB
 			
 			if (d.up)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>(_gameDataFactory, _objData);
+				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>();
 			}
 
 			else if (d.forward)
@@ -49,7 +49,7 @@ namespace RB
 
 			else
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_gameDataFactory, _objData);
+				nextState = State::NewState<Fighter_0_Idle>();
 			}
 		}
 

@@ -17,7 +17,6 @@ namespace RB
 		bool isNew = true;
 		virtual size_t& Hash();
 		void MakeHash(size_t& _hash);
-		GameDataFactory* _gameDataFactory = nullptr;
 		ObjData* _objData = nullptr;
 
 	public:
@@ -53,19 +52,13 @@ namespace RB
 			_objData = objData;
 		}
 
-		void SetGameDataFactory(GameDataFactory* gameDataFactory)
-		{
-			_gameDataFactory = gameDataFactory;
-		}
-
 		template<class T>
-		static State* NewState(GameDataFactory* gameDataFactory, ObjData* objData)
+		static State* NewState()
 		{
 			if (std::is_base_of<State, T>::value)
 			{
 				State* state = new T();
-				state->SetGameDataFactory(gameDataFactory);
-				state->SetObjData(objData);
+				//state->SetObjData(objData);
 				return state;
 			}
 			else

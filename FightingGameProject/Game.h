@@ -34,12 +34,11 @@ namespace RB
 			sAppName = "C++FightingGame";
 		
 			InputBuffer::ptr = &inputBuffer;
+			GameDataFactory::ptr = &_gameDataFactory;
 
 			//setup gamedatafactory dependencies
-			_input = new Input(&_gameDataFactory);
-			_sceneController = new SceneController(&_gameDataFactory);
-			DevSettings::gameDataFactory = &_gameDataFactory;
-			GameSettings::gameDataFactory = &_gameDataFactory;
+			_input = new Input();
+			_sceneController = new SceneController();
 
 			_sceneController->Load();
 			_sceneController->CreateScene(GameSettings::startingScene);

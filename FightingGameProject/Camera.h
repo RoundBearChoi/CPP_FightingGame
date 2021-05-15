@@ -10,10 +10,9 @@ namespace RB
 	private:
 		olc::vi2d position{ 0, 0 };
 		float zoomScale = 1.0f;
-		GameDataFactory* _gameDataFactory = nullptr;
 
 	public:
-		Camera(GameDataFactory* gameDataFactory);
+		Camera();
 
 		float GetZoom() { return zoomScale; }
 		olc::vi2d GetPosition() { return position; }

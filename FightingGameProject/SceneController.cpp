@@ -20,12 +20,12 @@ namespace RB
 
 		if (_sceneType == SceneType::FIGHT_SCENE)
 		{
-			currentScene = new FightScene(_gameDataFactory);
+			currentScene = new FightScene();
 			currentScene->sceneType = _sceneType;
 		}
 		else if (_sceneType == SceneType::BOXCOLLIDER_EDITOR)
 		{
-			currentScene = new HitBoxEditorScene(_gameDataFactory);
+			currentScene = new HitBoxEditorScene();
 			currentScene->sceneType = _sceneType;
 		}
 
@@ -34,7 +34,7 @@ namespace RB
 
 	void SceneController::ChangeScene()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		if (gameData.key_f11)
 		{

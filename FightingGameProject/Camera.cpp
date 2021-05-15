@@ -2,14 +2,14 @@
 
 namespace RB
 {
-	Camera::Camera(GameDataFactory* gameDataFactory)
+	Camera::Camera()
 	{
-		_gameDataFactory = gameDataFactory;
+
 	}
 
 	void Camera::Update()
 	{
-		GameData& gameData = *_gameDataFactory->GetGameData();
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 		if (gameData.key_j && gameData.key_l || !gameData.key_j && !gameData.key_l)
 		{
