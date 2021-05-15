@@ -35,12 +35,12 @@ namespace RB
 
 			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>();
+				nextState = State::NewState<Fighter_0_Idle>(nullptr, nullptr);
 			}
 
 			else if (p.weakpunch)
 			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>();
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(nullptr, nullptr);
 			}
 		}
 

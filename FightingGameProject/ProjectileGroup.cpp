@@ -86,7 +86,7 @@ namespace RB
 
 			if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
 			{
-				obj->stateController->currentState = State::NewState<Hadouken_MoveForward>();
+				obj->stateController->currentState = State::NewState<Hadouken_MoveForward>(nullptr, nullptr);
 			}
 
 			if (vecSpecs[i].forward.x < 0)

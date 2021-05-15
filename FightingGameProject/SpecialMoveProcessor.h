@@ -30,7 +30,7 @@ namespace RB
 			{
 				if (BufferChecker::Correct(hadouken, *vecInputs, obj))
 				{
-					obj.stateController->currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>();
+					obj.stateController->currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>(nullptr, nullptr);
 				}
 			}
 		}

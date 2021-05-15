@@ -32,7 +32,7 @@ namespace RB
 
 			if (updateCount >= 3)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Up_Vertical>();
+				nextState = State::NewState<Fighter_0_Jump_Up_Vertical>(nullptr, nullptr);
 			}
 		}
 

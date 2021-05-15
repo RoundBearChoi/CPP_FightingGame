@@ -28,7 +28,7 @@ namespace RB
 				if (ProjectileCollision::IsColliding(i, *fighters, *projectiles, resultProjectile, resultMidPoint))
 				{
 					projectiles->DeleteObj(resultProjectile);
-					fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
+					fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(nullptr, nullptr));
 					impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
 
 					SlowMotionMessage slow;
@@ -54,11 +54,11 @@ namespace RB
 					if (resultDamage.upPush != 0)
 					{
 						fighters->AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
-						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>());
+						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>(nullptr, nullptr));
 					}
 					else
 					{
-						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
+						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(nullptr, nullptr));
 					}
 
 					SlowMotionMessage slow;

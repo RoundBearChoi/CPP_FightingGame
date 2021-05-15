@@ -2,7 +2,7 @@
 #include <iostream>
 #include "DevSettings.h"
 #include "ObjData.h"
-#include "GameData.h"
+#include "GameDataFactory.h"
 #include "AnimationController.h"
 #include "Directions.h"
 #include "CheckCollisionMessage.h"
@@ -17,6 +17,8 @@ namespace RB
 		bool isNew = true;
 		virtual size_t& Hash();
 		void MakeHash(size_t& _hash);
+		GameDataFactory* _gameDataFactory = nullptr;
+		ObjData* _objData = nullptr;
 
 	public:
 		State* nextState = nullptr;
@@ -46,12 +48,25 @@ namespace RB
 		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData);
 		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData);
 
+		void SetObjData(ObjData* objData)
+		{
+			_objData = objData;
+		}
+
+		void SetGameDataFactory(GameDataFactory* gameDataFactory)
+		{
+			_gameDataFactory = gameDataFactory;
+		}
+
 		template<class T>
-		static State* NewState()
+		static State* NewState(GameDataFactory* gameDataFactory, ObjData* objData)
 		{
 			if (std::is_base_of<State, T>::value)
 			{
-				return new T();
+				State* state = new T();
+				state->SetGameDataFactory(gameDataFactory);
+				state->SetObjData(objData);
+				return state;
 			}
 			else
 			{

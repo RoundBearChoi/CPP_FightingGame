@@ -29,24 +29,24 @@ namespace RB
 		{
 			std::vector<State*> sampleStates;
 
-			sampleStates.push_back(State::NewState<Fighter_0_Idle>());
-			sampleStates.push_back(State::NewState<Fighter_0_WalkForward>());
-			sampleStates.push_back(State::NewState<Fighter_0_WalkBack>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jab>());
-			sampleStates.push_back(State::NewState<Fighter_0_HitReaction_Side>());
-			sampleStates.push_back(State::NewState<Fighter_0_HitReaction_Up>());
-			sampleStates.push_back(State::NewState<Fighter_0_Hadouken_Fire>());
-			sampleStates.push_back(State::NewState<Fighter_0_Hadouken_Recover>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Vertical>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Forward>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Back>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Vertical>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Forward>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Back>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_Fall>());
-			sampleStates.push_back(State::NewState<Fighter_0_Jump_WeakPunch>());
-			sampleStates.push_back(State::NewState<Fighter_0_Crouch>());
-			sampleStates.push_back(State::NewState<Fighter_0_Uppercut>());
+			sampleStates.push_back(State::NewState<Fighter_0_Idle>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_WalkForward>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_WalkBack>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jab>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_HitReaction_Side>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_HitReaction_Up>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Hadouken_Fire>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Hadouken_Recover>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Vertical>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Forward>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Prep_Back>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Vertical>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Forward>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Up_Back>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_Fall>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Jump_WeakPunch>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Crouch>(nullptr, nullptr));
+			sampleStates.push_back(State::NewState<Fighter_0_Uppercut>(nullptr, nullptr));
 
 			for (size_t i = 0; i < sampleStates.size(); i++)
 			{

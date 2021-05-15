@@ -49,7 +49,7 @@ namespace RB
 
 			if (updateCount >= end)
 			{
-				nextState = State::NewState<Fighter_0_Idle>();
+				nextState = State::NewState<Fighter_0_Idle>(nullptr, nullptr);
 			}
 		}
 
