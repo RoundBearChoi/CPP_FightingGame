@@ -12,7 +12,7 @@ namespace RB
 			//process jump
 			if (obj.objData.ptrJumpProcessor != nullptr)
 			{
-				PlayerInput p = PlayerInput::Get(obj.objData.GetPlayerType(), gameData);
+				PlayerInput p = PlayerInput::Get(obj.objData.GetPlayerType());
 				Directions d = Directions::Get(obj.objData.IsFacingRight(), p);
 				obj.objData.ptrJumpProcessor->UpdateJump(d.up, d.forward, d.back);
 

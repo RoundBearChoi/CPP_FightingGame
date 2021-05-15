@@ -21,16 +21,16 @@ namespace RB
 			animationController.status.nTransitionDelay = 5;
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetSpriteSize({ 400, 230 });
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
 			Directions d = Directions::Get(objData.IsFacingRight(), p);
 
 			if (d.up)

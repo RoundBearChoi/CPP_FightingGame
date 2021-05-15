@@ -16,7 +16,7 @@ namespace RB
 			animationController.status.nTransitionDelay = 4;
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetOffsetType(OffsetType::CENTER_CENTER);
 
@@ -29,7 +29,7 @@ namespace RB
 			objData.SetSpriteSize({ roundedW, roundedH });
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 
 		}

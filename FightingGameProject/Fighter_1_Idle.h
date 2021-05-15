@@ -17,12 +17,12 @@ namespace RB
 			animationController.status.nTransitionDelay = 12;
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetSpriteSize({ 180, 180 });
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 
 		}

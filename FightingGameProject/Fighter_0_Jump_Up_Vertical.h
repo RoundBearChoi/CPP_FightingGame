@@ -23,7 +23,7 @@ namespace RB
 			animationController.status.bPlayOnce = true;
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetSpriteSize({ 400, 230 });
 
@@ -31,11 +31,11 @@ namespace RB
 			objData.ptrJumpProcessor->SetUpForce(15);
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
 
 			if (objData.GetPosition().y >= 0 && updateCount != 0)
 			{

@@ -17,9 +17,10 @@ namespace RB
 		bool weakkick = false;
 		bool strongkick = false;
 
-		static PlayerInput Get(PlayerType _playerType, GameData& gameData)
+		static PlayerInput Get(PlayerType _playerType)
 		{
 			PlayerInput input;
+			GameData& gameData = *GameDataFactory::ptr->GetGameData();
 
 			if (_playerType == PlayerType::PLAYER_1)
 			{

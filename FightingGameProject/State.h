@@ -30,9 +30,9 @@ namespace RB
 		std::vector<SlowMotionMessage> vecSlowMotion;
 
 		virtual ~State();
-		virtual void OnEnter(ObjData& objData, GameData& gameData) = 0;
-		virtual void OnUpdate(ObjData& objData, GameData& gameData) = 0;
-		virtual void OnAnimationUpdate(ObjData& objData, GameData& gameData) {}
+		virtual void OnEnter(ObjData& objData) = 0;
+		virtual void OnUpdate(ObjData& objData) = 0;
+		virtual void OnAnimationUpdate(ObjData& objData) {}
 
 		virtual std::vector<BoxCollider>& GetColliders();
 		virtual std::vector<olc::vi2d>& GetColliderQuads();

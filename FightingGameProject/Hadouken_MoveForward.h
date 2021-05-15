@@ -15,7 +15,7 @@ namespace RB
 			animationController.SetParams(SpriteType::PROJECTILES, 78, 46, 1, 1, 1);
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetOffsetType(OffsetType::CENTER_CENTER);
 			objData.SetSpriteSize({ 78, 46 });
@@ -26,7 +26,7 @@ namespace RB
 			objData.objBoxCollider.UpdateRotation();
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 			int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 4);
 

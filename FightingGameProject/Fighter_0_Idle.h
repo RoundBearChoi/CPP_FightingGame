@@ -26,7 +26,7 @@ namespace RB
 			animationController.status.nTransitionDelay = 6;
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetSpriteSize({ 400, 230 });
 
@@ -36,15 +36,16 @@ namespace RB
 			objData.objBoxCollider.UpdateRotation();
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
 			Directions d = Directions::Get(objData.IsFacingRight(), p);
 
 			if (p.weakpunch)
 			{
+				GameData& gameData = *GameDataFactory::ptr->GetGameData();
 				Key* wp = gameData.GetWeakPunchKey(objData.GetPlayerType());
 				wp->processed = true;
 

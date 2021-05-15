@@ -20,16 +20,16 @@ namespace RB
 			animationController.SetParams(SpriteType::FIGHTER_0, 400, 200, 1, 1, 1);
 		}
 
-		void OnEnter(ObjData& objData, GameData& gameData) override
+		void OnEnter(ObjData& objData) override
 		{
 			objData.SetSpriteSize({ 400, 230 });
 		}
 
-		void OnUpdate(ObjData& objData, GameData& gameData) override
+		void OnUpdate(ObjData& objData) override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType(), gameData);
+			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
 
 			if (p.strongpunch)
 			{
