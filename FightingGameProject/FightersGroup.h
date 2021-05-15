@@ -62,5 +62,7 @@ namespace RB
 				vecObjs[_index]->stateController->currentState = newState;
 			}
 		}
+
+		ObjData* GetObjData(int32_t index) override;
 	};
 }

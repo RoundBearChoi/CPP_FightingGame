@@ -35,8 +35,8 @@ namespace RB
 		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
 		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		_fighters->SetState(0, _stateFactory->Creator_Fighter_0_Idle->Create(nullptr, nullptr));
-		_fighters->SetState(1, _stateFactory->Creator_Fighter_0_Idle->Create(nullptr, nullptr));
+		_fighters->SetState(0, _stateFactory->Creator_Fighter_0_Idle->Create(_gameDataFactory, _fighters->GetObjData(0)));
+		_fighters->SetState(1, _stateFactory->Creator_Fighter_0_Idle->Create(_gameDataFactory, _fighters->GetObjData(1)));
 
 		damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 	}

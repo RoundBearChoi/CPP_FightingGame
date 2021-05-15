@@ -213,4 +213,16 @@ namespace RB
 
 		return nullptr;
 	}
+
+	ObjData* FightersGroup::GetObjData(int32_t index)
+	{
+		if (index >= vecObjs.size())
+		{
+			return nullptr;
+		}
+		else
+		{
+			return &vecObjs[index]->objData;
+		}
+	}
 }
