@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <array>
-#include "GameData.h"
 #include "ObjGroup.h"
 
 //components

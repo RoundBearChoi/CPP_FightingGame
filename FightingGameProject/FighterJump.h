@@ -1,6 +1,5 @@
 #pragma once
 #include "GroupComponent.h"
-#include "GameData.h"
 
 namespace RB
 {
