@@ -154,13 +154,13 @@ namespace RB
 			copyIcon0.GreenTintOnHover(mousePos);
 			copyIcon1.GreenTintOnHover(mousePos);
 
-			if (playIcon.Clicked(mousePos, gameData))
+			if (playIcon.Clicked(mousePos))
 			{
 				//update dummy fighter frame
 				selector.Current()->stateController->currentState->animationController.NextTileIndex(true);
 			}
 
-			if (saveIcon.Clicked(mousePos, gameData))
+			if (saveIcon.Clicked(mousePos))
 			{
 				std::string colliderFile = selector.Current()->stateController->currentState->animationController.GetColliderPath();
 				ColliderLoader::SaveColliderData(selector.GetCollider(), colliderFile);
@@ -170,24 +170,24 @@ namespace RB
 				selector.Current()->stateController->currentState->UnloadColliderData();
 			}
 
-			if (copyIcon0.Clicked(mousePos, gameData))
+			if (copyIcon0.Clicked(mousePos))
 			{
 				selector.SyncFrames();
 				copied0.frames = 120 * 9;
 			}
 
-			if (copyIcon1.Clicked(mousePos, gameData))
+			if (copyIcon1.Clicked(mousePos))
 			{
 				selector.SyncAll();
 				copied1.frames = 120 * 9;
 			}
 
-			if (leftSel.Clicked(mousePos, gameData))
+			if (leftSel.Clicked(mousePos))
 			{
 				targetBodyType.PrevType();
 			}
 
-			if (rightSel.Clicked(mousePos, gameData))
+			if (rightSel.Clicked(mousePos))
 			{
 				targetBodyType.NextType();
 			}

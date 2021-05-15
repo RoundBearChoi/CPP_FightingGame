@@ -61,8 +61,10 @@ namespace RB
 			}
 		}
 
-		bool Clicked(olc::vi2d& mousePos, GameData& gameData)
+		bool Clicked(olc::vi2d& mousePos)
 		{
+			GameData& gameData = *GameDataFactory::ptr->GetGameData();
+
 			if (MouseHovering(mousePos))
 			{
 				if (gameData.key_mouse0)

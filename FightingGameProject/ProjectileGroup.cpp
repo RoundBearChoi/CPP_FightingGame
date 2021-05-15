@@ -27,8 +27,6 @@ namespace RB
 
 	void ProjectileGroup::UpdateStates()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
-
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
