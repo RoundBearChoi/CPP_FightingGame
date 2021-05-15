@@ -41,9 +41,7 @@ namespace RB
 
 	void FightersGroup::UpdateStates()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
-
-		InputBuffer::ptr->AddInputs(gameData);
+		InputBuffer::ptr->AddInputs();
 
 		ptrFighterDirection->Update(vecObjs);
 		ptrGroundToGroundCollision->Update(vecObjs);
@@ -54,11 +52,11 @@ namespace RB
 
 			if (obj->stateController->currentState != nullptr)
 			{
-				obj->stateController->currentState->RunUpdateProcess(obj->objData, gameData);
+				obj->stateController->currentState->RunUpdateProcess(obj->objData);
 			}
 
 			ptrSpecialMoveProcessor->Update(*obj);
-			ptrFighterJump->Update(*obj, gameData);
+			ptrFighterJump->Update(*obj);
 		}
 	}
 

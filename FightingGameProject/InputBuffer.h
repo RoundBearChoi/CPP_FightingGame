@@ -42,7 +42,7 @@ namespace RB
 		std::vector<InputElement> vecP1Inputs;
 		std::vector<InputElement> vecP2Inputs;
 
-		void AddInputs(GameData& gameData);
+		void AddInputs();
 		void Update();
 		bool QuadruplePress(Key* up, Key* down, Key* left, Key* right);
 		bool TriplePress(Key* up, Key* down, Key* left, Key* right);

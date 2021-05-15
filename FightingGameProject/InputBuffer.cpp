@@ -4,8 +4,10 @@ namespace RB
 {
 	InputBuffer* InputBuffer::ptr = nullptr;
 
-	void InputBuffer::AddInputs(GameData& gameData)
+	void InputBuffer::AddInputs()
 	{
+		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+
 		AddInputBuffer(
 			gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, //up down left right
 			gameData.key_t, //weak punch

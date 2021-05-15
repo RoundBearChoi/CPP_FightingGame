@@ -32,7 +32,7 @@ namespace RB
 		return defaultVec;
 	}
 
-	void State::RunUpdateProcess(ObjData& objData, GameData& gameData)
+	void State::RunUpdateProcess(ObjData& objData)
 	{
 		if (IsNew())
 		{
