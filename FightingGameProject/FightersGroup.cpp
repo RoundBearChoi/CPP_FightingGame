@@ -8,7 +8,7 @@ namespace RB
 		_preloadFighter0 = new Preload_Fighter_0();
 
 		_fighterDirection = new FighterDirection(&vecObjs);
-		_fighterJump = new FighterJump;
+		_fighterJump = new FighterJump(&vecObjs);
 		_groundToGroundCollision = new FighterGroundToGroundCollision;
 		_specialMoveProcessor = new SpecialMoveProcessor;
 		_animationRenderer = new AnimationRenderer;
@@ -57,8 +57,9 @@ namespace RB
 			}
 
 			_specialMoveProcessor->Update(*obj);
-			_fighterJump->Update(*obj);
 		}
+
+		_fighterJump->Update();
 	}
 
 	void FightersGroup::RenderStates(bool update)
