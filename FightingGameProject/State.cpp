@@ -32,7 +32,7 @@ namespace RB
 		return defaultVec;
 	}
 
-	void State::RunUpdateProcess(ObjData& objData)
+	void State::RunUpdateProcess()
 	{
 		if (IsNew())
 		{
@@ -99,7 +99,7 @@ namespace RB
 		}
 	}
 
-	void State::RenderColliderQuads(ObjData& objData, Camera& cam)
+	void State::RenderColliderQuads(Camera& cam)
 	{
 		if (DevSettings::renderMode == RenderMode::SPRITES_ONLY)
 		{
@@ -117,7 +117,7 @@ namespace RB
 
 		for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)
 		{
-			olc::vi2d playerPos = objData.GetPosition();
+			olc::vi2d playerPos = _objData->GetPosition();
 
 			//get worldpos from quad specs
 			std::array<olc::vi2d, 4>worldPos;
@@ -126,7 +126,7 @@ namespace RB
 			worldPos[2] = quads[i + 2];
 			worldPos[3] = quads[i + 3];
 
-			if (!objData.IsFacingRight())
+			if (!_objData->IsFacingRight())
 			{
 				worldPos[0].x *= -1;
 				worldPos[1].x *= -1;
@@ -181,7 +181,7 @@ namespace RB
 		return nullptr;
 	}
 
-	olc::vi2d State::GetColliderWorldPos(BodyType _bodyType, ObjData& objData)
+	olc::vi2d State::GetColliderWorldPos(BodyType _bodyType)
 	{
 		std::vector<BoxCollider>& vec = GetColliders();
 
@@ -191,12 +191,12 @@ namespace RB
 		{
 			olc::vi2d relativePos = vec[index].RelativePosition();
 
-			if (!objData.IsFacingRight())
+			if (!_objData->IsFacingRight())
 			{
 				relativePos.x *= -1;
 			}
 
-			olc::vi2d worldPos = relativePos + objData.GetPosition();
+			olc::vi2d worldPos = relativePos + _objData->GetPosition();
 
 			return worldPos;
 		}
@@ -206,7 +206,7 @@ namespace RB
 		}
 	}
 
-	std::array<olc::vi2d, 4> State::GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData)
+	std::array<olc::vi2d, 4> State::GetColliderQuadsWorldPos(BodyType _bodyType)
 	{
 		std::vector<olc::vi2d>& vec = GetColliderQuads();
 
@@ -220,7 +220,7 @@ namespace RB
 		arr[2] = vec[start + 2];
 		arr[3] = vec[start + 3];
 
-		if (!objData.IsFacingRight())
+		if (!_objData->IsFacingRight())
 		{
 			arr[0].x *= -1;
 			arr[1].x *= -1;
@@ -228,10 +228,10 @@ namespace RB
 			arr[3].x *= -1;
 		}
 
-		arr[0] += objData.GetPosition();
-		arr[1] += objData.GetPosition();
-		arr[2] += objData.GetPosition();
-		arr[3] += objData.GetPosition();
+		arr[0] += _objData->GetPosition();
+		arr[1] += _objData->GetPosition();
+		arr[2] += _objData->GetPosition();
+		arr[3] += _objData->GetPosition();
 
 		return arr;
 	}

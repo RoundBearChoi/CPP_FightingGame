@@ -52,7 +52,7 @@ namespace RB
 
 			if (obj->stateController->currentState != nullptr)
 			{
-				obj->stateController->currentState->RunUpdateProcess(obj->objData);
+				obj->stateController->currentState->RunUpdateProcess();
 			}
 
 			ptrSpecialMoveProcessor->Update(*obj);
@@ -134,7 +134,7 @@ namespace RB
 	{
 		for (int32_t i = 0; i < vecObjs.size(); i++)
 		{
-			vecObjs[i]->stateController->currentState->RenderColliderQuads(vecObjs[i]->objData, cam);
+			vecObjs[i]->stateController->currentState->RenderColliderQuads(cam);
 		}
 	}
 
@@ -146,7 +146,7 @@ namespace RB
 
 			if (state != nullptr)
 			{
-				return state->GetColliderWorldPos(bodyType, vecObjs[fighterIndex]->objData);
+				return state->GetColliderWorldPos(bodyType);
 			}
 		}
 
@@ -161,7 +161,7 @@ namespace RB
 
 			if (state != nullptr)
 			{
-				return state->GetColliderQuadsWorldPos(bodyType, vecObjs[fighterIndex]->objData);
+				return state->GetColliderQuadsWorldPos(bodyType);
 			}
 		}
 

@@ -39,7 +39,7 @@ namespace RB
 
 				if (state != nullptr)
 				{
-					state->RunUpdateProcess(vecObjs[i]->objData);
+					state->RunUpdateProcess();
 
 					size_t end = (size_t)state->animationController.GetTotalTiles() * (size_t)state->animationController.status.nTransitionDelay;
 

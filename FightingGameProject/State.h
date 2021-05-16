@@ -37,15 +37,15 @@ namespace RB
 		virtual std::vector<BoxCollider>& GetColliders();
 		virtual std::vector<olc::vi2d>& GetColliderQuads();
 		
-		void RunUpdateProcess(ObjData& objData);
+		void RunUpdateProcess();
 		size_t GetHash();
 		bool IsNew();
 		void UpdateColliderParts();
-		void RenderColliderQuads(ObjData& objData, Camera& cam);
+		void RenderColliderQuads(Camera& cam);
 		void UnloadColliderData();
 		CheckCollisionMessage* GetCollisionStatus();
-		olc::vi2d GetColliderWorldPos(BodyType _bodyType, ObjData& objData);
-		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType, ObjData& objData);
+		olc::vi2d GetColliderWorldPos(BodyType _bodyType);
+		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType);
 
 		void SetObjData(ObjData* objData)
 		{
