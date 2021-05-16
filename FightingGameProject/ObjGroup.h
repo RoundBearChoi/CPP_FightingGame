@@ -45,7 +45,6 @@ namespace RB
 
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
 		virtual std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
-		virtual void RenderComponents() {}
 
 		virtual ObjData* GetObjData(int32_t index)
 		{

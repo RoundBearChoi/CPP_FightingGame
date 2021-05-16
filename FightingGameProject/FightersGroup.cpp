@@ -12,7 +12,7 @@ namespace RB
 		_groundToGroundCollision = new FighterGroundToGroundCollision(&vecObjs);
 		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
 		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
-		_inputBufferRenderer = new InputBufferRenderer;
+		_inputBufferRenderer = new InputBufferRenderer();
 	}
 
 	FightersGroup::~FightersGroup()
@@ -129,6 +129,8 @@ namespace RB
 				}
 			}
 		}
+
+		_inputBufferRenderer->Update();
 	}
 
 	void FightersGroup::RenderBoxColliders()
@@ -180,11 +182,6 @@ namespace RB
 
 		vecObjs[index]->objData.ptrJumpProcessor->SetUpForce(upForce);
 		vecObjs[index]->objData.ptrJumpProcessor->SetSideForce(sideForce);
-	}
-	
-	void FightersGroup::RenderComponents()
-	{
-		_inputBufferRenderer->Update();
 	}
 
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
