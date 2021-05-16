@@ -10,7 +10,7 @@ namespace RB
 		_fighterDirection = new FighterDirection(&vecObjs);
 		_fighterJump = new FighterJump(&vecObjs);
 		_groundToGroundCollision = new FighterGroundToGroundCollision(&vecObjs);
-		_specialMoveProcessor = new SpecialMoveProcessor;
+		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
 		_animationRenderer = new AnimationRenderer;
 		_inputBufferRenderer = new InputBufferRenderer;
 	}
@@ -55,10 +55,9 @@ namespace RB
 			{
 				obj->stateController->currentState->RunUpdateProcess();
 			}
-
-			_specialMoveProcessor->Update(*obj);
 		}
 
+		_specialMoveProcessor->Update();
 		_fighterJump->Update();
 	}
 

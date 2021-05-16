@@ -11,8 +11,26 @@ namespace RB
 
 	class SpecialMoveProcessor : public GroupComponent
 	{
+	private:
+		std::vector<GameObj*>* _vecFighters = nullptr;
+
 	public:
-		void Update(GameObj& obj) override
+		SpecialMoveProcessor(std::vector<GameObj*>* vecFighters)
+		{
+			_vecFighters = vecFighters;
+		}
+
+		void Update() override
+		{
+			std::vector<GameObj*>& vec = *_vecFighters;
+
+			for (size_t i = 0; i < vec.size(); i++)
+			{
+				TriggerSpecialMove(*vec[i]);
+			}
+		}
+
+		void TriggerSpecialMove(GameObj& obj)
 		{
 			Hadouken hadouken;
 			std::vector<InputElement>* vecInputs = nullptr;
