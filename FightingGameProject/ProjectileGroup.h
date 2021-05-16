@@ -16,14 +16,14 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ProjectileGroup();
+		ProjectileGroup(Camera* camera);
 		~ProjectileGroup();
 
 		void UpdateStates() override;
-		void RenderStates(Camera& cam, bool update) override;
+		void RenderStates(bool update) override;
 
-		void RenderObjPosition(Camera& cam) override;
-		void RenderBoxColliders(Camera& cam) override;
+		void RenderObjPosition() override;
+		void RenderBoxColliders() override;
 
 		void CreateProjectiles(std::vector<CreateProjectileMessage>& vecSpecs);
 	};

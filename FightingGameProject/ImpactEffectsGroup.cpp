@@ -2,8 +2,9 @@
 
 namespace RB
 {
-	ImpactEffectsGroup::ImpactEffectsGroup()
+	ImpactEffectsGroup::ImpactEffectsGroup(Camera* camera)
 	{
+		_camera = camera;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 
@@ -62,18 +63,18 @@ namespace RB
 		}
 	};
 
-	void ImpactEffectsGroup::RenderObjPosition(Camera& cam)
+	void ImpactEffectsGroup::RenderObjPosition()
 	{
 
 	};
 
-	void ImpactEffectsGroup::RenderStates(Camera& cam, bool update)
+	void ImpactEffectsGroup::RenderStates(bool update)
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				ptrAnimationRenderer->Update(*vecObjs[i], cam);
+				ptrAnimationRenderer->Update(*vecObjs[i], *_camera);
 
 				if (update)
 				{
@@ -83,7 +84,7 @@ namespace RB
 		}
 	};
 
-	void ImpactEffectsGroup::RenderBoxColliders(Camera& cam)
+	void ImpactEffectsGroup::RenderBoxColliders()
 	{
 	
 	};

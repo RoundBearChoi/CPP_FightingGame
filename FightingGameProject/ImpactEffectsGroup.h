@@ -15,14 +15,14 @@ namespace RB
 		AnimationRenderer* ptrAnimationRenderer = nullptr;
 
 	public:
-		ImpactEffectsGroup();
+		ImpactEffectsGroup(Camera* camera);
 		~ImpactEffectsGroup();
 
 		void UpdateStates() override;
-		void RenderStates(Camera& cam, bool update) override;
+		void RenderStates(bool update) override;
 
-		void RenderObjPosition(Camera& cam) override;
-		void RenderBoxColliders(Camera& cam) override;
+		void RenderObjPosition() override;
+		void RenderBoxColliders() override;
 
 		void CreateObj(ObjType objType, olc::vi2d startPos) override;
 	};

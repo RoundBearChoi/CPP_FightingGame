@@ -2,8 +2,9 @@
 
 namespace RB
 {
-	ProjectileGroup::ProjectileGroup()
+	ProjectileGroup::ProjectileGroup(Camera* camera)
 	{
+		_camera = camera;
 		ptrAnimationRenderer = new AnimationRenderer();
 	}
 
@@ -41,24 +42,24 @@ namespace RB
 		}
 	}
 
-	void ProjectileGroup::RenderObjPosition(Camera& cam)
+	void ProjectileGroup::RenderObjPosition()
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				vecObjs[i]->objData.objBoxCollider.Render(cam, vecObjs[i]->objData.GetPosition(), olc::CYAN);
+				vecObjs[i]->objData.objBoxCollider.Render(*_camera, vecObjs[i]->objData.GetPosition(), olc::CYAN);
 			}
 		}
 	}
 
-	void ProjectileGroup::RenderStates(Camera& cam, bool update)
+	void ProjectileGroup::RenderStates(bool update)
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				ptrAnimationRenderer->Update(*vecObjs[i], cam);
+				ptrAnimationRenderer->Update(*vecObjs[i], *_camera);
 
 				if (update)
 				{
@@ -68,7 +69,7 @@ namespace RB
 		}
 	}
 
-	void ProjectileGroup::RenderBoxColliders(Camera& cam)
+	void ProjectileGroup::RenderBoxColliders()
 	{
 
 	}

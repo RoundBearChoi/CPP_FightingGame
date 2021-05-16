@@ -8,11 +8,12 @@ namespace RB
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
 
-		_fighters = new FightersGroup();
-		_projectiles = new ProjectileGroup();
-		_impactEffects = new ImpactEffectsGroup();
 		_cam = new Camera();
 
+		_fighters = new FightersGroup(_cam);
+		_projectiles = new ProjectileGroup(_cam);
+		_impactEffects = new ImpactEffectsGroup(_cam);
+		
 		_slowMotion = new SlowMotion(_fighters);
 		
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
@@ -69,17 +70,17 @@ namespace RB
 	{
 		ShowZeroPosition(*_cam);
 
-		_fighters->RenderObjPosition(*_cam);
-		_fighters->RenderComponents();
-		_projectiles->RenderObjPosition(*_cam);
-		_impactEffects->RenderObjPosition(*_cam);
+		_fighters->RenderObjPosition();
+		_fighters->RenderComponents(); //don't need a separate rendercomponents function
+		_projectiles->RenderObjPosition();
+		_impactEffects->RenderObjPosition();
 	}
 
 	void FightScene::RenderStates(bool update)
 	{
-		_fighters->RenderStates(*_cam, update);
-		_fighters->RenderBoxColliders(*_cam);
-		_projectiles->RenderStates(*_cam, update);
-		_impactEffects->RenderStates(*_cam, update);
+		_fighters->RenderStates(update);
+		_fighters->RenderBoxColliders();
+		_projectiles->RenderStates(update);
+		_impactEffects->RenderStates(update);
 	}
 }

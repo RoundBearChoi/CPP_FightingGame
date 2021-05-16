@@ -4,6 +4,7 @@
 #include "ObjType.h"
 #include "GameObj.h"
 #include "GameDataFactory.h"
+#include "Camera.h"
 
 namespace RB
 {
@@ -11,16 +12,17 @@ namespace RB
 	{
 	protected:
 		std::vector<GameObj*> vecObjs;
+		Camera* _camera = nullptr;
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;
 
 		virtual void UpdateStates() = 0;
-		virtual void RenderStates(Camera& cam, bool update) = 0;
+		virtual void RenderStates(bool update) = 0;
 		virtual bool SetNextState(int32_t _index, State* ptrState);
 
-		virtual void RenderObjPosition(Camera& cam) = 0;
-		virtual void RenderBoxColliders(Camera& cam) = 0;
+		virtual void RenderObjPosition() = 0;
+		virtual void RenderBoxColliders() = 0;
 
 		virtual size_t GetObjCount();
 		virtual size_t GetObjCreationID(size_t index);

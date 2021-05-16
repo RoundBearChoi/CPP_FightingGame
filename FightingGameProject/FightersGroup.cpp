@@ -2,8 +2,9 @@
 
 namespace RB
 {
-	FightersGroup::FightersGroup()
+	FightersGroup::FightersGroup(Camera* camera)
 	{
+		_camera = camera;
 		preload_fighter_0 = new Preload_Fighter_0();
 
 		ptrFighterDirection = new FighterDirection;
@@ -60,11 +61,11 @@ namespace RB
 		}
 	}
 
-	void FightersGroup::RenderStates(Camera& cam, bool update)
+	void FightersGroup::RenderStates(bool update)
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			ptrAnimationRenderer->Update(*vecObjs[i], cam);
+			ptrAnimationRenderer->Update(*vecObjs[i], *_camera);
 
 			if (update)
 			{
@@ -106,14 +107,14 @@ namespace RB
 		return false;
 	}
 
-	void FightersGroup::RenderObjPosition(Camera& cam)
+	void FightersGroup::RenderObjPosition()
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			GameObj& obj = *vecObjs[i];
 
-			obj.RenderPosition(cam);
-			obj.objData.objBoxCollider.Render(cam, obj.objData.GetPosition(), olc::GREEN);
+			obj.RenderPosition(*_camera);
+			obj.objData.objBoxCollider.Render(*_camera, obj.objData.GetPosition(), olc::GREEN);
 
 			if (obj.stateController->currentState != nullptr)
 			{
@@ -123,18 +124,18 @@ namespace RB
 				{
 					for (size_t c = 0; c < check->vecBodies.size(); c++)
 					{
-						obj.RenderCollisionTiming(check->vecBodies[c], cam);
+						obj.RenderCollisionTiming(check->vecBodies[c], *_camera);
 					}
 				}
 			}
 		}
 	}
 
-	void FightersGroup::RenderBoxColliders(Camera& cam)
+	void FightersGroup::RenderBoxColliders()
 	{
 		for (int32_t i = 0; i < vecObjs.size(); i++)
 		{
-			vecObjs[i]->stateController->currentState->RenderColliderQuads(cam);
+			vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
 		}
 	}
 

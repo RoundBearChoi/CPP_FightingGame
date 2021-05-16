@@ -30,15 +30,15 @@ namespace RB
 		RandomInteger randomInteger;
 
 	public:
-		FightersGroup();
+		FightersGroup(Camera* camera);
 		~FightersGroup();
 
 		void UpdateStates() override;
-		void RenderStates(Camera& cam, bool update) override;
+		void RenderStates(bool update) override;
 		bool SetNextState(int32_t _index, State* ptrState) override;
 
-		void RenderObjPosition(Camera& cam) override;
-		void RenderBoxColliders(Camera& cam) override;
+		void RenderObjPosition() override;
+		void RenderBoxColliders() override;
 
 		olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType) override;
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
