@@ -1,7 +1,6 @@
 #pragma once
 #include <stdint.h>
 #include "olcPixelGameEngine.h"
-#include "Camera.h"
 #include "ScreenVector.h"
 #include "BoxRenderer.h"
 #include "OffsetType.h"

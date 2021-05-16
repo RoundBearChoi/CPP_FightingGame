@@ -1,7 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "BoxCollider.h"
-#include "Camera.h"
 
 namespace RB
 {

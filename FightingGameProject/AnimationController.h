@@ -4,7 +4,6 @@
 #include "SpriteType.h"
 #include "BoxCollider.h"
 #include "ColliderLoader.h"
-#include "Camera.h"
 
 namespace RB
 {
