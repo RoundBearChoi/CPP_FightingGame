@@ -40,7 +40,7 @@ namespace RB
 
 			DevSettings::renderMode = RenderMode::SPRITES_AND_DEBUG;
 			_cam = new Camera();
-			ptrAnimationRenderer = new AnimationRenderer();
+			ptrAnimationRenderer = new AnimationRenderer(&selector, _cam);
 		}
 
 		~HitBoxEditorScene() override
@@ -310,7 +310,7 @@ namespace RB
 			//dummy fighter
 			if (selector.Current() != nullptr)
 			{
-				ptrAnimationRenderer->Update(*selector.Current(), *_cam);
+				ptrAnimationRenderer->Update();
 			}
 
 			//play icon

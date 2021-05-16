@@ -5,7 +5,7 @@ namespace RB
 	ImpactEffectsGroup::ImpactEffectsGroup(Camera* camera)
 	{
 		_camera = camera;
-		ptrAnimationRenderer = new AnimationRenderer();
+		ptrAnimationRenderer = new AnimationRenderer(&vecObjs, _camera);
 	}
 
 	ImpactEffectsGroup::~ImpactEffectsGroup()
@@ -70,12 +70,12 @@ namespace RB
 
 	void ImpactEffectsGroup::RenderStates(bool update)
 	{
+		ptrAnimationRenderer->Update();
+
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				ptrAnimationRenderer->Update(*vecObjs[i], *_camera);
-
 				if (update)
 				{
 					vecObjs[i]->stateController->currentState->animationController.NextTileIndex();

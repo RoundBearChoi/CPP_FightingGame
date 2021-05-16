@@ -4,13 +4,50 @@
 #include "AnimationStatus.h"
 #include "DevSettings.h"
 #include "SpriteType.h"
+#include "DummySelector.h"
 
 namespace RB
 {
 	class AnimationRenderer : public GroupComponent
 	{
+	private:
+		DummySelector* _dummySelector = nullptr;
+		std::vector<GameObj*>* _vecTargets = nullptr;
+		Camera* _camera = nullptr;
+
 	public:
-		void Update(GameObj& obj, Camera& cam) override
+		//for gamescene
+		AnimationRenderer(std::vector<GameObj*>* vecTargets, Camera* camera)
+		{
+			_vecTargets = vecTargets;
+			_camera = camera;
+		}
+
+		//for hitboxeditorscene
+		AnimationRenderer(DummySelector* dummySelector, Camera* camera)
+		{
+			_dummySelector = dummySelector;
+			_camera = camera;
+		}
+
+		void Update() override
+		{
+			if (_dummySelector != nullptr)
+			{
+				Render(*_dummySelector->Current());
+			}
+			else
+			{
+				std::vector<GameObj*>& vec = *_vecTargets;
+
+				for (size_t i = 0; i < vec.size(); i++)
+				{
+					Render(*vec[i]);
+				}
+			}
+		}
+
+		void Render(GameObj& obj)
 		{
 			AnimationStatus* animationStatus = obj.stateController->currentState->animationController.UpdateSource();
 
@@ -68,10 +105,10 @@ namespace RB
 			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;
-			relativePoints[0] = ScreenVector::GetScreenPosition(points[0], cam);
-			relativePoints[1] = ScreenVector::GetScreenPosition(points[1], cam);
-			relativePoints[2] = ScreenVector::GetScreenPosition(points[2], cam);
-			relativePoints[3] = ScreenVector::GetScreenPosition(points[3], cam);
+			relativePoints[0] = ScreenVector::GetScreenPosition(points[0], *_camera);
+			relativePoints[1] = ScreenVector::GetScreenPosition(points[1], *_camera);
+			relativePoints[2] = ScreenVector::GetScreenPosition(points[2], *_camera);
+			relativePoints[3] = ScreenVector::GetScreenPosition(points[3], *_camera);
 
 			if (DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG || DevSettings::renderMode == RenderMode::SPRITES_ONLY)
 			{

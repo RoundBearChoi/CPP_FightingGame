@@ -11,7 +11,7 @@ namespace RB
 		_fighterJump = new FighterJump(&vecObjs);
 		_groundToGroundCollision = new FighterGroundToGroundCollision(&vecObjs);
 		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
-		_animationRenderer = new AnimationRenderer;
+		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer;
 	}
 
@@ -63,10 +63,10 @@ namespace RB
 
 	void FightersGroup::RenderStates(bool update)
 	{
+		_animationRenderer->Update();
+
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			_animationRenderer->Update(*vecObjs[i], *_camera);
-
 			if (update)
 			{
 				bool slowmotion = false;
