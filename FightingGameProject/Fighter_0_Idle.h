@@ -49,33 +49,33 @@ namespace RB
 				Key* wp = gameData.GetWeakPunchKey(objData.GetPlayerType());
 				wp->processed = true;
 
-				nextState = State::NewState<Fighter_0_Jab>();
+				nextState = State::NewState<Fighter_0_Jab>(_objData);
 			}
 
 			else if (d.forward)
 			{
-				nextState = State::NewState<Fighter_0_WalkForward>();
+				nextState = State::NewState<Fighter_0_WalkForward>(_objData);
 			}
 			else if (d.back)
 			{
-				nextState = State::NewState<Fighter_0_WalkBack>();
+				nextState = State::NewState<Fighter_0_WalkBack>(_objData);
 			}
 
 			else if (d.up && !d.forward && !d.back)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Prep_Vertical>();
+				nextState = State::NewState<Fighter_0_Jump_Prep_Vertical>(_objData);
 			}
 			else if (d.up && d.forward)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>();
+				nextState = State::NewState<Fighter_0_Jump_Prep_Forward>(_objData);
 			}
 			else if (d.up && d.back)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Prep_Back>();
+				nextState = State::NewState<Fighter_0_Jump_Prep_Back>(_objData);
 			}
 			else if (d.down && !d.up)
 			{
-				nextState = State::NewState<Fighter_0_Crouch>();
+				nextState = State::NewState<Fighter_0_Crouch>(_objData);
 			}
 		}
 

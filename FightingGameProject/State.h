@@ -53,12 +53,12 @@ namespace RB
 		}
 
 		template<class T>
-		static State* NewState()
+		static State* NewState(ObjData* objData)
 		{
 			if (std::is_base_of<State, T>::value)
 			{
 				State* state = new T();
-				//state->SetObjData(objData);
+				state->SetObjData(objData);
 				return state;
 			}
 			else

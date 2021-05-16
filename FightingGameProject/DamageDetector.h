@@ -5,16 +5,16 @@ namespace RB
 	class DamageDetector
 	{
 	private:
-		ObjGroup* fighters = nullptr;
-		ObjGroup* projectiles = nullptr;
-		ObjGroup* impactEffects = nullptr;
+		ObjGroup* _fighters = nullptr;
+		ObjGroup* _projectiles = nullptr;
+		ObjGroup* _impactEffects = nullptr;
 
 	public:
-		DamageDetector(ObjGroup* _fighters, ObjGroup* _projectiles, ObjGroup* _impactEffects)
+		DamageDetector(ObjGroup* fighters, ObjGroup* projectiles, ObjGroup* impactEffects)
 		{
-			fighters = _fighters;
-			projectiles = _projectiles;
-			impactEffects = _impactEffects;
+			_fighters = fighters;
+			_projectiles = projectiles;
+			_impactEffects = impactEffects;
 		}
 
 		void Update()
@@ -25,16 +25,16 @@ namespace RB
 				size_t resultProjectile = 0;
 				olc::vi2d resultMidPoint;
 
-				if (ProjectileCollision::IsColliding(i, *fighters, *projectiles, resultProjectile, resultMidPoint))
+				if (ProjectileCollision::IsColliding(i, *_fighters, *_projectiles, resultProjectile, resultMidPoint))
 				{
-					projectiles->DeleteObj(resultProjectile);
-					fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
-					impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
+					_projectiles->DeleteObj(resultProjectile);
+					_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(i)));
+					_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
 
 					SlowMotionMessage slow;
 					slow.interval = 15;
 					slow.maxCount = 1;
-					fighters->vecSlowMotion.push_back(slow);
+					_fighters->vecSlowMotion.push_back(slow);
 				}
 
 				//body part vs body part collision
@@ -47,24 +47,24 @@ namespace RB
 					enemy = 1;
 				}
 
-				if (BodyPartCollision::IsColliding(enemy, *fighters, resultCollision, resultDamage))
+				if (BodyPartCollision::IsColliding(enemy, *_fighters, resultCollision, resultDamage))
 				{
-					impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultCollision);
+					_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultCollision);
 
 					if (resultDamage.upPush != 0)
 					{
-						fighters->AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
-						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>());
+						_fighters->AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
+						_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(i)));
 					}
 					else
 					{
-						fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>());
+						_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(i)));
 					}
 
 					SlowMotionMessage slow;
 					slow.interval = 15;
 					slow.maxCount = 1;
-					fighters->vecSlowMotion.push_back(slow);
+					_fighters->vecSlowMotion.push_back(slow);
 				}
 			}
 		}
