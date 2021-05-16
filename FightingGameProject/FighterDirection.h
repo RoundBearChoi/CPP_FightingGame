@@ -1,10 +1,10 @@
 #pragma once
 #include <array>
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 
 namespace RB
 {
-	class FighterDirection : public GroupComponent
+	class FighterDirection : public IGroupComponent
 	{
 	private:
 		std::vector<GameObj*>* _vecFighters = nullptr;

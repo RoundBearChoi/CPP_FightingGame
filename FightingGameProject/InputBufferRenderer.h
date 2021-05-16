@@ -1,12 +1,12 @@
 #pragma once
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 #include "UIElement.h"
 #include "SpriteType.h"
 #include "InputBuffer.h"
 
 namespace RB
 {
-	class InputBufferRenderer : public GroupComponent
+	class InputBufferRenderer : public IGroupComponent
 	{
 	private:
 		UIElement upleft;

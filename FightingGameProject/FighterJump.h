@@ -1,9 +1,9 @@
 #pragma once
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 
 namespace RB
 {
-	class FighterJump : public GroupComponent
+	class FighterJump : public IGroupComponent
 	{
 	private:
 		std::vector<GameObj*>* _vecFighters = nullptr;

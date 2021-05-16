@@ -1,13 +1,13 @@
 #pragma once
 #include <array>
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 #include "RandomInteger.h"
 #include "AABB.h"
 #include "Normalize.h"
 
 namespace RB
 {
-	class FighterGroundToGroundCollision : public GroupComponent
+	class FighterGroundToGroundCollision : public IGroupComponent
 	{
 	private:
 		std::vector<GameObj*>* _vecFighters = nullptr;

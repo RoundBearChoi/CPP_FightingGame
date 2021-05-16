@@ -1,6 +1,6 @@
 #pragma once
 #include <array>
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 #include "Hadouken.h"
 #include "BufferChecker.h"
 #include "InputBuffer.h"
@@ -9,7 +9,7 @@ namespace RB
 {
 	class Fighter_0_Hadouken_Fire;
 
-	class SpecialMoveProcessor : public GroupComponent
+	class SpecialMoveProcessor : public IGroupComponent
 	{
 	private:
 		std::vector<GameObj*>* _vecFighters = nullptr;

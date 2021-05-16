@@ -31,7 +31,7 @@ namespace RB
 
 		size_t nSelectedBodyIndex = 0;
 
-		GroupComponent* ptrAnimationRenderer = nullptr;
+		IGroupComponent* ptrAnimationRenderer = nullptr;
 
 	public:
 		HitBoxEditorScene()

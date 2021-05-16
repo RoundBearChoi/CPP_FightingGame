@@ -19,12 +19,12 @@ namespace RB
 	class FightersGroup : public ObjGroup
 	{
 	private:
-		GroupComponent* _fighterDirection = nullptr;
-		GroupComponent* _fighterJump = nullptr;
-		GroupComponent* _groundToGroundCollision = nullptr;
-		GroupComponent* _specialMoveProcessor = nullptr;
-		GroupComponent* _inputBufferRenderer = nullptr;
-		GroupComponent* _animationRenderer = nullptr;
+		IGroupComponent* _fighterDirection = nullptr;
+		IGroupComponent* _fighterJump = nullptr;
+		IGroupComponent* _groundToGroundCollision = nullptr;
+		IGroupComponent* _specialMoveProcessor = nullptr;
+		IGroupComponent* _inputBufferRenderer = nullptr;
+		IGroupComponent* _animationRenderer = nullptr;
 		Preload_Fighter_0* _preloadFighter0 = nullptr;
 
 		RandomInteger randomInteger;

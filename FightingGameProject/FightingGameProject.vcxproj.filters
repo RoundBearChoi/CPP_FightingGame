@@ -418,7 +418,7 @@
     <ClInclude Include="ProjectileGroup.h">
       <Filter>Source Files\Groups\Concrete Groups</Filter>
     </ClInclude>
-    <ClInclude Include="GroupComponent.h">
+    <ClInclude Include="IGroupComponent.h">
       <Filter>Source Files\Groups\Base</Filter>
     </ClInclude>
     <ClInclude Include="InputBufferRenderer.h">

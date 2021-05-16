@@ -1,6 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-#include "GroupComponent.h"
+#include "IGroupComponent.h"
 #include "AnimationStatus.h"
 #include "DevSettings.h"
 #include "SpriteType.h"
@@ -8,7 +8,7 @@
 
 namespace RB
 {
-	class AnimationRenderer : public GroupComponent
+	class AnimationRenderer : public IGroupComponent
 	{
 	private:
 		DummySelector* _dummySelector = nullptr;

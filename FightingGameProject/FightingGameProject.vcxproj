@@ -196,7 +196,7 @@
     <ClInclude Include="Fighter_0_Jump_WeakPunch.h" />
     <ClInclude Include="Fighter_0_Uppercut.h" />
     <ClInclude Include="GameDataFactory.h" />
-    <ClInclude Include="GroupComponent.h" />
+    <ClInclude Include="IGroupComponent.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />
     <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
