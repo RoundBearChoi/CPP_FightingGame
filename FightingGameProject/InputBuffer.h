@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "ObjData.h"
 #include "InputElement.h"
 #include "DevSettings.h"
 

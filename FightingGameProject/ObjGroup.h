@@ -4,7 +4,6 @@
 #include "ObjType.h"
 #include "GameObj.h"
 #include "GameDataFactory.h"
-#include "ObjData.h"
 
 namespace RB
 {
