@@ -9,7 +9,7 @@ namespace RB
 
 		_fighterDirection = new FighterDirection(&vecObjs);
 		_fighterJump = new FighterJump(&vecObjs);
-		_groundToGroundCollision = new FighterGroundToGroundCollision;
+		_groundToGroundCollision = new FighterGroundToGroundCollision(&vecObjs);
 		_specialMoveProcessor = new SpecialMoveProcessor;
 		_animationRenderer = new AnimationRenderer;
 		_inputBufferRenderer = new InputBufferRenderer;
@@ -45,7 +45,7 @@ namespace RB
 		InputBuffer::ptr->AddInputs();
 
 		_fighterDirection->Update();
-		_groundToGroundCollision->Update(vecObjs);
+		_groundToGroundCollision->Update();
 
 		for (GameObj* obj : vecObjs)
 		{

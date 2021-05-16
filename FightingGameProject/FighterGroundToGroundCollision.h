@@ -10,21 +10,29 @@ namespace RB
 	class FighterGroundToGroundCollision : public GroupComponent
 	{
 	private:
+		std::vector<GameObj*>* _vecFighters = nullptr;
 		RandomInteger randomInteger;
 
 	public:
-		void Update(std::vector<GameObj*>& vecObjs) override
+		FighterGroundToGroundCollision(std::vector<GameObj*>* vecFighters)
 		{
+			_vecFighters = vecFighters;
+		}
+
+		void Update() override
+		{
+			std::vector<GameObj*>& vec = *_vecFighters;
+
 			//ground vs ground
-			if (vecObjs[0]->objData.GetPosition().y == 0 && vecObjs[1]->objData.GetPosition().y == 0)
+			if (vec[0]->objData.GetPosition().y == 0 && vec[1]->objData.GetPosition().y == 0)
 			{
 				//fighters shouldn't have same position
-				int32_t distance = std::abs(vecObjs[0]->objData.GetPosition().x - vecObjs[1]->objData.GetPosition().x);
+				int32_t distance = std::abs(vec[0]->objData.GetPosition().x - vec[1]->objData.GetPosition().x);
 				if (distance <= 1)
 				{
 					int index = randomInteger.GetInteger(0, 1);
-					olc::vi2d newPos = vecObjs[index]->objData.GetPosition() + olc::vi2d(10, 0);
-					vecObjs[index]->objData.SetPosition(newPos);
+					olc::vi2d newPos = vec[index]->objData.GetPosition() + olc::vi2d(10, 0);
+					vec[index]->objData.SetPosition(newPos);
 
 					IF_COUT{ std::cout << "distance between fighters: " << distance << std::endl; };
 					IF_COUT{ std::cout << "resolving same position" << std::endl; };
@@ -32,19 +40,19 @@ namespace RB
 				}
 
 				if (AABB::IsColliding(
-					vecObjs[0]->objData.objBoxCollider, vecObjs[0]->objData.GetPosition(), //p1 obj boxcollider
-					vecObjs[1]->objData.objBoxCollider, vecObjs[1]->objData.GetPosition())) //p2 obj boxcollider
+					vec[0]->objData.objBoxCollider, vec[0]->objData.GetPosition(), //p1 obj boxcollider
+					vec[1]->objData.objBoxCollider, vec[1]->objData.GetPosition())) //p2 obj boxcollider
 				{
-					olc::vi2d relMidPoint = vecObjs[1]->objData.GetPosition() - vecObjs[0]->objData.GetPosition();
+					olc::vi2d relMidPoint = vec[1]->objData.GetPosition() - vec[0]->objData.GetPosition();
 					relMidPoint.x = (int32_t)std::round(relMidPoint.x / 2.0f);
 					relMidPoint.y = (int32_t)std::round(relMidPoint.y / 2.0f);
-					olc::vf2d midPoint = vecObjs[0]->objData.GetPosition() + relMidPoint;
+					olc::vf2d midPoint = vec[0]->objData.GetPosition() + relMidPoint;
 
-					olc::vi2d p1Dir = vecObjs[0]->objData.GetPosition() - midPoint;
-					olc::vi2d p2Dir = vecObjs[1]->objData.GetPosition() - midPoint;
+					olc::vi2d p1Dir = vec[0]->objData.GetPosition() - midPoint;
+					olc::vi2d p2Dir = vec[1]->objData.GetPosition() - midPoint;
 
-					olc::vf2d p1rel = (olc::vf2d)Normalize::Norm(p1Dir) * (float)vecObjs[0]->objData.objBoxCollider.Width() / 2.0f;
-					olc::vf2d p2rel = (olc::vf2d)Normalize::Norm(p2Dir) * (float)vecObjs[1]->objData.objBoxCollider.Width() / 2.0f;
+					olc::vf2d p1rel = (olc::vf2d)Normalize::Norm(p1Dir) * (float)vec[0]->objData.objBoxCollider.Width() / 2.0f;
+					olc::vf2d p2rel = (olc::vf2d)Normalize::Norm(p2Dir) * (float)vec[1]->objData.objBoxCollider.Width() / 2.0f;
 
 					olc::vf2d p1Resolved = midPoint + p1rel;
 					olc::vf2d p2Resolved = midPoint + p2rel;
@@ -55,8 +63,8 @@ namespace RB
 					p1Rounded.x = (int32_t)std::round(p1Resolved.x);
 					p2Rounded.x = (int32_t)std::round(p2Resolved.x);
 
-					vecObjs[0]->objData.SetPosition(p1Rounded);
-					vecObjs[1]->objData.SetPosition(p2Rounded);
+					vec[0]->objData.SetPosition(p1Rounded);
+					vec[1]->objData.SetPosition(p2Rounded);
 				}
 			}
 		}
