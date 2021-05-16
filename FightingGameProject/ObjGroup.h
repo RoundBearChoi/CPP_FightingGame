@@ -19,11 +19,10 @@ namespace RB
 
 		virtual void UpdateStates() = 0;
 		virtual void RenderStates(bool update) = 0;
-		virtual bool SetNextState(int32_t _index, State* ptrState);
-
 		virtual void RenderObjPosition() = 0;
 		virtual void RenderBoxColliders() = 0;
 
+		virtual bool SetNextState(int32_t _index, State* ptrState);
 		virtual size_t GetObjCount();
 		virtual size_t GetObjCreationID(size_t index);
 		virtual size_t GetOwnerCreationID(size_t index);
