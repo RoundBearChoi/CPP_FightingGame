@@ -5,14 +5,14 @@ namespace RB
 	FightersGroup::FightersGroup(Camera* camera)
 	{
 		_camera = camera;
-		preload_fighter_0 = new Preload_Fighter_0();
+		_preloadFighter0 = new Preload_Fighter_0();
 
-		ptrFighterDirection = new FighterDirection;
-		ptrFighterJump = new FighterJump;
-		ptrGroundToGroundCollision = new FighterGroundToGroundCollision;
-		ptrSpecialMoveProcessor = new SpecialMoveProcessor;
-		ptrAnimationRenderer = new AnimationRenderer;
-		ptrInputBufferRenderer = new InputBufferRenderer;
+		_fighterDirection = new FighterDirection(&vecObjs);
+		_fighterJump = new FighterJump;
+		_groundToGroundCollision = new FighterGroundToGroundCollision;
+		_specialMoveProcessor = new SpecialMoveProcessor;
+		_animationRenderer = new AnimationRenderer;
+		_inputBufferRenderer = new InputBufferRenderer;
 	}
 
 	FightersGroup::~FightersGroup()
@@ -30,22 +30,22 @@ namespace RB
 			IF_COUT{ std::cout << std::endl; };
 		}
 
-		delete ptrFighterDirection;
-		delete ptrFighterJump;
-		delete ptrGroundToGroundCollision;
-		delete ptrSpecialMoveProcessor;
-		delete ptrAnimationRenderer;
-		delete ptrInputBufferRenderer;
+		delete _fighterDirection;
+		delete _fighterJump;
+		delete _groundToGroundCollision;
+		delete _specialMoveProcessor;
+		delete _animationRenderer;
+		delete _inputBufferRenderer;
 
-		delete preload_fighter_0;
+		delete _preloadFighter0;
 	}
 
 	void FightersGroup::UpdateStates()
 	{
 		InputBuffer::ptr->AddInputs();
 
-		ptrFighterDirection->Update(vecObjs);
-		ptrGroundToGroundCollision->Update(vecObjs);
+		_fighterDirection->Update();
+		_groundToGroundCollision->Update(vecObjs);
 
 		for (GameObj* obj : vecObjs)
 		{
@@ -56,8 +56,8 @@ namespace RB
 				obj->stateController->currentState->RunUpdateProcess();
 			}
 
-			ptrSpecialMoveProcessor->Update(*obj);
-			ptrFighterJump->Update(*obj);
+			_specialMoveProcessor->Update(*obj);
+			_fighterJump->Update(*obj);
 		}
 	}
 
@@ -65,7 +65,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			ptrAnimationRenderer->Update(*vecObjs[i], *_camera);
+			_animationRenderer->Update(*vecObjs[i], *_camera);
 
 			if (update)
 			{
@@ -184,7 +184,7 @@ namespace RB
 	
 	void FightersGroup::RenderComponents()
 	{
-		ptrInputBufferRenderer->Update();
+		_inputBufferRenderer->Update();
 	}
 
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)

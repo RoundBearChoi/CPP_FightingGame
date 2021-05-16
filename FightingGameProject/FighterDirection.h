@@ -6,11 +6,20 @@ namespace RB
 {
 	class FighterDirection : public GroupComponent
 	{
+	private:
+		std::vector<GameObj*>* _vecFighters = nullptr;
+
 	public:
-		void Update(std::vector<GameObj*>& vecObjs) override
+		FighterDirection(std::vector<GameObj*>* vecFighters)
 		{
-			UpdateFigherDirection(vecObjs[0]->objData, vecObjs[1]->objData);
-			UpdateFigherDirection(vecObjs[1]->objData, vecObjs[0]->objData);
+			_vecFighters = vecFighters;
+		}
+
+		void Update() override
+		{
+			std::vector<GameObj*>& vec = *_vecFighters;
+			UpdateFigherDirection(vec[0]->objData, vec[1]->objData);
+			UpdateFigherDirection(vec[1]->objData, vec[0]->objData);
 		}
 
 		void UpdateFigherDirection(ObjData& me, ObjData& enemy)
