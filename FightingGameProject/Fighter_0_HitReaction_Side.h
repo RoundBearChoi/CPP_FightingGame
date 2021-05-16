@@ -20,12 +20,12 @@ namespace RB
 			animationController.status.nTransitionDelay = 8;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			_objData->SetSpriteSize({ 400, 230 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
@@ -35,17 +35,17 @@ namespace RB
 
 			if (updateCount == 0 && updateCount < e0)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData.IsFacingRight(), 2);
-				olc::vi2d pos = objData.GetPosition();
+				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 2);
+				olc::vi2d pos = _objData->GetPosition();
 				pos.x += speed;
-				objData.SetPosition(pos);
+				_objData->SetPosition(pos);
 			}
 			else if (updateCount < e1)
 			{
-				int32_t speed = Directions::GetBackSpeed(objData.IsFacingRight(), 1);
-				olc::vi2d pos = objData.GetPosition();
+				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 1);
+				olc::vi2d pos = _objData->GetPosition();
 				pos.x += speed;
-				objData.SetPosition(pos);
+				_objData->SetPosition(pos);
 			}
 			else if (updateCount >= e2)
 			{

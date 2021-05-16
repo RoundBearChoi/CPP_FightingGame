@@ -24,12 +24,12 @@ namespace RB
 			animationController.status.bPlayOnce = true;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			_objData->SetSpriteSize({ 400, 230 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
@@ -41,9 +41,9 @@ namespace RB
 					CreateProjectileMessage p;
 					p.projectileType = ProjectileType::HADOUKEN;
 
-					p.startPos = objData.GetPosition() + olc::vi2d(0, -105);
+					p.startPos = _objData->GetPosition() + olc::vi2d(0, -105);
 
-					if (objData.IsFacingRight())
+					if (_objData->IsFacingRight())
 					{
 						p.forward = { 1, 0 };
 						p.startPos += olc::vi2d(55, 0);
@@ -54,7 +54,7 @@ namespace RB
 						p.startPos += olc::vi2d(-55, 0);
 					}
 
-					p.ownerObjCreationID = objData.GetCreationID();
+					p.ownerObjCreationID = _objData->GetCreationID();
 
 					vecCreateProjectiles.push_back(p);
 				}

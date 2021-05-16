@@ -15,24 +15,24 @@ namespace RB
 			animationController.SetParams(SpriteType::PROJECTILES, 78, 46, 1, 1, 1);
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetOffsetType(OffsetType::CENTER_CENTER);
-			objData.SetSpriteSize({ 78, 46 });
+			_objData->SetOffsetType(OffsetType::CENTER_CENTER);
+			_objData->SetSpriteSize({ 78, 46 });
 
-			objData.objBoxCollider.SetWidth(80);
-			objData.objBoxCollider.SetHeight(60);
-			objData.objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
-			objData.objBoxCollider.UpdateRotation();
+			_objData->objBoxCollider.SetWidth(80);
+			_objData->objBoxCollider.SetHeight(60);
+			_objData->objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
+			_objData->objBoxCollider.UpdateRotation();
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
-			int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 4);
+			int32_t speed = Directions::GetForwardSpeed(_objData->IsFacingRight(), 4);
 
-			olc::vi2d pos = objData.GetPosition();
+			olc::vi2d pos = _objData->GetPosition();
 			pos.x += speed;
-			objData.SetPosition(pos);
+			_objData->SetPosition(pos);
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }

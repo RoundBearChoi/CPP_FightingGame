@@ -31,16 +31,16 @@ namespace RB
 			maxBodyCollisions = 1;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 420, 230 });
+			_objData->SetSpriteSize({ 420, 230 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			if (objData.GetPosition().y >= 0 && updateCount != 0)
+			if (_objData->GetPosition().y >= 0 && updateCount != 0)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

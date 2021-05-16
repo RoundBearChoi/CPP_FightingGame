@@ -16,9 +16,9 @@ namespace RB
 			animationController.status.nTransitionDelay = 4;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetOffsetType(OffsetType::CENTER_CENTER);
+			_objData->SetOffsetType(OffsetType::CENTER_CENTER);
 
 			float originalWidth = 368.0f;
 			float originalHeight = 384.0f;
@@ -26,10 +26,10 @@ namespace RB
 			int32_t roundedW = (int32_t)std::round(originalWidth * 0.7f);
 			int32_t roundedH = (int32_t)std::round(originalHeight * 0.7f);
 
-			objData.SetSpriteSize({ roundedW, roundedH });
+			_objData->SetSpriteSize({ roundedW, roundedH });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 
 		}

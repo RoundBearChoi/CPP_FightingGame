@@ -139,7 +139,7 @@ namespace RB
 			{
 				if (s->IsNew())
 				{
-					s->OnEnter(selector.Current()->objData);
+					s->OnEnter();
 					s->animationController.status.bPlayOnce = false;
 				}
 			}

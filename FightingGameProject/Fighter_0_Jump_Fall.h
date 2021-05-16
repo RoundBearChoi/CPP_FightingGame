@@ -22,18 +22,18 @@ namespace RB
 			animationController.status.bPlayOnce = true;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 420, 220 });
+			_objData->SetSpriteSize({ 420, 220 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
+			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
 
-			if (objData.GetPosition().y >= 0 && updateCount != 0)
+			if (_objData->GetPosition().y >= 0 && updateCount != 0)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

@@ -39,12 +39,12 @@ namespace RB
 			maxBodyCollisions = 1;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 450, 250 });
+			_objData->SetSpriteSize({ 450, 250 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 

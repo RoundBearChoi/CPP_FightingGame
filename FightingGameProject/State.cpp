@@ -36,15 +36,15 @@ namespace RB
 	{
 		if (IsNew())
 		{
-			OnEnter(objData);
+			OnEnter();
 		}
 
-		OnUpdate(objData);
+		OnUpdate();
 		updateCount++;
 
 		if (animationController.status.nDelayCount == 0)
 		{
-			OnAnimationUpdate(objData);
+			OnAnimationUpdate();
 		}
 	}
 

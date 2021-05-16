@@ -26,27 +26,27 @@ namespace RB
 			animationController.status.nTransitionDelay = 6;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			_objData->SetSpriteSize({ 400, 230 });
 
-			objData.objBoxCollider.SetWidth(76);
-			objData.objBoxCollider.SetHeight(170);
-			objData.objBoxCollider.SetQuad(OffsetType::BOTTOM_CENTER);
-			objData.objBoxCollider.UpdateRotation();
+			_objData->objBoxCollider.SetWidth(76);
+			_objData->objBoxCollider.SetHeight(170);
+			_objData->objBoxCollider.SetQuad(OffsetType::BOTTOM_CENTER);
+			_objData->objBoxCollider.UpdateRotation();
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
-			Directions d = Directions::Get(objData.IsFacingRight(), p);
+			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
+			Directions d = Directions::Get(_objData->IsFacingRight(), p);
 
 			if (p.weakpunch)
 			{
 				GameData& gameData = *GameDataFactory::ptr->GetGameData();
-				Key* wp = gameData.GetWeakPunchKey(objData.GetPlayerType());
+				Key* wp = gameData.GetWeakPunchKey(_objData->GetPlayerType());
 				wp->processed = true;
 
 				nextState = State::NewState<Fighter_0_Jab>(_objData);

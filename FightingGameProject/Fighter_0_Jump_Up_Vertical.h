@@ -23,28 +23,28 @@ namespace RB
 			animationController.status.bPlayOnce = true;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			_objData->SetSpriteSize({ 400, 230 });
 
-			objData.CreateJumpProcessor();
-			objData.ptrJumpProcessor->SetUpForce(15);
+			_objData->CreateJumpProcessor();
+			_objData->ptrJumpProcessor->SetUpForce(15);
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
+			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
 
-			if (objData.GetPosition().y >= 0 && updateCount != 0)
+			if (_objData->GetPosition().y >= 0 && updateCount != 0)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}
 
-			else if (objData.ptrJumpProcessor != nullptr)
+			else if (_objData->ptrJumpProcessor != nullptr)
 			{
-				if (objData.ptrJumpProcessor->GetUpForce() <= 0)
+				if (_objData->ptrJumpProcessor->GetUpForce() <= 0)
 				{
 					nextState = State::NewState<Fighter_0_Jump_Fall>(_objData);
 				}

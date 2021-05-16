@@ -21,17 +21,17 @@ namespace RB
 			animationController.status.nTransitionDelay = 5;
 		}
 
-		void OnEnter(ObjData& objData) override
+		void OnEnter() override
 		{
-			objData.SetSpriteSize({ 400, 230 });
+			_objData->SetSpriteSize({ 400, 230 });
 		}
 
-		void OnUpdate(ObjData& objData) override
+		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(objData.GetPlayerType());
-			Directions d = Directions::Get(objData.IsFacingRight(), p);
+			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
+			Directions d = Directions::Get(_objData->IsFacingRight(), p);
 			
 			if (d.up)
 			{
@@ -40,11 +40,11 @@ namespace RB
 
 			else if (d.forward)
 			{
-				int32_t speed = Directions::GetForwardSpeed(objData.IsFacingRight(), 2);
+				int32_t speed = Directions::GetForwardSpeed(_objData->IsFacingRight(), 2);
 
-				olc::vi2d pos = objData.GetPosition();
+				olc::vi2d pos = _objData->GetPosition();
 				pos.x += speed;
-				objData.SetPosition(pos);
+				_objData->SetPosition(pos);
 			}
 
 			else
@@ -53,7 +53,7 @@ namespace RB
 			}
 		}
 
-		void OnAnimationUpdate(ObjData& objData) override
+		void OnAnimationUpdate() override
 		{
 			//could update on animation
 		}
