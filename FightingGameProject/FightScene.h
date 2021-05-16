@@ -6,6 +6,7 @@
 #include "ImpactEffectsGroup.h"
 #include "BodyPartCollision.h"
 #include "DamageDetector.h"
+#include "SlowMotion.h"
 
 //temp
 #include "Fighter_1_Idle.h"
@@ -18,7 +19,8 @@ namespace RB
 		FightersGroup* _fighters = nullptr;
 		ProjectileGroup* _projectiles = nullptr;
 		ImpactEffectsGroup* _impactEffects = nullptr;
-		DamageDetector* damageDetector = nullptr;
+		DamageDetector* _damageDetector = nullptr;
+		SlowMotion* _slowMotion = nullptr;
 
 	public:
 		FightScene();
@@ -28,7 +30,5 @@ namespace RB
 		void UpdateScene() override;
 		void RenderObjs() override;
 		void RenderStates(bool update) override;
-
-		bool SkipUpdate(ObjGroup& group);
 	};
 }

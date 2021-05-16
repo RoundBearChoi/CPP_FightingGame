@@ -12,6 +12,8 @@ namespace RB
 		_projectiles = new ProjectileGroup();
 		_impactEffects = new ImpactEffectsGroup();
 		_cam = new Camera();
+
+		_slowMotion = new SlowMotion(_fighters);
 		
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
@@ -23,10 +25,11 @@ namespace RB
 		delete _fighters;
 		delete _projectiles;
 		delete _impactEffects;
+		delete _slowMotion;
 
-		if (damageDetector != nullptr)
+		if (_damageDetector != nullptr)
 		{
-			delete damageDetector;
+			delete _damageDetector;
 		}
 	}
 
@@ -38,14 +41,14 @@ namespace RB
 		_fighters->SetState(0, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(0)));
 		_fighters->SetState(1, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(1)));
 
-		damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
+		_damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 	}
 
 	void FightScene::UpdateScene()
 	{
-		damageDetector->Update();
+		_damageDetector->Update();
 
-		if (!SkipUpdate(*_fighters))
+		if (!_slowMotion->SkipUpdate())
 		{
 			_fighters->UpdateStates();
 		}
@@ -78,39 +81,5 @@ namespace RB
 		_fighters->RenderBoxColliders(*_cam);
 		_projectiles->RenderStates(*_cam, update);
 		_impactEffects->RenderStates(*_cam, update);
-	}
-
-	bool FightScene::SkipUpdate(ObjGroup& group)
-	{
-		bool skip = false;
-
-		for (size_t i = 0; i < group.vecSlowMotion.size(); i++)
-		{
-			if (group.vecSlowMotion[i].SkipUpdate())
-			{
-				size_t max = (size_t)group.vecSlowMotion[i].maxCount * (size_t)group.vecSlowMotion[i].interval;
-				if (group.vecSlowMotion[i].updateCount <= max)
-				{
-					skip = true;
-					break;
-				}
-			}
-		}
-
-		for (size_t i = 0; i < group.vecSlowMotion.size(); i++)
-		{
-			group.vecSlowMotion[i].updateCount++;
-		}
-
-		if (group.vecSlowMotion.size() > 0)
-		{
-			size_t end = (size_t)group.vecSlowMotion[0].maxCount * (size_t)group.vecSlowMotion[0].interval;
-			if (group.vecSlowMotion[0].updateCount > end)
-			{
-				group.vecSlowMotion.erase(group.vecSlowMotion.begin());
-			}
-		}
-
-		return skip;
 	}
 }
