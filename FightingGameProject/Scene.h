@@ -19,6 +19,6 @@ namespace RB
 
 		virtual ~Scene();
 
-		void RenderCenterMark(Camera& cam);
+		void ShowZeroPosition(Camera& cam);
 	};
 }

@@ -67,7 +67,7 @@ namespace RB
 
 	void FightScene::RenderObjs()
 	{
-		RenderCenterMark(*_cam);
+		ShowZeroPosition(*_cam);
 
 		_fighters->RenderObjPosition(*_cam);
 		_fighters->RenderComponents();

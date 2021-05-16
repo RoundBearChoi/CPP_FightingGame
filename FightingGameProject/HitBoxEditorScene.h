@@ -271,7 +271,7 @@ namespace RB
 		{
 			olc::Renderer::ptrPGE->DrawString({ 0, 15 }, "HitBox Editor", olc::WHITE);
 
-			RenderCenterMark(*_cam);
+			ShowZeroPosition(*_cam);
 
 			//current boxcollider info
 			if (nSelectedBodyIndex < selector.GetCollider().size())

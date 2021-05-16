@@ -9,7 +9,7 @@ namespace RB
 		delete _cam;
 	}
 
-	void Scene::RenderCenterMark(Camera& cam)
+	void Scene::ShowZeroPosition(Camera& cam)
 	{
 		olc::vi2d bottom{ 0, 7 };
 		olc::vi2d top{ 0, -7 };
