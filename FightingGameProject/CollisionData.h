@@ -33,5 +33,41 @@ namespace RB
 
 			return nullptr;
 		}
+
+		int32_t GetCollisionCount(int32_t index)
+		{
+			std::vector<GameObj*>& vec = *_vecObjs;
+
+			if (index < vec.size())
+			{
+				if (vec[index]->stateController->currentState != nullptr)
+				{
+					return vec[index]->stateController->currentState->bodyCollisionCount;
+				}
+			}
+
+			return 0;
+		}
+
+		int32_t GetMaxCollisions(int32_t index)
+		{
+			std::vector<GameObj*>& vec = *_vecObjs;
+
+			if (index < vec.size())
+			{
+				if (vec[index]->stateController->currentState != nullptr)
+				{
+					return vec[index]->stateController->currentState->maxBodyCollisions;
+				}
+			}
+
+			return 0;
+		};
+
+		void AddCollisionCount(int32_t index)
+		{
+			std::vector<GameObj*>& vec = *_vecObjs;
+			vec[index]->stateController->currentState->bodyCollisionCount++;
+		}
 	};
 }

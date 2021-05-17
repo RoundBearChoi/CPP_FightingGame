@@ -35,11 +35,6 @@ namespace RB
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index);
 
-		//virtual CheckCollisionMessage* GetCheckCollisionMessage(size_t index);
-		virtual int32_t GetCollisionCount(int32_t fighterIndex);
-		virtual int32_t GetMaxCollisions(int32_t fighterIndex);
-		virtual void AddCollisionCount(int32_t fighterIndex);
-
 		virtual void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) {};
 		virtual std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 

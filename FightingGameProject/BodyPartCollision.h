@@ -24,7 +24,7 @@ namespace RB
 
 			if (message)
 			{
-				if (fighters.GetCollisionCount(attackerIndex) < fighters.GetMaxCollisions(attackerIndex))
+				if (fighters.collisionData->GetCollisionCount(attackerIndex) < fighters.collisionData->GetMaxCollisions(attackerIndex))
 				{
 					for (BodyType& b : message->vecBodies)
 					{
@@ -49,7 +49,7 @@ namespace RB
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 								resultMid = attackPos + rounded;
 
-								fighters.AddCollisionCount(attackerIndex);
+								fighters.collisionData->AddCollisionCount(attackerIndex);
 								damageData = message->damageData;
 
 								return true;
