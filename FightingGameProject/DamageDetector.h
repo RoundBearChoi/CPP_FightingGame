@@ -53,7 +53,7 @@ namespace RB
 
 					if (resultDamage.upPush != 0)
 					{
-						_fighters->AddJumpProcessor(i, resultDamage.upPush, resultDamage.sidePush);
+						_fighters->jumpAdder->AddJump(i, resultDamage.upPush, resultDamage.sidePush);
 						_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(i)));
 					}
 					else

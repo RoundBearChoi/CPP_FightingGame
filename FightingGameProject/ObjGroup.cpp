@@ -2,6 +2,19 @@
 
 namespace RB
 {
+	void ObjGroup::SetState(int32_t _index, State* newState)
+	{
+		if (newState != nullptr)
+		{
+			if (vecObjs[_index]->stateController->currentState != nullptr)
+			{
+				delete vecObjs[_index]->stateController->currentState;
+			}
+
+			vecObjs[_index]->stateController->currentState = newState;
+		}
+	}
+
 	bool ObjGroup::SetNextState(int32_t _index, State* ptrState)
 	{
 		return false;

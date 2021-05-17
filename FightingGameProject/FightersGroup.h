@@ -39,25 +39,10 @@ namespace RB
 
 		void RenderObjPosition() override;
 		void RenderBoxColliders() override;
+				
+		ObjData* GetObjData(int32_t index) override;
 
-		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
-		
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
 		GameObj* GetEnemyObj(State& me);
-		
-		void SetState(int32_t _index, State* newState)
-		{
-			if (newState != nullptr)
-			{
-				if (vecObjs[_index]->stateController->currentState != nullptr)
-				{
-					delete vecObjs[_index]->stateController->currentState;
-				}
-
-				vecObjs[_index]->stateController->currentState = newState;
-			}
-		}
-
-		ObjData* GetObjData(int32_t index) override;
 	};
 }

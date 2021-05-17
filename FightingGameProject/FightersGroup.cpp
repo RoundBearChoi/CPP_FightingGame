@@ -16,6 +16,7 @@ namespace RB
 
 		colliderData = new ColliderData(&vecObjs);
 		collisionData = new CollisionData(&vecObjs);
+		jumpAdder = new JumpAdder(&vecObjs);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -44,6 +45,7 @@ namespace RB
 
 		delete colliderData;
 		delete collisionData;
+		delete jumpAdder;
 	}
 
 	void FightersGroup::UpdateStates()
@@ -147,18 +149,6 @@ namespace RB
 		}
 	}
 	
-	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
-	{
-		vecObjs[index]->objData.CreateJumpProcessor();
-		vecObjs[index]->objData.ptrJumpProcessor->allowControl = false;
-		vecObjs[index]->objData.ptrJumpProcessor->moveBack = true;
-		vecObjs[index]->objData.ptrJumpProcessor->moveHorizontally = true;
-		vecObjs[index]->objData.ptrJumpProcessor->minimumSideForce = 1;
-
-		vecObjs[index]->objData.ptrJumpProcessor->SetUpForce(upForce);
-		vecObjs[index]->objData.ptrJumpProcessor->SetSideForce(sideForce);
-	}
-
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
 		vecObjs.push_back(new GameObj());
