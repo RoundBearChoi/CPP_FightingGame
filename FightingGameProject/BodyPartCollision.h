@@ -28,7 +28,7 @@ namespace RB
 				{
 					for (BodyType& b : message->vecBodies)
 					{
-						olc::vi2d attackPos = fighters.GetBodyWorldPos(attackerIndex, b);
+						olc::vi2d attackPos = fighters.colliderData->GetBodyWorldPos(attackerIndex, b);
 						std::array<olc::vi2d, 4> attackQuad = fighters.GetBodyWorldQuad(attackerIndex, b);
 
 						std::cout << "attackpos: " << attackPos << std::endl;
@@ -36,7 +36,7 @@ namespace RB
 						//check all body parts
 						for (int32_t i = 0; i <= (int32_t)BodyType::RIGHT_FOOT; i++)
 						{
-							olc::vi2d targetPos = fighters.GetBodyWorldPos(targetIndex, (BodyType)i);
+							olc::vi2d targetPos = fighters.colliderData->GetBodyWorldPos(targetIndex, (BodyType)i);
 							std::array<olc::vi2d, 4> targetQuad = fighters.GetBodyWorldQuad(targetIndex, (BodyType)i);
 
 							if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))

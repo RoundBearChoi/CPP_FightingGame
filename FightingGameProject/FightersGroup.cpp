@@ -13,6 +13,8 @@ namespace RB
 		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
 		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer();
+
+		colliderData = new ColliderData(&vecObjs);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -38,6 +40,8 @@ namespace RB
 		delete _inputBufferRenderer;
 
 		delete _preloadFighter0;
+
+		delete colliderData;
 	}
 
 	void FightersGroup::UpdateStates()
@@ -139,21 +143,6 @@ namespace RB
 		{
 			vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
 		}
-	}
-
-	olc::vi2d FightersGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
-	{
-		if (fighterIndex < vecObjs.size())
-		{
-			State* state = vecObjs[fighterIndex]->stateController->currentState;
-
-			if (state != nullptr)
-			{
-				return state->GetColliderWorldPos(bodyType);
-			}
-		}
-
-		return { 0, 0 };
 	}
 
 	std::array<olc::vi2d, 4> FightersGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)

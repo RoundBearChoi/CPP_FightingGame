@@ -45,11 +45,6 @@ namespace RB
 		return olc::vi2d(0, 0);
 	}
 
-	olc::vi2d ObjGroup::GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType)
-	{
-		return olc::vi2d(0, 0);
-	};
-
 	std::array<olc::vi2d, 4> ObjGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
 	{
 		std::array<olc::vi2d, 4> arr = { olc::vi2d(0,0), olc::vi2d(0,0), olc::vi2d(0,0), olc::vi2d(0,0) };

@@ -65,7 +65,19 @@ namespace RB
 
 		olc::vi2d GetBodyWorldPos(int32_t index, BodyType bodyType)
 		{
+			std::vector<GameObj*>& vec = *_vecObjs;
 
+			if (index < vec.size())
+			{
+				State* state = vec[index]->stateController->currentState;
+
+				if (state != nullptr)
+				{
+					return state->GetColliderWorldPos(bodyType);
+				}
+			}
+
+			return { 0, 0 };
 		}
 
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t index, BodyType bodyType)
