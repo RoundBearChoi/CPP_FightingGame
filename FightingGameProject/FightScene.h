@@ -4,7 +4,6 @@
 #include "ProjectileGroup.h"
 #include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
-#include "BodyPartCollision.h"
 #include "DamageDetector.h"
 #include "SlowMotion.h"
 

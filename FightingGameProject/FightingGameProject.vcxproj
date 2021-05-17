@@ -172,7 +172,7 @@
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AnimationRenderer.h" />
     <ClInclude Include="AnimationStatus.h" />
-    <ClInclude Include="BodyPartCollision.h" />
+    <ClInclude Include="BodyPartToBodyPartCollision.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />

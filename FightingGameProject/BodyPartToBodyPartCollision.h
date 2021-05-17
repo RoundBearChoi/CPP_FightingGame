@@ -4,10 +4,18 @@
 
 namespace RB
 {
-	class BodyPartCollision
+	class BodyPartToBodyPartCollision
 	{
+	private:
+		ObjGroup* _fighters = nullptr;
+
 	public:
-		static bool IsColliding(int32_t attackerIndex, ObjGroup& fighters, olc::vi2d& resultMid, DamageData& damageData)
+		BodyPartToBodyPartCollision(ObjGroup* fighters)
+		{
+			_fighters = fighters;
+		}
+
+		bool IsColliding(int32_t attackerIndex, olc::vi2d& resultMid, DamageData& damageData)
 		{
 			int32_t targetIndex = 0;
 
@@ -20,24 +28,24 @@ namespace RB
 				targetIndex = 0;
 			}
 
-			CheckCollisionMessage* message = fighters.collisionData->GetCheckCollisionMessage(attackerIndex);
+			CheckCollisionMessage* message = _fighters->collisionData->GetCheckCollisionMessage(attackerIndex);
 
 			if (message)
 			{
-				if (fighters.collisionData->GetCollisionCount(attackerIndex) < fighters.collisionData->GetMaxCollisions(attackerIndex))
+				if (_fighters->collisionData->GetCollisionCount(attackerIndex) < _fighters->collisionData->GetMaxCollisions(attackerIndex))
 				{
 					for (BodyType& b : message->vecBodies)
 					{
-						olc::vi2d attackPos = fighters.colliderData->GetBodyWorldPos(attackerIndex, b);
-						std::array<olc::vi2d, 4> attackQuad = fighters.colliderData->GetBodyWorldQuad(attackerIndex, b);
+						olc::vi2d attackPos = _fighters->colliderData->GetBodyWorldPos(attackerIndex, b);
+						std::array<olc::vi2d, 4> attackQuad = _fighters->colliderData->GetBodyWorldQuad(attackerIndex, b);
 
 						std::cout << "attackpos: " << attackPos << std::endl;
 
 						//check all body parts
 						for (int32_t i = 0; i <= (int32_t)BodyType::RIGHT_FOOT; i++)
 						{
-							olc::vi2d targetPos = fighters.colliderData->GetBodyWorldPos(targetIndex, (BodyType)i);
-							std::array<olc::vi2d, 4> targetQuad = fighters.colliderData->GetBodyWorldQuad(targetIndex, (BodyType)i);
+							olc::vi2d targetPos = _fighters->colliderData->GetBodyWorldPos(targetIndex, (BodyType)i);
+							std::array<olc::vi2d, 4> targetQuad = _fighters->colliderData->GetBodyWorldQuad(targetIndex, (BodyType)i);
 
 							if (DiagonalOverlap::Overlapping(attackPos, attackQuad, targetPos, targetQuad))
 							{
@@ -49,7 +57,7 @@ namespace RB
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 								resultMid = attackPos + rounded;
 
-								fighters.collisionData->AddCollisionCount(attackerIndex);
+								_fighters->collisionData->AddCollisionCount(attackerIndex);
 								damageData = message->damageData;
 
 								return true;

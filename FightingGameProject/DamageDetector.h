@@ -1,4 +1,5 @@
 #pragma once
+#include "BodyPartToBodyPartCollision.h"
 
 namespace RB
 {
@@ -9,12 +10,21 @@ namespace RB
 		ObjGroup* _projectiles = nullptr;
 		ObjGroup* _impactEffects = nullptr;
 
+		BodyPartToBodyPartCollision* _bodyPartToBodyPartCollision = nullptr;
+
 	public:
 		DamageDetector(ObjGroup* fighters, ObjGroup* projectiles, ObjGroup* impactEffects)
 		{
 			_fighters = fighters;
 			_projectiles = projectiles;
 			_impactEffects = impactEffects;
+
+			_bodyPartToBodyPartCollision = new BodyPartToBodyPartCollision(_fighters);
+		}
+
+		~DamageDetector()
+		{
+			delete _bodyPartToBodyPartCollision;
 		}
 
 		void Update()
@@ -47,7 +57,7 @@ namespace RB
 					enemy = 1;
 				}
 
-				if (BodyPartCollision::IsColliding(enemy, *_fighters, resultCollision, resultDamage))
+				if (_bodyPartToBodyPartCollision->IsColliding(enemy, resultCollision, resultDamage))
 				{
 					_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultCollision);
 
