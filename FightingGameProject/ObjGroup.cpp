@@ -20,6 +20,18 @@ namespace RB
 		return false;
 	}
 
+	ObjData* ObjGroup::GetObjData(int32_t index)
+	{
+		if (index >= vecObjs.size())
+		{
+			return nullptr;
+		}
+		else
+		{
+			return &vecObjs[index]->objData;
+		}
+	}
+
 	size_t ObjGroup::GetObjCount()
 	{
 		return vecObjs.size();

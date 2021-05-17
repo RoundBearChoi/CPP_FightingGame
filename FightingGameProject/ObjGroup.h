@@ -30,6 +30,7 @@ namespace RB
 
 		virtual void SetState(int32_t _index, State* newState);
 		virtual bool SetNextState(int32_t _index, State* ptrState);
+		virtual ObjData* GetObjData(int32_t index);
 		virtual size_t GetObjCount();
 		virtual size_t GetObjCreationID(size_t index);
 		virtual size_t GetOwnerCreationID(size_t index);
@@ -37,12 +38,9 @@ namespace RB
 
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index);
-
+		
 		virtual std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
 
-		virtual ObjData* GetObjData(int32_t index)
-		{
-			return nullptr;
-		}
+		
 	};
 }
