@@ -144,22 +144,6 @@ namespace RB
 			vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
 		}
 	}
-
-	std::array<olc::vi2d, 4> FightersGroup::GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType)
-	{
-		if (fighterIndex < vecObjs.size())
-		{
-			State* state = vecObjs[fighterIndex]->stateController->currentState;
-
-			if (state != nullptr)
-			{
-				return state->GetColliderQuadsWorldPos(bodyType);
-			}
-		}
-
-		std::array<olc::vi2d, 4> arr;
-		return arr;
-	}
 	
 	void FightersGroup::AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce)
 	{

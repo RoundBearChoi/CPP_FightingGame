@@ -40,8 +40,6 @@ namespace RB
 		void RenderObjPosition() override;
 		void RenderBoxColliders() override;
 
-		std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType) override;
-
 		void AddJumpProcessor(int32_t index, int32_t upForce, int32_t sideForce) override;
 		
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);

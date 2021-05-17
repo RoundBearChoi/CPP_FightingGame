@@ -24,7 +24,7 @@ namespace RB
 					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
 					{
 						olc::vi2d bodyPos = fighters.colliderData->GetBodyWorldPos(targetFighterIndex, (BodyType)bodyIndex);
-						std::array<olc::vi2d, 4>bodyQuads = fighters.GetBodyWorldQuad(targetFighterIndex, (BodyType)bodyIndex);
+						std::array<olc::vi2d, 4>bodyQuads = fighters.colliderData->GetBodyWorldQuad(targetFighterIndex, (BodyType)bodyIndex);
 
 						if (DiagonalOverlap::Overlapping(projectilePos, projectileQuads, bodyPos, bodyQuads))
 						{
