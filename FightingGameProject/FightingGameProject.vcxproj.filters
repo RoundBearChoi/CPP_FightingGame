@@ -337,9 +337,6 @@
     <ClInclude Include="ProjectileCollision.h">
       <Filter>Source Files\Collision\Static Functions</Filter>
     </ClInclude>
-    <ClInclude Include="BodyPartToBodyPartCollision.h">
-      <Filter>Source Files\Collision\Static Functions</Filter>
-    </ClInclude>
     <ClInclude Include="BodyType.h">
       <Filter>Source Files\Collision\Base</Filter>
     </ClInclude>
@@ -467,6 +464,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MessageGetter.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyPartToBodyPartCollision.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

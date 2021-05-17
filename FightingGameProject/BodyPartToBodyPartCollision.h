@@ -1,6 +1,7 @@
 #pragma once
 #include "DiagonalOverlap.h"
 #include "BodyType.h"
+#include "CollisionResult.h"
 
 namespace RB
 {
@@ -15,8 +16,9 @@ namespace RB
 			_fighters = fighters;
 		}
 
-		bool IsColliding(int32_t attackerIndex, olc::vi2d& resultMid, DamageData& damageData)
+		CollisionResult IsColliding(int32_t attackerIndex)
 		{
+			
 			int32_t targetIndex = 0;
 
 			if (attackerIndex == 0)
@@ -55,12 +57,16 @@ namespace RB
 								olc::vf2d distance = targetPos - attackPos;
 								distance *= 0.5f;
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
-								resultMid = attackPos + rounded;
+
+								CollisionResult result;
+								result.isCollided = true;
+
+								result.midPoint = attackPos + rounded;
 
 								_fighters->collisionData->AddCollisionCount(attackerIndex);
-								damageData = message->damageData;
-
-								return true;
+								result.damageData = message->damageData;
+								
+								return result;
 							}
 						}
 					}
@@ -69,7 +75,8 @@ namespace RB
 				IF_COUT{ std::cout << "collision check processed" << std::endl; };
 			}
 
-			return false;
+			CollisionResult noCollision;
+			return noCollision;
 		}
 	};
 }
