@@ -52,22 +52,6 @@ namespace RB
 		vecObjs.erase(vecObjs.begin() + index);
 	}
 
-	CheckCollisionMessage* ObjGroup::GetCheckCollisionMessage(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index]->stateController->currentState != nullptr)
-			{
-				if (vecObjs[index]->stateController->currentState->vecCheckCollisions.size() > 0)
-				{
-					return vecObjs[index]->stateController->currentState->GetCollisionStatus();
-				}
-			}
-		}
-
-		return nullptr;
-	}
-
 	int32_t ObjGroup::GetCollisionCount(int32_t fighterIndex)
 	{
 		if (fighterIndex < vecObjs.size())

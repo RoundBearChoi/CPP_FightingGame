@@ -15,6 +15,7 @@ namespace RB
 		_inputBufferRenderer = new InputBufferRenderer();
 
 		colliderData = new ColliderData(&vecObjs);
+		collisionData = new CollisionData(&vecObjs);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -42,6 +43,7 @@ namespace RB
 		delete _preloadFighter0;
 
 		delete colliderData;
+		delete collisionData;
 	}
 
 	void FightersGroup::UpdateStates()

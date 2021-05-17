@@ -20,7 +20,7 @@ namespace RB
 				targetIndex = 0;
 			}
 
-			CheckCollisionMessage* message = fighters.GetCheckCollisionMessage(attackerIndex);
+			CheckCollisionMessage* message = fighters.collisionData->GetCheckCollisionMessage(attackerIndex);
 
 			if (message)
 			{
