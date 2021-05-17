@@ -6,11 +6,15 @@ namespace RB
 	{
 		_camera = camera;
 		ptrAnimationRenderer = new AnimationRenderer(&vecObjs, _camera);
+		
+		colliderData = new ColliderData(&vecObjs);
 	}
 
 	ProjectileGroup::~ProjectileGroup()
 	{
 		delete ptrAnimationRenderer;
+
+		delete colliderData;
 
 		if (vecObjs.size() != 0)
 		{

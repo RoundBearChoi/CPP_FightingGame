@@ -176,6 +176,7 @@
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="BodyType.h" />
+    <ClInclude Include="ColliderData.h" />
     <ClInclude Include="ColliderLoader.h" />
     <ClInclude Include="CheckCollisionMessage.h" />
     <ClInclude Include="BufferChecker.h" />

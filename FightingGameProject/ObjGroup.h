@@ -5,6 +5,7 @@
 #include "GameObj.h"
 #include "GameDataFactory.h"
 #include "Camera.h"
+#include "ColliderData.h"
 
 namespace RB
 {
@@ -16,6 +17,7 @@ namespace RB
 
 	public:
 		std::vector<SlowMotionMessage> vecSlowMotion;
+		ColliderData* colliderData = nullptr;
 
 		virtual void UpdateStates() = 0;
 		virtual void RenderStates(bool update) = 0;
@@ -26,11 +28,11 @@ namespace RB
 		virtual size_t GetObjCount();
 		virtual size_t GetObjCreationID(size_t index);
 		virtual size_t GetOwnerCreationID(size_t index);
-
 		virtual olc::vi2d GetObjWorldPos(size_t index);
-		virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index);
-		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index);
 
+		//colliderdata
+		//virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index);
+		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index);
 		virtual olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType);
 		virtual std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType);
 

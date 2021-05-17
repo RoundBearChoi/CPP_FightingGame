@@ -457,5 +457,8 @@
     <ClInclude Include="SlowMotion.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ColliderData.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

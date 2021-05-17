@@ -17,7 +17,7 @@ namespace RB
 
 				if (id != ownerID)
 				{
-					olc::vi2d projectilePos = projectiles.GetObjBoxColliderWorldPos(projectileIndex);
+					olc::vi2d projectilePos = projectiles.colliderData->GetBoxColliderWorldPos(projectileIndex);
 					std::array<olc::vi2d, 4>projectileQuads = projectiles.GetObjBoxColliderWorldQuad(projectileIndex);
 
 					//check all body parts
