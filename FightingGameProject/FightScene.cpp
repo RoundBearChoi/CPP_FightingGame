@@ -71,7 +71,6 @@ namespace RB
 		ShowZeroPosition(*_cam);
 
 		_fighters->RenderObjPosition();
-		//_fighters->RenderComponents(); //don't need a separate rendercomponents function
 		_projectiles->RenderObjPosition();
 		_impactEffects->RenderObjPosition();
 	}
