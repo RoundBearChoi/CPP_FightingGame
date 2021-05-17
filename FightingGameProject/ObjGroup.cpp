@@ -76,14 +76,4 @@ namespace RB
 		vecObjs[index] = nullptr;
 		vecObjs.erase(vecObjs.begin() + index);
 	}
-
-	std::vector<CreateProjectileMessage>* ObjGroup::GetProjectileQueues(size_t _index)
-	{
-		if (_index < vecObjs.size())
-		{
-			return &vecObjs[_index]->stateController->currentState->vecCreateProjectiles;
-		}
-
-		return nullptr;
-	}
 }

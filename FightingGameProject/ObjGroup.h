@@ -8,6 +8,7 @@
 #include "ColliderData.h"
 #include "CollisionData.h"
 #include "JumpAdder.h"
+#include "MessageGetter.h"
 
 namespace RB
 {
@@ -22,6 +23,7 @@ namespace RB
 		ColliderData* colliderData = nullptr;
 		CollisionData* collisionData = nullptr;
 		JumpAdder* jumpAdder = nullptr;
+		MessageGetter* messageGetter = nullptr;
 
 		virtual void UpdateStates() = 0;
 		virtual void RenderStates(bool update) = 0;
@@ -38,9 +40,5 @@ namespace RB
 
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index);
-		
-		virtual std::vector<CreateProjectileMessage>* GetProjectileQueues(size_t _index);
-
-		
 	};
 }

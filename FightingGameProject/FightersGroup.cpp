@@ -17,6 +17,7 @@ namespace RB
 		colliderData = new ColliderData(&vecObjs);
 		collisionData = new CollisionData(&vecObjs);
 		jumpAdder = new JumpAdder(&vecObjs);
+		messageGetter = new MessageGetter(&vecObjs);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -46,6 +47,7 @@ namespace RB
 		delete colliderData;
 		delete collisionData;
 		delete jumpAdder;
+		delete messageGetter;
 	}
 
 	void FightersGroup::UpdateStates()
