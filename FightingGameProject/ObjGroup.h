@@ -32,7 +32,7 @@ namespace RB
 
 		//colliderdata
 		//virtual olc::vi2d GetObjBoxColliderWorldPos(size_t index);
-		virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index);
+		//virtual std::array<olc::vi2d, 4> GetObjBoxColliderWorldQuad(size_t index);
 		virtual olc::vi2d GetBodyWorldPos(int32_t fighterIndex, BodyType bodyType);
 		virtual std::array<olc::vi2d, 4> GetBodyWorldQuad(int32_t fighterIndex, BodyType bodyType);
 
