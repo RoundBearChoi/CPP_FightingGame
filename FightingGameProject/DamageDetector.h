@@ -75,6 +75,8 @@ namespace RB
 					slow.interval = 15;
 					slow.maxCount = 1;
 					_fighters->vecSlowMotion.push_back(slow);
+
+					_fighters->collisionData->AddCollisionCount(result.attackerIndex);
 				}
 			}
 		}

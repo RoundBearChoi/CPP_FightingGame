@@ -18,7 +18,6 @@ namespace RB
 
 		CollisionResult IsColliding(int32_t attackerIndex)
 		{
-			
 			int32_t targetIndex = 0;
 
 			if (attackerIndex == 0)
@@ -59,13 +58,10 @@ namespace RB
 								olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 
 								CollisionResult result;
+								result.attackerIndex = attackerIndex;
 								result.isCollided = true;
-
 								result.midPoint = attackPos + rounded;
-
-								_fighters->collisionData->AddCollisionCount(attackerIndex);
 								result.damageData = message->damageData;
-								
 								return result;
 							}
 						}

@@ -10,5 +10,6 @@ namespace RB
 		bool isCollided = false;
 		olc::vi2d midPoint = { 0, 0 };
 		DamageData damageData;
+		int32_t attackerIndex = 0;
 	};
 }
