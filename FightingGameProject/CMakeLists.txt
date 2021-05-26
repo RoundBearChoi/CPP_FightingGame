@@ -14,6 +14,7 @@ DiagonalOverlap.cpp
 FightersGroup.cpp
 FightScene.cpp
 GameData.cpp
+GameDataFactory.cpp
 GameObj.cpp
 GameSettings.cpp
 ImpactEffectsGroup.cpp
