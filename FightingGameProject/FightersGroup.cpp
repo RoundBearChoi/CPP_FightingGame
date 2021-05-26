@@ -56,6 +56,8 @@ namespace RB
 
 		_fighterDirection->Update();
 		_groundToGroundCollision->Update();
+		_specialMoveProcessor->Update();
+		_fighterJump->Update();
 
 		for (GameObj* obj : vecObjs)
 		{
@@ -66,9 +68,6 @@ namespace RB
 				obj->stateController->currentState->RunUpdateProcess();
 			}
 		}
-
-		_specialMoveProcessor->Update();
-		_fighterJump->Update();
 	}
 
 	void FightersGroup::RenderStates(bool update)

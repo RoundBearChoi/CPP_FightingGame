@@ -472,5 +472,11 @@
     <ClInclude Include="CollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Updater.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultFixedUpdater.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
