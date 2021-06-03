@@ -40,11 +40,6 @@ namespace RB
 					_projectiles->DeleteObj(resultProjectile);
 					_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(i)));
 					_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, resultMidPoint);
-
-					SlowMotionMessage slow;
-					slow.interval = 15;
-					slow.maxCount = 1;
-					_fighters->vecSlowMotion.push_back(slow);
 				}
 
 				//body part vs body part collision
@@ -70,11 +65,6 @@ namespace RB
 					{
 						_fighters->SetNextState(i, State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(i)));
 					}
-
-					SlowMotionMessage slow;
-					slow.interval = 15;
-					slow.maxCount = 1;
-					_fighters->vecSlowMotion.push_back(slow);
 
 					_fighters->collisionData->AddCollisionCount(result.attackerIndex);
 				}

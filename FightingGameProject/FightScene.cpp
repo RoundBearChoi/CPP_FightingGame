@@ -14,8 +14,6 @@ namespace RB
 		_projectiles = new ProjectileGroup(_cam);
 		_impactEffects = new ImpactEffectsGroup(_cam);
 		
-		_slowMotion = new SlowMotion(_fighters);
-		
 		DevSettings::renderMode = RenderMode::SPRITES_ONLY;
 	}
 
@@ -26,7 +24,6 @@ namespace RB
 		delete _fighters;
 		delete _projectiles;
 		delete _impactEffects;
-		delete _slowMotion;
 
 		if (_damageDetector != nullptr)
 		{
@@ -49,11 +46,7 @@ namespace RB
 	{
 		_damageDetector->Update();
 
-		if (!_slowMotion->SkipUpdate())
-		{
-			_fighters->UpdateStates();
-		}
-		
+		_fighters->UpdateStates();
 		_impactEffects->UpdateStates();
 
 		std::vector<CreateProjectileMessage>* p1 = _fighters->messageGetter->GetProjectileCreationMessage(0);

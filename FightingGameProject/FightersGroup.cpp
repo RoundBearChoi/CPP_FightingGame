@@ -79,21 +79,7 @@ namespace RB
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			bool slowmotion = false;
-
-			for (size_t i = 0; i < vecSlowMotion.size(); i++)
-			{
-				if (vecSlowMotion[i].SkipUpdate())
-				{
-					slowmotion = true;
-					break;
-				}
-			}
-
-			if (!slowmotion)
-			{
-				vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
-			}
+			vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 		}
 	}
 

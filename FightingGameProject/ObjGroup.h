@@ -19,7 +19,6 @@ namespace RB
 		Camera* _camera = nullptr;
 
 	public:
-		std::vector<SlowMotionMessage> vecSlowMotion;
 		ColliderData* colliderData = nullptr;
 		CollisionData* collisionData = nullptr;
 		JumpAdder* jumpAdder = nullptr;

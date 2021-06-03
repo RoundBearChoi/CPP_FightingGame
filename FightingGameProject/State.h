@@ -7,7 +7,6 @@
 #include "Directions.h"
 #include "CheckCollisionMessage.h"
 #include "CreateProjectileMessage.h"
-#include "SlowMotionMessage.h"
 
 namespace RB
 {
@@ -27,7 +26,6 @@ namespace RB
 		AnimationController animationController;
 		std::vector<CheckCollisionMessage> vecCheckCollisions;
 		std::vector<CreateProjectileMessage> vecCreateProjectiles;
-		std::vector<SlowMotionMessage> vecSlowMotion;
 
 		virtual ~State();
 		virtual void OnEnter() = 0;
