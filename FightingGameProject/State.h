@@ -21,7 +21,7 @@ namespace RB
 
 	public:
 		State* nextState = nullptr;
-		size_t updateCount = 0;
+		size_t stateUpdateCount = 0;
 		int32_t bodyCollisionCount = 0;
 		int32_t maxBodyCollisions = 0;
 		AnimationController animationController;

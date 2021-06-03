@@ -47,7 +47,7 @@ namespace RB
 
 			size_t end = ((size_t)animationController.GetTotalTiles() - (size_t)1) * (size_t)animationController.status.nTransitionDelay;
 
-			if (updateCount >= end)
+			if (stateUpdateCount >= end)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

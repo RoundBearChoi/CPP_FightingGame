@@ -44,7 +44,7 @@ namespace RB
 
 					size_t end = (size_t)state->animationController.GetTotalTiles() * (size_t)state->animationController.status.nTransitionDelay;
 
-					if (state->updateCount >= end - (size_t)1)
+					if (state->stateUpdateCount >= end - (size_t)1)
 					{
 						delete vecObjs[i];
 						vecObjs[i] = nullptr;

@@ -38,7 +38,7 @@ namespace RB
 
 			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
 
-			if (_objData->GetPosition().y >= 0 && updateCount != 0)
+			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

@@ -33,21 +33,21 @@ namespace RB
 			int32_t e1 = animationController.status.nTransitionDelay * (int32_t)2;
 			int32_t e2 = animationController.status.nTransitionDelay * (int32_t)3;
 
-			if (updateCount == 0 && updateCount < e0)
+			if (stateUpdateCount == 0 && stateUpdateCount < e0)
 			{
 				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 2);
 				olc::vi2d pos = _objData->GetPosition();
 				pos.x += speed;
 				_objData->SetPosition(pos);
 			}
-			else if (updateCount < e1)
+			else if (stateUpdateCount < e1)
 			{
 				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 1);
 				olc::vi2d pos = _objData->GetPosition();
 				pos.x += speed;
 				_objData->SetPosition(pos);
 			}
-			else if (updateCount >= e2)
+			else if (stateUpdateCount >= e2)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

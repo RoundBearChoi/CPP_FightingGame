@@ -63,7 +63,7 @@ namespace RB
 			int32_t targetdelay = 8;
 			size_t end = (size_t)animationController.status.nTransitionDelay * (size_t)targetdelay;
 
-			if (updateCount >= end)
+			if (stateUpdateCount >= end)
 			{
 				nextState = State::NewState<Fighter_0_Hadouken_Recover>(_objData);
 			}

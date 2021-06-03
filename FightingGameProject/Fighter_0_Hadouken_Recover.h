@@ -33,7 +33,7 @@ namespace RB
 			int32_t tiles = animationController.GetTotalTiles() - (int32_t)1;
 			size_t end = (size_t)tiles * (size_t)animationController.status.nTransitionDelay;
 
-			if (updateCount >= end)
+			if (stateUpdateCount >= end)
 			{
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}

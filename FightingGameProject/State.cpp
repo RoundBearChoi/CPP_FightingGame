@@ -40,7 +40,7 @@ namespace RB
 		}
 
 		OnUpdate();
-		updateCount++;
+		stateUpdateCount++;
 
 		if (animationController.status.nDelayCount == 0)
 		{
