@@ -15,7 +15,8 @@ namespace RB
 		virtual void InitScene() = 0;
 		virtual void UpdateScene() = 0;
 		virtual void RenderObjs() = 0;
-		virtual void RenderStates(bool update) = 0;
+		virtual void RenderStates() = 0;
+		virtual void UpdateRenderTiles() = 0;
 
 		virtual ~Scene();
 

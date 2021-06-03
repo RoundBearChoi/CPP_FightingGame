@@ -68,14 +68,9 @@ namespace RB
 
 	};
 
-	void ImpactEffectsGroup::RenderStates(bool update)
+	void ImpactEffectsGroup::RenderStates()
 	{
 		ptrAnimationRenderer->Update();
-
-		if (update)
-		{
-			UpdateSpriteTileIndex();
-		}
 	};
 
 	void ImpactEffectsGroup::UpdateSpriteTileIndex()

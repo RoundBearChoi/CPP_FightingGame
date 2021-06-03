@@ -27,7 +27,7 @@ namespace RB
 
 		virtual void UpdateStates() = 0;
 		virtual void UpdateSpriteTileIndex() = 0;
-		virtual void RenderStates(bool update) = 0;
+		virtual void RenderStates() = 0;
 		virtual void RenderObjPosition() = 0;
 		virtual void RenderBoxColliders() = 0;
 

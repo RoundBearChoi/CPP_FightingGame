@@ -65,7 +65,10 @@ namespace RB
 				_sceneController->ChangeScene();
 				_sceneController->currentScene->_cam->Update();
 				_sceneController->currentScene->UpdateScene();
-				_sceneController->currentScene->RenderStates(true);
+				_sceneController->currentScene->RenderStates();
+
+				//only update tile indexes on fixed update
+				_sceneController->currentScene->UpdateRenderTiles();
 
 				//only clear after update
 				_input->ClearKeyQueues();
@@ -74,7 +77,7 @@ namespace RB
 			}
 			else
 			{
-				_sceneController->currentScene->RenderStates(false);
+				_sceneController->currentScene->RenderStates();
 			}
 
 			_sceneController->currentScene->RenderObjs();

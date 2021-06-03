@@ -19,7 +19,7 @@ namespace RB
 		~ImpactEffectsGroup();
 
 		void UpdateStates() override;
-		void RenderStates(bool update) override;
+		void RenderStates() override;
 		void UpdateSpriteTileIndex() override;
 
 		void RenderObjPosition() override;

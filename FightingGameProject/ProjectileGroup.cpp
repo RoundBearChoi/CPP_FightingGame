@@ -57,14 +57,9 @@ namespace RB
 		}
 	}
 
-	void ProjectileGroup::RenderStates(bool update)
+	void ProjectileGroup::RenderStates()
 	{
 		ptrAnimationRenderer->Update();
-
-		if (update)
-		{
-			UpdateSpriteTileIndex();
-		}
 	}
 
 	void ProjectileGroup::UpdateSpriteTileIndex()

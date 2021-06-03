@@ -75,11 +75,20 @@ namespace RB
 		_impactEffects->RenderObjPosition();
 	}
 
-	void FightScene::RenderStates(bool update)
+	void FightScene::RenderStates()
 	{
-		_fighters->RenderStates(update);
+		_fighters->RenderStates();
+
 		_fighters->RenderBoxColliders();
-		_projectiles->RenderStates(update);
-		_impactEffects->RenderStates(update);
+
+		_projectiles->RenderStates();
+		_impactEffects->RenderStates();
+	}
+
+	void FightScene::UpdateRenderTiles()
+	{
+		_fighters->UpdateSpriteTileIndex();
+		_projectiles->UpdateSpriteTileIndex();
+		_impactEffects->UpdateSpriteTileIndex();
 	}
 }

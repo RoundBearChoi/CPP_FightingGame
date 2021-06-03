@@ -305,7 +305,7 @@ namespace RB
 			copied1.Show();
 		}
 
-		void RenderStates(bool update) override
+		void RenderStates() override
 		{
 			//dummy fighter
 			if (selector.Current() != nullptr)
@@ -346,6 +346,11 @@ namespace RB
 					selector.GetCollider()[i].Render(*_cam, { 0, 0 }, olc::BLUE);
 				}
 			}
+		}
+
+		void UpdateRenderTiles() override
+		{
+
 		}
 	};
 }

@@ -70,14 +70,9 @@ namespace RB
 		}
 	}
 
-	void FightersGroup::RenderStates(bool update)
+	void FightersGroup::RenderStates()
 	{
 		_animationRenderer->Update();
-
-		if (update)
-		{
-			UpdateSpriteTileIndex();
-		}
 	}
 
 	void FightersGroup::UpdateSpriteTileIndex()

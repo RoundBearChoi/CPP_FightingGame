@@ -28,6 +28,7 @@ namespace RB
 		void InitScene() override;
 		void UpdateScene() override;
 		void RenderObjs() override;
-		void RenderStates(bool update) override;
+		void RenderStates() override;
+		void UpdateRenderTiles() override;
 	};
 }
