@@ -72,17 +72,22 @@ namespace RB
 	{
 		ptrAnimationRenderer->Update();
 
+		if (update)
+		{
+			UpdateSpriteTileIndex();
+		}
+	};
+
+	void ImpactEffectsGroup::UpdateSpriteTileIndex()
+	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
 			if (vecObjs[i] != nullptr)
 			{
-				if (update)
-				{
-					vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
-				}
+				vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 			}
 		}
-	};
+	}
 
 	void ImpactEffectsGroup::RenderBoxColliders()
 	{

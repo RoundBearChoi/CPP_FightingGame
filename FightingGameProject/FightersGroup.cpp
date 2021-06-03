@@ -74,25 +74,30 @@ namespace RB
 	{
 		_animationRenderer->Update();
 
+		if (update)
+		{
+			UpdateSpriteTileIndex();
+		}
+	}
+
+	void FightersGroup::UpdateSpriteTileIndex()
+	{
 		for (size_t i = 0; i < vecObjs.size(); i++)
 		{
-			if (update)
+			bool slowmotion = false;
+
+			for (size_t i = 0; i < vecSlowMotion.size(); i++)
 			{
-				bool slowmotion = false;
-
-				for (size_t i = 0; i < vecSlowMotion.size(); i++)
+				if (vecSlowMotion[i].SkipUpdate())
 				{
-					if (vecSlowMotion[i].SkipUpdate())
-					{
-						slowmotion = true;
-						break;
-					}
+					slowmotion = true;
+					break;
 				}
+			}
 
-				if (!slowmotion)
-				{
-					vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
-				}
+			if (!slowmotion)
+			{
+				vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 			}
 		}
 	}
