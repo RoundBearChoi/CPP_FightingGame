@@ -19,11 +19,28 @@ namespace RB
 		CollisionResult Fighter0HitsFighter1()
 		{
 			CheckCollisionMessage* fighter0_Message = _fighter0->stateController->currentState->GetCollisionStatus();
-			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCollisionStatus();
 
 			if (fighter0_Message != nullptr)
 			{
 				CollisionResult result = GetCollisionResult(fighter0_Message, _fighter0, _fighter1);
+
+				if (result.isCollided)
+				{
+					return result;
+				}
+			}
+
+			CollisionResult noCollision;
+			return noCollision;
+		}
+
+		CollisionResult Fighter1HitsFighter0()
+		{
+			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCollisionStatus();
+
+			if (fighter1_Message != nullptr)
+			{
+				CollisionResult result = GetCollisionResult(fighter1_Message, _fighter1, _fighter0);
 
 				if (result.isCollided)
 				{
