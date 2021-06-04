@@ -18,14 +18,14 @@ namespace RB
 			_vecProjectiles = projectiles;
 		}
 
-		PlayerToProjectileCollisionResult Fighter0_CollidesWithProjectile()
+		PlayerToProjectileCollisionResult FighterCollidesWithProjectile(size_t fighterIndex)
 		{
 			std::vector<GameObj*>& projectiles = *_vecProjectiles;
 			std::vector<GameObj*>& fighters = *_vecFighters;
 
 			for (size_t projectileIndex = 0; projectileIndex < projectiles.size(); projectileIndex++)
 			{
-				size_t id = fighters[0]->objData.GetCreationID();
+				size_t id = fighters[fighterIndex]->objData.GetCreationID();
 				size_t ownerID = projectiles[projectileIndex]->objData.GetOwnerID();
 
 				if (id != ownerID)
@@ -36,8 +36,8 @@ namespace RB
 					//check all body parts
 					for (int32_t bodyIndex = 0; bodyIndex <= (int32_t)BodyType::RIGHT_FOOT; bodyIndex++)
 					{
-						olc::vi2d bodyPos = fighters[0]->GetBodyWorldPos((BodyType)bodyIndex);
-						std::array<olc::vi2d, 4>bodyQuads = fighters[0]->GetBodyWorldQuad((BodyType)bodyIndex);
+						olc::vi2d bodyPos = fighters[fighterIndex]->GetBodyWorldPos((BodyType)bodyIndex);
+						std::array<olc::vi2d, 4>bodyQuads = fighters[fighterIndex]->GetBodyWorldQuad((BodyType)bodyIndex);
 
 						if (DiagonalOverlap::Overlapping(projectilePos, projectileQuads, bodyPos, bodyQuads))
 						{
