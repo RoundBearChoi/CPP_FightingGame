@@ -23,10 +23,14 @@ namespace RB
 		delete _projectiles;
 		delete _impactEffects;
 
-		if (_damageDetector != nullptr)
-		{
-			delete _damageDetector;
-		}
+		//if (_damageDetector != nullptr)
+		//{
+		//	delete _damageDetector;
+		//}
+
+		delete _playerToPlayerCollision;
+		delete _meleeReaction;
+		delete _playerToProjectileCollision;
 	}
 
 	void FightScene::InitScene()
@@ -41,11 +45,15 @@ namespace RB
 
 		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
 		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);
+
+		_playerToProjectileCollision = new PlayerToProjectileCollision(_fighters->GetVecObjs(), _projectiles->GetVecObjs());
 	}
 
 	void FightScene::UpdateScene()
 	{
 		//_damageDetector->Update();
+
+		//_playerToProjectileCollision->
 
 		CollisionResult F0HitsF1 = _playerToPlayerCollision->Fighter0HitsFighter1();
 		CollisionResult F1HitsF0 = _playerToPlayerCollision->Fighter1HitsFighter0();

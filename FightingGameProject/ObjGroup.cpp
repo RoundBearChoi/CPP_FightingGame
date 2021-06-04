@@ -88,4 +88,9 @@ namespace RB
 		vecObjs[index] = nullptr;
 		vecObjs.erase(vecObjs.begin() + index);
 	}
+
+	std::vector<GameObj*>* ObjGroup::GetVecObjs()
+	{
+		return &vecObjs;
+	}
 }

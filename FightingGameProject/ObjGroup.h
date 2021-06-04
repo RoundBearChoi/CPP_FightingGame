@@ -41,5 +41,7 @@ namespace RB
 
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index);
+
+		virtual std::vector<GameObj*>* GetVecObjs();
 	};
 }

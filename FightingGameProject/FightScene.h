@@ -4,9 +4,10 @@
 #include "ProjectileGroup.h"
 #include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
-#include "DamageDetector.h"
+//#include "DamageDetector.h"
 #include "PlayerToPlayerCollision.h"
 #include "MeleeReaction.h"
+#include "PlayerToProjectileCollision.h"
 
 //temp
 #include "Fighter_1_Idle.h"
@@ -19,9 +20,10 @@ namespace RB
 		FightersGroup* _fighters = nullptr;
 		ProjectileGroup* _projectiles = nullptr;
 		ImpactEffectsGroup* _impactEffects = nullptr;
-		DamageDetector* _damageDetector = nullptr;
+		//DamageDetector* _damageDetector = nullptr;
 		PlayerToPlayerCollision* _playerToPlayerCollision = nullptr;
 		MeleeReaction* _meleeReaction = nullptr;
+		PlayerToProjectileCollision* _playerToProjectileCollision = nullptr;
 
 	public:
 		FightScene();

@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObj.h"
+#include "CollisionResult.h"
 
 namespace RB
 {
