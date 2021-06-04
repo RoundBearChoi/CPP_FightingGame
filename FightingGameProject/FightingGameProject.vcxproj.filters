@@ -472,5 +472,8 @@
     <ClInclude Include="PlayerToPlayerCollision.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="MeleeReaction.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

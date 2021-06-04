@@ -37,8 +37,10 @@ namespace RB
 		_fighters->SetState(0, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(0)));
 		_fighters->SetState(1, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(1)));
 
-		_damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
+		//_damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
+
 		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
+		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);
 	}
 
 	void FightScene::UpdateScene()
@@ -47,22 +49,8 @@ namespace RB
 
 		CollisionResult f0Hitsf1 = _playerToPlayerCollision->Fighter0HitsFighter1();
 
-		if (f0Hitsf1.isCollided)
-		{
-			IF_COUT{ std::cout << "fighter 0 hits fighter 1!" << std::endl; };
-
-			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, f0Hitsf1.midPoint);
-
-			if (f0Hitsf1.damageData.upPush != 0)
-			{
-				_fighters->GetObj(1)->AddJump(f0Hitsf1.damageData.upPush, f0Hitsf1.damageData.sidePush);
-				_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(1)));
-			}
-			else
-			{
-				_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(1)));
-			}
-		}
+		//_meleeReaction->Update(0, );
+		_meleeReaction->Update(1, f0Hitsf1);
 
 		_fighters->UpdateStates();
 		_impactEffects->UpdateStates();
