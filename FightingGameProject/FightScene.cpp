@@ -2,8 +2,6 @@
 
 namespace RB
 {
-	class Fighter_0_Idle;
-
 	FightScene::FightScene()
 	{
 		IF_COUT{ std::cout << "constructing FightScene" << std::endl; };
@@ -47,17 +45,17 @@ namespace RB
 	{
 		//_damageDetector->Update();
 
-		CollisionResult fighter0Hitsfighter1_result = _playerToPlayerCollision->Fighter0HitsFighter1();
+		CollisionResult f0Hitsf1 = _playerToPlayerCollision->Fighter0HitsFighter1();
 
-		if (fighter0Hitsfighter1_result.isCollided)
+		if (f0Hitsf1.isCollided)
 		{
 			IF_COUT{ std::cout << "fighter 0 hits fighter 1!" << std::endl; };
 
-			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, fighter0Hitsfighter1_result.midPoint);
+			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, f0Hitsf1.midPoint);
 
-			if (fighter0Hitsfighter1_result.damageData.upPush != 0)
+			if (f0Hitsf1.damageData.upPush != 0)
 			{
-				_fighters->GetObj(1)->AddJump(fighter0Hitsfighter1_result.damageData.upPush, fighter0Hitsfighter1_result.damageData.sidePush);
+				_fighters->GetObj(1)->AddJump(f0Hitsf1.damageData.upPush, f0Hitsf1.damageData.sidePush);
 				_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(1)));
 			}
 			else

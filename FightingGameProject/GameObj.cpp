@@ -2,6 +2,9 @@
 
 namespace RB
 {
+	class Fighter_0_HitReaction_Up;
+	class Fighter_0_HitReaction_Side;
+
 	GameObj::GameObj()
 	{
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
@@ -27,8 +30,9 @@ namespace RB
 			}
 
 			delete ptrState;
-			return false;
 		}
+		
+		return false;
 	}
 
 	void GameObj::RenderPosition(Camera& cam)
