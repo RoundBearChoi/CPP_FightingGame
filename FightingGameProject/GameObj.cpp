@@ -16,6 +16,21 @@ namespace RB
 		delete stateController;
 	}
 
+	bool GameObj::SetNextState(State* ptrState)
+	{
+		if (ptrState != nullptr)
+		{
+			if (stateController->currentState != nullptr)
+			{
+				stateController->currentState->nextState = ptrState;
+				return true;
+			}
+
+			delete ptrState;
+			return false;
+		}
+	}
+
 	void GameObj::RenderPosition(Camera& cam)
 	{
 		olc::vi2d relative = ScreenVector::GetScreenPosition(objData.GetPosition(), cam);
@@ -79,6 +94,18 @@ namespace RB
 				olc::Renderer::ptrPGE->DrawLine(playerPos, ScreenVector::GetScreenPosition(quads[3], cam), olc::YELLOW);
 			}
 		}
+	}
+
+	void GameObj::AddJump(int32_t upForce, int32_t sideForce)
+	{
+		objData.CreateJumpProcessor();
+		objData.ptrJumpProcessor->allowControl = false;
+		objData.ptrJumpProcessor->moveBack = true;
+		objData.ptrJumpProcessor->moveHorizontally = true;
+		objData.ptrJumpProcessor->minimumSideForce = 1;
+
+		objData.ptrJumpProcessor->SetUpForce(upForce);
+		objData.ptrJumpProcessor->SetSideForce(sideForce);
 	}
 
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)

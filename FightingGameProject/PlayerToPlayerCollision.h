@@ -27,7 +27,6 @@ namespace RB
 
 				if (result.isCollided)
 				{
-					
 					return result;
 				}
 			}

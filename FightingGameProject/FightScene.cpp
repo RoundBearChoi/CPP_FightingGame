@@ -52,6 +52,18 @@ namespace RB
 		if (fighter0Hitsfighter1_result.isCollided)
 		{
 			IF_COUT{ std::cout << "fighter 0 hits fighter 1!" << std::endl; };
+
+			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, fighter0Hitsfighter1_result.midPoint);
+
+			if (fighter0Hitsfighter1_result.damageData.upPush != 0)
+			{
+				_fighters->GetObj(1)->AddJump(fighter0Hitsfighter1_result.damageData.upPush, fighter0Hitsfighter1_result.damageData.sidePush);
+				_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(1)));
+			}
+			else
+			{
+				_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(1)));
+			}
 		}
 
 		_fighters->UpdateStates();

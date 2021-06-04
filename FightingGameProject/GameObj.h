@@ -16,9 +16,11 @@ namespace RB
 		GameObj();
 		~GameObj();
 
+		bool SetNextState(State* ptrState);
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);
 		void RenderCollisionTiming(BodyType _bodyType, Camera& cam);
+		void AddJump(int32_t upForce, int32_t sideForce);
 
 		olc::vi2d GetBodyWorldPos(BodyType bodyType);
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(BodyType bodyType);
