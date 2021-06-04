@@ -51,9 +51,15 @@ namespace RB
 
 	void FightScene::UpdateScene()
 	{
-		//_damageDetector->Update();
+		PlayerToProjectileCollisionResult projColResult0 = _playerToProjectileCollision->Fighter0_CollidesWithProjectile();
+		PlayerToProjectileCollisionResult projColResult1 = _playerToProjectileCollision->Fighter1_CollidesWithProjectile();
 
-		//_playerToProjectileCollision->
+		if (projColResult0.isCollided)
+		{
+			_projectiles->DeleteObj(projColResult0.projectileIndex);
+			_fighters->GetObj(0)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(0)));
+			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, projColResult0.midPoint);
+		}
 
 		CollisionResult F0HitsF1 = _playerToPlayerCollision->Fighter0HitsFighter1();
 		CollisionResult F1HitsF0 = _playerToPlayerCollision->Fighter1HitsFighter0();

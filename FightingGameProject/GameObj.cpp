@@ -144,4 +144,30 @@ namespace RB
 
 		return worldPos;
 	}
+
+	std::array<olc::vi2d, 4> GameObj::GetBoxColliderWorldQuad()
+	{
+		std::array<olc::vi2d, 4> arr;
+
+		arr[0] = objData.objBoxCollider.RelativePoint0();
+		arr[1] = objData.objBoxCollider.RelativePoint1();
+		arr[2] = objData.objBoxCollider.RelativePoint2();
+		arr[3] = objData.objBoxCollider.RelativePoint3();
+
+		olc::vi2d relativePos = objData.objBoxCollider.RelativePosition();
+
+		arr[0] += relativePos;
+		arr[1] += relativePos;
+		arr[2] += relativePos;
+		arr[3] += relativePos;
+
+		olc::vi2d playerPos = objData.GetPosition();
+
+		arr[0] += playerPos;
+		arr[1] += playerPos;
+		arr[2] += playerPos;
+		arr[3] += playerPos;
+
+		return arr;
+	}
 }

@@ -25,5 +25,6 @@ namespace RB
 		olc::vi2d GetBodyWorldPos(BodyType bodyType);
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(BodyType bodyType);
 		olc::vi2d GetBoxColliderWorldPos();
+		std::array<olc::vi2d, 4> GetBoxColliderWorldQuad();
 	};
 }

@@ -1,8 +1,12 @@
 #pragma once
 #include "BodyPartToBodyPartCollision.h"
+#include "ObjGroup.h"
+#include "ProjectileCollision.h"
 
 namespace RB
 {
+	class Fighter_0_HitReaction_Side;
+
 	class DamageDetector
 	{
 	private:

@@ -478,5 +478,8 @@
     <ClInclude Include="PlayerToProjectileCollision.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerToProjectileCollisionResult.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
