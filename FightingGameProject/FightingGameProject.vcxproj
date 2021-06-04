@@ -209,6 +209,7 @@
     <ClInclude Include="InputBufferRenderer.h" />
     <ClInclude Include="JumpProcessor.h" />
     <ClInclude Include="Normalize.h" />
+    <ClInclude Include="PlayerToPlayerCollision.h" />
     <ClInclude Include="RandomInteger.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />

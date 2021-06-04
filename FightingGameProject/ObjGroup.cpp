@@ -20,6 +20,18 @@ namespace RB
 		return false;
 	}
 
+	GameObj* ObjGroup::GetObj(int32_t index)
+	{
+		if (index >= vecObjs.size())
+		{
+			return nullptr;
+		}
+		else
+		{
+			return vecObjs[index];
+		}
+	}
+
 	ObjData* ObjGroup::GetObjData(int32_t index)
 	{
 		if (index >= vecObjs.size())

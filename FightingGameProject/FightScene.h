@@ -5,6 +5,7 @@
 #include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
 #include "DamageDetector.h"
+#include "PlayerToPlayerCollision.h"
 
 //temp
 #include "Fighter_1_Idle.h"
@@ -18,6 +19,7 @@ namespace RB
 		ProjectileGroup* _projectiles = nullptr;
 		ImpactEffectsGroup* _impactEffects = nullptr;
 		DamageDetector* _damageDetector = nullptr;
+		PlayerToPlayerCollision* _playerToPlayerCollision = nullptr;
 
 	public:
 		FightScene();

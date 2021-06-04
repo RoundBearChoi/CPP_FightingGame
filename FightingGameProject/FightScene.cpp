@@ -40,6 +40,7 @@ namespace RB
 		_fighters->SetState(1, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(1)));
 
 		_damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
+		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
 	}
 
 	void FightScene::UpdateScene()
