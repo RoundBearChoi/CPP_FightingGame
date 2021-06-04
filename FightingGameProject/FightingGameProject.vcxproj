@@ -183,7 +183,6 @@
     <ClInclude Include="CollisionData.h" />
     <ClInclude Include="CollisionResult.h" />
     <ClInclude Include="DamageData.h" />
-    <ClInclude Include="DamageDetector.h" />
     <ClInclude Include="DefaultFixedUpdater.h" />
     <ClInclude Include="FighterDirection.h" />
     <ClInclude Include="FighterGroundToGroundCollision.h" />

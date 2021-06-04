@@ -23,11 +23,6 @@ namespace RB
 		delete _projectiles;
 		delete _impactEffects;
 
-		//if (_damageDetector != nullptr)
-		//{
-		//	delete _damageDetector;
-		//}
-
 		delete _playerToPlayerCollision;
 		delete _meleeReaction;
 		delete _playerToProjectileCollision;
@@ -40,8 +35,6 @@ namespace RB
 
 		_fighters->SetState(0, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(0)));
 		_fighters->SetState(1, State::NewState<Fighter_0_Idle>(_fighters->GetObjData(1)));
-
-		//_damageDetector = new DamageDetector(_fighters, _projectiles, _impactEffects);
 
 		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
 		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);
