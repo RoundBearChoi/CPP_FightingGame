@@ -1,4 +1,5 @@
 #pragma once
+#include "olcPixelGameEngine.h"
 #include "ObjData.h"
 #include "StateController.h"
 #include "ScreenVector.h"
@@ -18,5 +19,9 @@ namespace RB
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);
 		void RenderCollisionTiming(BodyType _bodyType, Camera& cam);
+
+		olc::vi2d GetBodyWorldPos(BodyType bodyType);
+		std::array<olc::vi2d, 4> GetBodyWorldQuad(BodyType bodyType);
+		olc::vi2d GetBoxColliderWorldPos();
 	};
 }

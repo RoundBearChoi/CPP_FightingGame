@@ -45,7 +45,14 @@ namespace RB
 
 	void FightScene::UpdateScene()
 	{
-		_damageDetector->Update();
+		//_damageDetector->Update();
+
+		CollisionResult fighter0Hitsfighter1_result = _playerToPlayerCollision->Fighter0HitsFighter1();
+
+		if (fighter0Hitsfighter1_result.isCollided)
+		{
+			IF_COUT{ std::cout << "fighter 0 hits fighter 1!" << std::endl; };
+		}
 
 		_fighters->UpdateStates();
 		_impactEffects->UpdateStates();

@@ -80,4 +80,37 @@ namespace RB
 			}
 		}
 	}
+
+	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)
+	{
+		State* state = stateController->currentState;
+
+		if (state != nullptr)
+		{
+			return state->GetColliderWorldPos(bodyType);
+		}
+
+		return { 0, 0 };
+	}
+
+	std::array<olc::vi2d, 4> GameObj::GetBodyWorldQuad(BodyType bodyType)
+	{
+		State* state = stateController->currentState;
+
+		if (state != nullptr)
+		{
+			return state->GetColliderQuadsWorldPos(bodyType);
+		}
+
+		std::array<olc::vi2d, 4> arr;
+		return arr;
+	}
+
+	olc::vi2d GameObj::GetBoxColliderWorldPos()
+	{
+		olc::vi2d relativePos = objData.objBoxCollider.RelativePosition();
+		olc::vi2d worldPos = relativePos + objData.GetPosition();
+
+		return worldPos;
+	}
 }
