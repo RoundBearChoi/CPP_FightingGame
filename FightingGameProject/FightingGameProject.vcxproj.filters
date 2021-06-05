@@ -463,5 +463,8 @@
     <ClInclude Include="JumpSpecs.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectileCollisionReaction.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

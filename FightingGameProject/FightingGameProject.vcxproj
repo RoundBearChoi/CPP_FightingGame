@@ -209,6 +209,7 @@
     <ClInclude Include="PlayerToPlayerCollision.h" />
     <ClInclude Include="PlayerToProjectileCollision.h" />
     <ClInclude Include="PlayerToProjectileCollisionResult.h" />
+    <ClInclude Include="ProjectileCollisionReaction.h" />
     <ClInclude Include="RandomInteger.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />

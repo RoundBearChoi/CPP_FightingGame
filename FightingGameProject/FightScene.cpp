@@ -26,6 +26,7 @@ namespace RB
 		delete _playerToPlayerCollision;
 		delete _meleeReaction;
 		delete _playerToProjectileCollision;
+		delete _projectileCollisionReaction;
 	}
 
 	void FightScene::InitScene()
@@ -40,26 +41,15 @@ namespace RB
 		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);
 
 		_playerToProjectileCollision = new PlayerToProjectileCollision(_fighters->GetVecObjs(), _projectiles->GetVecObjs());
+		_projectileCollisionReaction = new ProjectileCollisionReaction(_fighters, _projectiles, _impactEffects);
 	}
 
 	void FightScene::UpdateScene()
 	{
 		PlayerToProjectileCollisionResult projColResult0 = _playerToProjectileCollision->FighterCollidesWithProjectile(0);
 		PlayerToProjectileCollisionResult projColResult1 = _playerToProjectileCollision->FighterCollidesWithProjectile(1);
-
-		if (projColResult0.isCollided)
-		{
-			_projectiles->DeleteObj(projColResult0.projectileIndex);
-			_fighters->GetObj(0)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(0)));
-			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, projColResult0.midPoint);
-		}
-
-		if (projColResult1.isCollided)
-		{
-			_projectiles->DeleteObj(projColResult1.projectileIndex);
-			_fighters->GetObj(1)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(1)));
-			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, projColResult1.midPoint);
-		}
+		_projectileCollisionReaction->Update(0, projColResult0);
+		_projectileCollisionReaction->Update(1, projColResult1);
 
 		MeleeCollisionResult F0HitsF1 = _playerToPlayerCollision->Fighter0HitsFighter1();
 		MeleeCollisionResult F1HitsF0 = _playerToPlayerCollision->Fighter1HitsFighter0();

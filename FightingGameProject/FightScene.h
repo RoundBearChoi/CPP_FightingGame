@@ -6,6 +6,7 @@
 #include "PlayerToPlayerCollision.h"
 #include "MeleeReaction.h"
 #include "PlayerToProjectileCollision.h"
+#include "ProjectileCollisionReaction.h"
 
 //temp
 #include "Fighter_1_Idle.h"
@@ -22,6 +23,7 @@ namespace RB
 		PlayerToPlayerCollision* _playerToPlayerCollision = nullptr;
 		MeleeReaction* _meleeReaction = nullptr;
 		PlayerToProjectileCollision* _playerToProjectileCollision = nullptr;
+		ProjectileCollisionReaction* _projectileCollisionReaction = nullptr;
 
 	public:
 		FightScene();
