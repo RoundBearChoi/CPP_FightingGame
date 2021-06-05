@@ -11,25 +11,28 @@ namespace RB
 	{
 	private:
 		ObjGroup* _fighters = nullptr;
-		std::vector<IGroupComponent*> _vecComponents;
+		std::vector<IGroupComponent*> _vecUpdateComponents;
+		std::vector<IGroupComponent*> _vecStateRenderComponents;
 
 	public:
-		FightersFixedUpdater(ObjGroup* fighters, IGroupComponent* fighterDirection, IGroupComponent* fighterJump, IGroupComponent* groundToGroundCol, IGroupComponent* specialMoveProc)
+		FightersFixedUpdater(ObjGroup* fighters, IGroupComponent* fighterDirection, IGroupComponent* fighterJump, IGroupComponent* groundToGroundCol, IGroupComponent* specialMoveProc, IGroupComponent* animationRenderer)
 		{
 			_fighters = fighters;
-			_vecComponents.push_back(fighterDirection);
-			_vecComponents.push_back(fighterJump);
-			_vecComponents.push_back(groundToGroundCol);
-			_vecComponents.push_back(specialMoveProc);
+			_vecUpdateComponents.push_back(fighterDirection);
+			_vecUpdateComponents.push_back(fighterJump);
+			_vecUpdateComponents.push_back(groundToGroundCol);
+			_vecUpdateComponents.push_back(specialMoveProc);
+
+			_vecStateRenderComponents.push_back(animationRenderer);
 		}
 
 		void CustomUpdate() override
 		{
 			InputBuffer::ptr->AddInputs();
 
-			for (size_t i = 0; i < _vecComponents.size(); i++)
+			for (size_t i = 0; i < _vecUpdateComponents.size(); i++)
 			{
-				_vecComponents[i]->Update();
+				_vecUpdateComponents[i]->Update();
 			}
 
 			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
@@ -45,6 +48,14 @@ namespace RB
 			}
 
 			UpdateUpdateCount();
+		}
+
+		void CustomRender() override
+		{
+			for (size_t i = 0; i < _vecStateRenderComponents.size(); i++)
+			{
+				_vecStateRenderComponents[i]->Update();
+			}
 		}
 	};
 }

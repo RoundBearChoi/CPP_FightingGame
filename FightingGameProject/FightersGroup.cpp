@@ -14,7 +14,7 @@ namespace RB
 		_animationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer();
 
-		_updater = new FightersFixedUpdater(this, _fighterDirection, _fighterJump, _groundToGroundCollision, _specialMoveProcessor);
+		_updater = new FightersFixedUpdater(this, _fighterDirection, _fighterJump, _groundToGroundCollision, _specialMoveProcessor, _animationRenderer);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -51,7 +51,7 @@ namespace RB
 
 	void FightersGroup::RenderStates()
 	{
-		_animationRenderer->Update();
+		_updater->CustomRender();
 	}
 
 	void FightersGroup::RenderObjPosition()

@@ -81,7 +81,6 @@ namespace RB
 	void FightScene::RenderStates()
 	{
 		_fighters->RenderStates();
-
 		_fighters->RenderBoxColliders();
 
 		_projectiles->RenderStates();
