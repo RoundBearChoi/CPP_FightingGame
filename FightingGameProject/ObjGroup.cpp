@@ -44,34 +44,6 @@ namespace RB
 		}
 	}
 
-	size_t ObjGroup::GetObjCount()
-	{
-		return vecObjs.size();
-	}
-
-	size_t ObjGroup::GetOwnerCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			if (vecObjs[index] != nullptr)
-			{
-				return vecObjs[index]->objData.GetOwnerID();
-			}
-		}
-
-		return 0;
-	}
-
-	olc::vi2d ObjGroup::GetObjWorldPos(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			return vecObjs[index]->objData.GetPosition();
-		}
-
-		return olc::vi2d(0, 0);
-	}
-
 	void ObjGroup::DeleteObj(size_t index)
 	{
 		delete vecObjs[index];

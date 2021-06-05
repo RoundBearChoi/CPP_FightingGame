@@ -34,9 +34,6 @@ namespace RB
 		virtual bool SetNextState(int32_t _index, State* ptrState);
 		virtual GameObj* GetObj(int32_t index);
 		virtual ObjData* GetObjData(int32_t index);
-		virtual size_t GetObjCount();
-		virtual size_t GetOwnerCreationID(size_t index);
-		virtual olc::vi2d GetObjWorldPos(size_t index);
 
 		virtual void CreateObj(ObjType objType, olc::vi2d startPos) {}
 		virtual void DeleteObj(size_t index);
