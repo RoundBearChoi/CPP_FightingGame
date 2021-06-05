@@ -49,16 +49,6 @@ namespace RB
 		return vecObjs.size();
 	}
 
-	size_t ObjGroup::GetObjCreationID(size_t index)
-	{
-		if (index < vecObjs.size())
-		{
-			return (vecObjs[index]->objData.GetCreationID());
-		}
-
-		return 0;
-	}
-
 	size_t ObjGroup::GetOwnerCreationID(size_t index)
 	{
 		if (index < vecObjs.size())

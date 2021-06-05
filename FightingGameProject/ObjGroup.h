@@ -35,7 +35,6 @@ namespace RB
 		virtual GameObj* GetObj(int32_t index);
 		virtual ObjData* GetObjData(int32_t index);
 		virtual size_t GetObjCount();
-		virtual size_t GetObjCreationID(size_t index);
 		virtual size_t GetOwnerCreationID(size_t index);
 		virtual olc::vi2d GetObjWorldPos(size_t index);
 
