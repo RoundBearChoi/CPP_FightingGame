@@ -7,14 +7,16 @@ namespace RB
 		_camera = camera;
 		_preloadFighter0 = new Preload_Fighter_0();
 
-		_fighterDirection = new FighterDirection(&_vecObjs);
-		_fighterJump = new FighterJump(&_vecObjs);
-		_groundToGroundCollision = new FighterGroundToGroundCollision(&_vecObjs);
-		_specialMoveProcessor = new SpecialMoveProcessor(&_vecObjs);
-		_animationRenderer = new AnimationRenderer(&_vecObjs, _camera);
+		_vecUpdateComponents.push_back(new FighterDirection(&_vecObjs));
+		_vecUpdateComponents.push_back(new FighterJump(&_vecObjs));
+		_vecUpdateComponents.push_back(new FighterGroundToGroundCollision(&_vecObjs));
+		_vecUpdateComponents.push_back(new SpecialMoveProcessor(&_vecObjs));
+
+		_vecRenderComponents.push_back(new AnimationRenderer(&_vecObjs, _camera));
+
 		_inputBufferRenderer = new InputBufferRenderer();
 
-		_updater = new FightersFixedUpdater(this, _fighterDirection, _fighterJump, _groundToGroundCollision, _specialMoveProcessor, _animationRenderer);
+		_updater = new FightersFixedUpdater(this, &_vecUpdateComponents, &_vecRenderComponents);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -32,15 +34,18 @@ namespace RB
 			IF_COUT{ std::cout << std::endl; };
 		}
 
-		delete _fighterDirection;
-		delete _fighterJump;
-		delete _groundToGroundCollision;
-		delete _specialMoveProcessor;
-		delete _animationRenderer;
+		for (size_t i = 0; i < _vecUpdateComponents.size(); i++)
+		{
+			delete _vecUpdateComponents[i];
+		}
+
+		for (size_t i = 0; i < _vecRenderComponents.size(); i++)
+		{
+			delete _vecRenderComponents[i];
+		}
+
 		delete _inputBufferRenderer;
-
 		delete _preloadFighter0;
-
 		delete _updater;
 	}
 
@@ -95,20 +100,6 @@ namespace RB
 		_vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		_vecObjs.back()->objData.SetPosition(_startingPos);
 		_vecObjs.back()->objData.SetPlayerType(_playerType);
-	}
-
-	GameObj* FightersGroup::GetEnemyObj(State& me)
-	{
-		for (GameObj* obj : _vecObjs)
-		{
-			//compare addresses
-			if (&(*obj->stateController->currentState) != &me)
-			{
-				return obj;
-			}
-		}
-
-		return nullptr;
 	}
 
 	ObjData* FightersGroup::GetObjData(int32_t index)

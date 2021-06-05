@@ -20,13 +20,17 @@ namespace RB
 	class FightersGroup : public ObjGroup
 	{
 	private:
-		IGroupComponent* _fighterDirection = nullptr;
-		IGroupComponent* _fighterJump = nullptr;
-		IGroupComponent* _groundToGroundCollision = nullptr;
-		IGroupComponent* _specialMoveProcessor = nullptr;
+		std::vector<IGroupComponent*> _vecUpdateComponents;
+		//IGroupComponent* _fighterDirection = nullptr;
+		//IGroupComponent* _fighterJump = nullptr;
+		//IGroupComponent* _groundToGroundCollision = nullptr;
+		//IGroupComponent* _specialMoveProcessor = nullptr;
+
+		std::vector<IGroupComponent*> _vecRenderComponents;
+		//IGroupComponent* _animationRenderer = nullptr;
 
 		IGroupComponent* _inputBufferRenderer = nullptr;
-		IGroupComponent* _animationRenderer = nullptr;
+		
 		Preload_Fighter_0* _preloadFighter0 = nullptr;
 
 		RandomInteger randomInteger;
@@ -44,6 +48,5 @@ namespace RB
 		ObjData* GetObjData(int32_t index) override;
 
 		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
-		GameObj* GetEnemyObj(State& me);
 	};
 }
