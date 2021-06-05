@@ -83,25 +83,6 @@ namespace RB
 		}
 	}
 
-	bool FightersGroup::SetNextState(int32_t _index, State* ptrState)
-	{
-		if (ptrState != nullptr)
-		{
-			if (_index < vecObjs.size())
-			{
-				if (vecObjs[_index]->stateController->currentState != nullptr)
-				{
-					vecObjs[_index]->stateController->currentState->nextState = ptrState;
-					return true;
-				}
-			}
-
-			delete ptrState;
-		}
-
-		return false;
-	}
-
 	void FightersGroup::RenderObjPosition()
 	{
 		for (size_t i = 0; i < vecObjs.size(); i++)

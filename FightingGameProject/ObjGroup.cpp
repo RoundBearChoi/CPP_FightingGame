@@ -15,11 +15,6 @@ namespace RB
 		}
 	}
 
-	bool ObjGroup::SetNextState(int32_t _index, State* ptrState)
-	{
-		return false;
-	}
-
 	GameObj* ObjGroup::GetObj(int32_t index)
 	{
 		if (index >= vecObjs.size())

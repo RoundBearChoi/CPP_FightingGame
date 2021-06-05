@@ -36,7 +36,6 @@ namespace RB
 		void UpdateStates() override;
 		void RenderStates() override;
 		void UpdateSpriteTileIndex() override;
-		bool SetNextState(int32_t _index, State* ptrState) override;
 
 		void RenderObjPosition() override;
 		void RenderBoxColliders() override;
