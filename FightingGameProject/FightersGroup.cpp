@@ -7,24 +7,26 @@ namespace RB
 		_camera = camera;
 		_preloadFighter0 = new Preload_Fighter_0();
 
-		_fighterDirection = new FighterDirection(&vecObjs);
-		_fighterJump = new FighterJump(&vecObjs);
-		_groundToGroundCollision = new FighterGroundToGroundCollision(&vecObjs);
-		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
-		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
+		_fighterDirection = new FighterDirection(&_vecObjs);
+		_fighterJump = new FighterJump(&_vecObjs);
+		_groundToGroundCollision = new FighterGroundToGroundCollision(&_vecObjs);
+		_specialMoveProcessor = new SpecialMoveProcessor(&_vecObjs);
+		_animationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer();
+
+		_updater = new FightersFixedUpdater(this, _fighterDirection, _fighterJump, _groundToGroundCollision, _specialMoveProcessor);
 	}
 
 	FightersGroup::~FightersGroup()
 	{
-		if (vecObjs.size() != 0)
+		if (_vecObjs.size() != 0)
 		{
 			IF_COUT{ std::cout << std::endl; };
 
-			for (size_t i = 0; i < vecObjs.size(); i++)
+			for (size_t i = 0; i < _vecObjs.size(); i++)
 			{
 				IF_COUT{ std::cout << "destructing fighter: " << i << std::endl; };
-				delete vecObjs[i];
+				delete _vecObjs[i];
 			}
 
 			IF_COUT{ std::cout << std::endl; };
@@ -38,26 +40,13 @@ namespace RB
 		delete _inputBufferRenderer;
 
 		delete _preloadFighter0;
+
+		delete _updater;
 	}
 
 	void FightersGroup::UpdateStates()
 	{
-		InputBuffer::ptr->AddInputs();
-
-		_fighterDirection->Update();
-		_groundToGroundCollision->Update();
-		_specialMoveProcessor->Update();
-		_fighterJump->Update();
-
-		for (GameObj* obj : vecObjs)
-		{
-			obj->stateController->MakeStateTransition();
-
-			if (obj->stateController->currentState != nullptr)
-			{
-				obj->stateController->currentState->RunUpdateProcess();
-			}
-		}
+		_updater->CustomUpdate();
 	}
 
 	void FightersGroup::RenderStates()
@@ -67,17 +56,17 @@ namespace RB
 
 	void FightersGroup::UpdateSpriteTileIndex()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+			_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 		}
 	}
 
 	void FightersGroup::RenderObjPosition()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			GameObj& obj = *vecObjs[i];
+			GameObj& obj = *_vecObjs[i];
 
 			obj.RenderPosition(*_camera);
 			obj.objData.objBoxCollider.Render(*_camera, obj.objData.GetPosition(), olc::GREEN);
@@ -101,24 +90,24 @@ namespace RB
 
 	void FightersGroup::RenderBoxColliders()
 	{
-		for (int32_t i = 0; i < vecObjs.size(); i++)
+		for (int32_t i = 0; i < _vecObjs.size(); i++)
 		{
-			vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
+			_vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
 		}
 	}
 	
 	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
 	{
-		vecObjs.push_back(new GameObj());
-		vecObjs.back()->objData.SetCreationID(vecObjs.size());
-		vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
-		vecObjs.back()->objData.SetPosition(_startingPos);
-		vecObjs.back()->objData.SetPlayerType(_playerType);
+		_vecObjs.push_back(new GameObj());
+		_vecObjs.back()->objData.SetCreationID(_vecObjs.size());
+		_vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
+		_vecObjs.back()->objData.SetPosition(_startingPos);
+		_vecObjs.back()->objData.SetPlayerType(_playerType);
 	}
 
 	GameObj* FightersGroup::GetEnemyObj(State& me)
 	{
-		for (GameObj* obj : vecObjs)
+		for (GameObj* obj : _vecObjs)
 		{
 			//compare addresses
 			if (&(*obj->stateController->currentState) != &me)
@@ -132,13 +121,13 @@ namespace RB
 
 	ObjData* FightersGroup::GetObjData(int32_t index)
 	{
-		if (index >= vecObjs.size())
+		if (index >= _vecObjs.size())
 		{
 			return nullptr;
 		}
 		else
 		{
-			return &vecObjs[index]->objData;
+			return &_vecObjs[index]->objData;
 		}
 	}
 }

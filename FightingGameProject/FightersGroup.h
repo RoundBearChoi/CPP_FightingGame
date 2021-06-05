@@ -2,6 +2,7 @@
 #include <vector>
 #include <array>
 #include "ObjGroup.h"
+#include "FightersFixedUpdater.h"
 
 //components
 #include "FighterDirection.h"
@@ -23,12 +24,13 @@ namespace RB
 		IGroupComponent* _fighterJump = nullptr;
 		IGroupComponent* _groundToGroundCollision = nullptr;
 		IGroupComponent* _specialMoveProcessor = nullptr;
+
 		IGroupComponent* _inputBufferRenderer = nullptr;
 		IGroupComponent* _animationRenderer = nullptr;
 		Preload_Fighter_0* _preloadFighter0 = nullptr;
 
 		RandomInteger randomInteger;
-
+		
 	public:
 		FightersGroup(Camera* camera);
 		~FightersGroup();

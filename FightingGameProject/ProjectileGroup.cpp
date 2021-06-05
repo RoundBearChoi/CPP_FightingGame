@@ -5,7 +5,7 @@ namespace RB
 	ProjectileGroup::ProjectileGroup(Camera* camera)
 	{
 		_camera = camera;
-		ptrAnimationRenderer = new AnimationRenderer(&vecObjs, _camera);
+		ptrAnimationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 		
 		//colliderData = new ColliderData(&vecObjs);
 	}
@@ -16,14 +16,14 @@ namespace RB
 
 		//delete colliderData;
 
-		if (vecObjs.size() != 0)
+		if (_vecObjs.size() != 0)
 		{
 			IF_COUT{ std::cout << std::endl; };
 
-			for (size_t i = 0; i < vecObjs.size(); i++)
+			for (size_t i = 0; i < _vecObjs.size(); i++)
 			{
-				IF_COUT{ std::cout << "destructing projectile: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
-				delete vecObjs[i];
+				IF_COUT{ std::cout << "destructing projectile: " << _vecObjs[i]->objData.GetCreationID() << std::endl; };
+				delete _vecObjs[i];
 			}
 
 			IF_COUT{ std::cout << std::endl; };
@@ -32,11 +32,11 @@ namespace RB
 
 	void ProjectileGroup::UpdateStates()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] != nullptr)
+			if (_vecObjs[i] != nullptr)
 			{
-				State* state = vecObjs[i]->stateController->currentState;
+				State* state = _vecObjs[i]->stateController->currentState;
 
 				if (state != nullptr)
 				{
@@ -48,11 +48,11 @@ namespace RB
 
 	void ProjectileGroup::RenderObjPosition()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] != nullptr)
+			if (_vecObjs[i] != nullptr)
 			{
-				vecObjs[i]->objData.objBoxCollider.Render(*_camera, vecObjs[i]->objData.GetPosition(), olc::CYAN);
+				_vecObjs[i]->objData.objBoxCollider.Render(*_camera, _vecObjs[i]->objData.GetPosition(), olc::CYAN);
 			}
 		}
 	}
@@ -64,11 +64,11 @@ namespace RB
 
 	void ProjectileGroup::UpdateSpriteTileIndex()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] != nullptr)
+			if (_vecObjs[i] != nullptr)
 			{
-				vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 			}
 		}
 	}
@@ -83,8 +83,8 @@ namespace RB
 		for (size_t i = 0; i < vecSpecs.size(); i++)
 		{
 			GameObj* obj = new GameObj();
-			vecObjs.push_back(obj);
-			vecObjs.back()->objData.SetCreationID(vecObjs.size());
+			_vecObjs.push_back(obj);
+			_vecObjs.back()->objData.SetCreationID(_vecObjs.size());
 
 			if (vecSpecs[i].projectileType == ProjectileType::HADOUKEN)
 			{

@@ -4,37 +4,37 @@ namespace RB
 {
 	GameObj* ObjGroup::GetObj(int32_t index)
 	{
-		if (index >= vecObjs.size())
+		if (index >= _vecObjs.size())
 		{
 			return nullptr;
 		}
 		else
 		{
-			return vecObjs[index];
+			return _vecObjs[index];
 		}
 	}
 
 	ObjData* ObjGroup::GetObjData(int32_t index)
 	{
-		if (index >= vecObjs.size())
+		if (index >= _vecObjs.size())
 		{
 			return nullptr;
 		}
 		else
 		{
-			return &vecObjs[index]->objData;
+			return &_vecObjs[index]->objData;
 		}
 	}
 
 	void ObjGroup::DeleteObj(size_t index)
 	{
-		delete vecObjs[index];
-		vecObjs[index] = nullptr;
-		vecObjs.erase(vecObjs.begin() + index);
+		delete _vecObjs[index];
+		_vecObjs[index] = nullptr;
+		_vecObjs.erase(_vecObjs.begin() + index);
 	}
 
 	std::vector<GameObj*>* ObjGroup::GetVecObjs()
 	{
-		return &vecObjs;
+		return &_vecObjs;
 	}
 }

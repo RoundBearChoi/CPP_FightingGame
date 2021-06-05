@@ -5,23 +5,23 @@ namespace RB
 	ImpactEffectsGroup::ImpactEffectsGroup(Camera* camera)
 	{
 		_camera = camera;
-		ptrAnimationRenderer = new AnimationRenderer(&vecObjs, _camera);
+		ptrAnimationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 	}
 
 	ImpactEffectsGroup::~ImpactEffectsGroup()
 	{
 		delete ptrAnimationRenderer;
 
-		if (vecObjs.size() != 0)
+		if (_vecObjs.size() != 0)
 		{
 			IF_COUT{ std::cout << std::endl; };
 
-			for (size_t i = 0; i < vecObjs.size(); i++)
+			for (size_t i = 0; i < _vecObjs.size(); i++)
 			{
-				if (vecObjs[i] != nullptr)
+				if (_vecObjs[i] != nullptr)
 				{
-					IF_COUT{ std::cout << "destructing effect: " << vecObjs[i]->objData.GetCreationID() << std::endl; };
-					delete vecObjs[i];
+					IF_COUT{ std::cout << "destructing effect: " << _vecObjs[i]->objData.GetCreationID() << std::endl; };
+					delete _vecObjs[i];
 				}
 			}
 
@@ -31,12 +31,12 @@ namespace RB
 
 	void ImpactEffectsGroup::UpdateStates()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] != nullptr)
+			if (_vecObjs[i] != nullptr)
 			{
-				GameObj& obj = *vecObjs[i];
-				State* state = vecObjs[i]->stateController->currentState;
+				GameObj& obj = *_vecObjs[i];
+				State* state = _vecObjs[i]->stateController->currentState;
 
 				if (state != nullptr)
 				{
@@ -46,18 +46,18 @@ namespace RB
 
 					if (state->stateUpdateCount >= end - (size_t)1)
 					{
-						delete vecObjs[i];
-						vecObjs[i] = nullptr;
+						delete _vecObjs[i];
+						_vecObjs[i] = nullptr;
 					}
 				}
 			}
 		}
 
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] == nullptr)
+			if (_vecObjs[i] == nullptr)
 			{
-				vecObjs.erase(vecObjs.begin() + i);
+				_vecObjs.erase(_vecObjs.begin() + i);
 				break;
 			}
 		}
@@ -75,11 +75,11 @@ namespace RB
 
 	void ImpactEffectsGroup::UpdateSpriteTileIndex()
 	{
-		for (size_t i = 0; i < vecObjs.size(); i++)
+		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			if (vecObjs[i] != nullptr)
+			if (_vecObjs[i] != nullptr)
 			{
-				vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
 			}
 		}
 	}
@@ -92,8 +92,8 @@ namespace RB
 	void ImpactEffectsGroup::CreateObj(ObjType objType, olc::vi2d startPos)
 	{
 		GameObj* obj = new GameObj();
-		vecObjs.push_back(obj);
-		vecObjs.back()->objData.SetCreationID(vecObjs.size());
+		_vecObjs.push_back(obj);
+		_vecObjs.back()->objData.SetCreationID(_vecObjs.size());
 
 		if (objType == ObjType::HIT_EFFECT_0)
 		{

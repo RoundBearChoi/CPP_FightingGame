@@ -5,14 +5,16 @@
 #include "GameObj.h"
 #include "GameDataFactory.h"
 #include "Camera.h"
+#include "Updater.h"
 
 namespace RB
 {
 	class ObjGroup
 	{
 	protected:
-		std::vector<GameObj*> vecObjs;
+		std::vector<GameObj*> _vecObjs;
 		Camera* _camera = nullptr;
+		Updater* _updater = nullptr;
 
 	public:
 		virtual void UpdateStates() = 0;

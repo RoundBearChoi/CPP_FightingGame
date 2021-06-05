@@ -181,7 +181,7 @@
     <ClInclude Include="CollisionData.h" />
     <ClInclude Include="MeleeCollisionResult.h" />
     <ClInclude Include="DamageData.h" />
-    <ClInclude Include="DefaultFixedUpdater.h" />
+    <ClInclude Include="FightersFixedUpdater.h" />
     <ClInclude Include="FighterDirection.h" />
     <ClInclude Include="FighterGroundToGroundCollision.h" />
     <ClInclude Include="FighterJump.h" />
