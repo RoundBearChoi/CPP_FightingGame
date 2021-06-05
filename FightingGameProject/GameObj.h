@@ -16,6 +16,7 @@ namespace RB
 		GameObj();
 		~GameObj();
 
+		void SetState(State* newState);
 		bool SetNextState(State* ptrState);
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);

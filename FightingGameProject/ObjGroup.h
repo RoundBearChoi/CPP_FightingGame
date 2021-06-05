@@ -30,7 +30,6 @@ namespace RB
 		virtual void RenderObjPosition() = 0;
 		virtual void RenderBoxColliders() = 0;
 
-		virtual void SetState(int32_t _index, State* newState);
 		virtual GameObj* GetObj(int32_t index);
 		virtual ObjData* GetObjData(int32_t index);
 

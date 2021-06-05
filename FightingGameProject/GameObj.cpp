@@ -19,6 +19,19 @@ namespace RB
 		delete stateController;
 	}
 
+	void GameObj::SetState(State* newState)
+	{
+		if (newState != nullptr)
+		{
+			if (stateController->currentState != nullptr)
+			{
+				delete stateController->currentState;
+			}
+
+			stateController->currentState = newState;
+		}
+	}
+
 	bool GameObj::SetNextState(State* ptrState)
 	{
 		if (ptrState != nullptr)
