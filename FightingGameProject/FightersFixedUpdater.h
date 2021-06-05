@@ -31,7 +31,7 @@ namespace RB
 			{
 				_vecComponents[i]->Update();
 			}
-			
+
 			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
 
 			for (GameObj* obj : vecFighters)
@@ -43,6 +43,8 @@ namespace RB
 					obj->stateController->currentState->RunUpdateProcess();
 				}
 			}
+
+			UpdateUpdateCount();
 		}
 	};
 }
