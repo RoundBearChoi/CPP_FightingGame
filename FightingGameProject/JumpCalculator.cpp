@@ -1,13 +1,13 @@
-#include "JumpProcessor.h"
+#include "JumpCalculator.h"
 
 namespace RB
 {
-	JumpProcessor::JumpProcessor()
+	JumpCalculator::JumpCalculator()
 	{
 
 	}
 
-	void JumpProcessor::SetSpecs(JumpSpecs specs)
+	void JumpCalculator::SetSpecs(JumpSpecs specs)
 	{
 		_upForce = specs.mUpForce;
 		_horizontalForce = specs.mSideForce;
@@ -18,11 +18,11 @@ namespace RB
 		_allowControl = specs.mAllowControl;
 	}
 
-	int32_t JumpProcessor::GetUpForce() { return _upForce; }
-	int32_t JumpProcessor::GetSideForce() { return _horizontalForce; }
-	bool JumpProcessor::MoveBack() { return _moveBack; }
+	int32_t JumpCalculator::GetUpForce() { return _upForce; }
+	int32_t JumpCalculator::GetSideForce() { return _horizontalForce; }
+	bool JumpCalculator::MoveBack() { return _moveBack; }
 
-	void JumpProcessor::UpdateJump(bool upKey, bool forwardKey, bool backKey)
+	void JumpCalculator::UpdateJump(bool upKey, bool forwardKey, bool backKey)
 	{
 		//vertical
 		if (_updateCount % verticalInterval == 0 && _updateCount != 0)

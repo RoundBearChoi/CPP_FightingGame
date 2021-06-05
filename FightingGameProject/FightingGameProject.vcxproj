@@ -153,7 +153,7 @@
     <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="ImpactEffectsGroup.cpp" />
     <ClCompile Include="InputBuffer.cpp" />
-    <ClCompile Include="JumpProcessor.cpp" />
+    <ClCompile Include="JumpCalculator.cpp" />
     <ClCompile Include="ObjData.cpp" />
     <ClCompile Include="ObjGroup.cpp" />
     <ClCompile Include="ProjectileGroup.cpp" />
@@ -204,7 +204,7 @@
     <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
     <ClInclude Include="InputBufferRenderer.h" />
-    <ClInclude Include="JumpProcessor.h" />
+    <ClInclude Include="JumpCalculator.h" />
     <ClInclude Include="Normalize.h" />
     <ClInclude Include="PlayerToPlayerCollision.h" />
     <ClInclude Include="PlayerToProjectileCollision.h" />

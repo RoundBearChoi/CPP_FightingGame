@@ -3,7 +3,7 @@
 #include "OffsetType.h"
 #include "PlayerType.h"
 #include "BoxCollider.h"
-#include "JumpProcessor.h"
+#include "JumpCalculator.h"
 
 namespace RB
 {
@@ -22,7 +22,7 @@ namespace RB
 		
 	public:
 		BoxCollider objBoxCollider;
-		JumpProcessor* ptrJumpProcessor = nullptr;
+		JumpCalculator* ptrJumpCalculator = nullptr;
 
 		~ObjData();
 
@@ -53,6 +53,6 @@ namespace RB
 		void SetPlayerType(PlayerType _playerType);
 		PlayerType GetPlayerType();
 
-		void CreateNewJumpProcessor();
+		void CreateNewJumpCalculator();
 	};
 }

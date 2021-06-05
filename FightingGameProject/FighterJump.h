@@ -27,30 +27,30 @@ namespace RB
 		void ProcessJump(GameObj& obj)
 		{
 			//process jump
-			if (obj.objData.ptrJumpProcessor != nullptr)
+			if (obj.objData.ptrJumpCalculator != nullptr)
 			{
 				PlayerInput p = PlayerInput::Get(obj.objData.GetPlayerType());
 				Directions d = Directions::Get(obj.objData.IsFacingRight(), p);
 
-				obj.objData.ptrJumpProcessor->UpdateJump(d.up, d.forward, d.back);
+				obj.objData.ptrJumpCalculator->UpdateJump(d.up, d.forward, d.back);
 
 				if (obj.objData.GetPosition().y <= 0)
 				{
-					olc::vi2d vertical = obj.objData.GetPosition() - olc::vi2d(0, obj.objData.ptrJumpProcessor->GetUpForce());
+					olc::vi2d vertical = obj.objData.GetPosition() - olc::vi2d(0, obj.objData.ptrJumpCalculator->GetUpForce());
 					obj.objData.SetPosition(vertical);
 
 					olc::vi2d horizontalForce = olc::vi2d{ 0, 0 };
 
 					if (obj.objData.IsFacingRight())
 					{
-						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetSideForce(), 0);
+						horizontalForce = olc::vi2d(obj.objData.ptrJumpCalculator->GetSideForce(), 0);
 					}
 					else
 					{
-						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetSideForce() * -1, 0);
+						horizontalForce = olc::vi2d(obj.objData.ptrJumpCalculator->GetSideForce() * -1, 0);
 					}
 
-					if (!obj.objData.ptrJumpProcessor->MoveBack())
+					if (!obj.objData.ptrJumpCalculator->MoveBack())
 					{
 						olc::vi2d horizontal = obj.objData.GetPosition() + horizontalForce;
 						obj.objData.SetPosition(horizontal);
@@ -69,8 +69,8 @@ namespace RB
 				olc::vi2d groundPos = olc::vi2d(obj.objData.GetPosition().x, 0);
 				obj.objData.SetPosition(groundPos);
 
-				delete obj.objData.ptrJumpProcessor;
-				obj.objData.ptrJumpProcessor = nullptr;
+				delete obj.objData.ptrJumpCalculator;
+				obj.objData.ptrJumpCalculator = nullptr;
 			}
 		}
 	};

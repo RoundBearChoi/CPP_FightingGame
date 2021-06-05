@@ -4,9 +4,9 @@ namespace RB
 {
 	ObjData::~ObjData()
 	{
-		if (ptrJumpProcessor != nullptr)
+		if (ptrJumpCalculator != nullptr)
 		{
-			delete ptrJumpProcessor;
+			delete ptrJumpCalculator;
 		}
 	}
 
@@ -37,13 +37,13 @@ namespace RB
 	void ObjData::SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
 	PlayerType ObjData::GetPlayerType() { return playerType; }
 
-	void ObjData::CreateNewJumpProcessor()
+	void ObjData::CreateNewJumpCalculator()
 	{
-		if (ptrJumpProcessor != nullptr)
+		if (ptrJumpCalculator != nullptr)
 		{
-			delete ptrJumpProcessor;
+			delete ptrJumpCalculator;
 		}
 
-		ptrJumpProcessor = new JumpProcessor();
+		ptrJumpCalculator = new JumpCalculator();
 	}
 }

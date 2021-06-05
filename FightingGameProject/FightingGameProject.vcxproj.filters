@@ -149,7 +149,7 @@
     <ClCompile Include="GameSettings.cpp">
       <Filter>Source Files\Settings</Filter>
     </ClCompile>
-    <ClCompile Include="JumpProcessor.cpp">
+    <ClCompile Include="JumpCalculator.cpp">
       <Filter>Source Files\JumpProcessor</Filter>
     </ClCompile>
     <ClCompile Include="FightersGroup.cpp">
@@ -355,7 +355,7 @@
     <ClInclude Include="Fighter_0_Jump_Up_Vertical.h">
       <Filter>Source Files\State\Concrete States\Fighters</Filter>
     </ClInclude>
-    <ClInclude Include="JumpProcessor.h">
+    <ClInclude Include="JumpCalculator.h">
       <Filter>Source Files\JumpProcessor</Filter>
     </ClInclude>
     <ClInclude Include="Fighter_0_Jump_Fall.h">

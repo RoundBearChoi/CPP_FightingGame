@@ -115,8 +115,8 @@ namespace RB
 
 	void GameObj::AddJump(JumpSpecs jumpSpecs)
 	{
-		objData.CreateNewJumpProcessor();
-		objData.ptrJumpProcessor->SetSpecs(jumpSpecs);
+		objData.CreateNewJumpCalculator();
+		objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
 	}
 
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)

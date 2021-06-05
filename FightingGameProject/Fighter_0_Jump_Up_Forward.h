@@ -28,8 +28,8 @@ namespace RB
 
 			JumpSpecs jumpSpecs(15, 5, 3, true, false, true);
 
-			_objData->CreateNewJumpProcessor();
-			_objData->ptrJumpProcessor->SetSpecs(jumpSpecs);
+			_objData->CreateNewJumpCalculator();
+			_objData->ptrJumpCalculator->SetSpecs(jumpSpecs);
 		}
 
 		void OnUpdate() override
@@ -43,9 +43,9 @@ namespace RB
 				nextState = State::NewState<Fighter_0_Idle>(_objData);
 			}
 
-			else if (_objData->ptrJumpProcessor != nullptr)
+			else if (_objData->ptrJumpCalculator != nullptr)
 			{
-				if (_objData->ptrJumpProcessor->GetUpForce() <= 0)
+				if (_objData->ptrJumpCalculator->GetUpForce() <= 0)
 				{
 					nextState = State::NewState<Fighter_0_Jump_Fall>(_objData);
 				}

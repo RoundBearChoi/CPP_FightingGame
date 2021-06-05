@@ -5,7 +5,7 @@
 
 namespace RB
 {
-	class JumpProcessor
+	class JumpCalculator
 	{
 	private:
 		const int32_t verticalInterval = 2;
@@ -21,7 +21,7 @@ namespace RB
 		bool _allowControl = false;
 
 	public:
-		JumpProcessor();
+		JumpCalculator();
 
 		void SetSpecs(JumpSpecs jumpSpecs);
 
