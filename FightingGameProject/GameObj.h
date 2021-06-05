@@ -22,7 +22,6 @@ namespace RB
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);
 		void RenderCollisionTiming(BodyType _bodyType, Camera& cam);
-		void AddJump(JumpSpecs jumpSpecs);
 
 		olc::vi2d GetBodyWorldPos(BodyType bodyType);
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(BodyType bodyType);

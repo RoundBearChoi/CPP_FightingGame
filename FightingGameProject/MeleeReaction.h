@@ -31,7 +31,8 @@ namespace RB
 				{
 					JumpSpecs jumpSpecs(collisionResult.damageData.upPush, collisionResult.damageData.sidePush, 1, true, true, false);
 
-					_vecFighters[index]->AddJump(jumpSpecs);
+					_vecFighters[index]->objData.CreateNewJumpCalculator();
+					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData));
 				}
 				else

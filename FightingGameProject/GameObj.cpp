@@ -113,12 +113,6 @@ namespace RB
 		}
 	}
 
-	void GameObj::AddJump(JumpSpecs jumpSpecs)
-	{
-		objData.CreateNewJumpCalculator();
-		objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
-	}
-
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)
 	{
 		State* state = stateController->currentState;
