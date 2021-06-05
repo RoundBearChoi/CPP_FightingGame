@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "GameObj.h"
-#include "CollisionResult.h"
+#include "MeleeCollisionResult.h"
 
 namespace RB
 {
@@ -19,7 +19,7 @@ namespace RB
 			_impactEffects = impactEffectsGroup;
 		}
 
-		void Update(int32_t index, CollisionResult collisionResult)
+		void Update(int32_t index, MeleeCollisionResult collisionResult)
 		{
 			if (collisionResult.isCollided)
 			{

@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObj.h"
-#include "CollisionResult.h"
+#include "MeleeCollisionResult.h"
 #include "DiagonalOverlap.h"
 
 namespace RB
@@ -18,13 +18,13 @@ namespace RB
 			_fighter1 = fighter1;
 		}
 
-		CollisionResult Fighter0HitsFighter1()
+		MeleeCollisionResult Fighter0HitsFighter1()
 		{
 			CheckCollisionMessage* fighter0_Message = _fighter0->stateController->currentState->GetCollisionStatus();
 
 			if (fighter0_Message != nullptr)
 			{
-				CollisionResult result = GetCollisionResult(fighter0_Message, _fighter0, _fighter1);
+				MeleeCollisionResult result = GetCollisionResult(fighter0_Message, _fighter0, _fighter1);
 
 				if (result.isCollided)
 				{
@@ -32,17 +32,17 @@ namespace RB
 				}
 			}
 
-			CollisionResult noCollision;
+			MeleeCollisionResult noCollision;
 			return noCollision;
 		}
 
-		CollisionResult Fighter1HitsFighter0()
+		MeleeCollisionResult Fighter1HitsFighter0()
 		{
 			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCollisionStatus();
 
 			if (fighter1_Message != nullptr)
 			{
-				CollisionResult result = GetCollisionResult(fighter1_Message, _fighter1, _fighter0);
+				MeleeCollisionResult result = GetCollisionResult(fighter1_Message, _fighter1, _fighter0);
 
 				if (result.isCollided)
 				{
@@ -50,11 +50,11 @@ namespace RB
 				}
 			}
 
-			CollisionResult noCollision;
+			MeleeCollisionResult noCollision;
 			return noCollision;
 		}
 
-		CollisionResult GetCollisionResult(CheckCollisionMessage* attackerMessage, GameObj* attacker, GameObj* target)
+		MeleeCollisionResult GetCollisionResult(CheckCollisionMessage* attackerMessage, GameObj* attacker, GameObj* target)
 		{
 			if (attacker->stateController->currentState->bodyCollisionCount < attacker->stateController->currentState->maxBodyCollisions)
 			{
@@ -79,7 +79,7 @@ namespace RB
 							distance *= 0.5f;
 							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 
-							CollisionResult result;
+							MeleeCollisionResult result;
 							result.attackerIndex = 777; //don't need attackerIndex
 							result.isCollided = true;
 							result.midPoint = attackPos + rounded;
@@ -93,7 +93,7 @@ namespace RB
 				}
 			}
 
-			CollisionResult noCollision;
+			MeleeCollisionResult noCollision;
 			return noCollision;
 		}
 	};

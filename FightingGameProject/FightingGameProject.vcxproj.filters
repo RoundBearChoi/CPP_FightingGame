@@ -436,7 +436,7 @@
     <ClInclude Include="CollisionData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionResult.h">
+    <ClInclude Include="MeleeCollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Updater.h">

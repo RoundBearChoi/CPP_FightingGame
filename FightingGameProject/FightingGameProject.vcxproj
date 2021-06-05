@@ -179,7 +179,7 @@
     <ClInclude Include="CheckCollisionMessage.h" />
     <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="CollisionData.h" />
-    <ClInclude Include="CollisionResult.h" />
+    <ClInclude Include="MeleeCollisionResult.h" />
     <ClInclude Include="DamageData.h" />
     <ClInclude Include="DefaultFixedUpdater.h" />
     <ClInclude Include="FighterDirection.h" />

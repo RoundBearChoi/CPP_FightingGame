@@ -4,7 +4,7 @@
 
 namespace RB
 {
-	class CollisionResult
+	class MeleeCollisionResult
 	{
 	public:
 		bool isCollided = false;

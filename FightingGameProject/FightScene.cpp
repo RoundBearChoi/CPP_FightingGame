@@ -61,8 +61,8 @@ namespace RB
 			_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, projColResult1.midPoint);
 		}
 
-		CollisionResult F0HitsF1 = _playerToPlayerCollision->Fighter0HitsFighter1();
-		CollisionResult F1HitsF0 = _playerToPlayerCollision->Fighter1HitsFighter0();
+		MeleeCollisionResult F0HitsF1 = _playerToPlayerCollision->Fighter0HitsFighter1();
+		MeleeCollisionResult F1HitsF0 = _playerToPlayerCollision->Fighter1HitsFighter0();
 		_meleeReaction->Update(1, F0HitsF1);
 		_meleeReaction->Update(0, F1HitsF0);
 
