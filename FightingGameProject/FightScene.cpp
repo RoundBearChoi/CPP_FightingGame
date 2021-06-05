@@ -69,8 +69,8 @@ namespace RB
 		_fighters->UpdateStates();
 		_impactEffects->UpdateStates();
 
-		std::vector<CreateProjectileMessage>* p1 = _fighters->messageGetter->GetProjectileCreationMessage(0);
-		std::vector<CreateProjectileMessage>* p2 = _fighters->messageGetter->GetProjectileCreationMessage(1);
+		std::vector<CreateProjectileMessage>* p1 = &_fighters->GetObj(0)->stateController->currentState->vecCreateProjectiles;
+		std::vector<CreateProjectileMessage>* p2 = &_fighters->GetObj(1)->stateController->currentState->vecCreateProjectiles;
 		_projectiles->CreateProjectiles(*p1);
 		_projectiles->CreateProjectiles(*p2);
 		p1->clear();

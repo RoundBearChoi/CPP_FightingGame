@@ -201,7 +201,6 @@
     <ClInclude Include="ImpactEffectsGroup.h" />
     <ClInclude Include="JumpAdder.h" />
     <ClInclude Include="MeleeReaction.h" />
-    <ClInclude Include="MessageGetter.h" />
     <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />
     <ClInclude Include="InputBufferRenderer.h" />

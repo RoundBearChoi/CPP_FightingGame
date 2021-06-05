@@ -5,10 +5,8 @@
 #include "GameObj.h"
 #include "GameDataFactory.h"
 #include "Camera.h"
-//#include "ColliderData.h"
-//#include "CollisionData.h"
+
 #include "JumpAdder.h"
-#include "MessageGetter.h"
 
 namespace RB
 {
@@ -19,10 +17,7 @@ namespace RB
 		Camera* _camera = nullptr;
 
 	public:
-		//ColliderData* colliderData = nullptr;
-		//CollisionData* collisionData = nullptr;
 		JumpAdder* jumpAdder = nullptr;
-		MessageGetter* messageGetter = nullptr;
 
 		virtual void UpdateStates() = 0;
 		virtual void UpdateSpriteTileIndex() = 0;
