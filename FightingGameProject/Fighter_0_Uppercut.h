@@ -25,13 +25,14 @@ namespace RB
 			c0.vecBodies.push_back(BodyType::RIGHT_FOREARM);
 			c0.vecBodies.push_back(BodyType::RIGHT_HAND);
 			c0.animationTile = 4;
-			c0.damageData.upPush = 15;
+			c0.damageData.upPush = 14;
+			c0.damageData.sidePush = 2;
 
 			c1.vecBodies.push_back(BodyType::RIGHT_FOREARM);
 			c1.vecBodies.push_back(BodyType::RIGHT_HAND);
 			c1.animationTile = 5;
-			c1.damageData.upPush = 13;
-			c1.damageData.sidePush = 15;
+			c1.damageData.upPush = 14;
+			c1.damageData.sidePush = 2;
 
 			vecCheckCollisions.push_back(c0);
 			vecCheckCollisions.push_back(c1);
