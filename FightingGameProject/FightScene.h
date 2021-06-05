@@ -2,7 +2,6 @@
 #include "Scene.h"
 #include "FightersGroup.h"
 #include "ProjectileGroup.h"
-#include "ProjectileCollision.h"
 #include "ImpactEffectsGroup.h"
 #include "PlayerToPlayerCollision.h"
 #include "MeleeReaction.h"

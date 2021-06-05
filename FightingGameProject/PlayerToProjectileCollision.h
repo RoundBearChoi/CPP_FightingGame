@@ -2,6 +2,7 @@
 #include <vector>
 #include "GameObj.h"
 #include "PlayerToProjectileCollisionResult.h"
+#include "DiagonalOverlap.h"
 
 namespace RB
 {
