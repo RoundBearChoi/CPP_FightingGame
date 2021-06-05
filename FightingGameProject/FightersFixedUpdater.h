@@ -12,15 +12,13 @@ namespace RB
 	private:
 		ObjGroup* _fighters = nullptr;
 		std::vector<IGroupComponent*>* _vecUpdateComponents;
-		std::vector<IGroupComponent*>* _vecStateRenderComponents;
 
 	public:
-		FightersFixedUpdater(ObjGroup* fighters, std::vector<IGroupComponent*>* updateComponents, std::vector<IGroupComponent*>* renderComponents)
+		FightersFixedUpdater(ObjGroup* fighters, std::vector<IGroupComponent*>* updateComponents)
 		{
 			_fighters = fighters;
 
 			_vecUpdateComponents = updateComponents;
-			_vecStateRenderComponents = renderComponents;
 		}
 
 		void CustomUpdate() override
@@ -44,15 +42,9 @@ namespace RB
 				}
 			}
 
-			UpdateUpdateCount();
-		}
+			_fighters->UpdateSpriteTileIndex();
 
-		void CustomRender() override
-		{
-			for (size_t i = 0; i < (*_vecStateRenderComponents).size(); i++)
-			{
-				(*_vecStateRenderComponents)[i]->Update();
-			}
+			UpdateUpdateCount();
 		}
 	};
 }

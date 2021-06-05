@@ -9,7 +9,6 @@ namespace RB
 
 	public:
 		virtual void CustomUpdate() = 0;
-		virtual void CustomRender() = 0;
 
 		virtual void UpdateUpdateCount()
 		{

@@ -16,7 +16,7 @@ namespace RB
 
 		_inputBufferRenderer = new InputBufferRenderer();
 
-		_updater = new FightersFixedUpdater(this, &_vecUpdateComponents, &_vecRenderComponents);
+		_updater = new FightersFixedUpdater(this, &_vecUpdateComponents);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -56,7 +56,21 @@ namespace RB
 
 	void FightersGroup::RenderStates()
 	{
-		_updater->CustomRender();
+		for (size_t i = 0; i < _vecRenderComponents.size(); i++)
+		{
+			_vecRenderComponents[i]->Update();
+		}
+	}
+
+	void FightersGroup::UpdateSpriteTileIndex()
+	{
+		for (size_t i = 0; i < _vecObjs.size(); i++)
+		{
+			if (_vecObjs[i] != nullptr)
+			{
+				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+			}
+		}
 	}
 
 	void FightersGroup::RenderObjPosition()
