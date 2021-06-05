@@ -6,8 +6,6 @@
 #include "GameDataFactory.h"
 #include "Camera.h"
 
-#include "JumpAdder.h"
-
 namespace RB
 {
 	class ObjGroup
@@ -17,8 +15,6 @@ namespace RB
 		Camera* _camera = nullptr;
 
 	public:
-		JumpAdder* jumpAdder = nullptr;
-
 		virtual void UpdateStates() = 0;
 		virtual void UpdateSpriteTileIndex() = 0;
 		virtual void RenderStates() = 0;

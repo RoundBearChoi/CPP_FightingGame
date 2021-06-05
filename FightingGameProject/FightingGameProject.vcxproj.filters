@@ -436,9 +436,6 @@
     <ClInclude Include="CollisionData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="JumpAdder.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>

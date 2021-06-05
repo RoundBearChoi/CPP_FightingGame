@@ -18,6 +18,7 @@ namespace RB
 		FightersGroup* _fighters = nullptr;
 		ProjectileGroup* _projectiles = nullptr;
 		ImpactEffectsGroup* _impactEffects = nullptr;
+
 		PlayerToPlayerCollision* _playerToPlayerCollision = nullptr;
 		MeleeReaction* _meleeReaction = nullptr;
 		PlayerToProjectileCollision* _playerToProjectileCollision = nullptr;

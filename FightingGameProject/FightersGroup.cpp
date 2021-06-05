@@ -13,8 +13,6 @@ namespace RB
 		_specialMoveProcessor = new SpecialMoveProcessor(&vecObjs);
 		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer();
-
-		jumpAdder = new JumpAdder(&vecObjs);
 	}
 
 	FightersGroup::~FightersGroup()
@@ -40,8 +38,6 @@ namespace RB
 		delete _inputBufferRenderer;
 
 		delete _preloadFighter0;
-
-		delete jumpAdder;
 	}
 
 	void FightersGroup::UpdateStates()
