@@ -433,9 +433,6 @@
     <ClInclude Include="GameDataFactory.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ColliderData.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionData.h">
       <Filter>Source Files</Filter>
     </ClInclude>

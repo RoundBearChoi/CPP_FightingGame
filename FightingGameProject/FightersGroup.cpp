@@ -14,7 +14,7 @@ namespace RB
 		_animationRenderer = new AnimationRenderer(&vecObjs, _camera);
 		_inputBufferRenderer = new InputBufferRenderer();
 
-		colliderData = new ColliderData(&vecObjs);
+		//colliderData = new ColliderData(&vecObjs);
 		collisionData = new CollisionData(&vecObjs);
 		jumpAdder = new JumpAdder(&vecObjs);
 		messageGetter = new MessageGetter(&vecObjs);
@@ -44,7 +44,7 @@ namespace RB
 
 		delete _preloadFighter0;
 
-		delete colliderData;
+		//delete colliderData;
 		delete collisionData;
 		delete jumpAdder;
 		delete messageGetter;
