@@ -29,7 +29,9 @@ namespace RB
 
 				if (collisionResult.damageData.upPush != 0)
 				{
-					_vecFighters[index]->AddJump(collisionResult.damageData.upPush, collisionResult.damageData.sidePush);
+					JumpSpecs jumpSpecs(collisionResult.damageData.upPush, collisionResult.damageData.sidePush, 1, true, true, false);
+
+					_vecFighters[index]->AddJump(jumpSpecs);
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData));
 				}
 				else

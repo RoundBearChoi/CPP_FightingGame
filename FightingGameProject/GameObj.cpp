@@ -113,16 +113,10 @@ namespace RB
 		}
 	}
 
-	void GameObj::AddJump(int32_t upForce, int32_t sideForce)
+	void GameObj::AddJump(JumpSpecs jumpSpecs)
 	{
 		objData.CreateNewJumpProcessor();
-		objData.ptrJumpProcessor->allowControl = false;
-		objData.ptrJumpProcessor->moveBack = true;
-		objData.ptrJumpProcessor->moveHorizontally = true;
-		objData.ptrJumpProcessor->minimumSideForce = 1;
-
-		objData.ptrJumpProcessor->SetUpForce(upForce);
-		objData.ptrJumpProcessor->SetSideForce(sideForce);
+		objData.ptrJumpProcessor->SetSpecs(jumpSpecs);
 	}
 
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)

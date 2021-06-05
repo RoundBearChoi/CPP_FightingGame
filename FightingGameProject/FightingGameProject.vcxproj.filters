@@ -460,5 +460,8 @@
     <ClInclude Include="DamageData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="JumpSpecs.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

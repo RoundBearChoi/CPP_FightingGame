@@ -26,10 +26,10 @@ namespace RB
 		{
 			_objData->SetSpriteSize({ 400, 230 });
 
+			JumpSpecs jumpSpecs(15, 5, 3, true, false, true);
+
 			_objData->CreateNewJumpProcessor();
-			_objData->ptrJumpProcessor->SetUpForce(15);
-			_objData->ptrJumpProcessor->SetSideForce(5);
-			_objData->ptrJumpProcessor->moveHorizontally = true;
+			_objData->ptrJumpProcessor->SetSpecs(jumpSpecs);
 		}
 
 		void OnUpdate() override

@@ -199,6 +199,7 @@
     <ClInclude Include="GameDataFactory.h" />
     <ClInclude Include="IGroupComponent.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />
+    <ClInclude Include="JumpSpecs.h" />
     <ClInclude Include="MeleeReaction.h" />
     <ClInclude Include="ObjType.h" />
     <ClInclude Include="ImpactEffect_Hit_0.h" />

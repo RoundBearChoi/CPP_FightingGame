@@ -4,6 +4,7 @@
 #include "StateController.h"
 #include "ScreenVector.h"
 #include "DevSettings.h"
+#include "JumpSpecs.h"
 
 namespace RB
 {
@@ -21,7 +22,7 @@ namespace RB
 		void RenderPosition(Camera& cam);
 		void RenderSpriteSize(Camera& cam);
 		void RenderCollisionTiming(BodyType _bodyType, Camera& cam);
-		void AddJump(int32_t upForce, int32_t sideForce);
+		void AddJump(JumpSpecs jumpSpecs);
 
 		olc::vi2d GetBodyWorldPos(BodyType bodyType);
 		std::array<olc::vi2d, 4> GetBodyWorldQuad(BodyType bodyType);

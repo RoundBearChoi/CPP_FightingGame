@@ -31,6 +31,7 @@ namespace RB
 			{
 				PlayerInput p = PlayerInput::Get(obj.objData.GetPlayerType());
 				Directions d = Directions::Get(obj.objData.IsFacingRight(), p);
+
 				obj.objData.ptrJumpProcessor->UpdateJump(d.up, d.forward, d.back);
 
 				if (obj.objData.GetPosition().y <= 0)
@@ -49,7 +50,7 @@ namespace RB
 						horizontalForce = olc::vi2d(obj.objData.ptrJumpProcessor->GetSideForce() * -1, 0);
 					}
 
-					if (!obj.objData.ptrJumpProcessor->moveBack)
+					if (!obj.objData.ptrJumpProcessor->MoveBack())
 					{
 						olc::vi2d horizontal = obj.objData.GetPosition() + horizontalForce;
 						obj.objData.SetPosition(horizontal);

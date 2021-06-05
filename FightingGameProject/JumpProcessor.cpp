@@ -4,68 +4,75 @@ namespace RB
 {
 	JumpProcessor::JumpProcessor()
 	{
-		moveHorizontally = false;
-		moveBack = false;
-		allowControl = true;
-		minimumSideForce = 3;
+
 	}
 
-	void JumpProcessor::SetUpForce(int32_t force) { upForce = force; }
-	void JumpProcessor::SetSideForce(int32_t force) { horizontalForce = force; }
-	int32_t JumpProcessor::GetUpForce() { return upForce; }
-	int32_t JumpProcessor::GetSideForce() { return horizontalForce; }
+	void JumpProcessor::SetSpecs(JumpSpecs specs)
+	{
+		_upForce = specs.mUpForce;
+		_horizontalForce = specs.mSideForce;
+		_minimumSideForce = specs.mMinimumSideForce;
+
+		_moveHorizontally = specs.mMoveHorizontally;
+		_moveBack = specs.mMoveBack;
+		_allowControl = specs.mAllowControl;
+	}
+
+	int32_t JumpProcessor::GetUpForce() { return _upForce; }
+	int32_t JumpProcessor::GetSideForce() { return _horizontalForce; }
+	bool JumpProcessor::MoveBack() { return _moveBack; }
 
 	void JumpProcessor::UpdateJump(bool upKey, bool forwardKey, bool backKey)
 	{
 		//vertical
-		if (updateCount % verticalInterval == 0 && updateCount != 0)
+		if (_updateCount % verticalInterval == 0 && _updateCount != 0)
 		{
 			//variable up/down speed
-			if (allowControl)
+			if (_allowControl)
 			{
-				if (upForce > 0)
+				if (_upForce > 0)
 				{
 					if (upKey)
 					{
-						upForce--;
+						_upForce--;
 					}
 					else
 					{
-						upForce -= 2;
+						_upForce -= 2;
 					}
 				}
 				else
 				{
-					upForce--;
+					_upForce--;
 				}
 			}
 			//continuous up/down speed
 			else
 			{
-				upForce--;
+				_upForce--;
 			}
 		}
 
 		//horizontal
-		if (moveHorizontally)
+		if (_moveHorizontally)
 		{
-			if (updateCount % horizontalInterval == 0)
+			if (_updateCount % horizontalInterval == 0)
 			{
-				if (horizontalForce > 3)
+				if (_horizontalForce > 3)
 				{
 					//variable side speed
-					if (allowControl)
+					if (_allowControl)
 					{
 						//forward
-						if (!moveBack)
+						if (!_moveBack)
 						{
 							if (forwardKey)
 							{
-								horizontalForce--;
+								_horizontalForce--;
 							}
 							else
 							{
-								horizontalForce -= 2;
+								_horizontalForce -= 2;
 							}
 						}
 						//back
@@ -73,23 +80,23 @@ namespace RB
 						{
 							if (backKey)
 							{
-								horizontalForce--;
+								_horizontalForce--;
 							}
 							else
 							{
-								horizontalForce -= 2;
+								_horizontalForce -= 2;
 							}
 						}
 					}
 				}
 
-				if (horizontalForce <= minimumSideForce)
+				if (_horizontalForce <= _minimumSideForce)
 				{
-					horizontalForce = minimumSideForce;
+					_horizontalForce = _minimumSideForce;
 				}
 			}
 		}
 
-		updateCount++;
+		_updateCount++;
 	}
 }
