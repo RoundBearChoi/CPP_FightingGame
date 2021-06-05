@@ -21,13 +21,7 @@ namespace RB
 	{
 	private:
 		std::vector<IGroupComponent*> _vecUpdateComponents;
-		//IGroupComponent* _fighterDirection = nullptr;
-		//IGroupComponent* _fighterJump = nullptr;
-		//IGroupComponent* _groundToGroundCollision = nullptr;
-		//IGroupComponent* _specialMoveProcessor = nullptr;
-
 		std::vector<IGroupComponent*> _vecRenderComponents;
-		//IGroupComponent* _animationRenderer = nullptr;
 
 		IGroupComponent* _inputBufferRenderer = nullptr;
 		
