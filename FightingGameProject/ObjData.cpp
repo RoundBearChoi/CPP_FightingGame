@@ -37,7 +37,7 @@ namespace RB
 	void ObjData::SetPlayerType(PlayerType _playerType) { playerType = _playerType; }
 	PlayerType ObjData::GetPlayerType() { return playerType; }
 
-	void ObjData::CreateJumpProcessor()
+	void ObjData::CreateNewJumpProcessor()
 	{
 		if (ptrJumpProcessor != nullptr)
 		{

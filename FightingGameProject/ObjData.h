@@ -53,6 +53,6 @@ namespace RB
 		void SetPlayerType(PlayerType _playerType);
 		PlayerType GetPlayerType();
 
-		void CreateJumpProcessor();
+		void CreateNewJumpProcessor();
 	};
 }

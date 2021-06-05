@@ -115,7 +115,7 @@ namespace RB
 
 	void GameObj::AddJump(int32_t upForce, int32_t sideForce)
 	{
-		objData.CreateJumpProcessor();
+		objData.CreateNewJumpProcessor();
 		objData.ptrJumpProcessor->allowControl = false;
 		objData.ptrJumpProcessor->moveBack = true;
 		objData.ptrJumpProcessor->moveHorizontally = true;

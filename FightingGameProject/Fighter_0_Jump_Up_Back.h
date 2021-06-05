@@ -26,7 +26,7 @@ namespace RB
 		{
 			_objData->SetSpriteSize({ 400, 230 });
 
-			_objData->CreateJumpProcessor();
+			_objData->CreateNewJumpProcessor();
 			_objData->ptrJumpProcessor->SetUpForce(15);
 			_objData->ptrJumpProcessor->SetSideForce(4);
 			_objData->ptrJumpProcessor->moveHorizontally = true;
