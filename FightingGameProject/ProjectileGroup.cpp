@@ -62,17 +62,6 @@ namespace RB
 		ptrAnimationRenderer->Update();
 	}
 
-	void ProjectileGroup::UpdateSpriteTileIndex()
-	{
-		for (size_t i = 0; i < _vecObjs.size(); i++)
-		{
-			if (_vecObjs[i] != nullptr)
-			{
-				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
-			}
-		}
-	}
-
 	void ProjectileGroup::RenderBoxColliders()
 	{
 

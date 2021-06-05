@@ -2,6 +2,17 @@
 
 namespace RB
 {
+	void ObjGroup::UpdateSpriteTileIndex()
+	{
+		for (size_t i = 0; i < _vecObjs.size(); i++)
+		{
+			if (_vecObjs[i] != nullptr)
+			{
+				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+			}
+		}
+	}
+
 	GameObj* ObjGroup::GetObj(int32_t index)
 	{
 		if (index >= _vecObjs.size())

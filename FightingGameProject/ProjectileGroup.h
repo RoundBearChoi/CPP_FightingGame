@@ -21,7 +21,6 @@ namespace RB
 
 		void UpdateStates() override;
 		void RenderStates() override;
-		void UpdateSpriteTileIndex() override;
 
 		void RenderObjPosition() override;
 		void RenderBoxColliders() override;

@@ -54,14 +54,6 @@ namespace RB
 		_animationRenderer->Update();
 	}
 
-	void FightersGroup::UpdateSpriteTileIndex()
-	{
-		for (size_t i = 0; i < _vecObjs.size(); i++)
-		{
-			_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
-		}
-	}
-
 	void FightersGroup::RenderObjPosition()
 	{
 		for (size_t i = 0; i < _vecObjs.size(); i++)

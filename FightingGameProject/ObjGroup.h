@@ -18,10 +18,11 @@ namespace RB
 
 	public:
 		virtual void UpdateStates() = 0;
-		virtual void UpdateSpriteTileIndex() = 0;
 		virtual void RenderStates() = 0;
 		virtual void RenderObjPosition() = 0;
 		virtual void RenderBoxColliders() = 0;
+
+		virtual void UpdateSpriteTileIndex();
 
 		virtual GameObj* GetObj(int32_t index);
 		virtual ObjData* GetObjData(int32_t index);
