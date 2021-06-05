@@ -6,7 +6,7 @@
 #include "GameDataFactory.h"
 #include "Camera.h"
 //#include "ColliderData.h"
-#include "CollisionData.h"
+//#include "CollisionData.h"
 #include "JumpAdder.h"
 #include "MessageGetter.h"
 
@@ -20,7 +20,7 @@ namespace RB
 
 	public:
 		//ColliderData* colliderData = nullptr;
-		CollisionData* collisionData = nullptr;
+		//CollisionData* collisionData = nullptr;
 		JumpAdder* jumpAdder = nullptr;
 		MessageGetter* messageGetter = nullptr;
 
