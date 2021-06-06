@@ -3,6 +3,7 @@
 #include <array>
 #include "ObjGroup.h"
 #include "FightersFixedUpdater.h"
+#include "FightersHitStopMessage.h"
 
 //components
 #include "FighterDirection.h"

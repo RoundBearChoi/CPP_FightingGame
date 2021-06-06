@@ -148,6 +148,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="DiagonalOverlap.cpp" />
+    <ClCompile Include="FightersHitStopMessage.cpp" />
     <ClCompile Include="InputData.cpp" />
     <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="ImpactEffectsGroup.cpp" />
@@ -178,6 +179,8 @@
     <ClInclude Include="CheckCollisionMessage.h" />
     <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="CollisionData.h" />
+    <ClInclude Include="FightersHitStopMessage.h" />
+    <ClInclude Include="HitStopMessage.h" />
     <ClInclude Include="MeleeCollisionResult.h" />
     <ClInclude Include="DamageData.h" />
     <ClInclude Include="FightersFixedUpdater.h" />

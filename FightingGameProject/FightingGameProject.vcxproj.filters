@@ -134,6 +134,9 @@
     <ClCompile Include="ProjectileGroup.cpp">
       <Filter>Source Files\ProjectilesGroup</Filter>
     </ClCompile>
+    <ClCompile Include="FightersHitStopMessage.cpp">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -432,6 +435,12 @@
     </ClInclude>
     <ClInclude Include="ProjectilesFixedUpdater.h">
       <Filter>Source Files\ProjectilesGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="HitStopMessage.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FightersHitStopMessage.h">
+      <Filter>Source Files\FightersGroup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

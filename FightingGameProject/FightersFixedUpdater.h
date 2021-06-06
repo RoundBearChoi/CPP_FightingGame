@@ -23,28 +23,35 @@ namespace RB
 
 		void CustomUpdate() override
 		{
-			InputBuffer::ptr->AddInputs();
-
-			for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
+			if (_stopCount > 0)
 			{
-				(*_vecUpdateComponents)[i]->Update();
+				_stopCount--;
 			}
-
-			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
-
-			for (GameObj* obj : vecFighters)
+			else
 			{
-				obj->stateController->MakeStateTransition();
+				InputBuffer::ptr->AddInputs();
 
-				if (obj->stateController->currentState != nullptr)
+				for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
 				{
-					obj->stateController->currentState->RunUpdateProcess();
+					(*_vecUpdateComponents)[i]->Update();
 				}
+
+				std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
+
+				for (GameObj* obj : vecFighters)
+				{
+					obj->stateController->MakeStateTransition();
+
+					if (obj->stateController->currentState != nullptr)
+					{
+						obj->stateController->currentState->RunUpdateProcess();
+					}
+				}
+
+				_fighters->UpdateSpriteTileIndex();
+
+				UpdateUpdateCount();
 			}
-
-			_fighters->UpdateSpriteTileIndex();
-
-			UpdateUpdateCount();
 		}
 	};
 }

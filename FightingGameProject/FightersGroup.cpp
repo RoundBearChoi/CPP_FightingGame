@@ -17,6 +17,8 @@ namespace RB
 		_inputBufferRenderer = new InputBufferRenderer();
 
 		_updater = new FightersFixedUpdater(this, &_vecUpdateComponents);
+
+		FightersHitStopMessage::SetReceiver(_updater);
 	}
 
 	FightersGroup::~FightersGroup()
