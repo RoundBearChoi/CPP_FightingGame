@@ -31,6 +31,8 @@ namespace RB
 				}
 			}
 
+			_projectilesGroup->UpdateSpriteTileIndex();
+
 			UpdateUpdateCount();
 		}
 	};

@@ -89,10 +89,10 @@ namespace RB
 
 	void FightScene::UpdateRenderTiles()
 	{
-		//figher sprite index updated in custom updater
+		//fighers/projectiles sprite index updated in custom updater
 		//_fighters->UpdateSpriteTileIndex();
-
-		_projectiles->UpdateSpriteTileIndex();
+		//_projectiles->UpdateSpriteTileIndex();
+		
 		_impactEffects->UpdateSpriteTileIndex();
 	}
 }
