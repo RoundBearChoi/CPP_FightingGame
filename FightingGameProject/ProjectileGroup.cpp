@@ -8,6 +8,8 @@ namespace RB
 		ptrAnimationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 		
 		_updater = new ProjectilesFixedUpdater(this);
+
+		ProjectilesHitStopMessage::SetReceiver(_updater);
 	}
 
 	ProjectileGroup::~ProjectileGroup()

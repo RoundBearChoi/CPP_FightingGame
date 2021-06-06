@@ -16,6 +16,18 @@ namespace RB
 
 		void CustomUpdate() override
 		{
+			if (_stopCount > 0)
+			{
+				_stopCount--;
+			}
+			else
+			{
+				DoUpdate();
+			}
+		}
+
+		void DoUpdate()
+		{
 			std::vector<GameObj*>& vecObjs = *_projectilesGroup->GetVecObjs();
 
 			for (size_t i = 0; i < vecObjs.size(); i++)
@@ -33,6 +45,7 @@ namespace RB
 
 			_projectilesGroup->UpdateSpriteTileIndex();
 
+			ProcessStopCounts();
 			UpdateUpdateCount();
 		}
 	};

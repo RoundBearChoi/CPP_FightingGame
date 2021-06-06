@@ -1,6 +1,7 @@
 #pragma once
 #include "ObjGroup.h"
 #include "ProjectilesFixedUpdater.h"
+#include "ProjectilesHitStopMessage.h"
 
 //components
 #include "AnimationRenderer.h"

@@ -4,6 +4,10 @@
 #include "PlayerToProjectileCollisionResult.h"
 #include "GameObj.h"
 
+//hitstop messages
+#include "FightersHitStopMessage.h"
+#include "ProjectilesHitStopMessage.h"
+
 namespace RB
 {
 	class ProjectileCollisionReaction
@@ -28,6 +32,11 @@ namespace RB
 				_projectiles->DeleteObj(collisionResult.projectileIndex);
 				_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(fighterIndex)));
 				_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, collisionResult.midPoint);
+
+				FightersHitStopMessage fightersHitStop;
+				ProjectilesHitStopMessage projectilesHitStop;
+				fightersHitStop.Register(12);
+				projectilesHitStop.Register(12);
 			}
 		}
 	};

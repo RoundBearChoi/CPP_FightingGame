@@ -137,6 +137,9 @@
     <ClCompile Include="FightersHitStopMessage.cpp">
       <Filter>Source Files\FightersGroup</Filter>
     </ClCompile>
+    <ClCompile Include="ProjectilesHitStopMessage.cpp">
+      <Filter>Source Files\ProjectilesGroup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -444,6 +447,9 @@
     </ClInclude>
     <ClInclude Include="StopCountData.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectilesHitStopMessage.h">
+      <Filter>Source Files\ProjectilesGroup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

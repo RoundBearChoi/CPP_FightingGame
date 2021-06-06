@@ -157,6 +157,7 @@
     <ClCompile Include="ObjData.cpp" />
     <ClCompile Include="ObjGroup.cpp" />
     <ClCompile Include="ProjectileGroup.cpp" />
+    <ClCompile Include="ProjectilesHitStopMessage.cpp" />
     <ClCompile Include="SpriteLoader.cpp" />
     <ClCompile Include="FightersGroup.cpp" />
     <ClCompile Include="FightScene.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="PlayerToProjectileCollisionResult.h" />
     <ClInclude Include="ProjectileCollisionReaction.h" />
     <ClInclude Include="ProjectilesFixedUpdater.h" />
+    <ClInclude Include="ProjectilesHitStopMessage.h" />
     <ClInclude Include="RandomInteger.h" />
     <ClInclude Include="SpecialMove.h" />
     <ClInclude Include="ConvertedInputType.h" />

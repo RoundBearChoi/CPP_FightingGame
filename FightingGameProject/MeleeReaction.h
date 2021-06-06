@@ -2,7 +2,10 @@
 #include <vector>
 #include "GameObj.h"
 #include "MeleeCollisionResult.h"
+
+//hitstop messages
 #include "FightersHitStopMessage.h"
+#include "ProjectilesHitStopMessage.h"
 
 namespace RB
 {
@@ -36,15 +39,19 @@ namespace RB
 					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData));
 
-					FightersHitStopMessage hitStop;
-					hitStop.Register(12);
+					FightersHitStopMessage fightersHitStop;
+					ProjectilesHitStopMessage projectilesHitStop;
+					fightersHitStop.Register(12);
+					projectilesHitStop.Register(12);
 				}
 				else
 				{
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(&_vecFighters[index]->objData));
 
-					FightersHitStopMessage hitStop;
-					hitStop.Register(12);
+					FightersHitStopMessage fightersHitStop;
+					ProjectilesHitStopMessage projectilesHitStop;
+					fightersHitStop.Register(12);
+					projectilesHitStop.Register(12);
 				}
 			}
 		}
