@@ -12,7 +12,7 @@ namespace RB
 	private:
 		ObjGroup* _fighters = nullptr;
 		std::vector<IGroupComponent*>* _vecUpdateComponents;
-
+		
 	public:
 		FightersFixedUpdater(ObjGroup* fighters, std::vector<IGroupComponent*>* updateComponents)
 		{
@@ -49,7 +49,8 @@ namespace RB
 				}
 
 				_fighters->UpdateSpriteTileIndex();
-
+				
+				ProcessStopCounts();
 				UpdateUpdateCount();
 			}
 		}

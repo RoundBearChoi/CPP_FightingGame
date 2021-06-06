@@ -17,8 +17,9 @@ namespace RB
 
 		void Register(int32_t stopCount) override
 		{
-			_fightersFixedUpdater->ClearStopCount();
-			_fightersFixedUpdater->AddStopCount(stopCount);
+			StopCountData data;
+			data.stopCount = stopCount;
+			_fightersFixedUpdater->AddStopCountQueue(data);
 		}
 	};
 }

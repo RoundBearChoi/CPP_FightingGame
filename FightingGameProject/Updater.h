@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include "StopCountData.h"
 
 namespace RB
 {
@@ -7,6 +9,7 @@ namespace RB
 	protected:
 		size_t _updaterUpdateCount = 0;
 		int32_t _stopCount = 0;
+		std::vector<StopCountData> _vecStopCounts;
 
 	public:
 		virtual void CustomUpdate() = 0;
@@ -21,14 +24,36 @@ namespace RB
 			}
 		}
 
-		virtual void ClearStopCount()
+		virtual void AddStopCountQueue(StopCountData data)
 		{
-			_stopCount = 0;
+			_vecStopCounts.push_back(data);
 		}
 
-		virtual void AddStopCount(int32_t count)
+		virtual void ProcessStopCounts()
 		{
-			_stopCount += count;
+			std::vector<size_t> deleteIndexes;
+
+			for (size_t i = 0; i < _vecStopCounts.size(); i++)
+			{
+				if (_vecStopCounts[i].oneFrameSkipped)
+				{
+					_stopCount += _vecStopCounts[i].stopCount;
+					deleteIndexes.push_back(i);
+				}
+			
+				if (!_vecStopCounts[i].oneFrameSkipped)
+				{
+					_vecStopCounts[i].oneFrameSkipped = true;
+				}
+			}
+
+			for (size_t i = 0; i < deleteIndexes.size(); i++)
+			{
+				if (_vecStopCounts.size() > deleteIndexes[i])
+				{
+					_vecStopCounts.erase(_vecStopCounts.begin() + deleteIndexes[i]);
+				}
+			}
 		}
 	};
 }

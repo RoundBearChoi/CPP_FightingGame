@@ -442,5 +442,8 @@
     <ClInclude Include="FightersHitStopMessage.h">
       <Filter>Source Files\FightersGroup</Filter>
     </ClInclude>
+    <ClInclude Include="StopCountData.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

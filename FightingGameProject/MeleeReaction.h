@@ -2,6 +2,7 @@
 #include <vector>
 #include "GameObj.h"
 #include "MeleeCollisionResult.h"
+#include "FightersHitStopMessage.h"
 
 namespace RB
 {
@@ -38,6 +39,9 @@ namespace RB
 				else
 				{
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(&_vecFighters[index]->objData));
+
+					FightersHitStopMessage hitStop;
+					hitStop.Register(5);
 				}
 			}
 		}
