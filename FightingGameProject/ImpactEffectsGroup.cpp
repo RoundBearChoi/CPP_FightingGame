@@ -61,6 +61,8 @@ namespace RB
 				break;
 			}
 		}
+
+		UpdateSpriteTileIndex();
 	};
 
 	void ImpactEffectsGroup::RenderObjPosition()

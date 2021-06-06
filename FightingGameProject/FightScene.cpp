@@ -86,13 +86,4 @@ namespace RB
 		_projectiles->RenderStates();
 		_impactEffects->RenderStates();
 	}
-
-	void FightScene::UpdateRenderTiles()
-	{
-		//fighers/projectiles sprite index updated in custom updater
-		//_fighters->UpdateSpriteTileIndex();
-		//_projectiles->UpdateSpriteTileIndex();
-		
-		_impactEffects->UpdateSpriteTileIndex();
-	}
 }

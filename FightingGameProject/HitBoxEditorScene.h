@@ -348,10 +348,5 @@ namespace RB
 				}
 			}
 		}
-
-		void UpdateRenderTiles() override
-		{
-			//tile index is updated manually
-		}
 	};
 }

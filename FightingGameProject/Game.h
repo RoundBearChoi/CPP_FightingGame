@@ -63,9 +63,6 @@ namespace RB
 				_sceneController->currentScene->UpdateScene();
 				_sceneController->currentScene->RenderStates();
 
-				//only update tile indexes on fixed update
-				_sceneController->currentScene->UpdateRenderTiles();
-
 				//only clear after update
 				_input->ClearKeyQueues();
 
