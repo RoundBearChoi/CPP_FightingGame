@@ -31,6 +31,9 @@ namespace RB
 
 				_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, collisionResult.midPoint);
 
+				//midair hits to do
+
+				//uppercut-like hits from ground
 				if (collisionResult.damageData.upPush > 0)
 				{
 					JumpSpecs jumpSpecs(collisionResult.damageData.upPush, collisionResult.damageData.sidePush, 1, true, true, false);
@@ -44,6 +47,7 @@ namespace RB
 					fightersHitStop.Register(12);
 					projectilesHitStop.Register(12);
 				}
+				//straight punches&kicks from ground
 				else
 				{
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(&_vecFighters[index]->objData));
