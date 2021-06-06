@@ -32,19 +32,6 @@ namespace RB
 	void ProjectileGroup::UpdateStates()
 	{
 		_updater->CustomUpdate();
-
-		//for (size_t i = 0; i < _vecObjs.size(); i++)
-		//{
-		//	if (_vecObjs[i] != nullptr)
-		//	{
-		//		State* state = _vecObjs[i]->stateController->currentState;
-		//
-		//		if (state != nullptr)
-		//		{
-		//			state->RunUpdateProcess();
-		//		}
-		//	}
-		//}
 	}
 
 	void ProjectileGroup::RenderObjPosition()
