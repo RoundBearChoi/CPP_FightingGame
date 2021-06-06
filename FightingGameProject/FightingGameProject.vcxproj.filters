@@ -60,6 +60,12 @@
     <Filter Include="Source Files\CheckCollisionMessage">
       <UniqueIdentifier>{e264953f-143b-4fbd-8959-ce49dcfdda3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FightersGroup">
+      <UniqueIdentifier>{5755e6f5-2db0-4029-b4f6-5d1a4000e23c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProjectilesGroup">
+      <UniqueIdentifier>{d8b76bcc-8c88-4286-8f26-1f5ddce60989}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,13 +95,7 @@
     <ClCompile Include="ObjGroup.cpp">
       <Filter>Source Files\Groups</Filter>
     </ClCompile>
-    <ClCompile Include="FightersGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ImpactEffectsGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectileGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DiagonalOverlap.cpp">
@@ -127,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="StateController.cpp">
       <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="FightersGroup.cpp">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileGroup.cpp">
+      <Filter>Source Files\ProjectilesGroup</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,9 +313,6 @@
     <ClInclude Include="Updater.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="FightersFixedUpdater.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerToPlayerCollision.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -337,28 +340,7 @@
     <ClInclude Include="AnimationRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="FighterDirection.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterGroundToGroundCollision.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterJump.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputBufferRenderer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpecialMoveProcessor.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FightersGroup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ImpactEffectsGroup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProjectileGroup.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="AABB.h">
@@ -423,6 +405,33 @@
     </ClInclude>
     <ClInclude Include="DamageData.h">
       <Filter>Source Files\CheckCollisionMessage</Filter>
+    </ClInclude>
+    <ClInclude Include="FightersGroup.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterJump.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterDirection.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterGroundToGroundCollision.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialMoveProcessor.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="InputBufferRenderer.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="FightersFixedUpdater.h">
+      <Filter>Source Files\FightersGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileGroup.h">
+      <Filter>Source Files\ProjectilesGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectilesFixedUpdater.h">
+      <Filter>Source Files\ProjectilesGroup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

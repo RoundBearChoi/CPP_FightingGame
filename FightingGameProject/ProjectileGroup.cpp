@@ -7,14 +7,13 @@ namespace RB
 		_camera = camera;
 		ptrAnimationRenderer = new AnimationRenderer(&_vecObjs, _camera);
 		
-		//colliderData = new ColliderData(&vecObjs);
+		_updater = new ProjectilesFixedUpdater(this);
 	}
 
 	ProjectileGroup::~ProjectileGroup()
 	{
 		delete ptrAnimationRenderer;
-
-		//delete colliderData;
+		delete _updater;
 
 		if (_vecObjs.size() != 0)
 		{
@@ -32,18 +31,20 @@ namespace RB
 
 	void ProjectileGroup::UpdateStates()
 	{
-		for (size_t i = 0; i < _vecObjs.size(); i++)
-		{
-			if (_vecObjs[i] != nullptr)
-			{
-				State* state = _vecObjs[i]->stateController->currentState;
+		_updater->CustomUpdate();
 
-				if (state != nullptr)
-				{
-					state->RunUpdateProcess();
-				}
-			}
-		}
+		//for (size_t i = 0; i < _vecObjs.size(); i++)
+		//{
+		//	if (_vecObjs[i] != nullptr)
+		//	{
+		//		State* state = _vecObjs[i]->stateController->currentState;
+		//
+		//		if (state != nullptr)
+		//		{
+		//			state->RunUpdateProcess();
+		//		}
+		//	}
+		//}
 	}
 
 	void ProjectileGroup::RenderObjPosition()
