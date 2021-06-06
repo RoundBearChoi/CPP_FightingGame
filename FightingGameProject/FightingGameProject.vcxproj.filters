@@ -80,7 +80,7 @@
     <ClCompile Include="InputBuffer.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="GameData.cpp">
+    <ClCompile Include="InputData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameSettings.cpp">
@@ -142,7 +142,7 @@
     <ClInclude Include="SceneType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameData.h">
+    <ClInclude Include="InputData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">

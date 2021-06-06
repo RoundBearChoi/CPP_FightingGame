@@ -9,31 +9,31 @@ namespace RB
 
 	void Camera::Update()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
-		if (gameData.key_j && gameData.key_l || !gameData.key_j && !gameData.key_l)
+		if (inputData.key_j && inputData.key_l || !inputData.key_j && !inputData.key_l)
 		{
 			// double press (do nothing)
 		}
-		else if (gameData.key_j)
+		else if (inputData.key_j)
 		{
 			position.x -= 4;
 		}
-		else if (gameData.key_l)
+		else if (inputData.key_l)
 		{
 
 			position.x += 4;
 		}
 
-		if (gameData.key_i && gameData.key_k || !gameData.key_i && !gameData.key_k)
+		if (inputData.key_i && inputData.key_k || !inputData.key_i && !inputData.key_k)
 		{
 			// double press (do nothing)
 		}
-		else if (gameData.key_i)
+		else if (inputData.key_i)
 		{
 			zoomScale += 0.005f;
 		}
-		else if (gameData.key_k)
+		else if (inputData.key_k)
 		{
 			zoomScale -= 0.005f;
 		}

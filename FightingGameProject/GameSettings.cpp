@@ -28,17 +28,17 @@ namespace RB
 
 	void GameSettings::UpdateTargetFrame()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
-		if (gameData.key_f9)
+		if (inputData.key_f9)
 		{
-			gameData.key_f9->processed = true;
+			inputData.key_f9->processed = true;
 			TargetFrameTime(ChangeTimer::DOUBLE);
 		}
 
-		if (gameData.key_f10)
+		if (inputData.key_f10)
 		{
-			gameData.key_f10->processed = true;
+			inputData.key_f10->processed = true;
 			TargetFrameTime(ChangeTimer::HALF);
 		}
 	}

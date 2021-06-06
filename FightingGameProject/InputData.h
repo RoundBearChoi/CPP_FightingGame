@@ -5,7 +5,7 @@
 
 namespace RB
 {
-	class GameData
+	class InputData
 	{
 	public:
 		SceneType nextSceneType = SceneType::NONE;

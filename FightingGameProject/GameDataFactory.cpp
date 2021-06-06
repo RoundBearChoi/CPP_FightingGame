@@ -16,10 +16,10 @@ namespace RB
 			delete _gameData;
 		}
 
-		_gameData = new GameData();
+		_gameData = new InputData();
 	}
 
-	GameData* GameDataFactory::GetGameData()
+	InputData* GameDataFactory::GetGameData()
 	{
 		return _gameData;
 	}

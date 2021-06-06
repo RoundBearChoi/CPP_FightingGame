@@ -6,13 +6,13 @@ namespace RB
 
 	void DevSettings::UpdateDebugBoxSettings()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
-		if (gameData.key_f8)
+		if (inputData.key_f8)
 		{
-			if (!gameData.key_f8->processed)
+			if (!inputData.key_f8->processed)
 			{
-				gameData.key_f8->processed = true;
+				inputData.key_f8->processed = true;
 				ChangeRenderMode();
 			}
 

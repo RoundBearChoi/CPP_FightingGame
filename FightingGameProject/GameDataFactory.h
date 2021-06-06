@@ -1,12 +1,12 @@
 #pragma once
-#include "GameData.h"
+#include "InputData.h"
 
 namespace RB
 {
 	class GameDataFactory
 	{
 	private:
-		GameData* _gameData = nullptr;
+		InputData* _gameData = nullptr;
 
 	public:
 		static GameDataFactory* ptr;
@@ -15,6 +15,6 @@ namespace RB
 
 		void ResetGameData();
 
-		GameData* GetGameData();
+		InputData* GetGameData();
 	};
 }

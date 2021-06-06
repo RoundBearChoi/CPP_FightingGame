@@ -107,39 +107,39 @@ namespace RB
 
 		void UpdateGameData()
 		{
-			GameData& gameData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
-			gameData.key_j = GetUnprocessedKey(vecCamLeft);
-			gameData.key_l = GetUnprocessedKey(vecCamRight);
-			gameData.key_i = GetUnprocessedKey(vecCamZoomIn);
-			gameData.key_k = GetUnprocessedKey(vecCamZoomOut);
+			inputData.key_j = GetUnprocessedKey(vecCamLeft);
+			inputData.key_l = GetUnprocessedKey(vecCamRight);
+			inputData.key_i = GetUnprocessedKey(vecCamZoomIn);
+			inputData.key_k = GetUnprocessedKey(vecCamZoomOut);
 
-			gameData.key_y = GetUnprocessedKey(vecP1StrongPunch);
-			gameData.key_t = GetUnprocessedKey(vecP1WeakPunch);
-			gameData.key_g = GetUnprocessedKey(vecP1WeakKick);
-			gameData.key_h = GetUnprocessedKey(vecP1StrongKick);
+			inputData.key_y = GetUnprocessedKey(vecP1StrongPunch);
+			inputData.key_t = GetUnprocessedKey(vecP1WeakPunch);
+			inputData.key_g = GetUnprocessedKey(vecP1WeakKick);
+			inputData.key_h = GetUnprocessedKey(vecP1StrongKick);
 
-			gameData.key_w = GetUnprocessedKey(vecP1Up);
-			gameData.key_s = GetUnprocessedKey(vecP1Down);
-			gameData.key_a = GetUnprocessedKey(vecP1Left);
-			gameData.key_d = GetUnprocessedKey(vecP1Right);
+			inputData.key_w = GetUnprocessedKey(vecP1Up);
+			inputData.key_s = GetUnprocessedKey(vecP1Down);
+			inputData.key_a = GetUnprocessedKey(vecP1Left);
+			inputData.key_d = GetUnprocessedKey(vecP1Right);
 
-			gameData.key_np7 = GetUnprocessedKey(vecP2WeakPunch);
-			gameData.key_np8 = GetUnprocessedKey(vecP2StrongPunch);
-			gameData.key_np4 = GetUnprocessedKey(vecP2WeakKick);
-			gameData.key_np5 = GetUnprocessedKey(vecP2StrongKick);
+			inputData.key_np7 = GetUnprocessedKey(vecP2WeakPunch);
+			inputData.key_np8 = GetUnprocessedKey(vecP2StrongPunch);
+			inputData.key_np4 = GetUnprocessedKey(vecP2WeakKick);
+			inputData.key_np5 = GetUnprocessedKey(vecP2StrongKick);
 
-			gameData.key_up = GetUnprocessedKey(vecP2Up);
-			gameData.key_down = GetUnprocessedKey(vecP2Down);
-			gameData.key_left = GetUnprocessedKey(vecP2Left);
-			gameData.key_right = GetUnprocessedKey(vecP2Right);
+			inputData.key_up = GetUnprocessedKey(vecP2Up);
+			inputData.key_down = GetUnprocessedKey(vecP2Down);
+			inputData.key_left = GetUnprocessedKey(vecP2Left);
+			inputData.key_right = GetUnprocessedKey(vecP2Right);
 
-			gameData.key_mouse0 = GetUnprocessedKey(vecMouse0);
-			gameData.key_shift = GetUnprocessedKey(vecShift);
-			gameData.key_f8 = GetUnprocessedKey(vecF8);
-			gameData.key_f9 = GetUnprocessedKey(vecF9);
-			gameData.key_f10 = GetUnprocessedKey(vecF10);
-			gameData.key_f11 = GetUnprocessedKey(vecF11);
+			inputData.key_mouse0 = GetUnprocessedKey(vecMouse0);
+			inputData.key_shift = GetUnprocessedKey(vecShift);
+			inputData.key_f8 = GetUnprocessedKey(vecF8);
+			inputData.key_f9 = GetUnprocessedKey(vecF9);
+			inputData.key_f10 = GetUnprocessedKey(vecF10);
+			inputData.key_f11 = GetUnprocessedKey(vecF11);
 		}
 
 		Key* GetUnprocessedKey(std::vector<Key>& vec)

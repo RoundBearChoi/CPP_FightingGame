@@ -116,18 +116,18 @@ namespace RB
 
 		void UpdateScene() override
 		{
-			GameData& gameData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
 			//change dummy fighter
-			if (gameData.key_left)
+			if (inputData.key_left)
 			{
 				selector.Prev();
-				gameData.key_left->processed = true;
+				inputData.key_left->processed = true;
 			}
-			else if (gameData.key_right)
+			else if (inputData.key_right)
 			{
 				selector.Next();
-				gameData.key_right->processed = true;
+				inputData.key_right->processed = true;
 			}
 
 			//dummy fighter state
@@ -193,15 +193,15 @@ namespace RB
 				targetBodyType.NextType();
 			}
 
-			if (gameData.key_np7)
+			if (inputData.key_np7)
 			{
-				gameData.key_np7->processed = true;
+				inputData.key_np7->processed = true;
 				targetBodyType.NextType();
 			}
 
-			if (gameData.key_np8)
+			if (inputData.key_np8)
 			{
-				gameData.key_np8->processed = true;
+				inputData.key_np8->processed = true;
 				targetBodyType.PrevType();
 			}
 
@@ -211,26 +211,26 @@ namespace RB
 
 			if (nSelectedBodyIndex < selector.GetCollider().size())
 			{
-				if (gameData.key_t && gameData.key_y || !gameData.key_t && !gameData.key_y)
+				if (inputData.key_t && inputData.key_y || !inputData.key_t && !inputData.key_y)
 				{
 					//double press (do nothing)
 				}
-				else if (gameData.key_t)
+				else if (inputData.key_t)
 				{
 					selector.GetCollider()[nSelectedBodyIndex].RotateCounterClockwise();
 				}
-				else if (gameData.key_y)
+				else if (inputData.key_y)
 				{
 					selector.GetCollider()[nSelectedBodyIndex].RotateClockwise();
 				}
 
-				if (gameData.key_g && gameData.key_h || !gameData.key_g && !gameData.key_h)
+				if (inputData.key_g && inputData.key_h || !inputData.key_g && !inputData.key_h)
 				{
 					//double press (do nothing)
 				}
-				else if (gameData.key_g)
+				else if (inputData.key_g)
 				{
-					if (!gameData.key_shift)
+					if (!inputData.key_shift)
 					{
 						selector.GetCollider()[nSelectedBodyIndex].IncreaseHeight(1);
 					}
@@ -239,9 +239,9 @@ namespace RB
 						selector.GetCollider()[nSelectedBodyIndex].DecreaseHeight(1);
 					}
 				}
-				else if (gameData.key_h)
+				else if (inputData.key_h)
 				{
-					if (!gameData.key_shift)
+					if (!inputData.key_shift)
 					{
 						selector.GetCollider()[nSelectedBodyIndex].IncreaseWidth(1);
 					}
@@ -255,10 +255,10 @@ namespace RB
 				selector.GetCollider()[nSelectedBodyIndex].SetQuad(OffsetType::CENTER_CENTER);
 				selector.GetCollider()[nSelectedBodyIndex].UpdateRotation();
 				selector.GetCollider()[nSelectedBodyIndex].MovePosition( //up down left right
-					gameData.key_a,
-					gameData.key_d,
-					gameData.key_w,
-					gameData.key_s);
+					inputData.key_a,
+					inputData.key_d,
+					inputData.key_w,
+					inputData.key_s);
 			}
 
 			for (int32_t i = 0; i < selector.GetCollider().size(); i++)

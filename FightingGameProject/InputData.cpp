@@ -1,8 +1,8 @@
-#include "GameData.h"
+#include "InputData.h"
 
 namespace RB
 {
-	Key* GameData::GetWeakPunchKey(PlayerType playerType)
+	Key* InputData::GetWeakPunchKey(PlayerType playerType)
 	{
 		if (playerType == PlayerType::PLAYER_1)
 		{

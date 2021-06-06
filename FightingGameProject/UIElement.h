@@ -63,13 +63,13 @@ namespace RB
 
 		bool Clicked(olc::vi2d& mousePos)
 		{
-			GameData& gameData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
 			if (MouseHovering(mousePos))
 			{
-				if (gameData.key_mouse0)
+				if (inputData.key_mouse0)
 				{
-					gameData.key_mouse0->processed = true;
+					inputData.key_mouse0->processed = true;
 					return true;
 				}
 			}

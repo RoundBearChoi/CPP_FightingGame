@@ -34,9 +34,9 @@ namespace RB
 
 	void SceneController::ChangeScene()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
-		if (gameData.key_f11)
+		if (inputData.key_f11)
 		{
 			if (currentScene->sceneType == SceneType::FIGHT_SCENE)
 			{
@@ -48,7 +48,7 @@ namespace RB
 			}
 
 			IF_COUT{ std::cout << "f11 pressed" << std::endl; };
-			gameData.key_f11->processed = true;
+			inputData.key_f11->processed = true;
 		}
 	}
 

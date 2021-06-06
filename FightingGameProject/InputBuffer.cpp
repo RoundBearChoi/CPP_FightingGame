@@ -6,19 +6,19 @@ namespace RB
 
 	void InputBuffer::AddInputs()
 	{
-		GameData& gameData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *GameDataFactory::ptr->GetGameData();
 
 		AddInputBuffer(
-			gameData.key_w, gameData.key_s, gameData.key_a, gameData.key_d, //up down left right
-			gameData.key_t, //weak punch
+			inputData.key_w, inputData.key_s, inputData.key_a, inputData.key_d, //up down left right
+			inputData.key_t, //weak punch
 			vecP1Inputs, //p1
 			p1_upright, p1_downright, p1_downleft, p1_upleft, //¢Ö ¢Ù ¢× ¢Ø
 			p1_left, p1_right, p1_up, p1_down, //¡ç ¡æ ¡é
 			p1_weakpunch);
 
 		AddInputBuffer(
-			gameData.key_up, gameData.key_down, gameData.key_left, gameData.key_right, //up down left right
-			gameData.key_np7, //weak punch
+			inputData.key_up, inputData.key_down, inputData.key_left, inputData.key_right, //up down left right
+			inputData.key_np7, //weak punch
 			vecP2Inputs, //p2
 			p2_upright, p2_downright, p2_downleft, p2_upleft, //¢Ö ¢Ù ¢× ¢Ø
 			p2_left, p2_right, p2_up, p2_down, //¡ç ¡æ ¡é
