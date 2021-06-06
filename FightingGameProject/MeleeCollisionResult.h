@@ -8,7 +8,6 @@ namespace RB
 	class MeleeCollisionResult
 	{
 	public:
-		GameObj* attackee = nullptr;
 		bool isCollided = false;
 		olc::vi2d midPoint = { 0, 0 };
 		DamageData damageData;
