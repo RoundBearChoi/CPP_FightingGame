@@ -29,7 +29,7 @@ namespace RB
 		{
 			if (collisionResult.isCollided)
 			{
-				//midair hits todo
+				//midair hits
 				if (_fighters->GetObj(fighterIndex)->objData.GetPosition().y < 0)
 				{
 					_projectiles->DeleteObj(collisionResult.projectileIndex);
