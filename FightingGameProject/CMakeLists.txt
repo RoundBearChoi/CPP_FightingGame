@@ -13,13 +13,12 @@ DevSettings.cpp
 DiagonalOverlap.cpp
 FightersGroup.cpp
 FightScene.cpp
-GameData.cpp
-GameDataFactory.cpp
 GameObj.cpp
 GameSettings.cpp
 ImpactEffectsGroup.cpp
 InputBuffer.cpp
-JumpProcessor.cpp
+InputData.cpp
+JumpCalculator.cpp
 main.cpp
 ObjData.cpp
 ObjGroup.cpp
