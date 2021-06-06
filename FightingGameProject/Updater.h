@@ -31,6 +31,8 @@ namespace RB
 
 		virtual void ProcessStopCounts()
 		{
+			//wait 1 frame before adding hitstops
+
 			std::vector<size_t> deleteIndexes;
 
 			for (size_t i = 0; i < _vecStopCounts.size(); i++)
