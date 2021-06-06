@@ -28,9 +28,12 @@ namespace RB
 		void Update(int32_t fighterIndex, PlayerToProjectileCollisionResult collisionResult)
 		{
 			//midair hits todo
+			if (_fighters->GetObj(fighterIndex)->objData.GetPosition().y < 0)
+			{
 
+			}
 			//ground hits
-			if (collisionResult.isCollided)
+			else if (collisionResult.isCollided)
 			{
 				_projectiles->DeleteObj(collisionResult.projectileIndex);
 				_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(fighterIndex)));
