@@ -45,7 +45,7 @@ namespace RB
 					fightersHitStop.Register(12);
 					projectilesHitStop.Register(12);
 				}
-				//uppercut hits from ground
+				//uppercuts from ground
 				else if (collisionResult.damageData.upPush > 0)
 				{
 					JumpSpecs jumpSpecs(collisionResult.damageData.upPush, collisionResult.damageData.sidePush, 1, true, true, false);
