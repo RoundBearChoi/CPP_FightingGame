@@ -56,9 +56,6 @@ namespace RB
 		_meleeReaction->Update(1, F0HitsF1);
 		_meleeReaction->Update(0, F1HitsF0);
 
-		_fighters->UpdateStates();
-		_impactEffects->UpdateStates();
-
 		std::vector<CreateProjectileMessage>* p1 = &_fighters->GetObj(0)->stateController->currentState->vecCreateProjectiles;
 		std::vector<CreateProjectileMessage>* p2 = &_fighters->GetObj(1)->stateController->currentState->vecCreateProjectiles;
 		_projectiles->CreateProjectiles(*p1);
@@ -66,6 +63,8 @@ namespace RB
 		p1->clear();
 		p2->clear();
 
+		_fighters->UpdateStates();
+		_impactEffects->UpdateStates();
 		_projectiles->UpdateStates();
 	}
 
