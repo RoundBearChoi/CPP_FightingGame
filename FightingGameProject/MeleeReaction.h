@@ -35,13 +35,16 @@ namespace RB
 					_vecFighters[index]->objData.CreateNewJumpCalculator();
 					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData));
+
+					FightersHitStopMessage hitStop;
+					hitStop.Register(12);
 				}
 				else
 				{
 					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(&_vecFighters[index]->objData));
 
 					FightersHitStopMessage hitStop;
-					hitStop.Register(5);
+					hitStop.Register(12);
 				}
 			}
 		}
