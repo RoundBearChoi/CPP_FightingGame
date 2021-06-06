@@ -57,6 +57,9 @@
     <Filter Include="Source Files\Hadouken">
       <UniqueIdentifier>{ad0f771c-2ad4-4cd6-9e5c-481941152952}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CheckCollisionMessage">
+      <UniqueIdentifier>{e264953f-143b-4fbd-8959-ce49dcfdda3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -325,9 +328,6 @@
     <ClInclude Include="PlayerToProjectileCollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DamageData.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="JumpSpecs.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -374,9 +374,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ColliderLoader.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckCollisionMessage.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
@@ -426,6 +423,12 @@
     </ClInclude>
     <ClInclude Include="Fighter_1_Idle.h">
       <Filter>Source Files\Fighter_1</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckCollisionMessage.h">
+      <Filter>Source Files\CheckCollisionMessage</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageData.h">
+      <Filter>Source Files\CheckCollisionMessage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
