@@ -12,6 +12,7 @@ Camera.cpp
 DevSettings.cpp
 DiagonalOverlap.cpp
 FightersGroup.cpp
+FightersHitStopMessage.cpp
 FightScene.cpp
 GameObj.cpp
 GameSettings.cpp
@@ -23,6 +24,7 @@ main.cpp
 ObjData.cpp
 ObjGroup.cpp
 ProjectileGroup.cpp
+ProjectilesHitStopMessage.cpp
 Scene.cpp
 SceneController.cpp
 SpriteLoader.cpp
