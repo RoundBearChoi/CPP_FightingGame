@@ -27,6 +27,9 @@ namespace RB
 
 		void Update(int32_t fighterIndex, PlayerToProjectileCollisionResult collisionResult)
 		{
+			//midair hits todo
+
+			//ground hits
 			if (collisionResult.isCollided)
 			{
 				_projectiles->DeleteObj(collisionResult.projectileIndex);

@@ -31,7 +31,7 @@ namespace RB
 
 				_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, collisionResult.midPoint);
 
-				//midair hits to do
+				//midair hits todo
 
 				//uppercut-like hits from ground
 				if (collisionResult.damageData.upPush > 0)
