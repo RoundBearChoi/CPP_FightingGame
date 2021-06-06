@@ -31,10 +31,22 @@ namespace RB
 
 				_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, collisionResult.midPoint);
 
-				//midair hits todo
+				//midair hits
+				if (_vecFighters[index]->objData.GetPosition().y < 0)
+				{
+					JumpSpecs jumpSpecs(10, 2, 1, true, true, false);
 
+					_vecFighters[index]->objData.CreateNewJumpCalculator();
+					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
+					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData));
+
+					FightersHitStopMessage fightersHitStop;
+					ProjectilesHitStopMessage projectilesHitStop;
+					fightersHitStop.Register(12);
+					projectilesHitStop.Register(12);
+				}
 				//uppercut-like hits from ground
-				if (collisionResult.damageData.upPush > 0)
+				else if (collisionResult.damageData.upPush > 0)
 				{
 					JumpSpecs jumpSpecs(collisionResult.damageData.upPush, collisionResult.damageData.sidePush, 1, true, true, false);
 

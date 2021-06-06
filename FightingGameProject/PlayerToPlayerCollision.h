@@ -80,7 +80,7 @@ namespace RB
 							olc::vi2d rounded((int32_t)std::round(distance.x), (int32_t)std::round(distance.y));
 
 							MeleeCollisionResult result;
-							result.attackerIndex = 777; //don't need attackerIndex
+							result.attackee = target;
 							result.isCollided = true;
 							result.midPoint = attackPos + rounded;
 							result.damageData = attackerMessage->damageData;
