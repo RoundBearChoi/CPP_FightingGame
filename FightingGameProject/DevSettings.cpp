@@ -6,7 +6,7 @@ namespace RB
 
 	void DevSettings::UpdateDebugBoxSettings()
 	{
-		InputData& inputData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *InputData::ptr;
 
 		if (inputData.key_f8)
 		{

@@ -2,6 +2,8 @@
 
 namespace RB
 {
+	InputData* InputData::ptr = nullptr;
+
 	Key* InputData::GetWeakPunchKey(PlayerType playerType)
 	{
 		if (playerType == PlayerType::PLAYER_1)
@@ -14,5 +16,15 @@ namespace RB
 		}
 
 		return nullptr;
+	}
+
+	void InputData::ResetInputData()
+	{
+		if (ptr != nullptr)
+		{
+			delete ptr;
+		}
+
+		ptr = new InputData();
 	}
 }

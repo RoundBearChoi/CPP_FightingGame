@@ -8,6 +8,9 @@ namespace RB
 	class InputData
 	{
 	public:
+		static InputData* ptr;
+		static void ResetInputData();
+
 		SceneType nextSceneType = SceneType::NONE;
 
 		//get

@@ -2,7 +2,7 @@
 #include <vector>
 #include "olcPixelGameEngine.h"
 #include "Key.h"
-#include "GameDataFactory.h"
+#include "InputData.h"
 
 namespace RB
 {
@@ -107,7 +107,7 @@ namespace RB
 
 		void UpdateGameData()
 		{
-			InputData& inputData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *InputData::ptr;
 
 			inputData.key_j = GetUnprocessedKey(vecCamLeft);
 			inputData.key_l = GetUnprocessedKey(vecCamRight);

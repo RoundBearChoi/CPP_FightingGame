@@ -2,7 +2,6 @@
 #include "ObjGroup.h"
 #include "ObjType.h"
 #include "ImpactEffect_Hit_0.h"
-#include "GameDataFactory.h"
 
 //components
 #include "AnimationRenderer.h"

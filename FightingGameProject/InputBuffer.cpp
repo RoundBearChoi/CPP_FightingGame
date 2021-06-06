@@ -6,7 +6,7 @@ namespace RB
 
 	void InputBuffer::AddInputs()
 	{
-		InputData& inputData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *InputData::ptr;
 
 		AddInputBuffer(
 			inputData.key_w, inputData.key_s, inputData.key_a, inputData.key_d, //up down left right

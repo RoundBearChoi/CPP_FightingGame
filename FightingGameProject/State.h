@@ -2,7 +2,6 @@
 #include <iostream>
 #include "DevSettings.h"
 #include "ObjData.h"
-#include "GameDataFactory.h"
 #include "AnimationController.h"
 #include "Directions.h"
 #include "CheckCollisionMessage.h"

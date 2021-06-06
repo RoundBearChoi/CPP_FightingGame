@@ -116,7 +116,7 @@ namespace RB
 
 		void UpdateScene() override
 		{
-			InputData& inputData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *InputData::ptr;
 
 			//change dummy fighter
 			if (inputData.key_left)

@@ -45,7 +45,7 @@ namespace RB
 
 			if (p.weakpunch)
 			{
-				InputData& inputData = *GameDataFactory::ptr->GetGameData();
+				InputData& inputData = *InputData::ptr;
 				Key* wp = inputData.GetWeakPunchKey(_objData->GetPlayerType());
 				wp->processed = true;
 

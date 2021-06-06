@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include "SceneType.h"
-#include "GameDataFactory.h"
+#include "InputData.h"
 
 namespace RB
 {

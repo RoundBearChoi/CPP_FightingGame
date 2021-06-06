@@ -9,7 +9,7 @@ namespace RB
 
 	void Camera::Update()
 	{
-		InputData& inputData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *InputData::ptr;
 
 		if (inputData.key_j && inputData.key_l || !inputData.key_j && !inputData.key_l)
 		{

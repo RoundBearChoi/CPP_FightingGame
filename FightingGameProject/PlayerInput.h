@@ -19,7 +19,7 @@ namespace RB
 		static PlayerInput Get(PlayerType _playerType)
 		{
 			PlayerInput input;
-			InputData& inputData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *InputData::ptr;
 
 			if (_playerType == PlayerType::PLAYER_1)
 			{

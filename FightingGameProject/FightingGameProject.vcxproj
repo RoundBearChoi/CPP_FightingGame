@@ -149,7 +149,6 @@
     <ClCompile Include="DevSettings.cpp" />
     <ClCompile Include="DiagonalOverlap.cpp" />
     <ClCompile Include="InputData.cpp" />
-    <ClCompile Include="GameDataFactory.cpp" />
     <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="ImpactEffectsGroup.cpp" />
     <ClCompile Include="InputBuffer.cpp" />
@@ -196,7 +195,6 @@
     <ClInclude Include="Fighter_0_Jump_Up_Vertical.h" />
     <ClInclude Include="Fighter_0_Jump_WeakPunch.h" />
     <ClInclude Include="Fighter_0_Uppercut.h" />
-    <ClInclude Include="GameDataFactory.h" />
     <ClInclude Include="IGroupComponent.h" />
     <ClInclude Include="ImpactEffectsGroup.h" />
     <ClInclude Include="JumpSpecs.h" />

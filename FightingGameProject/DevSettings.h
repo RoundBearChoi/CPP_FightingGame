@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "RenderMode.h"
-#include "GameDataFactory.h"
+#include "InputData.h"
 
 namespace RB
 {

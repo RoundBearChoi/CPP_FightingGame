@@ -3,7 +3,6 @@
 #include "olcPixelGameEngine.h"
 #include "ObjType.h"
 #include "GameObj.h"
-#include "GameDataFactory.h"
 #include "Camera.h"
 #include "Updater.h"
 

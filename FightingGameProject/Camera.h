@@ -1,7 +1,7 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "GameSettings.h"
-#include "GameDataFactory.h"
+#include "InputData.h"
 
 namespace RB
 {

@@ -34,7 +34,7 @@ namespace RB
 
 	void SceneController::ChangeScene()
 	{
-		InputData& inputData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *InputData::ptr;
 
 		if (inputData.key_f11)
 		{

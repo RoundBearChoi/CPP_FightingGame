@@ -28,7 +28,7 @@ namespace RB
 
 	void GameSettings::UpdateTargetFrame()
 	{
-		InputData& inputData = *GameDataFactory::ptr->GetGameData();
+		InputData& inputData = *InputData::ptr;
 
 		if (inputData.key_f9)
 		{

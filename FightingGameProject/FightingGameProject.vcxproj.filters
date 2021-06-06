@@ -86,9 +86,6 @@
     <ClCompile Include="GameSettings.cpp">
       <Filter>Source Files\Settings</Filter>
     </ClCompile>
-    <ClCompile Include="GameDataFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ObjGroup.cpp">
       <Filter>Source Files\Groups</Filter>
     </ClCompile>
@@ -299,9 +296,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ObjType.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameDataFactory.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionData.h">

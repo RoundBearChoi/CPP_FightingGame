@@ -1,7 +1,6 @@
 #pragma once
 #include "Scene.h"
 #include "SceneType.h"
-#include "GameDataFactory.h"
 #include "SpriteLoader.h"
 #include "FightScene.h"
 #include "HitBoxEditorScene.h"

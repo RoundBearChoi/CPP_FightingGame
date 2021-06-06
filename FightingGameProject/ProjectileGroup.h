@@ -1,6 +1,5 @@
 #pragma once
 #include "ObjGroup.h"
-#include "GameDataFactory.h"
 
 //components
 #include "AnimationRenderer.h"

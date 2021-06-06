@@ -63,7 +63,7 @@ namespace RB
 
 		bool Clicked(olc::vi2d& mousePos)
 		{
-			InputData& inputData = *GameDataFactory::ptr->GetGameData();
+			InputData& inputData = *InputData::ptr;
 
 			if (MouseHovering(mousePos))
 			{

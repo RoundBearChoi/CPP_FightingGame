@@ -5,7 +5,6 @@
 #include "SceneController.h"
 #include "GameSettings.h"
 #include "Input.h"
-#include "GameDataFactory.h"
 
 namespace RB
 {
@@ -14,7 +13,6 @@ namespace RB
 	private:
 		InputBuffer inputBuffer;
 		Timer timer;
-		GameDataFactory _gameDataFactory;
 		
 		Input* _input = nullptr;
 		SceneController* _sceneController = nullptr;
@@ -34,9 +32,7 @@ namespace RB
 			sAppName = "C++FightingGame";
 		
 			InputBuffer::ptr = &inputBuffer;
-			GameDataFactory::ptr = &_gameDataFactory;
 
-			//setup gamedatafactory dependencies
 			_input = new Input();
 			_sceneController = new SceneController();
 
@@ -51,7 +47,7 @@ namespace RB
 			olc::Pixel grayBackground(20, 20, 20);
 			Clear(grayBackground);
 
-			_gameDataFactory.ResetGameData();
+			InputData::ResetInputData();
 
 			_input->UpdateInput();
 
