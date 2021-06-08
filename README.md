@@ -36,6 +36,12 @@ make
 
 <br>
 
+# Devlog Videos
+
+https://youtube.com/playlist?list=PLWYGofN_jX5CNMI6tqlxNtTc7v9DkfNbC
+
+<br>
+
 # Tutorial Videos & Code
 
 https://youtube.com/playlist?list=PLWYGofN_jX5Apmb8pJUD8NN3KskHW2lcy
