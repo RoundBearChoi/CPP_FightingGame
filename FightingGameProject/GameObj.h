@@ -13,7 +13,7 @@ namespace RB
 	public:
 		ObjData objData;
 		StateController* stateController = nullptr;
-		CollisionStay collisionStay;
+		CollisionStay* collisionStay = nullptr;
 
 		GameObj();
 		~GameObj();

@@ -36,13 +36,17 @@ namespace RB
 		void DoUpdate()
 		{
 			InputBuffer::ptr->AddInputs();
+			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
+
+			for (GameObj* obj : vecFighters)
+			{
+				obj->collisionStay->ClearAllSides();
+			}
 
 			for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
 			{
 				(*_vecUpdateComponents)[i]->Update();
 			}
-
-			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
 
 			for (GameObj* obj : vecFighters)
 			{
@@ -51,6 +55,12 @@ namespace RB
 				if (obj->stateController->currentState != nullptr)
 				{
 					obj->stateController->currentState->RunUpdateProcess();
+				}
+
+				//testing
+				if (obj->collisionStay->IsColliding(CollidingSideType::LEFT))
+				{
+					int n = 0;
 				}
 			}
 

@@ -65,6 +65,9 @@ namespace RB
 
 					vec[0]->objData.SetPosition(p1Rounded);
 					vec[1]->objData.SetPosition(p2Rounded);
+
+					vec[0]->collisionStay->AddCollidingSide(midPoint);
+					vec[1]->collisionStay->AddCollidingSide(midPoint);
 				}
 			}
 		}
