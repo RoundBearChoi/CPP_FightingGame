@@ -10,6 +10,8 @@ namespace RB
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
 
 		stateController = new StateController();
+
+		collisionStay.ClearAllSides();
 	}
 
 	GameObj::~GameObj()

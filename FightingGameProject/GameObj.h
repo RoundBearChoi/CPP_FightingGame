@@ -4,7 +4,7 @@
 #include "StateController.h"
 #include "ScreenVector.h"
 #include "DevSettings.h"
-#include "JumpSpecs.h"
+#include "CollisionStay.h"
 
 namespace RB
 {
@@ -13,6 +13,7 @@ namespace RB
 	public:
 		ObjData objData;
 		StateController* stateController = nullptr;
+		CollisionStay collisionStay;
 
 		GameObj();
 		~GameObj();

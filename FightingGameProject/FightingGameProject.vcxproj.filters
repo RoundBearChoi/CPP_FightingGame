@@ -451,5 +451,11 @@
     <ClInclude Include="ProjectilesHitStopMessage.h">
       <Filter>Source Files\ProjectilesGroup</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionStay.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidingSideType.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
