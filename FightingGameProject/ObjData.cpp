@@ -10,6 +10,9 @@ namespace RB
 		}
 	}
 
+	olc::vi2d ObjData::GetPreviousPosition() { return previousPosition; }
+	void ObjData::SetPreviousPosition(olc::vi2d _pos) { previousPosition = _pos; }
+
 	olc::vi2d ObjData::GetPosition() { return position; }
 	void ObjData::SetPosition(olc::vi2d _pos) { position = _pos; }
 

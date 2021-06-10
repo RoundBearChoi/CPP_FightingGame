@@ -10,6 +10,7 @@ namespace RB
 	class ObjData
 	{
 	private:
+		olc::vi2d previousPosition = { 0, 0 };
 		olc::vi2d position = { 0, 0 };
 		olc::vi2d spriteSize = { 0, 0 };
 		size_t creationID = 0;
@@ -25,6 +26,9 @@ namespace RB
 		JumpCalculator* ptrJumpCalculator = nullptr;
 
 		~ObjData();
+
+		olc::vi2d GetPreviousPosition();
+		void SetPreviousPosition(olc::vi2d _pos);
 
 		olc::vi2d GetPosition();
 		void SetPosition(olc::vi2d _pos);

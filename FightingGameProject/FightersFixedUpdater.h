@@ -43,20 +43,19 @@ namespace RB
 				(*_vecUpdateComponents)[i]->Update();
 			}
 
-			for (GameObj* obj : vecFighters)
+			for (size_t i = 0; i < vecFighters.size(); i++)
 			{
-				obj->stateController->MakeStateTransition();
+				vecFighters[i]->stateController->MakeStateTransition();
 
-				if (obj->stateController->currentState != nullptr)
+				if (vecFighters[i]->stateController->currentState != nullptr)
 				{
-					obj->stateController->currentState->RunUpdateProcess();
+					vecFighters[i]->stateController->currentState->RunUpdateProcess();
 				}
+			}
 
-				//testing
-				if (obj->fighterCollisionStay->IsColliding(CollidingSideType::LEFT))
-				{
-					int n = 0;
-				}
+			for (size_t i = 0; i < vecFighters.size(); i++)
+			{
+				vecFighters[i]->objData.SetPreviousPosition(vecFighters[i]->objData.GetPosition());
 			}
 
 			_fighters->UpdateSpriteTileIndex();
