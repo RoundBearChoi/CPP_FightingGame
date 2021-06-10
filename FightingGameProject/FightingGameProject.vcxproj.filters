@@ -451,7 +451,7 @@
     <ClInclude Include="ProjectilesHitStopMessage.h">
       <Filter>Source Files\ProjectilesGroup</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionStay.h">
+    <ClInclude Include="FighterCollisionStay.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CollidingSideType.h">

@@ -4,14 +4,14 @@
 
 namespace RB
 {
-	class CollisionStay
+	class FighterCollisionStay
 	{
 	private:
 		ObjData* _objData = nullptr;
 		std::array<bool, 4> _arrIsColliding = { false, false, false, false };
 
 	public:
-		CollisionStay(ObjData* objData)
+		FighterCollisionStay(ObjData* objData)
 		{
 			_objData = objData;
 		}

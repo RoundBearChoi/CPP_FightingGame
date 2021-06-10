@@ -40,7 +40,7 @@ namespace RB
 
 			for (GameObj* obj : vecFighters)
 			{
-				obj->collisionStay->ClearAllSides();
+				obj->fighterCollisionStay->ClearAllSides();
 			}
 
 			for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
@@ -58,7 +58,7 @@ namespace RB
 				}
 
 				//testing
-				if (obj->collisionStay->IsColliding(CollidingSideType::LEFT))
+				if (obj->fighterCollisionStay->IsColliding(CollidingSideType::LEFT))
 				{
 					int n = 0;
 				}
