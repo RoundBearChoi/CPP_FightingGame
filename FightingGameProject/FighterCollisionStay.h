@@ -21,7 +21,7 @@ namespace RB
 			_arrIsColliding[(size_t)sideType] = true;
 		}
 
-		void AddCollidingSide(olc::vi2d midPoint)
+		void AddHorizontalCollidingSide(olc::vi2d midPoint)
 		{
 			if (midPoint.x < _objData->GetPosition().x)
 			{
