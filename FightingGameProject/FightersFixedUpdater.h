@@ -38,11 +38,6 @@ namespace RB
 			InputBuffer::ptr->AddInputs();
 			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
 
-			for (GameObj* obj : vecFighters)
-			{
-				obj->fighterCollisionStay->ClearAllSides();
-			}
-
 			for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
 			{
 				(*_vecUpdateComponents)[i]->Update();

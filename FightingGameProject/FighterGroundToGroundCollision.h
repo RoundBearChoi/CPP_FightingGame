@@ -23,6 +23,9 @@ namespace RB
 		{
 			std::vector<GameObj*>& vec = *_vecFighters;
 
+			vec[0]->fighterCollisionStay->ClearAllSides();
+			vec[1]->fighterCollisionStay->ClearAllSides();
+
 			//ground vs ground
 			if (vec[0]->objData.GetPosition().y == 0 && vec[1]->objData.GetPosition().y == 0)
 			{
