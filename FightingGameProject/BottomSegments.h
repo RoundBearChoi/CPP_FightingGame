@@ -50,5 +50,15 @@ namespace RB
 				_vecBottomSegment_right[1] = bottomRight - (dir * 5);
 			}
 		}
+
+		std::array<olc::vi2d, 2> GetBottomLeftSegment()
+		{
+			return _vecBottomSegment_left;
+		}
+
+		std::array<olc::vi2d, 2> GetBottomRightSegment()
+		{
+			return _vecBottomSegment_right;
+		}
 	};
 }

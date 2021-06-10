@@ -26,32 +26,21 @@ namespace RB
 
 		void DrawLines(GameObj* obj)
 		{
-			olc::vi2d bottomLeft = obj->objData.objBoxCollider.RelativePoint1() + obj->objData.GetPosition();
-			olc::vi2d bottomRight = obj->objData.objBoxCollider.RelativePoint2() + obj->objData.GetPosition();
+			std::array<olc::vi2d, 2> bottomLeft = obj->objData.bottomSegments.GetBottomLeftSegment();
+			std::array<olc::vi2d, 2> bottomRight = obj->objData.bottomSegments.GetBottomRightSegment();
 
-			olc::vi2d prevBottomLeft = obj->objData.objBoxCollider.RelativePoint1() + obj->objData.GetPreviousPosition();
-			olc::vi2d prevBottomRight = obj->objData.objBoxCollider.RelativePoint2() + obj->objData.GetPreviousPosition();
-
-			if (bottomLeft != prevBottomLeft)
+			if (bottomLeft[0] != olc::vi2d{ 0 , 0 } || bottomLeft[1] != olc::vi2d{ 0 , 0 })
 			{
-				olc::vi2d screenPos_bottomLeft = ScreenVector::GetScreenPosition(bottomLeft, *_cam);
-				olc::vi2d screenPos_prevBottomLeft = ScreenVector::GetScreenPosition(prevBottomLeft, *_cam);
-
-				olc::vi2d dir = screenPos_prevBottomLeft - screenPos_bottomLeft;
-				olc::vi2d normDir = dir.norm();
-
-				olc::Renderer::ptrPGE->DrawLine(screenPos_bottomLeft + (dir * 5), screenPos_bottomLeft - (dir * 5), olc::CYAN);
+				olc::vi2d left0 = ScreenVector::GetScreenPosition(bottomLeft[0], *_cam);
+				olc::vi2d left1 = ScreenVector::GetScreenPosition(bottomLeft[1], *_cam);
+				olc::Renderer::ptrPGE->DrawLine(left0, left1, olc::CYAN);
 			}
 
-			if (bottomRight != prevBottomRight)
+			if (bottomRight[0] != olc::vi2d{ 0 , 0 } || bottomRight[1] != olc::vi2d{ 0 , 0 })
 			{
-				olc::vi2d screenPos_bottomRight = ScreenVector::GetScreenPosition(bottomRight, *_cam);
-				olc::vi2d screenPos_prevBottomRight = ScreenVector::GetScreenPosition(prevBottomRight, *_cam);
-
-				olc::vi2d dir = screenPos_prevBottomRight - screenPos_bottomRight;
-				olc::vi2d normDir = dir.norm();
-
-				olc::Renderer::ptrPGE->DrawLine(screenPos_bottomRight + (dir * 5), screenPos_bottomRight - (dir * 5), olc::CYAN);
+				olc::vi2d right0 = ScreenVector::GetScreenPosition(bottomRight[0], *_cam);
+				olc::vi2d right1 = ScreenVector::GetScreenPosition(bottomRight[1], *_cam);
+				olc::Renderer::ptrPGE->DrawLine(right0, right1, olc::CYAN);
 			}
 		}
 	};
