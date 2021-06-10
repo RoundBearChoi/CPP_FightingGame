@@ -28,10 +28,10 @@ namespace RB
 		~ObjData();
 
 		olc::vi2d GetPreviousPosition();
-		void SetPreviousPosition(olc::vi2d _pos);
+		void SetPreviousPosition(olc::vi2d pos);
 
 		olc::vi2d GetPosition();
-		void SetPosition(olc::vi2d _pos);
+		void SetPosition(olc::vi2d pos);
 
 		olc::vi2d GetSpriteSize();
 		void SetSpriteSize(olc::vi2d _size);

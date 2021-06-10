@@ -38,6 +38,11 @@ namespace RB
 			InputBuffer::ptr->AddInputs();
 			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
 
+			for (size_t i = 0; i < vecFighters.size(); i++)
+			{
+				vecFighters[i]->objData.SetPreviousPosition(vecFighters[i]->objData.GetPosition());
+			}
+
 			for (size_t i = 0; i < (*_vecUpdateComponents).size(); i++)
 			{
 				(*_vecUpdateComponents)[i]->Update();
@@ -51,11 +56,6 @@ namespace RB
 				{
 					vecFighters[i]->stateController->currentState->RunUpdateProcess();
 				}
-			}
-
-			for (size_t i = 0; i < vecFighters.size(); i++)
-			{
-				vecFighters[i]->objData.SetPreviousPosition(vecFighters[i]->objData.GetPosition());
 			}
 
 			_fighters->UpdateSpriteTileIndex();

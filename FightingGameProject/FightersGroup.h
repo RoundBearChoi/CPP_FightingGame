@@ -5,13 +5,16 @@
 #include "FightersFixedUpdater.h"
 #include "FightersHitStopMessage.h"
 
-//components
+//update components
 #include "FighterDirection.h"
 #include "FighterJump.h"
 #include "FighterGroundToGroundCollision.h"
 #include "SpecialMoveProcessor.h"
 #include "InputBufferRenderer.h"
+
+//render components
 #include "AnimationRenderer.h"
+#include "PreviousPositionRenderer.h"
 
 //loading (temp)
 #include "Preload_Fighter_0.h"

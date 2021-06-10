@@ -13,6 +13,7 @@ namespace RB
 		_vecUpdateComponents.push_back(new SpecialMoveProcessor(&_vecObjs));
 
 		_vecRenderComponents.push_back(new AnimationRenderer(&_vecObjs, _camera));
+		_vecRenderComponents.push_back(new PreviousPositionRenderer(&_vecObjs, _camera));
 
 		_inputBufferRenderer = new InputBufferRenderer();
 
