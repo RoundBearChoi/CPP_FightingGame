@@ -4,6 +4,7 @@
 #include "PlayerType.h"
 #include "BoxCollider.h"
 #include "JumpCalculator.h"
+#include "BottomSegments.h"
 
 namespace RB
 {
@@ -24,6 +25,7 @@ namespace RB
 	public:
 		BoxCollider objBoxCollider;
 		JumpCalculator* ptrJumpCalculator = nullptr;
+		BottomSegments bottomSegments{ &position, &previousPosition, &objBoxCollider };
 
 		~ObjData();
 

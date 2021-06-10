@@ -460,5 +460,8 @@
     <ClInclude Include="PreviousPositionRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BottomSegments.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
