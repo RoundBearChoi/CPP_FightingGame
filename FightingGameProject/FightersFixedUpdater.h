@@ -57,7 +57,7 @@ namespace RB
 					vecFighters[i]->stateController->currentState->RunUpdateProcess();
 				}
 
-				vecFighters[i]->objData.bottomSegments.SetSegments();
+				vecFighters[i]->objData.moveSegments.SetSegments();
 			}
 
 			_fighters->UpdateSpriteTileIndex();

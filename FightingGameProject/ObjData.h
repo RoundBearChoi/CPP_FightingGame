@@ -25,7 +25,7 @@ namespace RB
 	public:
 		BoxCollider objBoxCollider;
 		JumpCalculator* ptrJumpCalculator = nullptr;
-		BottomSegments bottomSegments{ &position, &previousPosition, &objBoxCollider };
+		MoveSegments moveSegments{ &position, &previousPosition, &objBoxCollider };
 
 		~ObjData();
 

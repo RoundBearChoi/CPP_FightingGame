@@ -26,11 +26,11 @@ namespace RB
 
 		void DrawLines(GameObj* obj)
 		{
-			std::array<olc::vi2d, 2> bottomLeft = obj->objData.bottomSegments.GetBottomLeftSegment();
-			std::array<olc::vi2d, 2> bottomRight = obj->objData.bottomSegments.GetBottomRightSegment();
+			std::array<olc::vi2d, 2> bottomLeft = obj->objData.moveSegments.GetBottomLeftSegment();
+			std::array<olc::vi2d, 2> bottomRight = obj->objData.moveSegments.GetBottomRightSegment();
 
-			std::array<olc::vi2d, 2> topLeft = obj->objData.bottomSegments.GetTopLeftSegment();
-			std::array<olc::vi2d, 2> topRight = obj->objData.bottomSegments.GetTopRightSegment();
+			std::array<olc::vi2d, 2> topLeft = obj->objData.moveSegments.GetTopLeftSegment();
+			std::array<olc::vi2d, 2> topRight = obj->objData.moveSegments.GetTopRightSegment();
 
 			if (bottomLeft[0] != olc::vi2d{ 0 , 0 } || bottomLeft[1] != olc::vi2d{ 0 , 0 })
 			{

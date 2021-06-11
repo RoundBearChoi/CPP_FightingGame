@@ -5,8 +5,7 @@
 
 namespace RB
 {
-
-	class BottomSegments
+	class MoveSegments
 	{
 	private:
 		std::array<olc::vi2d, 2> _vecBottomSegment_left = { olc::vi2d{0, 0}, olc::vi2d{0, 0} };
@@ -20,7 +19,7 @@ namespace RB
 		olc::vi2d* _previousPosition = nullptr;
 
 	public:
-		BottomSegments(olc::vi2d* currentPos, olc::vi2d* prevPos, BoxCollider* objBoxCollider)
+		MoveSegments(olc::vi2d* currentPos, olc::vi2d* prevPos, BoxCollider* objBoxCollider)
 		{
 			_currentPosition = currentPos;
 			_previousPosition = prevPos;
