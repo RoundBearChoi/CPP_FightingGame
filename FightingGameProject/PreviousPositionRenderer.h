@@ -29,6 +29,9 @@ namespace RB
 			std::array<olc::vi2d, 2> bottomLeft = obj->objData.bottomSegments.GetBottomLeftSegment();
 			std::array<olc::vi2d, 2> bottomRight = obj->objData.bottomSegments.GetBottomRightSegment();
 
+			std::array<olc::vi2d, 2> topLeft = obj->objData.bottomSegments.GetTopLeftSegment();
+			std::array<olc::vi2d, 2> topRight = obj->objData.bottomSegments.GetTopRightSegment();
+
 			if (bottomLeft[0] != olc::vi2d{ 0 , 0 } || bottomLeft[1] != olc::vi2d{ 0 , 0 })
 			{
 				olc::vi2d left0 = ScreenVector::GetScreenPosition(bottomLeft[0], *_cam);
@@ -40,6 +43,20 @@ namespace RB
 			{
 				olc::vi2d right0 = ScreenVector::GetScreenPosition(bottomRight[0], *_cam);
 				olc::vi2d right1 = ScreenVector::GetScreenPosition(bottomRight[1], *_cam);
+				olc::Renderer::ptrPGE->DrawLine(right0, right1, olc::CYAN);
+			}
+
+			if (topLeft[0] != olc::vi2d{ 0 , 0 } || topLeft[1] != olc::vi2d{ 0 , 0 })
+			{
+				olc::vi2d left0 = ScreenVector::GetScreenPosition(topLeft[0], *_cam);
+				olc::vi2d left1 = ScreenVector::GetScreenPosition(topLeft[1], *_cam);
+				olc::Renderer::ptrPGE->DrawLine(left0, left1, olc::CYAN);
+			}
+
+			if (topRight[0] != olc::vi2d{ 0 , 0 } || topRight[1] != olc::vi2d{ 0 , 0 })
+			{
+				olc::vi2d right0 = ScreenVector::GetScreenPosition(topRight[0], *_cam);
+				olc::vi2d right1 = ScreenVector::GetScreenPosition(topRight[1], *_cam);
 				olc::Renderer::ptrPGE->DrawLine(right0, right1, olc::CYAN);
 			}
 		}
