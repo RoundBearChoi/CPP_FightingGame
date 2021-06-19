@@ -29,11 +29,11 @@ namespace RB
 			}
 			else
 			{
-				DoUpdate();
+				RunUpdate();
 			}
 		}
 
-		void DoUpdate()
+		void RunUpdate()
 		{
 			InputBuffer::ptr->AddInputs();
 			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
