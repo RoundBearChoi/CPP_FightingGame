@@ -3,7 +3,7 @@
 #include "StateController.h"
 #include "ScreenVector.h"
 #include "DevSettings.h"
-#include "FighterCollisionStay.h"
+#include "CollisionStay.h"
 
 namespace RB
 {
@@ -11,7 +11,7 @@ namespace RB
 	{
 	public:
 		StateController* stateController = nullptr;
-		FighterCollisionStay* fighterCollisionStay = nullptr;
+		CollisionStay* collisionStay = nullptr;
 
 		GameObj();
 		~GameObj();

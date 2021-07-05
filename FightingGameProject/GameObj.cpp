@@ -11,7 +11,7 @@ namespace RB
 
 		stateController = new StateController();
 
-		fighterCollisionStay = new FighterCollisionStay(&objData);
+		collisionStay = new CollisionStay(&objData);
 	}
 
 	GameObj::~GameObj()
@@ -19,7 +19,7 @@ namespace RB
 		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; };
 
 		delete stateController;
-		delete fighterCollisionStay;
+		delete collisionStay;
 	}
 
 	void GameObj::SetState(State* newState)

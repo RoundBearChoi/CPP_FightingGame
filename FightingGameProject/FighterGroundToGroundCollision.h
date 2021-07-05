@@ -23,8 +23,8 @@ namespace RB
 		{
 			std::vector<GameObj*>& vec = *_vecFighters;
 
-			vec[0]->fighterCollisionStay->ClearAllSides();
-			vec[1]->fighterCollisionStay->ClearAllSides();
+			vec[0]->collisionStay->ClearAllSides();
+			vec[1]->collisionStay->ClearAllSides();
 
 			//ground vs ground
 			if (vec[0]->objData.GetPosition().y == 0 && vec[1]->objData.GetPosition().y == 0)
@@ -69,8 +69,8 @@ namespace RB
 					vec[0]->objData.SetPosition(p1Rounded);
 					vec[1]->objData.SetPosition(p2Rounded);
 
-					vec[0]->fighterCollisionStay->AddHorizontalCollidingSide(midPoint);
-					vec[1]->fighterCollisionStay->AddHorizontalCollidingSide(midPoint);
+					vec[0]->collisionStay->AddHorizontalCollidingSide(midPoint);
+					vec[1]->collisionStay->AddHorizontalCollidingSide(midPoint);
 				}
 			}
 		}
