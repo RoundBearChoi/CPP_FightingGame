@@ -22,6 +22,16 @@ namespace RB
 		delete collisionStay;
 	}
 
+	State* GameObj::GetCurrentState()
+	{
+		return _stateController->currentState;
+	}
+
+	void GameObj::SetCurrentState(State* state)
+	{
+		_stateController->currentState = state;
+	}
+
 	bool GameObj::SetNextState(State* ptrState)
 	{
 		if (ptrState != nullptr)
@@ -106,16 +116,6 @@ namespace RB
 				olc::Renderer::ptrPGE->DrawLine(playerPos, ScreenVector::GetScreenPosition(quads[3], cam), olc::YELLOW);
 			}
 		}
-	}
-
-	State* GameObj::GetCurrentState()
-	{
-		return _stateController->currentState;
-	}
-
-	void GameObj::SetCurrentState(State* state)
-	{
-		_stateController->currentState = state;
 	}
 
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)

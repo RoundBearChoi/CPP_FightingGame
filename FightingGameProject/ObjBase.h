@@ -16,6 +16,11 @@ namespace RB
 		ObjData objData;
 		CollisionStay* collisionStay = nullptr;
 
+		virtual State* GetCurrentState() = 0;
+		virtual void SetCurrentState(State* state) = 0;
+		virtual bool SetNextState(State* ptrState) = 0;
+		virtual StateController* GetStateController() = 0;
+
 		virtual void RenderPosition(Camera& cam) = 0;
 		virtual void RenderSpriteSize(Camera& cam) = 0;
 		virtual void RenderCollisionTiming(BodyType _bodyType, Camera& cam) = 0;
@@ -25,11 +30,5 @@ namespace RB
 
 		virtual olc::vi2d GetBoxColliderWorldPos() = 0;
 		virtual std::array<olc::vi2d, 4> GetBoxColliderWorldQuad() = 0;
-
-		virtual State* GetCurrentState() = 0;
-		virtual bool SetNextState(State* ptrState) = 0;
-		virtual void SetCurrentState(State* state) = 0;
-
-		virtual StateController* GetStateController() = 0;
 	};
 }
