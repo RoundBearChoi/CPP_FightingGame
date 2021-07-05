@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
 #include "ObjBase.h"
+#include "BodyToBodyCollisions.h"
 #include "DevSettings.h"
 #include "AnimationController.h"
 #include "Directions.h"
-#include "CheckCollisionMessage.h"
 #include "CreateProjectileMessage.h"
 
 namespace RB
@@ -20,10 +20,9 @@ namespace RB
 	public:
 		State* nextState = nullptr;
 		size_t stateUpdateCount = 0;
-		int32_t bodyCollisionCount = 0;
-		int32_t maxBodyCollisions = 0;
+
+		BodyToBodyCollisions bodyToBodyCollisions;
 		AnimationController animationController;
-		std::vector<CheckCollisionMessage> vecCheckCollisions;
 		std::vector<CreateProjectileMessage> vecCreateProjectiles;
 
 		virtual ~State();
@@ -40,9 +39,9 @@ namespace RB
 		void UpdateColliderParts();
 		void RenderColliderQuads(Camera& cam);
 		void UnloadColliderData();
-		CheckCollisionMessage* GetCollisionStatus();
 		olc::vi2d GetColliderWorldPos(BodyType _bodyType);
 		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType);
+		CheckCollisionMessage* GetCheckCollisionMessage();
 
 		void SetObjData(ObjBase* ownerObj)
 		{

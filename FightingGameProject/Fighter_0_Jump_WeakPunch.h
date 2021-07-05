@@ -26,9 +26,9 @@ namespace RB
 			c0.vecBodies.push_back(BodyType::LEFT_LOWERLEG);
 			c0.animationTile = 0;
 
-			vecCheckCollisions.push_back(c0);
+			bodyToBodyCollisions.vecCheckCollisions.push_back(c0);
 
-			maxBodyCollisions = 1;
+			bodyToBodyCollisions.maxCollisions = 1;
 		}
 
 		void OnEnter() override

@@ -30,10 +30,10 @@ namespace RB
 			c1.vecBodies.push_back(BodyType::LEFT_HAND);
 			c1.animationTile = 3;
 
-			vecCheckCollisions.push_back(c0);
-			vecCheckCollisions.push_back(c1);
+			bodyToBodyCollisions.vecCheckCollisions.push_back(c0);
+			bodyToBodyCollisions.vecCheckCollisions.push_back(c1);
 
-			maxBodyCollisions = 1;
+			bodyToBodyCollisions.maxCollisions = 1;
 		}
 
 		void OnEnter() override

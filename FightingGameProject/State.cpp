@@ -163,24 +163,6 @@ namespace RB
 		col.clear();
 	}
 
-	CheckCollisionMessage* State::GetCollisionStatus()
-	{
-		//collision check
-		for (size_t i = 0; i < vecCheckCollisions.size(); i++)
-		{
-			if (vecCheckCollisions[i].animationTile == animationController.status.nCurrentTile)
-			{
-				return &vecCheckCollisions[i];
-			}
-			else
-			{
-				int n = 0;
-			}
-		}
-
-		return nullptr;
-	}
-
 	olc::vi2d State::GetColliderWorldPos(BodyType _bodyType)
 	{
 		std::vector<BoxCollider>& vec = GetColliders();
@@ -234,5 +216,10 @@ namespace RB
 		arr[3] += _ownerObj->objData.GetPosition();
 
 		return arr;
+	}
+
+	CheckCollisionMessage* State::GetCheckCollisionMessage()
+	{
+		return bodyToBodyCollisions.GetCheckCollisionMessage(animationController);
 	}
 }

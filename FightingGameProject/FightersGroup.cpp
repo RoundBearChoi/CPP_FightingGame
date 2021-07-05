@@ -87,7 +87,7 @@ namespace RB
 
 			if (obj.stateController->currentState != nullptr)
 			{
-				CheckCollisionMessage* check = obj.stateController->currentState->GetCollisionStatus();
+				CheckCollisionMessage* check = obj.stateController->currentState->GetCheckCollisionMessage();
 
 				if (check)
 				{

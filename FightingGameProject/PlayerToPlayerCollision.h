@@ -20,7 +20,7 @@ namespace RB
 
 		MeleeCollisionResult Fighter0HitsFighter1()
 		{
-			CheckCollisionMessage* fighter0_Message = _fighter0->stateController->currentState->GetCollisionStatus();
+			CheckCollisionMessage* fighter0_Message = _fighter0->stateController->currentState->GetCheckCollisionMessage();
 
 			if (fighter0_Message != nullptr)
 			{
@@ -38,7 +38,7 @@ namespace RB
 
 		MeleeCollisionResult Fighter1HitsFighter0()
 		{
-			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCollisionStatus();
+			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCheckCollisionMessage();
 
 			if (fighter1_Message != nullptr)
 			{
@@ -56,7 +56,7 @@ namespace RB
 
 		MeleeCollisionResult GetCollisionResult(CheckCollisionMessage* attackerMessage, GameObj* attacker, GameObj* target)
 		{
-			if (attacker->stateController->currentState->bodyCollisionCount < attacker->stateController->currentState->maxBodyCollisions)
+			if (attacker->stateController->currentState->bodyToBodyCollisions.currentCollisionCount < attacker->stateController->currentState->bodyToBodyCollisions.maxCollisions)
 			{
 				for (BodyType& b : attackerMessage->vecBodies)
 				{
@@ -84,7 +84,7 @@ namespace RB
 							result.midPoint = attackPos + rounded;
 							result.damageData = attackerMessage->damageData;
 
-							attacker->stateController->currentState->bodyCollisionCount++;
+							attacker->stateController->currentState->bodyToBodyCollisions.currentCollisionCount++;
 
 							return result;
 						}

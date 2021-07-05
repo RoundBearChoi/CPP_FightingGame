@@ -34,10 +34,10 @@ namespace RB
 			c1.damageData.upPush = 14;
 			c1.damageData.sidePush = 2;
 
-			vecCheckCollisions.push_back(c0);
-			vecCheckCollisions.push_back(c1);
+			bodyToBodyCollisions.vecCheckCollisions.push_back(c0);
+			bodyToBodyCollisions.vecCheckCollisions.push_back(c1);
 
-			maxBodyCollisions = 1;
+			bodyToBodyCollisions.maxCollisions = 1;
 		}
 
 		void OnEnter() override
