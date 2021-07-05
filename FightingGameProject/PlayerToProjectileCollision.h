@@ -9,11 +9,11 @@ namespace RB
 	class PlayerToProjectileCollision
 	{
 	private:
-		std::vector<GameObj*>* _vecFighters = nullptr;
-		std::vector<GameObj*>* _vecProjectiles = nullptr;
+		std::vector<ObjBase*>* _vecFighters = nullptr;
+		std::vector<ObjBase*>* _vecProjectiles = nullptr;
 
 	public:
-		PlayerToProjectileCollision(std::vector<GameObj*>* fighters, std::vector<GameObj*>* projectiles)
+		PlayerToProjectileCollision(std::vector<ObjBase*>* fighters, std::vector<ObjBase*>* projectiles)
 		{
 			_vecFighters = fighters;
 			_vecProjectiles = projectiles;
@@ -21,8 +21,8 @@ namespace RB
 
 		PlayerToProjectileCollisionResult FighterCollidesWithProjectile(size_t fighterIndex)
 		{
-			std::vector<GameObj*>& projectiles = *_vecProjectiles;
-			std::vector<GameObj*>& fighters = *_vecFighters;
+			std::vector<ObjBase*>& projectiles = *_vecProjectiles;
+			std::vector<ObjBase*>& fighters = *_vecFighters;
 
 			for (size_t projectileIndex = 0; projectileIndex < projectiles.size(); projectileIndex++)
 			{

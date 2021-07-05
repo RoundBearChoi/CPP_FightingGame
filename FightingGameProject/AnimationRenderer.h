@@ -12,12 +12,12 @@ namespace RB
 	{
 	private:
 		DummySelector* _dummySelector = nullptr;
-		std::vector<GameObj*>* _vecTargets = nullptr;
+		std::vector<ObjBase*>* _vecTargets = nullptr;
 		Camera* _camera = nullptr;
 
 	public:
 		//for gamescene
-		AnimationRenderer(std::vector<GameObj*>* vecTargets, Camera* camera)
+		AnimationRenderer(std::vector<ObjBase*>* vecTargets, Camera* camera)
 		{
 			_vecTargets = vecTargets;
 			_camera = camera;
@@ -38,7 +38,7 @@ namespace RB
 			}
 			else
 			{
-				std::vector<GameObj*>& vec = *_vecTargets;
+				std::vector<ObjBase*>& vec = *_vecTargets;
 
 				for (size_t i = 0; i < vec.size(); i++)
 				{

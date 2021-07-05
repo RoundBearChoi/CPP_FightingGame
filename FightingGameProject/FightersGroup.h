@@ -43,9 +43,7 @@ namespace RB
 
 		void RenderObjPosition() override;
 		void RenderBoxColliders() override;
-				
-		ObjData* GetObjData(int32_t index) override;
 
-		void SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType);
+		void CreateFighterObj(olc::vi2d _startingPos, PlayerType _playerType);
 	};
 }

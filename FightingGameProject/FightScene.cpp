@@ -31,11 +31,11 @@ namespace RB
 
 	void FightScene::InitScene()
 	{
-		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
-		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
+		_fighters->CreateFighterObj(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
+		_fighters->CreateFighterObj(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		_fighters->GetObj(0)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(0)));
-		_fighters->GetObj(1)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(1)));
+		_fighters->GetObj(0)->SetCurrentState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(0)));
+		_fighters->GetObj(1)->SetCurrentState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(1)));
 
 		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
 		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);
@@ -56,8 +56,8 @@ namespace RB
 		_meleeReaction->Update(1, F0HitsF1);
 		_meleeReaction->Update(0, F1HitsF0);
 
-		std::vector<CreateProjectileMessage>* p1 = &_fighters->GetObj(0)->stateController->currentState->vecCreateProjectiles;
-		std::vector<CreateProjectileMessage>* p2 = &_fighters->GetObj(1)->stateController->currentState->vecCreateProjectiles;
+		std::vector<CreateProjectileMessage>* p1 = &_fighters->GetObj(0)->GetCurrentState()->vecCreateProjectiles;
+		std::vector<CreateProjectileMessage>* p2 = &_fighters->GetObj(1)->GetCurrentState()->vecCreateProjectiles;
 		_projectiles->CreateProjectiles(*p1);
 		_projectiles->CreateProjectiles(*p2);
 		p1->clear();

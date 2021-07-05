@@ -71,7 +71,7 @@ namespace RB
 		{
 			if (_vecObjs[i] != nullptr)
 			{
-				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+				_vecObjs[i]->GetCurrentState()->animationController.NextTileIndex();
 			}
 		}
 	}
@@ -80,14 +80,14 @@ namespace RB
 	{
 		for (size_t i = 0; i < _vecObjs.size(); i++)
 		{
-			GameObj& obj = *_vecObjs[i];
+			ObjBase& obj = *_vecObjs[i];
 
 			obj.RenderPosition(*_camera);
 			obj.objData.objBoxCollider.Render(*_camera, obj.objData.GetPosition(), olc::GREEN);
 
-			if (obj.stateController->currentState != nullptr)
+			if (obj.GetCurrentState() != nullptr)
 			{
-				CheckCollisionMessage* check = obj.stateController->currentState->GetCheckCollisionMessage();
+				CheckCollisionMessage* check = obj.GetCurrentState()->GetCheckCollisionMessage();
 
 				if (check)
 				{
@@ -106,28 +106,16 @@ namespace RB
 	{
 		for (int32_t i = 0; i < _vecObjs.size(); i++)
 		{
-			_vecObjs[i]->stateController->currentState->RenderColliderQuads(*_camera);
+			_vecObjs[i]->GetCurrentState()->RenderColliderQuads(*_camera);
 		}
 	}
 	
-	void FightersGroup::SetFighterInfo(olc::vi2d _startingPos, PlayerType _playerType)
+	void FightersGroup::CreateFighterObj(olc::vi2d _startingPos, PlayerType _playerType)
 	{
 		_vecObjs.push_back(new GameObj());
 		_vecObjs.back()->objData.SetCreationID(_vecObjs.size());
 		_vecObjs.back()->objData.SetOffsetType(OffsetType::BOTTOM_CENTER);
 		_vecObjs.back()->objData.SetPosition(_startingPos);
 		_vecObjs.back()->objData.SetPlayerType(_playerType);
-	}
-
-	ObjData* FightersGroup::GetObjData(int32_t index)
-	{
-		if (index >= _vecObjs.size())
-		{
-			return nullptr;
-		}
-		else
-		{
-			return &_vecObjs[index]->objData;
-		}
 	}
 }

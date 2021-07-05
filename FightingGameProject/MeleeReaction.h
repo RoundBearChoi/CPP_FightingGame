@@ -12,11 +12,11 @@ namespace RB
 	class MeleeReaction
 	{
 	private:
-		std::vector<GameObj*> _vecFighters;
+		std::vector<ObjBase*> _vecFighters;
 		ImpactEffectsGroup* _impactEffects = nullptr;
 
 	public:
-		MeleeReaction(GameObj* fighter0, GameObj* fighter1, ImpactEffectsGroup* impactEffectsGroup)
+		MeleeReaction(ObjBase* fighter0, ObjBase* fighter1, ImpactEffectsGroup* impactEffectsGroup)
 		{
 			_vecFighters.push_back(fighter0);
 			_vecFighters.push_back(fighter1);

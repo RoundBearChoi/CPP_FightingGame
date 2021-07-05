@@ -10,18 +10,18 @@ namespace RB
 	class FighterGroundToGroundCollision : public IGroupComponent
 	{
 	private:
-		std::vector<GameObj*>* _vecFighters = nullptr;
+		std::vector<ObjBase*>* _vecFighters = nullptr;
 		RandomInteger randomInteger;
 
 	public:
-		FighterGroundToGroundCollision(std::vector<GameObj*>* vecFighters)
+		FighterGroundToGroundCollision(std::vector<ObjBase*>* vecFighters)
 		{
 			_vecFighters = vecFighters;
 		}
 
 		void Update() override
 		{
-			std::vector<GameObj*>& vec = *_vecFighters;
+			std::vector<ObjBase*>& vec = *_vecFighters;
 
 			vec[0]->collisionStay->ClearAllSides();
 			vec[1]->collisionStay->ClearAllSides();

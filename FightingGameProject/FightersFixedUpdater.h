@@ -36,7 +36,7 @@ namespace RB
 		void RunUpdate()
 		{
 			InputBuffer::ptr->AddInputs();
-			std::vector<GameObj*>& vecFighters = *_fighters->GetVecObjs();
+			std::vector<ObjBase*>& vecFighters = *_fighters->GetVecObjs();
 
 			for (size_t i = 0; i < vecFighters.size(); i++)
 			{
@@ -50,11 +50,13 @@ namespace RB
 
 			for (size_t i = 0; i < vecFighters.size(); i++)
 			{
-				vecFighters[i]->stateController->MakeStateTransition();
+				vecFighters[i]->GetStateController()->MakeStateTransition();
 
-				if (vecFighters[i]->stateController->currentState != nullptr)
+				State* state = vecFighters[i]->GetCurrentState();
+
+				if (state != nullptr)
 				{
-					vecFighters[i]->stateController->currentState->RunUpdateProcess();
+					state->RunUpdateProcess();
 				}
 
 				vecFighters[i]->objData.moveSegments.SetSegments();

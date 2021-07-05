@@ -7,17 +7,17 @@ namespace RB
 	class FighterDirection : public IGroupComponent
 	{
 	private:
-		std::vector<GameObj*>* _vecFighters = nullptr;
+		std::vector<ObjBase*>* _vecFighters = nullptr;
 
 	public:
-		FighterDirection(std::vector<GameObj*>* vecFighters)
+		FighterDirection(std::vector<ObjBase*>* vecFighters)
 		{
 			_vecFighters = vecFighters;
 		}
 
 		void Update() override
 		{
-			std::vector<GameObj*>& vec = *_vecFighters;
+			std::vector<ObjBase*>& vec = *_vecFighters;
 			UpdateFigherDirection(vec[0]->objData, vec[1]->objData);
 			UpdateFigherDirection(vec[1]->objData, vec[0]->objData);
 		}

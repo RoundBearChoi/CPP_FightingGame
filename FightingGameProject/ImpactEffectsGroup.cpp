@@ -35,8 +35,8 @@ namespace RB
 		{
 			if (_vecObjs[i] != nullptr)
 			{
-				GameObj& obj = *_vecObjs[i];
-				State* state = _vecObjs[i]->stateController->currentState;
+				ObjBase& obj = *_vecObjs[i];
+				State* state = _vecObjs[i]->GetCurrentState();
 
 				if (state != nullptr)
 				{
@@ -88,7 +88,7 @@ namespace RB
 
 		if (objType == ObjType::HIT_EFFECT_0)
 		{
-			obj->stateController->currentState = State::NewState<ImpactEffect_Hit_0>(obj);
+			obj->SetCurrentState(State::NewState<ImpactEffect_Hit_0>(obj));
 		}
 
 		obj->objData.SetPosition(startPos);

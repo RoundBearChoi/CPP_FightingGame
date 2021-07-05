@@ -8,11 +8,11 @@ namespace RB
 	class PlayerToPlayerCollision
 	{
 	private:
-		GameObj* _fighter0 = nullptr;
-		GameObj* _fighter1 = nullptr;
+		ObjBase* _fighter0 = nullptr;
+		ObjBase* _fighter1 = nullptr;
 
 	public:
-		PlayerToPlayerCollision(GameObj* fighter0, GameObj* fighter1)
+		PlayerToPlayerCollision(ObjBase* fighter0, ObjBase* fighter1)
 		{
 			_fighter0 = fighter0;
 			_fighter1 = fighter1;
@@ -20,7 +20,7 @@ namespace RB
 
 		MeleeCollisionResult Fighter0HitsFighter1()
 		{
-			CheckCollisionMessage* fighter0_Message = _fighter0->stateController->currentState->GetCheckCollisionMessage();
+			CheckCollisionMessage* fighter0_Message = _fighter0->GetCurrentState()->GetCheckCollisionMessage();
 
 			if (fighter0_Message != nullptr)
 			{
@@ -38,7 +38,7 @@ namespace RB
 
 		MeleeCollisionResult Fighter1HitsFighter0()
 		{
-			CheckCollisionMessage* fighter1_Message = _fighter1->stateController->currentState->GetCheckCollisionMessage();
+			CheckCollisionMessage* fighter1_Message = _fighter1->GetCurrentState()->GetCheckCollisionMessage();
 
 			if (fighter1_Message != nullptr)
 			{
@@ -54,9 +54,9 @@ namespace RB
 			return noCollision;
 		}
 
-		MeleeCollisionResult GetCollisionResult(CheckCollisionMessage* attackerMessage, GameObj* attacker, GameObj* target)
+		MeleeCollisionResult GetCollisionResult(CheckCollisionMessage* attackerMessage, ObjBase* attacker, ObjBase* target)
 		{
-			if (attacker->stateController->currentState->bodyToBodyCollisions.currentCollisionCount < attacker->stateController->currentState->bodyToBodyCollisions.maxCollisions)
+			if (attacker->GetCurrentState()->bodyToBodyCollisions.currentCollisionCount < attacker->GetCurrentState()->bodyToBodyCollisions.maxCollisions)
 			{
 				for (BodyType& b : attackerMessage->vecBodies)
 				{
@@ -84,7 +84,7 @@ namespace RB
 							result.midPoint = attackPos + rounded;
 							result.damageData = attackerMessage->damageData;
 
-							attacker->stateController->currentState->bodyToBodyCollisions.currentCollisionCount++;
+							attacker->GetCurrentState()->bodyToBodyCollisions.currentCollisionCount++;
 
 							return result;
 						}

@@ -8,12 +8,12 @@ namespace RB
 		{
 			if (_vecObjs[i] != nullptr)
 			{
-				_vecObjs[i]->stateController->currentState->animationController.NextTileIndex();
+				_vecObjs[i]->GetCurrentState()->animationController.NextTileIndex();
 			}
 		}
 	}
 
-	GameObj* ObjGroup::GetObj(int32_t index)
+	ObjBase* ObjGroup::GetObj(int32_t index)
 	{
 		if (index >= _vecObjs.size())
 		{
@@ -25,18 +25,6 @@ namespace RB
 		}
 	}
 
-	ObjData* ObjGroup::GetObjData(int32_t index)
-	{
-		if (index >= _vecObjs.size())
-		{
-			return nullptr;
-		}
-		else
-		{
-			return &_vecObjs[index]->objData;
-		}
-	}
-
 	void ObjGroup::DeleteObj(size_t index)
 	{
 		delete _vecObjs[index];
@@ -44,7 +32,7 @@ namespace RB
 		_vecObjs.erase(_vecObjs.begin() + index);
 	}
 
-	std::vector<GameObj*>* ObjGroup::GetVecObjs()
+	std::vector<ObjBase*>* ObjGroup::GetVecObjs()
 	{
 		return &_vecObjs;
 	}

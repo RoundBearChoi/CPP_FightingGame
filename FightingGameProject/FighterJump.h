@@ -6,17 +6,17 @@ namespace RB
 	class FighterJump : public IGroupComponent
 	{
 	private:
-		std::vector<GameObj*>* _vecFighters = nullptr;
+		std::vector<ObjBase*>* _vecFighters = nullptr;
 
 	public:
-		FighterJump(std::vector<GameObj*>* vecFighters)
+		FighterJump(std::vector<ObjBase*>* vecFighters)
 		{
 			_vecFighters = vecFighters;
 		}
 
 		void Update() override
 		{
-			std::vector<GameObj*>& vec = *_vecFighters;
+			std::vector<ObjBase*>& vec = *_vecFighters;
 
 			for (size_t i = 0; i < vec.size(); i++)
 			{
@@ -24,7 +24,7 @@ namespace RB
 			}
 		}
 
-		void ProcessJump(GameObj& obj)
+		void ProcessJump(ObjBase& obj)
 		{
 			//process jump
 			if (obj.objData.ptrJumpCalculator != nullptr)

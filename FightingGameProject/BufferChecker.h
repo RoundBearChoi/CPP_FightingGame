@@ -7,7 +7,7 @@ namespace RB
 	class BufferChecker
 	{
 	public:
-		static bool Correct(SpecialMove& move, std::vector<InputElement>& vecInputs, GameObj& obj)
+		static bool Correct(SpecialMove& move, std::vector<InputElement>& vecInputs, ObjBase& obj)
 		{
 			for (size_t i = 0; i < vecInputs.size(); i++)
 			{

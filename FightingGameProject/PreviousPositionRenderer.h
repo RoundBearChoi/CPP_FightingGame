@@ -8,11 +8,11 @@ namespace RB
 	class PreviousPositionRenderer : public IGroupComponent
 	{
 	private:
-		std::vector<GameObj*>* _vec = nullptr;
+		std::vector<ObjBase*>* _vec = nullptr;
 		Camera* _cam = nullptr;
 
 	public:
-		PreviousPositionRenderer(std::vector<GameObj*>* targetVec, Camera* cam)
+		PreviousPositionRenderer(std::vector<ObjBase*>* targetVec, Camera* cam)
 		{
 			_vec = targetVec;
 			_cam = cam;
@@ -24,7 +24,7 @@ namespace RB
 			DrawLines((*_vec)[1]);
 		}
 
-		void DrawLines(GameObj* obj)
+		void DrawLines(ObjBase* obj)
 		{
 			std::array<olc::vi2d, 2> bottomLeft = obj->objData.moveSegments.GetBottomLeftSegment();
 			std::array<olc::vi2d, 2> bottomRight = obj->objData.moveSegments.GetBottomRightSegment();

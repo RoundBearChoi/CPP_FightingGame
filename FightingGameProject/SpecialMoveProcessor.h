@@ -12,17 +12,17 @@ namespace RB
 	class SpecialMoveProcessor : public IGroupComponent
 	{
 	private:
-		std::vector<GameObj*>* _vecFighters = nullptr;
+		std::vector<ObjBase*>* _vecFighters = nullptr;
 
 	public:
-		SpecialMoveProcessor(std::vector<GameObj*>* vecFighters)
+		SpecialMoveProcessor(std::vector<ObjBase*>* vecFighters)
 		{
 			_vecFighters = vecFighters;
 		}
 
 		void Update() override
 		{
-			std::vector<GameObj*>& vec = *_vecFighters;
+			std::vector<ObjBase*>& vec = *_vecFighters;
 
 			for (size_t i = 0; i < vec.size(); i++)
 			{
@@ -30,7 +30,7 @@ namespace RB
 			}
 		}
 
-		void TriggerSpecialMove(GameObj& obj)
+		void TriggerSpecialMove(ObjBase& obj)
 		{
 			Hadouken hadouken;
 			std::vector<InputElement>* vecInputs = nullptr;
@@ -48,7 +48,7 @@ namespace RB
 			{
 				if (BufferChecker::Correct(hadouken, *vecInputs, obj))
 				{
-					obj.stateController->currentState->nextState = State::NewState<Fighter_0_Hadouken_Fire>(&obj);
+					obj.GetCurrentState()->nextState = State::NewState<Fighter_0_Hadouken_Fire>(&obj);
 				}
 			}
 		}

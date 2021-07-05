@@ -9,7 +9,7 @@ namespace RB
 	{
 		IF_COUT{ std::cout << "constructing GameObj: " << objData.GetCreationID() << std::endl; };
 
-		stateController = new StateController();
+		_stateController = new StateController();
 
 		collisionStay = new CollisionStay(&objData);
 	}
@@ -18,30 +18,17 @@ namespace RB
 	{
 		IF_COUT{ std::cout << "destructing GameObj: " << objData.GetCreationID() << std::endl; };
 
-		delete stateController;
+		delete _stateController;
 		delete collisionStay;
-	}
-
-	void GameObj::SetState(State* newState)
-	{
-		if (newState != nullptr)
-		{
-			if (stateController->currentState != nullptr)
-			{
-				delete stateController->currentState;
-			}
-
-			stateController->currentState = newState;
-		}
 	}
 
 	bool GameObj::SetNextState(State* ptrState)
 	{
 		if (ptrState != nullptr)
 		{
-			if (stateController->currentState != nullptr)
+			if (_stateController->currentState != nullptr)
 			{
-				stateController->currentState->nextState = ptrState;
+				_stateController->currentState->nextState = ptrState;
 				return true;
 			}
 
@@ -49,6 +36,11 @@ namespace RB
 		}
 		
 		return false;
+	}
+
+	StateController* GameObj::GetStateController()
+	{
+		return _stateController;
 	}
 
 	void GameObj::RenderPosition(Camera& cam)
@@ -99,12 +91,12 @@ namespace RB
 		{
 			//draw center position
 			olc::vi2d playerPos = ScreenVector::GetScreenPosition(objData.GetPosition(), cam);
-			olc::vi2d colliderPos = stateController->currentState->GetColliderWorldPos(_bodyType);
+			olc::vi2d colliderPos = _stateController->currentState->GetColliderWorldPos(_bodyType);
 
 			olc::Renderer::ptrPGE->DrawLine(playerPos, ScreenVector::GetScreenPosition(colliderPos, cam), olc::RED);
 
 			//draw quads
-			std::array<olc::vi2d, 4> quads = stateController->currentState->GetColliderQuadsWorldPos(_bodyType);
+			std::array<olc::vi2d, 4> quads = _stateController->currentState->GetColliderQuadsWorldPos(_bodyType);
 
 			if (DevSettings::renderMode == RenderMode::DEBUG_ONLY || DevSettings::renderMode == RenderMode::SPRITES_AND_DEBUG)
 			{
@@ -118,12 +110,17 @@ namespace RB
 
 	State* GameObj::GetCurrentState()
 	{
-		return stateController->currentState;
+		return _stateController->currentState;
+	}
+
+	void GameObj::SetCurrentState(State* state)
+	{
+		_stateController->currentState = state;
 	}
 
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)
 	{
-		State* state = stateController->currentState;
+		State* state = _stateController->currentState;
 
 		if (state != nullptr)
 		{
@@ -135,7 +132,7 @@ namespace RB
 
 	std::array<olc::vi2d, 4> GameObj::GetBodyWorldQuad(BodyType bodyType)
 	{
-		State* state = stateController->currentState;
+		State* state = _stateController->currentState;
 
 		if (state != nullptr)
 		{

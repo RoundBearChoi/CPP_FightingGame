@@ -28,13 +28,13 @@ namespace RB
 
 		void DoUpdate()
 		{
-			std::vector<GameObj*>& vecObjs = *_projectilesGroup->GetVecObjs();
+			std::vector<ObjBase*>& vecObjs = *_projectilesGroup->GetVecObjs();
 
 			for (size_t i = 0; i < vecObjs.size(); i++)
 			{
 				if (vecObjs[i] != nullptr)
 				{
-					State* state = vecObjs[i]->stateController->currentState;
+					State* state = vecObjs[i]->GetCurrentState();
 
 					if (state != nullptr)
 					{

@@ -8,6 +8,7 @@
 namespace RB
 {
 	class State;
+	class StateController;
 
 	class ObjBase
 	{
@@ -26,5 +27,9 @@ namespace RB
 		virtual std::array<olc::vi2d, 4> GetBoxColliderWorldQuad() = 0;
 
 		virtual State* GetCurrentState() = 0;
+		virtual bool SetNextState(State* ptrState) = 0;
+		virtual void SetCurrentState(State* state) = 0;
+
+		virtual StateController* GetStateController() = 0;
 	};
 }
