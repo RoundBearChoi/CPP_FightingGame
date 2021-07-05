@@ -181,7 +181,6 @@
     <ClInclude Include="CheckCollisionMessage.h" />
     <ClInclude Include="BufferChecker.h" />
     <ClInclude Include="CollidingSideType.h" />
-    <ClInclude Include="CollisionData.h" />
     <ClInclude Include="FighterCollisionStay.h" />
     <ClInclude Include="FightersHitStopMessage.h" />
     <ClInclude Include="HitStopMessage.h" />

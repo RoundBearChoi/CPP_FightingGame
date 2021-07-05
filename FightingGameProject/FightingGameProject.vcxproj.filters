@@ -310,9 +310,6 @@
     <ClInclude Include="ObjType.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionData.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="MeleeCollisionResult.h">
       <Filter>Source Files</Filter>
     </ClInclude>
