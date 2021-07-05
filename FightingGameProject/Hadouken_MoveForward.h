@@ -17,22 +17,22 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetOffsetType(OffsetType::CENTER_CENTER);
-			_objData->SetSpriteSize({ 78, 46 });
+			_ownerObj->objData.SetOffsetType(OffsetType::CENTER_CENTER);
+			_ownerObj->objData.SetSpriteSize({ 78, 46 });
 
-			_objData->objBoxCollider.SetWidth(80);
-			_objData->objBoxCollider.SetHeight(60);
-			_objData->objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
-			_objData->objBoxCollider.UpdateRotation();
+			_ownerObj->objData.objBoxCollider.SetWidth(80);
+			_ownerObj->objData.objBoxCollider.SetHeight(60);
+			_ownerObj->objData.objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
+			_ownerObj->objData.objBoxCollider.UpdateRotation();
 		}
 
 		void OnUpdate() override
 		{
-			int32_t speed = Directions::GetForwardSpeed(_objData->IsFacingRight(), 4);
+			int32_t speed = Directions::GetForwardSpeed(_ownerObj->objData.IsFacingRight(), 4);
 
-			olc::vi2d pos = _objData->GetPosition();
+			olc::vi2d pos = _ownerObj->objData.GetPosition();
 			pos.x += speed;
-			_objData->SetPosition(pos);
+			_ownerObj->objData.SetPosition(pos);
 		}
 
 		std::vector<BoxCollider>& GetColliders() override { static std::vector<BoxCollider> vec; return vec; }

@@ -25,36 +25,36 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 400, 230 });
+			_ownerObj->objData.SetSpriteSize({ 400, 230 });
 
 			JumpSpecs jumpSpecs(15, 0, 0, false, false, true);
 
-			_objData->CreateNewJumpCalculator();
-			_objData->ptrJumpCalculator->SetSpecs(jumpSpecs);
+			_ownerObj->objData.CreateNewJumpCalculator();
+			_ownerObj->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
 		}
 
 		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
+			PlayerInput p = PlayerInput::Get(_ownerObj->objData.GetPlayerType());
 
-			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
+			if (_ownerObj->objData.GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 
-			else if (_objData->ptrJumpCalculator != nullptr)
+			else if (_ownerObj->objData.ptrJumpCalculator != nullptr)
 			{
-				if (_objData->ptrJumpCalculator->GetUpForce() <= 0)
+				if (_ownerObj->objData.ptrJumpCalculator->GetUpForce() <= 0)
 				{
-					nextState = State::NewState<Fighter_0_Jump_Fall>(_objData, _ownerObj);
+					nextState = State::NewState<Fighter_0_Jump_Fall>(_ownerObj);
 				}
 			}
 
 			else if (p.weakpunch)
 			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_ownerObj);
 			}
 		}
 

@@ -42,7 +42,7 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 450, 250 });
+			_ownerObj->objData.SetSpriteSize({ 450, 250 });
 		}
 
 		void OnUpdate() override
@@ -53,7 +53,7 @@ namespace RB
 
 			if (stateUpdateCount >= end)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 		}
 

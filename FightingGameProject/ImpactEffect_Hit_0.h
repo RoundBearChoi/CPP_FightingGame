@@ -18,7 +18,7 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetOffsetType(OffsetType::CENTER_CENTER);
+			_ownerObj->objData.SetOffsetType(OffsetType::CENTER_CENTER);
 
 			float originalWidth = 368.0f;
 			float originalHeight = 384.0f;
@@ -26,7 +26,7 @@ namespace RB
 			int32_t roundedW = (int32_t)std::round(originalWidth * 0.7f);
 			int32_t roundedH = (int32_t)std::round(originalHeight * 0.7f);
 
-			_objData->SetSpriteSize({ roundedW, roundedH });
+			_ownerObj->objData.SetSpriteSize({ roundedW, roundedH });
 		}
 
 		void OnUpdate() override

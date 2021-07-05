@@ -38,7 +38,7 @@ namespace RB
 
 					_vecFighters[index]->objData.CreateNewJumpCalculator();
 					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
-					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData, _vecFighters[index]));
+					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_vecFighters[index]));
 
 					FightersHitStopMessage fightersHitStop;
 					ProjectilesHitStopMessage projectilesHitStop;
@@ -52,7 +52,7 @@ namespace RB
 
 					_vecFighters[index]->objData.CreateNewJumpCalculator();
 					_vecFighters[index]->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
-					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(&_vecFighters[index]->objData, _vecFighters[index]));
+					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_vecFighters[index]));
 
 					FightersHitStopMessage fightersHitStop;
 					ProjectilesHitStopMessage projectilesHitStop;
@@ -62,7 +62,7 @@ namespace RB
 				//straight punches&kicks from ground
 				else
 				{
-					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(&_vecFighters[index]->objData, _vecFighters[index]));
+					_vecFighters[index]->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_vecFighters[index]));
 
 					FightersHitStopMessage fightersHitStop;
 					ProjectilesHitStopMessage projectilesHitStop;

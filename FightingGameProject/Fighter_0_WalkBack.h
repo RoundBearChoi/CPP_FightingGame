@@ -23,33 +23,33 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 400, 230 });
+			_ownerObj->objData.SetSpriteSize({ 400, 230 });
 		}
 
 		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
-			Directions d = Directions::Get(_objData->IsFacingRight(), p);
+			PlayerInput p = PlayerInput::Get(_ownerObj->objData.GetPlayerType());
+			Directions d = Directions::Get(_ownerObj->objData.IsFacingRight(), p);
 
 			if (d.up)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Prep_Back>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Jump_Prep_Back>( _ownerObj);
 			}
 
 			else if (d.back)
 			{
-				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 2);
+				int32_t speed = Directions::GetBackSpeed(_ownerObj->objData.IsFacingRight(), 2);
 
-				olc::vi2d pos = _objData->GetPosition();
+				olc::vi2d pos = _ownerObj->objData.GetPosition();
 				pos.x += speed;
-				_objData->SetPosition(pos);
+				_ownerObj->objData.SetPosition(pos);
 			}
 
 			else
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 		}
 

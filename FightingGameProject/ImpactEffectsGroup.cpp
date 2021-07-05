@@ -88,7 +88,7 @@ namespace RB
 
 		if (objType == ObjType::HIT_EFFECT_0)
 		{
-			obj->stateController->currentState = State::NewState<ImpactEffect_Hit_0>(&obj->objData, obj);
+			obj->stateController->currentState = State::NewState<ImpactEffect_Hit_0>(obj);
 		}
 
 		obj->objData.SetPosition(startPos);

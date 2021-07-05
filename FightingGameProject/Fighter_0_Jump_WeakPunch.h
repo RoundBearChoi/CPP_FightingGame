@@ -33,16 +33,16 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 420, 230 });
+			_ownerObj->objData.SetSpriteSize({ 420, 230 });
 		}
 
 		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
+			if (_ownerObj->objData.GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 		}
 

@@ -24,23 +24,23 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 420, 220 });
+			_ownerObj->objData.SetSpriteSize({ 420, 220 });
 		}
 
 		void OnUpdate() override
 		{
 			UpdateColliderParts();
 
-			PlayerInput p = PlayerInput::Get(_objData->GetPlayerType());
+			PlayerInput p = PlayerInput::Get(_ownerObj->objData.GetPlayerType());
 
-			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
+			if (_ownerObj->objData.GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 
 			else if (p.weakpunch)
 			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_ownerObj);
 			}
 		}
 

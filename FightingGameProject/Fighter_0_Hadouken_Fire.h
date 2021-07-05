@@ -26,7 +26,7 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 400, 230 });
+			_ownerObj->objData.SetSpriteSize({ 400, 230 });
 		}
 
 		void OnUpdate() override
@@ -41,9 +41,9 @@ namespace RB
 					CreateProjectileMessage p;
 					p.projectileType = ProjectileType::HADOUKEN;
 
-					p.startPos = _objData->GetPosition() + olc::vi2d(0, -105);
+					p.startPos = _ownerObj->objData.GetPosition() + olc::vi2d(0, -105);
 
-					if (_objData->IsFacingRight())
+					if (_ownerObj->objData.IsFacingRight())
 					{
 						p.forward = { 1, 0 };
 						p.startPos += olc::vi2d(55, 0);
@@ -54,7 +54,7 @@ namespace RB
 						p.startPos += olc::vi2d(-55, 0);
 					}
 
-					p.ownerObjCreationID = _objData->GetCreationID();
+					p.ownerObjCreationID = _ownerObj->objData.GetCreationID();
 
 					vecCreateProjectiles.push_back(p);
 				}
@@ -65,7 +65,7 @@ namespace RB
 
 			if (stateUpdateCount >= end)
 			{
-				nextState = State::NewState<Fighter_0_Hadouken_Recover>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Hadouken_Recover>(_ownerObj);
 			}
 		}
 

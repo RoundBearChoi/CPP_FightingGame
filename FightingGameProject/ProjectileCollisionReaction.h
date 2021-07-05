@@ -39,7 +39,7 @@ namespace RB
 
 					_fighters->GetObj(fighterIndex)->objData.CreateNewJumpCalculator();
 					_fighters->GetObj(fighterIndex)->objData.ptrJumpCalculator->SetSpecs(jumpSpecs);
-					_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObjData(fighterIndex), _fighters->GetObj(fighterIndex)));
+					_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Up>(_fighters->GetObj(fighterIndex)));
 
 					FightersHitStopMessage fightersHitStop;
 					ProjectilesHitStopMessage projectilesHitStop;
@@ -52,7 +52,7 @@ namespace RB
 					_projectiles->DeleteObj(collisionResult.projectileIndex);
 					_impactEffects->CreateObj(ObjType::HIT_EFFECT_0, collisionResult.midPoint);
 
-					_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObjData(fighterIndex), _fighters->GetObj(fighterIndex)));
+					_fighters->GetObj(fighterIndex)->SetNextState(State::NewState<Fighter_0_HitReaction_Side>(_fighters->GetObj(fighterIndex)));
 					
 					FightersHitStopMessage fightersHitStop;
 					ProjectilesHitStopMessage projectilesHitStop;

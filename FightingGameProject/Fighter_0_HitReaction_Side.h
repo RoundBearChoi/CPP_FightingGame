@@ -22,7 +22,7 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 400, 230 });
+			_ownerObj->objData.SetSpriteSize({ 400, 230 });
 		}
 
 		void OnUpdate() override
@@ -35,21 +35,21 @@ namespace RB
 
 			if (stateUpdateCount == 0 && stateUpdateCount < e0)
 			{
-				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 2);
-				olc::vi2d pos = _objData->GetPosition();
+				int32_t speed = Directions::GetBackSpeed(_ownerObj->objData.IsFacingRight(), 2);
+				olc::vi2d pos = _ownerObj->objData.GetPosition();
 				pos.x += speed;
-				_objData->SetPosition(pos);
+				_ownerObj->objData.SetPosition(pos);
 			}
 			else if (stateUpdateCount < e1)
 			{
-				int32_t speed = Directions::GetBackSpeed(_objData->IsFacingRight(), 1);
-				olc::vi2d pos = _objData->GetPosition();
+				int32_t speed = Directions::GetBackSpeed(_ownerObj->objData.IsFacingRight(), 1);
+				olc::vi2d pos = _ownerObj->objData.GetPosition();
 				pos.x += speed;
-				_objData->SetPosition(pos);
+				_ownerObj->objData.SetPosition(pos);
 			}
 			else if (stateUpdateCount >= e2)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
+				nextState = State::NewState<Fighter_0_Idle>(_ownerObj);
 			}
 		}
 

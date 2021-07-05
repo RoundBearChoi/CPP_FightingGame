@@ -34,8 +34,8 @@ namespace RB
 		_fighters->SetFighterInfo(olc::vi2d(-100, 0), PlayerType::PLAYER_1);
 		_fighters->SetFighterInfo(olc::vi2d(100, 0), PlayerType::PLAYER_2);
 
-		_fighters->GetObj(0)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObjData(0), _fighters->GetObj(0)));
-		_fighters->GetObj(1)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObjData(1), _fighters->GetObj(1)));
+		_fighters->GetObj(0)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(0)));
+		_fighters->GetObj(1)->SetState(State::NewState<Fighter_0_Idle>(_fighters->GetObj(1)));
 
 		_playerToPlayerCollision = new PlayerToPlayerCollision(_fighters->GetObj(0), _fighters->GetObj(1));
 		_meleeReaction = new MeleeReaction(_fighters->GetObj(0), _fighters->GetObj(1), _impactEffects);

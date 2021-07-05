@@ -117,7 +117,7 @@ namespace RB
 
 		for (size_t i = start; i < start + (4 * ColliderLoader::TotalBodyParts()); i += 4)
 		{
-			olc::vi2d playerPos = _objData->GetPosition();
+			olc::vi2d playerPos = _ownerObj->objData.GetPosition();
 
 			//get worldpos from quad specs
 			std::array<olc::vi2d, 4>worldPos;
@@ -126,7 +126,7 @@ namespace RB
 			worldPos[2] = quads[i + 2];
 			worldPos[3] = quads[i + 3];
 
-			if (!_objData->IsFacingRight())
+			if (!_ownerObj->objData.IsFacingRight())
 			{
 				worldPos[0].x *= -1;
 				worldPos[1].x *= -1;
@@ -191,12 +191,12 @@ namespace RB
 		{
 			olc::vi2d relativePos = vec[index].RelativePosition();
 
-			if (!_objData->IsFacingRight())
+			if (!_ownerObj->objData.IsFacingRight())
 			{
 				relativePos.x *= -1;
 			}
 
-			olc::vi2d worldPos = relativePos + _objData->GetPosition();
+			olc::vi2d worldPos = relativePos + _ownerObj->objData.GetPosition();
 
 			return worldPos;
 		}
@@ -220,7 +220,7 @@ namespace RB
 		arr[2] = vec[start + 2];
 		arr[3] = vec[start + 3];
 
-		if (!_objData->IsFacingRight())
+		if (!_ownerObj->objData.IsFacingRight())
 		{
 			arr[0].x *= -1;
 			arr[1].x *= -1;
@@ -228,10 +228,10 @@ namespace RB
 			arr[3].x *= -1;
 		}
 
-		arr[0] += _objData->GetPosition();
-		arr[1] += _objData->GetPosition();
-		arr[2] += _objData->GetPosition();
-		arr[3] += _objData->GetPosition();
+		arr[0] += _ownerObj->objData.GetPosition();
+		arr[1] += _ownerObj->objData.GetPosition();
+		arr[2] += _ownerObj->objData.GetPosition();
+		arr[3] += _ownerObj->objData.GetPosition();
 
 		return arr;
 	}

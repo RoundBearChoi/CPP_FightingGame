@@ -19,7 +19,7 @@ namespace RB
 
 		void OnEnter() override
 		{
-			_objData->SetSpriteSize({ 180, 180 });
+			_ownerObj->objData.SetSpriteSize({ 180, 180 });
 		}
 
 		void OnUpdate() override
