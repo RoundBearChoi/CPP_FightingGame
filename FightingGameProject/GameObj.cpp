@@ -116,6 +116,11 @@ namespace RB
 		}
 	}
 
+	State* GameObj::GetCurrentState()
+	{
+		return stateController->currentState;
+	}
+
 	olc::vi2d GameObj::GetBodyWorldPos(BodyType bodyType)
 	{
 		State* state = stateController->currentState;

@@ -54,9 +54,9 @@ namespace RB
 			}
 		}
 
-		void Render(GameObj* obj)
+		void Render(ObjBase* obj)
 		{
-			AnimationStatus* animationStatus = obj->stateController->currentState->animationController.UpdateSource();
+			AnimationStatus* animationStatus = obj->GetCurrentState()->animationController.UpdateSource();
 
 			if (animationStatus == nullptr)
 			{
@@ -107,8 +107,8 @@ namespace RB
 				}
 			}
 
-			SpriteType spriteType = obj->stateController->currentState->animationController.status.spriteType;
-			size_t hash = obj->stateController->currentState->GetHash();
+			SpriteType spriteType = obj->GetCurrentState()->animationController.status.spriteType;
+			size_t hash = obj->GetCurrentState()->GetHash();
 			olc::Decal* d = SpriteLoader::ptr->FindDecal(hash, (int32_t)spriteType);
 
 			std::array<olc::vf2d, 4> relativePoints;

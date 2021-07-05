@@ -7,6 +7,8 @@
 
 namespace RB
 {
+	class State;
+
 	class ObjBase
 	{
 	public:
@@ -22,5 +24,7 @@ namespace RB
 
 		virtual olc::vi2d GetBoxColliderWorldPos() = 0;
 		virtual std::array<olc::vi2d, 4> GetBoxColliderWorldQuad() = 0;
+
+		virtual State* GetCurrentState() = 0;
 	};
 }

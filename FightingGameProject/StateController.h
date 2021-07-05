@@ -14,6 +14,7 @@ namespace RB
 
 		StateController();
 		~StateController();
+
 		void MakeStateTransition();
 	};
 }
