@@ -82,7 +82,7 @@ namespace RB
 
 	void ImpactEffectsGroup::CreateObj(ObjType objType, olc::vi2d startPos)
 	{
-		GameObj* obj = new GameObj();
+		ObjBase* obj = new GameObj();
 		_vecObjs.push_back(obj);
 		_vecObjs.back()->objData.SetCreationID(_vecObjs.size());
 

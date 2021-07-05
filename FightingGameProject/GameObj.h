@@ -1,6 +1,8 @@
 #pragma once
 #include "ObjBase.h"
 #include "StateController.h"
+#include "Camera.h"
+#include "BodyType.h"
 #include "ScreenVector.h"
 #include "DevSettings.h"
 

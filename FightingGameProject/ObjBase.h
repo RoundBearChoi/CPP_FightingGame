@@ -2,13 +2,13 @@
 #include "olcPixelGameEngine.h"
 #include "ObjData.h"
 #include "CollisionStay.h"
-#include "Camera.h"
-#include "BodyType.h"
 
 namespace RB
 {
 	class State;
 	class StateController;
+	class Camera;
+	enum class BodyType;
 
 	class ObjBase
 	{
