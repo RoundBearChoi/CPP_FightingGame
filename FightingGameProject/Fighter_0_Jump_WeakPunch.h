@@ -42,7 +42,7 @@ namespace RB
 
 			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData);
+				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
 			}
 		}
 

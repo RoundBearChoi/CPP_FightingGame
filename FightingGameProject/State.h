@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
+#include "ObjBase.h"
 #include "DevSettings.h"
-#include "ObjData.h"
 #include "AnimationController.h"
 #include "Directions.h"
 #include "CheckCollisionMessage.h"
@@ -15,6 +15,7 @@ namespace RB
 		bool isNew = true;
 		virtual size_t& Hash();
 		void MakeHash(size_t& _hash);
+		ObjBase* _ownerObj = nullptr;
 		ObjData* _objData = nullptr;
 
 	public:
@@ -44,18 +45,19 @@ namespace RB
 		olc::vi2d GetColliderWorldPos(BodyType _bodyType);
 		std::array<olc::vi2d, 4> GetColliderQuadsWorldPos(BodyType _bodyType);
 
-		void SetObjData(ObjData* objData)
+		void SetObjData(ObjData* objData, ObjBase* ownerObj)
 		{
 			_objData = objData;
+			_ownerObj = ownerObj;
 		}
 
 		template<class T>
-		static State* NewState(ObjData* objData)
+		static State* NewState(ObjData* objData, ObjBase* ownerObj)
 		{
 			if (std::is_base_of<State, T>::value)
 			{
 				State* state = new T();
-				state->SetObjData(objData);
+				state->SetObjData(objData, ownerObj);
 				return state;
 			}
 			else

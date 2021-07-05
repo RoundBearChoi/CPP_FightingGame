@@ -49,7 +49,7 @@ namespace RB
 
 			if (stateUpdateCount >= end)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData);
+				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
 			}
 		}
 

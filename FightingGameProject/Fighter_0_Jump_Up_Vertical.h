@@ -41,20 +41,20 @@ namespace RB
 
 			if (_objData->GetPosition().y >= 0 && stateUpdateCount != 0)
 			{
-				nextState = State::NewState<Fighter_0_Idle>(_objData);
+				nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
 			}
 
 			else if (_objData->ptrJumpCalculator != nullptr)
 			{
 				if (_objData->ptrJumpCalculator->GetUpForce() <= 0)
 				{
-					nextState = State::NewState<Fighter_0_Jump_Fall>(_objData);
+					nextState = State::NewState<Fighter_0_Jump_Fall>(_objData, _ownerObj);
 				}
 			}
 
 			else if (p.weakpunch)
 			{
-				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_objData);
+				nextState = State::NewState<Fighter_0_Jump_WeakPunch>(_objData, _ownerObj);
 			}
 		}
 

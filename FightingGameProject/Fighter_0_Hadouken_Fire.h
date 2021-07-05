@@ -65,7 +65,7 @@ namespace RB
 
 			if (stateUpdateCount >= end)
 			{
-				nextState = State::NewState<Fighter_0_Hadouken_Recover>(_objData);
+				nextState = State::NewState<Fighter_0_Hadouken_Recover>(_objData, _ownerObj);
 			}
 		}
 

@@ -32,7 +32,7 @@ namespace RB
 
 			if (stateUpdateCount >= 3)
 			{
-				nextState = State::NewState<Fighter_0_Jump_Up_Back>(_objData);
+				nextState = State::NewState<Fighter_0_Jump_Up_Back>(_objData, _ownerObj);
 			}
 		}
 

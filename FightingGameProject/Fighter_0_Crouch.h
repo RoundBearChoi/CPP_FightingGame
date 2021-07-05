@@ -33,13 +33,13 @@ namespace RB
 
 			if (p.strongpunch)
 			{
-				nextState = State::NewState<Fighter_0_Uppercut>(_objData);
+				nextState = State::NewState<Fighter_0_Uppercut>(_objData, _ownerObj);
 			}
 			else
 			{
 				if (!p.down)
 				{
-					nextState = State::NewState<Fighter_0_Idle>(_objData);
+					nextState = State::NewState<Fighter_0_Idle>(_objData, _ownerObj);
 				}
 			}
 		}
