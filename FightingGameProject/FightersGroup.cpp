@@ -83,7 +83,7 @@ namespace RB
 			ObjBase& obj = *_vecObjs[i];
 
 			obj.RenderPosition(*_camera);
-			obj.objData.objBoxCollider.Render(*_camera, obj.objData.GetPosition(), olc::GREEN);
+			obj.collisionData.objBoxCollider.Render(*_camera, obj.objData.GetPosition(), olc::GREEN);
 
 			if (obj.GetCurrentState() != nullptr)
 			{

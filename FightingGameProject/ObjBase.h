@@ -1,6 +1,7 @@
 #pragma once
 #include "olcPixelGameEngine.h"
 #include "ObjData.h"
+#include "CollisionData.h"
 #include "CollisionStay.h"
 
 namespace RB
@@ -14,6 +15,7 @@ namespace RB
 	{
 	public:
 		ObjData objData;
+		CollisionData collisionData{ &objData };
 		CollisionStay* collisionStay = nullptr;
 
 		virtual State* GetCurrentState() = 0;

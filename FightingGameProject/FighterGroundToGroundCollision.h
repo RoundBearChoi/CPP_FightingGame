@@ -43,8 +43,8 @@ namespace RB
 				}
 
 				if (AABB::IsColliding(
-					vec[0]->objData.objBoxCollider, vec[0]->objData.GetPosition(), //p1 obj boxcollider
-					vec[1]->objData.objBoxCollider, vec[1]->objData.GetPosition())) //p2 obj boxcollider
+					vec[0]->collisionData.objBoxCollider, vec[0]->objData.GetPosition(), //p1 obj boxcollider
+					vec[1]->collisionData.objBoxCollider, vec[1]->objData.GetPosition())) //p2 obj boxcollider
 				{
 					olc::vi2d relMidPoint = vec[1]->objData.GetPosition() - vec[0]->objData.GetPosition();
 					relMidPoint.x = (int32_t)std::round(relMidPoint.x / 2.0f);
@@ -54,8 +54,8 @@ namespace RB
 					olc::vi2d p1Dir = vec[0]->objData.GetPosition() - midPoint;
 					olc::vi2d p2Dir = vec[1]->objData.GetPosition() - midPoint;
 
-					olc::vf2d p1rel = (olc::vf2d)Normalize::Norm(p1Dir) * (float)vec[0]->objData.objBoxCollider.Width() / 2.0f;
-					olc::vf2d p2rel = (olc::vf2d)Normalize::Norm(p2Dir) * (float)vec[1]->objData.objBoxCollider.Width() / 2.0f;
+					olc::vf2d p1rel = (olc::vf2d)Normalize::Norm(p1Dir) * (float)vec[0]->collisionData.objBoxCollider.Width() / 2.0f;
+					olc::vf2d p2rel = (olc::vf2d)Normalize::Norm(p2Dir) * (float)vec[1]->collisionData.objBoxCollider.Width() / 2.0f;
 
 					olc::vf2d p1Resolved = midPoint + p1rel;
 					olc::vf2d p2Resolved = midPoint + p2rel;

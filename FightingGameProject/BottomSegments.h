@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include "olcPixelGameEngine.h"
+#include "ObjData.h"
 #include "BoxCollider.h"
 
 namespace RB
@@ -14,15 +15,15 @@ namespace RB
 		std::array<olc::vi2d, 2> _vecTopSegment_left = { olc::vi2d{0, 0}, olc::vi2d{0, 0} };
 		std::array<olc::vi2d, 2> _vecTopSegment_right = { olc::vi2d{0, 0}, olc::vi2d{0, 0} };
 
+		ObjData* _objData;
 		BoxCollider* _objBoxCollider = nullptr;
-		olc::vi2d* _currentPosition = nullptr;
-		olc::vi2d* _previousPosition = nullptr;
+		//olc::vi2d* _currentPosition = nullptr;
+		//olc::vi2d* _previousPosition = nullptr;
 
 	public:
-		MoveSegments(olc::vi2d* currentPos, olc::vi2d* prevPos, BoxCollider* objBoxCollider)
+		MoveSegments(ObjData* objData, BoxCollider* objBoxCollider)
 		{
-			_currentPosition = currentPos;
-			_previousPosition = prevPos;
+			_objData = objData;
 			_objBoxCollider = objBoxCollider;
 		}
 
@@ -35,17 +36,17 @@ namespace RB
 			_vecTopSegment_right = { olc::vi2d{0, 0}, olc::vi2d{0, 0} };
 
 			//set new segments
-			olc::vi2d bottomLeft = _objBoxCollider->RelativePoint1() + *_currentPosition;
-			olc::vi2d bottomRight = _objBoxCollider->RelativePoint2() + *_currentPosition;
+			olc::vi2d bottomLeft = _objBoxCollider->RelativePoint1() + _objData->GetPosition();
+			olc::vi2d bottomRight = _objBoxCollider->RelativePoint2() + _objData->GetPosition();
 			
-			olc::vi2d prevBottomLeft = _objBoxCollider->RelativePoint1() + *_previousPosition;
-			olc::vi2d prevBottomRight = _objBoxCollider->RelativePoint2() + *_previousPosition;
+			olc::vi2d prevBottomLeft = _objBoxCollider->RelativePoint1() + _objData->GetPreviousPosition();
+			olc::vi2d prevBottomRight = _objBoxCollider->RelativePoint2() + _objData->GetPreviousPosition();
 
-			olc::vi2d topLeft = _objBoxCollider->RelativePoint0() + *_currentPosition;
-			olc::vi2d topRight = _objBoxCollider->RelativePoint3() + *_currentPosition;
+			olc::vi2d topLeft = _objBoxCollider->RelativePoint0() + _objData->GetPosition();
+			olc::vi2d topRight = _objBoxCollider->RelativePoint3() + _objData->GetPosition();
 
-			olc::vi2d prevTopLeft = _objBoxCollider->RelativePoint0() + *_previousPosition;
-			olc::vi2d prevTopRight = _objBoxCollider->RelativePoint3() + *_previousPosition;
+			olc::vi2d prevTopLeft = _objBoxCollider->RelativePoint0() + _objData->GetPreviousPosition();
+			olc::vi2d prevTopRight = _objBoxCollider->RelativePoint3() + _objData->GetPreviousPosition();
 			
 			if (bottomLeft != prevBottomLeft)
 			{

@@ -20,10 +20,10 @@ namespace RB
 			_ownerObj->objData.SetOffsetType(OffsetType::CENTER_CENTER);
 			_ownerObj->objData.SetSpriteSize({ 78, 46 });
 
-			_ownerObj->objData.objBoxCollider.SetWidth(80);
-			_ownerObj->objData.objBoxCollider.SetHeight(60);
-			_ownerObj->objData.objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
-			_ownerObj->objData.objBoxCollider.UpdateRotation();
+			_ownerObj->collisionData.objBoxCollider.SetWidth(80);
+			_ownerObj->collisionData.objBoxCollider.SetHeight(60);
+			_ownerObj->collisionData.objBoxCollider.SetQuad(OffsetType::CENTER_CENTER);
+			_ownerObj->collisionData.objBoxCollider.UpdateRotation();
 		}
 
 		void OnUpdate() override

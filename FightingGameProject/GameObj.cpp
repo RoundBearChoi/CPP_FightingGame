@@ -145,7 +145,7 @@ namespace RB
 
 	olc::vi2d GameObj::GetBoxColliderWorldPos()
 	{
-		olc::vi2d relativePos = objData.objBoxCollider.RelativePosition();
+		olc::vi2d relativePos = collisionData.objBoxCollider.RelativePosition();
 		olc::vi2d worldPos = relativePos + objData.GetPosition();
 
 		return worldPos;
@@ -155,12 +155,12 @@ namespace RB
 	{
 		std::array<olc::vi2d, 4> arr;
 
-		arr[0] = objData.objBoxCollider.RelativePoint0();
-		arr[1] = objData.objBoxCollider.RelativePoint1();
-		arr[2] = objData.objBoxCollider.RelativePoint2();
-		arr[3] = objData.objBoxCollider.RelativePoint3();
+		arr[0] = collisionData.objBoxCollider.RelativePoint0();
+		arr[1] = collisionData.objBoxCollider.RelativePoint1();
+		arr[2] = collisionData.objBoxCollider.RelativePoint2();
+		arr[3] = collisionData.objBoxCollider.RelativePoint3();
 
-		olc::vi2d relativePos = objData.objBoxCollider.RelativePosition();
+		olc::vi2d relativePos = collisionData.objBoxCollider.RelativePosition();
 
 		arr[0] += relativePos;
 		arr[1] += relativePos;

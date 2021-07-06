@@ -2,9 +2,7 @@
 #include "olcPixelGameEngine.h"
 #include "OffsetType.h"
 #include "PlayerType.h"
-#include "BoxCollider.h"
 #include "JumpCalculator.h"
-#include "BottomSegments.h"
 
 namespace RB
 {
@@ -23,9 +21,7 @@ namespace RB
 		PlayerType playerType = PlayerType::NONE;
 		
 	public:
-		BoxCollider objBoxCollider;
 		JumpCalculator* ptrJumpCalculator = nullptr;
-		MoveSegments moveSegments{ &position, &previousPosition, &objBoxCollider };
 
 		~ObjData();
 

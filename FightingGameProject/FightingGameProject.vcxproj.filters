@@ -466,5 +466,8 @@
     <ClInclude Include="BodyToBodyCollisions.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionData.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

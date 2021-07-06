@@ -42,7 +42,7 @@ namespace RB
 		{
 			if (_vecObjs[i] != nullptr)
 			{
-				_vecObjs[i]->objData.objBoxCollider.Render(*_camera, _vecObjs[i]->objData.GetPosition(), olc::CYAN);
+				_vecObjs[i]->collisionData.objBoxCollider.Render(*_camera, _vecObjs[i]->objData.GetPosition(), olc::CYAN);
 			}
 		}
 	}
