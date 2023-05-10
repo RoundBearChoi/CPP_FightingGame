@@ -78,7 +78,7 @@ namespace RB
 		{
 			std::string path = "BoxColliderData/";
 
-			if (colliderFileName.compare("none") != 0) // none is initialization string
+			if (colliderFileName.compare("none") != 0) // "none" is initialization string
 			{
 				path += colliderFileName;
 
