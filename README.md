@@ -1,9 +1,4 @@
 # C++ FightingGame by Roundbeargames
-
-Indie game developer from South Korea
-<br>
-https://youtube.com/roundbeargames
-
 <br>
 This is an older version
 <br>
