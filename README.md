@@ -5,7 +5,6 @@ Indie game developer from South Korea
 https://youtube.com/roundbeargames
 
 <br>
-<br>
 This is an older version
 <br>
 Latest version of this game is being updated here
