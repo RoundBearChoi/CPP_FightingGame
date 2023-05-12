@@ -4,6 +4,10 @@ Indie game developer from South Korea
 <br>
 https://youtube.com/roundbeargames
 
+This is an older version
+Latest version of this game is being updated here
+https://github.com/RoundBearChoi/CPP_FightingGame_2
+
 <br>
 
 # Getting Started (Windows)
